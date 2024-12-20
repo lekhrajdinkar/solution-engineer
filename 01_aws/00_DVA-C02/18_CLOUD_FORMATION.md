@@ -36,7 +36,12 @@
 - 700+ resource with example and doc.
 - will use CDK anyway.
 - certain resources not support
-    - use **CF custom resource** :point_left:
+  - use **CF custom resource**
+    - backed by **lambda** :point_left:
+    - ![img_1.png](../99_img/dva/cf/02/img_1.png)
+    - **usecase**-1: empty s3 bucket before delete.
+      - ![img_2.png](../99_img/dva/cf/02/img_2.png)
+
 
 ### 3. parameter (dynamic input)
 - ![img_3.png](../99_img/dva/cf/01/img_3.png)
@@ -137,23 +142,94 @@ Resources:
 ---
 ### 6. Intrinsic function
 - `!Ref`  resource | parameter
-  - resource-1 : returns resource-1.id 
+  - resource-1 : returns resource-1.**id** 
   - parameter-1 : returns value
 - `!GetAtt`  resource.attributename
-  - !GetAtt ec2-i1.`id`
-  - !GetAtt ec2-i1.`AvialabilityZone`
+  - !GetAtt ec2-i1.**id**
+  - !GetAtt ec2-i1.**AvialabilityZone**
   - ...
-- !FindInMap
-- !ImportValue
-- !Base64
-- **conditions** :: !Equals. !And !If !Not !Or
-- ...
+- `!FindInMap`
+- `!ImportValue`
+- `!Base64`
+- **conditions** :: `!Equals. !And !If !Not !Or`
 - ...
 
 ---
-### 99. change set
-- change in template - add, modify (replacemnet=true/false), etc
-- ![img_1.png](../99_img/dva/cf/01/img_1.png)
+### 7. stackSet
+- AWS org
+  - admin account
+  - child accounts/s
+
+![img_3.png](../99_img/dva/cf/02/img_3.png)
+
+---
+### 99. more
+- **stackUpdate** 
+  - `success`
+  - `failed` (stack failure options)
+    - option-1: **preserve provisioned resource** 
+    - option-2 **rollback** to previous working stack (default)
+      - `success`
+      - `fail`: (if some has manual interruption on resource)
+        - manually fix resource
+        - call `ContinueUpdateRollback` from console/cli to get things in sync
+      
+- **changeset**
+  - change in template - add, modify (replacemnet=true/false), etc
+  - ![img_1.png](../99_img/dva/cf/01/img_1.png)
+
+---
+## C. Security
+### 1. **`IAM role`** 
+- being used for running stack
+- **Borad-access-role**
+  - `iam:PassRole` 
+  - `iam:getRole`
+  - `Cloudformation:*`
+- **pipelineRole-1**
+  - `s3:*`
+
+- ![img.png](../99_img/dva/cf/02/img.png)
+
+- login in with Board-access-role
+  - by default, it will be used for deploying stack.
+  - or can explicitly choose other role/s :
+    - pipelineRole-1 : can create only s3, then.
+    
+### 2. stack policy
+- resource policy like s3 policy,etc
+- goal is to protect, resource from unintentional updates
+
+### 3. CAPABILITY
+#### create iam role from stack
+- need to capability
+  - **CAPABILITY_IAM**
+  - **CAPABILITY_NAMED_IAM**
+- else `InsufficientCapabilitiesException`
+
+#### include nested stack
+- need to capability
+    - **CAPABILITY_AUTO_EXPAND**
+- else `InsufficientCapabilitiesException`
+
+### 4. termination protection
+- disable (default)
+  - allows to delete stack
+- if enabled, then won't allow anyone to delete stack.
+---
+## D. Delete Policy
+- resource-1
+  - **DeletePolicy=`Delete`** (default)
+    - for s3, bucket must be empty :point_left:
+  - **DeletePolicy=`Retain`**
+  - **DeletePolicy=`Snapshot`**
+    - for EBS volume
+    - databases :
+      - RDS
+      - DocumnetDB
+      - ElastiCache
+      - Neptune
+      - ...
 
 ---
 ## Z. Example
