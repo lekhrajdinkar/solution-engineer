@@ -105,7 +105,7 @@ Resources:
 - **sam build**
 - **sam deploy -guided**
   
-- sam will automatically update CF template with **codeDeploy**.
+- sam will automatically update CF template with **codeDeploy** + **CW:alarm**
   - deployment type (quick revision again) [00_start.md](../24_CI_CD/00_start.md)
     - **in-place**
     - **blue/green** :point_left:

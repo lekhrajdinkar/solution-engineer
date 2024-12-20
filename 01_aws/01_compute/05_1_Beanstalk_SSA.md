@@ -2,7 +2,7 @@
 --- 
 # Elastic Beanstalk 
 ## A. Common **Web** Architecture
-![img.png](img.png)
+![img.png](../99_img/dva/beanstalk/01/img.png)
 
 ## B. Intro
 - Managed services, deals with:
