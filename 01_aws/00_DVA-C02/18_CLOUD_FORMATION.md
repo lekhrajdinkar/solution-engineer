@@ -7,7 +7,7 @@
     - rsource-2
     - ...
     - resolves order / dependency
-    - ![img_2.png](img_2.png)
+    - ![img_2.png](../99_img/dva/cf/01/img_2.png)
   - stack-2 (app stack)
   - ...
   - versioned in git
@@ -17,7 +17,7 @@
   - estimate the costs of your resources
   - schedule to destroy and re-create, to save cost.
 
-![img.png](img.png)
+![img.png](../99_img/dva/cf/01/img.png)
 
 ---
 ## B. Template
@@ -39,10 +39,10 @@
     - use **CF custom resource** :point_left:
 
 ### 3. parameter (dynamic input)
-- ![img_3.png](img_3.png)
+- ![img_3.png](../99_img/dva/cf/01/img_3.png)
 - refer/use them
-  - **!Ref** p1
-  - **Fn::Ref** p1
+  - **!Ref** parameter1
+  - **Fn::Ref** parameter1, or resource1
 
 ```json5
 - Type
@@ -71,9 +71,89 @@ AWS::NoValue Doesn’t return a value
 ```
 
 ---
-### 3. change set
+### 4. mapping : map(string,object)
+- static variable, fixed hardcoded value
+- use/refer
+  - !FindInMap [ map-1, key, object-attribute-1]
+  - ![img_4.png](../99_img/dva/cf/01/img_4.png)
+
+---
+### 5. output (optional)
+- **print** for console
+- IAC-1 (**collaboration**)
+  - stack-1(vpc-1) : output **export** `vpc-id`
+  - stack-2(app-1) : refer `vpc-id` in this stack
+- eg:
+  - ![img_5.png](../99_img/dva/cf/01/img_5.png)
+  - ![img_6.png](../99_img/dva/cf/01/img_6.png)
+
+---
+### 6. Conditional
+- conditionally create resource. 
+- eg based on env type.
+```yaml
+Parameters:
+  envType:
+    Description: "The environment type (prd or dev)"
+    Type: "String"
+    AllowedValues:
+      - prd
+      - dev
+    Default: "dev"
+              
+Conditions: 
+    IsProd: !Equals [!Ref envType, "prd"]  # True if envType is 'prd'
+    IsDev: !Equals [!Ref envType, "dev"]  # True if envType is 'dev'
+    IsNotProd: !Not [!Equals [!Ref envType, "prd"]]  # True if envType is not 'prd'
+    IsProdOrDev: !Or
+      - !Equals [!Ref envType, "prd"]
+      - !Equals [!Ref envType, "dev"]  # True if envType is 'prd' or 'dev'
+    IsNotDev: !Not [!Equals [!Ref envType, "dev"]]  # True if envType is not 'dev'
+    IsProdAndNotDev: !And
+      - !Equals [!Ref envType, "prd"]
+      - !Not [!Equals [!Ref envType, "dev"]]  # True if envType is 'prd' and not 'dev'
+
+Resources:
+  Resource1:
+    Type: "AWS::S3::Bucket"
+    Condition: IsProd 
+    ...
+
+  Resource2:
+    Type: "AWS::DynamoDB::Table"
+    Condition: !Not [IsProd]
+    ...
+
+  Resource3:
+    Type: "AWS::Lambda::Function"
+    Condition: IsProdOrDev 
+    ...
+
+  Resource4:
+    Type: "AWS::SNS::Topic"
+    Condition: IsProdAndNotDev  
+    ...
+```
+---
+### 6. Intrinsic function
+- `!Ref`  resource | parameter
+  - resource-1 : returns resource-1.id 
+  - parameter-1 : returns value
+- `!GetAtt`  resource.attributename
+  - !GetAtt ec2-i1.`id`
+  - !GetAtt ec2-i1.`AvialabilityZone`
+  - ...
+- !FindInMap
+- !ImportValue
+- !Base64
+- **conditions** :: !Equals. !And !If !Not !Or
+- ...
+- ...
+
+---
+### 99. change set
 - change in template - add, modify (replacemnet=true/false), etc
-- ![img_1.png](img_1.png)
+- ![img_1.png](../99_img/dva/cf/01/img_1.png)
 
 ---
 ## Z. Example
