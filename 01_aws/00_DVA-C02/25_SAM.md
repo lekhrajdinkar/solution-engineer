@@ -5,7 +5,7 @@
 - serverless : Lambda, API Gateway, DynamoDB, step function, eventbridge,CW, etc
 
 ## A. Intro
-![img.png](../../99_img/dva/sam/01/img.png)
+![img.png](../99_img/dva/sam/01/img.png)
 - **Framework** for simplifying serverless application deployment
 - AWS SAM templates (YAML/JSON).
   - defines **resources**
@@ -26,14 +26,14 @@
   - use **CodeDeploy** to deploy Lambda functions
   
 - **sam sync** --watch
-  - ![img_1.png](../../99_img/dva/sam/01/img_1.png)
+  - ![img_1.png](../99_img/dva/sam/01/img_1.png)
 
 ---
 ## C. Hands ON
 ### 1. Deploy lambda function-v1 with API-gateway
 - added **env var** from template
 - added **polices** from template
-![img_2.png](../../99_img/dva/sam/01/img_2.png)
+![img_2.png](../99_img/dva/sam/01/img_2.png)
 ```yaml
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
@@ -89,7 +89,7 @@ Resources:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
 ```
-![img.png](../../99_img/dva/sam/01/img_4.png)
+![img.png](../99_img/dva/sam/01/img_4.png)
 ---
 
 ### 3. Deploy lambda function-v2 using `codeDeploy`(blue/green) :point_left:
@@ -106,7 +106,7 @@ Resources:
 - **sam deploy -guided**
   
 - sam will automatically update CF template with **codeDeploy** + **CW:alarm**
-  - deployment type (quick revision again) [00_start.md](../24_CI_CD/00_start.md)
+  - deployment type (quick revision again) [00_start.md](../24_CI_CD/24_CI_CD)
     - **in-place**
     - **blue/green** :point_left:
       - **traffic routing**:
@@ -117,7 +117,7 @@ Resources:
         - pre-traffic hook - lambda-hook-fn-1 
         - post-traffic hook - lambda-hook-fn-2
 
-![img.png](../../99_img/dva/sam/02/img.png)
+![img.png](../99_img/dva/sam/02/img.png)
 
 ```yaml
   # update lamda
@@ -146,9 +146,9 @@ Resources:
           Value: !Join ["", [!Ref HelloWorldFunction, ":", "live"]] 
 ```
 
-![img_1.png](../../99_img/dva/sam/02/img_1.png)
+![img_1.png](../99_img/dva/sam/02/img_1.png)
 
-![img_2.png](../../99_img/dva/sam/02/img_2.png)
+![img_2.png](../99_img/dva/sam/02/img_2.png)
 
 ---
 ## D. sam **`local`** 
@@ -164,4 +164,4 @@ Resources:
 ---
 ## D. sam **`environment`** 
 
-![img.png](../../99_img/dva/sam/02/img99.png)
+![img.png](../99_img/dva/sam/02/img99.png)

@@ -55,7 +55,7 @@
     Three Tier Architecture
 ```
 ## Section 12 - `AWS CLI, SDK` :green_circle:
-- [02_developer-things.md](02_developer-things.md)
+- [12_CLI_SDK_more.md](12_CLI_SDK_more.md)
 ```
     AWS EC2 Instance Metadata
     AWS EC2 Instance Metadata - Hands On
@@ -100,6 +100,7 @@
 - [05_2_Beanstalk_DVA-deployments.md](../01_compute/05_2_Beanstalk_DVA-deployments.md)
 
 ## Section 18 `Cloudformation` :yellow_circle:
+- [18_CLOUD_FORMATION.md](18_CLOUD_FORMATION.md)
 
 ## Section 19 `SQS,SNS, KDS, KDF` :green_circle:
 - [05_decoupling](../05_decoupling)
@@ -133,8 +134,8 @@
 
 ## Section 25 : `SAM :Serverless Application Model` :green_circle:
 - [00_serverless_pardigm.md](../00_kick_off/00_serverless_pardigm.md)
-- [00_start.md](25_SAM/00_start.md)
-- [project](25_SAM/project)
+- [00_start.md](25_SAM.md)
+- [project](25_SAM_project)
 
 ## Section 26 : `CDK` :green_circle:
 - [26_CDK](26_CDK)
@@ -143,6 +144,7 @@
 - [02_1_cognito_SAA.md](../06_Security/02_1_cognito_SAA.md)
 
 ## Section 28 : `Step function, AppSync` :yellow_circle:
+- [28_STEP_FUNCTION.md](28_STEP_FUNCTION.md)
 
 ## Section 29: `Advance IAM (short)` :green_circle:
 - [01_IAM.md](../06_Security/01_IAM.md)
@@ -154,7 +156,6 @@
 
 ## Section 31 : `other services` :red_circle:
 ### DVA
-
 ### SAA
 - [97_more-services](../97_more-services)
 - [09_DR](../09_DR)
