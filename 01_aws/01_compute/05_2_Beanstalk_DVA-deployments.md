@@ -35,8 +35,9 @@
   - deploys new version to these new instances,
   - then **swaps** all the instances
   - ASG-1[v1,v1,...]
+  - ASG-temp[v2] --> check health, if ok then rest
   - ASG-temp[v2,v2,...]
-  - swap: ASG-1[v1->v2,v1->v1,...]
+  - swap: ASG-1[v1,v1,... v2,v2,...] >> [ v2,v2,... ]
 - ![img_4.png](../99_img/dva/beanstalk/01/img_4.png)
 - **Quick rollback**
 
@@ -51,12 +52,13 @@
 
 ## 99. Blue Green (not direct feature)
 - steps:
-  - create a **new beanstalk stage `environment`** (green)
+  - create/**clone** a **new beanstalk stage `environment`** (green)
   - deploy new version into green
   - Traffic Splitting using `R53` (dns change)
     - send a small % of traffic to new deployment
   - switch over when ready
 - ![img_5.png](../99_img/dva/beanstalk/01/img_5.png)
+- ![img.png](../99_img/dva/beanstalk/01/img10.png)
 
 ## summary
 ![img_6.png](../99_img/dva/beanstalk/01/img_6.png)
