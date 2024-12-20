@@ -41,8 +41,21 @@
     - ![img_1.png](../99_img/dva/cf/02/img_1.png)
     - **usecase**-1: empty s3 bucket before delete.
       - ![img_2.png](../99_img/dva/cf/02/img_2.png)
+- **Delete Policy**
+  - resource-1
+      - **DeletePolicy=`Delete`** (default)
+          - for s3, bucket must be empty :point_left:
+      - **DeletePolicy=`Retain`**
+      - **DeletePolicy=`Snapshot`**
+          - for EBS volume
+          - databases :
+              - RDS
+              - DocumnetDB
+              - ElastiCache
+              - Neptune
+              - ...
 
-
+---
 ### 3. parameter (dynamic input)
 - ![img_3.png](../99_img/dva/cf/01/img_3.png)
 - refer/use them
@@ -50,13 +63,15 @@
   - **Fn::Ref** parameter1, or resource1
 
 ```json5
+# -- parameter --
 - Type
     • String • Number • CommaDelimitedList
     • List<Number>
     • AWS-Specific Parameter + List<AWS-Specific Parameter>
     • SSM Parameter (get parameter value from SSM Parameter store)
         
-- Default | Description
+- Default 
+- Description
         
 - Constarint
     • Min/MaxLength
@@ -155,16 +170,8 @@ Resources:
 - ...
 
 ---
-### 7. stackSet
-- AWS org
-  - admin account
-  - child accounts/s
-
-![img_3.png](../99_img/dva/cf/02/img_3.png)
-
----
 ### 99. more
-- **stackUpdate** 
+#### **stackUpdate** 
   - `success`
   - `failed` (stack failure options)
     - option-1: **preserve provisioned resource** 
@@ -173,13 +180,20 @@ Resources:
       - `fail`: (if some has manual interruption on resource)
         - manually fix resource
         - call `ContinueUpdateRollback` from console/cli to get things in sync
-      
-- **changeset**
+
+#### **changeset**
   - change in template - add, modify (replacemnet=true/false), etc
   - ![img_1.png](../99_img/dva/cf/01/img_1.png)
 
+#### **stackSet**
+- AWS org
+    - admin account
+    - child accounts/s
+
+![img_3.png](../99_img/dva/cf/02/img_3.png)
+
 ---
-## C. Security
+## C. Security :point_left:
 ### 1. **`IAM role`** 
 - being used for running stack
 - **Borad-access-role**
@@ -201,13 +215,13 @@ Resources:
 - goal is to protect, resource from unintentional updates
 
 ### 3. CAPABILITY
-#### create iam role from stack
-- need to capability
+#### 3.1. Create iam role from stack
+- need to capability for that
   - **CAPABILITY_IAM**
   - **CAPABILITY_NAMED_IAM**
 - else `InsufficientCapabilitiesException`
 
-#### include nested stack
+#### 3.2 Include nested-stack
 - need to capability
     - **CAPABILITY_AUTO_EXPAND**
 - else `InsufficientCapabilitiesException`
@@ -217,19 +231,7 @@ Resources:
   - allows to delete stack
 - if enabled, then won't allow anyone to delete stack.
 ---
-## D. Delete Policy
-- resource-1
-  - **DeletePolicy=`Delete`** (default)
-    - for s3, bucket must be empty :point_left:
-  - **DeletePolicy=`Retain`**
-  - **DeletePolicy=`Snapshot`**
-    - for EBS volume
-    - databases :
-      - RDS
-      - DocumnetDB
-      - ElastiCache
-      - Neptune
-      - ...
+## D. 
 
 ---
 ## Z. Example
