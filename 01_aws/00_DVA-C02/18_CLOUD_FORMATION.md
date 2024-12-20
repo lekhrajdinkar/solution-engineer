@@ -36,8 +36,8 @@
 - 700+ resource with example and doc.
 - will use CDK anyway.
 - certain resources not support
-  - use **CF custom resource**
-    - backed by **lambda** :point_left:
+  - use **`CF custom resource`** :point_left:
+    - backed by **lambda**  - serviceToken (arm od lambda)
     - ![img_1.png](../99_img/dva/cf/02/img_1.png)
     - **usecase**-1: empty s3 bucket before delete.
       - ![img_2.png](../99_img/dva/cf/02/img_2.png)
@@ -230,11 +230,9 @@ Resources:
 - disable (default)
   - allows to delete stack
 - if enabled, then won't allow anyone to delete stack.
----
-## D. 
 
 ---
-## Z. Example
+## D. Example
 ### 1. EC2 example with short desc.
 
 ```yaml
