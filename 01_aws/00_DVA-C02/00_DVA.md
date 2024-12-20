@@ -143,9 +143,10 @@
 ## Section 27 : `Cognito` :yellow_circle:
 - [02_1_cognito_SAA.md](../06_Security/02_1_cognito_SAA.md)
 
-## Section 28 : `Step function, AppSync` :yellow_circle:
-- [28_STEP_FUNCTION.md](28_STEP_FUNCTION.md)
-- [28_AppSync.md](28_AppSync.md)
+## Section 28 : serverless more: `Step function, AppSync, Amplify` :yellow_circle:
+- [28_1_STEP_FUNCTION.md](28_1_STEP_FUNCTION.md)
+- [28_2_AppSync.md](28_2_AppSync.md)
+- [28_3_Amplify.md](28_3_Amplify.md)
 
 ## Section 29: `Advance IAM (short)` :green_circle:
 - [01_IAM.md](../06_Security/01_IAM.md)
@@ -157,6 +158,7 @@
 
 ## Section 31 : `other services` :red_circle:
 ### DVA
+
 ### SAA
 - [97_more-services](../97_more-services)
 - [09_DR](../09_DR)
