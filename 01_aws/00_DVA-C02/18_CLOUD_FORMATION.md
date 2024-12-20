@@ -19,6 +19,7 @@
 
 ![img.png](img.png)
 
+---
 ## B. Template
 ### 1. overview
 ```json5
@@ -30,13 +31,56 @@
 • Outputs                   – references to what has been created
 • Conditionals              – list of conditions to perform resource creation
 ```
-### 2. change set
+### 2. resource
+- check : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html :point_left:
+- 700+ resource with example and doc.
+- will use CDK anyway.
+- certain resources not support
+    - use **CF custom resource** :point_left:
+
+### 3. parameter (dynamic input)
+- ![img_3.png](img_3.png)
+- refer/use them
+  - **!Ref** p1
+  - **Fn::Ref** p1
+
+```json5
+- Type
+    • String • Number • CommaDelimitedList
+    • List<Number>
+    • AWS-Specific Parameter + List<AWS-Specific Parameter>
+    • SSM Parameter (get parameter value from SSM Parameter store)
+        
+- Default | Description
+        
+- Constarint
+    • Min/MaxLength
+    • Min/MaxValue
+    • AllowedValues (array)
+    • AllowedPattern (regex)
+    • NoEcho (Boolean) : for passowrd feild, so wont be logged/dispalyed anywhere
+```
+- **Pseudo parameter**
+```json5
+AWS::AccountId 123456789012
+AWS::Region us-east-1
+AWS::StackId arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/1c2fa620-982a-11e3-aff7-50e2416294e0
+AWS::StackName MyStack
+AWS::NotificationARNs [arn:aws:sns:us-east-1:123456789012:MyTopic]
+AWS::NoValue Doesn’t return a value
+```
+
+---
+### 3. change set
 - change in template - add, modify (replacemnet=true/false), etc
 - ![img_1.png](img_1.png)
 
-### 99. example
-```yaml
 ---
+## Z. Example
+### 1. EC2 example with short desc.
+
+```yaml
+
 AWSTemplateFormatVersion: "2010-09-09"  # Identifies the capabilities of the template.
 
 Description: "Sample CloudFormation template for deploying a web server." # Comments about the template.
@@ -60,7 +104,7 @@ Mappings:  # Static variables for your template.
 
 Resources:  # Contains definitions of AWS resources to be created (MANDATORY).
   MyEC2Instance:  # Logical name for the EC2 instance.
-    Type: "AWS::EC2::Instance"  # Specifies the resource type (an EC2 instance in this case).
+    Type: "AWS::EC2::Instance"  # Specifies the resource type (an EC2 instance in this case). # service-provider::service-name::data-type-name
     Properties:  # Contains properties to configure the resource.
       InstanceType: !Ref InstanceType  # Uses the parameter for instance type.
       KeyName: "MyKeyPair"  # Name of the key pair for SSH access.
