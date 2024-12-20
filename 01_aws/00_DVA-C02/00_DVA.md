@@ -167,6 +167,8 @@
 
 ---
 ## services
+```json5
+
 ### Compute
 - Amazon EC2
 - AWS Lambda
@@ -226,6 +228,9 @@
 
 ### Customer Engagement
 - Amazon Cognito
+
+```
+
 
 
 
