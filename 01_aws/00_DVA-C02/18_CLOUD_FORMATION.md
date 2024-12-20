@@ -32,28 +32,32 @@
 • Conditionals              – list of conditions to perform resource creation
 ```
 ### 2. resource
+#### reference
 - check : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html :point_left:
 - 700+ resource with example and doc.
 - will use CDK anyway.
+
+#### CF custom resource
 - certain resources not support
   - use **`CF custom resource`** :point_left:
     - backed by **lambda**  - serviceToken (arm od lambda)
     - ![img_1.png](../99_img/dva/cf/02/img_1.png)
     - **usecase**-1: empty s3 bucket before delete.
       - ![img_2.png](../99_img/dva/cf/02/img_2.png)
-- **Delete Policy**
-  - resource-1
-      - **DeletePolicy=`Delete`** (default)
-          - for s3, bucket must be empty :point_left:
-      - **DeletePolicy=`Retain`**
-      - **DeletePolicy=`Snapshot`**
-          - for EBS volume
-          - databases :
-              - RDS
-              - DocumnetDB
-              - ElastiCache
-              - Neptune
-              - ...
+      
+#### **Delete Policy**
+- resource-1
+    - **DeletePolicy=`Delete`** (default)
+        - for s3, bucket must be empty :point_left:
+    - **DeletePolicy=`Retain`**
+    - **DeletePolicy=`Snapshot`**
+        - for EBS volume
+        - databases :
+            - RDS
+            - DocumnetDB
+            - ElastiCache
+            - Neptune
+            - ...
 
 ---
 ### 3. parameter (dynamic input)
