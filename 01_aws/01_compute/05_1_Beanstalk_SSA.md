@@ -72,7 +72,9 @@
   - metrics
 
 ### D.3 **Application version** 
-- define **platform** - language and runtime
+- define **platform** 
+  - language 
+  - runtime : can use Docker :point_left:
 - upload code (`zip`)
   - code, v1
   - code, v2

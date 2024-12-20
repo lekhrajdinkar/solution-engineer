@@ -102,8 +102,8 @@
 ---
 # E. Elastic Beanstalk : `Migration` (manual)
 
-## example: migrate CLB to ALB
-> ELB type cannnot be change once env is created.
+## example1: migrate CLB to ALB
+> fact: ELB type cannnot be change once env is created. 
 - migration step:
   - create new environment with ALB, manually
   - deploy code again 
@@ -112,7 +112,7 @@
 - nothing fancy, but that's the only way.
 - ![img_2.png](../99_img/dva/beanstalk/02/img_2.png)
 
-## Decouple RDS
+## example2: Decouple RDS
 - migration step:
   - create new environment
   - deploy code again 

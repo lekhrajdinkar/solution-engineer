@@ -95,7 +95,9 @@
     Amazon ECS - Task Placements
     Amazon ECR - Hands On
 ```
-## Section 17 `beanstalk` :yellow_circle:
+## Section 17 `beanstalk` :green_circle:
+- [05_1_Beanstalk_SSA.md](../01_compute/05_1_Beanstalk_SSA.md)
+- [05_2_Beanstalk_DVA-deployments.md](../01_compute/05_2_Beanstalk_DVA-deployments.md)
 
 ## Section 18 `Cloudformation` :yellow_circle:
 
