@@ -103,6 +103,7 @@ AWS::NoValue Doesn’t return a value
 
 ---
 ### 5. output (optional)
+- must be unique in region
 - **print** for console
 - IAC-1 (**collaboration**)
   - stack-1(vpc-1) : output **export** `vpc-id`

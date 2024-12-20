@@ -99,13 +99,13 @@
 - [05_1_Beanstalk_SSA.md](../01_compute/05_1_Beanstalk_SSA.md)
 - [05_2_Beanstalk_DVA-deployments.md](../01_compute/05_2_Beanstalk_DVA-deployments.md)
 
-## Section 18 `Cloudformation` :yellow_circle:
+## Section 18 `Cloudformation` :green_circle:
 - [18_CLOUD_FORMATION.md](18_CLOUD_FORMATION.md)
 
 ## Section 19 `SQS,SNS, KDS, KDF` :green_circle:
 - [05_decoupling](../05_decoupling)
 
-## Section 20 `Monitor` :yellow_circle:
+## Section 20 `Monitor` :green_circle:
 - [01_CW-Metric.md](../07_monitoring/01_CW-Metric.md)
 - [02_CW-Logs.md](../07_monitoring/02_CW-Logs.md)
 - [03_CW-Alarms.md](../07_monitoring/03_CW-Alarms.md)
@@ -145,6 +145,7 @@
 
 ## Section 28 : `Step function, AppSync` :yellow_circle:
 - [28_STEP_FUNCTION.md](28_STEP_FUNCTION.md)
+- [28_AppSync.md](28_AppSync.md)
 
 ## Section 29: `Advance IAM (short)` :green_circle:
 - [01_IAM.md](../06_Security/01_IAM.md)
