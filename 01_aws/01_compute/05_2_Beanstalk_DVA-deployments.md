@@ -1,4 +1,4 @@
-# A. Elastic Beanstalk : `deployments`
+# A. Elastic Beanstalk : `deployments` :books:
 - mode of deployments:
 ## 1. All at once
 - **fastest**  deployment
@@ -47,12 +47,13 @@
   - ASG-2[v2,v2,...]
   - point ALB to ASG-2 eventually after testing small traffic
 - very quick **automated rollback**
+- - ![img_4.png](../99_img/dva/beanstalk/01/img_7.png)
 
 ## 99. Blue Green (not direct feature)
 - steps:
   - create a **new beanstalk stage `environment`** (green)
   - deploy new version into green
-  - Traffic Splitting using `R53`
+  - Traffic Splitting using `R53` (dns change)
     - send a small % of traffic to new deployment
   - switch over when ready
 - ![img_5.png](../99_img/dva/beanstalk/01/img_5.png)
