@@ -1,11 +1,13 @@
 # Cloud Formation (IAC)
 ## A. Intro
 - **declarative way** of provisioning AWS Infrastructure
-- IAC 
-  - stack-1 (for vpc)
-    - reource-1 (tags - stackid,etc)
+- **IAC** 
+  - **stack**-1 (for vpc)
+    - **reource**-1 (**tags** - stackid(arn), logicalId, physicalId,etc)
     - rsource-2
     - ...
+    - resolves order / dependency
+    - ![img_2.png](img_2.png)
   - stack-2 (app stack)
   - ...
   - versioned in git
@@ -17,7 +19,8 @@
 
 ![img.png](img.png)
 
-## template
+## B. Template
+### 1. overview
 ```json5
 • AWSTemplateFormatVersion  – identifies the capabilities of the template “2010-09-09”
 • Description               – comments about the template
@@ -27,6 +30,11 @@
 • Outputs                   – references to what has been created
 • Conditionals              – list of conditions to perform resource creation
 ```
+### 2. change set
+- change in template - add, modify (replacemnet=true/false), etc
+- ![img_1.png](img_1.png)
+
+### 99. example
 ```yaml
 ---
 AWSTemplateFormatVersion: "2010-09-09"  # Identifies the capabilities of the template.
