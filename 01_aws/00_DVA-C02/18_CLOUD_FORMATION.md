@@ -37,15 +37,15 @@
 - 700+ resource with example and doc.
 - will use CDK anyway.
 
-#### CF custom resource
+#### 2.1 Custom resource :point_left:
 - certain resources not support
-  - use **`CF custom resource`** :point_left:
+  - use **`CF custom resource`** 
     - backed by **lambda**  - serviceToken (arm od lambda)
     - ![img_1.png](../99_img/dva/cf/02/img_1.png)
     - **usecase**-1: empty s3 bucket before delete.
       - ![img_2.png](../99_img/dva/cf/02/img_2.png)
       
-#### **Delete Policy**
+#### 2.2 Delete Policy
 - resource-1
     - **DeletePolicy=`Delete`** (default)
         - for s3, bucket must be empty :point_left:
