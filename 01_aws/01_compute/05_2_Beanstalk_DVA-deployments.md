@@ -52,8 +52,8 @@
 
 ## 99. Blue Green (not direct feature)
 - steps:
-  - create/**clone** a **new beanstalk stage `environment`** (green)
-  - deploy new version into green
+  - manually create/**clone** a **new beanstalk stage `environment`** (green)
+  - deploy new version into green using any of above types(4).
   - Traffic Splitting using `R53` (dns change)
     - send a small % of traffic to new deployment
   - switch over when ready
@@ -64,16 +64,61 @@
 ![img_6.png](../99_img/dva/beanstalk/01/img_6.png)
 
 ---
-# B. Elastic Beanstalk : `CLI`
+# B. Elastic Beanstalk : `CLI` :x:
+- not in scope of DVA
+- install and gives handy commands
+```yaml
+• eb create
+• eb status
+• eb health
+• eb events
+• eb logs
+• eb open
+• eb deploy
+• eb config
+• eb terminate
+```
+
 
 ---
-# C. Elastic Beanstalk : `lifecycle`
+# C. Elastic Beanstalk : `Extension`
+- project-root-dir/
+  - **.ebextensions**/
+    - yaml-json-content.**config**. `purpose`:
+      - modify default config
+      - add other resource (under the hood use Cloudformation)  :point_left:
+        - RDS, 
+        - DynamoDB, 
+        - ElastiCache
+        - ...
+
+## example - set Environment var
+
+![img.png](../99_img/dva/beanstalk/02/img.png)
+
+![img_1.png](../99_img/dva/beanstalk/02/img_1.png)
+
 
 ---
-# D. Elastic Beanstalk : `Extension`
+# E. Elastic Beanstalk : `Migration` (manual)
 
----
-# E. Elastic Beanstalk : `cloning`
+## example: migrate CLB to ALB
+> ELB type cannnot be change once env is created.
+- migration step:
+  - create new environment with ALB, manually
+  - deploy code again 
+  - DNS swapping to new environment
+  - delete old env
+- nothing fancy, but that's the only way.
+- ![img_2.png](../99_img/dva/beanstalk/02/img_2.png)
 
----
-# F. Elastic Beanstalk : `Migration`
+## Decouple RDS
+- migration step:
+  - create new environment
+  - deploy code again 
+  - DNS swapping to new environment
+  - delete old env 
+    - RDS wont be deleted, since delete protection enabled) :point_left:
+- again same step, nothing fancy, 
+- ![img_3.png](../99_img/dva/beanstalk/02/img_3.png)
+- ![img_4.png](../99_img/dva/beanstalk/02/img_4.png)

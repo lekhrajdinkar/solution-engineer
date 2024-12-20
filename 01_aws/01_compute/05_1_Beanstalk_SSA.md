@@ -9,10 +9,12 @@
   - **Managing infrastructure**
     - databases, `RDS`
     - load balancers, `ELB` + networking
+      - ELB type cannot be changed once provided :point_left:
+      - if ALB, then cannot change to NLB.
     - scaling concerns, `ASG`
     - Monitoring
     - ...
-    - note:create cloudFormation template bts for infra.
+    - note: create **cloudFormation** template bts for infra.
     
   - **Deploying Code**
     - into multiple env, 
@@ -31,6 +33,7 @@
 ## D. Elastic Beanstalk : `Application`
 ### D.1 **Environment/s**
 - create multiple `dev, prod, qa`
+  - can **clone** env as well
 - it represents infra which are running our application version.
 - Type/tier:
   - **web-server**  Environment
@@ -70,10 +73,16 @@
 
 ### D.3 **Application version** 
 - define **platform** - language and runtime
-- upload code
+- upload code (`zip`)
   - code, v1
   - code, v2
   - ...
+  - code, `v1000` (max)
+  - use s3 bts for storing zip :point_left:
+- **Application version lifecycle**
+  - enable it, To phase out old application versions.
+  - Option not to delete the source bundle in S3 to prevent data loss
+
       
 ---
 ## Z. Hands on
