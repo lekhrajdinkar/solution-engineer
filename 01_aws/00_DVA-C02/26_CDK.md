@@ -29,7 +29,8 @@
 - **cdk destroy**
 
 ---
-## C. CDK hands on (nodejs)
+## C. CDK hands on 
+- nodejs : done
 
 ---
 ## D. CDK test

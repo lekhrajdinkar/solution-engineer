@@ -9,7 +9,9 @@
   - Fargate(ECS/EKS) 
     - [02_Containers_ECS.md](../01_compute/02_Containers_ECS.md)
     - [02_Kubernetes_EKS.md](../01_compute/02_Kubernetes_EKS.md)
-  - Step Functions
+    
+  - **Step Functions** [28_STEP_FUNCTION.md](../00_DVA-C02/28_STEP_FUNCTION.md)
+  - **App Sync**  [28_AppSync.md](../00_DVA-C02/28_AppSync.md)
 
 ### security
   - AWS Cognito [02_cognito.md](../06_Security/02_1_cognito_SAA)

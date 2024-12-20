@@ -135,10 +135,10 @@
 ## Section 25 : `SAM :Serverless Application Model` :green_circle:
 - [00_serverless_pardigm.md](../00_kick_off/00_serverless_pardigm.md)
 - [00_start.md](25_SAM.md)
-- [project](25_SAM_project)
+- [SAM_project](25_SAM_project)
 
 ## Section 26 : `CDK` :green_circle:
-- [26_CDK](26_CDK)
+- [26_CDK.md](26_CDK.md)
 
 ## Section 27 : `Cognito` :yellow_circle:
 - [02_1_cognito_SAA.md](../06_Security/02_1_cognito_SAA.md)
