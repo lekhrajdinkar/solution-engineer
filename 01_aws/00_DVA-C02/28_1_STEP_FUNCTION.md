@@ -21,7 +21,7 @@
   - `wait`
   - `parallel`
   - `fail`
-  - **Activity task** :point_left
+  - **Activity task** :point_left:
     - have poll mechanism.
     - **activity worker** (lambda, ec2, ecs) polls for task (taskToken-1)
       - API : **getActivityTask**

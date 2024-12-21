@@ -143,7 +143,7 @@
 ## Section 27 : `Cognito` :yellow_circle:
 - [02_1_cognito_SAA.md](../06_Security/02_1_cognito_SAA.md)
 
-## Section 28 : serverless more: `Step function, AppSync, Amplify` :yellow_circle:
+## Section 28 : serverless more: `Step function, AppSync, Amplify` :green_circle:
 - [28_1_STEP_FUNCTION.md](28_1_STEP_FUNCTION.md)
 - [28_2_AppSync.md](28_2_AppSync.md)
 - [28_3_Amplify.md](28_3_Amplify.md)
