@@ -3,53 +3,86 @@
 ### 1. Encryption at `Fly`
 - TLS / SSL certificate / HTTPS
 - prevent from MITM
-- ![img.png](../99_img/security/kms/img.png)
+
+![img.png](../99_img/security/kms/img.png)
+
 ### 2. Encryption at `Rest`
-  - encryption/decryption happens at server.
-  - ![img_1.png](../99_img/security/kms/img_1.png)
+- encryption/decryption happens at server.
+
+![img_1.png](../99_img/security/kms/img_1.png)
+
 ### 3. Client side encryption
+
+- Don't trust server
+- cant make KMS api call
+
 ![img_2.png](../99_img/security/kms/img_2.png)
 
 ---
-## A. KMS : Encryption(rest) 
-- flows :
-  - `a. server side`
-    - eg:  
-      - file --> upload --> public internet --> 
-      - https(encryption) --> AWS-acct --> decrypted/TLS --> s3(file uploaded) --> 
-      - S3 make KMS-api --> KMS:kms-key --> stored encrypted
-  - `encryption outside AWS` : `b. client side encryption`, if:
-    - Don't trust server
-    - cant make KMS api call
+## B. KMS:intro
+- manges **encryption-keys**
+  - needs to be **rotated**
+  - has kms-key **alias**
+
+- **integrated** with:
+  - `IAM`
+  - `cloudTrail`, check log for KMS usage/audit.
+  - `secret manager` 
+    - encrypt **password** with kms-key
+  - `EC2`
+    - encrypt **AMI** with kms
+  - `ebs`, `rds`,  `s3-key`, `sqs-keys`, etc
+  - ...
+  - all ther service which requires encryption.
+
+- **KMS API call** 
+  - all above service makes api to kms.
+  - we can api call with **cli/sdk**
+    - to encrypt/decrypt anything(eg:env var) using kms-key-1
+
+--- 
+## C. KMS:key - types
+```
+# --- kms-keys : symmetric(AES-256)
+- generate single key
+  - private
   
-- integrated with `IAM`. check more.
+- aws-service integrated with kms, uses it.   <<<
 
-- `CMK` need to rotated manually. use with `kms-key alias`
+# --- kms-keys : A-symmetric (RSA)
+- generate 2 keys
+  - public ( for encrypt)
+     - access it, download it.
+     - share with client
+  - private ( for decrypt)
+  
+- for client-server comm                       <<<
+```
 
-- Audit `AWS-key-usage`,  using `CloudTrail`
-- use cases:
-    - #1. encrypt password with kms-key --> then store to secret manager
-    - #2. encrypt AMI with kms
-*** 
-### kms-keys : symmetric
--  single-key (private), user cant-see, aws use to encrypt/decrypt 
-- Types:
-  - `AWS owned` : kms-s3. kms-sns, etc FREE
-  - `AWS managed key` :  FREE. request another key from aws
-  - `Customer manged key` : customer upload it s own key. 
-    - price : 1$/month + calls : `3 cent / 10,000 call`
-- rotation:  yearly
-***
-### kms-keys : A-symmetric 
-- for: client side encryption
-- customer download public-key, use it for encryption.
-- Scenario : 
-  - ( `public-key` + data) --> uploaded `encrypted` data to s3-bucket-1.
-  - Another bucket, s3-bucket-`2` need data, will make `KMS api call` to get `decrypted` data
-  - and decryption will be done by it `private key`.
-rotation: ?
+### **1. AWS owned**  `FREE`
+- keys already created for services. 
+- eg
+  - sse-s3
+  - sse-sns
+  - ...
+
+### **2. AWS managed key**  `FREE`
+- request key from kms
+- rotation:  automatic yearly
+- key looks like - aws/serviceName/**** . eg
+  - aws/rds/...
+  - aws/ebs/...
+
+### **3. Customer manged key**  `PAID`
+- customer upload its own key. 
+- import key into kms, which generated outside aws
+- rotation:  must enable it :point_left:
+- pricing 
+  - `1$/month` / key
+  - API calls : `0.03/10,000`
+
 ---
-## B. KMS Policy
+## D. KMS Policy
 - like s3 policy
 - define who can access key.
 - default policy : allows everyone in account
