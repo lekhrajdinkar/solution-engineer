@@ -19,10 +19,15 @@
 ![img_2.png](../99_img/security/kms/img_2.png)
 
 ---
-## B. KMS:intro
+## B. KMS: intro
 - manges **encryption-keys**
   - needs to be **rotated**
   - has kms-key **alias**
+  - scope: **region** :point_left:
+    - for cross region copy will need 2 separate keys, once for each region
+    - eg: copy from region-1 to region-2
+      - aws will **decrypt** using region-**1**-key
+      - aws will **re-encrypt** using region-**2**-key
 
 - **integrated** with:
   - `IAM`
@@ -33,7 +38,7 @@
     - encrypt **AMI** with kms
   - `ebs`, `rds`,  `s3-key`, `sqs-keys`, etc
   - ...
-  - all ther service which requires encryption.
+  - all other service which requires encryption.
 
 - **KMS API call** 
   - all above service makes api to kms.
@@ -41,15 +46,15 @@
     - to encrypt/decrypt anything(eg:env var) using kms-key-1
 
 --- 
-## C. KMS:key - types
+## C. KMS: `key types`
 ```
-# --- kms-keys : symmetric(AES-256)
+# --- symmetric(AES-256) ---
 - generate single key
   - private
   
 - aws-service integrated with kms, uses it.   <<<
 
-# --- kms-keys : A-symmetric (RSA)
+# ---  A-symmetric (RSA) ---
 - generate 2 keys
   - public ( for encrypt)
      - access it, download it.
@@ -82,54 +87,64 @@
   - API calls : `0.03/10,000`
 
 ---
-## D. KMS Policy
+## C. KMS: `Regionality` :point_left:
+### 1. single regional 
+- same key cannot be present in 2 diff regions.
+- Scenario/eg: cross region ebs-snapshot copy
+    - VALID   : ebs-volume in region-1-`az1` -->  snapshot > encrypt(r1-k1) --> restored to region-1-`az2/3`
+    - INVALID : ebs-volume in region-1 -->  snapshot > encrypt(r1-k1) --> restored to `region-2`.
+    - VALID   : ebs-volume in region-1 -->  snapshot > `encrypt(r1-k1) > decrypt(r1-k1) > re-encrpted(r2-k1)` --> restored to region-2
+
+### 2. multi regional 
+- same key is replicated over regions.
+- simplify, but `not recommended`
+  - same key replicated in multipe region
+      - `primary` (policy-1)
+      - `replicatedd key` (can have diff policy-2, in another region)
+  - purpose :
+      - encrypt in one region and use/decrypt in another region, seamlessly
+      - don't need to re-encrypt again with another region key
+  - use-case :
+      - global Aurora DB
+      - global Dynamo DB
+      - having client side encryption
+
+---
+## D. KMS: `Security`
+### 1. KMS Policy
 - like s3 policy
 - define who can access key.
-- default policy : allows everyone in account
-- create custom policy : for cross account access, restricted access with in acct, etc
-- eg-1: lambda-1 copy ebs snapshot from one region to another region
-  - only lambda-1 must have access below 2 keys, no one else.
-    - region-1-key (to decrypt) : [ policy-1: allow Lambda-1 + more statemnets ]
-    - region-2-key (to re-encrypt) [ policy-2: allow Lambda-1 + more statemnets ]
-  - update custom policy accordingly
-- eg-2: cross account kms access
-  - ![img_4.png](../99_img/security/kms/img_4.png)
-
+- **default policy** 
+  - already exists
+  - allows everyone in account  :point_left:
+- **custom policy** 
+  - eg: 
+    - for cross account access, restricted access with in acct, etc
+      - ![img_4.png](../99_img/security/kms/img_4.png)
+    - give access to specific services (lambda-fn)
+      ```
+      lambda-1 copy ebs snapshot from one region to another region
+        - only lambda-1 must have access below 2 keys, no one else.
+          - region-1-key (to decrypt) 
+          - region-2-key (to re-encrypt) 
+      ```
 ---
-## C. Regionality:
-- `single regional` : same key cannot be present in 2 diff regions.
-    - Scenario/eg: cross region ebs-snapshot copy
-        - VALID   : ebs-volume in region-1-`az1` -->  snapshot > encrypt(r1-k1) --> restored to region-1-`az2/3` 
-        - INVALID : ebs-volume in region-1 -->  snapshot > encrypt(r1-k1) --> restored to `region-2`.
-        - VALID   : ebs-volume in region-1 -->  snapshot > `encrypt(r1-k1) > decrypt(r1-k1) > re-encrpted(r2-k1)` --> restored to region-2
-
-- `multi regional` : same key is replicated over regions.
-    - simplify, but `not recommended`
-    - same key replicated in multipe region
-      - `primary` (policy-1) 
-      - `replicatedd key` (can have diff policy-2, in another region)
-    - purpose :
-        - encrypt in one region and use/decrypt in another region, seamlessly
-        - don't need to re-encrypt again with another region key
-    - use-case :
-        - global Aurora DB
-        - global Dynamo DB
-        - having client side encryption
-
----
-## D.use case
-### 1. S3 CRR replication with KMS 
+## D. Scenarios
+### 1.1 S3 - `CRR` replication 
 - [here](./../02_storage/03_S3-1.md#security-while-crr-replication)
 
-### 2. share AMI cross region
+### 1.2 S3  - `SRR` replication
+- bucket-1(key-1) --> replicate(decrypt with key-1 > encrypt with key-2) --> bucket-2(key-2)
+- add permission for both keys to ...
+- 
+### 3. share AMI cross region
 ![img.png](../99_img/security/kms-2/img-100.png)
 - share AMI : update `launch-permission` for AMI to allow access
 - share kms-key-1 : update `kms-policy` to allow access
 - Account-b >> decrypt with kms-key-1 >> re-encrypt with its kms-key-2(Account-b)
 
-### 2. S3 SRR replication
-- bucket-1(key-1) --> replicate(decrypt with key-1 > encrypt with key-2) --> bucket-2(key-2)
-- add permission for both keys to ...
+### 4. EBS volume (cross region)
+![img_3.png](../99_img/security/kms/img_3.png)
 
 ---
 ## E.Demo
@@ -159,7 +174,7 @@ flows
 - 
 ---
 cross region copy
-- ![img_3.png](../99_img/security/kms/img_3.png)
+- 
 ---
 regional key with global dynao and aurora
 
