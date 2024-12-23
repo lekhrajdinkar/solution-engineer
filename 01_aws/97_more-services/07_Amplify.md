@@ -1,3 +1,5 @@
+- DVA : [28_3_Amplify.md](../00_DVA-C02/28_3_Amplify.md)
+---
 # Amplify
 
 - similar to `beanStalk`

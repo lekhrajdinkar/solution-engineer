@@ -1,4 +1,4 @@
-# AWS KMS
+# A. KMS
 
 ## 1. Encrypt/decrypt (< 4KB) 
 - straight forward, nothing new
@@ -60,3 +60,24 @@
 - will get ThrottleException
 
 ![img.png](../99_img/dva/kms/01/img4.png)
+
+---
+
+# B. CloudHSM
+- **HSM** = `Hardware Security Module`
+- CloudHSM
+  - service to provision HSM in **high-availability** / cluster
+  - tamper resistant, FIPS 140-2 Level 3 compliance
+  - supports **SSE-C** (symmetric + asymmetric keys)
+  - MFA support
+- CloudHSM Client 
+  - dedicated Software
+
+
+![img.png](../99_img/dva/kms/03/img.png)
+
+- HSM cluster
+![img_1.png](../99_img/dva/kms/03/img_1.png)
+
+- can be integrated with KMS
+![img_2.png](../99_img/dva/kms/03/img_2.png)
