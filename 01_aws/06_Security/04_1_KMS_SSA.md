@@ -129,24 +129,6 @@
           - region-2-key (to re-encrypt) 
       ```
 ---
-## D. Scenarios
-### 1.1 S3 - `CRR` replication 
-- [here](./../02_storage/03_S3-1.md#security-while-crr-replication)
-
-### 1.2 S3  - `SRR` replication
-- bucket-1(key-1) --> replicate(decrypt with key-1 > encrypt with key-2) --> bucket-2(key-2)
-- add permission for both keys to ...
-- 
-### 3. share AMI cross region
-![img.png](../99_img/security/kms-2/img-100.png)
-- share AMI : update `launch-permission` for AMI to allow access
-- share kms-key-1 : update `kms-policy` to allow access
-- Account-b >> decrypt with kms-key-1 >> re-encrypt with its kms-key-2(Account-b)
-
-### 4. EBS volume (cross region)
-![img_3.png](../99_img/security/kms/img_3.png)
-
----
 ## E. hands on
 ```
 - create key-1
@@ -164,20 +146,27 @@
     - disable
     - schedule for deletion 
    
-- use aws-cli : encypti failtext with above key-1    
-```
+- use aws-cli : encypti failtext with above key-1 
+```   
+---
+## E. Examples
+### 1.1 S3 - `CRR` replication 
+- [here](./../02_storage/03_S3-1.md#security-while-crr-replication)
 
----
-## Z. Screenshot
-flows
+### 1.2 S3  - `SRR` replication
+- bucket-1(key-1) --> replicate(decrypt with key-1 > encrypt with key-2) --> bucket-2(key-2)
+- add permission for both keys to ...
 - 
-- 
-- 
----
-cross region copy
-- 
----
-regional key with global dynao and aurora
+### 3. share AMI cross region
+![img.png](../99_img/security/kms-2/img-100.png)
+- share AMI : update `launch-permission` for AMI to allow access
+- share kms-key-1 : update `kms-policy` to allow access
+- Account-b >> decrypt with kms-key-1 >> re-encrypt with its kms-key-2(Account-b)
+
+### 4. EBS volume (cross region)
+![img_3.png](../99_img/security/kms/img_3.png)
+
+### 5 more
 
 ![img.png](../99_img/security/kms-2/img.png)
 
