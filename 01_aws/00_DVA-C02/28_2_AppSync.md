@@ -14,4 +14,4 @@
     - OpenSearch 
     - lambda
 
-![img.png](img.png)
+![img.png](../99_img/dva/serverlessMore/02/img.png)
