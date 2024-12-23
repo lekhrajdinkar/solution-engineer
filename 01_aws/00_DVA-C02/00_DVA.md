@@ -153,7 +153,7 @@
 - [01_SSO+DirectoryService.md](../06_Security/01_SSO%2BDirectoryService.md)
 
 ## Section 30 : `security: KMS,SSM` :yellow_circle:
-- [04_KMS.md](../06_Security/04_KMS.md)
+- [04_KMS.md](../06_Security/04_1_KMS_SSA)
 - [05_SSM-param-store.md](../06_Security/05_SSM-param-store.md)
 
 ## Section 31 : `other services` :red_circle:

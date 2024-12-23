@@ -1,5 +1,16 @@
-- encryption at `fly` (TLS / SSL certificate)
+# KMS 
+## A. Encryption
+### 1. Encryption at `Fly`
+- TLS / SSL certificate / HTTPS
+- prevent from MITM
+- ![img.png](../99_img/security/kms/img.png)
+### 2. Encryption at `Rest`
+  - encryption/decryption happens at server.
+  - ![img_1.png](../99_img/security/kms/img_1.png)
+### 3. Client side encryption
+![img_2.png](../99_img/security/kms/img_2.png)
 
+---
 ## A. KMS : Encryption(rest) 
 - flows :
   - `a. server side`
@@ -110,9 +121,9 @@ rotation: ?
 ---
 ## Z. Screenshot
 flows
-- ![img.png](../99_img/security/kms/img.png)
-- ![img_1.png](../99_img/security/kms/img_1.png)
-- ![img_2.png](../99_img/security/kms/img_2.png)
+- 
+- 
+- 
 ---
 cross region copy
 - ![img_3.png](../99_img/security/kms/img_3.png)
