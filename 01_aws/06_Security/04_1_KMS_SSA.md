@@ -22,6 +22,9 @@
 ## B. KMS: intro
 - manges **encryption-keys**
   - needs to be **rotated**
+    - default : 365 days
+    - range : 90 - 2650 days
+    - have od rotation.
   - has kms-key **alias**
   - scope: **region** :point_left:
     - for cross region copy will need 2 separate keys, once for each region
@@ -41,7 +44,7 @@
   - all other service which requires encryption.
 
 - **KMS API call** 
-  - all above service makes api to kms.
+  - all above service makes api call to kms.*
   - we can api call with **cli/sdk**
     - to encrypt/decrypt anything(eg:env var) using kms-key-1
 
@@ -90,24 +93,21 @@
 ## C. KMS: `Regionality` :point_left:
 ### 1. single regional 
 - same key cannot be present in 2 diff regions.
-- Scenario/eg: cross region ebs-snapshot copy
-    - VALID   : ebs-volume in region-1-`az1` -->  snapshot > encrypt(r1-k1) --> restored to region-1-`az2/3`
-    - INVALID : ebs-volume in region-1 -->  snapshot > encrypt(r1-k1) --> restored to `region-2`.
-    - VALID   : ebs-volume in region-1 -->  snapshot > `encrypt(r1-k1) > decrypt(r1-k1) > re-encrpted(r2-k1)` --> restored to region-2
+- requires additional api call (for cross region)
+  - decrypt  call
+  - re-encrypt call 
 
 ### 2. multi regional 
-- same key is replicated over regions.
-- simplify, but `not recommended`
-  - same key replicated in multipe region
-      - `primary` (policy-1)
-      - `replicatedd key` (can have diff policy-2, in another region)
-  - purpose :
-      - encrypt in one region and use/decrypt in another region, seamlessly
-      - don't need to re-encrypt again with another region key
-  - use-case :
-      - global Aurora DB
-      - global Dynamo DB
-      - having client side encryption
+- **simplify but not recommended**
+- same key replicated in multiple region
+  - primary (policy-1)
+  - replicated key (policy-2, in another region)
+- purpose
+  - encrypt in one region and use/decrypt in another region, **seamlessly**
+  - don't need to re-encrypt again with another region key
+- **use-case**
+  - global Aurora DB
+  - global Dynamo DB
 
 ---
 ## D. KMS: `Security`
@@ -147,16 +147,17 @@
 ![img_3.png](../99_img/security/kms/img_3.png)
 
 ---
-## E.Demo
+## E. hands on
 ```
-- crate key-1
-- choose : regionality : single region
-- choose access permision : 
-    - check boxes - check who can access
-    - cross account access (optinal) : add another aws acct
-    - this will auto create access policy
+- create key-1
+    - symetric
+        - type: aws owned
+- choose : regionality 
+    - single region
+- key policy
+    - add json
+    - or use console to define multiple options.
 - rotation yearly : y/n
-- review and done
 
 // READY
 - actin:
