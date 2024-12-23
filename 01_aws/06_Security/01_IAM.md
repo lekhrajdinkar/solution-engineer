@@ -190,4 +190,12 @@ boundary-1 : allow  `ecs,lambda,s3` only
   - ![img.png](../99_img/security/org/img-4.png)
 ---
 
+## 9. principals
+
+![img.png](../99_img/dva/kms/02/img.png)
+
+![img_1.png](../99_img/dva/kms/02/img_1.png)
+
+
+
 

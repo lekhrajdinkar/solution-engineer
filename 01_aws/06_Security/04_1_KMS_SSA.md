@@ -40,6 +40,7 @@
   - `EC2`
     - encrypt **AMI** with kms
   - `ebs`, `rds`,  `s3-key`, `sqs-keys`, etc
+  - `lambda`: encrypt env var
   - ...
   - all other service which requires encryption.
 
@@ -75,7 +76,7 @@
   - ...
 
 ### **2. AWS managed key**  `FREE`
-- request key from kms
+- request key from kms (sse-kms)
 - rotation:  automatic yearly
 - key looks like - aws/serviceName/**** . eg
   - aws/rds/...
@@ -166,7 +167,7 @@
 ### 4. EBS volume (cross region)
 ![img_3.png](../99_img/security/kms/img_3.png)
 
-### 5 more
+### 5 multi region key - Dynamo / RDS
 
 ![img.png](../99_img/security/kms-2/img.png)
 

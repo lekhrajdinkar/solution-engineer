@@ -51,6 +51,8 @@
 ### 2.2 **envelop de-cryption**
 ![img_2.png](../99_img/dva/kms/01/img_2.png)
 
+- eg with s3
+  - ![img.png](../99_img/dva/kms/01/imgs3.png)
 ---
 
 ## 3. KMS request quota
