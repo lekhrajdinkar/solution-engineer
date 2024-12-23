@@ -1,4 +1,4 @@
-# AppSync (serverless)
+# AppSync (serverless) : Intro
 - overview hands on
   - https://www.udemy.com/course/aws-certified-developer-associate-dva-c01/learn/lecture/19732102#overview
   - upload GraphQL schema
