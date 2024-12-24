@@ -167,13 +167,12 @@
 ## Section 31 : `other services` :red_circle:
 ### DVA
 - [03_openSearch.md](../08_Analytics/03_openSearch.md)
-- ses: [02_SES+pinpoint.md](../97_more-services/02_SES%2Bpinpoint.md)
+- **ses**: [02_SES+pinpoint.md](../97_more-services/02_SES%2Bpinpoint.md)
 - [01_athena_adhocSQL_serverless.md](../08_Analytics/01_athena_adhocSQL_serverless.md)
 - [06_MSK.md](../05_decoupling/06_MSK.md)
 - [07_ACM.md](../06_Security/07_ACM.md)
-- macie: [99_more.md](../06_Security/99_more.md)
+- **macie**: [99_more.md](../06_Security/99_more.md)
 - [06_AWS_config.md](../07_monitoring/06_AWS_config.md)
-- 
 
 ### SAA
 - [97_more-services](../97_more-services)

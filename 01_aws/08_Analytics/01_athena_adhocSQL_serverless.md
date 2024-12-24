@@ -1,35 +1,50 @@
 # Athena (serverless)
 
-- pay for data Scan : `$5/TB`
-- run adhoc SQL query serverlessly
-- parquet(columnar format)
+## 1. Intro
+- run **adhoc SQL** query serverless, at scale
+- has integration with **AWS glue** bts.
+  - athena call `glue data crawler`
+  - crawler, crawls over above source/s and prepare 
+    - **metadata**
+    - **Glue Data Catalog**
+  - Athena uses these while performing query.
+- **query result** will go to:
+  - **S3** 
+  - **Amazon QuickSight** (dashboard)  
+- ![img.png](../99_img/moreSrv/athena/img.png)  
 
 ---
-## Athena : Load Data
-- `source` --> Athena (`scan and query/analyze, data using SQL`) --> result --> `S3` and `Amazon QuickSight` (dashboard)
-- sources:
-  - `S3(object)`:csv,json,avro,`parquet(columnar format)`, 
-    - vpc-logs,elb-logs, cloudtrail, goes to s3, can be analyzed.
-    - organize data in S3 like `/year/month/day/hr/...`
-    - so it will query specific object. fewer data will be scanned === cost reduce.
-    - more cost saving : use `compressed` + `columnar` data
-    - S3:object.csv -->`aws-glue` --> parquet
+## 2. pricing
+- pay for data Scan : `$5 / TB`
+- save cost
+  - **compressed**  data
+  - **columnar** data
+  - S3:object.csv --> **aws-glue** --> parquet(columnar)
+  - organize data in S3 like `/year/month/day/hr/...` then scan by date.
+  
+---
+## 3. Sata Source
+- can load data from below source into athena
+- Athena will scan,query, analyze data using SQL
+
+
+### 3.1 S3
+- S3 object:csv,json,avro,parquet(columnar format), 
+  - vpc-logs
+  - elb-logs
+  - cloudtrail
+  
     
-  - `on-prem/aws:database` (relational/NoSQL) --> `aws-glue` --> parquet
+### 3.2 database
+- on-prem/aws (relational/NoSQL) --> **aws-glue** --> parquet
   
-  - `kineses data steam`
+### 3.3 kineses data steam
   
-  - `Data Source Connector`: AWS `Lambda` to run Federated Queries on RDS,CW,DynamoDB,etc
-
+### 3.4 DataSource `Connector`
+- AWS Lambda to run Federated Queries on RDS,CW,DynamoDB,etc
+- ![img_1.png](../99_img/moreSrv/athena/img_1.png)
 ---
-## Athena : integration with glue
-- athena call `glue data crawler`
-- crawler, crawls over above source/s, prepare some `metadata`
-- and, create `Glue Data Catalog`
-- Athena uses these catalog to run SQL.
-
----
-## demo:
+## 99. hands on
 ```
 - bucket-1 >  enable s3-access log.
 - copy location-1
@@ -48,7 +63,3 @@ athena:
  - recent queries
  - saved queries - also encrypted result.   
 ```
----
-![img.png](../99_img/moreSrv/athena/img.png)
----
-![img_1.png](../99_img/moreSrv/athena/img_1.png)
