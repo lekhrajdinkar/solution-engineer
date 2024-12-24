@@ -11,8 +11,11 @@
     - enable MFA
     - send email to user. SES
     - **JWT** token
-    - backend:
-      - integration with **federated Identity provide** - Okta,fb,google,SAML,OIDC
+    - Authenticate through:
+      - integration with **federated Identity provide** - Okta,fb,google,
+      - SAML
+      - OIDC
+      - Microsoft AD , LDAP
       - own serverless database of user/s
       
 ## 2. **hosted UI** :point_left:
@@ -34,10 +37,17 @@
 - if it looks suspicious, then prompted for MFA
 - in case of compromised credential, takeover to email/phone confirmation
 
-## 5. Integration
-- **ALB** 
-- **API-gateway**
-- ![img_3.png](../99_img/moreSrv/api-gateway/img_3.png)
+## 5. Integration example
+
+### 1 **API-gateway**
+![img.png](../99_img/dva/cognito/02/img.png)
+
+### 2.1 **ALB** (high level)
+![img_1.png](../99_img/dva/cognito/02/img_1.png)
+
+### 2.2 **ALB** (with OIDC)
+- ![img_2.png](../99_img/dva/cognito/02/img_2.png)
+- ![img_3.png](../99_img/dva/cognito/02/img_3.png)
 
 ---
 # B. Cognito : Identity pool
