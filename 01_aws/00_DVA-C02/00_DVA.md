@@ -152,9 +152,17 @@
 - [01_IAM.md](../06_Security/01_IAM.md)
 - [01_SSO+DirectoryService.md](../06_Security/01_SSO%2BDirectoryService.md)
 
-## Section 30 : `security: KMS,SSM` :green_circle:
-- [04_KMS.md](../06_Security/04_1_KMS_SSA)
+## Section 30 : `security: KMS,SSM,Secretmanager` :green_circle:
+- [04_1_KMS_SSA.md](../06_Security/04_1_KMS_SSA.md)
+- [04_2_KMS_DVA-cli.md](../06_Security/04_2_KMS_DVA-cli.md)
+- [04_3_KMS+HSM_DVA-more.md](../06_Security/04_3_KMS%2BHSM_DVA-more.md)
 - [05_SSM-param-store.md](../06_Security/05_SSM-param-store.md)
+- [06_secret_manager.md](../06_Security/06_secret_manager.md)
+- more (SSA)
+  - [07_ACM.md](../06_Security/07_ACM.md)
+  - [08_WAF + FirewallManager.md](../06_Security/08_WAF%2BFirewallManager.md)
+  - [09_sheild.md](../06_Security/09_sheild.md)
+  - [99_more_securiy_services_for_SSA.md](../06_Security/99_more.md)
 
 ## Section 31 : `other services` :red_circle:
 ### DVA
