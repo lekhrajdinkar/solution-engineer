@@ -23,25 +23,27 @@
   - organize data in S3 like `/year/month/day/hr/...` then scan by date.
   
 ---
-## 3. Sata Source
+## 3. Data Source
 - can load data from below source into athena
 - Athena will scan,query, analyze data using SQL
 
 
-### 3.1 S3
+### 3.1 `S3`
 - S3 object:csv,json,avro,parquet(columnar format), 
   - vpc-logs
   - elb-logs
   - cloudtrail
+  - ...
   
     
-### 3.2 database
+### 3.2 `database`
 - on-prem/aws (relational/NoSQL) --> **aws-glue** --> parquet
   
-### 3.3 kineses data steam
+### 3.3 `KDS` - kineses data steam
   
-### 3.4 DataSource `Connector`
-- AWS Lambda to run Federated Queries on RDS,CW,DynamoDB,etc
+### 3.4 `DataSource Connector`
+- backed by `AWS Lambda`
+  - to run **Federated Queries** on RDS,CW,DynamoDB,etc to load data into athena.
 - ![img_1.png](../99_img/moreSrv/athena/img_1.png)
 ---
 ## 99. hands on
