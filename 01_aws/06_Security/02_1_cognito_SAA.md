@@ -12,8 +12,8 @@
     - send email to user. SES
     - **JWT** token
     - Authenticate through:
-      - integration with **federated Identity provide** - Okta,fb,google,
-      - SAML
+      - integration with **federated Identity provide** - Okta,fb,google (social login)
+      - SAML (corporate login)
       - OIDC
       - Microsoft AD , LDAP
       - own serverless database of user/s
@@ -50,10 +50,40 @@
 - ![img_3.png](../99_img/dva/cognito/02/img_3.png)
 
 ---
-# B. Cognito : Identity pool
-- help to provide `temp AWS credential ( with fine grain permission)`, so outside user access aws resource directly.
-- once user is signed-in with `Cognito : user pool` or `3rd party login`
-- then, they exchange `auth token` with `AWS credential` 
-- ![img_4.png](../99_img/moreSrv/api-gateway/img_4.png)
+# B. Cognito Identity pool
+- authorization.
+## 1 Intro
+- **once user is authenticated** with any of these,
+- then can get temp **AWS credential** by assuming **IAM role**, to access aws resource.
+  - role has trust policy.
+```yaml
+• Public Providers (Login with Amazon, Facebook, Google, Apple)
+• Users in an Amazon Cognito user pool
+• OpenID Connect Providers & SAML Identity Providers
+• Developer Authenticated Identities (custom login server)
+• Cognito Identity Pools allow for unauthenticated (guest) access
+```
+- ![img_2.png](../99_img/moreSrv/api-gateway/img_2.png)
+
+---
+## 2 IAM policy example
+### access s3
+![img.png](../99_img/dva/cognito/03/img.png)
+
+### access dynamoDB
+![img_1.png](../99_img/dva/cognito/03/img_1.png)
+
+---
+## 3 hands on
+- **configure permission** (create IAM role/s - 1, 2,3 ...)
+  - ![img_2.png](../99_img/dva/cognito/03/img_2.png)
+- connect to **user pool** (ID provider)
+  - ![img_3.png](../99_img/dva/cognito/03/img_3.png)
+- **create rule** to choose role, based on :
+  - claims in token 
+  - user-attribute set is user pool
+- next, use SDK check doc.
+
+
 
 

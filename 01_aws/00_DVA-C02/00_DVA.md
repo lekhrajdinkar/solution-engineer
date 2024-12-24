@@ -140,7 +140,7 @@
 ## Section 26 : `CDK` :green_circle:
 - [26_CDK.md](26_CDK.md)
 
-## Section 27 : `Cognito` :yellow_circle:
+## Section 27 : `Cognito` :green_circle:
 - [02_1_cognito_SAA.md](../06_Security/02_1_cognito_SAA.md)
 
 ## Section 28 : serverless more: `Step function, AppSync, Amplify` :green_circle:
