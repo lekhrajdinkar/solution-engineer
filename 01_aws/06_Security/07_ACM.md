@@ -4,8 +4,8 @@
 - private
 - public 
 
-## 2. generate certification
-### ACM
+## 2. Generate certificate
+### internal / ACM
 - ACM generate cert
 - import to ACM
 - Auto-renew in `60 days ` before.
@@ -19,7 +19,7 @@
   - *.aws.org.com
 - import to ACM
 
-## validation method
+## 3. certificate: Validation method
 - **email** : ?
 - **dns** 
   - just, create `cname` entry in R53 with above dns
@@ -29,7 +29,7 @@
   - `AWS-Config > rule:acm-cert-expiracy-check` --> change days from 45 to something else.
   - Also, add event-bridge rule to catch daily/monthly expiration events.
 
-## ACM:integration with services    
+## 4. ACM: integration with services    
 - **CloudFront** 
 - **R-53**
 - **ELB** : ALB, NLB, ... 
