@@ -1,18 +1,16 @@
 # OpenSearch
-- load data from source and perform `search+analysis`
-- Sources:
-  - CloudWatch
-  - dynamoDB stream
-  - kinesis Data stream
-  - ...
+## 1. Intro
+- old name - **ElasticSearch**
+- load data from source and perform **search and analysis**
 
-## Use case : dynamoDB Data stream
-- dynamoDB --> search by `primary key` only.
-- dynamoDB --> search by `any feild/attribute, partial match` : use OpenSearch
+## 2. Sources
+### 2.1 DynamoDB Data stream
+- search by **primary key** (partition + sort)
+- perfotm search by **any attribute** then use OpenSearch
 - ![img.png](../99_img/moreSrv/openSearch/img.png)
 
-## Use case : CloudWatch
+### 2.2 CloudWatch
 ![img_1.png](../99_img/moreSrv/openSearch/img_1.png)
 
-## Use case : kinesis Data stream
+## 2.3 kinesis Data stream
 ![img_2.png](../99_img/moreSrv/openSearch/img_2.png)
