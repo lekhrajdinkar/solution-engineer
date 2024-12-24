@@ -8,7 +8,7 @@
 - **result** goes to:
   - S3 
   - Amazon QuickSight (dashboard) 
-  - Tableau
+  - `Tableau`
   - ...
 
 --- 
@@ -32,11 +32,9 @@
   - faster-aggregation
   - uses indexes + Columnar storage
 
-![img.png](../99_img/moreSrv/redshift/img.png)
-
 ![img_3.png](../99_img/moreSrv/redshift/img_3.png)
 
-
+---
 ## 4. cross-referencing
 - Analysts can use Redshift SQL queries to access both :
   - **Redshift tables** (`recent` data) 
