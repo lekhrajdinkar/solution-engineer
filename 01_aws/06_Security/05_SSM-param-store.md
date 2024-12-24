@@ -4,14 +4,16 @@
 - serverless, fully managed
 - **parameter-store**
   - organize in structure/hierarchy pattern
-  - versioning enabled.
+  - versioning enabled. :point_left:
   
 - **integration** with:
   - **CloudFormation** : template can read configs.
   - **IAM** : enforce restricted access.
   - **eventBidge** : get events from store actions like : add,delete,update,access,etc
   - **KMS** : security, encrypt/decrypt configs
-    - ![img.png](img.png)
+    - ![img.png](../99_img/dva/kms/04/img.png)
+    
+- `string`, `StringList`, `SecureString` (kms-key-1)
 
 ## 2. Type 
 ### 2.1. Standard `free`
@@ -23,9 +25,11 @@
 - each, max size - `8 KB` , 
 - **additional feature**
   - attach iam-policies for secured access.
-  - define TTL / auto delete parameter
+  - ![img_2.png](../99_img/dva/kms/04/img_2.png)
 - **pricing**
   - 5 cent/month
+
+![img_1.png](../99_img/dva/kms/04/img_1.png)
 
 --- 
 ## 3. use case
@@ -33,12 +37,26 @@
 - Store **secret**
   - ![img.png](../99_img/security/acm/img.png)
 
-```text
-aws public var: ami-amazon-linux-latest
-/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
+---
+## 4. CLI :books:
+```yaml
+aws ssm put-parameter \
+--name "/my-app/config/db-password" \
+--value "MySecurePassword123" \
+--type SecureString \
+--key-id "alias/my-kms-key"
 
-secret
-/aws/reference/secretsmanager/secret_ID_in_Secrets_Manager
+
+aws ssm get-parameter \
+--name "/my-app/config/db-password" \
+--with-decryption
+
+aws ssm get-parameters \
+--names "/my-app/config/db-password" "/my-app/config/db-username" \
+--with-decryption
+
+aws ssm delete-parameter \
+--name "/my-app/config/db-password"
 ```
 
 ---
