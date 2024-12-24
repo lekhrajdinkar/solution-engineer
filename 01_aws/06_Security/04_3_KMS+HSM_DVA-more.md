@@ -63,7 +63,7 @@
 
 ---
 
-# B. CloudHSM
+# B. CloudHSM : intro
 - **HSM** = `Hardware Security Module`
 - CloudHSM
   - service to provision HSM in **high-availability** / cluster
