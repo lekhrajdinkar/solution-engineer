@@ -168,3 +168,6 @@
 - use case and scenarios:
     - RDBMS / OLTP
     - `RDS event ntf` > event catch > target : SNS, Lambda
+
+## 99. extra
+![img.png](../99_img/dva/kms/05/imgrds.png)

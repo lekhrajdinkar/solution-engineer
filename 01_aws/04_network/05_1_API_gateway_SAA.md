@@ -132,7 +132,7 @@
   - integrate with 3rd party ID provider.
   - ![img_2.png](../99_img/dva/api-g/04/img_2.png)
 - **Authorization**
-  - API-g >> proxy >> lambda (resource policy for authorization) : point_left:
+  - API-g >> proxy >> lambda (resource policy for authorization) :point_left:
   
 ---  
 #### 1.4 Lambda Authorizer

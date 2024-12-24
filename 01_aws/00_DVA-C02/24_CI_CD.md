@@ -27,6 +27,10 @@
 
 ---
 ## 1. CodeBuild
+- can launch inside VPC-1
+- set **env var**
+  - reference from SSM + secret manager
+  - ![img_1.png](../99_img/dva/kms/05/img_1.png)
 - fully managed continuous integration (CI) service
 - **build project**:
   - add `buildspec.yaml` (root dir)

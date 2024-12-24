@@ -22,7 +22,7 @@
   - HTTP Headers
   - Cookies
   - Query Strings
-- Note: but cacheKey will be remain as per Cache Policy, (NOt on Origin request policy) : point_left:
+- Note: but cacheKey will be remain as per Cache Policy, (NOt on Origin request policy) :point_left:
 
 ![img_1.png](../99_img/CF/v2/img_1.png)
 

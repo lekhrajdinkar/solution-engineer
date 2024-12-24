@@ -92,6 +92,17 @@
 - ![img.png](../99_img/dva/monitor/img3.png)
 
 --- 
+## 9 `encrypt log`
+- at **log-group** level
+- can create loggroup with KMS encryption
+- can also associate existing loggroup with kms key :point_left:
+  - using CLI
+    - **aws logs associate-kms-keys** --log-group-name --kms-key-id --region
+  - not from console.
+- Dont forgget to update key policy as well, to allow loggroup.
+- ![img.png](img.png)
+
+--- 
 ## ??
 - **dashboard**
   - insight-rule-1 to ingest dashboard data

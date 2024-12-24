@@ -175,6 +175,10 @@ Resources:
 - ...
 
 ---
+### 7. input from SSM + secretManager
+![img.png](../99_img/dva/kms/05/img.png)
+
+---
 ### 99. more
 #### **stackUpdate** 
   - `success`

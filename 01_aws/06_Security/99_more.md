@@ -32,6 +32,16 @@
 
 ![img_3.png](../99_img/security/others/img_3.png)
 
+
 ---
-- later on, event-bridge --> event capture and target to SNS,Lambda 
-  
+# D. Nitro Enclave
+- **isolated compute environment**
+  - to process highly sensitive data
+    - PII
+    - healthcare
+    - financial
+    - ...
+
+![img.png](../99_img/dva/kms/05/img-vdsvevev.png)
+
+---

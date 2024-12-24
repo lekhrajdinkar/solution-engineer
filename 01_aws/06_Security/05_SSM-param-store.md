@@ -34,6 +34,7 @@
 --- 
 ## 3. use case
 - Store **IAM policy**
+- Store config data for CloudFormation, Codebuild,etc
 - Store **secret**
   - ![img.png](../99_img/security/acm/img.png)
 
