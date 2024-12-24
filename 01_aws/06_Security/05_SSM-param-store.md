@@ -1,35 +1,48 @@
-- store: secret --> `secret-manager > secret`
-- store: configuration --> `SSM > parameter-store`
----
-# SSM : parameter-store
-- type : 
-  - `standard`(free) : 10k params, each param max size - 4KB, `no policy feature`
-  - `advance` (5 cent/month) : 100K, 8k, attach `param-policies`, eg:
-    - define TTL / auto delete parameter
-    - restricted access to store.
+# SSM (serverless)
 
-- organize in structure/hierarchy pattern
-- versioning enabled.
-- encrypt it.
-
-- `reference to secret `
-  - > eg: /aws/`reference`/secretsmanager/secret_ID_in_Secrets_Manager
+## 1. Intro
+- serverless, fully managed
+- **parameter-store**
+  - organize in structure/hierarchy pattern
+  - versioning enabled.
   
-- `access aws public variable `
-  - > eg: /aws/`service`/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
+- **integration** with:
+  - **CloudFormation** : template can read configs.
+  - **IAM** : enforce restricted access.
+  - **eventBidge** : get events from store actions like : add,delete,update,access,etc
+  - **KMS** : security, encrypt/decrypt configs
+    - ![img.png](img.png)
 
-- has integration with:
-    - CDK>`CloudFormation` : template can read configs.
-    - `KMS` : security, encrypt/decrypt configs
-    - `IAM` : enforce restricted access.
-    - `eventBidge` : get events from store actions like : add,delete,update,access,etc
+## 2. Type 
+### 2.1. Standard `free`
+- `10k` params
+- each, max size - `4 KB`
+
+### 2.2 Advance `paid`
+- 100K params
+- each, max size - `8 KB` , 
+- **additional feature**
+  - attach iam-policies for secured access.
+  - define TTL / auto delete parameter
+- **pricing**
+  - 5 cent/month
+
 --- 
-## use case
-- #1. Store IAM policy inside store
-- #2. Store secret also inside store
+## 3. use case
+- Store **IAM policy**
+- Store **secret**
   - ![img.png](../99_img/security/acm/img.png)
 
-## Demo-1
+```text
+aws public var: ami-amazon-linux-latest
+/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
+
+secret
+/aws/reference/secretsmanager/secret_ID_in_Secrets_Manager
+```
+
+---
+## 99. hands on
 ```
 - create : /parent/child-1/param-1 - string
 - create : /parent/child-2/param-1 - SecuredString
@@ -56,4 +69,6 @@ aws cli :
       - allow read > ssm:path-/parent
       - allow kms : kms-key-1
 ```
+
+
 
