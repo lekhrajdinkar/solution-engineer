@@ -10,8 +10,8 @@
     - [02_Containers_ECS.md](../01_compute/02_Containers_ECS.md)
     - [02_Kubernetes_EKS.md](../01_compute/02_Kubernetes_EKS.md)
     
-  - **Step Functions** [28_STEP_FUNCTION.md](../00_DVA-C02/28_1_STEP_FUNCTION)
-  - **App Sync**  [28_AppSync.md](../00_DVA-C02/28_2_AppSync)
+  - **Step Functions** [28_STEP_FUNCTION.md](../01_compute/28_1_STEP_FUNCTION_DVA.md)
+  - **App Sync**  [28_AppSync.md](../01_compute/28_2_AppSync_DVA.md)
 
 ### security
   - AWS Cognito [02_cognito.md](../06_Security/02_1_cognito_SAA)

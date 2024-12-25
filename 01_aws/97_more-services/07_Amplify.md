@@ -1,4 +1,4 @@
-- DVA : [28_3_Amplify.md](../00_DVA-C02/28_3_Amplify.md)
+- DVA : [28_3_Amplify.md](../01_compute/28_3_Amplify_DVA.md)
 ---
 # Amplify
 

@@ -106,6 +106,7 @@ aws autoscaling describe-instance-refreshes --auto-scaling-group-name <ASG-name>
 ## C. ELB (regional)
 - **DNS name** : `XXXX.region.elb.amazonaws.com` 
 - public IP might change :point_left:
+- https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html
 
 ### `Proxy server` with additional feature
 - sits b/w client and backend-server. **hides** the backend server's IP address.

@@ -1,4 +1,16 @@
 # Step Function (serverless)
+-  https://aws.amazon.com/step-functions/
+
+## 0. intro
+- **function orchestrator** that makes it easy to sequence AWS Lambda functions and multiple AWS services into **business-critical applications**
+-  can create and run a series of checkpointed and event-driven workflows
+- output of one step acts as an input to the next
+- visual workflows
+- **Improve resiliency**
+  - manages state, checkpoints and restarts for you to make sure that your application executes in order and as expected.
+  - Built-in try/catch, retry and rollback capabilities deal with errors and exceptions automatically
+  
+--- 
 ## 1. State machine
 - model **workflow** as state-machine
   - from workflow studio / console UI
