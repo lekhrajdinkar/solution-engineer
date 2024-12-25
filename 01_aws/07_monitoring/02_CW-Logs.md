@@ -100,7 +100,7 @@
     - **aws logs associate-kms-keys** --log-group-name --kms-key-id --region
   - not from console.
 - Dont forgget to update key policy as well, to allow loggroup.
-- ![img.png](img.png)
+- ![img.png](../99_img/moreSrv/dva/img.png)
 
 --- 
 ## ??

@@ -1,16 +1,19 @@
 # ACM
 
 ## 1. certificate:
-- private
-- public 
+- **private**
+  - ![img.png](../99_img/dva/img-ca.png)
+  - cert can be used inside org
+- **public** 
+  - cert for public internet
 
 ## 2. Generate certificate
-### internal / ACM
+### by internal / ACM
 - ACM generate cert
 - import to ACM
 - Auto-renew in `60 days ` before.
   
-### External cert 
+### bt External provider
 - eg: **digicert**
 - generate cert for **FQDN** or with wildcard
   - dev1.outbound.aws.org.com,  
