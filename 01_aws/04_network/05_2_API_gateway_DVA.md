@@ -1,4 +1,6 @@
 # A. API-gateway - Stage :books:
+- url has **API ID** and **stage name**
+
 ## 1. Intro
 ![img.png](../99_img/dva/api-g/01/img.png)
 - once created API-g, need to deploy it on **stages**

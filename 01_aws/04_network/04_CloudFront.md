@@ -3,6 +3,8 @@
 - ![img.png](../99_img/CF/img.png)
 - ![img_2.png](../99_img/CF/img_2.png)
 - ![img_3.png](../99_img/CF/cf-2/img_3.png)
+- **1-2-M**
+  - one distribution - multiple origins
 
 ### key point
 - CDN **content delivery network**, cache data all around the world/countries
@@ -115,7 +117,16 @@
 - ![img_2.png](../99_img/CF/cf-2/img_2.png)
 
 ---  
+## D. signed URl / cookies
+- CloudFront supports two types of **signers** for creating signed URLs or cookies:
+  - `Trusted AWS Account Signers`
+  - `Key Pair Signers` (deprecated) :x:
+    - key pairs associated with the root AWS account
+  - `CloudFront key groups`
+    - **public key** is added to the **key group** in the CloudFront distribution settings
+    - The corresponding **private key** is securely stored by the developer or application creating signed URLs.
 
+---
 - Choosing Between ElastiCache and CloudFront:
   - If your goal is to improve the performance of database queries or store session data `in memory`, use Amazon ElastiCache. 
   - It is suited for scenarios where you need fast, in-memory data access.
