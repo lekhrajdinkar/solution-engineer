@@ -16,6 +16,7 @@
 - **side benefit**: 
   - integrated with AWS-shield (firewall)
     - protect from `DDoS` :point_left:
+- can also configure CloudFront to use HTTPS to get objects from your origin.
 ---
 ## A. Distribution
 ![img_1.png](../99_img/CF/img_1.png)
