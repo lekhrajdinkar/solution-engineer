@@ -26,29 +26,32 @@
     - no access/ssh
     - But `RDS custom` allow to access it  only for `SQL server` and `oracle` DB.
     - First disable automation mode, take snapshot, then access it
-    - R51DS custom, allow some customization capabilities of underlying DB and OS (limited)
+    - RDS custom, allow some customization capabilities of underlying DB and OS (limited)
 
 ### 2.2 High Availability
 - Supports Multi-AZ (Availability Zone) deployments for fault tolerance.
   - **az-1**-db-1 <-- `SYNC` replication --> **az-2**-db-1
 - Provides **automatic failover** in case of infrastructure or hardware failures.
-- Multi-AZ keeps the same connection endpoint url. :green_small_circle:
+- Multi-AZ keeps the same connection endpoint url. :point_left:
 
 
 ### 2.3 Scalability
-- Scaling involves resizing instances, which may require downtime.
-#### **Read-replica instance**
--`not built-in` scaling, but can manually create CW:alarm + ASG
-- ASG and CW alarm ( metric: conn count, cpu utilization, read traffic, etc)
-- or, manually edit and create read replication.
-- each Read Replicas add **new endpoints URL**, with their own DNS name :red_small_triangle:
-- usecase: analytics application
+#### scale `instance` (vertical)
+- Scaling involves resizing instances
+- which may require **downtime**.
 
-#### **storage**
-- Enable/Disable from console.
+#### **Read-replica instance** (horizontal)
+- `not built-in` scaling, but can manually create CW:alarm and ASG
+-  **metric**: conn count, cpu utilization, read traffic, etc --> CW alarm --> trigger ASG in/out
+- or, manually edit and create read replication.
+- each Read Replicas add **new endpoints URL**, with their own DNS name :point_left:
+  - use case: analytics application
+
+#### **Underlying Storage**
+- define 
+  - `thresold` ( maz-size in GB ) 
+  - `trigger`  eg: free space <10%, space runs last 5min, etc.
 - good for unpredictable workloads
-- set max storage in GB/TB.
-- define `thresold`/maz-size  +  `trigger` : free space <10%, space runs last 5min, etc.
 
 ### 2.4 performance
 - Uses SSD-based storage.
