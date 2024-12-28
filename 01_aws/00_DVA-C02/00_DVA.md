@@ -164,7 +164,7 @@
   - [09_sheild.md](../06_Security/09_sheild.md)
   - [99_more_securiy_services_for_SSA.md](../06_Security/99_more.md)
 
-## Section 31 : `other services` :red_circle:
+## Section 31 : `other services` :green_circle:
 ### DVA
 - [03_openSearch.md](../08_Analytics/03_openSearch.md)
 - **ses**: [02_SES+pinpoint.md](../97_more-services/02_SES%2Bpinpoint.md)
