@@ -2,26 +2,34 @@
   - https://chatgpt.com/c/675945a8-f8b8-800d-a789-e07e6db38e8d
 --- 
 # A. Choosing Right database
-- `Data model`
+## `Data model`
   - RDBMS / NoSQL
   - Joins? Structured? Semi-Structured?
   - Strong schema? More flexibility?
   - Reporting? Search?
     
-- `performance` : 
+## performance 
   - Throughput, 
   - Read-heavy, write-heavy, balanced workload
   - Latency requirements
   - Concurrent users?
   
-- `Size` :
+## Size
   - How much data to store and for how long? 
   - Will it grow? 
   - Average object size?
   
-- `availability (global DB), replicate, DR Support, backup/recovery`
-- `Security`
-- `cost`
+## availability (global DB) 
+- replicate
+- DR Support
+- backup/recovery
+- Aurora and DynamoDB are global database
+
+## Security
+  - MySQL + Postgres has IAM role based security
+
+## cost
+- 
 ---
 
 # B. AWS Database Offerings
@@ -36,7 +44,6 @@ Relational databases are designed to handle structured data with predefined sche
     - **PostgreSQL**
     - **MariaDB**
     - **Oracle**
-      - Does not support : IAM Database Authentication
     - **Microsoft SQL Server**
 - Features:
     - Automated backups and snapshots.
@@ -49,9 +56,9 @@ Relational databases are designed to handle structured data with predefined sche
     - **MySQL**
     - **PostgreSQL**
 - Features:
-    - Up to 5x performance of standard MySQL and 3x performance of standard PostgreSQL.
+    - Up to 5x performance of standard **MySQL** and 3x performance of standard **PostgreSQL**.
     - Automatic scaling.
-    - Fault-tolerant and self-healing.
+    - Fault-tolerant and self-healing
 
 ---
 
@@ -75,7 +82,7 @@ Non-relational databases are designed for unstructured or semi-structured data a
     - Ultra-low latency.
     - Ideal for caching, session management, and real-time analytics.
 
-### 3. **Amazon Neptune**
+### 3. **Amazon `Neptune`**
 - Fully managed graph database service.
 - Supports:
     - **Property Graph**
@@ -84,26 +91,26 @@ Non-relational databases are designed for unstructured or semi-structured data a
     - Optimized for graph queries.
     - High performance and scalability.
 
-### 4. **Amazon DocumentDB (with MongoDB compatibility)**
+### 4. **Amazon `DocumentDB` (with MongoDB compatibility)**
 - Fully managed document database service.
 - Compatible with **MongoDB**.
 - Features:
     - Purpose-built for JSON workloads.
     - High availability and durability.
 
-### 5. **Amazon Keyspaces (for Apache Cassandra)**
+### 5. **Amazon `Keyspaces` (for Apache Cassandra)**
 - Fully managed Cassandra-compatible database service.
 - Features:
     - Serverless.
     - Handles large-scale, time-series data.
 
-### 6. **Amazon Timestream**
+### 6. **Amazon `Timestream`**
 - Fully managed time-series database service.
 - Features:
     - Optimized for IoT and operational applications.
     - Query and analyze time-series data efficiently.
 
-### 7. **Amazon QLDB (Quantum Ledger Database)**
+### 7. **Amazon `QLDB` (Quantum Ledger Database)**
 - Fully managed ledger database.
 - Features:
     - Immutable and cryptographically verifiable transaction logs.
