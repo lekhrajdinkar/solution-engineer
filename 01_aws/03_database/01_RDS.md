@@ -45,7 +45,9 @@
 -  **metric**: conn count, cpu utilization, read traffic, etc --> CW alarm --> trigger ASG in/out
 - or, manually edit and create read replication.
 - each Read Replicas add **new endpoints URL**, with their own DNS name :point_left:
-  - use case: analytics application
+  - use case: 
+    - analytics application
+    - can run `Dashboard`, `Analytics` on read replicas.
 
 #### **Underlying Storage**
 - define 
@@ -61,10 +63,9 @@
   - cross-AZ, or
   - cross-region (paid replication)
 - main-DB --> `A-SYNC replication (free within region)` --> Read Replicas
-- tip: can run `Dashboard`, `Analytics` on read replicas.
 
 ### 2.5 DR support
--  `Point in Time Restore` : Continuous backups and restore to specific timestamp
+- **PITR** `Point in Time Restore` : Continuous backups and restore to specific timestamp
 #### **option-1: Stand-by replica**  
   - manually enable Multi AZ-setup for DR. not built-in.
   - master DB (az-1) --> `SYNC replica/free` --> Stand-by DB (az-2) : no R/W operation
