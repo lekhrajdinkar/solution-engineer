@@ -1,8 +1,18 @@
-# EC2: Storage
+# Storage
+- check these 3 aspects:
+  - `size`
+  - `iops` 
+    - read iops
+    - write iops
+  - `throughput`
+
+--- 
 ## A. EC2 instant-store
 ### Intro
-- better iops
-- risk of data loss if h/w fails | manual backup.
+- **better Read/write iops** :smile:
+  - high-performance hardware disk
+- risk of data loss if h/w fails 
+- **manual backup**
 - volume size is **fixed** 
   - determined by the EC2 instance type.
 - fact : AMIs do not preserve instance store data :point_left:
@@ -10,12 +20,13 @@
   - cannot be detached or reattached
 
 ---
-## B. EC2: Storage: `EBS` 
-![img.png](img.png)
+## B. EBS
+![img.png](../99_img/dva/storage/01/img.png)
 ### 1. Intro
 - **AZ bounded** :point_left:
 - Have **volumes**
-- **network drive** (bit latency, same az), attach to ec2-i
+- **network drive** (bit latency, same az) + **limited performance**
+- can be attach/dettach to ec2-i
 - persist data, even after their termination
 - only be mounted to **one instance** at a time. multiple volumes can be attached. `1-2-M`
 - **deleteOnTermination** 
@@ -26,34 +37,40 @@
 - `point in time` snapshot.
   - no need to detach volumn while taking snapshot, but recommended.
 - **cross az/region restore** :point_left:
-  - ![img_1.png](img_1.png)
+  - ![img_1.png](../99_img/dva/storage/01/img_1.png)
+- Build an AMI, will also create EBS snapshots :point_left:
 
 - store snapshot to **archive tier**
   - 75% cheaper, save cost
   - but restore time 24-72 hrs 
-  - ![img_3.png](img_3.png)
+  - ![img_3.png](../99_img/dva/storage/01/img_3.png)
   
 - accidental delete 
   - setup **recycle bin** with retention policy (1 day to 1 year)
-  - ![img_2.png](img_2.png)
+  - ![img_2.png](../99_img/dva/storage/01/img_2.png)
 
 - **Fast Snapshot Restore** (FSR)  
 
-### 3. security
-- encrypt at rest, both - **volume and screenshot** using KMS
+### 3. Security
+- encrypt at rest, both - **volume and snapshot** using KMS
 
-### 3. capacity planning
-- choose below Storage-groups: [ size, iops, throughput/tp]
-- `gp2` : `3 iops per GB` | size defines iops and tp | max- 16TB,    3k  iops, 125 Mbps
-- `gp3` : `flexible`. configure all 3 independently |  max- 16TB, 3k-16k iops, 1000 Mbps
+### 4. Types :books:
+- **gp2** 
+  - 3 iops per GB | size defines iops and tp | max- 16TB,    3k  iops, 125 Mbps
+- **gp3** 
+  - flexible. configure all 3 independently |  max- 16TB, 3k-16k iops, 1000 Mbps
   - System boot volumes, Virtual desktops, Development and test environments
-- `io2` : 64K iops | max- 16TB
-- `io3` : 256k iops | max- 64TB | supports -` multi attach`.
+- **io2** 
+  - 64K iops | max- 16TB
+- **io3** 
+  - 256k iops | max- 64TB | supports -` multi attach`.
   -  databases workloads
-- `HDD` :  max-500 iops | max-500 Mbps
+- **HDD** 
+  - max-500 iops | max-500 Mbps
   -  Big Data, Data Warehouses, Log Processing
-- `cold HDD` : max-250 iops | max-250 Mbps
-  -  data that is infrequently accessed
+- **cold HDD** 
+  - max-250 iops | max-250 Mbps
+  - data that is infrequently accessed
 
 ```
 General Purpose SSD (gp3):
@@ -77,9 +94,8 @@ Cold HDD (sc1):
 - Use Case: Infrequently accessed data with lower cost requirements.
 ```
 
-
 ---
-## C. EC2: Storage: `EFS`
+## C. EFS
 - uses `POSIX` file system + standard POXIS API
 - `3x times expensive` than EBS, because:
   - `no capacity planning`, auto-Scale in Size(PB) and auto/manual adjust performance.
