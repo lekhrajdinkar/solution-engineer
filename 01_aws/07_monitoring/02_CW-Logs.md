@@ -2,9 +2,10 @@
 - https://www.udemy.com/course/aws-certified-developer-associate-dva-c01/learn/lecture/37910042#overview
 --- 
 # Cloudwatch : `logs` :books:
-- **expiration** policies
+- **expiration** policies (defined at `log-group` level)
   - never expire
   - set 1 day to 10 years
+  - CloudWatch **Logs do not expire** unless a retention policy is set. :point_left:
 - logs are **encrypted** by KMS
 
 ## 1 `log group`

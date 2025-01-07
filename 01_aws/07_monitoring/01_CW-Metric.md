@@ -9,6 +9,9 @@
   - `default` : 5 min.
   - `standard` : 1 min
   - `high` : 1/5/10/30 sec
+    - A CloudWatch Alarm set on a High-Resolution Custom Metric, can be triggered as often as every `10 seconds`. :point_left:
+    - **high-resolution `alarm`** with a period of `10 seconds or 30 seconds` 
+      - or you can set a regular alarm with a period of any multiple of `60 seconds`
   
 ### 1. Inbuilt metric
 - metric enabled by default.
@@ -90,6 +93,9 @@ aws cloudwatch put-metric-data \
 
 ---
 ## extra
+### CLI
+- **PutMetricData** : push custom metric data, eg: RAM
+
 ### metric collected by `CW unified agent`
 - installed on on-prem/Ec2.
 - **metric** (just for idea, not for exam) :point_left:

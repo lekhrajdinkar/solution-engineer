@@ -47,4 +47,16 @@
 
 ```
 
+## Cli
+- **set-alarm-state**
+```
+This is particularly useful for testing purposes or manually managing alarm 
+
+aws cloudwatch set-alarm-state \
+    --alarm-name <alarm-name> \
+    --state-value <state-value> \  # OK, ALARM, or INSUFFICIENT_DATA
+    --state-reason "<reason>"
+
+```
+
 

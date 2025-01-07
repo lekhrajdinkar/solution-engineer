@@ -19,13 +19,13 @@
     - Prometheus 
     - Jaeger
     - ...
-    - mutliple destintion :smile:
-
-- app --> `aws x-ray sdk` -->  sends data to x-ray (single destintion)
-- app --> `open telemetry lib ` --> multiple destintion/s
+    - **mutliple destintion** :smile:
+      - app --> `aws x-ray sdk` -->  sends data to x-ray (single destintion)
+      - app --> `open telemetry lib ` --> multiple destintion/s
 
 ---
-# B. AWS Distro 
+# B. AWS Distro  
+## Intro
 - Secure, production-ready AWS-supported distribution of OpenTelemetry project
 - Auto-instrumentation Agents to collect traces without changing your code
 - Send traces and metrics to :
