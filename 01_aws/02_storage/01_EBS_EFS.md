@@ -11,6 +11,8 @@
 ### Intro
 - **better Read/write iops** :smile:
   - high-performance hardware disk
+  - depends on ec2-i family type.
+  - ![img.png](../99_img/dva/storage/01/img99.png)
 - risk of data loss if h/w fails 
 - **manual backup**
 - volume size is **fixed** 
@@ -55,21 +57,29 @@
 - encrypt at rest, both - **volume and snapshot** using KMS
 
 ### 4. Types :books:
-- **gp2** 
-  - 3 iops per GB | size defines iops and tp | max- 16TB,    3k  iops, 125 Mbps
-- **gp3** 
-  - flexible. configure all 3 independently |  max- 16TB, 3k-16k iops, 1000 Mbps
-  - System boot volumes, Virtual desktops, Development and test environments
-- **io2** 
-  - 64K iops | max- 16TB
-- **io3** 
-  - 256k iops | max- 64TB | supports -` multi attach`.
-  -  databases workloads
-- **HDD** 
-  - max-500 iops | max-500 Mbps
-  -  Big Data, Data Warehouses, Log Processing
-- **cold HDD** 
-  - max-250 iops | max-250 Mbps
+- **General Purpose SSD**
+  - **gp2**  
+    - size defines iops --> `3 iops / GB`    
+    - max -->  `16TB | 3K iops | 125 MB/s`
+  - **gp3** 
+    - max -->  `16TB | 16k iops | 1000 MB/s`
+    - System boot volumes, Virtual desktops, Development and test environments
+    - Balanced price/performance for a wide variety of workloads
+    
+- **Provisioned IOPS SSD**
+  - **io2** 
+    - max -->  `16TB | 64k iops | 1000 MB/s`
+  - **io3** 
+    - max -->  `64TB | 256k iops | 4000 MB/s`
+    - supports multi attach :point_left:
+    - databases workloads
+    
+- **HDD**  / Throughput Optimized HDD
+  - max -->  `? | 500 iops | max-500 MB/s`
+  - Big Data, Data Warehouses, Log Processing
+  
+- **cold HDD**  
+  - max --> `? | 250 iops | max-250 MB/s`
   - data that is infrequently accessed
 
 ```
