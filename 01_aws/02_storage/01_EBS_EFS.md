@@ -1,10 +1,10 @@
 # Storage
 - check these 3 aspects:
-  - `size`
+  - `size` (capacity)
   - `iops` 
     - read iops
     - write iops
-  - `throughput`
+  - `throughput` (MB/s)
 
 --- 
 ## A. EC2 instant-store
@@ -72,6 +72,7 @@
   - **io3** 
     - max -->  `64TB | 256k iops | 4000 MB/s`
     - supports multi attach :point_left:
+      - max - 16 ec2-i
     - databases workloads
     
 - **HDD**  / Throughput Optimized HDD
@@ -105,20 +106,33 @@ Cold HDD (sc1):
 ```
 
 ---
-## C. EFS
-- uses `POSIX` file system + standard POXIS API
-- `3x times expensive` than EBS, because:
-  - `no capacity planning`, auto-Scale in Size(PB) and auto/manual adjust performance.
-  - supports `multi-AZ`/Regional +  singleAZ
-  - attach to multiple EC2 ( Linux based AMI only)
-  - high performance : 3GBps/R , 1GBps/W
-  - can save cost with `storage class`.
+## C. EFS (regional)
+### Intro
+- **high availability** Managed NFS (network file system)
+- protocol    : **NFSv4**
+- file system : **POXIS**
+- **3x times expensive** than EBS(gp2), because:
+  - no capacity planning
+    - auto-Scale in Size(PB) 
+    - auto/manual adjust performance.
+  - supports 
+    - multi-AZ (Regional)  :point_left:
+    - single AZ
+    - ![img.png](img.png)
+    - attach to multiple EC2 ( **Linux based AMI** only) :point_left:
+  - high performance 
+    - Read - `3 GB / s`
+    - Write - `1 GB / s`
 
-- `usecase` :  content management, web serving, data sharing, Wordpress, big data, media processing.
+- **use case**
+  - content management, web serving, data sharing, Wordpress, big data, media processing.
     
 ### storage class
-- lifecycle policy to move between : `standard` >> Infrequent-Access/`EFS-IA`(after n1 days) >> `Archive`((after n2 days)) 50%
-- same like s3.
+- **lifecycle policy** to move between 
+  - **standard** 
+  - **Infrequent-Access** (after n1 days) 
+  - **Archive** ((after n2 days)) 50%
+- same like in s3.
 
 ### performance Mode
 - `general-purpose`( default)
@@ -137,15 +151,11 @@ Cold HDD (sc1):
     - If your workloads require even higher and consistent throughput
     - allows you to specify the throughput you need, independent of the amount of data stored.
   
-### Max limit
--  storage size : (auto scale to `Petabyte`-scale)
--  R/W max speed : `3GiB/s for R` and `1GiB/s for W`
-
 ### Security
 - choose VPC/subnet >  add `sg`
 - Encryption at rest using `KMS` + enable/disable automatic backup
 
-### demo:
+### hands on
   ```
   - Create EFS `efs-1` + efs-sg-1
   - Ec2-i1 and i2 : launch instance > attach efs-1
