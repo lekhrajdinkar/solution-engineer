@@ -104,7 +104,6 @@ Cold HDD (sc1):
 - Throughput: Up to 250 MB/s.
 - Use Case: Infrequently accessed data with lower cost requirements.
 ```
-
 ---
 ## C. EFS (regional)
 ### Intro
@@ -134,23 +133,48 @@ Cold HDD (sc1):
   - **Archive** ((after n2 days)) 50%
 - same like in s3.
 
-### performance Mode
-- `general-purpose`( default)
+---
+### EFS Throughput Modes
+- **Bursting Throughput** ( default)
+  - throughput scales with file system size
+
+- **elastic Throughput**
+  - throughput scale regardless of size
+  - auto-scale with the best performance. (R/recommended)
+
+- **provisioned Throughput**
+  - manually configure throughput.
+  - If your workloads require even higher and consistent throughput
+  - allows you to specify the throughput you need, independent of the amount of data stored.
+
+| **Category**          | **Option**              | **Description**                                                                                  | **Best For**                           |
+|------------------------|-------------------------|--------------------------------------------------------------------------------------------------|-----------------------------------------|
+| **Performance Modes**  | **General Purpose**     | Low latency, limited concurrency, fixed throughput per client.                                  | Latency-sensitive workloads.            |
+|                        | **Max I/O**            | Higher latency, massive concurrency, elastic throughput scaling.                                | High-concurrency workloads.             |
+| **Throughput Modes**   | **Bursting Throughput** | Default mode; scales with file system size.                                                     | Variable workloads with spiky demand.   |
+|                        | **Provisioned**        | Fixed throughput, independent of file system size.                                              | Consistent high-throughput workloads.   |
+|                        | **Elastic Throughput** | Automatically scales throughput to match workload needs (Enhanced Mode).                       | Unpredictable or spiky workloads.       |
+
+
+---
+### EFS Performance Mode
+- **general-purpose** ( default)
   - **low-latency** operations :)
-  - lower throughput and is not ideal for highly parallelized big data processing tasks.
+  - lower throughput
+  - and is not ideal for highly parallelized/concurrent big data processing tasks.
   
-- `max I/O` 
-  - Highly parallelized applications and **big data workloads** that require higher throughput.
-  -  supports thousands of concurrent connections and higher I/O operations.
-  - slightly **higher latencies** compared to the General Purpose mode :(
-  
-- `enhanced` : throughput scale regardless of size
-  - `elastic` : auto-scale with the best performance. (R/recommended)
-  - `provision` :  
-    - manually configure throughput.
-    - If your workloads require even higher and consistent throughput
-    - allows you to specify the throughput you need, independent of the amount of data stored.
-  
+- **max I/O** 
+  - Highly `parallelized` applications and **big data workloads** that require higher throughput.
+  -  supports thousands of `concurrent` connections and higher I/O operations.
+  -  **higher latencies**
+  - higher throughput
+
+| **Performance Mode** | **Latency**      | **Throughput Scaling**     | **Concurrency**               | **Best For**                  |
+|-----------------------|------------------|-----------------------------|--------------------------------|--------------------------------|
+| **General Purpose**   | Low             | Fixed limits per instance   | Few to hundreds of clients     | Latency-sensitive applications |
+| **Max I/O**           | Slightly higher | Elastic with client numbers | Thousands of clients           | High-concurrency workloads     |
+
+---  
 ### Security
 - choose VPC/subnet >  add `sg`
 - Encryption at rest using `KMS` + enable/disable automatic backup
