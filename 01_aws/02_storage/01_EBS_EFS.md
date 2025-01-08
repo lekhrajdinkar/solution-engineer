@@ -1,3 +1,6 @@
+- https://chatgpt.com/c/677dbc0a-3414-800d-8960-b0d969c9ffda
+  - ebs,efs,Fxs,snowball
+---
 # Storage
 - check these 3 aspects:
   - `size` (capacity)
