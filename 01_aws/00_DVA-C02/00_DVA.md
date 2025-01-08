@@ -69,7 +69,7 @@
 
 ## Section 11,13,14 - `S3` :green_circle:
 - [03_S3-1.md](../02_storage/03_S3-1.md)
-- [03_S3-2.md](../02_storage/03_S3-2.md)
+- [03_S3-2.md](../02_storage/03_S3-2-security)
 - [03_S3-3.md](../02_storage/03_S3-3.md)
 
 ## Section 15 - `CloudFront` :green_circle:

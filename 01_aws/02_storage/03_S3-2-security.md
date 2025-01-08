@@ -1,21 +1,12 @@
-# S3 : Security
-- At account level can enable/disable `public` flag
-- Make Non-public + set `Bucket-policies` (json)
-  - json-1: enforces encryption ate rest
-    - allow/deny : putObject on bucket-1, if condition : sse-kms=true
-  - json-2 : enforce SSL or encryption at fly
-    - allow/deny : putObject on bucket-1, if condition: secureTransport=true
+
+
     
 - Enable `server-access-log` :
   - s3-bucket-1 > properties > access log  --> choose `another bucket-2` and log-format(default)
   - Also, this will auto-update `bucket-policies`
     - allow logging : bucket-1
     - allow putObject/logfile : bucket-2
-    
-- `temp access` on object : 
-  - generated from UI/cli a `Pre-signed URL` and share. set `expiry`
   
-- `s3:access point` simplifies security mgt
 
 - `VPC-endpoint/interface(to access s3)` --> `s3:access-point` --> `bucket:selected-object` 
   - notice `policy` attached to all.
@@ -29,10 +20,7 @@
 - ![img_2.png](../99_img/storage/s3-1/img_2.png)
 - ![img_3.png](../99_img/storage/s3-1/img_3.png)
 
----
-## B. ACL
-- `Object ACL`
-- `bucket ACL`
+
 
 ---
 ## C. CORS
@@ -88,9 +76,9 @@ MFADelete=disabled
 ---
 # More
 ## ScreenShot
-- ![img_1.png](../99_img/storage/s3-3/img_1.png)
-- ![img_2.png](../99_img/storage/s3-3/img_2.png)
-- ![img_3.png](../99_img/storage/s3-3/img_3.png)
+- 
+- 
+- 
 - ![img_4.png](../99_img/storage/s3-3/img_4.png)
 - CORS:
 - ![img_5.png](../99_img/storage/s3-3/img_5.png)
