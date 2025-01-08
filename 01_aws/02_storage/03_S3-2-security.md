@@ -1,12 +1,7 @@
+- ![img_3.png](../99_img/storage/s3-3/img_3.png)
+- ![img_2.png](../99_img/storage/s3-3/img_2.png)
+- ![img_1.png](../99_img/storage/s3-3/img_1.png)
 
-
-    
-- Enable `server-access-log` :
-  - s3-bucket-1 > properties > access log  --> choose `another bucket-2` and log-format(default)
-  - Also, this will auto-update `bucket-policies`
-    - allow logging : bucket-1
-    - allow putObject/logfile : bucket-2
-  
 
 - `VPC-endpoint/interface(to access s3)` --> `s3:access-point` --> `bucket:selected-object` 
   - notice `policy` attached to all.
@@ -15,12 +10,8 @@
 ## A.Scenarios
 - aws1:`iam-principle` --> `aws2`:s3-bucket1/obj-1 : `cross acct access`
 - principle: IAM-user  + federated use, aws-service, role
-- ![img.png](../99_img/storage/s3-1/img.png)
-- ![img_1.png](../99_img/storage/s3-1/img_1.png)
-- ![img_2.png](../99_img/storage/s3-1/img_2.png)
-- ![img_3.png](../99_img/storage/s3-1/img_3.png)
 
-
+- 
 
 ---
 ## C. CORS
@@ -82,3 +73,39 @@ MFADelete=disabled
 - ![img_4.png](../99_img/storage/s3-3/img_4.png)
 - CORS:
 - ![img_5.png](../99_img/storage/s3-3/img_5.png)
+---
+
+---
+## 99. S3: hands on
+```  
+  - create bucket - bucket-1-us-west-2, will be created in all AZ.
+  - disable : ACL, , versioning
+  - enable : public access + attach BUCKET POLICIES (read from any principle, resource:*)
+  - encryption: SSE-S3 *, SSE-KMS, DSSE-KMS
+  - upload png file
+  - https://bucket-1-us-west-2.s3.us-west-2.amazonaws.com/Screenshot+2024-07-16+002401.png
+  - inspect : 
+      - Open link --> `s3 pre-signed url`, credential-info are encode in url.
+      - access with public-url :  failed | ok after making public.
+  - static website hoisting : enable on bucket + index.html
+    - endpoints: https://bucket-1.s3-website.region.amazon.com
+    
+  // Replication
+  - create another  buvket-2-us-west-1
+  - create replication rule:
+    - add target bucket : bucket-1-us-west-2
+    - enable versionsing
+    - craete new IAM
+    
+  // storage classes:
+  - bucket-1 > mgt > create Life Cycle rule
+    - select object: ALL /  by-prefix/suffix / by-tag
+    - create transistion Rule/s
+      - rule-1 : move from class1 to clas2 after xxdays
+      - ...
+      - ... 
+    - -create deletion Rule/s
+      - delete old version/s
+      - delete all version/s
+      - mark for delete
+     
