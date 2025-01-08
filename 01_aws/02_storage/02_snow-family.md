@@ -7,18 +7,16 @@
   - large data cloud migrations, 
   - DC decommission, 
   - disaster recovery
-- transfer options:
-  - transfer over the **network**
-    - stable direct connect n/w
-    - cost-effective, compared to public internet.
     
-  - **Snowball devices** (offline portable devices)
-    - Snowball Edge **Storage** Optimized : `80/210 TB ` | `80 GB RAM, 40 cpu`
-    - Snowball Edge **Compute** Optimized : `42/28 TB` | `416 GB RAM, 104 cpu`
-    - post device :point_left:
-    - send/upload to/from:
-      - **block volume** / EBS
-      - **object storage** / S3 / but not glacier storage class :point_left:
+- **Snowball devices** (offline portable devices)
+  - Snowball Edge **Storage** Optimized : `80/210 TB ` | `80 GB RAM, 40 cpu`
+  - Snowball Edge **Compute** Optimized : `42/28 TB` | `416 GB RAM, 104 cpu`
+  - post device :point_left:
+  - send/upload to/from:
+    - **block volume** / EBS
+    - **object storage** / S3 / but not glacier storage class :point_left:
+  - next, transfer over the stable **directconnect network** to destination acct's s3 / ebs
+
   
 ![img.png](../99_img/storage/snow/img.png)
 
