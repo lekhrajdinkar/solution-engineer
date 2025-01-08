@@ -176,8 +176,9 @@
   - alias1 --> version 1,2...
   - alias1 --> :x: --> alias-2
   - **weight alias** (`canary model`)
-    - alias1 --> 90% --> v1
-    - alias1 --> 10% --> v2
+    - alias1 (1-2-M)
+      - 90% --> v1
+      - 10% --> v2
 - eg:
   - ![img.png](../99_img/dva/l/02/imgV.png)
 
