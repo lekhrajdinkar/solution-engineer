@@ -15,6 +15,7 @@
   - send/upload to/from:
     - **block volume** / EBS
     - **object storage** / S3 / but not glacier storage class :point_left:
+      - ![img.png](../99_img/storage/snow/img-6.png)
   - next, transfer over the stable **directconnect network** to destination acct's s3 / ebs
 
   
@@ -49,9 +50,7 @@
 
 ---
 ### summary
-- ![img_1.png](../99_img/storage/snow/img_1.png)
-- ![img.png](../99_img/storage/snow/img-6.png)
-- 
+![img_1.png](../99_img/storage/snow/img_1.png)
 
 ---
 ## B. SNOW : Edge computing
