@@ -7,6 +7,7 @@
   - on-prem ( for networking : `vpn` or `directConnect`)  :point_left:
   - ec2-instance
 - KMS encrypted.
+- automated backup to S3 :point_left:
 
 ## 2. File System type +  protocol types
 - **File System type** (4):  Windows File System, Lustre (linux + cluster), ONTAP, OpenZFS
