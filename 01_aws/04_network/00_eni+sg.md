@@ -1,19 +1,27 @@
-# EC2: Network
+# Network
 
-## EC2: Network: ENI
-- Attach `elastic network card` to Ec2 - `flexible`
-- network fail-over :: if ec2-1 is down >> then launch ec2-2 and attach ENI from old instance to new.
-- bound to AZ.
+## ENI (elastic network card)
+- **AZ bound** :point_left:
+- create ENI independently and attach them on the fly to EC2,ALB,DB,etc
+- **flexible**
+  - if ec2-1 is down/failed 
+  - then launch new ec2-2 
+  - attach same ENI from old instance to new
 
-- contains/defines:
-  - speed info, eg 10Gbps
-  - `VPC` and subnet
-  - one IP public + one MAC address.
+- **eni Defines**:
+  - up/down speed
+  - VPC
+  - subnet
+  - one IP public 
+    - machine restarted, then it gets changed
+    - use elastic IP then.
+  - one MAC address.
   - one private (primary) + many secondary private IP
-  - elastic IP
-  - Security groups.
-
-- > `elastic-IP` vs  ( random Public IP + DNS ) better vs ELB/LB
+  - **elastic IP**
+    - only have `5 Elastic IP ` in your account
+    - try to avoid using Elastic IP
+      - alternative : random Public IP + DNS entry
+  - **Security groups**.
 
 ---
 ## EC2: Network: Security group (regional)
