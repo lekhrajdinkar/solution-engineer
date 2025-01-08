@@ -2,7 +2,7 @@
  
 ## A. snowball : Data Migration
 
-### A.1 Snowball `Edge`
+### A.1 Snowball `Edge` (offline)
 - Use cases
   - large data cloud migrations, 
   - DC decommission, 
@@ -11,7 +11,7 @@
 - **Snowball devices** (offline portable devices)
   - Snowball Edge **Storage** Optimized : `80/210 TB ` | `80 GB RAM, 40 cpu`
   - Snowball Edge **Compute** Optimized : `42/28 TB` | `416 GB RAM, 104 cpu`
-  - post device :point_left:
+  - post device 
   - send/upload to/from:
     - **block volume** / EBS
     - **object storage** / S3 / but not glacier storage class :point_left:
@@ -22,7 +22,7 @@
 ![img.png](../99_img/storage/snow/img.png)
 
 ---
-### A.2 Snowball `Cone`
+### A.2 Snowball `Cone` (offline + online)
 - Small, portable, light (2 kg) devices
 - type:
   - **Snowcone** –  `8 TB HDD`  | `4 GB RAM, 2cpu`
