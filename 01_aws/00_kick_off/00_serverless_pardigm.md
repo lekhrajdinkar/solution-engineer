@@ -24,8 +24,8 @@
 - AWS API Gateway [05_API_gateway.md](../04_network/05_1_API_gateway_SAA)
 - Amazon S3
   - [03_S3-1.md](../02_storage/03_S3-1.md)
-  - [03_S3-2.md](../02_storage/03_S3-2-security)
-  - [03_S3-3.md](../02_storage/03_S3-3.md)
+  - [03_S3-2.md](../02_storage/03_S3-2-more)
+  - [03_S3-3.md](../02_storage/03_S3-3-ACL)
 - AWS SNS  [02_SNS.md](../05_decoupling/02_SNS.md)
 - SQS [01_SQS.md](../05_decoupling/01_SQS.md)
 - AWS KDF [03_02_KDF_KinesisDataFirehose.md](../05_decoupling/03_02_KDF_KinesisDataFirehose.md)
