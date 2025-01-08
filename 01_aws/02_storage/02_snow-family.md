@@ -3,45 +3,57 @@
 ## A. snowball : Data Migration
 
 ### A.1 Snowball `Edge`
-- `Use cases`: large data cloud migrations, DC decommission, disaster recovery
-- If it takes more than a week to transfer over the network, use Snowball devices!
-- challenges without snow:
-  - high aws network `cost`
-  - `connection` (limited/slow, shared bandwidth, not stable)
-  
-- `offline portable devices` to perform data migrations
-- collect and process data at the `edge`
-
-- supports both - `block volume` + `S3 object storage`
-- Type of devices (hdd/NVMe)
-  - Snowball Edge `Storage` Optimized : 80/210 TB  | `80 GB RAM, 40 cpu`
-  - Snowball Edge `Compute` Optimized : `42/28 TB` | `416 GB RAM, 104 cpu`
-- post/offline
+- Use cases
+  - large data cloud migrations, 
+  - DC decommission, 
+  - disaster recovery
+- transfer options:
+  - transfer over the **network**
+    - stable direct connect n/w
+    - cost-effective, compared to public internet.
+    
+  - **Snowball devices** (offline portable devices)
+    - Snowball Edge **Storage** Optimized : `80/210 TB ` | `80 GB RAM, 40 cpu`
+    - Snowball Edge **Compute** Optimized : `42/28 TB` | `416 GB RAM, 104 cpu`
+    - post device :point_left:
+    - send/upload to/from:
+      - **block volume** / EBS
+      - **object storage** / S3 / but not glacier storage class :point_left:
   
 ![img.png](../99_img/storage/snow/img.png)
 
+---
 ### A.2 Snowball `Cone`
-- Small, portable, light (2 kg)
-- `Snowcone` –  `8 TB HDD`  | `4 GB RAM, 2cpu`
-- `Snowcone SSD`– `14 TB SSD` | `4 GB RAM, 2cpu`
-- send option:
-  - post/offline 
-  - online:`AWS DataSync` to send/upload data to AWS (`EBS` only) , `not s3`
-  - `AWS DataSync agent` is pre-installed.
-  - [check here](./05_transferFamily+DataSync.md#b-aws-datasync)
+- Small, portable, light (2 kg) devices
+- type:
+  - **Snowcone** –  `8 TB HDD`  | `4 GB RAM, 2cpu`
+  - **Snowcone SSD** – `14 TB SSD` | `4 GB RAM, 2cpu`
+- send option
+  - post device (offline)
+  -  **AWS DataSync** (online)
+    - to send/upload data to/from:
+      - AWS **EBS** only 
+      - not s3 :x:  :point_left:
+    - AWS DataSync agent is pre-installed
+    - [more](./05_transferFamily+DataSync.md#b-aws-datasync)
 
-### A.3 Snowball `mobile`
-- size 100 PB
-- `truck` (GPS, 24/7 video surveillance)  --> 100 PB + 100 PB + ...  === upto `1 exabyte`
-  - 1000 TB = 1 PB 
-  - 1000 PB = 1 exabyte 
+---
+### A.3 Snowball `mobile` (offline)
+- 100 PB + 100 PB + ...  === upto `1 exabyte` (1 Million TB)
+```
+  - 1024 TB = 1 PB 
+  - 1024 PB = 1 exabyte 
   - so it `1000,000 TB` or 1 Million TB
-- truck/offline
+```
+- truck with 
+  - GPS
+  - 24/7 video surveillance
 
+---
 ### summary
 - ![img_1.png](../99_img/storage/snow/img_1.png)
 - ![img.png](../99_img/storage/snow/img-6.png)
-- Snowball cannot import to Glacier directly
+- 
 
 ---
 ## B. SNOW : Edge computing
