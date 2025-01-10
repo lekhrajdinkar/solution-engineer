@@ -1,9 +1,25 @@
 # 1. VPC peering
-- connects 2 VPS **in same region** :point_left:
-  - **Same AWS Account**
-    - Aws1::VPC-1  <--- VPC peer---> Aws1::VPC-2
-  - **Cross Account**
-    - Aws1::VPC-1  <--- VPC peer---> Aws2::VPC-1
+## intro
+- establishes a **direct network connection between two VPCs**
+- enabling traffic to be routed between them using **private IP** addresses.
+
+
+##  scenario :point_left:
+```yaml
+- within the same account 
+  - same region
+  - cross region
+- across different accounts
+  -  same region
+  - cross region
+- or even AWS Organizations.
+```
+- **Same AWS Account**
+  - Aws1::VPC-1  <--- VPC peer---> Aws1::VPC-2
+- **Cross Account**
+  - Aws1::VPC-1  <--- VPC peer---> Aws2::VPC-1
+  
+## more    
 - **NOT Transitive** 
   - VPC-1  <--> VPC-2 <--> VPC-3 
   - this does not mean VPC-1 can connect VPC-3
@@ -11,13 +27,16 @@
   - or use **transitive gateway**, for connecting mutliple VPC/s
     - $0.05 per GB for inter-VPC data transfer.
     - $0.36 per hour per attached VPC.
-- more: 
-  - **no overlapping CIDR**
-  - operates over the **AWS backbone network**, ensuring
-    - low latency 
-    - high throughput
+ 
+- **no overlapping CIDR**
+- operates over the **AWS backbone network**, ensuring
+  - low latency 
+  - high throughput
 
-- hands on: 
+- Limited by the number of peering connections per VPC (up to 125 by default).
+- ![img_1.png](../99_img/vpc-1/v2/img_1.png)
+
+## hands on: 
 ```
 #1. connecting ec2-i on vpc-1 to ==> ec2-i on default-vpc, in same AWS account
 - having VPC-1 (cidr1) + default-VPC(cidr2) 
