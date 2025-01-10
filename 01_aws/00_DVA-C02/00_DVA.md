@@ -43,7 +43,7 @@
 - VPC details not needed. still can check:
   - [03_VPC-1.md](../04_network/03_VPC-1-start)
   - [03_VPC-2.md](../04_network/03_VPC-2-NAT)
-  - [03_VPC-3.md](../04_network/03_VPC-3.md)
+  - [03_VPC-3.md](../04_network/03_VPC-3-vpcPeer+vpce)
   - [03_VPC-4.md](../04_network/03_VPC-4.md)
 - [04_CloudFront_DVA.md](../04_network/04_CloudFront_DVA.md)
 ```

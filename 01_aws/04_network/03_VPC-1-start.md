@@ -35,7 +35,6 @@
 ---
 ## 3. Default VPC : walkthrough
 - ![img.png](../99_img/vpc-1/img-v2.png)
-- ![img_1.png](../99_img/vpc-1/img_1-v2.png)
 - ![vpc-1.png](../99_img/draw-io/VPC-1.drawio.png)
 
 ### 3.1 CIDR
@@ -101,6 +100,7 @@
   
 ---
 ## 4. IGW
+![img_1.png](../99_img/vpc-1/img_1-v2.png)
 
 ---
 ## 5. NAT 
@@ -110,7 +110,7 @@
   - **NAT gateway**
 
 ---
-## 7. dual-stack mode VPC
+## 6. Dual-stack mode VPC
 - can not disable Ipv4, but enable Ipv6 ( for all public in AWS) `3.8*10^38`
 - ec2-i will have both:
   - **private IPv4** 
@@ -118,11 +118,43 @@
 - so if IPv4 is exhausted, even though soo many IPv6 available, will still get exhausted error. :point_left:
 
 ---
-## 8. Egress-Only Internet gateway
+## 7. Egress-Only Internet gateway
 - used only for Ipv6
 - note: update rtb ::0 | Egress-IGW
 - ![img_1.png](../99_img/vpc-2/ipv6-2.png)
 
+---
+# 8. VPC Flow Logs
+- video:339 SSA
+- log level : VPC, Subnet, ENI (which is attached to specific ec2-i)
+  - flow logs destination:
+    - `S3`: s3-->athena, etc
+    - `CloudWatch` : CW::alarm-->sns, etc
+    - `KDF` (Kinesis Data Firehose) :
+- ![img.png](../99_img/vpc-3/img+4.png)
+- ![img_1.png](../99_img/vpc-3/img+5.png)
+- ![img_2.png](../99_img/vpc-3/img_+6.png)
+- demo:
+```
+- create flow log -1 and give it S3
+- choose type of traffic : ALL, allow, deny
+- to : s3 (bucket-name-1)
+- choose format :keep default
+- role-1 : give s3 permission
+- check logs (perform complex analysis > give it athena)
+  -eni-1.log 
+  -eni-2.log. ...
+  - Attena:
+    - choose query result loc: bucket-name-1-result
+    - ...
+
+- create flow log -2 and give it CW
+- choose type of traffic : ALL, allow, deny
+- to : cloudwatch (log-group-1)
+- choose format :keep default
+- role-2 : give CW permission
+- check logs --> create metric > alarm > SNS
+```
 
 ---
 ## 99. handson: create new VPC
