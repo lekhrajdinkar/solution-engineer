@@ -16,14 +16,12 @@
 - [ephemeral port](../99_img/vpc-2/img_2.png) 
 - random port client open, to receive response on that port from server. 
 
-
-
 ---
-# A. VPC ( Regional)
+# B. VPC ( Regional)
 ## 1. fact
 - ec2>eni>sg === ec2>sg
 - s3 upload : ingress traffic
-- 
+
 ## 2. Intro
 - max: `5-VPC` in  a region with **non-overlapping CIDR**.
 - single VPC can have max `5-CIDR`
@@ -41,9 +39,9 @@
 - ![vpc-1.png](../99_img/draw-io/VPC-1.drawio.png)
 
 ### 3.1 CIDR
-- CIDR-1 : `172.32.0.0/16`
-- CIDR-2,3,4,5 : can have. 
-  - Add these once IPs are `exhausted` in your VPC.
+- **CIDR-1** : `172.32.0.0/16`
+- **CIDR-2,3,4,5**  
+  - Add these once IPs are exhausted in your VPC.
     
 ### 3.2 subnet (found 4) 
 - 4 az === 4 subnets 
@@ -57,7 +55,8 @@
 
 ### 3.3 Network ACL  
 - stateless 
-- Inbound + outbound rule
+- Inbound + outbound rule (with weight/priority)
+- Does not execute all, once executed matching high priority rule
 
 ### 3.4 Route table
 - vpc - associated with main-rtb
@@ -83,10 +82,11 @@
 ## 4. IGW
 
 ---
-## 5. NAT instance
-
----
-## 6. NAT gateway
+## 5. NAT 
+- [03_VPC-2-NAT.md](03_VPC-2-NAT.md)
+  - **Bastian host**
+  - NAT instance (outdated after 2020) :x:
+  - **NAT gateway**
 
 ---
 ## 7. dual-stack mode VPC
