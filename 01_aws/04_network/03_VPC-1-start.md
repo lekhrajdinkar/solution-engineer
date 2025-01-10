@@ -163,19 +163,29 @@
 ```
 
 ---
-## 9. Cost / pricing (per GB)
+## 9. pricing (per GB)
 - if 2 DB are in same AZ, replication cost will be less, but availability will be less.
-- ![img.png](../99_img/vpc-4/img.png)
-- `egress` - $ : AWS --> outside | `ingress` - free : outside --> AWS
-  - ![img_1.png](../99_img/vpc-4/img_1.png)
+- refer VPC-endpoint(s3-gateway) `1 cent`
+- ingress - free
 - choose AWS direct location, close/same as your location/region-AZ
-- ![img_2.png](../99_img/vpc-4/img_2.png)
-  - s3 --> Cloudfront `free`
-  - s3 --> internet + internet(accelerated) `9 cent, 9+4=13cent`
-  - s3 --> region1:region2 (replication) `2 cent`
-- ![img_3.png](../99_img/vpc-4/img_3.png)
-  - prefer VPC-endpoint(s3-gateway) `1 cent`
 
+- ![img.png](../99_img/vpc-4/img.png)
+- ![img_1.png](../99_img/vpc-4/img_1.png)
+- ![img_2.png](../99_img/vpc-4/img_2.png)
+- ![img_3.png](../99_img/vpc-4/img_3.png)
+
+| **Service/Feature**            | **Pricing**                                                                 |
+|--------------------------------|-----------------------------------------------------------------------------|
+| **VPC Peering**                | Intra-region: $0.01/GB, Inter-region: $0.02–$0.09/GB                        |
+| **AWS Transit Gateway (TGW)**  | $0.36/hour per attachment, $0.02–$0.05/GB data transfer                     |
+| **NAT Gateway**                | $0.045/hour, $0.045/GB for outbound data                                    |
+| **Elastic IP (EIP)**           | Free for 1 associated IP; additional/unused: $0.005/hour                    |
+| **VPN Connections**            | $0.05/hour per VPN connection, standard data transfer rates apply           |
+| **Traffic Mirroring**          | $0.015/GB                                                                    |
+| **Endpoints (PrivateLink)**    | Interface Endpoints: $0.01/hour + $0.01/GB, Gateway LB Endpoints: $0.0035/GB |
+| **Data Transfer**              | Intra-AZ: Free, Inter-AZ: $0.01/GB, Inter-region: $0.02–$0.09/GB            |
+| **Interface Endpoints**        | $0.01/hour per endpoint + $0.01/GB                                          |
+| **Gateway Endpoints**          | Free   |
 ---
 ## 10. Traffic Mirroring
 - Steps/use-case:
