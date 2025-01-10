@@ -99,7 +99,18 @@
     - select rtb, to be updated.
 - aws ls s3 : works now, because of s3-gateway (recommended to use) / s3-private-Link
 ```
-
+---
+# 3. VPC Sharing
+- **AWS Organization**
+  - **root** account - vpc-1/subnet (shared with member account )
+  - **member** account -1
+  - member account -2
+    - can provision resources in `shared subnets` using AWS Resource Access Manager (`RAM`)
+  - ...
+- `Resources` within the shared VPC can communicate with each other over `private IP` without additional configuration.
+- Since all resources are within the same VPC, there are no additional data transfer costs. :point_left:
+  - no data going out of AWS.
+- ![img.png](../99_img/vpc-1/SharedserviceVPC.png)
 
 
   
