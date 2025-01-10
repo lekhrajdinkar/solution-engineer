@@ -66,6 +66,7 @@
     - C) Based on the number of EC2 instances provisioned
     - D) Based on storage used in Amazon S3
 
+
 ---
 
 ## True/False Questions
@@ -101,3 +102,36 @@
 11. False
 12. True
 13. False
+
+---
+
+```
+A company uses AWS Lambda for processing data streams from Amazon Kinesis. 
+Occasionally, processing times exceed the maximum Lambda execution duration. 
+What should the company do to handle this?
+
+A) Increase Lambda memory allocation.
+B) Use AWS Step Functions to orchestrate workflows.
+C) Split the stream into smaller shards.
+D) Enable Provisioned Concurrency for Lambda.
+(Answer: B)
+---
+You need to design a solution where AWS Lambda must securely connect to an 
+Amazon RDS instance without hardcoding credentials. What should you use?
+
+A) Store credentials in Lambda environment variables.
+B) Use AWS Secrets Manager to retrieve database credentials at runtime.
+C) Embed credentials in the Lambda function code.
+D) Attach an IAM role to Lambda with database access policies.
+(Answer: B or D, depending on the detailed context.)
+---
+A Lambda function invoked through Amazon API Gateway is experiencing 
+high latencies due to cold starts. How can you minimize these latencies?
+
+A) Increase the timeout limit for API Gateway.
+B) Use AWS X-Ray to trace cold starts.
+C) Enable Provisioned Concurrency for the Lambda function. **
+D) Increase the function’s memory allocation.
+
+C Provisioned Concurrency ensures that a specific number of execution environments are pre-warmed and ready to process requests.
+```
