@@ -124,17 +124,23 @@
 - ![img_1.png](../99_img/vpc-2/ipv6-2.png)
 
 ---
-# 8. VPC Flow Logs
-- video:339 SSA
-- log level : VPC, Subnet, ENI (which is attached to specific ec2-i)
-  - flow logs destination:
-    - `S3`: s3-->athena, etc
-    - `CloudWatch` : CW::alarm-->sns, etc
-    - `KDF` (Kinesis Data Firehose) :
+## 8. VPC Flow Logs
+- reference: video:339 SSA
+- **log level** : 
+  - VPC
+  - Subnet
+  - ENI 
+-  **destination** :
+  - S3  >> athena
+  - CloudWatch 
+    - CW::metric >> CW::alarm >> sns
+    - ...
+  - KDF 
 - ![img.png](../99_img/vpc-3/img+4.png)
 - ![img_1.png](../99_img/vpc-3/img+5.png)
 - ![img_2.png](../99_img/vpc-3/img_+6.png)
-- demo:
+
+- hands on:
 ```
 - create flow log -1 and give it S3
 - choose type of traffic : ALL, allow, deny
@@ -226,9 +232,3 @@
 ## 2. Transit VPC
 -  Transit VPC uses customer-managed EC2 instances in a dedicated transit VP` with an Internet gateway
 - ![img.png](../99_img/vpc-1/Transit-VPC.png)
-
-
-
-
-
-
