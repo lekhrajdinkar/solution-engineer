@@ -14,8 +14,8 @@
 ## 2. NAT instance :x:
 - **outdated after 2020** 
 - Alternative : **NAT gateway** 
-- need internet access for ec2-i running on private subnet. how ?
-  - route internet to IGW via through NAT-instance.
+- need internet  access for ec2-i running on private subnet. how ?
+  - route internet traffic to IGW via through NAT-instance.
     - **deploy NAT-instance** in public subnet
       - create ec2-i, from PreConfigured Linux AMI, `amzn-ami-vpc-nat-<year>.xxxxxxx-<cpu-arch>`
       - **disable source/destination IP check**, so that it will re-write `src` and `dest` IPs :point_left:
@@ -26,8 +26,8 @@
     - update sg of private ec2-i, to allow traffic from  NAT-instance-sg
     - assign **elastic-IP**
       
-- support **port forwarding** :point_left:
-  - by modifying the instance's iptables rules. 
+- it supports **port forwarding** :point_left:
+  - by modifying the instance's **iptables rules**. 
   - to forward traffic 
     - from : specific port on the NAT Instance 
     - to : port on a private EC2 instance.
@@ -36,7 +36,7 @@
 - https://app.diagrams.net/#Hlekhrajdinkar%2F02-spring%2Fmain%2Faws%2FVPC-1.drawio
 
 ---
-### 1.3. NAT Gateway 
+## 3. NAT Gateway 
 - **AZ bounded** :point_left:
 - **AWS-managed**
   - no administration 

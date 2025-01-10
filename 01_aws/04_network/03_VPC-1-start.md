@@ -53,18 +53,13 @@
    - 4:reserved - future use
    - last:reserved - **network broadcast address**, (not supported currently)
 
-### 3.3 Network ACL  
-- stateless 
-- Inbound + outbound rule (with weight/priority)
-- Does not execute all, once executed matching high priority rule
-
-### 3.4 Route table
+### 3.3 Route table
 - vpc - associated with main-rtb
   - subnet-1 : associate with main-rtb, or create new rtb
   - subnet-2
   - ...
   - 1-2-1 mapping :point_left:
-  
+
 - **destination**
   - 0.0.0.0/0(internet),
   - subnet-CIDR
@@ -77,6 +72,32 @@
 
 - **IPv6 routing**
   - ![img_2.png](../99_img/vpc-2/ipv6-3.png)
+  
+### 3.4 Network ACL (NACL)
+- similar to SG/Firewall, another layer of traffic check at subnet level
+- Inbound + outbound rule (with weight/priority) for allow/deny traffic
+
+- **stateless**
+  - inbound rule is checked >  allow/deny 
+  - if allowed > response came > outbound rule is checked >  allow/deny
+  - ![img.png](../99_img/vpc-2/img.png)
+- **ACL rules**
+  - 1-32,766 (high to low precedence), use increment of 100.
+  - first matching rule, drive decision.
+  - `*` last rule, denies a request.
+  - thus, Does not execute all rule, once executed a matching high priority rule, it stops.
+- **default rule**
+  - **allows everything in/out** :point_left:
+  - don't change it, rather create new ACL and associate with your subnet.
+  - ![img_1.png](../99_img/vpc-2/img_1.png)
+- `subnet`  **1-2-1** `ACL`
+
+#### sg vs ACL
+- Operates at the instance level | subnet level
+- Stateful| Stateless: return traffic must be explicitly allowed by rules (think of ephemeral ports)
+- `allow` rules only |  `allow/deny` rules
+- `All` rules are evaluated | Rules are evaluated `in order` (lowest to highest) and `first match wins`.
+- ![img_3.png](../99_img/vpc-2/img_3.png)
   
 ---
 ## 4. IGW
