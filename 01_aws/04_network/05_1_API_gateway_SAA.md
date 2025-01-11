@@ -4,9 +4,9 @@
 ## A. Intro
 - **API** ( `REST API`** , `http API` ,`websocket API`), with other benefit:
   - **caching**
-  - API **versioning**
-  - API **documentation** / specification ?
-  - **interceptor** : transform req/resp
+  - API **versioning** : enable
+  - API **documentation** : enable SDK/doc generation
+  - **interceptor** : `mapping template` to transform req/resp (json/xml only)
   - more:
     - **No infrastructure** to manage. :)
     - create **environment**  - dev,qa,prod
@@ -15,13 +15,16 @@
     - **import**
       - already have pre-define API
       - from Swagger/OpenAPI
+      - req/resp body schema validation
 ---
 ## B. API gateway: integration :books:
 ### B.1. **Backend**
+- can have **multiple backend** and create **forwarding/transformation rule** at api-gateway level as well. :point_left:
+  - use it **gateway for microservice**
 - API-g >> PROXY >>**lambda** (event,context)
   - pure serverless
   - most common
-  - default/max timeout : `29 sec`
+  - default/max timeout : `29 sec` :point_left:
   - use **AWS_PROXY**
     
 - API-g >> PROXY >> **Any HTTP backend**
