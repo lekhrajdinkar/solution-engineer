@@ -1,29 +1,33 @@
 # DR
-- D : event that has a negative impact on a `company’s business continuity` or `finances`
-- DR : `preparing` for and recovering from a disaster.
-  - On-premise => On-premise
-  - On-premise => AWS Cloud: hybrid recovery
-  - AWS Cloud `Region A` => AWS Cloud `Region B`
+## 1. Intro
+- **Disaster** 
+  - event that has a negative impact on a company’s business continuity or finances
+- **Disaster Recovery**  
+  - preparing for and recovering from a disaster.
+  - **type**:
+    - On-premise => On-premise
+    - On-premise => AWS Cloud: `hybrid recovery`
+    - AWS Cloud Region ` => AWS Cloud Region B
 ---
-## A. Key terms
-- `RPO`: Recovery `Point` Objective
+## 2. Key terms
+![img.png](../99_img/dr/dr-1/img.png)
+
+### RPO: Recovery `Point` Objective
   - taking backup in one hr, so if D happens, then can take restore from backup/point taken an hr ago.
   - so rpo is 1hr here.
   - 1 min is expensive than 1 hr
+  - **low** RPO === **expensive**
   
-- `RTO`: Recovery `Time` Objective
+### RTO: Recovery `Time` Objective
   - D happened, it took 2 hour to recover.
   - there was downtime of 2 hr
   - 15 min is expensive than 2 hr.
-  
-- `low` RPO/RTO === `expensive`
-
-![img.png](../99_img/dr/dr-1/img.png)
+  - **low** RTO === **expensive**
 
 ---
-## B. `Strategies` to optimize RPO/RTO
+## 3. Strategies to optimize RPO/RTO
 
-### B.1 backup / restore
+### a. backup / restore
 - DB:
   - RDS (single-region) --> 1hr --> backup/snapshot --> S3(not directly accessible) in  same region (az-1 and az-2)
   - DR happens > az-1 goes down.
@@ -41,18 +45,18 @@
 
 ![img_1.png](../99_img/dr/dr-1/img_1.png)
 
-### B.2 Pilot light
+### b. Pilot light
 - A `small version of the app` (critical business workload) is always running in different region.
 - update r53 to switch, on DR.
 - continuously replicate critical db to this region.
 
 ![img_2.png](../99_img/dr/dr-1/img_2.png)
 
-### B.3 warm light
+### c.  warm light
 - Full but `scaled-down version` of your system, up and running in different region
 - Upon disaster, just `scale up` to `production load`
 
-### B.4 multi site
+### d. multi site
 - `active - active`
 - Full Production Scale is running AWS and On Premise
 - on D, it will inactive - active.
@@ -65,24 +69,21 @@
 ![img_4.png](../99_img/dr/dr-1/img_4.png)
 
 ---
-## C. DR tips
-- same we have learnt so far. nothing new.
-
-- `Backup`
+## 4. DR tips
+- **Backup**
   - EBS Snapshots, RDS automated `backups` / Snapshots, etc…
   - Regular pushes to S3 / S3 IA / `Glacier`, Lifecycle Policy, `Cross Region Replication`
   - From On-Premise: `Snowball` or `Storage Gateway`
   
-- `High Availability`
+- **High Availability**
   - Use `Route53` to migrate DNS over from Region to Region
   - RDS `Multi-AZ`, ElastiCache Multi-AZ, EFS, S3
   - `Site to Site VPN` as a recovery from `Direct Connect`
   - Use `ASG`, ALB
 
-- Automation
+- **Automation**
   - `CloudFormation` / Elastic Beanstalk to re-create a whole new environment
   - `Reboot EC2 instances` with CloudWatch if alarms fail
   - AWS `Lambda`  to automation to build infra, etc
   - `IAC` / terraform
 
----
