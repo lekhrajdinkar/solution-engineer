@@ -1,19 +1,4 @@
-# D. on-prem tips
-
-## 1. on-prem VM : import/export
-- vm-1 is running on on-prem
-- aws:ec2:`import` <-- vm-1
-    - ec2-i1 running on cloud
-- ec2-i1 --> aws:ec2:`export` --> on-prem(as vm-2)
-    - vm-2 is running on on-prem
-
-## 2. download AWS AMI to on-prem
-- aws Amazon AMI --> download .iso file
-- run AMI on on-prem , with hyper-v, virtual-box, etc.
-
----
-
-# AWS service (overview)
+# More AWS service (overview) - DR related
 ## 1. Application discovery
 - scan server and gather info from on-prem VM/server. gather data can be track : `Migration Hub`
 - and then create `migration plan` out of it.

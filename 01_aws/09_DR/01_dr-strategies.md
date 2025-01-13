@@ -87,3 +87,12 @@
   - AWS `Lambda`  to automation to build infra, etc
   - `IAC` / terraform
 
+- **on-prem tips**
+  - `aws`:ec2-i1 <==> **import/export** <==> `on-pre`m:vm-1 
+  ```
+  - aws Amazon AMI 
+    - download .iso file
+    - then run AMI on on-prem, 
+      - with hyper-v, virtual-box, etc.
+  ```
+---
