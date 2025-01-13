@@ -72,7 +72,8 @@
 
 ---
 ## 3. Security
-- integrated with AWS-sheild, thus provides DDoS protection
+- integrated with **AWS-sheild**
+  - thus provides **DDoS protection**
 
 --- 
 ## 4. shifting traffic in `Blue/green deployment`
