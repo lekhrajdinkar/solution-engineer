@@ -73,7 +73,7 @@
 - stand-alone java programs
 
 ### E **consumer** :books:
-- fanout consumer/s - ( multiple )
+- **fanout consumer/s** - ( multiple ) :point_left:
   - **`classic` fan out consumer/s** (pull):
     - 3 consumer on shard-1, then throughput will 2MB/sec/3 == 666KB/sec each
     - getRecord API
