@@ -1,27 +1,32 @@
 # A. WAF (webapp FireWall)
-
 ## 1. Intro
-- can integrate with **ALB**(not NLB)
-  - webApp --> ALB(`layer:7`) --> WAF(layer:7): valid ---> expose to web-client
-  - webApp --> NLB(`layer:4`) --> WAF(layer:7) :x:
-  
-### web-ACL
-- **reusable rules**
-  - `HTTP headers, HTTP body, or URI strings`
-    - > prevents : `SQL injection` and `Cross-Site Scripting (XSS)`
+- **web-ACL**
+- work on **layer:7**, thus integrate with ALB :point_left:
+  - not other ELB
+- prevent **SQL injection** and **Cross-Site Scripting (XSS)**
+- rule to allow/deny traffic on:
+  - **protocol** : http, udp, https
+  - source/target **IP + port**
+    - up to `10,000 IPs` max in a set
+    - use multiple Rules for more IPs
+  - **body**
+  - **URI strings** 
   - Size constraints
-  - geo-match  - block countries.
-  - `Rate-based rules` eg: 10 req/per
-    - > prevents :  `DDoS protection`
+  - **geo-match** 
+    - block countries (client IP)
+  - **Rate-based rules** 
+    - eg: 10 req/per
+    - this rule prevents **DDoS protection**
 
-  - `IP Set`:
-    - allowed ips set, up to `10,000 IPs` max in a set.
-    - use multiple Rules for more IPs.
-    - keep IP `static/fixed`:
-      - use fixed for API for ALB
-      - use AWS global accelerator (has fixed any-cast IPs)
-      - > `webApp --> ALB(layer:7) --> WAF(l7):ACL --> AWS global accelerator` --> expose to web-client.
-        ![img.png](../99_img/security/others/img.png)
+```yaml
+- keep IP `static/fixed`:
+    - use fixed for API for ALB
+    - use AWS global accelerator (has fixed any-cast IPs)
+```
+---
+## Architecture example
+- App --> ALB(layer:7) --> **WAF(layer:7):ACL** --> AWS global accelerator --> web-client.
+- ![img.png](../99_img/security/others/img.png)
 
 --- 
 ## 2. Deployment option
