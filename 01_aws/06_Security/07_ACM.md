@@ -1,5 +1,4 @@
 # ACM
-
 ## 1. certificate:
 - **private**
   - ![img.png](../99_img/dva/img-ca.png)
@@ -7,11 +6,12 @@
 - **public** 
   - cert for public internet
 
+---
 ## 2. Generate certificate
 ### by internal / ACM
 - ACM generate cert
 - import to ACM
-- Auto-renew in `60 days ` before.
+- Auto-renew in `60 days` before.
   
 ### bt External provider
 - eg: **digicert**
@@ -21,17 +21,19 @@
   - *.outbound.aws.org.com
   - *.aws.org.com
 - import to ACM
+- no auto re-new
+  - **AWS-Config** 
+    - rule:acm-cert-expiracy-check to:
+    - sends eventBridge event to expiration, before `45 days` (default)
+    - can catch event --> SNS alert, lambda,
+    - can change days from 45 to something else.
 
+---
 ## 3. certificate: Validation method
-- **email** : ?
-- **dns** 
-  - just, create `cname` entry in R53 with above dns
-  - no auto re-new
-  - but sends eventBridge event to expiration, before `45 days`
-    - can catch event --> SNS alert, lambda, 
-  - `AWS-Config > rule:acm-cert-expiracy-check` --> change days from 45 to something else.
-  - Also, add event-bridge rule to catch daily/monthly expiration events.
+- **email** 
+- **dns** : just, create `cname` entry in R53 with above dns
 
+---
 ## 4. ACM: integration with services    
 - **CloudFront** 
 - **R-53**
@@ -43,7 +45,3 @@
   - regional +  private(with In vpc) 
     - keep ACM cert in same region
     - ![img_4.png](../99_img/security/acm/img_4.png)
-
-
-
-
