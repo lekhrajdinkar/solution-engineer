@@ -24,32 +24,34 @@
     - use AWS global accelerator (has fixed any-cast IPs)
 ```
 ---
-## Architecture example
+## 2. Architecture example
 - App --> ALB(layer:7) --> **WAF(layer:7):ACL** --> AWS global accelerator --> web-client.
 - ![img.png](../99_img/security/others/img.png)
 
 --- 
-## 2. Deployment option
-- regionally, on: 
-  - ALB 
-  - API-gateway 
-  - AppSync(GrapgQL-API)
-- globally, on:
-  - CloudFront distribution
- 
+## 3. Deployment option
+### regionally
+  - **ALB** 
+  - **API-gateway** 
+  - **AppSync**(GrapgQL-API)
+
+### globally
+  - **CloudFront** distribution
 
 ---
-# B. FireWall manager 
-- all types of security, at common place.
-- AWS org > `mgt acct`(main) > create `security policy`(`region` level)
-- apply these policy on `multiple member` account in your org.
+# B. FireWall manager (regional)
+- All types of firewall, at common place.
+- AWS org 
+  - management acct
+    - create **security policy**
+    - apply these policy on multiple member account in org
 
-- Security policies
+- **Security policies** :
   - `WAF rules` (Application Load Balancer, API Gateways, CloudFront)
   - `AWS Shield Advanced` (ALB, CLB, NLB, Elastic IP, CloudFront)
   - `Sg` : EC2:ENI , ALB and ENI-resources in VPC
-  - `Network Firewall` (VPC Level)... pending
-  - `R53 Resolver` ( DNS Firewall)
+  - `Network Firewall` NACL (subnet level)
+  - `R 53 Resolver` ( DNS Firewall)
       
 
 
