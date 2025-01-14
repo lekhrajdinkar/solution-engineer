@@ -1,4 +1,4 @@
-# ACM
+# ACM (regional)
 ## 1. certificate:
 - **private**
   - ![img.png](../99_img/dva/img-ca.png)
@@ -40,8 +40,8 @@
 - **ELB** : ALB, NLB, ... 
   - ![img_2.png](../99_img/security/acm/img_2.png)
 - **API gateway** (3 types)
-  - edge-optimized : keep ACM cert in `us-east-1`
+  - **edge-optimized** : keep ACM cert in `us-east-1`
     - ![img_3.png](../99_img/security/acm/img_3.png)
-  - regional +  private(with In vpc) 
+  - **regional +  private**(with In vpc) 
     - keep ACM cert in same region
     - ![img_4.png](../99_img/security/acm/img_4.png)
