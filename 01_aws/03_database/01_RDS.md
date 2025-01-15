@@ -11,6 +11,10 @@
 # RDS (regional)
 ## Advantages of RDS
 ### 2.1 fully managed (not serverless)
+- RDS **does not** allow you to access the host OS of the database
+  - use **RDS custom** :point_left:
+  - allow some customization capabilities of underlying DB and **OS** (limited)  :dart:
+  
 - Automates **administrative tasks** such as database setup, patching, backups, and hardware provisioning
   - manually setup **auto-scale** :: CW>Alarm>Read-replicaScale.
   - auto **OS patching** :: just choose maintenance window
@@ -26,7 +30,6 @@
     - no access/ssh
     - But `RDS custom` allow to access it  only for `SQL server` and `oracle` DB.
     - First disable automation mode, take snapshot, then access it
-    - RDS custom, allow some customization capabilities of underlying DB and OS (limited)
 
 ### 2.2 High Availability
 - Supports Multi-AZ (Availability Zone) deployments for fault tolerance.

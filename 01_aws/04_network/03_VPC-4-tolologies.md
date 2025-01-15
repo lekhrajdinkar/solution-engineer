@@ -158,4 +158,8 @@ AWS VPC-1 (rtb-main:vgw-1) <==> [ vgw-1 <---Site-2-site VPN(uses:internet)---> c
 - shared with multiple aws account **
 - AWS Transit Gateway with `Resource Access Manager` (RAM)
 
+---
+## more example:
+![img.png](img.png)
+
 

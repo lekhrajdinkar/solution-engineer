@@ -22,13 +22,12 @@
   - multiple consumer can receive same message.
   - consumer handle duplicate message, has to delete message.
   - idempotent consumer, if needed.
-- **best effect ordering**
-  - order not guaranteed.
-- **retention**: 
+- **best effect ordering** : order not guaranteed.
+- msg **retention**: 
   - max     : `14 days` 
   - default :  `4 days`
 - **visibility timeout** :o:
-  - 0-12 hr
+  - `0-12 hr`
   - consumer could call this api to get more time.
   - ![img_4.png](../99_img/decouple/sqs/img_4.png)
   - if too low, then may get duplicate.
@@ -40,9 +39,11 @@
     - save cpu cycle, save money.
 - DLQ must also be a standard queue
 - **Delivery delay**
+-  **Throughput** : virtually unlimited messages per second. :point-left:
 
 ### 2. FIFO
 - DLQ must also be a FIFO queue
+- **Exactly-once processing** :point_left:
 - name : has suffix `.fifo`
 - **no duplicate**. :books:
   - `content-based-de-duplication` : enable it
@@ -52,9 +53,11 @@
     - `de-duplication_ID` along with message
     - `SHA-246 hash of message body`
     - ![img.png](../99_img/dva/sqs/v1/img.png)
-- Limited **throughput**: 
-  - `300 msg/s` without batch
-  - `3000 msg/s` with batch
+- Limited **throughput**: :dart:
+  - default (batch size = 1) : `300 msg/s`
+  - batch size =  2, 600 msg/s
+  - ...
+  - `max batch size =  10`, this max `3000 msg/s` 
 
 - **ordered**
   - within group.
