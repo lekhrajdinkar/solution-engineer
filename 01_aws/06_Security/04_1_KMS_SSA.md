@@ -1,56 +1,22 @@
-# KMS 
-## A. Encryption
-### 1. Encryption at `Fly`
+# Encryption
+## 1. Encryption at `Fly`
 - TLS / SSL certificate / HTTPS
 - prevent from MITM
 
 ![img.png](../99_img/security/kms/img.png)
 
-### 2. Encryption at `Rest`
+## 2. Encryption at `Rest`
 - encryption/decryption happens at server.
 
 ![img_1.png](../99_img/security/kms/img_1.png)
 
-### 3. Client side encryption
+## 3. Client side encryption
 
 - Don't trust server
 - cant make KMS api call
 
 ![img_2.png](../99_img/security/kms/img_2.png)
 
----
-## B. KMS: intro
-- manges **encryption-keys**
-  - needs to be **rotated**
-    - default : 365 days
-    - range : 90 - 2650 days
-    - have od rotation.
-  - has kms-key **alias**
-  - scope: **region** :point_left:
-    - for cross region copy will need 2 separate keys, once for each region
-    - eg: copy from region-1 to region-2
-      - aws will **decrypt** using region-**1**-key
-      - aws will **re-encrypt** using region-**2**-key
-- **pending deletion** state for 7 - 30 days :dart:3
-- **integrated** with:
-  - `IAM`
-  - `cloudTrail`, check log for KMS usage/audit.
-  - `secret manager` 
-    - encrypt **password** with kms-key
-  - `EC2`
-    - encrypt **AMI** with kms
-  - `ebs`, `rds`,  `s3-key`, `sqs-keys`, etc
-  - `lambda`: encrypt env var
-  - ...
-  - all other service which requires encryption.
-
-- **KMS API call** 
-  - all above service makes api call to kms.*
-  - we can api call with **cli/sdk**
-    - to encrypt/decrypt anything(eg:env var) using kms-key-1
-
---- 
-## C. KMS: `key types`
 ```
 # --- symmetric(AES-256) ---
 - generate single key
@@ -67,38 +33,84 @@
   
 - for client-server comm                       <<<
 ```
-
-### **1. AWS owned**  `FREE`
+--- 
+# KMS
+## A. KMS: key types
+### **1. AWS owned**  
 - keys already created for services. 
+- key is `FREE` + API call is `FREE`
 - eg
   - sse-s3
   - sse-sns
   - ...
+- **sse-s3**
+  - Fully managed by S3
+    - Key rotation is not applicable for us.
+    - Minimal key management overhead
+  - access control via S3 bucket policies
+  - No specific key tracking (basic S3 logs)
+  - No additional cost for encryption
 
-### **2. AWS managed key**  `FREE`
-- request key from kms (sse-kms)
-- rotation:  automatic yearly
+---
+### **2. AWS managed key**  
+- request key from kms (sse-kms), CMK
+- has kms-key **alias**
+- provides you with an **audit trail** that shows when your CMK was used and by whom. :dart:
+- **pending deletion** state for 7 - 30 days :dart:
+```
 - key looks like - aws/serviceName/**** . eg
   - aws/rds/...
   - aws/ebs/...
+```
+- key is `FREE` + pay for API call
 
-### **3. Customer manged key**  `PAID`
-- customer upload its own key. 
-- import key into kms, which generated outside aws
-- rotation:  must enable it :point_left:
-- pricing 
-  - `1$/month` / key
-  - API calls : `0.03/10,000`
+- needs to be **rotated**
+  - default : 365 days
+  - range : 90 - 2650 days
+  - have od rotation, at any time.
+  - automatic yearly
 
----
-## C. KMS: `Regionality` :point_left:
-### 1. single regional 
+- scope: **region** :point_left:
+  - for cross region copy will need 2 separate keys, once for each region
+  - eg: copy from region-1 to region-2
+    - aws will **decrypt** using region-**1**-key
+    - aws will **re-encrypt** using region-**2**-key
+
+#### Integration
+  - `IAM`
+  - `cloudTrail`, check log for KMS usage/audit. :dart:
+  - `secret manager` : encrypt **password** with kms-key
+  - `EC2`: encrypt **AMI** with kms
+  - `ebs`, `rds`,  `s3-key`, `sqs-keys`, etc
+  - `lambda`: encrypt env var
+  - ...
+  - all other service which requires encryption.
+
+#### key Policy
+- like s3 policy
+- define who can access key.
+- **default policy**
+  - already exists
+  - allows everyone in account  :point_left:
+- **custom policy**
+  - eg:
+    - for cross account access, restricted access with in acct, etc
+      - ![img_4.png](../99_img/security/kms/img_4.png)
+    - give access to specific services (lambda-fn)
+      ```
+      lambda-1 copy ebs snapshot from one region to another region
+        - only lambda-1 must have access below 2 keys, no one else.
+          - region-1-key (to decrypt) 
+          - region-2-key (to re-encrypt) 
+      ```
+#### Regionality :point_left:
+##### single regional
 - same key cannot be present in 2 diff regions.
 - requires additional api call (for cross region)
   - decrypt  call
-  - re-encrypt call 
+  - re-encrypt call
 
-### 2. multi regional 
+##### multi regional
 - **simplify but not recommended**
 - same key replicated in multiple region
   - primary (policy-1)
@@ -111,24 +123,21 @@
   - global Dynamo DB
 
 ---
-## D. KMS: `Security`
-### 1. KMS Policy
-- like s3 policy
-- define who can access key.
-- **default policy** 
-  - already exists
-  - allows everyone in account  :point_left:
-- **custom policy** 
-  - eg: 
-    - for cross account access, restricted access with in acct, etc
-      - ![img_4.png](../99_img/security/kms/img_4.png)
-    - give access to specific services (lambda-fn)
-      ```
-      lambda-1 copy ebs snapshot from one region to another region
-        - only lambda-1 must have access below 2 keys, no one else.
-          - region-1-key (to decrypt) 
-          - region-2-key (to re-encrypt) 
-      ```
+### **3. Customer manged key**  `PAID`
+- customer upload its own key. 
+- import key into kms, which generated outside aws
+- rotation:  must enable it :point_left:
+- pricing 
+  - `1$/month` / key
+  - API calls : `0.03/10,000`
+
+
+---
+
+
+---
+## C. KMS: Security
+
 ---
 ## E. hands on
 ```
@@ -240,10 +249,19 @@
 
 ---
 
-## 99. scenario
-### sse-kms deleted for s3.
+## 99. scenario 
+### sse-kms deleted for s3. :dart:
 - how to retrieve object, s3:getObject api will fail to read/decrypt.
 - sol:
-  - pending deletion state for 30 days
+  - pending deletion state for `7-30 `days (default 30)
   - 30 days over, contact AWS
   - meanwhile retrieve object from replicated bucket (if any)
+
+### need key usage tracking
+- specify a customer-managed CMK that you have already created
+```yaml
+Compliance and regulatory requirements	SSE-KMS
+High-performance applications	        SSE-S3
+Tracking key usage for audit logs	    SSE-KMS
+Minimal key management overhead     	SSE-S3
+```
