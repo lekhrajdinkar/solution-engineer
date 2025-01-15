@@ -23,7 +23,7 @@
 - fact : AMIs do not preserve instance store data :point_left:
 - fixed to host machine
   - cannot be detached or reattached
-
+- can be used as boot volume :point_left: not preferred
 ---
 ## B. EBS
 ![img.png](../99_img/dva/storage/01/img.png)
@@ -77,14 +77,17 @@
     - supports multi attach :point_left:
       - max - 16 ec2-i
     - databases workloads
-    
-- **HDD**  / Throughput Optimized HDD
-  - max -->  `? | 500 iops | max-500 MB/s`
-  - Big Data, Data Warehouses, Log Processing
+
+- **HDD**
+  - dont use as boot volume :dart:
+  - **HDD**  / Throughput Optimized HDD / `st1`
+    - max -->  `? | 500 iops | max-500 MB/s`
+    - Big Data, Data Warehouses, Log Processing
+    -  
   
-- **cold HDD**  
-  - max --> `? | 250 iops | max-250 MB/s`
-  - data that is infrequently accessed
+  - **cold HDD**  / `sc1`
+    - max --> `? | 250 iops | max-250 MB/s`
+    - data that is infrequently accessed
 
 ```
 General Purpose SSD (gp3):
