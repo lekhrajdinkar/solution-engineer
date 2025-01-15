@@ -44,6 +44,7 @@
   - ec2-i (Unix/Linux OS) :point_left:
 - supported protocol : `SMB` , `NTFS` 
 - supported storage option : `SSD`,  `HDD`
+- support Microsoft’s Distributed File System (DFS) :point_left: :dart:
 - **size**: `100s PB` |  **iops** : `in millions`   | **throughput**  `10 GB/s`
 
 - **more**

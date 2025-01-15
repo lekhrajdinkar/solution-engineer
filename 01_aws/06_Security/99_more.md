@@ -34,7 +34,7 @@
 ---
 ## C. Inspector
 - fully managed
-- analyze and perform security assessment on:
+- analyze and perform **security assessment** on:
   - `container` (image scan)
   - `lambda` (code scan - CVE database)
   - `ec2` (ssm agent)  (n/w, os, code/pkg scan)
