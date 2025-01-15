@@ -1,6 +1,9 @@
 # Storage Gateway 
 ## Intro
-- `on-prem`  <--> gateway <--> `aws`(data: Object-storage/S3, File-storage/FS+EFS, Block storage/EBS)
+- `on-prem`  <--> gateway(cache) <--> `aws`(data: Object-storage/S3, File-storage/FS+EFS, Block storage/EBS)
+  -  **local cache** in the gateway that provides : :point_left:
+    - high throughput 
+    - low latency 
 - **purpose** : 
   - hybrid storage, 
   - migration, 

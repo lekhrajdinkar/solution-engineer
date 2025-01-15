@@ -24,7 +24,7 @@
     - use AWS global accelerator (has fixed any-cast IPs)
 ```
 ---
-## 2. Architecture example
+## 2. Architecture example :dart:
 - App --> ALB(layer:7) --> **WAF(layer:7):ACL** --> AWS global accelerator --> web-client.
 - ![img.png](../99_img/security/others/img.png)
 

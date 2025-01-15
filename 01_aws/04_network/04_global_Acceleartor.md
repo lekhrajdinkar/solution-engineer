@@ -85,3 +85,15 @@
   - This type of deployment allows you to test features in the green environment without impacting the currently running version of your application. 
 - Use AWS Global Accelerator to distribute a portion of traffic to a particular deployment :point_left:
  
+## 5. scenario
+```
+A gaming company is looking at improving the availability and performance of its global flagship application 
+which utilizes User Datagram Protocol and needs to support fast regional failover in case an AWS Region goes down. 
+The company wants to continue using its own custom Domain Name System (DNS) service.
+--- sol ---
+AWS Global Accelerator improves performance for a wide range of applications over TCP 
+or UDP by proxying packets at the edge to applications running in one or more AWS Regions. 
+Global Accelerator is a good fit for non-HTTP use cases, such as gaming (UDP), IoT (MQTT), 
+or Voice over IP, as well as for HTTP use cases that specifically require static IP addresses or deterministic, 
+fast regional failover.
+```

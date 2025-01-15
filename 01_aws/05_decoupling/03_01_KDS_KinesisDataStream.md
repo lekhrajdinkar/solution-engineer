@@ -18,6 +18,7 @@
   - **ingest data at scale** 
   - **processing**
 - supports **replay**
+- **retention** :  upto 365 days :(
 --- 
 ## 2. Capacity planning (stream>shard)
 ### **provisioned**

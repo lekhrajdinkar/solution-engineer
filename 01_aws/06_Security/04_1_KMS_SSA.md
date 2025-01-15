@@ -31,7 +31,7 @@
     - eg: copy from region-1 to region-2
       - aws will **decrypt** using region-**1**-key
       - aws will **re-encrypt** using region-**2**-key
-
+- **pending deletion** state for 7 - 30 days :dart:3
 - **integrated** with:
   - `IAM`
   - `cloudTrail`, check log for KMS usage/audit.
@@ -239,3 +239,11 @@
 ![img.png](../99_img/dva/kms/01/img4.png)
 
 ---
+
+## 99. scenario
+### sse-kms deleted for s3.
+- how to retrieve object, s3:getObject api will fail to read/decrypt.
+- sol:
+  - pending deletion state for 30 days
+  - 30 days over, contact AWS
+  - meanwhile retrieve object from replicated bucket (if any)

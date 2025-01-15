@@ -24,6 +24,11 @@
   - encrypt `in-fly` traffic.
 ---
 ## B. ASG
+- performs 2 things
+  - `scaling` in/out
+  - health check `replacements` / **mask any instance failures**. trigger: :point_left:
+    - ec2 health check
+    - alb target health check
 - asg span over AZs.
 - client --> ELB(sg-lb-1) --> target-group --> ASG [ec2-i1 (sg-1), ...]
 
@@ -39,26 +44,33 @@
   - so during this time, does not add new instances.
 
 ### Scaling types
-- **Dynamic**: 
-  - `Simple scaling` :
+- https://docs.aws.amazon.com/autoscaling/ec2/userguide/scaling-overview.html
+- https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html
+- **a Dynamic**: 
+  - a.1 `Simple scaling` :
     - create trigger(CW:Alarm) + define **single action** + set cooldown-period 
     - demo : created one and link with tg. count : `desired, min, max`.
     - single step : cpu 70 : add 3 instance.
     
-  - `Step scaling` 
+  - a.2 `Step scaling` 
     - create trigger(CW:Alarm) + define **different/many actions** + set cooldown-period
     - more fine-tuned / more action:
       - if CPU utilization is slightly above the threshold, add 1 instance; 
       - if it is far above, add 3 instances.
       
-  - `target tracking Scaling` 
-    - define only **target value**. eg: 50% of CPU,memory,network utilization
-    - no need to create alarm + action
+  - a.3 `target tracking Scaling`  **recommended** :dart:
+    - define only **target value**. eg: 50% of **aggregate** (CPU,memory,network) utilization
+      - target : fleet of 10 ec2-i
+      - keep  aggregate cpu utilization 50%, else scale in/out :dart:
+    - Also remove the need to manually define :
+      - CloudWatch alarms 
+      - scaling adjustments
     
-- **scheduled** : 
+- **b scheduled** : 
   - eg: scale up/down to max/min count on weekends.
+  - scheduled action sets the minimum, maximum, and desired sizes :point_left:
 
-- **predictive** : 
+- **c predictive** : 
   - continuously `forecast` load and schedule scaling ahead of time.
   - Easy to create. once created ait for Week. 
   - `ML` will be applied on historic data.
@@ -163,8 +175,10 @@ aws autoscaling describe-instance-refreshes --auto-scaling-group-name <ASG-name>
     - LB >> tg [lambda-1, lambda-2]
     - LB >> tg [ip address] : `on-prem server IPs`
   - Also, LB >> tg-1, tg-2, ... multilpe tg is possible.
-  - routing/forwarding can happen at `route/path/url` ,` query-param `
+  - routing/forwarding can happen at `route/path/url` ,` query-param ` 
     - eg: /url-1?`plateform=mobile` --> tg-1
+    - ...
+    - **content-based routing** :dart:
   - demo:
       ```
       - Launch `ec2-i1` and `ec2-i2`, add sg-1 to both.
@@ -184,15 +198,17 @@ aws autoscaling describe-instance-refreshes --auto-scaling-group-name <ASG-name>
         - terminate ec2-i1 and hit elb-dns-1 again.
       ```
 - **registration delay** (old name : Connection Draining)
-  - feature of load balancers that ensures `active request`s are completed before **instances** are deregistered / terminated
+  - feature of load balancers that ensures `active requests` are completed before **instances** are deregistered / terminated
   - prevents disrupting in-flight requests and ensures a smooth user experience
-  - default 300sec / 5 min : allow 5 min to drains
-  - max 3600sec / 1 hr
-  - make 0 to disable
-  - if low like 5sec, then ec2-i will terminate fast, and all active clients session might lost,
-  - and assign to new instance on subsequent req.
+  - default : `300 sec / 5 min` : allow 5 min to drains
+  - max : `3600 sec` / 1 hr
+  - make `0 to disable`
+  - **if low** like 5 sec, then: 
+    - ec2-i will terminate fast, and all active clients session might lost,
+    - and assign to new instance on subsequent req.
 ---
 ### 2 ELB : NLB - Network LB (`layer 4`)
+- cannot facilitate **content-based routing** :dart:
 - operates at layer 4:  handle TCP, UDP, and TLS traffic
 - expose a fixed IP to the public web + **no sg**
   - so add sg to EC2-i or tg

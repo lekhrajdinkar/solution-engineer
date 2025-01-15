@@ -1,5 +1,10 @@
 # B. Kinesis Data Firehose `KDF`
 ## 1 Intro
+- easiest way to load **streaming data** into data stores and analytics tools.
+  - `capture`, 
+  - `transform`, 
+  - `load streaming data`
+  - also : batch, compress, and encrypt :point_left:
 - **NearRealTime `Data Delivery streams`**
   - set **buffer-interval** `0-900 Sec`
       - if buffer-interval == 0 --> `real time`
