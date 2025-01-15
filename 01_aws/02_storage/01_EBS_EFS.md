@@ -197,3 +197,23 @@ Cold HDD (sc1):
 ## Extra
 - ![img.png](../99_img/ec2/img_4.png)
 - ![img_1.png](../99_img/ec2/img_3.png)
+
+- price compare
+```yaml
+Storage Class	            Price (per GB)  
+
+EBS General Purpose (gp3)	$0.08
+EBS General Purpose (gp2)	$0.10
+EBS Provisioned IOPS (io1)	$0.125
+EBS Provisioned IOPS (io2)	$0.125
+EBS Magnetic (standard)	    $0.05
+
+=== SSD 12 cent , for HDD 5 cent
+
+EFS Standard	            $0.30
+EFS Standard-IA	            $0.025
+EFS One Zone	            $0.16
+EFS One Zone-IA	            $0.0133
+
+=== standard 30 cent , IA - 2 cent
+```

@@ -63,9 +63,12 @@
 - **size**: `100s PB` |  **iops** : `in millions`   | **throughput**  `?`
 
 - **More**
-  - integrate with 
-    - **S3** -> can R/W from S3 as FS :point_left:
-  - **usecase** 
+  - integrate with **S3**  :dart: :dart:
+    - transparently presents `S3 objects as files` and allows you to write changed data back to S3
+    - ability to both process the 
+      - **hot data** in a parallel and distributed fashion.
+      - **cold data** on Amazon S3
+  - **use case** 
     - HPC, ||, ML, Modeling
   - **deployment option**  :point_left:
     - **scratch** : short term storage, 6x faster, `no data replication`
