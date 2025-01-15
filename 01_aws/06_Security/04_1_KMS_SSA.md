@@ -131,15 +131,15 @@
   - `1$/month` / key
   - API calls : `0.03/10,000`
 
-
 ---
+## B. hands on
+```yaml
+Compliance and regulatory requirements	SSE-KMS
+High-performance applications	        SSE-S3
+Tracking key usage for audit logs	    SSE-KMS
+Minimal key management overhead     	SSE-S3
+```
 
-
----
-## C. KMS: Security
-
----
-## E. hands on
 ```
 - create key-1
     - symetric
@@ -152,14 +152,15 @@
 - rotation yearly : y/n
 
 // READY
-- actin:
+
+- action:
     - disable
     - schedule for deletion 
    
 - use aws-cli : encypti failtext with above key-1 
 ```   
 ---
-## E. Examples
+## C. Examples
 ### 1.1 S3 - `CRR` replication 
 - [here](./../02_storage/03_S3-1.md#security-while-crr-replication)
 
@@ -198,7 +199,6 @@
   - can **cache** this and re-use
     - reduce the no of api call and save quota :point_left:
   - CLI/SDK simplifies it, so use it.
-    - ``
 
 ```yaml
 ## === way-1 ===
@@ -246,22 +246,3 @@
 - will get ThrottleException
 
 ![img.png](../99_img/dva/kms/01/img4.png)
-
----
-
-## 99. scenario 
-### sse-kms deleted for s3. :dart:
-- how to retrieve object, s3:getObject api will fail to read/decrypt.
-- sol:
-  - pending deletion state for `7-30 `days (default 30)
-  - 30 days over, contact AWS
-  - meanwhile retrieve object from replicated bucket (if any)
-
-### need key usage tracking
-- specify a customer-managed CMK that you have already created
-```yaml
-Compliance and regulatory requirements	SSE-KMS
-High-performance applications	        SSE-S3
-Tracking key usage for audit logs	    SSE-KMS
-Minimal key management overhead     	SSE-S3
-```

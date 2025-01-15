@@ -48,6 +48,10 @@
   - use case: 
     - analytics application
     - can run `Dashboard`, `Analytics` on read replicas.
+- each Read Replica is associated with a **priority tier (0-15)**. :dart:
+  - In the event of a failover, Amazon Aurora will promote the Read Replica that has the **highest priorit**y.
+  - If two or more Aurora Replicas share the same priority, then Amazon RDS promotes the replica that is **largest in size**
+  - eg:  tier-1 (16 terabytes), **tier-1 (32 terabytes)**, tier-10 (16 terabytes), tier-15 (16 terabytes), tier-15 (32 terabytes)
 
 #### **Underlying Storage**
 - define 

@@ -1,6 +1,6 @@
 # introduction on:
 ## A. GaurdDuty
-- fully manage
+- fully managed
 - enable it and try it, (30 days trail)
 - **collect** from:
   - dns logs
@@ -10,10 +10,17 @@
     - EKS,RDS,Aurora,EBS,Lambda,S3
     - ...
 - **perform** 
-  - ML algo + AI
+  - analyzes continuous streams of meta-data generated from your account and network activityusing ML/AI
   - to detect/discover any security threat
     - **CryptoCurrency attack** :point_left:
   - Send event-bridge notification
+  
+- fact :dart:
+  - **Disabling** the service
+    - will delete all remaining data, including your `findings and configurations`
+  - **Suspending** the service
+    - stop the service from analyzing data 
+    - but does not delete your existing `findings or configurations`
 
 ![img_2.png](../99_img/security/others/img_2.png)
 

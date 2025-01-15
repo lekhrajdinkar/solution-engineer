@@ -34,7 +34,20 @@
   - EC2-i2 : task-11, task-22, ...
   - EC2-i3 : task-111, task-222, ...
   - ...
+
+### pricing :dart:
+- **Fargate launch type**
+  - you pay for the amount of **vCPU and memory** resources that your containerized application **requests**.
+  - **from** the time your container images are pulled 
+  - **until** the Amazon ECS Task terminates
+  - rounded up to the nearest second. 
   
+- **EC2 launch type** 
+  - there is no additional charge for the EC2 launch type.
+  - pay for AWS resources 
+    - EC2 instances 
+    - EBS volumes
+    
 ### ECS Demo:(launchtype = ec2)
 #### 1 create **cluster-1** 
   - launchType : ec2 (worker nodes)

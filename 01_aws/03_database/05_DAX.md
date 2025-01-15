@@ -11,6 +11,7 @@
 - DAX is compatible with DynamoDB API call
   - hence won't require an application refactoring
 
+---
 ## provision DAX cluster
 - [udemy reference](https://www.udemy.com/course/aws-certified-developer-associate-dva-c01/learn/lecture/28646592#overview)
 - ![img.png](../99_img/moreSrv/dynamo/img.png)
@@ -31,13 +32,18 @@
   - TTL (item)
 - DONE, get **cluster URL** and use in app.
 
+---
 ## use case
 - to fix **hot key** problem
   - specific key read too many time, giving throttleError
   - then cache that item in DAX
   - cache has **TTL** (`5 min` default)
+- millions of requests per second to DynamoDB, causing performance issue.
+  - Add DAX on front.
 
-
+---
 ## Architecture example
 - ![img.png](../99_img/dva/00/img-dax.png)
 - usinf DAX and ElasticCache, both.
+
+
