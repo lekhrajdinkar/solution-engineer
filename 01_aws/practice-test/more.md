@@ -21,7 +21,7 @@
 - https://chatgpt.com/c/676b620b-fa38-800d-87e3-f2a155799864
 
 ---
-## C. SSA
+# C. SSA
 - https://quizlet.com/425396578/aws-solutions-architect-flash-cards/
 
 ## 1. discussion
