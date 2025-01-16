@@ -110,6 +110,11 @@
   - decrypt  call
   - re-encrypt call
 
+- **fact** :point_left: :dart:
+  - CANNOT convert an existing single-Region key to a multi-Region key. :x:
+  - CANNOT share an AWS KMS key to another region :x:
+    - alternative : use multi-region key
+  
 ##### multi regional
 - **simplify but not recommended**
 - same key replicated in multiple region

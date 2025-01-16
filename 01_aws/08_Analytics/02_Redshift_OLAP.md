@@ -5,7 +5,7 @@
 - **data warehousing** 
 - load PB of data and perform query/analysis
 - like athena, Integrated with **aws:glue** (crawler > catalog)
-- **result** goes to:
+- analytic query **result** goes to:
   - S3 
   - Amazon QuickSight (dashboard) 
   - `Tableau`
@@ -13,14 +13,13 @@
 
 --- 
 ## 2. Data Source
+- ![img_2.png](../99_img/moreSrv/redshift/img_2.png)
 - load data from below  sources
-  - KDS >> kDF >> Redshift
-  - s3 >> Redshift
-  - program(Java:SDK): in-batches >> Redshift
-  - ??  >> AWS glue/ETL  >> Redshift
+  - **KDF**
+  - s3
+  - program(Java:SDK): **in-batches** 
+  - AWS glue/ETL
   - ...
-
-![img_2.png](../99_img/moreSrv/redshift/img_2.png)
 
 ---
 ## 3. Cluster architecture
@@ -46,10 +45,11 @@
 ---
 ## 5. DR
 - **single-AZ** (by default)
-- can enable **Multi-AZ**  replication 
-- enable **cross region-replication** 
-  - `incremental-snapshot`(only new change), in every 8 hr. retention: 35 days.
-  - stored in s3.
+- **Multi-AZ**  replication 
+- **cross region-replication** - explicitly enable
+  - incremental-snapshot(only new change), in every 8 hr. 
+    - retention: 35 days.
+    - stored in s3.
   - restore snapshot/s into new region : **manually/automate**.
   - ![img_1.png](../99_img/moreSrv/redshift/img_1.png)
 

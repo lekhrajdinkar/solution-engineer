@@ -36,7 +36,7 @@
 ---
 ## 4. ACM: integration with services    
 - **CloudFront** 
-  - can monitor **days to expiry** as a metric for ACM certificates
+  - can monitor **days to expiry** as a metric for ACM certificates :dart:
   - can build alarms to monitor certificates based on **days to expiry**
 - **R-53**
 - **ELB** : ALB, NLB, ... 
