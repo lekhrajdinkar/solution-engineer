@@ -96,7 +96,9 @@
 - Stateful| Stateless: return traffic must be explicitly allowed by rules (think of ephemeral ports)
 - `allow` rules only |  `allow/deny` rules
 - `All` rules are evaluated | Rules are evaluated `in order` (lowest to highest) and `first match wins`.
-- ![img_3.png](../99_img/vpc-2/img_3.png)
+
+#### NACL with  ephemeral port range
+![img_3.png](../99_img/vpc-2/img_3.png)
   
 ---
 ## 4. IGW

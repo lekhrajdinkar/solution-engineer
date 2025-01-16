@@ -1,18 +1,21 @@
 # Aurora (rdbms, Serverless)
 
-## summary/highlights
+## A. Intro
 - engine : `Postgres` 3x  and `MySQL` 5x
-- serverless,**no capacity planning**
-- global DB, 
-- self-healing, 
-- continuous s3 backup, 
-- PITR, 
+- serverless,
+- **no capacity planning**
 - scale to **128TB** 
-- OLTP
-- **RPO** : `1 sec` | **RTP** `< 1 min` :dart:
+- OLTP | rdbms
 
-## A. Advantages
-- include rds adv.
+## B. DR
+- **RPO** : `1 sec` | **RTP** `< 1 min` :dart:
+- aurora has no **stand-by instance** thing :point_left:
+- self-healing,
+- continuous s3 backup,
+- PITR
+
+## C. Advantages
+- include RDS adv.
 
 ###  1 Global Aurora database
 - cross `region` replicas in `less than a sec`. | single Database spans over multiple **region**.
