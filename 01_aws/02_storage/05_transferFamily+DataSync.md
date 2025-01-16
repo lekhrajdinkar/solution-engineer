@@ -6,7 +6,7 @@
 
 ---
 ## B. AWS DataSync
-- ** scheduled continuous data sync**
+- **scheduled continuous data sync**
   - hourly
   - daily 
   - weekly 

@@ -8,9 +8,9 @@
   - DC decommission, 
   - disaster recovery
     
-- **Snowball devices** (offline portable devices)
-  - Snowball Edge **Storage** Optimized : `80/210 TB ` | `80 GB RAM, 40 cpu`
-  - Snowball Edge **Compute** Optimized : `42/28 TB` | `416 GB RAM, 104 cpu`
+- **Snowball devices** (offline portable devices), max:
+  - Snowball Edge **Storage** Optimized : `80 TB | 80  GB RAM | 40 cpu`
+  - Snowball Edge **Compute** Optimized : `42 TB | 416 GB RAM | 104 cpu`
   - post device 
   - send/upload to/from:
     - **block volume** / EBS
