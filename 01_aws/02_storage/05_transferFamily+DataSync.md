@@ -6,17 +6,32 @@
 
 ---
 ## B. AWS DataSync
-- hourly, daily, weekly `sync (not continuous, scheduled)` : Move large amount of data/files to and from 
-  - On-prem and aws (using `datasync-agent` - 10 Gbps, tip:use multiple agent for more speed.)
-  - AWS to AWS (no agent)
-- on aws its `s3/glacier, EFS, FSx`, where data is synchronized.
-- File permissions and metadata are `preserved`
-- protocol: NFS-POSIX, SMB
-- ![img_1.png](../99_img/storage/img_1.png)
-  - Notice : TLS; save n/w cost with snowcone
-- ![img_2.png](../99_img/storage/img_2.png)
-  - can also use internal migration.
-- eg:on-prem (DatasyncAgent:`scheduled-task`) --> AWS Direct connection --> VPC gateway(interface) --> resource(EFS/S3)
+- ** scheduled continuous data sync**
+  - hourly
+  - daily 
+  - weekly 
+  - ...
+  
+- Move large amount of data/files to and from 
+  - **On-prem(install datasync-agent) and aws** 
+    - 10 Gbps
+    - use multiple agent for more speed
+    - flow: on-prem  --> AWS Direct connection --> VPC gateway(interface) --> resource(EFS/S3)
+    - ![img_1.png](../99_img/storage/img_1.png)
+  - **AWS to AWS** (no agent)
+    - ![img_2.png](../99_img/storage/img_2.png)
+  
+- **target**
+  - s3/glacier
+  - EFS 
+  - FSx
+
+- more:
+  - File permissions and metadata are `preserved`
+  - protocol: NFS-POSIX, SMB
+  - TLS
+  - save n/w cost with snowcone
+
 ---
 
 # Quick Summary on All storage options

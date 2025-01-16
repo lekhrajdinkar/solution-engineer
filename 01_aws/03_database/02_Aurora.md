@@ -1,4 +1,6 @@
 # Aurora (rdbms, Serverless)
+
+## summary/highlights
 - engine : `Postgres` 3x  and `MySQL` 5x
 - serverless,**no capacity planning**
 - global DB, 
@@ -7,6 +9,7 @@
 - PITR, 
 - scale to **128TB** 
 - OLTP
+- **RPO** : `1 sec` | **RTP** `< 1 min` :dart:
 
 ## A. Advantages
 - include rds adv.

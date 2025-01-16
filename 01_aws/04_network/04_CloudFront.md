@@ -25,10 +25,11 @@
 ## A. Distribution
 ![img_1.png](../99_img/CF/img_1.png)
 ### 1. origin
-- source:
+- source (3):
   - s3 bucket` or  `s3(static Web), 
   - Any http backend
-  - ALB
+  - ALB only (not other ELB)
+  - remember : **NO Lambda** :x: :dart: exam confuse with lambda alot.
 - distribution(edge-location) ---> **`privatelink` physical connection** ---> origin(eg:alb on us-east-1)
     - cf also needs access-policy to access origin
 ### 2. origin access

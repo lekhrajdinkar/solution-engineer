@@ -185,7 +185,7 @@ boundary-1 : allow  `ecs,lambda,s3` only
             }
 ```
 - more eg :
-  - "aws:requestedRegion": "true"
+  -  "aws:RequestedRegion": "eu-west-1" :  allow running Amazon EC2 instances only in the eu-west-1 region :dart:
   - "aws:priciplaOrgId": "0-xxxxxxxxx"
   - ![img.png](../99_img/security/org/img-4.png)
 ---
