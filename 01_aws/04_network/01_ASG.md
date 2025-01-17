@@ -32,21 +32,26 @@
   - https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html
 - **a Dynamic**: 
   - a.1 `Simple scaling` :
-    - create trigger(CW:Alarm) + define **single action** + set cooldown-period 
+    - create trigger(CW:Alarm) + define :: ( **single action** + set cooldown-period )
     - demo : created one and link with tg. count : `desired, min, max`.
     - single step : cpu 70 : add 3 instance.
+    - before responding to additional alarms, **waits for**:
+      - the current scaling activity 
+      - health check replacement to complete 
+      - and the cooldown period to expire 
     
   - a.2 `Step scaling` 
-    - create trigger(CW:Alarm) + define **different/many actions** + set cooldown-period
-    - more fine-tuned / more action:
+    - create trigger(CW:Alarm) + define :: ( **different/many fine-tuned action actions** + set cooldown-period )
       - if CPU utilization is slightly above the threshold, add 1 instance; 
-      - if it is far above, add 3 instances.
+      - if it is far above, add 3 more instances
+      - ...
       
   - a.3 `target tracking Scaling`  **recommended** :dart:
+    - react fast :dart:
     - define only **target value**. eg: 50% of **aggregate** (CPU,memory,network) utilization
       - target : fleet of 10 ec2-i
       - keep  aggregate cpu utilization 50%, else scale in/out :dart:
-    - Also remove the need to manually define :
+    - Also remove the need to manually define :dart:
       - CloudWatch alarms 
       - scaling adjustments
     
@@ -63,7 +68,7 @@
 - **Launch template** :point_left:
   - more modern and flexible way 
   - Editable/mutable: Launch Templates allow versioning
-  - EC2 details (AMI, OS, Role, etc), 
+  - EC2 details (AMI, OS, Role, **tenancy**, etc), 
   - **more flexible** - mix of purchasing options :dart:
     - eg: spot instance, on-demand,etc
   - Configure `user data` for automation, during instance initialization.
@@ -71,6 +76,23 @@
 - **Launch Configurations**
   - Immutable - replace entire template if changes needed.
   - simpler but less flexible -  does not multiple instance types like od, spot, etc
+
+### scenario-1(tenancy) :dart:
+``` 
+ # host >> dedicated >> default
+- Launch Template LT1 (Dedicated Tenancy)
+  - VPC tenancy (default) 
+- Launch Template LT2 (Default Tenancy)
+  - VPC tenancy (dedicated) 
+  
+>> If either "Launch Template Tenancy" or "VPC Tenancy" is set to dedicated, then the instance tenancy is also dedicated
+ 
+=== MORE RULES ===  
+
+- VPC Tenancy Takes Precedence
+- Cannot Downgrade Tenancy
+- Instances in different tenancy types (shared vs. dedicated) cannot communicate within the same VPC using private IPs
+```  
 
 ## 5. scale-down: `Default Termination Policy` :dart:
 - order:

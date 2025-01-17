@@ -7,6 +7,7 @@
   - one distribution - multiple origins
 
 ### key point
+- protocol : **HTTP/RTMP**  :dart:
 - CDN **content delivery network**, cache data all around the world/countries
   - `allow-list` countries
   - `black-list` countries.
@@ -20,7 +21,7 @@
   - Proxy methods **PUT/POST/PATCH/OPTIONS/DELETE** go
   - **Dynamic content**, as determined at request time
 ---
-## A. Distribution
+## A. Distribution (regional cache)
 ![img_1.png](../99_img/CF/img_1.png)
 ### 1. origin
 - source (3):

@@ -37,6 +37,13 @@
 - ![img.png](../99_img/vpc-1/img-v2.png)
 - ![vpc-1.png](../99_img/draw-io/VPC-1.drawio.png)
 
+### 3.0 `tenancy` for EC2
+- console >> VPC Settings >> **Tenancy dropdown** >>
+  - Default  **
+  - Dedicated
+  - tenancy(in VPC) **sets the baseline**, and tenancy (in LT) cannot downgrade it. :point_left: :dart:
+    - `host >> dedicated >> default`
+
 ### 3.1 CIDR
 - **CIDR-1** : `172.32.0.0/16`
 - **CIDR-2,3,4,5**  
