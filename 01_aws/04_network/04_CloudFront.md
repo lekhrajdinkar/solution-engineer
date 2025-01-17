@@ -146,7 +146,7 @@
 
 ### 2
 - cannot **directly** integrate **Cognito User Pools** with CloudFront distribution
-  - via AWS `Lambda@Edge function` to accomplish the authentication to Cognito User Pools
-  - additional development
+  - via AWS `Lambda@Edge function` can accomplish 
+  - but requires additional development
 
 
