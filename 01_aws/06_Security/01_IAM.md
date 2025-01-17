@@ -136,7 +136,7 @@ boundary-1 : allow  `ecs,lambda,s3` only
 ---
 ## 8. Advance Polices example
 ### Conditions
-- Allow Access Based on IP Address
+- eg-1 Allow Access Based on IP Address
 ```json5
         {
             "Effect": "Allow",
@@ -154,7 +154,7 @@ boundary-1 : allow  `ecs,lambda,s3` only
         }
 ```
 
-- Allow Access During Specific Time Period
+- eg-2 Allow Access During Specific Time Period
 ```json5
             "Condition": {
                 "DateGreaterThan": {
@@ -166,7 +166,7 @@ boundary-1 : allow  `ecs,lambda,s3` only
             }
 ```
 
-- Allow Access Based on MFA Authentication
+- eg-3 Allow Access Based on MFA Authentication
 ```json5
             "Condition": {
                 "Bool" / "BoolIfExist": {
@@ -175,7 +175,7 @@ boundary-1 : allow  `ecs,lambda,s3` only
             }
 ```
 
-- tag
+- eg-4 tag
 ```json5
 "Condition": {
                 "StringNotEquals" / "StringEquals": {
@@ -183,6 +183,37 @@ boundary-1 : allow  `ecs,lambda,s3` only
                     "aws:principleTag/Departmnet": "d1"
                 }
             }
+```
+- eg-5
+```yaml
+#  Users belonging to the IAM user group can terminate an Amazon EC2 instance in the **us-west-1** region 
+#  when the user's source IP in 10.200.200.0/24
+{
+    "Version":"2012-10-17",
+    "Id":"EC2TerminationPolicy",
+    "Statement":[
+        {
+            "Effect":"Deny",
+            "Action":"ec2:*",
+            "Resource":"*",
+            "Condition":{
+                "StringNotEquals":{
+                    "ec2:Region":"us-west-1"
+                }
+            }
+        },
+        {
+            "Effect":"Allow",
+            "Action":"ec2:TerminateInstances",
+            "Resource":"*",
+            "Condition":{
+                "IpAddress":{
+                    "aws:SourceIp":"10.200.200.0/24"
+                }
+            }
+        }
+    ]
+}
 ```
 - more eg :
   -  "aws:RequestedRegion": "eu-west-1" :  allow running Amazon EC2 instances only in the eu-west-1 region :dart:

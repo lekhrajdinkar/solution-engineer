@@ -16,7 +16,7 @@
 ---
 # B. SSO or **Identity provider** 
 - use case:
-    - sso for all account in [aws org](./03_AWS_org.md)
+    - sso for all account in [aws org](./03_AWS_org+control-tower)
     - sso for all ec2 instance in an aws account
 - IP has :
     - `AD : Active directory`  + integrate to `3rd party IP (OKta)`
