@@ -8,7 +8,12 @@
   - **Option-3** : AWS `RDS` 
 
 ---
-# RDS (regional)
+# RDS 
+- **regional**
+- RDBMS | OLTP
+- migrate to Aurora :point_left:
+  - involves significant systems administration effort
+
 ## Advantages of RDS
 ### 2.1 fully managed (not serverless)
 - RDS **does not** allow you to access the host OS of the database
@@ -102,7 +107,8 @@
   - can use `IAM roles` to ec2-i, to connect to your database (instead of username/pw)
   - or, create one time `password/token` after cluster creation
 - `Security Groups`: Control Network access to your RDS / Aurora DB
-- No SSH available, except on RDS Custom
+- No SSH available, except on **RDS Custom**
+- attach **Security group** on RDS instance
 
 ### 2.7 RDS proxy
 - pools open connections.
@@ -130,6 +136,8 @@
   - read replica 
 - inbound data transfer is free.
 - Outbound data transfer is charged based on the volume of data transferred outside of AWS
+- **replication charge**: `cross-region only` :dart:
+
 ### Cost Optimization Tips
 - Use Reserved Instances: Commit to a 1 or 3-year term for discounts
 - Enable Auto-Scaling.
@@ -169,16 +177,5 @@
  
 ```
 ---
-## 5. Summary
-- Storage Auto-scaling (EBS volume size)
-- backup/restore : dumps>s3>restore, retention policy(1-35), manual dumps(always),
-- `cloning` : EBS volume - clone
-- DR( multi-AZ or region ) : main-DB (Writer, only 1) > snapshot > restore-Standby
-- performance Arch: `one` Write-Instance + `many` Read-Replica/s , `RDS proxy`
-- security: attach `Security group` on RDS instance, encryption at rest/fly, IAM
-- use case and scenarios:
-    - RDBMS / OLTP
-    - `RDS event ntf` > event catch > target : SNS, Lambda
-
-## 99. extra
+## 99. extra : DVA
 ![img.png](../99_img/dva/kms/05/imgrds.png)

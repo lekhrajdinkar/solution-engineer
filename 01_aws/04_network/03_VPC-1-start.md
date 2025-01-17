@@ -296,10 +296,29 @@
     - send logs to s3, CW, KDF
 
 ---
-# D. Extra
-## 1. hared service VPC
+# D. Extra : SSA
+## 1. `shared service VPC`
+- VPC-1/2/3... all connected with **transient gateway**
+- inside VPC-1 
+  - create service-1 - eni:vpce-1
+  - create service-2 - eni:vpce-2
+  - ...
+- provides access to services-1/2/..., required by workloads in each of the VPCs
+- share service-1/2/... with VPC-2,3,... **using VPC endpoint/s**
+- VPC-1 will become shared VPC, since its sharing resources to other VPC
+```
+#1
+An e-commerce company operates multiple AWS accounts and has interconnected these accounts in a hub-and-spoke style
+using the AWS Transit Gateway. Amazon Virtual Private Cloud (Amazon VPCs) have been provisioned across these AWS accounts 
+to facilitate network isolation.
+
+Which of the following solutions would reduce both the administrative overhead and the costs while providing shared access 
+to services required by workloads in each of the VPCs?
+
+- Build a shared services Amazon Virtual Private Cloud (Amazon VPC)
+```
 ![img.png](../99_img/vpc-1/SharedserviceVPC.png)
 
 ## 2. Transit VPC
--  Transit VPC uses customer-managed EC2 instances in a dedicated transit VP` with an Internet gateway
+-  Transit VPC uses customer-managed EC2 instances in a dedicated transit VP with an Internet gateway
 - ![img.png](../99_img/vpc-1/Transit-VPC.png)

@@ -160,6 +160,6 @@ AWS VPC-1 (rtb-main:vgw-1) <==> [ vgw-1 <---Site-2-site VPN(uses:internet)---> c
 
 ---
 ## more example:
-![img.png](img.png)
+![img.png](../99_img/refactor/01/img.png)
 
 

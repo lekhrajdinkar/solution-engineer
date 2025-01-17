@@ -147,5 +147,5 @@ Non-relational databases are designed for unstructured or semi-structured data a
 This document outlines the core relational and non-relational database offerings from AWS, highlighting their use cases and features.
 
 ---
-![img.png](img.png)
+![img.png](../99_img/refactor/01/img-dax.png)
 

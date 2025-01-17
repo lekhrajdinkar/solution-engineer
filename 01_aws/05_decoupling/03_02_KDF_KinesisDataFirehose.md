@@ -20,9 +20,15 @@
   - no administration, 
   - auto scale
   
-## 2 Destinations
+## 2 Source and Destinations
+- **source**: KDS, KCL/SDK, K-agent, AWS IoT :dart:
+- **destination** ( only 3 in aws side): s3, redshift/OLAP DB, openSearch
+- fact to remember :point_left: :dart:
+  - When KDS is configured as the source of a KDF stream, then:
+    - Firehose’s **PutRecord** and **PutRecordBatch** operations are disabled 
+    - thus, Kinesis-Agent cannot write to KDF Stream directly.
+    
 - ![img_3.png](../99_img/decouple/img_3.png)
-- notice
   - optional lambda transformation + convert format to **parquet+ORC**
   - can put failed item into s3
   - write data in **batches**

@@ -64,7 +64,8 @@
   - more modern and flexible way 
   - Editable/mutable: Launch Templates allow versioning
   - EC2 details (AMI, OS, Role, etc), 
-  - more flexible - mix of purchasing options.
+  - **more flexible** - mix of purchasing options :dart:
+    - eg: spot instance, on-demand,etc
   - Configure `user data` for automation, during instance initialization.
   
 - **Launch Configurations**

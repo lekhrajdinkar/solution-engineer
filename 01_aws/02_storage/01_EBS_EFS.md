@@ -123,7 +123,7 @@ Cold HDD (sc1):
   - supports 
     - multi-AZ (Regional)  :point_left:
     - single AZ
-    - ![img.png](img.png)
+    - ![img.png](../99_img/refactor/01/img_3.png)
     - attach to multiple EC2 ( **Linux based AMI** only) :point_left:
   - high performance 
     - Read - `3 GB / s`
