@@ -12,13 +12,11 @@
   - `black-list` countries.
 - static-content cached for **TTL** (eg : a day), thus low latency.
 - Also can **invalidate** cache at any time
-- run on **edgeLoc** 
-- **side benefit**: 
-  - integrated with AWS-shield (firewall)
-    - protect from `DDoS` :point_left:
-- can also configure CloudFront to use HTTPS to get objects from your origin.
+- **security**: :point_left:
+  - can integrate with **WAF** [08_WAF+FirewallManager.md](../06_Security/08_WAF%2BFirewallManager.md)
+  - integrated with **AWS-shield** (firewall) [09_sheild.md](../06_Security/09_sheild.md)
 
-- bypass the regional edge cache, and go directly to the origin :dart:
+- **bypass** the regional edge cache, and go directly to the origin :dart:
   - Proxy methods **PUT/POST/PATCH/OPTIONS/DELETE** go
   - **Dynamic content**, as determined at request time
 ---

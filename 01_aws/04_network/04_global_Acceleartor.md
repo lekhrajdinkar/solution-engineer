@@ -87,12 +87,8 @@
 - -hit dn-1 url
   - goes to us-east-1,ec2-1 now
 ```
----
-## 3. Security
-
-
  
-## 4. scenario
+## 3. scenario
 ```
 #1
 A gaming company is looking at improving the availability and performance of its "global" flagship application 

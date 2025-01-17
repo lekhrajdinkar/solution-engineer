@@ -98,6 +98,7 @@
   - Database master & replicas encryption using AWS KMS
   - If the master is not encrypted, the read replicas cannot be encrypted
   - To encrypt an un-encrypted database, go through a DB snapshot & restore as encrypted
+  - can only enable encryption for an Amazon RDS DB instance when you create it, not after the DB instance is created :dart:
 - `In-flight` encryption: 
   - TLS-ready by default, use the `AWS TLS root certificates` client-side.
   - use the same `domain-name-1` for both the certificate and the CNAME record in Route 53.

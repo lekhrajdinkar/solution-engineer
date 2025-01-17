@@ -127,17 +127,13 @@
 
 ---
 ## 8. VPC Flow Logs
-- reference: video:339 SSA
-- **log level** : 
-  - VPC
-  - Subnet
-  - ENI 
+- **log level** : VPC | Subnet | ENI 
 -  **destination** :
-  - S3  >> athena
-  - CloudWatch 
-    - CW::metric >> CW::alarm >> sns
-    - ...
-  - KDF 
+  - **S3**  >> athena
+    - **CloudWatch** 
+      - CW::metric >> CW::alarm >> sns
+      - **KDF** (collect data stream) :dart: , not KDS
+      - ...
 - ![img.png](../99_img/vpc-3/img+4.png)
 - ![img_1.png](../99_img/vpc-3/img+5.png)
 - ![img_2.png](../99_img/vpc-3/img_+6.png)
