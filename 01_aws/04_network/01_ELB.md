@@ -3,8 +3,9 @@
 - public IP might change :point_left:
 - https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html
 
-## `Proxy server` with additional feature
+## 1. Proxy server with additional feature
 - sits b/w client and backend-server. **hides** the backend server's IP address.
+- **rewrites** the destination IP address before forwarding it to the target.
 - **forwards** client requests to the appropriate backend server based on configured rules in `balanced distribution way`.
   - Content-Based Routing (url, queryparam,etc)
 - **gateway** : offers a synchronous decoupling of applications
@@ -17,35 +18,46 @@
 - also act as **reverse-proxy**
   - it forwards client requests to backend servers and sends responses from those servers back to the clients.
   
-## Cross-Zone Load Balancing 
+## 2. Cross-Zone Load Balancing 
 - `mutli-AZ`(span over AZs), forwards traffic to multiple ec2 in different AZs.
 - if az-1 has more instances running, most traffic must forward to az-1
-- Enabled by default, `free`
+- free, enable for ALB
 
+## 3. health-check
+- At **tg-level**. forwards traffic to healthy tg.
+- **Grace Period** : helps to avoid **premature health check failures**.
+- impaired status of EC2 
+  - OS check, n/w status failed on Ec2 - failed
+  - **ASG** marks unhealthy, replace it.
 
-## more
-- **health-check mechanism** (/health) 
-  - At **tg-level**. forwards traffic to healthy tg.
-  - `Grace Period` : helps to avoid premature health check failures.
-  - `impaired status of EC2` : OS check, n/w status failed on Ec2 - failed
-    -  marks unhealthy, and **terminate** after grace period.
-
-- has **Security group** : 2 level od sg: sg-lb-1 >> sg-ec2-i1 
-- has **integration**  with:
-  - ACM : [cert-1 for domain-1, cert-2 for domain-2, ... ] : `SNI` helps to load single Cert.
-  - route-53, 
-  - ASG
-  - tg - ECS, EKS, EC2
-  - Cloudwatch
-  - WAF
-  - **Global-Accelerator**
+## 4. Security group
+- 2 level of SG:
+  - sg-elb-1 
+  - sg-ec2-i1 
+  
+## 5. integration
+- WAF 
+- ACM 
+  - cert-1 for domain-1
+  - cert-2 for domain-2, 
+  - ...  
+  - **SNI** helps to load single Cert.
+- **route-53** (internet) + **Global-Accelerator** (aws private n/w) :point_left:
+- Cloudwatch
   
 ## Types (3)
-  - `Classic` CLB (deprecated)
-  - `ALB` : operate at layer 7 : HTTP,HTTPS, websocket
-  - network, `NLB` : operate at layer 4: TCP, UDP, TLS : `very low latency, fast`
-  - gateway : `GWLB`, 2020 : provides advance security
-
+- Classic LB (deprecated) :x:
+- **ALB** 
+  - operate at `layer 7 : HTTP,HTTPS, websocket`
+- **network LB** 
+  - operate at `layer 4 : TCP, UDP, TLS`  
+  - very low latency, fast
+  - million of request
+  - gaming
+- **gateway LB** (in 2020) 
+  - provides advance security
+- check more detail below:
+---
 ### 1 ELB : ALB - Application LB (`layer 7`)
 - `client` (IP-1) --https--> `ELB` with ACM (add extra header in http : `X-forwarded-for`) --http--> `backend-app-server`
   - notice https vs http

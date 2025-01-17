@@ -17,7 +17,8 @@
     
 - **serverless**
   - fully managed, 
-  - no administration, 
+  - no administration :point_left:
+    - unlike KDS where we provision no. of shards.
   - auto scale
   
 ## 2 Source and Destinations
@@ -33,27 +34,6 @@
   - can put failed item into s3
   - write data in **batches**
   
-### 2.1 AWS 
-- only these 3:
-  - `s3`
-    - set compression + encryption
-  - `redshift`
-  - `OpenSearch`
-
-### 2.2 3rd party
-- splunk
-- **datadog**
-  - in ccgg, `cloudwatch::log/trace/metric` >>> `datadog`
-  - doing with **sns** since not too much logs.
-  - but if push everything, then go with KDF
-
-### 2.3 http
-- custom destination
-
----
-## 3 source
-- app(KPL/aws-sdk) === same for KDS
-- KDS
 ---
 # extra
 ![img.png](../99_img/dva/00/kds/img-kdf.png)

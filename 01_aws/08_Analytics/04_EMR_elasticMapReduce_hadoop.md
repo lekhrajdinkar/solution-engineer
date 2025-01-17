@@ -13,6 +13,7 @@
     - Just to run tasks 
     - usually Spot instance
 - set up : Apache Spark, HBase, Presto, Flink
+- **3x faster** 
   
 ## 2. Use cases
 - data processing 

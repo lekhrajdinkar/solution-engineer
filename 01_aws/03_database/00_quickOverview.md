@@ -97,6 +97,8 @@ Non-relational databases are designed for unstructured or semi-structured data a
 
 ### 4. **Amazon `DocumentDB` (with MongoDB compatibility)**
 - Fully managed document database service.
+- store, query, and index JSON data
+- it does not have an in-memory caching layer :point_left:
 - Compatible with **MongoDB**.
 - Features:
     - Purpose-built for JSON workloads.
@@ -124,8 +126,11 @@ Non-relational databases are designed for unstructured or semi-structured data a
 
 ## B.3 Hybrid Solutions
 ### 1. **AWS Database Migration Service (DMS)**
-- Helps migrate databases to AWS with minimal downtime.
-- Supports migrations between relational and non-relational databases.
+- Helps migrate databases to AWS with **minimal downtime**.
+- **Continuous** Data Replication
+- Supports migrations between **relational and non-relational databases**. :point_left:
+- source database remains fully operational during the migration
+  - minimizing downtime to applications that rely on the database.
 
 ---
 
