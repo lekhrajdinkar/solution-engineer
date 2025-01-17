@@ -9,6 +9,10 @@
       - Network connectivity issues.
       - Exhausted instance resources (CPU, memory, or disk).
       - Corrupted or inaccessible boot volume.
+      - if instance is automatically recovered,then  :point_left: :dart:
+        - identical to the original instance, including the instance ID, private IP addresses, Elastic IP addresses, and all instance metadata
+        - If instance has a public IPv4 address, it retains.
+        
     - **alb target - health check api**
       - by-default not configured :point_left: :dart:
     - cannot define any other custom health check :point_left:

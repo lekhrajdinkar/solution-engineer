@@ -31,12 +31,19 @@
   - consumer could call this api to get more time.
   - ![img_4.png](../99_img/decouple/sqs/img_4.png)
   - if too low, then may get duplicate.
-- **Long polling**  :o:
-  - Consumer can optionally “wait” for messages to arrive, if there are none in the queue 
-  - set `message receive wait time` : (1-20 sec)
-  - pattern : poll-1 API -- wait 10 sec -- poll-1 API -- wait 10 sec ...
-  - long poll **preferred** : more gap in poll api calls, but increase **latency**
-    - save cpu cycle, save money.
+
+- **Polling Type (2)**
+  - **short polling** (default)
+    - SQS sends the response right away, even if the query found no messages
+  - **Long polling** 
+    - Consumer can optionally “wait” for messages to arrive, if there are none in the queue 
+    - set `message receive wait time` : (1-20 sec)
+    - pattern : poll-1 API -- wait 10 sec -- poll-1 API -- wait 10 sec ...
+    - long poll **preferred** : 
+      - more gap in poll api calls, but increase **latency**
+      - Amazon SQS sends an empty response only, if the polling wait time expires
+      - save cpu cycle, save money $$ :dart:
+      
 - DLQ must also be a standard queue
 - **Delivery delay**
 -  **Throughput** : virtually unlimited messages per second. :point-left:
@@ -101,6 +108,7 @@
   - inbound data is free
   - outbound traffic paid. ?
 - Long Polling: No extra cost for long polling.
+  - save cost, because it reduces the **number of empty receives** :dart:
 
 ---
 ## E. hands on
