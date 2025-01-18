@@ -5,7 +5,7 @@
 
 ## 1. Proxy server with additional feature
 - sits b/w client and backend-server. **hides** the backend server's IP address.
-- **rewrites** the destination IP address before forwarding it to the target.
+
 - **forwards** client requests to the appropriate backend server based on configured rules in `balanced distribution way`.
   - Content-Based Routing (url, queryparam,etc)
 - **gateway** : offers a synchronous decoupling of applications
@@ -21,7 +21,7 @@
 ## 2. Cross-Zone Load Balancing 
 - `mutli-AZ`(span over AZs), forwards traffic to multiple ec2 in different AZs.
 - if az-1 has more instances running, most traffic must forward to az-1
-- free, enable for ALB
+- ![img.png](../99_img/ec2/im-3.png)
 
 ## 3. health-check
 - At **tg-level**. forwards traffic to healthy tg.
@@ -44,8 +44,16 @@
   - **SNI** helps to load single Cert.
 - **route-53** (internet) + **Global-Accelerator** (aws private n/w) :point_left:
 - Cloudwatch
+
+## 6.Client Stickiness with cookies
+- storing session data on ec2-i/tg
+- may create **imbalance** :point_left:
+- ![img_1.png](../99_img/ec2/im-2.png)
+- alternative approach
+  - use stores session data on elastiCache with TTL. 
+  - [03_ElastiCache.md](../03_database/03_ElastiCache.md)
   
-## Types (3)
+## 7.Types (3)
 - Classic LB (deprecated) :x:
 - **ALB** 
   - operate at `layer 7 : HTTP,HTTPS, websocket`
@@ -58,93 +66,101 @@
   - provides advance security
 - check more detail below:
 ---
-### 1 ELB : ALB - Application LB (`layer 7`)
-- `client` (IP-1) --https--> `ELB` with ACM (add extra header in http : `X-forwarded-for`) --http--> `backend-app-server`
-  - notice https vs http
-- client >> ELB >> [ tg, redirect, fixed-http-response ]
-- tg / `target groups`:
-  - Types:
+### 7.1 ELB : ALB - Application LB (`layer 7`)
+- example flow:
+  - `HTTP/S` request comes client with IP-1 to ELB
+  - ELB has integration ACM, WAF, etc
+  - adds extra header in http : `X-forwarded-for` : client ip
+  - **rewrites** the destination IP address 
+  - forward `HTTP` to 
+    - **target-group** (one or many)
+    - redirect
+    - fixed-http-response
+    
+- **target-group**
     - LB >> tg [EC2-I1, EC2-I3,...] : `VM`
     - LB >> tg [VM-1 [docker-1, docker-2, ...]] : `containers`
     - LB >> tg [lambda-1, lambda-2]
     - LB >> tg [ip address] : `on-prem server IPs`
-  - Also, LB >> tg-1, tg-2, ... multilpe tg is possible.
-  - routing/forwarding can happen at `route/path/url` ,` query-param ` 
-    - eg: /url-1?`plateform=mobile` --> tg-1
-    - ...
-    - **content-based routing** :dart:
-  - demo:
-      ```
-      - Launch `ec2-i1` and `ec2-i2`, add sg-1 to both.
-        - sg-1 : allow traffic ONLY from below `elb-sg-1` 
-      - create target group - `tg-1` + /health/ + http:80
-      - Creat ELB - elb-1, elb-dns-1
-        - choose AZs
-        - add `elb-sg-1` : all public traffic
-        - add Listener & Routing :  
-          - Listener-1::No-contion : outside traffic on http:80  --> forward to --> `tg-1` 
-          - Listener-1::consition-1 (priority-100) : path, header, queryparam, etc. [TRY] --> tg-x
-          - Listener-2::No-Condition (priority-200)  on https:443 --> forward to --> tg-2 + make sure ACM has Cert for tg-dns name.
-          - ...
-          - ...  
-          - Note:rule with higestest priorty win  
-        - hit dns-1
-        - terminate ec2-i1 and hit elb-dns-1 again.
-      ```
-- **registration delay** (old name : Connection Draining)
-  - feature of load balancers that ensures `active requests` are completed before **instances** are deregistered / terminated
+  
+- **Listeners**
+  - listens incoming traffic and appli **forwarding rule** and forward to tg
+  - **content-based routing** :dart:
+    - at path 
+      - route/path/url-1 --> tg-1
+      - route/path/url-2 --> tg-2
+      - ...
+    - at query-param  
+      - /url-1?`plateform=mobile` --> tg-1
+      - /url-1?`plateform=desktop` --> tg-2
+      - ...
+
+- **Cross-Zone Load Balancing** : `free`, enable for ALB
+
+- **registration delay** :point_left: :dart:
+  - (old name : Connection Draining)
+  - feature of load balancers that ensures **active requests** are completed before **instances** are deregistered / terminated
   - prevents disrupting in-flight requests and ensures a smooth user experience
   - default : `300 sec / 5 min` : allow 5 min to drains
   - max : `3600 sec` / 1 hr
   - make `0 to disable`
-  - **if low** like 5 sec, then: 
+  - **if low** like 5 sec, then:
     - ec2-i will terminate fast, and all active clients session might lost,
     - and assign to new instance on subsequent req.
+    
+## hands on
+```
+    - Launch `ec2-i1` and `ec2-i2`, add sg-1 to both.
+      - sg-1 : allow traffic ONLY from below `elb-sg-1` 
+    - create target group - `tg-1` + /health/ + http:80
+    - Creat ELB - elb-1, elb-dns-1
+      - choose AZs
+      - add `elb-sg-1` : all public traffic
+      - add Listener & Routing :  
+        - Listener-1::No-contion : outside traffic on http:80  --> forward to --> `tg-1` 
+        - Listener-1::consition-1 (priority-100) : path, header, queryparam, etc. [TRY] --> tg-x
+        - Listener-2::No-Condition (priority-200)  on https:443 --> forward to --> tg-2 + make sure ACM has Cert for tg-dns name.
+        - ...
+        - ...  
+        - Note:rule with higestest priorty win  
+      - hit dns-1
+      - terminate ec2-i1 and hit elb-dns-1 again.
+```
+
 ---
-### 2 ELB : NLB - Network LB (`layer 4`)
-- cannot facilitate **content-based routing** :dart:
-- operates at layer 4:  handle TCP, UDP, and TLS traffic
-- expose a fixed IP to the public web + **no sg**
+### 7.2 ELB : NLB - Network LB (`layer 4`)
+- **fast**: handles millionsOfReq/Second.
+- **ultra-low latencies**
+- **automatically scales** to handle the vast amounts of incoming traffic
+- operates at `layer 4` 
+  - TCP, UDP, TLS 
+  - cannot facilitate **content-based routing** like in ALB :dart:
+- health-check support multiple-protocol : `http, https, TCP`
+- expose a **fixed IP** to the public web 
+- **no sg** :point_left: alternatives:
   - so add sg to EC2-i or tg
   - or add network access control lists (NACLs)
-- TLS traffic: decrypt message using ACM cert.
-- Similar to ELB but fast, handles `millionsOfReq/Second`. ultra-low latencies.
-  - It `automatically scales` to handle the vast amounts of incoming traffic
-- `use-case`:
+  
+- **use-case**
   - applications that need fixed IP addresses. `AWS assign static-IP to ALB, one for each AZ`.
   - ideal for TCP/UDP Applications.
   - microservices architectures.
   - gaming and streaming services.
 
-- target group:
-  - ELB/ALB
+- NLB target group
+  - ELB/ALB :point_left:
   - EC2 instances
   - IP Addresses
-- `health-check` support multiple-protocol : `http,https,TCP`
-- **Cross-Zone Load Balancing** : disable by default, paid :point_left:
+
+- **Cross-Zone Load Balancing** : disable by default, `paid` :point_left:
 
 ---
-### 3  ELB : GWLB - gateway LB (`layer 3`)
+### 7.3  ELB : GWLB - gateway LB (`layer 3`)
 - (layer 3 of OSI) IP packets.
-- all traffic --> GWLB --> TG (3rd party security instance) --> Application/ destinition
-- 3rd party `security` instance:
-  - `Deep packet inspection`
-  - `payload manipulate`.
-- uses protocol-GENEVE, port-6081 ?
-- **Cross-Zone Load Balancing** : disable by default, paid :point_left:
+- **3rd party security instance**:
+  - Deep packet inspection
+  - payload manipulate
+  - ...
+- uses protocol-GENEVE, port-6081 
+- **Cross-Zone Load Balancing** : disable by default, `paid` :point_left:
 - ![img.png](../99_img/ec2/im-1.png)
-
---- 
-## Z. Screeshots
-### Client Stcikness with cookies
-- storing session data on ec2-i/tg
-- may create **imbalance**.
-![img_1.png](../99_img/ec2/im-2.png)
-- **fix imbalance**:
-  - better approach is to use stores session data on `elastiCache` with TTL. [03_ElastiCache.md](../03_database/03_ElastiCache.md)
-    - dont store on DB, ebs etc (bad practice)
-  - and disable ALB sticky session.
-  - now alb will route traffic to any tg. (balanced) :)
-
-### Cross-Zone Load Balancing
-![img.png](../99_img/ec2/im-3.png)
