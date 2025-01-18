@@ -107,25 +107,6 @@
   - **if low** like 5 sec, then:
     - ec2-i will terminate fast, and all active clients session might lost,
     - and assign to new instance on subsequent req.
-    
-## hands on
-```
-    - Launch `ec2-i1` and `ec2-i2`, add sg-1 to both.
-      - sg-1 : allow traffic ONLY from below `elb-sg-1` 
-    - create target group - `tg-1` + /health/ + http:80
-    - Creat ELB - elb-1, elb-dns-1
-      - choose AZs
-      - add `elb-sg-1` : all public traffic
-      - add Listener & Routing :  
-        - Listener-1::No-contion : outside traffic on http:80  --> forward to --> `tg-1` 
-        - Listener-1::consition-1 (priority-100) : path, header, queryparam, etc. [TRY] --> tg-x
-        - Listener-2::No-Condition (priority-200)  on https:443 --> forward to --> tg-2 + make sure ACM has Cert for tg-dns name.
-        - ...
-        - ...  
-        - Note:rule with higestest priorty win  
-      - hit dns-1
-      - terminate ec2-i1 and hit elb-dns-1 again.
-```
 
 ---
 ### 7.2 ELB : NLB - Network LB (`layer 4`)
@@ -164,3 +145,25 @@
 - uses protocol-GENEVE, port-6081 
 - **Cross-Zone Load Balancing** : disable by default, `paid` :point_left:
 - ![img.png](../99_img/ec2/im-1.png)
+
+---
+
+## hands on 
+### ALB
+```
+    - Launch `ec2-i1` and `ec2-i2`, add sg-1 to both.
+      - sg-1 : allow traffic ONLY from below `elb-sg-1` 
+    - create target group - `tg-1` + /health/ + http:80
+    - Creat ELB - elb-1, elb-dns-1
+      - choose AZs
+      - add `elb-sg-1` : all public traffic
+      - add Listener & Routing :  
+        - Listener-1::No-contion : outside traffic on http:80  --> forward to --> `tg-1` 
+        - Listener-1::consition-1 (priority-100) : path, header, queryparam, etc. [TRY] --> tg-x
+        - Listener-2::No-Condition (priority-200)  on https:443 --> forward to --> tg-2 + make sure ACM has Cert for tg-dns name.
+        - ...
+        - ...  
+        - Note:rule with higestest priorty win  
+      - hit dns-1
+      - terminate ec2-i1 and hit elb-dns-1 again.
+```
