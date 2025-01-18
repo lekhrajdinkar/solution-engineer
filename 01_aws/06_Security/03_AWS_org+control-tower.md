@@ -1,5 +1,5 @@
 # A. AWS Organisation (global srv)
-## key term
+## 1. key term
 - `organisation unit, OU` : Applied one policy(scp) : `AWSFULLAccess`
   - `OU (root)` :  
       - `Management-account` (main) : 
@@ -18,12 +18,18 @@
       - ...
       - can have nesting > nesting> ...
     
-## organizational policies
+## 2. organizational policies
 ### SCP (Service Control Policies)
-- permission boundary can be imposed to child accounts by SCPs.
-- IAM policies - apply to `member-acct` or `OU`.
-- by default, allow NOTHING.
-- child OU `inherit SCP` from parent OU
+- permission/policies :point_left: :dart:  
+  - by default, allow NOTHING
+  - applies to **member-acct**  :dart:
+    - member-acct's :: [ root account , IAM user, IAM group, IAM role ] 
+    - does not affect **service-linked role** (AWS managed roles)
+  - applies to **OU**
+    - applies to member-acct-OU-1
+    - applies to member-acct-OU-2
+    - ...
+- child OU inherit SCP from parent OU
 - **strategies**
   - `AllowedList` : deny all first, then start adding allowed items.
   - `Blocklist` : allow all first, then start adding blocks.
@@ -35,7 +41,7 @@
 ### backup polices 
 - org wide backup plan.
 
-## benefit / purpose
+## 3. benefit / purpose
 - `hierarchical structure of OUs`
   - API to create member-acct and organize them.
   - ou by business unit, ou by project, ou by env
@@ -52,7 +58,15 @@
       
 - `centralized log` : Send CloudWatch Logs to central account\
 
-## exam
+## 5. deploy IAC : `StackSet`
+- **Stacks** are ideal for single-region deployments
+- **StackSet** Manages Centralized deployment of resources across 
+  - multiple regions 
+  - multiple accounts 
+  - in AWS org
+- ![img.png](../99_img/practice-test-01/stackset.png)
+---
+## 99. exam
 ```
 #1
 You would like to migrate an AWS account from an AWS Organization A to an AWS Organization B. 

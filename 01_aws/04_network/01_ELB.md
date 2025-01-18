@@ -29,11 +29,7 @@
 - impaired status of EC2 
   - OS check, n/w status failed on Ec2 - failed
   - **ASG** marks unhealthy, replace it.
-
-## 4. Security group
-- 2 level of SG:
-  - sg-elb-1 
-  - sg-ec2-i1 
+  
   
 ## 5. integration
 - WAF 
@@ -108,6 +104,10 @@
     - ec2-i will terminate fast, and all active clients session might lost,
     - and assign to new instance on subsequent req.
 
+- **Security group**
+  - 2 level of SG:
+    - sg-elb-1
+    - sg-ec2-i1
 ---
 ### 7.2 ELB : NLB - Network LB (`layer 4`)
 - **fast**: handles millionsOfReq/Second.
@@ -117,10 +117,11 @@
   - TCP, UDP, TLS 
   - cannot facilitate **content-based routing** like in ALB :dart:
 - health-check support multiple-protocol : `http, https, TCP`
-- expose a **fixed IP** to the public web 
-- **no sg** :point_left: alternatives:
-  - so add sg to EC2-i or tg
-  - or add network access control lists (NACLs)
+- expose a **fixed IP** to the public web :point_left:
+- **Security group** NO :x: :point_left: 
+  - alternatives:
+    - so add sg to EC2-i or tg
+    - or add network access control lists (NACLs)
   
 - **use-case**
   - applications that need fixed IP addresses. `AWS assign static-IP to ALB, one for each AZ`.
