@@ -12,7 +12,9 @@
 
 ---
 ## 2. NAT instance :x:
+- can be used as a bastion server :point_left:
 - **outdated after 2020** 
+- NAT instances are not a managed service, it has to be managed and maintained by the **customer**.
 - Alternative : **NAT gateway** 
 - need internet  access for ec2-i running on private subnet. how ?
   - route internet traffic to IGW via through NAT-instance.
@@ -26,7 +28,7 @@
     - update sg of private ec2-i, to allow traffic from  NAT-instance-sg
     - assign **elastic-IP**
       
-- it supports **port forwarding** :point_left:
+- it supports **port forwarding** :point_left: :dart:
   - by modifying the instance's **iptables rules**. 
   - to forward traffic 
     - from : specific port on the NAT Instance 
@@ -37,6 +39,14 @@
 
 ---
 ## 3. NAT Gateway 
+- :dart:
+  - NAT gateway cannot be used as a bastion server 
+  - does  not support port forwarding 
+  
+- primary task:
+  - enable instances in a private subnet to connect to the internet or other AWS services
+  - but prevent the internet from initiating a connection with those instances.
+  
 - **AZ bounded** :point_left:
 - **AWS-managed**
   - no administration 

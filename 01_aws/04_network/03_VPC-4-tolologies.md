@@ -33,6 +33,8 @@ eg : with same region:
 ## B AWS::VPC <==INTERNET==> client::VPN
 ### B.1. AWS Site-2-site VPN 
 - `AWS::VPC-1` to `Client-VPN-1`
+- also known as **IPsec VPN connection**
+- ![img.png](../99_img/vpc-4/s2s.png)
 ```
 - connect AWS::VPC-1 to Client-VPN-1
 

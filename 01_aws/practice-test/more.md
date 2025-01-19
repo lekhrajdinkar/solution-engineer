@@ -19,6 +19,7 @@
 ## 2. practice exam  
 ### Attempt-1
 - https://chatgpt.com/c/676b620b-fa38-800d-87e3-f2a155799864
+- 
 
 ---
 # C. SSA
@@ -35,17 +36,23 @@
 
 ## 2. practice exam
 ### Attempt-1
-- https://chatgpt.com/c/8e9fe51d-10e5-41b5-9fa6-adc2eb99628f
-- https://chatgpt.com/c/e0b834ff-6673-4d0b-bb08-6a98e8ea5ef6
-- https://chatgpt.com/c/acdf2121-6d4d-4b0e-bc1e-852e811bf9fe
-- https://chatgpt.com/c/65e552b7-4187-4d59-a8cf-5c6cea9f6ec8
-- https://chatgpt.com/c/84d37d3c-43a8-4593-a578-f7fdd43b4d53
-- https://chatgpt.com/c/c5ccdbcb-5407-454c-9f88-14bf38fddfc5
-- https://chatgpt.com/c/c07719cd-16bd-4bda-9b6e-b720f4ad5a9c
+- #0 https://chatgpt.com/c/8e9fe51d-10e5-41b5-9fa6-adc2eb99628f
+- #1 https://chatgpt.com/c/e0b834ff-6673-4d0b-bb08-6a98e8ea5ef6
+- #2 https://chatgpt.com/c/acdf2121-6d4d-4b0e-bc1e-852e811bf9fe
+- #3 https://chatgpt.com/c/65e552b7-4187-4d59-a8cf-5c6cea9f6ec8
+- #4 https://chatgpt.com/c/84d37d3c-43a8-4593-a578-f7fdd43b4d53
+- #5 https://chatgpt.com/c/c5ccdbcb-5407-454c-9f88-14bf38fddfc5
+- #6 https://chatgpt.com/c/c07719cd-16bd-4bda-9b6e-b720f4ad5a9c
 
 ### Attempt-2
-- none
-- https://chatgpt.com/c/677f94fe-bcd4-800d-97b6-8e267c307c51
+- #0 
+- #1 https://chatgpt.com/c/677f94fe-bcd4-800d-97b6-8e267c307c51
+- #2 https://chatgpt.com/c/6788410d-5fd8-800d-bd9c-f2ff22f9e87d
+- #3 mostly networking : https://chatgpt.com/c/678aac00-9fb0-800d-b49d-9990e4dd7f03
+- #4 
+- #5
+- #6
+- #7
 
 
 

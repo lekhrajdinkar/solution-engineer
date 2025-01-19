@@ -48,7 +48,9 @@
 - **size**: `100s PB` |  **iops** : `in millions`   | **throughput**  `10 GB/s`
 
 - **more**
-  - DR : s3 backup
+  - DR :  
+    - fully managed **backups**
+    - **availability** : offers single-AZ and `multi-AZ` deployment options
   - integrate with 
     - ms AD - self or AWS managed ms AD.
     - ACLs

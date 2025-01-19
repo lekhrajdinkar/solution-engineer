@@ -148,4 +148,8 @@
   - via AWS `Lambda@Edge function` can accomplish 
   - but requires additional development
 
+### 3
+- If you have objects that are smaller than `1GB`,
+- you should consider using Amazon CloudFront's PUT/POST commands for optimal performance. 
+
 
