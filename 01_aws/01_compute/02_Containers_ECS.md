@@ -26,6 +26,9 @@
 ---
 ## C. ECS  (elastic container service)
 - For fargate launch, don't think underlying ec2-i/s
+- Configure ASG to scale out the  ECS cluster when the **ECS service's CPU utilization** rises above a threshold :dart:
+  - configure a target tracking scaling policy
+  - metric: `ECSServiceAverageCPUUtilization`
 - ECS-cluster (with launch type = ec2)
   - EC2-i1 (`docker-agent`) 
     - task-1 (c1)
