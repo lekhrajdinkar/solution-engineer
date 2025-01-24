@@ -53,7 +53,7 @@
 - ![img.png](../99_img/vpc-1/v2/img.png)
 - highly available
   - scales horizontally
-- `service-1` aws-?:region-? --> **AWS PrivateLink** -->  `service-2` aws-?:region-?
+- `service-1` aws-?:region-? --> **AWS PrivateLink** (No internet) -->  `service-2` aws-?:region-?
 - Works within the AWS network, allowing secure access to services **via private IPs**
 - in ccgg:mapss. everything in one region.
 
@@ -79,6 +79,8 @@
 - s3-gateway : aws create special gateway to access global s3 services.
 - DynamoDB-gateway :  aws create special gateway to access global Dynamo DB.
 - just update rtb with these gateway/s, like wwe did for igw,nat,etc.
+  - Destination: prefix_list_id
+  - target : gateway_endpoint_id
 - ![img_2.png](../99_img/vpc-3/img_2.png)
 
 ## hands on

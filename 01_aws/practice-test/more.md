@@ -48,7 +48,7 @@
 - #0 
 - #1 https://chatgpt.com/c/677f94fe-bcd4-800d-97b6-8e267c307c51
 - #2 https://chatgpt.com/c/6788410d-5fd8-800d-bd9c-f2ff22f9e87d
-- #3 mostly networking : https://chatgpt.com/c/678aac00-9fb0-800d-b49d-9990e4dd7f03
+- #3 https://chatgpt.com/c/678aac00-9fb0-800d-b49d-9990e4dd7f03
 - #4 
 - #5
 - #6

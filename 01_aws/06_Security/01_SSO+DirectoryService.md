@@ -2,6 +2,8 @@
 ## 1. Simple AD
 ![img_5.png](../99_img/security/org-2/img_5.png)
 - aws managed AD, users present only in this AD
+- least expensive option 
+- your best choice if you have `5,000 or fewer users`
 
 ## 2. AD Connector
 ![img_6.png](../99_img/security/org-2/img_6.png)
@@ -11,6 +13,7 @@
 ## 3. AWS managed AD
 ![img_7.png](../99_img/security/org-2/img_7.png)
 - hybrid kind : user present in both : `AWS AD` + `on-prem AD`
+- best choice if you have more than 5,000 users
 - `AWS AD` create trust with `on-prem AD`
 
 ---

@@ -16,7 +16,12 @@
   - need application code changes.
   - Data may be out of date, eventually consistent.
   - not suited for un-structured  data.
-
+  
+- **usecase**: to significantly improve latency and throughput for: :dart:
+  -  **read-heavy application workloads** 
+    - (such as social networking, gaming, media sharing, leaderboard, and Q&A portals) 
+  - **compute-intensive workloads**
+    
 ## A cache use-cases
 ### **Database Read**
   - prg <--- DB (state)

@@ -4,8 +4,9 @@
 - engine : `Postgres` 3x  and `MySQL` 5x
 - serverless,
 - **no capacity planning**
-- scale to **128TB** 
+- scale to **128TB** per db instance :point_left:
 - OLTP | rdbms
+- Amazon Aurora vs Amazon Aurora Serverless
 
 ## B. DR
 - **RPO** : `1 sec` | **RTP** `< 1 min` :dart:
@@ -25,7 +26,10 @@
   - **RPO**: less than second
   - **RTO**: less than a minute
 - ![img_3.png](../99_img/db/img_3.png)
-
+- provides more comprehensive failover capabilities :dart:
+  - **Managed planned failover**
+  - **Unplanned failover ("detach and promote")** 
+  
 ###  2 integration **ML service** 
 - `SageMaker` and `Comprehend`
 - fraud detection, ads targeting, sentiment analysis, product recommendations

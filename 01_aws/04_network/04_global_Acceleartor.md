@@ -26,6 +26,7 @@
 - directs traffic to optimal endpoints over 
   - the AWS global network
   - NOT internet
+  - improving your "internet-user performance" by up to `60%`.
 - supports both **TCP and UDP protocols** :point_left:
   - gaming, live video streaming, and other real-time communication applications
 - integrated with **AWS-sheild** 
@@ -87,8 +88,15 @@
 - -hit dn-1 url
   - goes to us-east-1,ec2-1 now
 ```
- 
-## 3. scenario
+
+---
+## 3. pricing (extra)
+- `$0.025 / accelerator / hour`.
+- `$0.02–$0.07 / GB` 
+  - varies by AWS region pair
+
+---
+## 99. scenario
 ```
 #1
 A gaming company is looking at improving the availability and performance of its "global" flagship application 
@@ -113,4 +121,18 @@ b. Use Amazon Route 53 weighted routing to spread traffic across different deplo
  ---
  
  #3
+ A gaming company uses ALB in front of Amazon EC2 instances for different services and microservices.
+ The architecture has now become complex with too many ALB in multiple AWS Regions. 
+ Security updates, firewall configurations, and traffic routing logic have become complex with "too many IP addresses" and configurations.
+
+ The company is looking at an easy and effective way to "bring down the number of IP addresses" allowed by the firewall
+ and easily manage the entire network infrastructure. Which of these options represents an appropriate solution for this requirement?
+ 
+ a. Launch AWS Global Accelerator and create endpoints for all the Regions. 
+     Register the ALB of each Region to the corresponding endpoints ** 2 anycast IPs :)
+    
+ b. Set up a NLB with elastic IP address. Register the private IPs of all 
+    the ALB as targets of this Network Load Balancer --> again regional, soo many IPs
+   
 ```
+![img.png](img.png)
