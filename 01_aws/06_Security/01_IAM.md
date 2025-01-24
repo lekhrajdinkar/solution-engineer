@@ -131,7 +131,14 @@ boundary-1 : allow  `ecs,lambda,s3` only
 ## 7. Evaluation logic :yellow_circle:
 - ![img.png](../99_img/security/org-2/im.png)
 - ![img_2.png](../99_img/security/org-2/img_2.png)
-
+  - order: :point_left:
+    - explicit deny
+    - allow
+      - **SCP**
+      - **resource policy**
+      - principal's **IAM policy**
+      - **permission boundary**
+      - AWS CloudFormation a global service (temp access)
 
 ---
 ## 8. Advance Polices example
