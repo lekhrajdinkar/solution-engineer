@@ -39,10 +39,20 @@
 - **OAC - Origin access control** 
   - policy allow CF to connect/access origin.
   - ![img_3.png](../99_img/CF/img_3.png)
+
+---  
 ### 3. origin failover 
 - to help support your `data resiliency` needs.
+- **origin group** with 
+  - primary and secondary origins
+  - to configure Amazon CloudFront for high-availability and failover
 
-### 4. CloudFront Function
+---
+### 4. security: feild level encryption
+![img_2.png](img_2.png)
+
+---
+### 5. CloudFront Function
 - **purpose**:
   - Website Security and Privacy
   - Dynamic Web Application at the Edge
