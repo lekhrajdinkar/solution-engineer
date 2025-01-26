@@ -34,3 +34,20 @@
     - `performance` : s3 transfer acce enable count
 
 - ![img_6.png](../99_img/storage/s3-2/img_6.png)
+
+---
+## 4. CLI
+### S3 sync command :dart:
+- **one-time copy of data** :point_left:
+- uses the **CopyObject** APIs to copy objects between Amazon S3 buckets. 
+- **lists** the source and target buckets to identifies:
+  - **missing** objects.
+  - objects that have **different LastModified** dates 
+- The sync command **on a versioned bucket copies** 
+  - only the current version of the object :point_left:
+  - previous versions aren't copied.
+- By default, this preserves object metadata, 
+  - but the access control lists (ACLs) are set to FULL_CONTROL for your AWS account,
+  - which removes any additional ACLs. 
+- If the operation fails, you can run the sync command again **without duplicating previously** copied objects.
+- `aws s3 sync s3://DOC-EXAMPLE-BUCKET-SOURCE s3://DOC-EXAMPLE-BUCKET-TARGET`

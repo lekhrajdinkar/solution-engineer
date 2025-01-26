@@ -159,7 +159,11 @@ AWS VPC-1 (rtb-main:vgw-1) <==> [ vgw-1 <---Site-2-site VPN(uses:internet)---> c
   - ![img.png](../99_img/vpc-3/ecmp.png)
 - shared with multiple aws account **
 - AWS Transit Gateway with `Resource Access Manager` (RAM)
-
+- can scale the  **VPN throughput**  :dart:
+  - with `equal cost multi-path` (ECMP) routing support over multiple VPN tunnels. 
+  - A single VPN tunnel still has a maximum throughput of 1.25 Gbps. 
+  - If you establish multiple VPN tunnels to an **ECMP-enabled** transit gateway, it can scale beyond the default maximum limit of 1.25 Gbps. 
+  - You also must enable the **dynamic routing option** on your transit gateway to be able to take advantage of ECMP for scalability.
 ---
 ## more example:
 ![img.png](../99_img/refactor/01/img.png)
