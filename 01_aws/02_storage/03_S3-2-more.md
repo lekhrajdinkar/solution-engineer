@@ -14,6 +14,7 @@
 - set (optional) `legal hold` : lock `indefinitely`. (irrespective of retention-period)
 - retention mode:
   - `compliance` --> no longer be deleted/updated in the future, not even by root.
+    - only way to delete, delete account itself. :point_left:
   - `Governance` --> root user can update/delete.
 
 ---

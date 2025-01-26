@@ -11,6 +11,8 @@
 - **Snowball devices** (offline portable devices), max:
   - Snowball Edge **Storage** Optimized : `80 TB | 80  GB RAM | 40 cpu`
   - Snowball Edge **Compute** Optimized : `42 TB | 416 GB RAM | 104 cpu`
+    - an **optional GPU** for use cases such as advanced machine learning and full-motion video analysis.
+    - These devices may also be **rack mounted and clustered together** to build larger, temporary installations :dart:
   - post device 
   - send/upload to/from:
     - **block volume** / EBS
@@ -39,6 +41,8 @@
 ---
 ### A.3 Snowball `mobile` (offline)
 - 100 PB + 100 PB + ...  === upto `1 exabyte` (1 Million TB)
+- driven back to an AWS Region where the data is loaded into  **S3** :point_left:
+- does not offer a storage Clustering option :point_left:
 ```
   - 1024 TB = 1 PB 
   - 1024 PB = 1 exabyte 

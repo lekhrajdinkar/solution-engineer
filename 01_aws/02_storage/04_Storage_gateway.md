@@ -5,7 +5,7 @@
   - low latency 
 - **purpose** 
   - hybrid storage 
-  - migration
+  - **migration** :dart:
   - DR and backup
 - gateway is supposed to be installed on on-prem datacenter :point_left:
   - order **gateway Hardware appliance**
@@ -28,7 +28,9 @@
   - `Gateway-Stored Volumes`: Primary data storage is on-premises, with cloud-based backup.
 - ![img_4.png](../99_img/storage/more/img_4.png)
     
-### 2.3  Tap gateway 
-- tap : physical tapes, drive.
+### 2.3  Tap gateway :dart:
+- tap : physical tapes, drive
+- enables to replace using **physical tapes on-premises** with **virtual tapes in AWS** without changing existing backup workflows.
+- encrypts data + compress data.
 - iSCSI VTL ( virtual tap library)
 - ![img_5.png](../99_img/storage/more/img_5.png)

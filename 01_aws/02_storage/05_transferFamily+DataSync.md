@@ -25,10 +25,11 @@
   - s3/glacier
   - EFS 
   - FSx
+  - NO EBS :x:
 
 - more:
   - File permissions and metadata are `preserved`
-  - protocol: NFS-POSIX, SMB
+  - **protocol**: NFS and SMB :point_left:
   - TLS
   - save n/w cost with snowcone
 

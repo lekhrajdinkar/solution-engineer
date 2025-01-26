@@ -104,8 +104,12 @@
   - use the same `domain-name-1` for both the certificate and the CNAME record in Route 53.
   - Export cert in ACM 
   - when create/modify RDS instance, configure it use custom  cname `domain-name-1`.
-- IAM Authentication: 
-  - can use `IAM roles` to ec2-i, to connect to your database (instead of username/pw)
+- **IAM Authentication**: :dart:
+  - works with MySQL and PostgreSQL :point_left:
+  - token has a lifetime of `15 minutes`
+  - can use `IAM roles` to ec2-i, to connect to your database (instead of username/pw). eg:
+    - ecs (role-1) --> rds
+    - lambda (role-1) --> rds
   - or, create one time `password/token` after cluster creation
 - `Security Groups`: Control Network access to your RDS / Aurora DB
 - No SSH available, except on **RDS Custom**
