@@ -79,9 +79,10 @@
 ### 2.5 DR support
 - **PITR** `Point in Time Restore` : Continuous backups and restore to specific timestamp
 #### **option-1: Stand-by replica**  
-  - manually enable Multi AZ-setup for DR. not built-in.
+  - manually enable Multi AZ-setup for DR. 
   - master DB (az-1) --> `SYNC replica/free` --> Stand-by DB (az-2) : no R/W operation
-  - `Automatic fail-over` from master to standby in DR situation.
+  - **Automatic fail-over** from master to standby in DR situation. :dart
+    - The **CNAME** record will be updated to point to the standby database.
   - just single click, can go from Single-AZ to multi-AZ RDS
     - bts : Single-AZ RDS --> screenShot (already taken) --> will be restored to Standby DB
 

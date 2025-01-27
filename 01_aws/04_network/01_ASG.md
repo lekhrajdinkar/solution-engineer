@@ -78,7 +78,9 @@
   - Configure `user data` for automation, during instance initialization.
   
 - **Launch Configurations**
-  - Immutable - replace entire template if changes needed.
+  - **Immutable** - replace entire template if changes needed :dart:
+    - It is not possible to modify a launch configuration once it is created.
+    - Dont get confuse with LT
   - simpler but less flexible -  does not multiple instance types like od, spot, etc
 
 ### scenario-1(tenancy) :dart:
