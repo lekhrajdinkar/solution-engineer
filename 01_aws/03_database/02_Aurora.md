@@ -5,6 +5,9 @@
 ## A. Intro
 - engine : `Postgres` 3x  and `MySQL` 5x
 - serverless
+-  Backtracking :point_left:
+  - "rewind" the DB cluster to any time you specify
+  - faster compared to restoring a DB cluster via  PITR or snapshot
 - **no capacity planning**
 - scale to **128TB** per db instance :point_left:
 - OLTP | rdbms

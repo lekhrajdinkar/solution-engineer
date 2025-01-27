@@ -133,6 +133,12 @@ aws autoscaling describe-instance-refreshes --auto-scaling-group-name <ASG-name>
     - Put the instance into the **Standby state** :point-left:
     - once  patching done, put instance to **in-service**
 
+## 8. ASG  lifecycle hook
+- perform custom actions as the Auto Scaling group launches or terminates instances
+- eg:
+  - install or configure software on newly launched instances
+  - download log files from an instance before it terminates
+
 ---
 # keys Terms
 - `Availability` : multi AZ, prevent datacenter loss
