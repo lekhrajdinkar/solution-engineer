@@ -70,9 +70,9 @@
     - Balanced price/performance for a wide variety of workloads
     
 - **Provisioned IOPS SSD**
-  - **io2** 
+  - **io1** 
     - max -->  `16TB | 64k iops | 1000 MB/s`
-  - **io3** 
+  - **io2** 
     - max -->  `64TB | 256k iops | 4000 MB/s`
     - supports multi attach :point_left:
       - max - 16 ec2-i
