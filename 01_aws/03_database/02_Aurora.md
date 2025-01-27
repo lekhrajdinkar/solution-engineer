@@ -1,16 +1,23 @@
-# Aurora (rdbms, Serverless)
+- **Amazon Aurora `provisioned`** vs **Amazon Aurora `Serverless`**
 
+---
+# Aurora serverless (cluster DB)
 ## A. Intro
 - engine : `Postgres` 3x  and `MySQL` 5x
 - serverless,
 - **no capacity planning**
 - scale to **128TB** per db instance :point_left:
 - OLTP | rdbms
-- Amazon Aurora vs Amazon Aurora Serverless
+- cluster  is **fault tolerance** by design:
+  - cluster spans multiple AZ in region.
+  - 1 primary + read replica(assign priority, can change at any time.)
+  - if no reader, the primary itself re-created.
 
 ## B. DR
 - **RPO** : `1 sec` | **RTP** `< 1 min` :dart:
 - aurora has no **stand-by instance** thing :point_left:
+  - has read replicas only in Aurora cluster, only replica can promote as primary, during DR.
+  - read replica has 2 purpose : reader endpoint + availability
 - self-healing,
 - continuous s3 backup,
 - PITR

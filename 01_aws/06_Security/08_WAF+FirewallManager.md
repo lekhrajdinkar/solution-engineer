@@ -39,6 +39,21 @@
   - **CloudFront** distribution
 
 ---
+## 4. exam scenario
+- block country and allow some IP from that country. use WAF :dart:
+```
+#1 
+An online gaming company wants to block access to its application from specific countries. 
+however, the company wants to allow its remote development team (from one of the blocked countries) to have access to the application.
+The application is deployed on Amazon EC2, running under an ALB with WAF.
+
+- Use AWS "WAF::geo-match-statement" listing the countries that you want to block **
+- Use AWS "WAF::IP-set-statement"    that specifies the IP addresses that you want to allow through **
+
+  ALB,ACL does not have geo-retriction thing <<<
+```
+
+---
 # B. FireWall manager (regional)
 - All types of firewall, at common place.
 - AWS org 
@@ -52,6 +67,8 @@
   - `Sg` : EC2:ENI , ALB and ENI-resources in VPC
   - `Network Firewall` NACL (subnet level)
   - `R 53 Resolver` ( DNS Firewall)
+
+
       
 
 
