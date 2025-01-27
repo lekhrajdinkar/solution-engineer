@@ -29,7 +29,7 @@
 - ![img.png](../99_img/security/others/img.png)
 
 --- 
-## 3. Deployment option
+## 3. WAF::Deployment option :point_left: :point_left: :dart:
 ### regionally
   - **ALB** 
   - **API-gateway** 

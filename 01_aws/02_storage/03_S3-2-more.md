@@ -51,3 +51,8 @@
   - which removes any additional ACLs. 
 - If the operation fails, you can run the sync command again **without duplicating previously** copied objects.
 - `aws s3 sync s3://DOC-EXAMPLE-BUCKET-SOURCE s3://DOC-EXAMPLE-BUCKET-TARGET`
+
+## 5. static website
+- **url format**: :dart:
+  - http://bucket-name.s3-website.Region.amazonaws.com
+  - http://bucket-name.s3-website-Region.amazonaws.com

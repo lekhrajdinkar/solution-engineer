@@ -13,16 +13,19 @@
 - `mitigate` from `layer7` attacks :point_left:
   - Automatically creates/deploys **AWS WAF rules**
 - protects these services:
-  - EC2
   - ELB
-  - Amazon CloudFront distributions + AWS Global Accelerator
-  - Route 53
-  - API gateway : NO :x:
+  - Amazon CloudFront distributions 
+  - API gateway : NO :x: :dart:
+  - more:
+    - AWS Global Accelerator
+    - Route 53
+    - EC2
 
 ---
 ## Question:
-```yaml
-#1 
+```
+### 1 
+
 A financial services company recently launched an initiative to improve the security of its AWS resources.
 And it had enabled AWS Shield Advanced across multiple AWS accounts owned by the company.
 Upon analysis, the company has found that the costs incurred are much higher than expected.
@@ -34,9 +37,6 @@ answer:
 Consolidated billing has not been enabled. 
 All the AWS accounts should fall under a single consolidated billing for the monthly fee to be charged only once
 
----
-
-#2
 ```
 
 

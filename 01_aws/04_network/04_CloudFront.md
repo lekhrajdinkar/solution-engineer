@@ -49,7 +49,7 @@
 
 ---
 ### 4. security: feild level encryption
-![img_2.png](img_2.png)
+![img_2.png](../99_img/practice-test-01/05/01/img_2.png)
 
 ---
 ### 5. CloudFront Function

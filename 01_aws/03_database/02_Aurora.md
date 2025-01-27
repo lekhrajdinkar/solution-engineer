@@ -4,7 +4,7 @@
 # Aurora serverless (cluster DB)
 ## A. Intro
 - engine : `Postgres` 3x  and `MySQL` 5x
-- serverless,
+- serverless
 - **no capacity planning**
 - scale to **128TB** per db instance :point_left:
 - OLTP | rdbms

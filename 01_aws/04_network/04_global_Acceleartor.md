@@ -135,4 +135,4 @@ b. Use Amazon Route 53 weighted routing to spread traffic across different deplo
     the ALB as targets of this Network Load Balancer --> again regional, soo many IPs
    
 ```
-![img.png](img.png)
+![img.png](../99_img/practice-test-01/05/01/img.png)

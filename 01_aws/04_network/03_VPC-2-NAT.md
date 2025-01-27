@@ -39,6 +39,7 @@
 
 ---
 ## 3. NAT Gateway 
+- Can’t be used by EC2 instance in the same subnet, where NAT gateway is present  :point_left: :point_left:
 - :dart:
   - NAT gateway cannot be used as a bastion server 
   - does  not support port forwarding 
@@ -51,9 +52,9 @@
 - **AWS-managed**
   - no administration 
   - No Security Groups to manage
-  - ...
-- **higher bandwidth** (100 Gbps)
-- **high availability** (multi-az)
+    - alternative: attach ACL on subnet
+  
+- **higher bandwidth** supports bandwidth : `5 - 45 Gbps`.
 
 - **provision**  
   - create one with `in each AZ`
@@ -63,8 +64,10 @@
     - if destination is `0.0.0.0/0`  ::  then route to `NAT-gateway-az-1`
     - if destination is `0.0.0.0/0`  ::  then route to `NAT-gateway-az-2`
     - ...
-- NAT Gateways are primarily for **outbound-only traffic** from private subnets
 
-- Can’t be used by EC2 instance in the same subnet, where NAT gateway is present  :point_left: :point_left:
+- **more**
+  - supported **protocols**: TCP, UDP, and ICMP.
+  - support up to `55,000` **simultaneous connections**, to each unique destination.
+  - primarily for **outbound-only traffic** from private subnets
 
 
