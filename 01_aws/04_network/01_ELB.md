@@ -79,21 +79,29 @@
     - LB >> tg [lambda-1, lambda-2]
     - LB >> tg [ip address] : `on-prem server IPs`
   
-- **Listeners**
+#### **Listeners with `content-based routing`**
   - listens incoming traffic and appli **forwarding rule** and forward to tg
   - **content-based routing** :dart:
-    - at path 
+    - **path based** 
       - route/path/url-1 --> tg-1
       - route/path/url-2 --> tg-2
       - ...
-    - at query-param  
+    - **query-param**  
       - /url-1?`plateform=mobile` --> tg-1
       - /url-1?`plateform=desktop` --> tg-2
       - ...
+    - **host based**
+      - *.mycorp.com --> tg0
+      - subdomain-1.mycorp.com --> tg1
+      - subdomain-2.mycorp.com --> tg2
+      - ...
+    - HTTP **header**-based routing
+    - HTTP **method**-based routing
+    - **Source IP**  CIDR-based routing
 
 - **Cross-Zone Load Balancing** : `free`, enable for ALB
 
-- **registration delay** :point_left: :dart:
+#### **registration delay** :point_left: :dart:
   - (old name : Connection Draining)
   - feature of load balancers that ensures **active requests** are completed before **instances** are deregistered / terminated
   - prevents disrupting in-flight requests and ensures a smooth user experience

@@ -23,7 +23,8 @@
   
 ## 2 Source and Destinations
 - **source**: KDS, KCL/SDK, K-agent, AWS IoT :dart:
-- **destination** ( only 3 in aws side): s3, redshift/OLAP DB, openSearch
+- **destination** ( only 3 in aws side): `s3`, `redshift`/OLAP DB, `openSearch`
+  - CANNOT set up **multiple consumers** gor KDF-streams, as it can dump data in a single data repository at a time :point_left:
 - fact to remember :point_left: :dart:
   - When KDS is configured as the source of a KDF stream, then:
     - Firehose’s **PutRecord** and **PutRecordBatch** operations are disabled 
