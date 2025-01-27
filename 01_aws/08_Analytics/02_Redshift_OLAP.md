@@ -53,4 +53,13 @@
   - restore snapshot/s into new region : **manually/automate**.
   - ![img_1.png](../99_img/moreSrv/redshift/img_1.png)
 
+---
+
+## Exam
+- App 
+  - less than year older data --> **redshift** --> `analytic-report-1`
+  - older than year --> **s3**
+  - `analytic-report-2`,  reference from --> s3 + redshift
+  - how to cross-reference s3 :point_left:
+  - ![img.png](../99_img/practice-test-01/exam-43.png)
 

@@ -26,7 +26,7 @@
 - cost - hourly `/shard` : 0.015
 
 ### **on-demand** new
-- default capacity: `4000 record/sec + 4 MB/sec`
+- default capacity of **stream** : `4000 record/sec + 4 MB/sec`
 - **auto-scale** shards based on last 30 throughput peek **history**
   - max: `200k record/sec + 200 MB/sec`
 - cost
@@ -43,7 +43,7 @@
 
 ### B **shards** === `partition`
 - shard-1, shard-2, ...
-- shard count decides:
+- shard count decides. write eg:
   - message/record throughput :` 1000 record/sec/shard` : if 6 shards => **6000 message/sec**
   - produce speed : `1 MB/sec/shard ` : if 6 shards => **6MB/s**
   - consume speed : `2 MB/sec/shard`  : if 6 shards => **12MB/s**
@@ -54,9 +54,12 @@
   - `Blob`(data) 1MB-max
   - `partition-key` : msg with same key goes to same shard.
     - use highly distribute key, else imbalance and **ProvisionThroughputExceeded** error :point_left:
-    - fix:
-    - a. do retry with exponential backoff.
-    - b. scale shards.
+    - **fixes**:
+      - a. do retry with **exponential backoff**. (short term + as soon as the request rate increases, again issue)
+      - b. scale out shards. (short term + increase cost)
+      - c. **batch messages** :dart:
+        - PutRecord API action  in a loop is inadequate.
+        - application must batch records, optimally using the shards in long term.
     - ![img.png](../99_img/dva/00/kds/img.png)
     - ![img_1.png](../99_img/dva/00/kds/img_1.png)
 

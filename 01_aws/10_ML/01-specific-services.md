@@ -16,8 +16,9 @@
 - `speech` --> text, uses `ASR`(automatic speech recognition/deep ML)
 - Automatically remove Personally Identifiable Information `(PII)`
 - Automatic `Language Identification`
+- identify 2–10 speakers in the audio clip
 - use case: 
-  - transcribe customer service calls
+  - transcribe **customer service calls** :dart:
   - captioning and subtitling
 
 ### B.2. Amazon `polly`

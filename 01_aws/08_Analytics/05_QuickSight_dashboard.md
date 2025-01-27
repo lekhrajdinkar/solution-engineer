@@ -4,9 +4,10 @@
 - create interactive dashboards (used for analysis)
 - **ML-powered** 
 - BI (business intelligence) service
-- **im-memory computation** (AI/BI logic) - faster
+- **in-memory computation** (AI/BI logic) - faster
 - to access DashBoard, create **quickSight user** (diff from IAM-user)
 - can publish/share dashboard.
+- it is NOT an **SQL query** based analysis tool like Amazon Athena :dart:
 
 ---
 ## Source

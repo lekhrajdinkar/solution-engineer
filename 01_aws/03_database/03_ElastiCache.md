@@ -38,6 +38,7 @@
 ## B Type
 ###  1 `Redis` 
 - think of RDS, similar :point_left:
+- supports advance data structure. :point_left:
 - internal: 
   - uses `Sets`(uniqness) and `SortedSets` (uniqueness + ordering)
   - `cluster` > `shard`(node group) > `node`(cache)
@@ -49,6 +50,22 @@
   - enable/disable: `Multi AZ` with Auto-Failover, more cost.
     - stand-by replica-1 --> az-1
     - stand-by replica-2 --> az-2, etc
+
+- **use case**    
+  - `millions of requests / second` for **real-time applications** 
+    - in Gaming, Ad-Tech, Financial Services, Healthcare, and IoT. 
+  - popular choice for :
+    - caching, 
+    - session management, 
+    - gaming, leaderboards, 
+    - real-time analytics, 
+    - **geospatial**, :dart:
+      - purpose-built commands for working with real-time geospatial data at scale.
+      - operations like finding the distance between two elements (for example people or places)
+      - **GEOADD, GEORADIUS, GEODIST**
+    - chat/messaging, 
+    - media streaming, 
+    - and pub/sub apps.
 
 #### Redis::Demo
 ```
@@ -77,6 +94,8 @@
 - Security: `SASL` (more advance)
 - Multi-threaded architecture ?
 - Multi-node for partitioning of data (sharding) ?
+- Memcached does NOT offer support for geospatial data. :x: :dart:
+
 
 ---
 ### 3 `Memory DB for redis` : intro

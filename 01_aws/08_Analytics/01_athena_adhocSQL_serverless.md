@@ -2,6 +2,7 @@
 
 ## 1. Intro
 - run **adhoc SQL** query serverless, at scale
+- Most results are delivered **within seconds.**
 - has integration with **AWS glue** bts.
   - athena call `glue data crawler`
   - crawler, crawls over above source/s and prepare 
