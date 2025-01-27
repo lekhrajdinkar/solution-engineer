@@ -5,9 +5,6 @@
 ## A. Intro
 - engine : `Postgres` 3x  and `MySQL` 5x
 - serverless
--  Backtracking :point_left:
-  - "rewind" the DB cluster to any time you specify
-  - faster compared to restoring a DB cluster via  PITR or snapshot
 - **no capacity planning**
 - scale to **128TB** per db instance :point_left:
 - OLTP | rdbms
@@ -53,9 +50,6 @@
 ### 4 performance
 - AWS cloud optimized and claim `3x` Performance improvement (on Postgres)
 - master + `6-15` Read Replica, with **fast replication**
-- uses **cloning**
-  - faster than backup > restore
-  - uses `copy-on-write` - use same volume + for new changes additional storage allocated and data copied to it.
   
 ### 5 Availability (cluster arch)
 - `6 copies` for data access 3 AZ : `cluster` ( with reader and writer endpoint)
@@ -63,7 +57,18 @@
 - ![img.png](../99_img/db/img.png)
 - ![img_2.png](../99_img/db/img_2.png)
 
-### 6 more
+### 6 backtracking :point_left:
+- rewind the DB cluster to any time you specify
+- faster compared to restoring a DB cluster via  PITR or snapshot
+
+### 7 cloning
+- usecase : create test env from prod.
+- faster than backup
+- restore uses `copy-on-write` 
+  - use same volume 
+  - for new changes additional storage allocated and data copied to it.
+
+### 8 more
   - Isolation and `security`
   - `Industry compliance`
   - Push-button `scaling`  
