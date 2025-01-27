@@ -50,6 +50,7 @@
 
 ### 2. FIFO
 - DLQ must also be a FIFO queue
+- S3:event notification target --> only standard, not fifo :dart:
 - **Exactly-once processing** :point_left:
 - name : has suffix `.fifo`
 - **no duplicate**. :books:
