@@ -35,7 +35,7 @@
 - fraud detection, ads targeting, sentiment analysis, product recommendations
 
 ### 3 Auto-scaling (storage and compute are separate)
-- `storage` scaling :: EBS volume - `10 GB to 128 TB`
+- `storage` scaling :: EBS volume - `10 GB to 128 TB` . /64TB?
 - `compute` Instance :: type( eg: d.r3.large,etc), --RAM++, --cpu++.
 - `Read replicas`:  (built-in, dont need to create CW + ASG, auto happens bts)
   - can add, CW metric --> triggers --> auto up/down read replicas

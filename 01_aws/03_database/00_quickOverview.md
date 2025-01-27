@@ -83,17 +83,19 @@ Non-relational databases are designed for unstructured or semi-structured data a
     - Ideal for caching, session management, and real-time analytics.
 
 ### 3. **Amazon `Neptune`** :dart:
-- Fully managed graph database service.
+- **Fully managed** graph database service.
   - relation b/w dataset
+  - optimized for:
+    - storing billions of relationships
+    - querying the graph with milliseconds latency
 - Supports:
     - **Property Graph**
     - **RDF (Resource Description Framework)**
-- Features:
+- more:
     - High performance and scalability.
     - Neptune is secure with support for **HTTPS** encrypted client connections :point_left:
-    - optimized for 
-      - storing billions of relationships
-      - querying the graph with milliseconds latency
+    - highly available, with read replicas, point-in-time recovery, continuous backup to Amazon S3, and replication across AZ.
+    
 
 ### 4. **Amazon `DocumentDB` (with MongoDB compatibility)**
 - Fully managed document database service.
@@ -126,12 +128,23 @@ Non-relational databases are designed for unstructured or semi-structured data a
 
 ## B.3 Hybrid Solutions
 ### 1. **AWS Database Migration Service (DMS)**
-- Helps migrate databases to AWS with **minimal downtime**.
-- **Continuous** Data Replication
-- Supports migrations between **relational and non-relational databases**. :point_left:
-- source database remains fully operational during the migration
-  - minimizing downtime to applications that rely on the database.
-
+- seamlessly migrate data `from` supported sources `to` :
+  - **relational databases**,
+  - **data warehouses**,
+  - **streaming platforms** (KDS,MSK) :point_left: :dart:
+  - and other data stores in AWS cloud.
+- more:
+  - **Continuous** Data Replication
+  - Supports migrations between **relational and non-relational databases**. :point_left:
+  - source database remains fully operational during the migration
+  - **minimizing downtime** to applications that rely on the database.
+- sources:
+  - relational/non-relational databases
+  - S3
+  - ...
+- usecase :dart:
+  - S3 --> DMS --> KDS,MSK :point_left:
+  
 ---
 
 ### Summary Table

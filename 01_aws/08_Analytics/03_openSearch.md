@@ -2,6 +2,7 @@
 ## 1. Intro
 - old name - **ElasticSearch**
 - load data from source and perform **search and analysis**
+- open source, **distributed search** and analytics suite.
 
 ## 2. Sources
 ### 2.1 DynamoDB Data stream
