@@ -112,6 +112,7 @@
 
 ---
 ### 7. Security
+#### Encryption
 - `At-rest` encryption:
   - Database master & replicas encryption using AWS KMS
   - If the master is not encrypted, the read replicas cannot be encrypted
@@ -122,29 +123,28 @@
   - use the same `domain-name-1` for both the certificate and the CNAME record in Route 53.
   - Export cert in ACM 
   - when create/modify RDS instance, configure it use custom  cname `domain-name-1`.
-- **IAM Authentication**: :dart:
+
+#### IAM Authentication :dart:
   - works with MySQL and PostgreSQL :point_left:
   - token has a lifetime of `15 minutes`
   - can use `IAM roles` to ec2-i, to connect to your database (instead of username/pw). eg:
     - ecs (role-1) --> rds
     - lambda (role-1) --> rds
   - or, create one time `password/token` after cluster creation
-- `Security Groups`: Control Network access to your RDS / Aurora DB
-- No SSH available, except on **RDS Custom**
-- attach **Security group** on RDS instance
+
+#### Security Groups
+- Control Network access to your RDS / Aurora DB
 
 ---
 ### 8 DB backup
-- RDS(single-region) --> 1hr --> backup/snapshot --> goes to S3
-  - bkp: not directly accessible, managed by aws
-  - manually restore the backup into another region, in DR situation.
-- snapshots
 - for **automatic** bkp , retention 1 to 35
 - for **manual**, retention - as long we want for maul backup.
-- `on-prem` MySQL/postgres DB --> create db-dumps( using `Percona XtraBackup`) --> place in S3 --> restore.
-- cloning
-  - faster than backup > restore
-  - uses `copy-on-write` - use same volume + for new changes additional storage allocated and data copied to it.
+- on-prem MySQL/postgres DB --> create db-dumps( `Percona XtraBackup`) --> place in S3 --> then restore.
+
+### 9 cloning
+- faster than backup > restore
+- uses `copy-on-write` - use same volume + for new changes additional storage allocated and data copied to it.
+- use case: create test env from prod instance.
 
 ---
 ## 4. more
