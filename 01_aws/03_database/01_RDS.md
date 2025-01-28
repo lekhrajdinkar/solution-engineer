@@ -91,9 +91,12 @@
 
 ---
 ### 6. DR support
-- **PITR** `Point in Time Restore` : Continuous backups and restore to specific timestamp
+#### option-1: PITR 
+- Point in Time Restore 
+- Continuous backups happens and goes to s3
+- can retore these backup to new database instance.
 
-#### **option-1: Stand-by replica**  
+#### option-2: Stand-by replica
 - manually enable Multi AZ-setup for DR. 
 - master-writer-DB (az-1) --> `SYNC replica/free` --> Stand-by-DB (az-2)
 - **Automatic fail-over** from master to standby in DR situation. :dart
@@ -103,12 +106,9 @@
       - primary/active
       - secondary/passive ** switches here
   ```
-#### **option-2: Promote Read replica**
-  - RDS(single-region) --> 1hr --> backup/snapshot --> goes to S3 
-    - bkp: not directly accessible, managed by aws
-    - manually restore the backup into another region, in DR situation.
-  - `cross-region`-read replicas, is also possible : paid
-  - DR fail-over : `promote` any READ replica as main DB later.
+#### option-3: Promote Read replica
+- **cross-region-read replicas**, is also possible : paid
+- promote any READ replica as main DB later based on priority and size
 
 ---
 ### 7. Security
@@ -135,6 +135,9 @@
 
 ---
 ### 8 DB backup
+- RDS(single-region) --> 1hr --> backup/snapshot --> goes to S3
+  - bkp: not directly accessible, managed by aws
+  - manually restore the backup into another region, in DR situation.
 - snapshots
 - for **automatic** bkp , retention 1 to 35
 - for **manual**, retention - as long we want for maul backup.
