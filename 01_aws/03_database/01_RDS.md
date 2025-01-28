@@ -25,7 +25,7 @@
 
 ---  
 ## RDS :: fully managed :green_circle:
-- manually setup **auto-scale** :: CW>Alarm>Read-replicaScale.
+
 - Automates  below **administrative tasks** :
 
 ### 1. hardware provisioning
@@ -55,58 +55,60 @@
 ### 4. patching
 - auto **OS patching** :: just choose maintenance window
 
+---
 ### 5. Scalability
 #### scale `instance` (vertical)
 - Scaling involves resizing instances
 - which may require **downtime**.
 
 #### **Read-replica instance** (horizontal)
-- `not built-in` scaling, but can manually create CW:alarm and ASG
--  **metric**: conn count, cpu utilization, read traffic, etc --> CW alarm --> trigger ASG in/out
-- or, manually edit and create read replication.
-- each Read Replicas add **new endpoints URL**, with their own DNS name :point_left:
-  - use case: 
-    - analytics application
-    - can run `Dashboard`, `Analytics` on read replicas.
-- each Read Replica is associated with a **priority tier (0-15)**. :dart:
-  - In the event of a failover, Amazon Aurora will promote the Read Replica that has the **highest priorit**y.
-  - If two or more Aurora Replicas share the same priority, then Amazon RDS promotes the replica that is **largest in size**
-  - eg:  tier-1 (16 terabytes), **tier-1 (32 terabytes)**, tier-10 (16 terabytes), tier-15 (16 terabytes), tier-15 (32 terabytes)
+- not built-in scaling 
+  - but can manually create - `ASG` and `CW:alarm` on these `metric`:
+    - connection count 
+    - cpu utilization
+    - READ/WRITE traffic
+    - ...
+  - or, manually create read replication anytime.
+
+- **READ replica**
+  - each Read Replicas add **new endpoints URL**, with their own DNS name :point_left:
+    - use case: 
+      - analytics application
+      - can run `Dashboard`, `Analytics` on read replicas.
+  - each Read Replica is associated with a **priority tier (0-15)**. :dart: :dart:
+    - In the event of a failover, Amazon Aurora will promote the Read Replica that has the **highest priority**.
+    - If two or more Aurora Replicas share the same priority, then Amazon RDS promotes the replica that is **largest in size**
+    - eg:  tier-1 (16 terabytes), **tier-1 (32 terabytes)**, tier-10 (16 terabytes), tier-15 (16 terabytes), tier-15 (32 terabytes)
+  - Also, can promote as primary in DR, if stand-by not provisioned.
 
 #### **Underlying Storage**
-- define 
-  - `thresold` ( maz-size in GB ) 
-  - `trigger`  eg: free space <10%, space runs last 5min, etc.
+- define: 
+  - **thresold** ( maz-size in GB ) 
+  - **trigger**  eg: free space <10%, space runs last 5min, etc.
 - good for unpredictable workloads
 
-
-
+---
 ### 6. DR support
 - **PITR** `Point in Time Restore` : Continuous backups and restore to specific timestamp
 
 #### **option-1: Stand-by replica**  
 - manually enable Multi AZ-setup for DR. 
-- master DB (az-1) --> `SYNC replica/free` --> Stand-by DB (az-2) : no R/W operation
+- master-writer-DB (az-1) --> `SYNC replica/free` --> Stand-by-DB (az-2)
 - **Automatic fail-over** from master to standby in DR situation. :dart
-  - r53 **CNAME** record will be updated to point to the standby database.
-  - ```
+  - R53 **CNAME** record will be updated to point to the standby database. :dart:
+  ```
     - R53 failover-record for RDS url. 
       - primary/active
       - secondary/passive ** switches here
-    ```
-
-  - bts : Single-AZ RDS --> screenShot (already taken) --> will be restored to Standby DB
-- Provides **automatic failover** in case of infrastructure or hardware failures. :dart:
-
-  
+  ```
 #### **option-2: Promote Read replica**
   - RDS(single-region) --> 1hr --> backup/snapshot --> goes to S3 
     - bkp: not directly accessible, managed by aws
     - manually restore the backup into another region, in DR situation.
   - `cross-region`-read replicas, is also possible : paid
   - DR fail-over : `promote` any READ replica as main DB later.
-  
 
+---
 ### 7. Security
 - `At-rest` encryption:
   - Database master & replicas encryption using AWS KMS
@@ -129,6 +131,7 @@
 - No SSH available, except on **RDS Custom**
 - attach **Security group** on RDS instance
 
+---
 ### 8 DB backup
 - snapshots
 - for **automatic** bkp , retention 1 to 35
