@@ -51,7 +51,7 @@
 - Note: 
   - **ALB <==>         `AWS_PROXY` <==> tg:lambda**
   - use same template, remember
-  - [01_ELB_ASG.md](01_ASG)
+  - [01_ELB_ASG.md](../01_compute/01_ASG.md)
 
 #### B.2.2. HTTP_PROXY
 - NO mapping template
