@@ -9,41 +9,53 @@
 
 ---
 # RDS 
+## Intro
+- not serverless
 - **regional**
 - RDBMS | OLTP
 - migrate to Aurora :point_left:
   - involves significant systems administration effort
+- 2 options: custom + fully manages
 
-## Advantages of RDS
-### 2.1 fully managed (not serverless)
+---
+## RDS :: custom :yellow_circle:
 - RDS **does not** allow you to access the host OS of the database
   - use **RDS custom** :point_left:
   - allow some customization capabilities of underlying DB and **OS** (limited)  :dart:
+
+---  
+## RDS :: fully managed :green_circle:
+- manually setup **auto-scale** :: CW>Alarm>Read-replicaScale.
+- Automates  below **administrative tasks** :
+
+### 1. hardware provisioning
+- choose **EBS volume type**:
+  - `gp2`
+  - `io1`
+- choose **RDS ec2 instance s** : compute family size
+  - no access/ssh
+  - But `RDS custom` allow to access it  only for `SQL server` and `oracle` DB.
+  - First disable automation mode, take snapshot, then access it.
   
-- Automates **administrative tasks** such as database setup, patching, backups, and hardware provisioning
-  - manually setup **auto-scale** :: CW>Alarm>Read-replicaScale.
-  - auto **OS patching** :: just choose maintenance window
-- **provision step** (capcity planning)
-  - choose single-AZ(default) or mutli-az(enable, if needed)
-  - choose **Supported engine**:
-    - Postgres, MySQL, MariaDB, Oracle, Microsoft SQL Server, IBM DB2
-    - `Aurora` (AWS Proprietary database, not open source)
-  - choose **EBS volume type**: 
-    - `gp2`  
-    - `io1`
-  - choose **RDS ec2 instance s** : compute family size
-    - no access/ssh
-    - But `RDS custom` allow to access it  only for `SQL server` and `oracle` DB.
-    - First disable automation mode, take snapshot, then access it
+### 2. database setup 
+- choose **Supported engine**:
+  - Postgres, MySQL, MariaDB, Oracle, Microsoft SQL Server, IBM DB2
+  - Aurora (AWS Proprietary database, not open source)
 
-### 2.2 High Availability
-- Supports Multi-AZ (Availability Zone) deployments for fault tolerance.
-  - **az-1**-db-1 <-- `SYNC` replication --> **az-2**-db-1
-- Provides **automatic failover** in case of infrastructure or hardware failures.
-- Multi-AZ keeps the same connection endpoint url. :point_left:
+### 3. High Availability
+- choose **availability**
+  - setup **single-AZ** (default) 
+  - setup **mutli-AZ**
+    - fault tolerance
+    - SYNC replication b/w instance in diff AZ. :dart:
+- fact: Multi-AZ keeps the **same connection endpoint url** for all instance in AZ :point_left: 
+- easily switch from Single-AZ to multi-AZ  :point_left:
 
 
-### 2.3 Scalability
+### 4. patching
+- auto **OS patching** :: just choose maintenance window
+
+### 5. Scalability
 #### scale `instance` (vertical)
 - Scaling involves resizing instances
 - which may require **downtime**.
@@ -67,25 +79,26 @@
   - `trigger`  eg: free space <10%, space runs last 5min, etc.
 - good for unpredictable workloads
 
-### 2.4 performance
-- Uses SSD-based storage.
-- `write instance DB` + `Read replica/s` for improved read performance.
-- **Up to 15 READ replica/s**
-  - within AZ, or
-  - cross-AZ, or
-  - cross-region (paid replication)
-- main-DB --> `A-SYNC replication (free within region)` --> Read Replicas
 
-### 2.5 DR support
+
+### 6. DR support
 - **PITR** `Point in Time Restore` : Continuous backups and restore to specific timestamp
-#### **option-1: Stand-by replica**  
-  - manually enable Multi AZ-setup for DR. 
-  - master DB (az-1) --> `SYNC replica/free` --> Stand-by DB (az-2) : no R/W operation
-  - **Automatic fail-over** from master to standby in DR situation. :dart
-    - The **CNAME** record will be updated to point to the standby database.
-  - just single click, can go from Single-AZ to multi-AZ RDS
-    - bts : Single-AZ RDS --> screenShot (already taken) --> will be restored to Standby DB
 
+#### **option-1: Stand-by replica**  
+- manually enable Multi AZ-setup for DR. 
+- master DB (az-1) --> `SYNC replica/free` --> Stand-by DB (az-2) : no R/W operation
+- **Automatic fail-over** from master to standby in DR situation. :dart
+  - r53 **CNAME** record will be updated to point to the standby database.
+  - ```
+    - R53 failover-record for RDS url. 
+      - primary/active
+      - secondary/passive ** switches here
+    ```
+
+  - bts : Single-AZ RDS --> screenShot (already taken) --> will be restored to Standby DB
+- Provides **automatic failover** in case of infrastructure or hardware failures. :dart:
+
+  
 #### **option-2: Promote Read replica**
   - RDS(single-region) --> 1hr --> backup/snapshot --> goes to S3 
     - bkp: not directly accessible, managed by aws
@@ -94,7 +107,7 @@
   - DR fail-over : `promote` any READ replica as main DB later.
   
 
-### 2.6 Security
+### 7. Security
 - `At-rest` encryption:
   - Database master & replicas encryption using AWS KMS
   - If the master is not encrypted, the read replicas cannot be encrypted
@@ -116,18 +129,8 @@
 - No SSH available, except on **RDS Custom**
 - attach **Security group** on RDS instance
 
-### 2.7 RDS proxy
-- pools open connections.
-- reduces fail-over time by 66%
-- access privatey only
-- client --> RDS proxy --> RDs instance
-- ![img.png](../99_img/db/img_5.png)
-
-### 2.8 integration with AWS Ecosystem
-- IAM, Lambda, CloudWatch, and Elastic Beanstalk.
-- Simplifies building serverless or event-driven architectures
-
-### 2.9 snapshot/backup
+### 8 DB backup
+- snapshots
 - for **automatic** bkp , retention 1 to 35
 - for **manual**, retention - as long we want for maul backup.
 - `on-prem` MySQL/postgres DB --> create db-dumps( using `Percona XtraBackup`) --> place in S3 --> restore.
@@ -136,22 +139,43 @@
   - uses `copy-on-write` - use same volume + for new changes additional storage allocated and data copied to it.
 
 ---
-## 3. RDS::pricing
+## 4. more
+###  4.1 RDS proxy
+- pools open connections.
+- reduces fail-over time by 66%
+- access privatey only
+- client --> RDS proxy --> RDs instance
+- ![img.png](../99_img/db/img_5.png)
+
+### 4.2 performance
+- Uses SSD-based storage.
+- `write instance DB` + `Read replica/s` for improved read performance.
+- **Up to 15 READ replica/s**
+  - within AZ, or
+  - cross-AZ, or
+  - cross-region (paid replication)
+- main-DB --> `A-SYNC replication (free within region)` --> Read Replicas
+
+### 4.3 RDS::pricing
 - Charged based on instance class and storage used.
   - standby instance
-  - read replica 
+  - read replica
 - inbound data transfer is free.
 - Outbound data transfer is charged based on the volume of data transferred outside of AWS
 - **replication charge**: `cross-region only` :dart:
 
-### Cost Optimization Tips
-- Use Reserved Instances: Commit to a 1 or 3-year term for discounts
-- Enable Auto-Scaling.
-- Choose the Right Storage.
-- take snapshot and delete db if you dont need. later on restore from snapshot. this will save money.
+- **Cost Optimization Tips**
+  - Use Reserved Instances: Commit to a 1 or 3-year term for discounts
+  - Enable Auto-Scaling.
+  - Choose the Right Storage.
+  - take snapshot and delete db if you dont need. later on restore from snapshot. this will save money.
+
+### 4.4 Integration with AWS Ecosystem
+- IAM, Lambda, CloudWatch, and Elastic Beanstalk.
+- Simplifies building serverless or event-driven architectures
 
 --- 
-## 4. demo
+## 5. demo
 ```
 - create single DB RDB in region-1
 - choose underlying ec2 type (memory optimzed), EBS volume
@@ -183,5 +207,5 @@
  
 ```
 ---
-## 99. extra : DVA
+## 99. for DVA
 ![img.png](../99_img/dva/kms/05/imgrds.png)
