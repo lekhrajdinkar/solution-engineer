@@ -20,9 +20,11 @@
 ---
 ## RDS :: custom :yellow_circle:
 - RDS **does not** allow you to access the host OS of the database
-  - use **RDS custom** :point_left:
+  - use **RDS custom** 
   - allow some customization capabilities of underlying DB and **OS** (limited)  :dart:
-
+  - only for `SQL server` and `oracle` DB.
+  - First disable automation mode, take snapshot, then access it.
+  
 ---  
 ## RDS :: fully managed :green_circle:
 
@@ -32,10 +34,10 @@
 - choose **EBS volume type**:
   - `gp2`
   - `io1`
-- choose **RDS ec2 instance s** : compute family size
+- choose **RDS ec2 instance s** : 
+  - compute family size
   - no access/ssh
-  - But `RDS custom` allow to access it  only for `SQL server` and `oracle` DB.
-  - First disable automation mode, take snapshot, then access it.
+    
   
 ### 2. database setup 
 - choose **Supported engine**:
@@ -57,12 +59,12 @@
 
 ---
 ### 5. Scalability
-#### scale `instance` (vertical)
+#### instance::scale (vertical)
 - Scaling involves resizing instances
 - which may require **downtime**.
 
-#### **Read-replica instance** (horizontal)
-- not built-in scaling 
+#### instance::scale (horizontal) - read replica
+- Not built-in scaling 
   - but can manually create - `ASG` and `CW:alarm` on these `metric`:
     - connection count 
     - cpu utilization
@@ -74,7 +76,7 @@
   - each Read Replicas add **new endpoints URL**, with their own DNS name :point_left:
     - use case: 
       - analytics application
-      - can run `Dashboard`, `Analytics` on read replicas.
+      - can run **Analytics**
   - each Read Replica is associated with a **priority tier (0-15)**. :dart: :dart:
     - In the event of a failover, Amazon Aurora will promote the Read Replica that has the **highest priority**.
     - If two or more Aurora Replicas share the same priority, then Amazon RDS promotes the replica that is **largest in size**
@@ -83,8 +85,8 @@
 
 #### **Underlying Storage**
 - define: 
-  - **thresold** ( maz-size in GB ) 
-  - **trigger**  eg: free space <10%, space runs last 5min, etc.
+  - **threshold** ( maz-size in GB ) 
+  - **trigger**  eg: free space < 10%, space runs last 5min, etc.
 - good for unpredictable workloads
 
 ---
