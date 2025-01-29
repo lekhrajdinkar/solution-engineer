@@ -3,6 +3,8 @@
 ## 1. Intro
 - **OLAP** (online **analytic** processing) database
 - **data warehousing** 
+- **Redshift's internal storage** :point_left:
+  - does NOT have "tiers" of storage classes like Amazon S3
 - load PB of data and perform query/analysis
 - like athena, Integrated with **aws:glue** (crawler > catalog)
 - analytic query **result** goes to:
@@ -25,6 +27,9 @@
 ## 3. Cluster architecture
 - Cluster => **leader Node** => **compute Node** => 1000s of **spectrum**
   - performance `(10x)`, than other data warehouses and athena
+  - leader node receives queries from client applications, parses the queries, and develops query execution plans
+  - coordinates the parallel execution of these plans with the compute nodes
+  - Aggregates the intermediate results
 - **parallel query engine** 
   - run complex SQL
   - faster-joins
@@ -34,13 +39,12 @@
 ![img_3.png](../99_img/moreSrv/redshift/img_3.png)
 
 ---
-## 4. cross-referencing
+## 4. cross-referencing :point_left:
 - Analysts can use Redshift SQL queries to access both :
-  - **Redshift tables** (`recent` data) 
+  - **Redshift tables** (`recent` data)  / hot data
   - **data in S3** (`historical` data) **without moving data into redshift** :point_left:
     -  **Spectrum**, allows you to run queries on data stored in Amazon S3,
     - without having to move that data into your Redshift cluster.
-  
 
 ---
 ## 5. DR

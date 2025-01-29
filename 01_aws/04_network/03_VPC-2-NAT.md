@@ -2,6 +2,7 @@
 
 ## 1. bastion host
 - Access(perform **SSH**) ec2-i in private subnet from **internet**  ( via bastion host)
+- SSH protocol, which is a TCP based protocol on port 22. :point_left:
 - just update SGs:
   - **sg-bastion** : 
     - allow inbound traffic 0.0.0.0/0  on port 22(SSH)

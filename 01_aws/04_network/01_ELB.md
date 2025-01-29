@@ -134,7 +134,7 @@
 - **ultra-low latencies**
 - **automatically scales** to handle the vast amounts of incoming traffic
 - operates at `layer 4` 
-  - TCP, UDP, TLS 
+  - `TCP`, UDP, TLS 
   - cannot facilitate **content-based routing** like in ALB :dart:
 - health-check support multiple-protocol : `http, https, TCP`
 - expose a **fixed IP** to the public web :point_left:
@@ -155,7 +155,7 @@
   - IP Addresses
 
 - **Cross-Zone Load Balancing** : disable by default, `paid` :point_left:
-
+- scenario #1 :highly available architecture for a ASG [ bastion hosts ec2-i  ]
 ---
 ### 7.3  ELB : GWLB - gateway LB (`layer 3`)
 - (layer 3 of OSI) IP packets.
