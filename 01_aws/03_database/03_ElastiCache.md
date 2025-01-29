@@ -96,6 +96,9 @@
 - Multi-node for partitioning of data (sharding) ?
 - Memcached does NOT offer support for geospatial data. :x: :dart:
 
+---
+### Comparison
+![img.png](../99_img/ssa-discussion/redisvsmem.png)
 
 ---
 ### 3 `Memory DB for redis` : intro

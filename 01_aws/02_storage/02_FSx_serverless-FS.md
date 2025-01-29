@@ -99,7 +99,7 @@
 
 ## Exam
 - FSx :: ontap | ZFS | windows | Luster :dart:
-  - ![img.png](comparefxs.png)
+  - ![img.png](../99_img/comparefxs.png)
 
 ```text :dart:
 1. 

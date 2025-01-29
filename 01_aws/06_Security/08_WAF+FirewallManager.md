@@ -64,9 +64,9 @@ The application is deployed on Amazon EC2, running under an ALB with WAF.
 - **Security policies** :
   - `WAF rules` (Application Load Balancer, API Gateways, CloudFront)
   - `AWS Shield Advanced` (ALB, CLB, NLB, Elastic IP, CloudFront)
-  - `Sg` : EC2:ENI , ALB and ENI-resources in VPC
-  - `Network Firewall` NACL (subnet level)
-  - `R 53 Resolver` ( DNS Firewall)
+  - `Security group` : EC2:ENI , ALB and ENI-resources in VPC
+  - `R53 Resolver` ( DNS Firewall)
+  - AWS Network Firewall ?
 
 
       

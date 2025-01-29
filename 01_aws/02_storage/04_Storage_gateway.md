@@ -34,3 +34,8 @@
 - encrypts data + compress data.
 - iSCSI VTL ( virtual tap library)
 - ![img_5.png](../99_img/storage/more/img_5.png)
+
+---
+## Exam scenario
+- gateway vs Datasync
+- ![img.png](../99_img/Gateway-vs-dataSync.png)

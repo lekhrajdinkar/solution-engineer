@@ -55,13 +55,20 @@
 
 
 ### 4. patching
-- Auto **OS patching** :: just choose maintenance window.
+- Auto **OS patching** :: in maintenance window.
 ```text
 - Scenario : in Mutli-AZ setup :dart:
   - a. primary and standby, both will upgrade at same time with downtime ? ****
   - b. first primary, then standby. no downtime ?
   - c. first standby, then primary. no downtime ?
 ```
+
+- Running a DB instance as a Multi-AZ deployment can further **reduce the impact of a maintenance** :point_left:
+  ```text
+  - Perform maintenance on the standby.
+  - Promote the standby to primary.
+  - Perform maintenance on the old primary, which becomes the new standby.
+  ```
 ---
 ### 5. Scalability
 #### instance::scale (vertical)
@@ -145,6 +152,7 @@
 - for **automatic** bkp , retention 1 to 35
 - for **manual**, retention - as long we want for maul backup.
 - on-prem MySQL/postgres DB --> create db-dumps( `Percona XtraBackup`) --> place in S3 --> then restore.
+- with automated backups, I/O activity is no longer suspended, since backups are taken from the standby :dart:
 
 ### 9 cloning
 - faster than backup > restore
