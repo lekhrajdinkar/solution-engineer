@@ -2,7 +2,13 @@
 - **DNS name** : `XXXX.region.elb.amazonaws.com` 
 - public IP might change :point_left:
 - https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html
+- SSl/**TLS**
+  - `X.502` === TLS certificate (private key, bodt, chain)
+  - **SNI** (Server Name Indication)
+    - resolves multiple certificate load problem.
+    - allows to expose multiple HTTPS applications each with its own SSL certificate on the same listener.
 
+---
 ## 1. Proxy server with additional feature
 - sits b/w client and backend-server. **hides** the backend server's IP address.
 
@@ -22,6 +28,7 @@
 - `mutli-AZ`(span over AZs), forwards traffic to multiple ec2 in different AZs.
 - if az-1 has more instances running, most traffic must forward to az-1
 - ![img.png](../99_img/ec2/im-3.png)
+
 
 ## 3. health-check
 - At **tg-level**. forwards traffic to healthy tg.
@@ -48,7 +55,11 @@
 - alternative approach
   - use stores session data on elastiCache with TTL. 
   - [03_ElastiCache.md](../03_database/03_ElastiCache.md)
-  
+- **cookies**:
+  - ELB generated :`AWSALB, AWSALBAPP, AWSALBTG`
+  - Application based : MY_TG_1_COOKIE, etc
+
+---
 ## 7.Types (3)
 - Classic LB (deprecated) :x:
 - **ALB** 
@@ -61,6 +72,7 @@
 - **gateway LB** (in 2020) 
   - provides advance security
 - check more detail below:
+
 ---
 ### 7.1 ELB : ALB - Application LB (`layer 7`)
 - example flow:

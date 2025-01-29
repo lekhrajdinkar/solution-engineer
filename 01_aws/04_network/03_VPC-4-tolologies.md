@@ -165,7 +165,16 @@ AWS VPC-1 (rtb-main:vgw-1) <==> [ vgw-1 <---Site-2-site VPN(uses:internet)---> c
   - If you establish multiple VPN tunnels to an **ECMP-enabled** transit gateway, it can scale beyond the default maximum limit of 1.25 Gbps. 
   - You also must enable the **dynamic routing option** on your transit gateway to be able to take advantage of ECMP for scalability.
 ---
-## more example:
+## Exam scenarios:
 ![img.png](../99_img/refactor/01/img.png)
+---
+- critical production workloads that require **maximum resiliency**
+- **AWS Direct Connect connections** with speeds greater than 1 Gbps.
+- correct
+  - ![img_1.png](../99_img/practice-test-01/06/30/img_1.png)
+- incorrect
+  - ![img.png](../99_img/practice-test-01/06/30/img.png)
+  - ![img_2.png](../99_img/practice-test-01/06/30/img_2.png)
+---- 
 
 

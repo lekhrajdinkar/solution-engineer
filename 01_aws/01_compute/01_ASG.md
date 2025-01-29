@@ -18,18 +18,55 @@
     - cannot define any other custom health check :point_left:
 - **regional** ( asg span over AZs)
 
+## -1. heath check/s :dart:
+- choose **grace period**
+- can configure ASG health check with:
+  - ELB check
+  - ASG's EC2 check
+  - **both**
+    - ELB health checks take precedence
+    - also, if ELB health check is not available or ASG can't reach ELB,  
+    - then ASG health will considered.
+---
+## 0. Rebalancing  Activity :dart:
+- https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html
+- https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html
+- https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html
+- https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html
+
+### AZ Rebalancing 
+-  **Actions** can lead un-balance:
+```
+  - changing the Availability Zones (AZ) for your group 
+  - or explicitly terminating/detaching instances
+  - AZ with insufficient capacity, recovered
+  - AZ with spot instance ( pricing matched :) 
+```
+  - launches new instances, 
+  - can go maz 10% beyond max capacity, temporly
+  - before terminating the old ones. () :point_left:
+  - **reverse order** of regular scaling activity, which 
+    - first terminates unhealthy
+    - then launch new
+  
+### capacity Rebalancing
+- launch new spot instance
+- terminate old spot instance which is at risk of interruption.
+
+---
 ## 1. Trigger
   - **CloudWatch::metric** --> **alarm** --> ASG :: scale in/out
     - CPU, memory, network, RequestCountPerTarget, custom-metric, etc
   - asg works in conjunction with `ELB`
     - if ELB::health-check fails, ASG will terminate corresponding target instances.
     - not scaling, but replacing unhealthy targets.
-
+---
 ## 2. Cooldown Period
   - pausing further scaling actions for a specified amount of time, after a previous scaling activity completes.
   - this allows the system to **stabilize** before initiating another scaling operation.
   - so during this time, does not add/drop new instances.
 
+---
 ## 3. Scaling types
 - ref:
   - https://docs.aws.amazon.com/autoscaling/ec2/userguide/scaling-overview.html
@@ -68,6 +105,7 @@
   - Easy to create. once created ait for Week. 
   - `ML` will be applied on historic data.
 
+---
 ## 4. Instance launch settings
 - **Launch template** :point_left:
   - more modern and flexible way 
@@ -99,7 +137,7 @@
 - Cannot Downgrade Tenancy
 - Instances in different tenancy types (shared vs. dedicated) cannot communicate within the same VPC using private IPs
 ```  
-
+---
 ## 5. scale-down: `Default Termination Policy` :dart:
 - order:
   - AZ with the most instances is selected for termination
@@ -108,6 +146,7 @@
   - oldest age
   - the instance(s) nearest the end of their billing hour. (like reserver period is close to end.)
 
+---
 ## 6. Instance refresh (like k8s deploymnet ) :books:
 - update ec2-i with new launch template version.
 - **rolling Updates** : Replaces instances incrementally to avoid downtime.
@@ -125,6 +164,7 @@ aws autoscaling start-instance-refresh --auto-scaling-group-name <ASG-name> --pr
 # monitor
 aws autoscaling describe-instance-refreshes --auto-scaling-group-name <ASG-name>
 ```
+---
 ## 7. Maintenance
 - **scenario**: :dart:
   - some maintenance work on a specific Amazon EC2 instance that is part of an ASG
@@ -135,31 +175,13 @@ aws autoscaling describe-instance-refreshes --auto-scaling-group-name <ASG-name>
     - Put the instance into the **Standby state** :point-left:
     - once  patching done, put instance to **in-service**
 
+---
 ## 8. ASG  lifecycle hook
 - perform custom actions as the Auto Scaling group launches or terminates instances
 - eg:
   - install or configure software on newly launched instances
   - download log files from an instance before it terminates
+  - thus, can save state of workload.
 
 ---
 # keys Terms
-- `Availability` : multi AZ, prevent datacenter loss
-- `Scalability`:
-  - `horizon` scaling(elasticity) / `Distributed system`
-    - scale in and out
-  - `vertical` scaling
-    - scale up and down.
-- `load balancing` : gateway | forwards traffic to healthy servers.
-- `Sticky Sessions` :
-  - Client always redirect to same instance, in order to not lose his session data.
-  - might bring some imbalance.
-  - cookies:
-    - `LB generated` / Duration-based? : uses these reserved name: `AWSALB, AWSALBAPP, AWSALBTG`
-    - `Application (TG) based` : MY_TG_1_COOKIE, etc
-- SSl/**TLS**.
-  - `X.502` === TLS certificate (private key, bodt, chain)
-  - ccgg uses `digicert` as `CA`.
-  - **SNI** (Server Name Indication)
-    - resolves multiple certificate load problem.
-    - allows to expose multiple HTTPS applications each with its own SSL certificate on the same listener.
-  - encrypt `in-fly` traffic.

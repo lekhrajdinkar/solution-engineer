@@ -46,11 +46,15 @@
 - The sync command **on a versioned bucket copies** 
   - only the current version of the object :point_left:
   - previous versions aren't copied.
-- By default, this preserves object metadata, 
+- By default, this preserves object metadata, NOT ACL :point_left:
   - but the access control lists (ACLs) are set to FULL_CONTROL for your AWS account,
   - which removes any additional ACLs. 
 - If the operation fails, you can run the sync command again **without duplicating previously** copied objects.
 - `aws s3 sync s3://DOC-EXAMPLE-BUCKET-SOURCE s3://DOC-EXAMPLE-BUCKET-TARGET`
+
+## PutObject
+- include header : `x-amz-server-side-encryption : AES256|aws:kms`  to encrypt.
+- include header : `aws:SecureTransport` : allow HTTPS  , not HTTP
 
 ## 5. static website
 - **url format**: :dart:

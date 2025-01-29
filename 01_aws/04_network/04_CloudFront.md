@@ -49,7 +49,10 @@
 
 ---
 ### 4. security: feild level encryption
-![img_2.png](../99_img/practice-test-01/05/01/img_2.png)
+- ![img_2.png](../99_img/practice-test-01/05/01/img_2.png)
+- distribute content only to its service-subscribers / bona fide end users :dart:
+  - Use Amazon CloudFront **signed cookies**
+  - Use Amazon CloudFront **signed URLs**
 
 ---
 ### 5. CloudFront Function

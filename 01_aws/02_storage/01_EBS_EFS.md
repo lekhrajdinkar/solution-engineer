@@ -10,7 +10,7 @@
   - `throughput` (MB/s)
 
 --- 
-## A. EC2 instant-store
+## A. EC2 instant-store (block-storage)
 ### Intro
 - **better Read/write iops** :smile:
   - high-performance hardware disk
@@ -20,10 +20,13 @@
 - **manual backup**
 - volume size is **fixed** 
   - determined by the EC2 instance type.
+  - so dont have option to choose custom instant store :dart:
 - fact : AMIs do not preserve instance store data :point_left:
 - fixed to host machine
   - cannot be detached or reattached
 - can be used as boot volume :point_left: not preferred
+- AMI does NOT preserve instance store volumes. 
+  - only EBS backed AMI :dart:
 ---
 ## B. EBS
 ![img.png](../99_img/dva/storage/01/img.png)
