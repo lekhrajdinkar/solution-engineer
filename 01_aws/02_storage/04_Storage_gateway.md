@@ -38,4 +38,5 @@
 ---
 ## Exam scenario
 - gateway vs Datasync
-- ![img.png](../99_img/Gateway-vs-dataSync.png)
+- ![img.png](../99_img/practice-test-01/06/63/Gateway-vs-dataSync.png)
+- ![img.png](../99_img/practice-test-01/06/63/cptgpt-vjfdbvufbsvu.png)
