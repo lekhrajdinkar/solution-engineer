@@ -61,7 +61,7 @@
 - mount on :
     - ec2-i (Unix/Linux OS) :point_left:
 - supported storage option : `SSD` , `HDD`
-- supported protocol : `Lustre Protocol`, `NFS`
+- supported protocol : `Lustre Protocol`, `POXIS`
 - **size**: `100s PB` |  **iops** : `in millions`   | **throughput**  `?`
 
 - **More**
@@ -79,7 +79,8 @@
 
 ----
 ### Fxs for `NetApp ONTAP` 
-- protocol : `NFS, SMB, iSCSI`
+- **protocol** : `NFS, SMB, iSCSI` :point_left:
+- **OS** : W | mac | Linux :point_left:
 - compression
 - Point-in-time instantaneous cloning
 - compatible with lots of system.
@@ -87,11 +88,41 @@
 
 ----
 ### Fxs for `OpenZFS`
-- protocol : `NFS`
+- **protocol** : `NFS` :point_left:
+- **OS** : W | mac | Linux :point_left:
 - compression.
 - Point-in-time instantaneous cloning
 - `compatible` with lots of system. 
   - same as netApp ontap FS.
+
+---
+
+## Exam
+- FSx :: ontap | ZFS | windows | Luster :dart:
+  - ![img.png](comparefxs.png)
+
+```text :dart:
+1. 
+Amazon FSx for Windows File Server
+Supported OS: Windows, Linux (via SMB client)
+Protocols: SMB (2.0, 2.1, 3.0, 3.1.1)
+
+2. 
+Amazon FSx for Lustre
+Supported OS: Linux
+Protocols: Lustre, POSIX-compliant
+
+3. 
+Amazon FSx for NetApp ONTAP
+Supported OS: Windows, Linux, macOS
+Protocols: NFS (v3, v4.0, v4.1), SMB (2.0-3.1.1), iSCSI
+
+4. 
+Amazon FSx for OpenZFS
+Supported OS: Linux, Windows, macOS
+Protocols: NFS (v3, v4, v4.1)
+```
+
 
 
 

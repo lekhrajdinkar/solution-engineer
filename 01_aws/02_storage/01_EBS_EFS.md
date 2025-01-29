@@ -35,10 +35,14 @@
 - persist data, even after their termination
 - only be mounted to **one instance** at a time. multiple volumes can be attached. `1-2-M`
 - **deleteOnTermination** 
-  - root volume - true
-  - additional ebs volume - false
+  - root volume - `true`
+    - if disable it on running app - how ? console or api/cli**
+  - additional ebs volume - `false`
+  
   
 ### 2. EBS: snapshot
+- Snapshots are **incremental backups** :dart:
+  - which means that only the blocks on the device that have changed after your most recent snapshot are saved.
 - `point in time` snapshot.
   - no need to detach volumn while taking snapshot, but recommended.
 - **cross az/region restore** :point_left:
@@ -113,6 +117,8 @@ Cold HDD (sc1):
 ---
 ## C. EFS (regional)
 ### Intro
+- **distributed** across an unconstrained number of storage servers.
+- grow elastically to **petabyte scale**.
 - **high availability** Managed NFS (network file system)
 - protocol    : **NFSv4**
 - file system : **POXIS**
@@ -220,3 +226,11 @@ EFS One Zone-IA	            $0.0133
 
 === standard 30 cent , IA - 2 cent
 ```
+---
+## Exam :dart:
+- #1 need high-frequency reading and writing (20 MB file) max 1 TB total size.
+  - **EFS with Provisioned Throughput mode** :point_left:
+    - supports concurrent access 
+    - Provisioned Throughput, Ensures consistent performance for high I/O workloads
+  - **DynamoDB** :x:
+    - Not optimized for large file storage & high-frequency writes.

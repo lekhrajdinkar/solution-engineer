@@ -251,3 +251,21 @@ Minimal key management overhead     	SSE-S3
 - will get ThrottleException
 
 ![img.png](../99_img/dva/kms/01/img4.png)
+
+---
+## EXAM :dart:
+- #1 
+```
+on s3 bucket has to update object-1 and object-2.
+- encrypt object-1 with key-1
+- encrypt object-2 with key-2
+
+provison 2 sse-kms keys:
+
+aws s3 cp object-1 s3://your-bucket/ --sse aws:kms --sse-kms-key-id key-1
+aws s3 cp object-2 s3://your-bucket/ --sse aws:kms --sse-kms-key-id key-2
+```
+- #2 **encryption context**
+  - set of key-value pairs that contain additional contextual information about the data.
+  - encryption context offers another level of security for the encryption key.
+  - However, it is not useful for generating unique keys.

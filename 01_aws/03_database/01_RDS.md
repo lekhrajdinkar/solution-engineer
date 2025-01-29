@@ -55,8 +55,13 @@
 
 
 ### 4. patching
-- auto **OS patching** :: just choose maintenance window
-
+- Auto **OS patching** :: just choose maintenance window.
+```text
+- Scenario : in Mutli-AZ setup :dart:
+  - a. primary and standby, both will upgrade at same time with downtime ? ****
+  - b. first primary, then standby. no downtime ?
+  - c. first standby, then primary. no downtime ?
+```
 ---
 ### 5. Scalability
 #### instance::scale (vertical)
@@ -102,9 +107,9 @@
 - **Automatic fail-over** from master to standby in DR situation. :dart
   - R53 **CNAME** record will be updated to point to the standby database. :dart:
   ```
-    - R53 failover-record for RDS url. 
-      - primary/active
-      - secondary/passive ** switches here
+    - R53 failover-record for RDS url1. 
+      - url1 -x-> primary/active
+      - url1 --active--> secondary/passive 
   ```
 #### option-3: Promote Read replica
 - **cross-region-read replicas**, is also possible : paid

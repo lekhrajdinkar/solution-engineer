@@ -18,7 +18,7 @@
   - **ingest data at scale** 
   - **processing**
 - supports **replay**
-- **retention** :  upto 365 days :(
+
 --- 
 ## 2. Capacity planning (stream>shard)
 ### **provisioned**
@@ -27,6 +27,7 @@
 
 ### **on-demand** new
 - default capacity of **stream** : `4000 record/sec + 4 MB/sec`
+  - meaning - 4 shards
 - **auto-scale** shards based on last 30 throughput peek **history**
   - max: `200k record/sec + 200 MB/sec`
 - cost
@@ -39,7 +40,9 @@
 - ![img.png](../99_img/decouple/img.png)
 
 ### A **kineses stream**  === `topic`
-  - retention : 1 - 365 days (immutable) : use to replay
+  - retention : `1 - 365 days`    :point_left:
+  - immutable
+  - use to replay
 
 ### B **shards** === `partition`
 - shard-1, shard-2, ...
@@ -68,6 +71,10 @@
 ---
 
 ### D **producer** 
+```
+- DynamoDb stream --> k-agent --> KDS
+- s3 --> DMS --> KDS
+```
 #### producer-1: app
   - **aws SDK** (for simple producer)
   - **KPL** - kineses producer lib 
@@ -110,8 +117,6 @@
 
 #### consumer-5: **KDA (analytics)** :point_left:
 - [03_03_KDA_KinesisDataAnalytics.md](03_03_KDA_KinesisDataAnalytics.md)
-
-
 
 ---
 ## 4. security
