@@ -23,7 +23,12 @@
 - 400+
 - content caching for faster delivery.
 - CDN
+- service : CF:distribution, Lambda@edge, DX
 
+### AWS outpost
+-  fully managed service that extends AWS infrastructure, services, and tools to on-premises locations
+-  It allows you to run AWS services locally in your data center or on-premises, 
+- providing a hybrid cloud solution for workloads that need to remain on-premises due to latency, data residency, or other regulatory requirements.
 ---
 # Side Notes
 1. All services are `publicly` accessible

@@ -13,6 +13,7 @@
   - Snowball Edge **Compute** Optimized : `42 TB | 416 GB RAM | 104 cpu`
     - an **optional GPU** for use cases such as advanced machine learning and full-motion video analysis.
     - These devices may also be **rack mounted and clustered together** to build larger, temporary installations :dart:
+    - can run **lambda@edge** :point_left:
   - post device 
   - send/upload to/from:
     - **block volume** / EBS

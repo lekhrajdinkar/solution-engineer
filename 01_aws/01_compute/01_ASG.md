@@ -145,6 +145,7 @@
   - instance launched with oldest version of launch-configuration/template.
   - oldest age
   - the instance(s) nearest the end of their billing hour. (like reserver period is close to end.)
+- https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html : check
 
 ---
 ## 6. Instance refresh (like k8s deploymnet ) :books:

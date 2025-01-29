@@ -14,9 +14,10 @@
   - Size constraints
   - **geo-match** 
     - block countries (client IP)
-  - **Rate-based rules** 
+  - **Rate-based rules** : `blanket`, `URI`, `IP-reputation`
     - eg: 10 req/per
     - this rule prevents **DDoS protection**
+    - https://aws.amazon.com/blogs/security/three-most-important-aws-waf-rate-based-rules/ :zap: 
 
 ```yaml
 - keep IP `static/fixed`:

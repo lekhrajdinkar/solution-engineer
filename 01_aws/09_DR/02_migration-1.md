@@ -7,11 +7,11 @@
     - configuration
     - memory
     - disk usage
-    - ...
+    - network
   - `agent-based` : gathers addintional info like:
-    - live network details, connections between systems
-    - live system performance
-    - live running processes
+    - **live** network details, connections between systems
+    - **live** system performance
+    - **live** running processes
     - ...
 
 ## 2. MGN : Application migration service

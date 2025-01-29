@@ -1,5 +1,6 @@
 # Lake Formation (Fully managed)
 ## Intro
+- https://aws.amazon.com/lake-formation/
 - build on top of **AWS glue**
 - **central place** to have all your data for analytics purposes.
 - security :
@@ -21,7 +22,7 @@
 
 ---
 ## more :dart:
-### Question-1: The data lake has a **staging zone** 
+### Question-1 (on s3): The data lake has a **staging zone** 
 - where intermediary query results are kept only for 24 hours. 
 - These results are also heavily referenced by other parts of the **analytics pipeline**.
 - MOST `cost-effective strategy` for storing this intermediary query data ?
