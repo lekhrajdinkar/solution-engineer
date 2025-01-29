@@ -47,6 +47,10 @@
   - dont reuse role, create separate.
 ---
 ## 2. IAM role :green_circle:
+- **service role** is pre-defined for AWS services :dart: :point_left:
+  - AWS Lambda execution role, EC2 Auto Scaling role, RDS service role
+  - so, automatically add current-service as **trusted entity**. no need to add again.
+  
 - Designed to provide temporary security credentials by **trusted entities/principle** :
   - other aws-service - ec2, s3,etc
   - cross account service/user 

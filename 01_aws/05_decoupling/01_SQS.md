@@ -76,6 +76,17 @@
   - group-1 ( msg1, msg-2, ...) --> consumer-1 (ordered in group-1)
   - group-2 ( msg1, msg-2, ...) --> consumer-2 (ordered in group-1)
   - ![img_1.png](../99_img/dva/sqs/v1/img_1.png)
+
+### 3. Ephemeral queue
+- Amazon SQS **Temporary** Queues 
+- cannot be created directly from the AWS Management Console.
+- They must be created programmatically using the AWS SDK or CLI.
+  - `CreateQueue` API , attributes:
+    - FifoQueue 
+    - ExpiresAfter
+- **short-lived**, designed for temporary message passing
+- **Auto-delete** after inactivity.
+
 ---
 ## B. DLQ
 - ![img_3.png](../99_img/dva/sqs/img_3.png)

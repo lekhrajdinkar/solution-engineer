@@ -23,7 +23,7 @@
 - permission/policies :point_left: :dart:  
   - by default, allow NOTHING
   - applies to **member-acct**  :dart:
-    - member-acct's :: [ root account , IAM user, IAM group, IAM role ] 
+    - member-acct's :: [ root account , IAM user, IAM group, IAM role ] :point_left: **root** as well
     - does not affect **service-linked role** (AWS managed roles)
   - applies to **OU**
     - applies to member-acct-OU-1

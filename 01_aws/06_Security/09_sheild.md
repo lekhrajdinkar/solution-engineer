@@ -1,5 +1,7 @@
 # AWS Shield
-- protect `DDoS attack` (many requests at the same time)
+- Detection and mitigation against **large and sophisticated**  `DDoS attack` (many requests at the same time)
+- near real-time visibility into attacks
+- integration with AWS WAF
 
 ## AWS Shield : standard
 - free
@@ -9,13 +11,13 @@
 ## AWS Shield : Advance
 - pricing : `$3000 / organization`
   - enabled consolidated billing for your aws org. :dart:
-- 24/7 access to `DDoS response team` (DRP)
-- `mitigate` from `layer7` attacks :point_left:
+- 24/7 access to **DDoS response team** (DRT)
+- mitigate from **layer7 attacks** :point_left:
   - Automatically creates/deploys **AWS WAF rules**
 - protects these services:
   - ELB
   - Amazon CloudFront distributions 
-  - API gateway : NO :x: :dart:
+  - **API gateway** : NO :x: :dart:
   - more:
     - AWS Global Accelerator
     - Route 53

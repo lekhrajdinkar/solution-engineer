@@ -10,10 +10,10 @@
     - EKS,RDS,Aurora,EBS,Lambda,S3
     - ...
 - **perform** 
-  - analyzes continuous streams of meta-data generated from your account and network activityusing ML/AI
-  - to detect/discover any security threat
+  - analyzes continuous streams of meta-data generated from your account and network activity using ML/AI
+  - to detect any security threat and un-usual activity
     - **CryptoCurrency attack** :point_left:
-  - Send event-bridge notification
+    - infrastructure deployments in a region that has never been used.
   
 - fact :dart:
   - **Disabling** the service
@@ -23,6 +23,14 @@
     - but does not delete your existing `findings or configurations`
 
 ![img_2.png](../99_img/security/others/img_2.png)
+
+```text
+#1
+During a review, a security team has flagged concerns over an Amazon EC2 instance querying IP addresses used for cryptocurrency mining.
+The Amazon EC2 instance does not host any authorized application related to "cryptocurrency mining".
+Which AWS service can be used to protect the Amazon EC2 instances from such unauthorized behavior in the future? 
+- GaurdDuty**
+```
 
 ---
 ## B. Macie
