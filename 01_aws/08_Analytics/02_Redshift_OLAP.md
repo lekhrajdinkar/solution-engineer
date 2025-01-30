@@ -58,7 +58,6 @@
   - ![img_1.png](../99_img/moreSrv/redshift/img_1.png)
 
 ---
-
 ## Exam
 - App 
   - less than year older data --> **redshift** --> `analytic-report-1`
@@ -66,4 +65,7 @@
   - `analytic-report-2`,  reference from --> s3 + redshift
   - how to cross-reference s3 :point_left:
   - ![img.png](../99_img/practice-test-01/exam-43.png)
-
+- Amazon Redshift **AQUA** (Advanced Query Accelerator) 
+  - distributed query acceleration layer designed to speed up certain types of queries in Amazon Redshift, particularly complex analytical queries.
+  - boost bt 10x
+  - resolves network bandwidth + cpu processing bottleneck

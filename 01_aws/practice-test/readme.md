@@ -52,5 +52,7 @@
 - #4 #5 #6 https://chatgpt.com/c/67955968-7de8-800d-839c-607cf85a6037
 
 ## 3. practice exam (whizlab )
-- free: https://www.whizlabs.com/learn/course/aws-solutions-architect-associate/153/quiz/60468/practice/start
+- free: 
+  - https://www.whizlabs.com/learn/course/aws-solutions-architect-associate/153/quiz/60468/practice/start
+  - https://chatgpt.com/c/6799e17f-6f00-800d-9331-1c0572dee9d1
 

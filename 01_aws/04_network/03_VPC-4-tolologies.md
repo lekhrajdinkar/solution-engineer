@@ -150,10 +150,10 @@ AWS VPC-1 (rtb-main:vgw-1) <==> [ vgw-1 <---Site-2-site VPN(uses:internet)---> c
 
 ---
 ##  transient Gateway
-- network topolgies can be complicated 
-- transient Gateway, simplify above topologies
-- define everything at single place : rtb of transient gateway
-- supports `IP-multicast` ?
+- NOT tied to a specific **VPC**, Account level services : point_left:
+- network topologies can be complicated, transient Gateway, simplify above topologies
+  - define everything at single place : rtb of transient gateway
+  - supports `IP-multicast` ?
 - ![img.png](../99_img/vpc-3/tgw.png)
 - create multiple tunnels in `AWS Site-2-site VPN` : `ECMP routing`
   - ![img.png](../99_img/vpc-3/ecmp.png)
