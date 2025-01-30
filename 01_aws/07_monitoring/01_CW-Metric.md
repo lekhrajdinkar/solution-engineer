@@ -104,3 +104,7 @@ aws cloudwatch put-metric-data \
   - **RAM** (free, inactive, used, total, cached)
   - **Netstat** (number of TCP and UDP connections, net packets, bytes)
   - **Processes** (total, dead, bloqued, idle, running, sleep)
+
+### Aggregate metric from ASG's ec2 instance.
+- install unified agen in all EC2 inatance in ASG
+- agent config: use "**aggregation_dimension**" , to aggregate metric from all instance.

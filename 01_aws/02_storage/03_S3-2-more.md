@@ -60,3 +60,6 @@
 - **url format**: :dart:
   - http://bucket-name.s3-website.Region.amazonaws.com
   - http://bucket-name.s3-website-Region.amazonaws.com
+
+## 6. search/list s3 onject fast
+![img.png](img.png)

@@ -40,6 +40,23 @@
   - policy allow CF to connect/access origin.
   - ![img_3.png](../99_img/CF/img_3.png)
 
+```text
+1. OAI (Origin Access Identity) - Legacy Method
+- A special CloudFront IAM identity used to access an S3 bucket.
+- Requires updating the S3 bucket policy to allow access from CloudFront.
+- Limitations: Works only for S3 origins and lacks fine-grained permissions.
+
+2. OAC (Origin Access Control) - Newer & Recommended   <<<<<
+- Uses IAM-based authorization instead of S3 bucket policies.
+- Supports both S3 origins and custom origins (e.g., EC2, ALB).
+- Provides granular permissions via IAM roles.
+- More secure and flexible than OAI.
+
+above example:
+- principal : cf service
+- condition : distribution arn
+```
+
 ---  
 ### 3. origin failover 
 - to help support your `data resiliency` needs.

@@ -19,6 +19,7 @@
     - usw2-az1
     - usw2-az2
     - ...
+    
 ### edge loc
 - 400+
 - content caching for faster delivery.
@@ -29,6 +30,9 @@
 -  fully managed service that extends AWS infrastructure, services, and tools to on-premises locations
 -  It allows you to run AWS services locally in your data center or on-premises, 
 - providing a hybrid cloud solution for workloads that need to remain on-premises due to latency, data residency, or other regulatory requirements.
+- **fargate** is not supported at OUTPOST :point-left:
+  - eg: ECS with ec2 launch type can run outpost, not fargate.
+  
 ---
 # Side Notes
 1. All services are `publicly` accessible

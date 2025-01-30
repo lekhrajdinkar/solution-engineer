@@ -21,10 +21,15 @@
 - `EC2 Enhanced Networking` : High bandwidth + high PPS + lower latency
   - `intel 82599 VF` (old) 10 GB/s
   - `ENA` (new) elastic n/w adaptor : 100 GB/s
-  - `EFA` (elastic fabric adaptor)
+  - `EFA` (elastic fabric adaptor) :dart:
     - improved ENA : uses MPI(message passing interface) which by-pass OS to make network faster.
     - for Linux only
     - for tightly coupled workloads.
+- **SR-IOV** :dart:
+  - (Single Root I/O Virtualization) is a hardware-based network virtualization feature 
+  - enhances network performance for EC2 instances by allowing direct access to the ENI
+  - `ethtool -i eth0 ` # Check if SR-IOV is enabled
+  - only some instance with supported kernel version 
 
 ### 4. Storage 
 - Nothing New:

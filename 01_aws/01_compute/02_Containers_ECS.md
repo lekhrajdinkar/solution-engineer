@@ -127,13 +127,37 @@
             }
       ]
       ```
+#### 7 ECS networking mode :point_left:
+```yaml
+        #### Bridge Mode (for EC2 launch type)
+
+- Default Docker networking mode.
+- Containers share the host’s network namespace but get mapped ports.
+- Good for traditional containerized apps but lacks direct IPs.
+
+        #### Host Mode (for EC2 launch type)
+
+- Containers use the host’s network directly (no port mapping).
+- Lower latency but can cause port conflicts.
+
+        #### Awsvpc Mode (for both EC2 & Fargate) (Recommended)
+
+- Assigns a dedicated ENI (Elastic Network Interface) to each task.
+- Provides full networking features, including security groups and VPC routing.
+- Required for Fargate tasks.
+
+        #### None Mode
+
+- Disables networking (containers have no external network access).
+- Used for isolated workloads.
+```
 
 ####  READY :green_circle:
 - check cluster > task > container, logs/event,
 - update service - manually update Desire capacity : 5
 - in prod, service Auto Scaling (ASG, ECS-Cluster capcity provider) will do same.
 
-#### 7 update task
+#### 8 update task
 - `rolling update` 
   - **default**:
     - min healthy: 100%

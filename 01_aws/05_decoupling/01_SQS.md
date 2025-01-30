@@ -148,12 +148,19 @@
 ---
 ## F. API must know (for DVA) :books:
 ![img_6.png](../99_img/dva/sqs/img_6.png)
+
 ---
 ## G. use-case / arch eg
-1. `SQS:queue:logs` >> CW >> metric >> alarm --> ASG [ ... multiple consumers ec2-i... ]
+1. flow
+  - frontend request going to sqs
+  - SQS **logs** >> CW >> **custom-metric**::**ApproximateNumberOfmessageVisible** :dart: >> alarm 
+  - SQS:**inbuilt-metric**::**ApproximateNumberOfmessageVisible** :dart: >> alarm
+  - ASG [ ... multiple consumers ec2-i... ] --> in/out
   - ![img.png](../99_img/decouple/sqs/img.png)
+
 2. ASG [ FE-1, FE-2, ... ] ---> stage all request in Queue --- > ASG [ BE-1, BE-2, ...]
   - ![img_1.png](../99_img/decouple/sqs/img_1.png)
+
 3. Overloaded DB request:
 - ASG [ FE-1,...] --> Queue-1(Stage client request) --> ASG [BE-1,...] --> store to DB, OVERR-LOADED --> `lose some insert`
 - ASG [ FE-1,...] --> Queue-1(`Stage client request`) --> ASG [BE-1,...] --> Queue-2(`stage-DB-request`) -->  ASG [BE-repo-1,...]

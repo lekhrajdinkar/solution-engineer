@@ -40,9 +40,10 @@
 - ![img.png](../99_img/decouple/img.png)
 
 ### A **kineses stream**  === `topic`
-  - retention : `1 - 365 days`    :point_left:
-  - immutable
-  - use to replay
+  - retention : `1(24 hrs) - 365 days (8760 hrs)`    :point_left:
+  - default retention : `24 hours` :dart:
+  - **immutable**
+  - can replay
 
 ### B **shards** === `partition`
 - shard-1, shard-2, ...

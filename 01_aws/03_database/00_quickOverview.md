@@ -114,6 +114,12 @@ Non-relational databases are designed for unstructured or semi-structured data a
 
 ### 6. **Amazon `Timestream`**
 - Fully managed time-series database service.
+- **serverless**
+- store **trillions of records**
+- faster and cost-effective compare to RDBMS :dart:
+- integrated with :
+  - Data collection service: `KDS`, `MSK`, opensource tools, et
+  - `Sagemaker`.
 - Features:
     - Optimized for IoT and operational applications.
     - Query and analyze time-series data efficiently.
