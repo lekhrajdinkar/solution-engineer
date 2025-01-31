@@ -56,3 +56,5 @@
   - https://www.whizlabs.com/learn/course/aws-solutions-architect-associate/153/quiz/60468/report/8204676 `87 %`
   - https://chatgpt.com/c/6799e17f-6f00-800d-9331-1c0572dee9d1
 
+## 4. itexamslab.com
+- sample: https://www.itexamslab.com/amazon/saa-c03-dumps.html

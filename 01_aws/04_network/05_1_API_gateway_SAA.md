@@ -11,6 +11,7 @@
     - **No infrastructure** to manage. :)
     - create **environment**  - dev,qa,prod
     - **throttling** - rate limiting
+      - has default setting to prevent from DDoS :dart:
     - **security** - check below.
     - **import**
       - already have pre-define API
@@ -29,6 +30,7 @@
     
 - API-g >> PROXY >> **Any HTTP backend**
   - API-g >> **on-prem-API**
+    - DX or S2S connection.
   - API-g >> **ALB**
     - expose ALB public directly. happening in ccgg.
     - expose API-g >> ALB > tg [ecs/eks - `container` - ec2/fargate]
@@ -107,43 +109,29 @@
 - no native support for openIDConnect/OAuth - `REST API-gateway`
 - but `Http API-gateway` has it.
 
-### 1. Authentication + Authorization
+### 1. Authentication
 #### 1.1. API keys
 - **Authentication**
   - pass`x-api-key` header
-- **Authorization**
-  - API-gateway **resource iam policy** === for
-  - who and what, they access on API-gateway. same like s3 policy, sqs policy, lambda resource policy, etc.
-  - principle/who:
-    - use for **cross account id**
-    - ...
+
     
 ---    
 #### 1.2 IAM
 - ![img_1.png](../99_img/dva/api-g/04/img_1.png)
 - for IAM user / roles
-- **Authentication** 
   - **IAM-based SigV4 signing** 
   - AWS SDKs and AWS CLI handle SignatureV4 signing automatically.
-- **Authorization**
-  - same, IAM policy
-  
----  
+
 #### 1.3 Cognito
 - for global user
-- **Authentication**
   - integrate with 3rd party ID provider.
   - ![img_2.png](../99_img/dva/api-g/04/img_2.png)
-- **Authorization**
-  - API-g >> proxy >> lambda (resource policy for authorization) :point_left:
-  
----  
+
 #### 1.4 Lambda Authorizer
 ![img_3.png](../99_img/dva/api-g/04/img_3.png)
 - Great for 3rd party tokens
 - Handle Authentication verification + Authorization in the Lambda function
 
---- 
 ### 2 SSL
 - export certificate to **ACM**
 - create **R53** entry (cname/alias)
@@ -153,24 +141,44 @@
 
 ### 3 CORS
 - CORS can be enabled on api gateway
-- eg:
-  - ![img.png](../99_img/dva/api-g/04/img.png)
+- ![img.png](../99_img/dva/api-g/04/img.png)
 
-### 4 **`throttle` setting** for stage
+### 4 Authorization
+  - API-gateway **resource iam policy**, 
+    - not exist by default. have to create one :dart:
+  - principle/who:
+    - use for **cross account id**
+    - ...
+    
+### 5 **`throttle` setting** for stage
 - set **rate** (no.of req per seconds make be made)
   - `10000 rps `across all APIs :point_left:
   - set limit for stage. :point_left:
   - else one api/stage will consume all and impact other
 - set **burst** (no of concurrent request)
 
-### 5 **`firewall` setting** for stage
+### 6 **`firewall` setting** for stage
 - set WAF
 - set certificate
 
-### 6. create usage plan
+### 7. create usage plan
+- first create API key
 
 ---
-## C. pricing
+## C. pricing :books:
+```text
+REST API
+    $3.50 per million requests (first 300M, then $1.51 per million).
+    Data transfer & caching costs extra.
+    
+HTTP API (Cheaper than REST API)
+    $1.00 per million requests for first 300M, 
+    then $0.90 per million
+    
+WebSocket API
+    $1.00 per million messages 
+     connection minutes cost.
+```
 
 ---
 ## Y. hands on

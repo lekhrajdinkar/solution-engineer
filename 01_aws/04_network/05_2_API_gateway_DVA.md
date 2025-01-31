@@ -39,7 +39,8 @@
 - set cache object **TTL**
   - default: `5 min / 300 sec`
   - max: `1 hr / 3600 sec`
-- optionally encrypt
+- optionally **encrypt**
+- ![img_2.png](../99_img/dva/api-g/04/img_4.png)
 
 ### **cache Invalidation** :point_left:
 - from console
