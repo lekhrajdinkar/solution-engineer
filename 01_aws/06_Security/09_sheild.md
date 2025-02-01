@@ -9,6 +9,7 @@
 - `protects` from `layer3/layer4` attacks : SYN/UDP Floods? , Reflection attacks? :point_left:
 
 ## AWS Shield : Advance
+- for high-risk workloads.
 - pricing : `$3000 / organization`
   - enabled consolidated billing for your aws org. :dart:
 - 24/7 access to **DDoS response team** (DRT)
@@ -17,7 +18,7 @@
 - protects these services:
   - ELB
   - Amazon CloudFront distributions 
-  - **API gateway** : NO :x: :dart:
+  - API gateway
   - more:
     - AWS Global Accelerator
     - Route 53

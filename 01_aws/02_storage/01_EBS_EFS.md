@@ -148,6 +148,23 @@ Cold HDD (sc1):
   - **Archive** ((after n2 days)) 50%
 - same like in s3.
 
+### target mount :dart:
+- Allows EC2 instances in a VPC to access an EFS file system
+  - not needed for **lambda**.
+  - not needed for **on-prem**  ( if DX/VPN, is setup)
+- configure:
+  - Subnet ID
+  - Security Groups
+- EFS mount targets are:
+  - created **per AZ**, not per subnet.
+  - EFS is not multi-VPC, use VPC peering.
+  - eg: 
+    - tm-1 create for az-1, and for VPC-1
+    - VPC-1 has 3 subnets for az-1  
+    - VPC-2 has 3 subnets for az-1
+    - Next, VPC-1 --- peer --- VPC-2
+    - update security group
+    - then can mount EFS on ec2 intance of VPC-2
 ---
 ### EFS Throughput Modes
 - **Bursting Throughput** ( default)
@@ -162,15 +179,6 @@ Cold HDD (sc1):
   - If your workloads require even higher and consistent throughput
   - allows you to specify the throughput you need, independent of the amount of data stored.
 
-| **Category**          | **Option**              | **Description**                                                                                  | **Best For**                           |
-|------------------------|-------------------------|--------------------------------------------------------------------------------------------------|-----------------------------------------|
-| **Performance Modes**  | **General Purpose**     | Low latency, limited concurrency, fixed throughput per client.                                  | Latency-sensitive workloads.            |
-|                        | **Max I/O**            | Higher latency, massive concurrency, elastic throughput scaling.                                | High-concurrency workloads.             |
-| **Throughput Modes**   | **Bursting Throughput** | Default mode; scales with file system size.                                                     | Variable workloads with spiky demand.   |
-|                        | **Provisioned**        | Fixed throughput, independent of file system size.                                              | Consistent high-throughput workloads.   |
-|                        | **Elastic Throughput** | Automatically scales throughput to match workload needs (Enhanced Mode).                       | Unpredictable or spiky workloads.       |
-
-
 ---
 ### EFS Performance Mode
 - **general-purpose** ( default)
@@ -184,14 +192,19 @@ Cold HDD (sc1):
   -  **higher latencies**
   - higher throughput
 
-| **Performance Mode** | **Latency**      | **Throughput Scaling**     | **Concurrency**               | **Best For**                  |
-|-----------------------|------------------|-----------------------------|--------------------------------|--------------------------------|
-| **General Purpose**   | Low             | Fixed limits per instance   | Few to hundreds of clients     | Latency-sensitive applications |
-| **Max I/O**           | Slightly higher | Elastic with client numbers | Thousands of clients           | High-concurrency workloads     |
+### Summary :dart:
+| **Category**          | **Option**              | **Description**                                                                                  | **Best For**                           |
+|------------------------|-------------------------|--------------------------------------------------------------------------------------------------|-----------------------------------------|
+| **Performance Modes**  | **General Purpose**     | Low latency, limited concurrency, fixed throughput per client.                                  | Latency-sensitive workloads.            |
+|                        | **Max I/O**            | Higher latency, massive concurrency, elastic throughput scaling.                                | High-concurrency workloads.             |
+| **Throughput Modes**   | **Bursting Throughput** | Default mode; scales with file system size.                                                     | Variable workloads with spiky demand.   |
+|                        | **Provisioned**        | Fixed throughput, independent of file system size.                                              | Consistent high-throughput workloads.   |
+|                        | **Elastic Throughput** | Automatically scales throughput to match workload needs (Enhanced Mode).                       | Unpredictable or spiky workloads.       |
+
 
 ---  
 ### Security
-- choose VPC/subnet >  add `sg`
+- choose VPC/subnet >  add security group.
 - Encryption at rest using `KMS` + enable/disable automatic backup
 
 ### hands on

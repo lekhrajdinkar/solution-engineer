@@ -60,6 +60,11 @@
 - **url format**: :dart:
   - http://bucket-name.s3-website.Region.amazonaws.com
   - http://bucket-name.s3-website-Region.amazonaws.com
+    - notice `http`. dont support `https` directly.
+    - Alternative: CF:distribution with ACM and s3 website as origin
+- Direct R53 **Alias** to S3 Website Endpoint--> ❌ Not possible
+  - S3 website endpoints are not AWS resources
+  -  Instead, use a **CNAME** record pointing to the S3 website endpoint. :dart:
 
 ## 6. search/list s3 onject fast
 ![img.png](img.png)
