@@ -20,6 +20,7 @@
     
 ## 2. organizational policies
 ### SCP (Service Control Policies)
+- SCPs DONT **retroactively affect existing resources** :point_left:
 - permission/policies :point_left: :dart:  
   - by default, allow NOTHING
   - applies to **member-acct**  :dart:
@@ -80,6 +81,19 @@ What are the steps do to it:
 ## Screenshot
 - ![img_1.png](../99_img/security/org/img_1.png)
 - ![img.png](../99_img/security/org/img.png)
+
+## Exam scenario
+```text
+Scenario #1
+- AWS Org, member account MA-1 has NAT-gatway-1
+- later on SCP-1 attached to  deny attaching new NAT gateway.
+what will happen to new and existing NAT gateway ?
+
+Solution:
+- Existing NAT Gateway (NAT-Gateway-1) in MA-1 → ✅ Will continue to work because SCPs do not retroactively affect existing resources.
+- New NAT Gateway Creation in MA-1 → ❌ Will be denied due to SCP-1 restricting new NAT gateway creation.
+```
+
 
 ---
 # B. AWS Control tower
