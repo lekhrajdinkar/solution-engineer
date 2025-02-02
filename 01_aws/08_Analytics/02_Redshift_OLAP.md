@@ -58,7 +58,7 @@
   - ![img_1.png](../99_img/moreSrv/redshift/img_1.png)
 
 ---
-## Exam
+## Exam :dart:
 - App 
   - less than year older data --> **redshift** --> `analytic-report-1`
   - older than year --> **s3**
@@ -69,3 +69,6 @@
   - distributed query acceleration layer designed to speed up certain types of queries in Amazon Redshift, particularly complex analytical queries.
   - boost bt 10x
   - resolves network bandwidth + cpu processing bottleneck
+- **Datashare** feature
+  - **Cross-Account** Data Sharing for Amazon Redshift
+  - https://aws.amazon.com/blogs/aws/cross-account-data-sharing-for-amazon-redshift/

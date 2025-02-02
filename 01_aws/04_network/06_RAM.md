@@ -1,4 +1,5 @@
 # RAM (Resource access manager)
+- https://aws.amazon.com/ram/
 ## Intro 
 ```yaml
 - AWS org

@@ -7,7 +7,7 @@
   - **SNI** (Server Name Indication)
     - resolves multiple certificate load problem.
     - allows to expose multiple HTTPS applications each with its own SSL certificate on the same listener.
-
+- cpmplex service, AWS manages its underlying infrastructure **outside your VPC**.  :point_left:
 ---
 ## 1. Proxy server with additional feature
 - sits b/w client and backend-server. **hides** the backend server's IP address.
