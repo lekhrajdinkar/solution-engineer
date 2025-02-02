@@ -66,25 +66,24 @@
   - multiple accounts 
   - in AWS org
 - ![img.png](../99_img/practice-test-01/stackset.png)
+
 ---
-## 99. exam
-```
-#1
+## 98. Screenshot
+- ![img_1.png](../99_img/security/org/img_1.png)
+- ![img.png](../99_img/security/org/img.png)
+
+---
+## 99. Exam scenario
+```text
+Scenario #1
 You would like to migrate an AWS account from an AWS Organization A to an AWS Organization B. 
 What are the steps do to it:
   - Remove the member account from the old organization. first
   - Send an invite to the member account from the new Organization. 
   - Accept the invite to the new organization from the member account
-```
 
----
-## Screenshot
-- ![img_1.png](../99_img/security/org/img_1.png)
-- ![img.png](../99_img/security/org/img.png)
-
-## Exam scenario
-```text
-Scenario #1
+===  
+Scenario #2
 - AWS Org, member account MA-1 has NAT-gatway-1
 - later on SCP-1 attached to  deny attaching new NAT gateway.
 what will happen to new and existing NAT gateway ?
@@ -93,7 +92,6 @@ Solution:
 - Existing NAT Gateway (NAT-Gateway-1) in MA-1 → ✅ Will continue to work because SCPs do not retroactively affect existing resources.
 - New NAT Gateway Creation in MA-1 → ❌ Will be denied due to SCP-1 restricting new NAT gateway creation.
 ```
-
 
 ---
 # B. AWS Control tower

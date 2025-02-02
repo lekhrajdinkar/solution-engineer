@@ -44,12 +44,14 @@ AWS VPC-1 (rtb-main:vgw-1) <==> [ vgw-1 <---Site-2-site VPN(uses:internet)---> c
 - uses:internet
 ```
 - Step-1: create **virtual gateway** `vgw-1`, and attached on AWS VPC-1 
+  - does not Support **ECMP** :point_left:
 - Step-2: create **client gateway** `cgw-1`, with customer details like - public-IP, etc
 - Step-3: create **Site2Site VPN** to connect `cgw-1` with `vgw-1`.
   - **tunnels**
     - `tunnel-1` forward
     - `tunnel-2` backward
     - tunnel 1/2 == used for single connection
+    - `1.25gbps`
 - Step-4: update `rtb-main` with vgw-1 : for traffic forwarding between networks.
 - optional steps :
   - update sg on ec2.

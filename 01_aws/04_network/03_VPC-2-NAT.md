@@ -37,7 +37,9 @@
 
 - ![img_3.png](../99_img/vpc-1/img_3.png)
 - https://app.diagrams.net/#Hlekhrajdinkar%2F02-spring%2Fmain%2Faws%2FVPC-1.drawio
-
+- types and use case: **private** and public
+  - ![nat-g-types.png](../99_img/vpc-1/img_5.png)
+  - private NAT-g: use to route traffic from VPC-1 to VPC-2, having overllaping CIDR.
 ---
 ## 3. NAT Gateway 
 - Can’t be used by EC2 instance in the same subnet, where NAT gateway is present  :point_left: :point_left:
