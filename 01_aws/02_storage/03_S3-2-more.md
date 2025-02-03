@@ -2,8 +2,9 @@
 ## 1. S3 Glacier object : Vault lock :yellow_circle:
 - WORM policy : write once, read many.
 - set `retention period`, can be extend.
+- set (optional) `legal hold` : lock indefinitely. (irrespective of retention-period)
 - `usecase`: data retention. and compliance
-- `lock` object in glacier
+- `lock` object in glacier storage class.
 - retention mode:
   - `compliance` --> no longer be deleted/updated in the future, not even by root.
 
@@ -11,7 +12,7 @@
 ## 2. S3 object lock
 - WORM policy.
 - set `retention period`, can be extend.
-- set (optional) `legal hold` : lock `indefinitely`. (irrespective of retention-period)
+- set (optional) `legal hold` : lock indefinitely. (irrespective of retention-period)
 - retention mode:
   - `compliance` --> no longer be deleted/updated in the future, not even by root.
     - only way to delete, delete account itself. :point_left:

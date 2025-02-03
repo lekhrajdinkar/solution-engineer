@@ -48,7 +48,16 @@
 ```
 
 ---
-# 2. VPC Endpoint 
+# 2. VPC Endpoint
+- **AWS PrivateLink**
+  - provides private connectivity between VPCs (Virtual Private Clouds) and AWS services or on-premises networks via private IP addresses,
+  - ensuring that traffic does not traverse the public internet.
+  - Uses Elastic Network Interfaces (ENIs) with private IPs.
+  - Traffic stays within the AWS network, for higher security and reduced latency.
+  - use case: Expose your service to other VPCs in the same region or across regions.
+  - VPC Endpoint (Interface Endpoint) :point_left:
+  - connects service swith in same regions, privately. Not suitable for inter region comm. :point_left:
+
 ## intro
 - ![img.png](../99_img/vpc-1/v2/img.png)
 - highly available
