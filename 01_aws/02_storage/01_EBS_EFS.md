@@ -148,7 +148,8 @@ Cold HDD (sc1):
   - **Archive** ((after n2 days)) 50%
 - same like in s3.
 
-### target mount :dart:
+### Target Mount :dart:
+- ![img.png](../99_img/ec2/img.png)
 - Allows EC2 instances in a VPC to access an EFS file system
   - not needed for **lambda**.
   - not needed for **on-prem**  ( if DX/VPN, is setup)
@@ -157,14 +158,17 @@ Cold HDD (sc1):
   - Security Groups
 - EFS mount targets are:
   - created **per AZ**, not per subnet.
-  - EFS is not multi-VPC, use VPC peering.
+  - EFS is **not multi-VPC**, use VPC peering :point_left:
   - eg: 
+  ```text
     - tm-1 create for az-1, and for VPC-1
     - VPC-1 has 3 subnets for az-1  
     - VPC-2 has 3 subnets for az-1
     - Next, VPC-1 --- peer --- VPC-2
     - update security group
     - then can mount EFS on ec2 intance of VPC-2
+   ```
+
 ---
 ### EFS Throughput Modes
 - **Bursting Throughput** ( default)

@@ -11,7 +11,8 @@
 ### by internal / ACM
 - ACM generate cert
 - import to ACM
-- Auto-renew in `60 days` before.
+- ACM automatically renews **public certificates** `60 days` before expiration
+
   
 ### bt External provider
 - eg: **digicert**
@@ -31,6 +32,8 @@
 ---
 ## 3. certificate: Validation method
 - **email** 
+  - receive validatin email, follow the link in email and validate it.
+  - will receive email expiry.
 - **dns** : just, create `cname` entry in R53 with above dns
 
 ---

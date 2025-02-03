@@ -17,7 +17,7 @@
 - `AWS AD` create trust with `on-prem AD`
 
 ---
-# B. SSO or **Identity provider** 
+# B. IAM:SSO or **IAM:Identity provider** 
 - use case:
     - sso for all account in [aws org](./03_AWS_org+control-tower)
     - sso for all ec2 instance in an aws account
@@ -39,6 +39,10 @@
 - ![img_4.png](../99_img/security/org-2/img_4.png)
 - ![img_8.png](../99_img/security/org-2/img_8.png)
 - ![img_9.png](../99_img/security/org-2/img_9.png)
+
+---
+## Summary :dart:
+- check eveything in diagram:
 - ![img_3.png](../99_img/security/org-2/img_3.png)
 
 
