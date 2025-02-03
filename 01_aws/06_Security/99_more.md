@@ -48,8 +48,14 @@ Which AWS service can be used to protect the Amazon EC2 instances from such unau
 
 ---
 ## C. Inspector
-- fully managed
-- analyze and perform **security assessment** on:
+- reference:
+  - https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html
+  - https://www.youtube.com/watch?v=SM_esXHbJ4M (check from 9:00)
+- fully managed : create **Assessment template**
+  - select target
+  - select assessment pakage to run (need SSM agent to be installed)
+  - select duration.
+- analyze and perform **security assessment** on assessment targets:
   - `container` (image scan)
   - `lambda` (code scan - CVE database)
   - `ec2` (ssm agent)  (n/w, os, code/pkg scan)
@@ -69,4 +75,41 @@ Which AWS service can be used to protect the Amazon EC2 instances from such unau
     - ...
 
 ![img.png](../99_img/dva/kms/05/img-vdsvevev.png)
+
+---
+## E. More
+### 1. AWS Security Hub
+- **scenario** : Audit performed on AWS account. have to fix complaince for future. which AWS service can use ?
+- AWS Security Hub provides a **comprehensive view** of your security posture in AWS. 
+- It aggregates, organizes, and prioritizes security findings from multiple AWS services and third-party tools. 
+- It continuously monitors your environment for vulnerabilities and compliance violations by **integrating** with services:
+  - Amazon GuardDuty, 
+  - AWS Config, 
+  - Amazon Macie
+  - ...
+  - AWS Lambda: automate response actions.
+- It uses **standards** such as 
+  - CIS AWS Foundations
+  - PCI DSS 
+  - HIPAA
+
+### 2. AWS Systems Manager 
+- https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html
+- unified interface for managing your AWS resources. 
+- It provides operational **insights** and **automation** for tasks like
+  - **patching**   :point_left:
+  - **configuration  management**   :point_left: 
+  - **compliance**  :point_left: 
+- Key features include:
+  - Automation: Automates common IT tasks like applying patches or updates across AWS resources.          
+  - **Run Command**:  :dart:
+    - Allows remote execution of commands on EC2 instances without needing to log in. **SSM agent** must be installed 
+    - no need to perform SSH
+    - can install packages
+    - create and assume role with IAM SSM permission.
+  - Patch Manager: Automatically applies security patches to your systems.                                
+  - State Manager: Ensures that instances remain in the desired configuration state.                      
+  - Compliance: Tracks the compliance of your systems with internal policies and external regulations.    
+                                                                                                           
+
 

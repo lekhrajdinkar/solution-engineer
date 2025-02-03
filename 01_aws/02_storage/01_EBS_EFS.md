@@ -143,10 +143,9 @@ Cold HDD (sc1):
     
 ### storage class
 - **lifecycle policy** to move between 
-  - **standard** 
-  - **Infrequent-Access** (after n1 days) 
-  - **Archive** ((after n2 days)) 50%
-- same like in s3.
+  - **standard** (with One-Zone option as well)
+  - **Infrequent-Access** (with One-Zone option as well) 
+  - **Archive** 50% low cost
 
 ### Target Mount :dart:
 - ![img.png](../99_img/ec2/img.png)

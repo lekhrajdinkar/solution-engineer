@@ -32,6 +32,7 @@
   - private ( for decrypt)
   
 - for client-server comm                       <<<
+- used for digital signature.
 ```
 --- 
 # KMS
@@ -128,14 +129,14 @@
   - global Dynamo DB
 
 ---
-### **3. Customer manged key**  `PAID`
+### **3. Customer managed key**  `PAID`
 - customer upload its own key. 
 - import key into kms, which generated outside aws
 - rotation:  must enable it :point_left:
 - pricing 
   - `1$/month` / key
   - API calls : `0.03/10,000`
-
+- Dont support digital signature. :dart:
 ---
 ## B. hands on
 ```yaml

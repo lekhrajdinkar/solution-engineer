@@ -47,8 +47,26 @@
   - Gaps in periodic maintenance activity
 - ![img_2.png](../99_img/decouple/ct/img_2.png)
 
+## 3. CloudTrail Lake service :dart:
+- fully managed, quick option.
+- CloudTrail Lake is a managed data lake solution specifically designed for **capturing, storing, and analyzing** CloudTrail events.
+  - can store event/s for many years. set **retention-period** like 2years
+  - built-in **query** functionality (via SQL) to perform audits and analysis.
+  - Alternatively, integrate with 
+    - Amazon Athena or other analytics tools for **more advanced queries**.
+
+```text
+Scenario: whizlab #2.37
+- capture api call for resource access and changes in an aws acocunt
+- store then 2 years
+- perform audit and analysis
+need quick solution
+
+option-1 : cloudtrail lake ***
+option-2 : cloudtrail:event --> S3 --> athena
+```
 ---
-## 3. Architecture Example
+## 4. Architecture Example
 ### integration with `EventBridge`
 - already integrated
 - all events end up going to default bus
@@ -56,6 +74,7 @@
 - eg: get notified when user assuming role
   - ![img_4.png](../99_img/decouple/ct/img_4.png)
   - ![img_3.png](../99_img/decouple/ct/img_3.png)
+
 
 
 
