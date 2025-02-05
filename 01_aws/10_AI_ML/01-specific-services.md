@@ -22,9 +22,11 @@
   - captioning and subtitling
 
 ### B.2. Amazon `polly`
-- text --> `speech`
+- **TTS** : text --> `speech`
+  - using AI-driven neural voices
+  - create new voice for brand :dart:
 
-- upload `lexicon` and synthesis speech operation. eg:
+- upload `lexicon`=== **pronunciation** and synthesis speech operation. eg:
   - Stylized words: St3ph4ne => “Stephane”
   - Acronyms: AWS => “Amazon Web Services”
   
@@ -35,6 +37,28 @@
   - `phonetic pronunciation`
   - including `breathing sounds, whispering`
   - using the `Newscaster speaking style`
+  - Use case: Improving audiobook and e-learning narration.
+
+```text
+
+Neural & Standard TTS – Converts text to lifelike speech using AI-driven neural voices.
+Use case: Enhancing virtual assistants and IVR systems.
+
+Multiple Languages & Voices – Supports 30+ languages with various voice options.
+Use case: Creating multilingual customer support bots.
+
+Speech Marks & SSML Support – Customizes speech with pauses, emphasis, and phonetic pronunciation.
+Use case: Improving audiobook and e-learning narration.
+
+Streaming & Batch Processing – Real-time or offline synthesis for scalability.
+Use case: Generating voiceovers for videos and podcasts.
+
+Lexicon Support – Custom pronunciations using lexicons.
+Use case: Ensuring correct pronunciation of brand or technical terms.
+
+Cost-Effective & Scalable – Pay-per-use pricing with high availability.
+Use case: Automating content narration for news or blogs.
+```
 
 ### B.3. Amazon `Translate`
 - language translation.
@@ -72,6 +96,8 @@
   -  Understands `how positive or negative` the text is
   -  `Analyzes` text using tokenization and parts of speech
   -  Automatically `organizes` a collection of text files by `topic` / article
+- **source** : s3 :dart:
+- **target** : Any - storage | DB | Data-warehouse
 
 ---
 ### D.2. Amazon `Comprehend Medical` (serverless)

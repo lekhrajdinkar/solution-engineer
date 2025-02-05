@@ -55,7 +55,9 @@
 ## 3. practice exam (whizlab ) :yellow_circle:
 ### Attempt-1
 - #1 `free`: https://chatgpt.com/c/6799e17f-6f00-800d-9331-1c0572dee9d1 `84 %`
-- #2 https://chatgpt.com/c/679b234b-bbb0-800d-8abc-85267ee02bf2 `77 %`
+- #2 `77 %`
+  - https://chatgpt.com/c/679b234b-bbb0-800d-8abc-85267ee02bf2 
+  - https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:7bc03cbb-131d-4190-a0db-9bdecda8b5f9?viewer%21megaVerb=group-discover
 - #3
 - #4
 - #5

@@ -307,3 +307,14 @@ Outputs:  # References to what has been created.
     Value: !GetAtt MyEC2Instance.PublicIp  # Retrieves the public IP address of the EC2 instance.
 
 ```
+## Cli
+### cfn-init :dart:
+- helper script to initialize and configure EC2 instances. 
+- It reads the **AWS::CloudFormation::Init** metadata from a CloudFormation template 
+- and **executes** the specified configuration tasks, such as:
+```text
+Installing packages  <<<
+Configuring files
+Running shell commands
+Managing services 
+```

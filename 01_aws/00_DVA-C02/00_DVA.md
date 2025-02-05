@@ -178,7 +178,7 @@
 - [97_more-services](../97_more-services)
 - [09_DR](../09_DR)
 - [08_Analytics](../08_Analytics)
-- [10_ML](../10_ML)
+- [10_ML](../10_AI_ML)
 - more:
   - [98_SAA_discussion](../98_SAA_discussion)
   - [practice-test-SAA](../practice-test)
