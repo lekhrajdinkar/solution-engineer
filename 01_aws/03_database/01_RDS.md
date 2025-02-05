@@ -135,7 +135,11 @@
   - use the same `domain-name-1` for both the certificate and the CNAME record in Route 53.
   - Export cert in ACM 
   - when create/modify RDS instance, configure it use custom  cname `domain-name-1`.
-
+- RDS support **TDE** (transparent Data encryption) with Oracle  and SQL :dart:
+  - integrated with **CloudHSM** (store keys in single tenant hardware module.) [10_HSM_DVA.md](../06_Security/10_HSM_DVA.md)
+  - key managed by AWS
+  - automatic Encryption/decry..
+  
 #### IAM Authentication :dart:
   - works with MySQL and PostgreSQL :point_left:
   - token has a lifetime of `15 minutes`

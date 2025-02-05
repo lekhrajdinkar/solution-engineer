@@ -33,8 +33,8 @@
 - DB https://chatgpt.com/c/f3646de9-ab0a-4651-b6cb-eb094ddc7f66
 - security : https://chatgpt.com/c/6e232391-80c5-4b99-9e57-b7f5b05c5d14
 
-
-## 2. practice exam (udemy stephene)
+---
+## 2. practice exam (udemy stephene) :green_circle:
 ### Attempt-1
 - #0 https://chatgpt.com/c/8e9fe51d-10e5-41b5-9fa6-adc2eb99628f
 - #1 https://chatgpt.com/c/e0b834ff-6673-4d0b-bb08-6a98e8ea5ef6
@@ -51,10 +51,18 @@
 - #3 https://chatgpt.com/c/678aac00-9fb0-800d-b49d-9990e4dd7f03
 - #4 #5 #6 https://chatgpt.com/c/67955968-7de8-800d-839c-607cf85a6037
 
-## 3. practice exam (whizlab )
-- free: 
-  - https://www.whizlabs.com/learn/course/aws-solutions-architect-associate/153/quiz/60468/report/8204676 `87 %`
-  - https://chatgpt.com/c/6799e17f-6f00-800d-9331-1c0572dee9d1
+---
+## 3. practice exam (whizlab ) :yellow_circle:
+### Attempt-1
+- #1 `free`: https://chatgpt.com/c/6799e17f-6f00-800d-9331-1c0572dee9d1 `84 %`
+- #2 https://chatgpt.com/c/679b234b-bbb0-800d-8abc-85267ee02bf2 `77 %`
+- #3
+- #4
+- #5
+- #6
+- #7
+- `final` :
 
-## 4. itexamslab.com
+---
+## 4. itexamslab.com :yellow_circle:
 - sample: https://www.itexamslab.com/amazon/saa-c03-dumps.html
