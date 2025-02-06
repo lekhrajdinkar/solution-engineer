@@ -47,4 +47,5 @@ Requires custom route tables to avoid conflicts.
 ![img.png](../99_img/vpc-1/img_6.png)
 
 ---
-## 3
+## 3 Dx and BGP (Border gateway protocol)
+![img.png](../99_img/moreSrv/bgp.png)

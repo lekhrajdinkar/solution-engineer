@@ -195,3 +195,26 @@
 ## F.alerts
 ![img_10.png](../99_img/compute/ecs/img_10.png)
 
+---
+
+## exam scenarios :dart:
+- For **ECS Anywhere** on an on-premises Linux server, you need to **install** the following **agents**:
+```text
+SSM Agent     – Allows AWS Systems Manager to **manage** the server remotely <<<
+ECS Agent     – Connects the server to the Amazon ECS control plane for task scheduling.
+Docker Engine – Required to run containerized workloads.
+```
+
+- **EKS Anywhere**: 
+  - Runs Kubernetes clusters on on-premises infrastructure using `bare-metal` or `VMware-vSphere`. 
+  - It provides full lifecycle management for Kubernetes clusters.
+  - bare-metal, Runs directly on physical servers **without a hypervisor.** || best for cost and performance :point_left:
+  - VMware-vSphere, Runs on **virtualized** infrastructure using ESXi hypervisor.
+  - https://aws.amazon.com/blogs/containers/introducing-amazon-ecs-anywhere/
+
+- **EKS Distro** (EKS-D) is 
+  - the open-source Kubernetes distribution used by Amazon EKS. 
+  - It allows you to run self-managed Kubernetes clusters on any infrastructure, including 
+    - on-premises 
+    - and other clouds :point_left:
+

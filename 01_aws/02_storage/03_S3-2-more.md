@@ -68,4 +68,4 @@
   -  Instead, use a **CNAME** record pointing to the S3 website endpoint. :dart:
 
 ## 6. search/list s3 onject fast
-![img.png](img.png)
+![img.png](../99_img/practice-test-01/wz03/01/img.png)

@@ -61,8 +61,8 @@
 - mount on :
     - ec2-i (Unix/Linux OS) :point_left:
 - supported storage option : `SSD` , `HDD`
-- supported protocol : `Lustre Protocol`, `POXIS`
-- **size**: `100s PB` |  **iops** : `in millions`   | **throughput**  `?`
+- supported protocol : `Lustre Protocol`, `POXIS-compliant`
+- **size**: `100s PB` |  **iops** : `in millions`   | **throughput**  `100s of GB/s with large clister`
 
 - **More**
   - integrate with **S3**  :dart: :dart:
@@ -98,6 +98,8 @@
 ---
 
 ## Exam
+- Check this for comparison: https://aws.amazon.com/fsx/when-to-choose-fsx/ :dart:
+- ![img_1.png](../99_img/practice-test-01/wz03/01/img_1.png)
 - FSx :: ontap | ZFS | windows | Luster :dart:
   - ![img.png](../99_img/practice-test-01/06/63/comparefxs.png)
 
@@ -121,6 +123,7 @@ Protocols: NFS (v3, v4.0, v4.1), SMB (2.0-3.1.1), iSCSI
 Amazon FSx for OpenZFS
 Supported OS: Linux, Windows, macOS
 Protocols: NFS (v3, v4, v4.1)
+```
 ```
 
 

@@ -48,13 +48,14 @@ Which AWS service can be used to protect the Amazon EC2 instances from such unau
 
 ---
 ## C. Inspector
-- reference:
+- identify software **vulnerability and network exposures** (unintentional open ports)
+- references:
   - https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html
   - https://www.youtube.com/watch?v=SM_esXHbJ4M (check from 9:00)
 - fully managed : create **Assessment template**
-  - select target
-  - select assessment pakage to run (need SSM agent to be installed)
-  - select duration.
+  - select **target**
+  - select assessment **package** to run (need SSM agent to be installed)
+  - select **duration**.
 - analyze and perform **security assessment** on assessment targets:
   - `container` (image scan)
   - `lambda` (code scan - CVE database)

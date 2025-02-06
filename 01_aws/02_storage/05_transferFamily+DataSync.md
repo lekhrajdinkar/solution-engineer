@@ -33,4 +33,8 @@
   - **Site-to-Site VPN** ✅ – Supported. DataSync can run over a VPN tunnel for secure data transfers between on-prem and AWS.
   - **Internet** ✅ – Supported. By default, DataSync uses the public internet with encryption for transfers between on-prem storage and AWS.
 
-
+- fact:
+  - cannot open **locked file**
+  - file is opened and **modified**, while sysnc
+    - it will detect Data inconsistency during VERFYING stage.
+  - above 2 files will be skipped/ found missing then :dart:

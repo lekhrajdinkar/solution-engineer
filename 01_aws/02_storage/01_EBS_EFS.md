@@ -41,7 +41,13 @@
   - root volume - `true`
     - if disable it on running app - how ? console or api/cli**
   - additional ebs volume - `false`
-  
+- use `e2label` **command** to change label name
+  - scenario:
+  ```text
+    - ec2-1 root volume > snapshot-1 > created volume-2 > attached to ec2-2 as additional volume 
+    - vol-1 is root vol for ec2-2
+    - re-b0ot ec2-2, it will boot from volume-2, rather than vol-1
+  ```
   
 ### 2. EBS: snapshot
 - Snapshots are **incremental backups** :dart:
