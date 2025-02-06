@@ -58,7 +58,9 @@
 - #2 `77 %`
   - https://chatgpt.com/c/679b234b-bbb0-800d-8abc-85267ee02bf2 
   - https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:7bc03cbb-131d-4190-a0db-9bdecda8b5f9?viewer%21megaVerb=group-discover
-- #3
+  - [whizlab-ssa-exam2.pdf](whizlab/whizlab-ssa-exam2.pdf)
+- #3 
+  - https://chatgpt.com/c/67a128f7-403c-800d-9314-903f01a4911c
 - #4
 - #5
 - #6
