@@ -124,7 +124,7 @@ Cold HDD (sc1):
 - grow elastically to **petabyte scale**.
 - **high availability** Managed NFS (network file system)
 - protocol    : **NFSv4**
-- file system : **POXIS**
+- file system : **POXIS-complaint**
 - **3x times expensive** than EBS(gp2), because:
   - no capacity planning
     - auto-Scale in Size(PB) 

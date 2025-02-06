@@ -17,7 +17,7 @@
 
 ### 2.1 File gateway
 - **NFS or SMB** 
-- `s3` and `FSx for windows` :point_left:
+- `s3`(1 cent /per, cheap) and `FSx for windows` (70 cent / hr) :point_left:
 - ![img_2.png](../99_img/storage/more/img_2.png)
 - ![img_3.png](../99_img/storage/more/img_3.png)
     
