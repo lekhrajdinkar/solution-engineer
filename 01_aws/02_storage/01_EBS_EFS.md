@@ -216,6 +216,11 @@ Cold HDD (sc1):
 - choose VPC/subnet >  add security group.
 - Encryption at rest using `KMS` + enable/disable automatic backup
 
+---  
+### DR
+- EFS cross region replication : enable. `preferrered` :point_left: :dart:
+- DataSync also, as alternative.
+---
 ### hands on
   ```
   - Create EFS `efs-1` + efs-sg-1

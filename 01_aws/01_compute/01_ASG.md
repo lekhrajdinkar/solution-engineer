@@ -68,6 +68,8 @@
 
 ---
 ## 3. Scaling types
+- fact: Reduce scaling-out latency, use **warm-pool** :dart:
+  - pre-initialized instances
 - ref:
   - https://docs.aws.amazon.com/autoscaling/ec2/userguide/scaling-overview.html
   - https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html
