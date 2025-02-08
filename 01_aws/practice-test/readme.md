@@ -25,7 +25,7 @@
 # C. SSA
 - https://quizlet.com/425396578/aws-solutions-architect-flash-cards/
 
-## 1. discussion
+## 1. discussion (skip)
 - https://chatgpt.com/c/584769ed-a735-4fa0-958a-208113b7214b
 - https://chatgpt.com/c/41d82701-9ccf-4399-974e-51d717071b9e
 - https://chatgpt.com/c/c2249fb1-ff6e-4346-8c01-b4ecb93888c3
@@ -36,32 +36,33 @@
 ---
 ## 2. practice exam (udemy stephene) :green_circle:
 ### Attempt-1
-- #0 https://chatgpt.com/c/8e9fe51d-10e5-41b5-9fa6-adc2eb99628f
-- #1 https://chatgpt.com/c/e0b834ff-6673-4d0b-bb08-6a98e8ea5ef6
-- #2 https://chatgpt.com/c/acdf2121-6d4d-4b0e-bc1e-852e811bf9fe
-- #3 https://chatgpt.com/c/65e552b7-4187-4d59-a8cf-5c6cea9f6ec8
-- #4 https://chatgpt.com/c/84d37d3c-43a8-4593-a578-f7fdd43b4d53
-- #5 https://chatgpt.com/c/c5ccdbcb-5407-454c-9f88-14bf38fddfc5
-- #6 https://chatgpt.com/c/c07719cd-16bd-4bda-9b6e-b720f4ad5a9c
+- #0 https://chatgpt.com/c/8e9fe51d-10e5-41b5-9fa6-adc2eb99628f `17 Q`
+- #1 https://chatgpt.com/c/e0b834ff-6673-4d0b-bb08-6a98e8ea5ef6 `9 Q`
+- #2 https://chatgpt.com/c/acdf2121-6d4d-4b0e-bc1e-852e811bf9fe `22 Q`
+- #3 https://chatgpt.com/c/65e552b7-4187-4d59-a8cf-5c6cea9f6ec8 `26 Q`
+- #4 https://chatgpt.com/c/84d37d3c-43a8-4593-a578-f7fdd43b4d53 `3 Q`
+- #5 https://chatgpt.com/c/c5ccdbcb-5407-454c-9f88-14bf38fddfc5 `13 Q`
+- #6 https://chatgpt.com/c/c07719cd-16bd-4bda-9b6e-b720f4ad5a9c `8 Q`
 
 ### Attempt-2
 - #0 
-- #1 https://chatgpt.com/c/677f94fe-bcd4-800d-97b6-8e267c307c51
-- #2 https://chatgpt.com/c/6788410d-5fd8-800d-bd9c-f2ff22f9e87d
-- #3 https://chatgpt.com/c/678aac00-9fb0-800d-b49d-9990e4dd7f03
-- #4 #5 #6 https://chatgpt.com/c/67955968-7de8-800d-839c-607cf85a6037
+- #1 https://chatgpt.com/c/677f94fe-bcd4-800d-97b6-8e267c307c51 `16 Q`
+- #2 https://chatgpt.com/c/6788410d-5fd8-800d-bd9c-f2ff22f9e87d `19 Q`
+- #3 https://chatgpt.com/c/678aac00-9fb0-800d-b49d-9990e4dd7f03 `14 Q`
+- #4 #5 #6 https://chatgpt.com/c/67955968-7de8-800d-839c-607cf85a6037 `24 Q`
 
 ---
 ## 3. practice exam (whizlab ) :yellow_circle:
 ### Attempt-1
-- #1 `free`: https://chatgpt.com/c/6799e17f-6f00-800d-9331-1c0572dee9d1 `84 %`
+- #1 `84 %`
+  - https://chatgpt.com/c/6799e17f-6f00-800d-9331-1c0572dee9d1 
 - #2 `77 %`
-  - https://chatgpt.com/c/679b234b-bbb0-800d-8abc-85267ee02bf2 
+  - topic-wise question Q as well : https://chatgpt.com/c/679b234b-bbb0-800d-8abc-85267ee02bf2  `38 Q`
   - https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:7bc03cbb-131d-4190-a0db-9bdecda8b5f9?viewer%21megaVerb=group-discover
   - https://www.whizlabs.com/learn/course/aws-solutions-architect-associate/153/quiz/60503/report/8207667
   - [whizlab-ssa-exam-2.pdf](whizlab/whizlab-ssa-exam2.pdf)
-- #3 
-  - https://chatgpt.com/c/67a128f7-403c-800d-9314-903f01a4911c
+- #3 `77 %`
+  - https://chatgpt.com/c/67a128f7-403c-800d-9314-903f01a4911c `11 Q`
   - https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:1404e5d1-46d4-494b-aa0f-6ca76c2426e8?viewer%21megaVerb=group-discover
   - https://www.whizlabs.com/learn/course/aws-solutions-architect-associate/153/quiz/60504/report/8213022
   - [whizlab-ssa-exam-3.pdf](whizlab/whizlab-ssa-exam-3.pdf)
@@ -69,7 +70,7 @@
 - #5
 - #6
 - #7
-- `final` :
+- #8 final :
 
 ---
 ## 4. itexamslab.com :yellow_circle:

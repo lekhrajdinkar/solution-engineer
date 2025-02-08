@@ -114,3 +114,9 @@ Solution:
     - notify non-compliance using AWS config 
 - 
 - ![img_10.png](../99_img/security/org-2/img_10.png)
+---
+# C. more
+- **AWS licence manager**
+  - https://docs.aws.amazon.com/license-manager/latest/userguide/license-manager.html
+  - for **both** Aws manager and 3rd part licence.
+  - intergated with AWS **marketplace**

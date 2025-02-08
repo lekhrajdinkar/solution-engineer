@@ -11,7 +11,7 @@
   - daily 
   - weekly 
   - ...
-  
+- can create in **opposite direction** as well :point_left:  
 - Move large amount of data/files to and from 
   - **On-prem(install datasync-agent) and aws** 
     - 10 Gbps

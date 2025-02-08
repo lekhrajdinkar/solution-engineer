@@ -49,3 +49,14 @@ Requires custom route tables to avoid conflicts.
 ---
 ## 3 Dx and BGP (Border gateway protocol)
 ![img.png](../99_img/moreSrv/bgp.png)
+
+---
+## 4 VPC connectivity with vpce
+- region-1 :VPC-1/2/....
+- connect VPCs - already know VPC peering and transient gateway
+- another way: vpce
+- eg: vpce for NLB
+- ![img_1.png](img_1.png)
+
+---
+## 5

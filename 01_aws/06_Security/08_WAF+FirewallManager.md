@@ -4,7 +4,7 @@
 - work on **layer:7**, thus integrate with ALB :point_left:
   - not other ELB
 - prevent **SQL injection** and **Cross-Site Scripting (XSS)**
-- rule to allow/deny traffic on:
+- `Web ACL rule` to allow/deny traffic on:
   - **protocol** : http, udp, https
   - source/target **IP + port**
     - up to `10,000 IPs` max in a set
@@ -18,10 +18,12 @@
     - eg: 10 req/per
     - this rule prevents **DDoS protection**
     - https://aws.amazon.com/blogs/security/three-most-important-aws-waf-rate-based-rules/ :zap: 
-
+- AWS managed rule (prebuilt rule; eg PHP rule, linus, windows, etc)
+- create own rule - regular or rate-based
+- rule-group - combine multiple rule into single logical unit.
 ```yaml
 - keep IP `static/fixed`:
-    - use fixed for API for ALB
+    - use fixed for ALB
     - use AWS global accelerator (has fixed any-cast IPs)
 ```
 ---

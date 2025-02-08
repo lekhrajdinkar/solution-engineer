@@ -234,3 +234,12 @@
 ---
 ## 99. for DVA
 ![img.png](../99_img/dva/kms/05/imgrds.png)
+
+## 100. exam
+-  un-encrypted RDS, encrypt it:
+  - take screenshot >> encrypted snapshot >> restore it as new DB : correct
+  - take screesnhot >> encrypted while restoring :x:
+
+- **PITR** more
+  - Takes an automatic **daily** snapshot (called a daily backup).
+  - Continuously backs up transaction logs every `5 minutes` to allow point-in-time recovery within the backup retention period.
