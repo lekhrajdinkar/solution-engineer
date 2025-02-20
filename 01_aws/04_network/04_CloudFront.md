@@ -182,4 +182,10 @@ above example:
 - If you have objects that are smaller than `1GB`,
 - you should consider using Amazon CloudFront's PUT/POST commands for optimal performance. 
 
+### 4
+- send custom error if origin server is down.
+- upload/host error on s3
+- configure 4xx and 5xx
+- under **error-page tab** on console.
+
 

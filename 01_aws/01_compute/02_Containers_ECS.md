@@ -217,4 +217,9 @@ Docker Engine – Required to run containerized workloads.
   - It allows you to run self-managed Kubernetes clusters on any infrastructure, including 
     - on-premises 
     - and other clouds :point_left:
+---
+- Deploy ECS on **AWS outpost** 
+  - better latency and connectivity.
+  - supports only `EC2-launch-type`.
+---
 
