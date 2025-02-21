@@ -70,7 +70,8 @@
   - https://www.whizlabs.com/learn/course/aws-solutions-architect-associate/153/quiz/60697/report/8214367
   - https://www.whizlabs.com/learn/course/aws-solutions-architect-associate/153/quiz/60698/report/8217730
   - [whizlab-ssa-exam-4-5.md](whizlab/whizlab-ssa-exam-4-5.md)
-- #6 ` ? `
+- #6 ` 74 `
+  - https://www.whizlabs.com/learn/course/aws-solutions-architect-associate/153/quiz/60758/report/8229410
 - #7 ` ? `
   - https://chatgpt.com/c/67a50f18-381c-800d-9dba-26458c36916e #3 to #7 
 - #8 final :

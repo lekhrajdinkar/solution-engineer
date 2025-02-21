@@ -66,3 +66,12 @@ athena:
  - recent queries
  - saved queries - also encrypted result.   
 ```
+---
+## 99. exam :dart:
+1. athena read dataset from encrypted s3 (kms-sse). options:
+   - share private key with athena
+   - kms-sse --> change to sse-s3
+   - disable encyption
+   - athena **automatically decrypts**, no need to provide key info :point_left: 
+
+2. 

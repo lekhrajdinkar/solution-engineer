@@ -264,3 +264,10 @@ EFS One Zone-IA	            $0.0133
     - Provisioned Throughput, Ensures consistent performance for high I/O workloads
   - **DynamoDB** :x:
     - Not optimized for large file storage & high-frequency writes.
+    
+- #2 EBS volume : automate:
+  - every 12 hr screenshot
+  - delete older screenshot
+  - options:
+    - use event rule schedular > lambda > ...
+    - use Amazon **Data Lifecycle manager** **
