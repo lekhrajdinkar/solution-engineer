@@ -7,9 +7,3 @@
 ![whizlab-ssa-exam-5-1.jpg](img/whizlab-ssa-exam-5-1.jpg)
 ![whizlab-ssa-exam-5-2.jpg](img/whizlab-ssa-exam-5-2.jpg)
 ![whizlab-ssa-exam-5-3.jpg](img/whizlab-ssa-exam-5-3.jpg)
-
----
-## 6 
-
----
-## 7
