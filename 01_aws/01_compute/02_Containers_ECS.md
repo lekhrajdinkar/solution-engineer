@@ -222,6 +222,6 @@ Docker Engine – Required to run containerized workloads.
   - better latency and connectivity.
   - supports only `EC2-launch-type`.
 ---
-- ALB and ELB, both supports dynamic port mapping :dart:
+- ALB and NLB, both supports dynamic port mapping :dart:
 --- 
 
