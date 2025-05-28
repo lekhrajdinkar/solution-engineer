@@ -1,6 +1,4 @@
-- https://533267082359.signin.aws.amazon.com/console  
-- `acct-ld@oJ83as + iamU-ld`
-- `skillb+cert : ldus@gJ83a`
+
 
 ## udemy
 - https://courses.datacumulus.com/downloads/certified-solutions-architect-pn9/
@@ -44,3 +42,7 @@
 ## others
 - accessCode=579-488-719
 - locale=en-US clickNum=637510163802698
+
+- https://533267082359.signin.aws.amazon.com/console  
+- `acct-ld@oJ83as + iamU-ld`
+- `skillb+cert : ldus@gJ83a`
