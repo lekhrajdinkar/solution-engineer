@@ -71,6 +71,8 @@ public class ExtendedPersistenceContextRepository
 ## C Relationship
 - owner owns the foreign key and defines @JoinColumn(name="newName")
 - uni-directional or bi-directional : both has references of each other.
+- project : [entities](../../src/main/java/com/lekhraj/java/spring/database/entities)
+- ![img.png](er-diagram.png)
 
 ### `1-2-1`
 - any class can be owner
