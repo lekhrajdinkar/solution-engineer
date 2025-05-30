@@ -18,6 +18,16 @@
 ---
 ## ISOLATION 
 - READ_UNCOMMITTED >> READ_COMMITTED >> REPEATABLE_READ >> SERIALIZABLE
+- code
+```Java
+@Transactional(isolation = Isolation.READ_COMMITTED)
+    public void standardOperation() {
+        // ...
+    }
+
+SHOW default_transaction_isolation;  -- Typically "read committed"
+ALTER SYSTEM SET default_transaction_isolation = 'repeatable read';  <<<
+```
 
 ### 1. write lock (present default)
 - **problem** : `no concurrency at all`

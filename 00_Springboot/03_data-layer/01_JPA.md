@@ -3,7 +3,7 @@
   - inheritance : https://www.baeldung.com/hibernate-inheritance
 ---
 # JPA
-## A Intro
+## Intro
 - JPA Specification --> **ORM** layer (focus)
 - interact with a **relational** database without any SQL.
 - eg: Hibernate framework
@@ -22,12 +22,16 @@
     - session.remove : marked for delete
     - session.detach : remove from pc
     - session.flush
-- key components/bean to build for develop:
+---    
+## A. key components/bean to build for develop:
   - **SessionFactory**
     - heavy, Created at startup in SB project
     - rename bean : @Bean(name = "entityManagerFactory") LocalSessionFactoryBean m(){...}
-  - **TransactionManager** 
+  - **TransactionManager**  
     - `PlatformTransactionManager` --impl--> HibernateTransactionManager, JpaTransactionManager
+  - **TransactionTemplate** 
+    - [HibernatePostgresConfig.java](../../src/main/java/com/lekhraj/java/spring/database/HibernatePostgresConfig.java)
+    - can set global ISOLATION LEVEL here :point_left:
   - **Datasource** 
     - database connections pool
     - eg: hikari, javax.sql.DataSource, etc
