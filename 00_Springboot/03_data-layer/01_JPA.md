@@ -109,16 +109,24 @@ public class ExtendedPersistenceContextRepository
   - @OneToMany( Cascade operation )
 ---
 ## D Inheritance
-- let's have : `parent-Entity (2 col,2 record) / Child-1-Entity(2 col, 2 record), child-2-Entity (2 col, 2 record)`
+- let's have 
+  - parent-Entity (2 col,2 record) 
+  - Child-1-Entity(2 col, 2 record)
+  - Child-2-Entity (2 col, 2 record)`
 - Strategies:
-  1. `Single table` (6 col) : for all 3 entities with `discrminator` column / lots of null /
+  1. `Single table` (6 col) 
+     - for all 3 entities with `discrminator` column / lots of null /
   2. `table per class` :
-     - parent class table - 2 col
-     - Child-1/2 class table - 4 col
+     - parent class table1 - 2 col - won't be used, will be having 0 record
+     - Child-1 class table2 - 4 col
+     - Child-2 class table3 - 4 col
   3. `Joined` :
      - meaning Joined subclass. child joined to parent
      - Like table per class, but child table will have only prop defined in entity, not from parent.
-       - parent class table - 2 col
-       - Child-1/2 class table - 2 col + FK to parent table.
+       - parent class table1 - 2 col
+       - Child-1 class table2 - 2+1 col (additional 1 FK to parent table)
+       - Child-2 class table3 - 2+1 col (additional 1 FK to parent table)
   4. `MappedSuperclass` – the parent classes, can’t be entities.
+     - Child-1 class table2 - 2+2 col
+     - Child-2 class table3 - 2+2 col
 
