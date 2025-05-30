@@ -136,7 +136,7 @@ COMMIT;
 ```
 
 ### table level lock
-```text
+```sql
 BEGIN;
 LOCK TABLE accounts IN ACCESS EXCLUSIVE MODE;
 -- Prevents all access to the table
