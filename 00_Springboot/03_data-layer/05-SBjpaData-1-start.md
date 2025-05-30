@@ -26,15 +26,7 @@
     - Non-R (dirty fixed, non-R fixed, but still phantom)
     - Serializable ( All fixed )
     - D urable : underlying DB sol - permanent after commit.
-   
-- **optimistic Locks** : read TS, Write TS, etc (TS=timestampe and version)
-  - add in entity
-    - `@Version` private long version;
-  - ObjectOptimisticLockingFailureException
 
-- More on Concurrency-Control / isolations (by underlying DB)
-   - optimistic. eg @Transactional::Isolation::underlyingDB mechanism
-   - pessimistic. Custom Sync Code
 
 ## more
 - **spring.sql.init.mode = never**
