@@ -32,6 +32,25 @@
     - database connections pool
     - eg: hikari, javax.sql.DataSource, etc
     - use DataSourceBuilder
+  - **repositories**
+    - way-1: @Repository public interface ProductRepository extends **JpaRepository**<Product, Long> { ... }
+      - has @PersistenceContext(type = PersistenceContextType.**TRANSACTIONAL**)
+    - way-2: https://chat.deepseek.com/a/chat/s/8e1072c2-9522-4d97-8c6b-d6cdc8ef7c97
+```java
+@Repository
+public class ExtendedPersistenceContextRepository 
+{
+    @PersistenceContext(type = PersistenceContextType.EXTENDED)
+    //@PersistenceContext(type = PersistenceContextType.TRANSACTIONAL)
+    private EntityManager entityManager;
+
+    public void addToPersistenceContext(User user) {        entityManager.persist(user);     }
+
+    @Transactional
+    public void saveChanges() {        entityManager.flush();     }  // explicit flush  <<<
+    ...
+}
+```
 ---
 ## B JPA Entity - Lifecycle Events
 - create **MyListener.class**

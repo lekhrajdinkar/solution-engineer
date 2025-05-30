@@ -32,10 +32,10 @@ public class ErrorController
 
 ---
 ## B. in `REST API`
-### default handling flow
+### Default handling flow
 - when an exception occurs, it is automatically routed to below path.
 - define **server.error.path** = /error
-- BasicErrorController is mapped to this path. 
+- **BasicErrorController** is mapped to this path. 
 - it processes and send out json response
 - ```
   // Sample resposne:
@@ -48,12 +48,12 @@ public class ErrorController
   "path": "/some-endpoint"
   }
   ```
-- fact:
-  - @Component public class CustomErrorAttributes extends `DefaultErrorAttributes` : just add this bean
-  - check: [CustomErrorAttributes.java](..%2F..%2Fsrc%2Fmain%2Fjava%2Fcom%2Flekhraj%2Fjava%2Fspring%2FSB_99_RESTful_API%2Fcontroller%2FCustomErrorAttributes.java)
-  - add custome attribute
+  - fact: add more attribute in above response
+    - @Component public class CustomErrorAttributes extends `DefaultErrorAttributes` : just add this bean
+    - check: [CustomErrorAttributes.java](..%2F..%2Fsrc%2Fmain%2Fjava%2Fcom%2Flekhraj%2Fjava%2Fspring%2FSB_99_RESTful_API%2Fcontroller%2FCustomErrorAttributes.java)
+    - add custome attribute
   
-### customize-1
+### customization-1 : BasicErrorController
 - note: don't define server.error.404,etc
 - when **any Exception** occurs, it is automatically routed to below path
 - define **server.error.path** = /my-error-path 
@@ -61,19 +61,23 @@ public class ErrorController
 - add **new** @RestController for above path
   - extract **ErrorAttributes**  from **webRequest**. like above.
   - will send out json response.
+- @Component class MyBasicErrorController extends **ErrorController** { @GetMapping(/my-error-path) m()}
+  - [MyBasicErrorController.java](../../src/main/java/com/lekhraj/java/spring/SB_99_RESTful_API/controller/MyBasicErrorController.java)
 
-### customize-2 (@ControllerAdvice)
+### customization-2 (@ControllerAdvice)
+- httpRequest send > No issue - no 401,no 500, etc > controller method m1() gets executed.
+- next m1() throws exceptions
 - can have **different handler for different exception** type.
   - @ExceptionHandler(Exception.class) RE<> m1(Exception e, WebRequest request) { use e ... }
   - @ExceptionHandler(Exception2.class) RE<> m1(Exception2 e, WebRequest request) {...}
   - ...
 
-### Customize-3 :: disable tomcat Whitelabel-ErrorPage
+### customization-3 :: Disable tomcat Whitelabel-ErrorPage
 - @EnableAutoConfiguration(**exclude** = {`ErrorMvcAutoConfiguration.class`}) --> shows Tomcat page then.
 - or, **server.error.whitelabel.enabled=false**
 
 ---
-## inbound / outbound flows
+## inbound / outbound flows :green_circle:
 case:1 : incoming request failed, then:
 -  /error + BasicErrorController (already).
 -  /my-error + MyBasicErrorController (custom) + inject ErrorAttribute.

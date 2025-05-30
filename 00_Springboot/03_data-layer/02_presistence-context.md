@@ -46,10 +46,9 @@
   but the cart and order entities need to be kept consistent throughout the process.
 ```
 - **Downsides**:
+  - Requires **explicit flush** to synchronize with database :point_left:
   - can introduce complexity in handling concurrency and transaction boundaries.
-  - Increased Memory Usage.
-  - the risk of stale data.
-  - manage the lifecycle of an extended-persistenceContext explicitly. This includes ensuring that it is closed appropriately to avoid memory leaks.
+  - **Increased Memory Usage** + the risk of stale data.
   - Longer response times and potential deadlocks if not managed carefully
 
 ---
