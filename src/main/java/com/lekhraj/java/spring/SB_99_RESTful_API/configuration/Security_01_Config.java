@@ -2,6 +2,7 @@ package com.lekhraj.java.spring.SB_99_RESTful_API.configuration;
 
 import com.lekhraj.java.spring.SB_99_RESTful_API.servlet.CustomFilter_1;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,8 +17,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.jwt.JwtDecoder;
-import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
+import org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator;
+import org.springframework.security.oauth2.jwt.*;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -26,6 +27,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint;
 
 import java.util.Arrays;
+import java.util.List;
 
 
 @ConditionalOnProperty(havingValue = "security_01", name = "sb.customize.security")
@@ -33,12 +35,13 @@ import java.util.Arrays;
 @EnableWebSecurity
 public class Security_01_Config
 {
+    @Value("${spring.security.oauth2.client.registration.okta.scope}") String scope;
+
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring().requestMatchers("/ignore1", "/ignore2");
     }
 
-    //@Autowired private BasicAuthenticationEntryPoint authenticationEntryPoint;
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
         UserDetails user1 = User.withUsername("user1")
@@ -97,30 +100,6 @@ public class Security_01_Config
     }
 
     @ConditionalOnProperty(havingValue = "SecurityFilterChain_02", name = "sb.customize.SecurityFilterChain")
-    @Bean // de-active by condition
-    public SecurityFilterChain filterChainToken(HttpSecurity http) throws Exception
-    {
-        http
-                .authorizeHttpRequests(registry -> registry
-                    .requestMatchers("/security/oauth/**").hasAnyAuthority("SCOPE_app_read_lekhraj")
-                    .anyRequest().permitAll()
-                )
-                .oauth2ResourceServer(resourceServer ->
-                        resourceServer.jwt(Customizer.withDefaults())
-                )
-
-                // 401 coming - have to fix
-
-                /*.addFilterBefore((request, response, chain) -> {
-                    System.out.println("Authorization Header: " + request.getHeader("Authorization"));
-                    chain.doFilter(request, response);
-                   }, UsernamePasswordAuthenticationFilter.class
-                )*/
-        ;
-        return http.build();
-    }
-
-    @ConditionalOnProperty(havingValue = "SecurityFilterChain_03", name = "sb.customize.SecurityFilterChain")
     @Bean
     public SecurityFilterChain filterChainToken3(HttpSecurity http) throws Exception
     {
@@ -128,14 +107,24 @@ public class Security_01_Config
                                 .requestMatchers("/swagger-ui/**", "/actuators/**").permitAll()
                                 .anyRequest()
                                 .authenticated());
-        http.oauth2ResourceServer(oAuth2 -> oAuth2.jwt(Customizer.withDefaults()));
+        //http.oauth2ResourceServer(oAuth2 -> oAuth2.jwt(Customizer.withDefaults()));
+        http.oauth2ResourceServer(oAuth2 -> oAuth2.jwt(jwt -> jwt
+                    .jwtAuthenticationConverter(new CustomJwtAuthenticationConverter(scope))
+            ));
         return http.build();
     }
 
-    //@Bean
+    @Bean
     public JwtDecoder jwtDecoder() {
-        // Configure the decoder to use Okta's public keys
-        return NimbusJwtDecoder.withJwkSetUri("https://<your-okta-domain>/oauth2/default/v1/keys").build();
+        NimbusJwtDecoder jwtDecoder = NimbusJwtDecoder.withJwkSetUri("https://dev-16206041.okta.com/oauth2/ausldbxlfakbwq32P5d7/v1/keys").build();
+
+        jwtDecoder.setJwtValidator(new DelegatingOAuth2TokenValidator<>(
+                new JwtTimestampValidator(),
+                new JwtIssuerValidator("https://dev-16206041.okta.com/oauth2/ausldbxlfakbwq32P5d7"),
+                new JwtClaimValidator<List<String>>("scp",
+                        scopes -> scopes != null && scopes.contains("app_read_lekhraj"))
+        ));
+        return jwtDecoder;
     }
 
     @Bean
