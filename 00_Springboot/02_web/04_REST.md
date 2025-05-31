@@ -19,7 +19,11 @@
 - `Pagination and Sorting` - pageable and page<E>
 
 ### 2 more actions list-2 (pending)
-- **Async Controllers**: Use @Async and CompletableFuture to handle long-running requests asynchronously :point_left:
+- **Async Controllers**: 
+  - Use **@Async** and **CompletableFuture** to handle long-running requests asynchronously :point_left:
+  - [AsyncController.java](../../src/main/java/com/lekhraj/java/spring/SB_99_RESTful_API/controller/AsyncController.java)
+  - **@EnableAsync**
+  
 - **HATEOS**
   - https://chatgpt.com/c/67414b1b-9018-800d-a683-8a632932177a
   - return **EntityModel<Result>** from api method.

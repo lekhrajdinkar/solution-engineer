@@ -11,6 +11,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
@@ -18,6 +19,7 @@ import java.util.Collections;
 @SpringBootApplication //(exclude = { SecurityAutoConfiguration.class })
 @EnableConfigurationProperties({Prop2Map.class})
 @Component("com.lekhraj.java.spring")
+@EnableAsync
 public class Application implements ApplicationContextAware
 {
 	//@Autowired  // didnot work
