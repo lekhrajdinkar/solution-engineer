@@ -20,9 +20,10 @@
 
 ### 2 more actions list-2 (pending)
 - **Async Controllers**: 
-  - Use **@Async** and **CompletableFuture** to handle long-running requests asynchronously :point_left:
+  - Use **@Async("taskExecutor-1")** and **CompletableFuture** to handle long-running requests asynchronously :point_left:
   - [AsyncController.java](../../src/main/java/com/lekhraj/java/spring/SB_99_RESTful_API/controller/AsyncController.java)
-  - **@EnableAsync**
+  - **@EnableAsync** - enable
+  - create @Bean(name = "taskExecutor-1") **ThreadPoolTaskExecutor** : [AsyncConfig.java](../../src/main/java/com/lekhraj/java/spring/SB_99_RESTful_API/configuration/AsyncConfig.java)
   
 - **HATEOS**
   - https://chatgpt.com/c/67414b1b-9018-800d-a683-8a632932177a

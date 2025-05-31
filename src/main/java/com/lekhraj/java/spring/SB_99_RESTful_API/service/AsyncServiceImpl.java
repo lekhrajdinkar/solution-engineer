@@ -8,7 +8,7 @@ import java.util.concurrent.CompletableFuture;
 @Service
 public class AsyncServiceImpl {
 
-    @Async
+    @Async ("taskExecutor-1")
     public CompletableFuture<String> performTask(String input) {
         // Simulate long-running task
         try {
