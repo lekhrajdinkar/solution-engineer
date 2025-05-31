@@ -27,3 +27,26 @@
   - signed up with Github
   - dev-gpg8k3i38lkcqtkw
 - [00_OAuth_2.0.md](00_OAuth_2.0.md)
+
+---
+## Springboot security code
+```java
+
+spring.security.oauth2.resourceserver.jwt.issuer-uri=https://dev-16206041.okta.com/oauth2/ausldbxlfakbwq32P5d7
+        
+---
+
+@ConditionalOnProperty(havingValue = "SecurityFilterChain_03", name = "sb.customize.SecurityFilterChain")
+@Bean
+public SecurityFilterChain filterChainToken3(HttpSecurity http) throws Exception
+{
+http.authorizeHttpRequests(registry -> registry
+.requestMatchers("/swagger-ui/**", "/actuators/**").permitAll()
+.anyRequest()
+.authenticated());
+http.oauth2ResourceServer(oAuth2 -> oAuth2.jwt(Customizer.withDefaults()));
+return http.build();
+}
+
+```
+
