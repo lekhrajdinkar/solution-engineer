@@ -35,3 +35,33 @@
   -  https://chatgpt.com/c/c86b5fd1-c1b8-4a6b-bb8b-bbd832a606aa
   - https://chatgpt.com/c/734bd77f-75d3-4be2-acbc-d80ef8b61b21
   - https://chatgpt.com/c/e1547ff9-6ce4-4645-8fae-56d1924daa47
+
+## 5 MIME type
+- **consumes**
+```text
+"application/json"	                  Accepts JSON input
+"application/xml"	                  Accepts XML input
+"text/plain"	                      Accepts plain text
+"multipart/form-data"	              Accepts file uploads
+"application/x-www-form-urlencoded"	  Accepts form data
+```
+- **produces**
+```
+"application/json"	Returns JSON
+"application/xml"	Returns XML
+"text/html"	        Returns HTML
+"text/csv"	        Returns CSV
+"application/pdf"	Returns PDF
+
+
+APPLICATION_OCTET_STREAM - Generic binary (default)
+APPLICATION_PDF - For PDF files
+IMAGE_JPEG/IMAGE_PNG - For images
+APPLICATION_ZIP - For ZIP archives
+
+Content-Disposition Header
+- attachment forces download dialog
+- filename suggests the saved filename
+
+
+```
