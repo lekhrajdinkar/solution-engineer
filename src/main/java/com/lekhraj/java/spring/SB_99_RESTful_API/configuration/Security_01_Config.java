@@ -120,6 +120,18 @@ public class Security_01_Config
         return http.build();
     }
 
+    @ConditionalOnProperty(havingValue = "SecurityFilterChain_03", name = "sb.customize.SecurityFilterChain")
+    @Bean
+    public SecurityFilterChain filterChainToken3(HttpSecurity http) throws Exception
+    {
+        http.authorizeHttpRequests(registry -> registry
+                                .requestMatchers("/swagger-ui/**", "/actuators/**").permitAll()
+                                .anyRequest()
+                                .authenticated());
+        http.oauth2ResourceServer(oAuth2 -> oAuth2.jwt(Customizer.withDefaults()));
+        return http.build();
+    }
+
     //@Bean
     public JwtDecoder jwtDecoder() {
         // Configure the decoder to use Okta's public keys

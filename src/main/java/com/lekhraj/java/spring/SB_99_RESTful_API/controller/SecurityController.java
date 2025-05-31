@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,8 +32,9 @@ public class SecurityController
     }
 
     @GetMapping("/oauth/resource/api-1")
-    public String m4(Jwt jwt) {
-        log.info("Hello subject {}", jwt.getClaims().get("sub"));
+    public String m4(@RequestHeader("Authorization") String h1) {
+        //log.info("Hello subject {}", jwt.getClaims().get("sub"));
+        log.info("header :: Authorization {}", h1);
         return " processed :: /oauth/resource/api-1";
     }
 
