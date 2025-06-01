@@ -1,18 +1,20 @@
+# reference
+- https://chat.deepseek.com/a/chat/s/3d8b4d99-81b7-4dac-ad69-519f9bc33dea
+- https://chatgpt.com/c/be9c3fd6-6caf-40c0-82c6-a7c28814284c
+--- 
 # HELM
-- k8s - 04 helm: https://chatgpt.com/c/be9c3fd6-6caf-40c0-82c6-a7c28814284c
 - install : https://helm.sh/docs/intro/quickstart/
-- repo for helm charts: https://artifacthub.io/ --> search from web ui
-  - or by command: `helm search hub aabbcc-chart`
-  - can add  more repo/hub
-- **helm repo add bitnami https://charts.bitnami.com/bitnami**
-  - `helm search repo aabbcc-chart` # replace hub with repo.
-  - helm repo list
-   ```
-    - NAME            URL                                                 
-      bitnami         https://charts.bitnami.com/bitnami                  
-      puppet          https://puppetlabs.github.io/puppetserver-helm-chart
-      hashicorp       https://helm.releases.hashicorp.com
-    ```
+- install docker + kubeCTL + having Cluster running
+- stores release info in configMap/Secret in same namespace where release done
+  - export HELM_DRIVER=configmap
+- helm install myrelease ./mychart --debug **--dry-run**
+- doesn't directly call kubectl behind the scenes.  Helm has its own **Go client libraries** that communicate directly with the Kubernetes API server.
+- **Smart Update Detection**
+  - It compares the current state in Kubernetes with your new manifests
+  - Only resources with actual changes will be updated
+- **single**-release-**multiple**-revisions model
+  - release-blue : revision 1, 2,....
+  - release-green : revision 1, 2,....
 ---
 ## Intro
 - definition:
@@ -21,6 +23,8 @@
 - benefit/s:
   - simplifies the process of defining, installing, and managing Kubernetes applications.
   - reuse across env and clusters.
+  
+## Key Components  
 - chart : collections of files that describe a `related set of Kubernetes resources`.
   - `Chart.yaml`: metadata - name, version, and description.
   - `Values.yaml`: 
@@ -34,6 +38,15 @@
     - directory that can contain dependent charts.
 ---
 ## commands:
+- **helm repo add bitnami https://charts.bitnami.com/bitnami**
+- helm repo list
+   ```
+    - NAME            URL                                                 
+      bitnami         https://charts.bitnami.com/bitnami                  
+      puppet          https://puppetlabs.github.io/puppetserver-helm-chart
+      hashicorp       https://helm.releases.hashicorp.com
+    ```
+  
 - create or pull
   - helm `create` spring-helm. 
   - helm pull --untar bitnami/wordpress
@@ -44,9 +57,11 @@
   - each release has name. here `release-v2`
   - `--set` image.repository=<your-ecr-repo-url>,image.tag=<tag>
 - helm `upgrade` release-v2 spring-helm
+  - Each upgrade creates a new revision of the same release :point_left:
 - helm `delete` release-v2
 - helm `history` release-v2
-- helm `rollback` release-v2 revision-n
+  - hows all revisions for release-2
+- helm `rollback` release-v2 **revision-n**
 
 ![img.png](../99_img/img.png)
 
