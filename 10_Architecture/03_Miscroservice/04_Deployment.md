@@ -1,5 +1,6 @@
+https://chat.deepseek.com/a/chat/s/3d8b4d99-81b7-4dac-ad69-519f9bc33dea
+---
 # Scenarios
-
 ## 1 
 ```text
 having 3 microservice - ms1, ms2, ms3.
@@ -34,5 +35,9 @@ ms-3 - git-repo-3
 in which repo helm chart ?
 Do i need to change helm chart manually everytime new code in commited into git repo, new image is push 
 to aws ECR. how to automate it helm deploymnet ?
+--
+Key Files to Modify in CI/CD pipeline:
+    helm/values.yaml - image tag
+    Chart.yaml	- version
+    templates/*.yaml	- ?
 ```
-
