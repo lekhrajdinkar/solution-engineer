@@ -35,8 +35,9 @@ monitoring backed : AWS x-rays
 
 ## 2. Monitoring (Non-aws)
 - **grafana**
-  - docker run -d -p 3000:3000 --name=grafana grafana/grafana-enterprise
+  - launch locally : **docker** run -d -p 3000:3000 --name=grafana grafana/grafana-enterprise
   - http://localhost:3000
+  - https://lekhrajdinkar.grafana.net/a/grafana-setupguide-app/getting-started | github ld account :point_left:
   - admin | admin
 - **prometheous** 
   - https://chat.deepseek.com/a/chat/s/5effe43a-7c05-433f-8df6-3326b6e311c6

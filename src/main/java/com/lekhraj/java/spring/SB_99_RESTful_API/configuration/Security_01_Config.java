@@ -104,7 +104,7 @@ public class Security_01_Config
     public SecurityFilterChain filterChainToken3(HttpSecurity http) throws Exception
     {
         http.authorizeHttpRequests(registry -> registry
-                                .requestMatchers("/swagger-ui/**", "/actuator/**", "/v3/api-docs/**","/h2-console","/micrometer/**")
+                                .requestMatchers("/swagger-ui/**", "/actuator/**", "/v3/api-docs/**","/h2-console","/micrometer/**", "/**")
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated());
