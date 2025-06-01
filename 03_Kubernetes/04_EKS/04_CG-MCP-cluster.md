@@ -60,9 +60,7 @@ users:
 - add OIDC provider in IAM:identity provider of our AWS acct.
   - `issuerId` - https://oidc.eks.us-west-2.amazonaws.com/id/eks-cluster-id
   - `audience` - **sts.amazonaws.com**      
-- note: it authenticates:
-  - user-1 in kubeconfig
-  - SA(pod), which developer will add later.
+- why ?
     
 ### action-3.1 : Authentication 
 - can check again: [02_OIDC+first_admin_user+new_user.md](02_OIDC%2Bfirst_admin_user%2Bnew_user.md)

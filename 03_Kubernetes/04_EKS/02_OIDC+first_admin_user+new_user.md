@@ -1,3 +1,7 @@
+# reference
+- https://chat.deepseek.com/a/chat/s/1125c5bb-48e4-4aff-9e3e-4720011cfd45 : must see.
+- https://chat.deepseek.com/a/chat/s/da139fc5-e06f-42e3-8419-a2c17a94a9cf
+--- 
 # A. on cluster creation
 - When the EKS cluster is created, then it creates below 2 things as well:
 
