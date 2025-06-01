@@ -1,4 +1,5 @@
 # references
+- starbucks Q: https://chat.deepseek.com/a/chat/s/da139fc5-e06f-42e3-8419-a2c17a94a9cf
 - OIDC provider: with Okta `Dont use this`  <<<
     - https://dev-16206041-admin.okta.com/
     - https://dev-16206041.okta.com/

@@ -14,18 +14,19 @@
   - docker / container-d
 - setup network
 - set up cloud service
-  - ALB
+  - ALB (alb-controller, install with helm)
   - EBS / EFS
 
 ---
-# Option - 1 :: AWS - EC2
+# Option - 1 :: AWS - EC2 managed service
 - spin up EC2 machine
 - set up VPC
 - software helps with this installation
   - `kops`
   - `kubermatics`
 ---
-# Option - 2 :: AWS - managed service (EKS)
+# Option - 2.1 :: AWS - managed service (EKS - fargate)
+# Option - 2.2 :: AWS - managed service (EKS)
 - EKS is cluster architecture.
 - diff:
   - **ECS** is AWS specific concept and configuration

@@ -7,19 +7,62 @@
   - install `eksctl` - https://eksctl.io/installation/
   - **eksctl utils associate-iam-oidc-provider --cluster $cluster_name --approve**
 - **aws eks describe** --cluster-name xxxx : check issuer url.
-- **oidc authentication logic** for:  :point_left:
-  - user : must have entry in aws_auth configMAP.
-  - sa   : always get authenticated,  since created inside cluster only.
+- purpose : used for IRSA
   
 ## 2 `first admin user`
-  - **the IAM entity (user or role) that creates the cluster** is automatically granted `system:masters` permissions in the `aws-auth` ConfigMap, 
-  - which provides full admin access to the cluster.
-  - later on, this admin user can add more user and add permission using k8s RBAC
-  - **kubeconfig** has this user (federated user) only.
-    - user is external entity, outside k8s, 
-    - external oidc authenticated federated user
-    - gets **authentication-token** from oidc.
-    - token is validated, since `aws-auth` has entry. 
+- run : aws sts-assume-role `aws-role-used-by-admin`
+- **the IAM entity (user or role) that creates the cluster** is automatically granted **system:masters** group in the **aws-auth** ConfigMap.
+- **system:masters** group:
+  - provides full admin access to the cluster.
+- this admin user can add more user and add permission, using k8s RBAC. check below section.
+- run aws eks update-config --cluster=c1
+  - **kubeconfig** get updated with new context-1
+    - user : arn:aws:iam::123456789012:role/**aws-role-used-by-admin**
+    - cluster : c1
+- run : kubectl commands ...
+  - flow:
+    - aws eks get-token
+    - sts:GetCallerIdentity with your IAM credentials (e.g., from ~/.aws/credentials or an IAM role).
+    - AWS STS returns a presigned **URL** containing - user ID, account ID
+    - kubectl cli, converts to -->  k8s-aws-v1.<base64-encoded-sts-**url**>
+    - k8s-aws-v1.aHR0cHM6Ly9zdHMuYW1hem9uYXdzLmNvbS8...
+    - send this token to the EKS cluster’s API server with Authorization header
+    - API server decodes the token to extract the STS presigned URL
+    - forwards the URL to **AWS IAM Authenticator**
+    - The authenticator checks the **aws-auth** ConfigMap in the kube-system namespace o map the IAM identity to a Kubernetes user/group
+```
+aws-auth:
+========
+...
+mapRoles: |
+  - rolearn: arn:aws:iam::123456789012:role/aws-role-used-by-admin
+    username: arn:aws:iam::123456789012:role/aws-role-used-by-admin    
+    groups:
+      - system:masters         
+...
+```
+```
+kubeconfig
+============
+...
+users:
+- name: arn:aws:iam::123456789012:role/aws-role-used-by-admin
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1beta1
+      args:
+      - --region
+      - us-west-2
+      - eks
+      - get-token  === sts:GetCallerIdentity  with your IAM credentials (e.g., from ~/.aws/credentials or an IAM role).  <<<<
+      - --cluster-name
+      - maps-outbound-us-west-2-dev2-eks-fargate-cluster
+      - --output
+      - json
+      command: aws
+
+```
+![img.png](img.png)
 
 ---
 # B create new user (external OIDC / identity token based)
@@ -112,4 +155,5 @@ roleRef:
 - for permission to k8s-resource : `role and role-binding`
 - for permission to aws-resource : `IRSA`
   - **annotate** service account with `aws iam role`.
+  - Pods assuming IAM roles via serviceAccount(annoated role-1)
 
