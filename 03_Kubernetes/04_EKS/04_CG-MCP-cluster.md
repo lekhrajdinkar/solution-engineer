@@ -61,31 +61,16 @@ users:
   - `issuerId` - https://oidc.eks.us-west-2.amazonaws.com/id/eks-cluster-id
   - `audience` - **sts.amazonaws.com**      
 - why ?
+  - IRSA
   - POD-1 running in eks-cluster(aws-1) has to assume role in aws-tenant-1.
   - pod- has sa-1
     - annotated with aws-tenant-1/role-1 :point_left:
     - not with aws-1/role-1
     
-### action-3.1 : Authentication 
-- can check again: [02_OIDC+first_admin_user+new_user.md](02_OIDC%2Bfirst_admin_user%2Bnew_user.md)
-- update kube-system ns configMap - auth_map
-  - add `mapUser` - no
-  - add `mapRole` - make new entry for **Broad-access-role** role arn of our aws acct.
-  ```
-  mapRoles: |
-  - rolearn: Broad-access-role arn
-    username: aws-role-1-user       <<< notice this name, will be used in role binding
-    groups:
-      - system:masters
-      # - system:bootstrappers
-      # - system:nodes
-      # - system:node-proxier
-  ```
-- authentication(username:password/token) === user-1:token-1
-  - token-1 comes from - **execute aws command : aws eks get-token --cluster --region**
-  - Note: aws configure with  Broad-access-role only :point_left:
+### action-3 : Authentication 
+- [02_OIDC+first_admin_user+new_user.md](02_OIDC%2Bfirst_admin_user%2Bnew_user.md)
   
-### Action-3.2 : RBAC
+### Action-4 : RBAC
 - create ClusterRole --> **to access resource for namespace label with atmid.**
 - create ClusterRoleBinding.
 ```
@@ -117,10 +102,7 @@ roleRef:
   name: atmid-role
   apiGroup: rbac.authorization.k8s.io
 ```
-### Action-4 :  cross account access (optional)
-- mcp-aws::`eks-role`
-  - inline-policy --> "eks:*" 
-  - **trusted-policy**  : Broad-access-role role arn of our aws acct
+
 
 ---
 ## B Developer actions    
