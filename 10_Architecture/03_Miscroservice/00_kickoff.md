@@ -25,4 +25,24 @@ ms1 (pod-1), ms2 (pod-2) : java springboot on AWS EKS
 services communing sysnc over HTTPS.
 i would like to add distributed tracing.
 monitoring backed : AWS x-rays
+
+#5
+ms1 (pod-1), ms2 (pod-2) : java springboot on AWS EKS
+ms1 makes call ms2(GET) communing async over SQS. How ms1 will get data from ms2.Also
+Also i would like to add distributed tracing.
+monitoring backed : AWS x-rays
 ```
+
+## 2. Monitoring (Non-aws)
+- **grafana**
+  - docker run -d -p 3000:3000 --name=grafana grafana/grafana-enterprise
+  - http://localhost:3000
+  - admin | admin
+- **prometheous** 
+  - https://chat.deepseek.com/a/chat/s/5effe43a-7c05-433f-8df6-3326b6e311c6
+  - http://localhost:8083/spring/actuator/prometheus
+  - [PrometheusMicrometerConfig.java](../../src/main/java/com/lekhraj/java/spring/SB_99_RESTful_API/configuration/PrometheusMicrometerConfig.java)
+- **actuator**
+  - http://localhost:8083/spring/actuator/metrics
+  - [actuator.json](actuator.json)
+- **micometer**
