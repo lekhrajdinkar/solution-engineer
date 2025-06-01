@@ -61,6 +61,10 @@ users:
   - `issuerId` - https://oidc.eks.us-west-2.amazonaws.com/id/eks-cluster-id
   - `audience` - **sts.amazonaws.com**      
 - why ?
+  - POD-1 running in eks-cluster(aws-1) has to assume role in aws-tenant-1.
+  - pod- has sa-1
+    - annotated with aws-tenant-1/role-1 :point_left:
+    - not with aws-1/role-1
     
 ### action-3.1 : Authentication 
 - can check again: [02_OIDC+first_admin_user+new_user.md](02_OIDC%2Bfirst_admin_user%2Bnew_user.md)
