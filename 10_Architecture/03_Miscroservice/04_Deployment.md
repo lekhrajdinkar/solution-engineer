@@ -1,5 +1,9 @@
 https://chat.deepseek.com/a/chat/s/3d8b4d99-81b7-4dac-ad69-519f9bc33dea
 ---
+# key topic
+- Event-Drive Deployment and Domain-Drive Deployment
+- 
+---
 # Scenarios
 ## 1 
 ```text

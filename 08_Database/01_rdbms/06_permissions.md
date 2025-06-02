@@ -1,7 +1,7 @@
 # Role and permission management
 - enabling `fine-grained control` over database access and operations.
 - FORMAT : **GRANT/REVOKE** (allw/deny) `privileges (action/verbs)` on `resource` to `role` :point_left:
-- thinks od IAM policy in aws, k8s RBAC, etc
+- thinks of IAM policy in aws, k8s RBAC, etc
 
 ## 1 User and Role
 ```
@@ -53,19 +53,22 @@ REVOKE admin FROM user_role;
 
 ```
 ## 3 **Privileges**: 
-- like verbs in k8s 
-- like actions in aws iam
+- like **verbs** in k8s 
+- like **actions** in aws iam
 ```
   ALL    : Grants all privileges.
   SELECT : Permission to query data.
   INSERT : Permission to add data.
   UPDATE : Permission to modify data.
   DELETE : Permission to remove data.
+  
   USAGE  : Grants access to schemas or sequences.
   CONNECT: Permission to connect to the database.
+  
+  EXECUTE: SP,Fn
 ```
 ## 3 **DB Resources/object**: 
-- table, schema, view (regular/ materialized ), function, SP, etc
+- **schema**, table , view (regular/ materialized ), function, SP, etc
 ---
 # examples on permission :yellow_circle:
 ```
