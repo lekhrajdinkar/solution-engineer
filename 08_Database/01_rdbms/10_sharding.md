@@ -49,7 +49,7 @@ CREATE TABLE users_p2 PARTITION OF users
     FOR VALUES WITH (MODULUS 4, REMAINDER 3);
 ```
 - Time-Based Partitioning
-```
+```sql
 -- Parent table (logical)
   CREATE TABLE sales (
   id SERIAL,
