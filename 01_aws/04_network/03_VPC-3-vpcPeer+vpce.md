@@ -112,13 +112,10 @@
 ```
 ---
 # 3. VPC Sharing
-- **AWS Organization**
-  - **root** account - vpc-1/subnet (shared with member account )
-  - **member** account -1
-  - member account -2
-    - can provision resources in `shared subnets` using AWS Resource Access Manager (`RAM`)
-  - ...
-- `Resources` within the shared VPC can communicate with each other over `private IP` without additional configuration.
+- Resource R1,R2,etc provisioned within the VPC-b(middle) of Account B
+- create vpce1 foe R1, etc 
+- transient gatewat connected already Account A (vpc A), Account b (vpc b ), Account c (vpc c)
+- hence can communicate with each other over `private IP` without additional configuration.
 - Since all resources are within the same VPC, there are no additional data transfer costs. :point_left:
   - no data going out of AWS.
 - ![img.png](../99_img/vpc-1/SharedserviceVPC.png)
