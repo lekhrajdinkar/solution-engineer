@@ -29,9 +29,11 @@ table-1 create without partition. after one year millions of records inserted. c
 7 scenario2: 
 table-1 create with range partition. after one year millions of records inserted. 
 can we add update partiton to hash type from  range type.
-```
 
-- exmaple : hask
+8 time-based partitioning if historical data grows rapidly. intQ
+```
+### Example
+- hash partition
 ```sql
 CREATE TABLE users (
     user_id INT,
@@ -45,6 +47,48 @@ CREATE TABLE users_p1 PARTITION OF users
 -- Partition 3: Stores rows where `hash(user_id) % 4 == 3`
 CREATE TABLE users_p2 PARTITION OF users
     FOR VALUES WITH (MODULUS 4, REMAINDER 3);
+```
+- Time-Based Partitioning
+```
+-- Parent table (logical)
+  CREATE TABLE sales (
+  id SERIAL,
+  sale_date DATE,
+  customer_id INT,
+  amount DECIMAL(10,2)
+  ) PARTITION BY RANGE (sale_date);
+
+-- Yearly partitions
+CREATE TABLE sales_2023 PARTITION OF sales
+FOR VALUES FROM ('2023-01-01') TO ('2024-01-01');
+
+CREATE TABLE sales_2024 PARTITION OF sales
+FOR VALUES FROM ('2024-01-01') TO ('2025-01-01');
+
+... manually create more in future...
+
+-- ===== Automatic Partition Creation =====
+
+-- PostgreSQL example: Function to create next month's partition
+CREATE OR REPLACE FUNCTION create_next_month_partition()
+RETURNS TRIGGER AS $$
+BEGIN
+    EXECUTE format(
+        'CREATE TABLE IF NOT EXISTS sales_%s PARTITION OF sales '
+        'FOR VALUES FROM (%L) TO (%L)',
+        to_char(NEW.sale_date, 'YYYY_MM'),
+        date_trunc('month', NEW.sale_date),
+        date_trunc('month', NEW.sale_date) + INTERVAL '1 month'
+    );
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+
+-- Trigger to run before INSERT
+CREATE TRIGGER trg_sales_partition
+BEFORE INSERT ON sales
+FOR EACH ROW EXECUTE FUNCTION create_next_month_partition();
 ```
 ---
 ## B. RDBMS Sharding
