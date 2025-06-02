@@ -42,7 +42,3 @@ ALTER TABLE employees
   DROP CONSTRAINT emp_name_unique;
 ```
 
----
-## B. **sequence**
-- pending
-
