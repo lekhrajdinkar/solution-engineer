@@ -1,4 +1,5 @@
 # kickoff
+- - https://chat.deepseek.com/a/chat/s/8483329c-7494-483f-bd9c-f296c81b084e :point_left:
 - **Sharding vs Partitioning in RDBMS**
   - Partitioning splits a table into smaller segments within the **same** database server (by rows or columns) for performance and manageability.
   - Sharding distributes data **across multiple servers** (horizontal scaling) to handle large-scale workloads.
@@ -7,8 +8,7 @@
 # A. RDBMS partitioning
 - https://www.youtube.com/watch?v=oJj-pltxBUM&ab_channel=High-PerformanceProgramming - intro
 - https://www.youtube.com/watch?v=VcTPmEJeKM4&ab_channel=AWSEvents - aws rds sharding
-- https://chat.deepseek.com/a/chat/s/8483329c-7494-483f-bd9c-f296c81b084e
-  - search for: RDBMS Partitioning: Types & Strategies with Simple Examples
+
 ```text
 === TOPICS asked in above deepseek chat =====
 0. sharding vs partitioning in RDBMS.

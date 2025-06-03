@@ -1,7 +1,8 @@
-## refernce
+## reference
 - https://chat.deepseek.com/a/chat/s/81394dc5-20ff-45bb-8fc3-001520d7ef4f
 ---
-# 1. SAGA
+## Desifn patterns :parking:
+### 1. SAGA
 - https://www.youtube.com/watch?v=d2z78guUR4g&ab_channel=ByteMonk
 - Concept of a long-running, interconnected sequence of operations, like a "saga" in storytelling
 - data consistency without relying on traditional ACID transactions (which are impractical in distributed systems).
@@ -29,7 +30,7 @@ Order processing in e-commerce (inventory, payment, shipping services).
 ![img.png](../img/03/img.png)
 
 ---
-# 2. Circuit Breaker
+### 2. Circuit Breaker
 ```text
 Purpose: 
 Prevent cascading failures in distributed systems.
@@ -43,7 +44,7 @@ Use Case:
 Microservices calling external APIs (e.g., payment gateways, third-party services).
 ```
 ---
-# 3. CQRS (Command Query Responsibility Segregation)
+### 3. CQRS (Command Query Responsibility Segregation)
 ```text
 Purpose: 
 Separate read and write operations for better performance and scalability.

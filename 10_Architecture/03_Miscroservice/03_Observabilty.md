@@ -20,15 +20,15 @@
         - ...
     - otel (**unified** : `metric`, `log`, `trace`) , sends to also multiple server
     - eg: [MicrometerController.java](../../src/main/java/com/lekhraj/java/spring/SB_99_RESTful_API/controller/MicrometerController.java)
-    - ```text
+  ```text
     test_counter_total{application="spring-lekhraj-app",} 1.0
     test_counter_total{application="spring-lekhraj-app",} 2.0
     test_counter_total{application="spring-lekhraj-app",} 3.0
-    ...
-    ```
+  ```
 ---
-## 2. Datadog (in progress...)
+## 2. Datadog (in progress...) :parking:
 - https://www.codesee.io/learning-center/datadog-distributed-tracing#what
+- ccgg : Monitors, Dashboard,  
 
 ---
 ## 3. what are common things in microservices, developer instruments

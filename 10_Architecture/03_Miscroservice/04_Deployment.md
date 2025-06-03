@@ -1,8 +1,5 @@
 https://chat.deepseek.com/a/chat/s/3d8b4d99-81b7-4dac-ad69-519f9bc33dea
----
-# key topic
 - Event-Drive Deployment and Domain-Drive Deployment
-- 
 ---
 # Scenarios
 ## 1 
@@ -26,12 +23,13 @@ helm upgrade $RELEASE_NAME $CHART_PATH \
   --timeout $TIMEOUT \
   --install \ # Creates release if not exists
   --values values-v2.yaml  # Override prod values
+  --create ?
 ---  
 # Post-Deployment Checks  
 kubectl rollout status deploy/ms1 -n production  
 ```
 ---
-## 2
+## 2 one or multi helm
 ```text
 ms-1 - git-repo-1
 ms-2 - git-repo-2
@@ -44,4 +42,20 @@ Key Files to Modify in CI/CD pipeline:
     helm/values.yaml - image tag
     Chart.yaml	- version
     templates/*.yaml	- ?
+```
+
+## 3 FSR pipeline :parking:
+- in progress...
+
+## 4. terraform config to deploy pipeline on harness. :parking:
+- in progress...
+- pipeline-1 for ms-1 (deployment helm)
+- pipeline-2 for ms-2 (deployment helm)
+- ...
+```text
+pipeline-1
+    stage-1 : dev deploy : steps >>> build > push to nexus > get version > helm update (app version, values.yaml) > deploy helm
+    stage-2 : QA deploy
+    stage-3 : serviceNow
+    stage-4 : promote to prod 
 ```
