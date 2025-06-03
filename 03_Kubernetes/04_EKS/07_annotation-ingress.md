@@ -35,3 +35,6 @@ spec:
     - backend-dew4.app-1.msi-dev.lekhraj.com
     secretName: app-backend-release-dev4-tls-cert
 ```
+- Side Note:
+  - option-1 : ingress controller + tls **
+  - option-2 : ALB-controller + ACM
