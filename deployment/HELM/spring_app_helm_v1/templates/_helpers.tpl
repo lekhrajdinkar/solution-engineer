@@ -1,6 +1,5 @@
-{{/*
-Expand the name of the chart.
-*/}}
+{{/*Expand the name of the chart. */}}
+
 {{- define "spring-helm.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
@@ -30,9 +29,7 @@ Create chart name and version as used by the chart label.
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
-{{/*
-Common labels
-*/}}
+{{/* Common labels */}}
 {{- define "spring-helm.labels" -}}
 helm.sh/chart: {{ include "spring-helm.chart" . }}
 {{ include "spring-helm.selectorLabels" . }}
@@ -42,17 +39,13 @@ app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
-{{/*
-Selector labels
-*/}}
+{{/* Selector labels */}}
 {{- define "spring-helm.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "spring-helm.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
-{{/*
-Create the name of the service account to use
-*/}}
+{{/* Create the name of the service account to use */}}
 {{- define "spring-helm.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
 {{- default (include "spring-helm.fullname" .) .Values.serviceAccount.name }}
@@ -60,3 +53,4 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+

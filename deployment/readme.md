@@ -61,9 +61,7 @@
 - kubectl patch deployment <deployment-name> --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"<new-image>:<tag>"}]'
 - kubectl edit deployment <deployment-name>
 ```
-
-
-### 4 rollback deploymnet
+### 5 rollback deploymnet
 - **App**
   - kubectl delete deployment spring-app-deployment -n dev1-manifest
   - kubectl delete service/spring-app-nodeport-service -n dev1-manifest
@@ -75,7 +73,7 @@
     - kubectl delete pod/spring-app-rmq -n dev1-manifest
     - kubectl delete service/spring-app-rmq-nodeport-service -n dev1-manifest
     
-### 5 access app : Tunnel service (minikube)
+### 6 access app : Tunnel service (minikube)
 - minikube service spring-app-nodeport-service -n dev1-manifest
 ```text
 |---------------|-----------------------------|-------------|---------------------------|
@@ -94,9 +92,21 @@
 
 ![img.png](../99_temp/icon/img.png)
 
+### 7 cleanup :point_left:
+- Option 1: kubectl delete namespace dev1-manifest
+- Option 2: kubectl delete pods,services,serviceaccounts,deployments --all -n dev1-manifest
+```yaml
+kubectl delete pods --all -n dev1-manifest
+kubectl delete services --all -n dev1-manifest
+kubectl delete serviceaccounts --all -n dev1-manifest
+kubectl delete deployments,statefulsets,daemonsets --all -n dev1-manifest
+kubectl delete configmaps,secrets --all -n dev1-manifest
+kubectl delete pvc --all -n dev1-manifest
+```
 ---
 # Project-2 - spring-app-helm
 - chart: [spring_app_helm_v1](HELM/spring_app_helm_v1)
+- refernce: https://chat.deepseek.com/a/chat/s/fdefc9eb-f153-4f45-91c9-6695d9f9b202
 ### 1 deployment
 ### 2 upgrade :point_left:
 ### 3 rollback
