@@ -15,8 +15,8 @@ spec:
           value: "guest"
         - name: RABBITMQ_DEFAULT_PASS
           value: "guest"
-        - name: RABBITMQ_SSL_VERIFY
-          value: "verify_none"
+        - name: RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS
+          value: "-rabbit ssl_options [{verify,verify_none}]"  # ✅ Correct syntax
       ports:
         - containerPort: 5672
           name: amqp

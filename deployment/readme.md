@@ -18,7 +18,7 @@
 
 ---
 # project-1 - spring-app-manifest
-### create image
+### 1 create image
 - **manually** or pipeline
 - docker build -t lekhrajdinkar18/02-backend-java-spring:spring-app-06.04.2025 . -f dockerfile-v1 (single step)
     - docker build --label "version=1.0.0" -t **spring-app:v1** . -f **dockerfile-v1**
@@ -26,10 +26,10 @@
 - docker push lekhrajdinkar18/02-backend-java-spring:spring-app-06.03.2025
     - https://hub.docker.com/repository/docker/lekhrajdinkar18/02-backend-java-spring/tags : pushed
   
-### prepare Manifest
+### 2 prepare Manifest
 - artifact: [spring_app_v2](manifest/spring_app_v2)
 
-### deploy
+### 3 deploy
 - cd C:\Users\Manisha\Documents\GitHub\02-backend-java-spring\deployment\manifest\spring_app_v2
 - onetime:
   - kubectl create -f 01-namespace.yaml
@@ -40,9 +40,21 @@
 - **deployment**
   - kubectl create -f 03-spring-app-deplyment.yaml
   - kubectl create -f 04-spring-app-nodeport-service.yaml
-- kubectl get all -n dev1-manifest
+- next:
+  - kubectl get all -n dev1-manifest
+  - kubectl **port-forward** spring-app-rmq 15672:15672 (optinal)
 
-### rollback deploymnet
+### 4 update
+```yaml
+- Pods are immutable, use deploymnet for update. <<<
+- kubectl set image deployment/<deployment-name> <container-name>=<new-image>:<tag>
+- kubectl set env deployment/<deployment-name> <ENV_VAR>=<value>
+- kubectl patch deployment <deployment-name> --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"<new-image>:<tag>"}]'
+- kubectl edit deployment <deployment-name>
+```
+
+
+### 4 rollback deploymnet
 - **App**
   - kubectl delete deployment spring-app-deployment -n dev1-manifest
   - kubectl delete service/spring-app-nodeport-service -n dev1-manifest
@@ -51,10 +63,10 @@
     - kubectl delete pod/postgres -n dev1-manifest
     - kubectl delete service/postgres-service -n dev1-manifest
   - rmq
-    - kubectl delete pod/postgres -n dev1-manifest
-    - kubectl delete service/postgres-service -n dev1-manifest
+    - kubectl delete pod/spring-app-rmq -n dev1-manifest
+    - kubectl delete service/spring-app-rmq-nodeport-service -n dev1-manifest
     
-### access app : Tunnel service (minikube)
+### 5 access app : Tunnel service (minikube)
 - minikube service spring-app-nodeport-service -n dev1-manifest
 ```text
 |---------------|-----------------------------|-------------|---------------------------|
@@ -76,9 +88,9 @@
 ---
 # Project-2 - spring-app-helm
 - chart: [spring_app_helm_v1](HELM/spring_app_helm_v1)
-### deployment
-### upgrade :point_left:
-### rollback
+### 1 deployment
+### 2 upgrade :point_left:
+### 3 rollback
 
 ---
 # project-2 - microservices
