@@ -10,7 +10,7 @@
             - https://dev-16206041.okta.com/oauth2/ausl3dg4kkpyvEBft5d7
 
 ---          
-# Additinal :point_left:
+# Additional :point_left:
 - [10_podDisruptionBudget.yaml](../00_project/02_spring_app_manifest/10_podDisruptionBudget.yaml)
 - [09_HPA.yaml](../00_project/02_spring_app_manifest/09_HPA.yaml)
 - [08_external_secret.md](08_external_secret.md)
