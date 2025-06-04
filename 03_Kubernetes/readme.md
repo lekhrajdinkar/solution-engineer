@@ -2,7 +2,7 @@
 - My Project-1 : [00_project](00_project)
   - [02_spring_app_manifest](../deployment/manifest/spring_app_v2) :point_left:
   - [03_maximiallian](../deployment/other_projects/01_maximiallian)
-- [01_minikube](01_minikube)
+- [01_minikube](../deployment/k8s-cluster-01-minikube)
 - terraform :
   - [eks](../04_terraform/project/aws-config-maps/03_outbound/modules/eks)
   - [ecs](../04_terraform/project/aws-config-maps/03_outbound/modules/ecs)

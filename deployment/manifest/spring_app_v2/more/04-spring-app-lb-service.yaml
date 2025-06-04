@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-app-lb-service
+  namespace: dev1-manifest
+spec:
+  type: LoadBalancer
+  selector:
+    app: spring-app
+  ports:
+    - protocol: TCP
+      port: 8080         # The service port
+      targetPort: 8083   # The container's port

@@ -1,6 +1,7 @@
 - https://chatgpt.com/c/da40b952-dbd9-46a9-ad58-92c828a89118
 - demo vide: https://www.youtube.com/playlist?list=PLVz2XdJiJQxybsyOxK7WFtteH42ayn5i9
 - driver : https://minikube.sigs.k8s.io/docs/drivers/
+- UI - aptaKube or lens
 
 ---
 ## pre-requisite

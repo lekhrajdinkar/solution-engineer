@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      - system:node-proxier
+      rolearn: arn:aws:iam::533267082359:role/maps-outbound-us-west-2-dev2-pod-exec-role
+      username: system:node:{{SessionName}}
+
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::533267082359:role/eks-cluster-role-1-for-federated-user
+      username: arn:aws:iam::533267082359:role/eks-cluster-role-1-for-federated-user
+
+  mapUsers: |
+    - userarn: arn:aws:iam::533267082359:user/lekhrajdinkar-eks-user
+      username: arn:aws:iam::533267082359:user/lekhrajdinkar-eks-user
+      groups:
+        - system:masters
+
+

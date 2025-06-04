@@ -11,8 +11,8 @@
 
 ---          
 # Additional :point_left:
-- [10_podDisruptionBudget.yaml](../../deployment/manifest/spring_app_v2/10_podDisruptionBudget.yaml)
-- [09_HPA.yaml](../../deployment/manifest/spring_app_v2/09_HPA.yaml)
+- [10_podDisruptionBudget.yaml](../../deployment/manifest/spring_app_v2/more/10_podDisruptionBudget.yaml)
+- [09_HPA.yaml](../../deployment/manifest/spring_app_v2/more/09_HPA.yaml)
 - [08_external_secret.md](08_external_secret.md)
 - **annotation**:
   - [07_annotation-ingress.md](07_annotation-ingress.md)

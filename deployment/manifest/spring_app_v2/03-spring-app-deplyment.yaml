@@ -2,37 +2,27 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-app-deployment
-  namespace: dev-ns
+  namespace: dev1-manifest
   labels:
     app: spring-app
+    tier: backend
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: spring-app
+      tier: backend
   template:
     metadata:
       labels:
         app: spring-app
+        tier: backend
     spec:
+      imagePullSecrets:
+        - name: dockerhub-secret
       serviceAccountName: spring-app-sa
       containers:
-        - name: spring-app
-          image: lekhrajdinkar18/spring-app:latest
+        - name: spring-app-container
+          image: lekhrajdinkar18/02-backend-java-spring:spring-app-06.03.2025
           ports:
             - containerPort: 8083  # Adjust this port based on the app's configuration
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: spring-app-service
-  namespace: dev-ns
-spec:
-  type: LoadBalancer
-  selector:
-    app: spring-app
-  ports:
-    - protocol: TCP
-      port: 8080         # The service port
-      targetPort: 8083   # The container's port
