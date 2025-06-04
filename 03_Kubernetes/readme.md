@@ -6,7 +6,7 @@
 ## CKAD (Certfication)
 - [02_KCAD](02_KCAD) - Notes
 - [00_topic.md](02_KCAD/00_certification-topic)
-- [02_commands.txt](02_KCAD/02_commands.txt)
+- [02_commands.txt](02_KCAD/02_commands.yaml)
 - [03_lab.md](02_KCAD/03_lab.md)
 - [00_sample_yaml](02_KCAD/00_sample_yaml)
 

@@ -5,16 +5,20 @@
   - kubectl create namespace **dev1-manifest**
 - notepad++ edit > EOL conversion :: `LR` or `CRLF` on **mvnw** file
 - docker registry : create secret
-  ```yaml
-  kubectl create secret docker-registry dockerhub-secret  -n dev1-manifest \
-  --docker-server=docker.io \
-  --docker-username=lekhrajdinkar18 \
-  --docker-password=dckr_pat_Xc5Q6X58_nVagNmIL0S7PzxSlpc \
-  --docker-email=your-email@example.com
+  - kubectl get secret dockerhub-secret -n dev1-manifest -o jsonpath='{.data.\.dockerconfigjson}'
+    ```yaml
+    kubectl create secret docker-registry dockerhub-secret  -n dev1-manifest \
+    --docker-server=docker.io \
+    --docker-username=lekhrajdinkar18 \
+    --docker-password=dckr_pat_Xc5Q6X58_nVagNmIL0S7PzxSlpc \
+    --docker-email=your-email@example.com
   
-  kubectl create secret docker-registry dockerhub-secret  -n dev1-manifest  --docker-server=docker.io   --docker-username=lekhrajdinkar18   --docker-password=dckr_pat_Xc5Q6X58_nVagNmIL0S7PzxSlpc   --docker-email=your-email@example.com
-  ```
--  kubectl get secret dockerhub-secret -n dev1-manifest -o jsonpath='{.data.\.dockerconfigjson}'
+    kubectl create secret docker-registry dockerhub-secret  -n dev1-manifest  --docker-server=docker.io   --docker-username=lekhrajdinkar18   --docker-password=dckr_pat_Xc5Q6X58_nVagNmIL0S7PzxSlpc   --docker-email=your-email@example.com
+    ```
+- cluster add-on
+  - **metrics-server** : kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+  - **ingress-controller** : kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+    - kubectl get pods -n ingress-nginx
 
 ---
 # project-1 - spring-app-manifest
@@ -40,6 +44,11 @@
 - **deployment**
   - kubectl create -f 03-spring-app-deplyment.yaml
   - kubectl create -f 04-spring-app-nodeport-service.yaml
+  ```
+  - k rollout status deployment/deployment-1 --> status for deployment, status of each replica/pod
+  - k rollout history deployment/deployment-1 --> show revision history
+  - k rollout undo deployment/deployment-1 --to-revision=1
+  ``` 
 - next:
   - kubectl get all -n dev1-manifest
   - kubectl **port-forward** spring-app-rmq 15672:15672 (optinal)

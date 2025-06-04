@@ -19,9 +19,6 @@
 - kubectl create -f .\maps-outbound-pod.yml
 
 - kubectl get pods
-NAME                READY   STATUS             RESTARTS   AGE
-maps-outbound-pod   1/1     Running            0          3s
-
 - kubectl get pod maps-outbound-pod -o yaml
 - kubectl delete pod maps-outbound-pod
 
@@ -84,8 +81,11 @@ maps-outbound-pod   1/1     Running            0          3s
 - k rollout status deployment/deployment-1 --> status for deployment, status of each replica/pod
 - k rollout history deployment/deployment-1 --> show revision history
 - k rollout undo deployment/deployment-1 --to-revision=1
+
+# Autoscaling / HPA
 - k autoscale deployment  deployment-1 --max=10 --cpu-percent=70 : creates HPA
-- k get hpa
+- kubectl autoscale deployment my-app   --min=1 --max=5   --metric=custom_metric_name   --target-value=100
+- k get/describe/delete hpa hpa-1
 
 # edit non-editable feild in pod
 # ================================================
@@ -183,9 +183,14 @@ kubectl create secret generic db-secret \
 
 ## helm
 - helm pull --untar bitnami/wordpress
+- helm lint chart-1
+- helm package chart-1
+- helm registry login -u -p (ecr, nexus, docker, etc)
 - helm create chart-1
 - helm install releaseName bitnami/chartName
+- helm update releaseName chart-1
 - helm list
+
 
 
 
