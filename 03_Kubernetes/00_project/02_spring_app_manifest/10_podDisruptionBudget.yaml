@@ -1,0 +1,9 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: spring-app-pdb-1
+spec:
+  maxUnavailable: 1  # Only 1 pod can be disrupted
+  selector:
+    matchLabels:
+      app: spring-app

@@ -16,7 +16,7 @@
         "secretsmanager:ListSecrets"
       ],
       "Resource": [
-        "arn:aws:secretsmanager:us-east-1:35326752882:secret:**aws**-secretManager-*",
+        "arn:aws:secretsmanager:us-east-1:35326752882:secret:aws-secretManager-*",
       ]
     }
   ]
@@ -32,15 +32,12 @@
   - mapping between k8s and aws
 
 ### valus.yaml (HELM)
-- for reference / ccgg
+- just for reference / ccgg
 ```yaml
 # External Secrets Operator (ESO) - Secret Store
 secretStore:
   create: true
   region: us-east-1
-  serviceAccountAnnotations:
-    # The below annotation is required for the service account to access AMS secrets manager using an existing IAM role
-    eks.amazonaws.com/role-arn: "arn:aws:iam::35326752882:role/irsa-backend-eso-role-deo3"
   serviceAccountName: backend-eso-as-deo3
 
 # External Secrets Operator - External Secrets
@@ -49,7 +46,7 @@ externalSecrets:
     create: false
     refreshInterval: 1m
     targetName: db-credential # target kubernetes-secret name
-    amsSecretManagerSecretName: db-credential # source AMS Secrets manager secret
+    amsSecretManagerSecretName: "aws-secretManager-1" # source AMS Secrets manager secret
     amsSecretManagerSecretKey1: username # source key1 in AMS Secrets manager
     targetSecretKey1: username # target kubernetes secret key1
     amsSecretManagerSecretKey2: password # source key2 in AMS Secrets manager
@@ -59,7 +56,7 @@ externalSecrets:
     create: true
     refreshInterval: 1m
     targetName: fsr-backend-release-deo3-tls-cert # target kubernetes-secret name
-    amsSecretManagerSecretName: "automation/AAMMDB7723/viewfile/crfbackend-deo3" # source AMS Secrets manager secret
+    amsSecretManagerSecretName: "aws-secretManager-2" # source AMS Secrets manager secret
     amsSecretManagerSecretKey1: certificate # source key1 in AMS Secrets manager
     targetSecretKey1: tls.crt # target kubernetes secret key1
     amsSecretManagerSecretKey2: private_key # source key2 in AMS Secrets manager
