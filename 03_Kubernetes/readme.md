@@ -1,7 +1,7 @@
 ## hands on:
 - My Project-1 : [00_project](00_project)
-  - [02_spring_app_manifest](00_project/02_spring_app_manifest) :point_left:
-  - [03_maximiallian](00_project/03_maximiallian)
+  - [02_spring_app_manifest](../deployment/manifest/spring_app_v2) :point_left:
+  - [03_maximiallian](../deployment/other_projects/01_maximiallian)
 - [01_minikube](01_minikube)
 - terraform :
   - [eks](../04_terraform/project/aws-config-maps/03_outbound/modules/eks)

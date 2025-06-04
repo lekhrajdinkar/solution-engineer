@@ -1,5 +1,5 @@
 ## A. external-secrets.io
-- check here pls : [05-external-secret-aws.yaml](../00_project/02_spring_app_manifest/05-external-secret-aws.yaml)
+- check here pls : [05-external-secret-aws.yaml](../../deployment/manifest/spring_app_v2/05-external-secret-aws.yaml)
 
 ### 1. SecretStore
 - provider : aws

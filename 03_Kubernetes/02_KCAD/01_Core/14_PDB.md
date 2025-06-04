@@ -5,4 +5,4 @@
   - **Manual pod evictions
   - Rolling updates** 
 
-[10_podDisruptionBudget.yaml](../../00_project/02_spring_app_manifest/10_podDisruptionBudget.yaml)
+[10_podDisruptionBudget.yaml](../../../deployment/manifest/spring_app_v2/10_podDisruptionBudget.yaml)
