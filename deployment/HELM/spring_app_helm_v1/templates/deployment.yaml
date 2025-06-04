@@ -11,24 +11,28 @@ spec:
       {{- include "spring-app.selectorLabels" . | nindent 6 }}
   template:
     metadata:
+      labels:
+        {{- include "spring-app.selectorLabels" . | nindent 8 }}
       {{- with .Values.springApp.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      labels:
-        {{- include "spring-app.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.global.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "spring-app.serviceAccountName" . }}
+      {{- with .Values.springApp.podSecurityContext }}
       securityContext:
-        {{- toYaml .Values.springApp.podSecurityContext | nindent 8 }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
+          {{- with .Values.springApp.securityContext }}
           securityContext:
-            {{- toYaml .Values.springApp.securityContext | nindent 12 }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           image: "{{ .Values.springApp.image.repository }}:{{ .Values.springApp.image.tag }}"
           imagePullPolicy: {{ .Values.springApp.image.pullPolicy }}
           ports:
@@ -54,35 +58,24 @@ spec:
                 secretKeyRef:
                   name: {{ include "spring-app.fullname" . }}-rabbitmq
                   key: rabbitmq-password
-          {{- range .Values.springApp.env }}
-          - name: {{ .name }}
-            value: {{ .value | quote }}
-          {{- end }}
-          {{- range .Values.springApp.secrets }}
-          - name: {{ .name }}
-            valueFrom:
-              secretKeyRef:
-                name: {{ .secretName }}
-                key: {{ .secretKey }}
-          {{- end }}
+            {{- range .Values.springApp.env }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}
           resources:
             {{- toYaml .Values.springApp.resources | nindent 12 }}
-          {{- if .Values.springApp.livenessProbe.enabled }}
           livenessProbe:
             httpGet:
               path: {{ .Values.springApp.livenessProbe.path }}
               port: {{ .Values.springApp.service.targetPort }}
             initialDelaySeconds: {{ .Values.springApp.livenessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.springApp.livenessProbe.periodSeconds }}
-          {{- end }}
-          {{- if .Values.springApp.readinessProbe.enabled }}
           readinessProbe:
             httpGet:
               path: {{ .Values.springApp.readinessProbe.path }}
               port: {{ .Values.springApp.service.targetPort }}
             initialDelaySeconds: {{ .Values.springApp.readinessProbe.initialDelaySeconds }}
             periodSeconds: {{ .Values.springApp.readinessProbe.periodSeconds }}
-          {{- end }}
       {{- with .Values.springApp.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

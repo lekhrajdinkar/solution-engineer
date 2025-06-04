@@ -43,6 +43,18 @@ springApp:
     maxReplicas: 5
     targetCPUUtilizationPercentage: 80
 
+  livenessProbe:
+    enabled: true
+    path: /actuator/health
+    initialDelaySeconds: 30
+    periodSeconds: 10
+
+  readinessProbe:
+    enabled: true
+    path: /actuator/health
+    initialDelaySeconds: 5
+    periodSeconds: 5
+
   podAnnotations: {}
   podSecurityContext: {}
   securityContext: {}
