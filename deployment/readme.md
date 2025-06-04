@@ -37,13 +37,13 @@
   - kubectl create -f 03-spring-app-deplyment.yaml
   - kubectl create -f 04-spring-app-nodeport-service.yaml
   - kubectl get all -n dev1-manifest
----
+
 ### **delete**
   - kubectl delete deployment spring-app-deployment -n dev1-manifest
   - database:
     - kubectl delete pod/postgres -n dev1-manifest
     - kubectl delete service/postgres-service -n dev1-manifest
----    
+   
 ### **Tunnel service (minikube)**
 - minikube service spring-app-nodeport-service -n dev1-manifest
 ```text
