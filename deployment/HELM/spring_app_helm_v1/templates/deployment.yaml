@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "spring-app.fullname" . }}
+  namespace: {{ .Values.global.namespace}}
   labels:
     {{- include "spring-app.labels" . | nindent 4 }}
 spec:

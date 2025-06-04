@@ -4,6 +4,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .name }}
+  namespace: {{ .Values.global.namespace}}
   labels:
     {{- include "spring-app.labels" $ | nindent 4 }}
 data:

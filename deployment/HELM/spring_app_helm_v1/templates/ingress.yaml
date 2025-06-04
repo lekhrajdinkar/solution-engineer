@@ -3,6 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ include "spring-app.fullname" . }}
+  namespace: {{ .Values.global.namespace}}
   labels:
     {{- include "spring-app.labels" . | nindent 4 }}
   {{- with .Values.springApp.ingress.annotations }}

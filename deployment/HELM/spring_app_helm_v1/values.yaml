@@ -4,6 +4,7 @@ global:
   imagePullSecrets:
     - name: dockerhub-secret
   storageClass: ""
+  namespace: dev1-helm
 
 # Spring Application configuration
 springApp:
