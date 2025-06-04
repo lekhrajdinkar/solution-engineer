@@ -15,14 +15,20 @@
   kubectl create secret docker-registry dockerhub-secret  -n dev1-manifest  --docker-server=docker.io   --docker-username=lekhrajdinkar18   --docker-password=dckr_pat_Xc5Q6X58_nVagNmIL0S7PzxSlpc   --docker-email=your-email@example.com
   ```
 -  kubectl get secret dockerhub-secret -n dev1-manifest -o jsonpath='{.data.\.dockerconfigjson}'
+---
 ## **create image**:
   - **manually** or pipeline
-  - docker build --label "version=1.0.0" -t **spring-app:v1** . -f **dockerfile-v1** 
-  - docker tag spring-app:v1 lekhrajdinkar18/02-backend-java-spring:spring-app-06.03.2025
   - docker build -t lekhrajdinkar18/02-backend-java-spring:spring-app-06.04.2025 . -f dockerfile-v1 (single step)
+    - docker build --label "version=1.0.0" -t **spring-app:v1** . -f **dockerfile-v1**
+    - docker tag spring-app:v1 lekhrajdinkar18/02-backend-java-spring:spring-app-06.04.2025
   - docker push lekhrajdinkar18/02-backend-java-spring:spring-app-06.03.2025
     - https://hub.docker.com/repository/docker/lekhrajdinkar18/02-backend-java-spring/tags : pushed
-## **deploy**
+
+---
+# B. project - spring-app
+## 1. Manifest
+- [spring_app_v2](manifest/spring_app_v2)
+### **deploy**
   - cd C:\Users\Manisha\Documents\GitHub\02-backend-java-spring\deployment\manifest\spring_app_v2
   - kubectl create -f 01-namespace.yaml
   - kubectl create -f 02-service-account.yaml
@@ -30,13 +36,15 @@
   - **RMQ** | 
   - kubectl create -f 03-spring-app-deplyment.yaml
   - kubectl create -f 04-spring-app-nodeport-service.yaml
-  - kubectl get all -n dev1-manifest 
-## **delete**
+  - kubectl get all -n dev1-manifest
+---
+### **delete**
   - kubectl delete deployment spring-app-deployment -n dev1-manifest
   - database:
     - kubectl delete pod/postgres -n dev1-manifest
     - kubectl delete service/postgres-service -n dev1-manifest
-## Tunnel service (minikube)
+---    
+### **Tunnel service (minikube)**
 - minikube service spring-app-nodeport-service -n dev1-manifest
 ```text
 |---------------|-----------------------------|-------------|---------------------------|
@@ -52,12 +60,14 @@
 |---------------|-----------------------------|-------------|------------------------|
 ```
 - http://127.0.0.1:60126/spring/swagger-ui/index.html :working
----
-# B. project - spring-app
-## 1. Manifest
-- [spring_app_v2](manifest/spring_app_v2)
 
+![img.png](../99_temp/icon/img.png)
+
+---
 ## 2. HELM
+- in progress
+- [spring_app_helm_v1](HELM/spring_app_helm_v1)
 
 ---
-# C. other project - 
+# C. other project
+- in progress - ms
