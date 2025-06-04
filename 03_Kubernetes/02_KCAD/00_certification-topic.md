@@ -1,8 +1,4 @@
-- docker push lekhrajdinkar18/backend-repo:v1
-- https://www.youtube.com/watch?v=QJ4fODH6DXI&list=PL2We04F3Y_43dAehLMT5GxJhtk3mJtkl5&ab_channel=KodeKloud
----
-
-## about
+## Certification
 - **CNCF** (cloud native cloud foundation) + linux foundation
 - Certified Kubernetes Application Developer: https://www.cncf.io/certification/ckad/
 - Candidate Handbook: https://www.cncf.io/certification/candidate-handbook
@@ -13,7 +9,7 @@
 - `20KLOUD` - 20% off
 
 ---
-## Topic/s
+## exam : Topic/s
 - Core concept - recap (cluster(main/worker), pod, rs, deploymnet object, etc)
 - Config
   - Configmap

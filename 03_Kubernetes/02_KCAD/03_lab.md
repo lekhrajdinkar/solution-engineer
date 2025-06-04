@@ -1,4 +1,5 @@
 # Lab / hands-on
+- udemy : https://www.udemy.com/course/certified-kubernetes-application-developer/learn/lecture/31756514#overview
 ![img.png](../99_img/obj.png)
 
 ## Section-2 : Core
