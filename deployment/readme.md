@@ -20,6 +20,8 @@
   - **ingress-controller** : kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
     - kubectl get pods -n ingress-nginx
 
+![img.png](k8s-cluster-01-minikube/img.png)
+
 ---
 # project-1 - spring-app-manifest
 ### 1 create image
@@ -107,9 +109,42 @@ kubectl delete pvc --all -n dev1-manifest
 # Project-2 - spring-app-helm
 - chart: [spring_app_helm_v1](HELM/spring_app_helm_v1)
 - refernce: https://chat.deepseek.com/a/chat/s/fdefc9eb-f153-4f45-91c9-6695d9f9b202
+
 ### 1 deployment
+- middleware, manually run
+  - **Database** : kubectl create -f 02_postgres-pod.yaml -n dev1-helm
+  - **RMQ** :  kubectl create -f 02-rmq-pod.yaml  -n dev1-helm
+- helm dependency build .\spring_app_helm_v1
+- helm dependency update .\spring_app_helm_v1
+- helm **template** release-blue .\spring_app_helm_v1   > rendered-output.yaml
+  - --dry-run --debug : Simulates an **install** with rendered output.
+  - --show-only : Useful for checking specific files.
 ### 2 upgrade :point_left:
 ### 3 rollback
+
+### more
+```txt
+==== understand syntax ====
+{{- if not .Values.autoscaling.enabled }}  {{- end }}
+---
+{{ .Values.replicaCount }}
+---
+{{- with .Values.imagePullSecrets }}
+imagePullSecrets:
+   {{- toYaml . | nindent 8 }}  ### notice . , it will replaced with value
+{{- end }}
+vs
+imagePullSecrets:
+  {{- toYaml .Values.imagePullSecrets | nindent 8 }} ### no .
+  # so what if .Values.imagePullSecrets not present, then error. go with with above.
+---
+image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+---
+            {{- range .Values.springApp.env }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}
+```
 
 ---
 # project-2 - microservices

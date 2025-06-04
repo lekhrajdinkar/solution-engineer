@@ -1,71 +1,97 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "spring-helm.fullname" . }}
+  name: {{ include "spring-app.fullname" . }}
   labels:
-    {{- include "spring-helm.labels" . | nindent 4 }}
+    {{- include "spring-app.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-  {{- end }}
+  replicas: {{ .Values.springApp.replicaCount }}
   selector:
     matchLabels:
-      {{- include "spring-helm.selectorLabels" . | nindent 6 }}
+      {{- include "spring-app.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
+      {{- with .Values.springApp.podAnnotations }}
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "spring-helm.labels" . | nindent 8 }}
-        {{- with .Values.podLabels }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
+        {{- include "spring-app.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
+      {{- with .Values.global.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "spring-helm.serviceAccountName" . }}
+      serviceAccountName: {{ include "spring-app.serviceAccountName" . }}
       securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+        {{- toYaml .Values.springApp.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+            {{- toYaml .Values.springApp.securityContext | nindent 12 }}
+          image: "{{ .Values.springApp.image.repository }}:{{ .Values.springApp.image.tag }}"
+          imagePullPolicy: {{ .Values.springApp.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.containerPort }}
+              containerPort: {{ .Values.springApp.service.targetPort }}
               protocol: TCP
           env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: {{ .Values.springProfile }}
-          livenessProbe:
-            {{- toYaml .Values.livenessProbe | nindent 12 }}
-          readinessProbe:
-            {{- toYaml .Values.readinessProbe | nindent 12 }}
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.volumeMounts }}
-          volumeMounts:
-            {{- toYaml . | nindent 12 }}
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://{{ include "spring-app.fullname" . }}-postgresql:5432/{{ .Values.postgresql.global.postgresql.auth.database }}"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "{{ .Values.postgresql.global.postgresql.auth.username }}"
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "spring-app.fullname" . }}-postgresql
+                  key: postgres-password
+            - name: SPRING_RABBITMQ_HOST
+              value: "{{ include "spring-app.fullname" . }}-rabbitmq"
+            - name: SPRING_RABBITMQ_USERNAME
+              value: "{{ .Values.rabbitmq.auth.username }}"
+            - name: SPRING_RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "spring-app.fullname" . }}-rabbitmq
+                  key: rabbitmq-password
+          {{- range .Values.springApp.env }}
+          - name: {{ .name }}
+            value: {{ .value | quote }}
           {{- end }}
-      {{- with .Values.volumes }}
-      volumes:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.nodeSelector }}
+          {{- range .Values.springApp.secrets }}
+          - name: {{ .name }}
+            valueFrom:
+              secretKeyRef:
+                name: {{ .secretName }}
+                key: {{ .secretKey }}
+          {{- end }}
+          resources:
+            {{- toYaml .Values.springApp.resources | nindent 12 }}
+          {{- if .Values.springApp.livenessProbe.enabled }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.springApp.livenessProbe.path }}
+              port: {{ .Values.springApp.service.targetPort }}
+            initialDelaySeconds: {{ .Values.springApp.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.springApp.livenessProbe.periodSeconds }}
+          {{- end }}
+          {{- if .Values.springApp.readinessProbe.enabled }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.springApp.readinessProbe.path }}
+              port: {{ .Values.springApp.service.targetPort }}
+            initialDelaySeconds: {{ .Values.springApp.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.springApp.readinessProbe.periodSeconds }}
+          {{- end }}
+      {{- with .Values.springApp.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.affinity }}
+      {{- with .Values.springApp.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.tolerations }}
+      {{- with .Values.springApp.tolerations }}
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}

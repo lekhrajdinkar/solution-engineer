@@ -1,14 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "spring-helm.fullname" . }}
+  name: {{ include "spring-app.fullname" . }}
   labels:
-    {{- include "spring-helm.labels" . | nindent 4 }}
+    {{- include "spring-app.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.springApp.service.type }}
   ports:
-    - targetPort: {{ .Values.containerPort }}
-      port: {{ .Values.service.port }}
-      nodePort: 30008
+    - port: {{ .Values.springApp.service.port }}
+      nodePort: {{ .Values.springApp.service.nodePort }}
+      targetPort: {{ .Values.springApp.service.targetPort }}
+      protocol: TCP
+      name: http
   selector:
-    {{- include "spring-helm.selectorLabels" . | nindent 4 }}
+    {{- include "spring-app.selectorLabels" . | nindent 4 }}
