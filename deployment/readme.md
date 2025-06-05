@@ -116,12 +116,30 @@ kubectl delete pvc --all -n dev1-manifest
   - **RMQ** :  kubectl create -f 02-rmq-pod.yaml  -n dev1-helm
 - helm dependency build .\spring_app_helm_v1
 - helm dependency update .\spring_app_helm_v1
-- helm **template** release-blue .\spring_app_helm_v1   > rendered-output.yaml
-  - --dry-run --debug : Simulates an **install** with rendered output.
-  - --show-only : Useful for checking specific files.
+- helm **template** release-blue  .\spring_app_helm_v1   > rendered-output.yaml
+  - `--dry-run` `--debug` : Simulates an **install** with rendered output.
+  - `--show-only` : Useful for checking specific files.
+  - --set k=v
+  - 
+- helm install release-blue .\spring_app_helm_v1 -f values-2.yaml (first time)
+- helm status .\spring_app_helm_v1
+- NExt:
+  - **helm get manifest release-blue** 
+    - View generated Kubernetes manifests (dry-run)
+  - **helm get values release-blue**
+    - See what values will be applied
+  - try: --set rabbitmq.enabled=false 
+  
 ### 2 upgrade :point_left:
-### 3 rollback
+- helm update release-blue .\spring_app_helm_v1 --create -f values-2.yaml 
 
+### 3 rollback
+- Rollback to a previous version
+  - helm rollback release-blue .\spring_app_helm_v1  1
+
+### cleanup
+- helm uninstall .\spring_app_helm_v1 
+  - --keep-history
 ### more
 ```txt
 ==== understand syntax ====
