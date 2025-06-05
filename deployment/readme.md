@@ -20,7 +20,7 @@
   - **ingress-controller** : kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
     - kubectl get pods -n ingress-nginx
 
-![img.png](k8s-cluster-01-minikube/img.png)
+![img.png](01_IAC/01-minikube-MANUAL/img.png)
 
 ---
 # project-1 - spring-app-manifest
