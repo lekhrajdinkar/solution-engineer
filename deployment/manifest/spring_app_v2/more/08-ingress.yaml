@@ -13,6 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: spring-app-service
+                name: spring-app-nodeport-service
                 port:
                   number: 8080 # Matches the `port` defined in your service

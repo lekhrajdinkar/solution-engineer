@@ -74,7 +74,7 @@ springApp:
 
 # PostgreSQL configuration (using Bitnami chart)
 postgresql:
-  enabled: true
+  enabled: false
   global:
     postgresql:
       auth:
@@ -88,7 +88,7 @@ postgresql:
 
 # RabbitMQ configuration (using Bitnami chart)
 rabbitmq:
-  enabled: true
+  enabled: false
   auth:
     username: "guest"
     password: "guest"
