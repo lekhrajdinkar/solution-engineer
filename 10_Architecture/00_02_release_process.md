@@ -1,3 +1,5 @@
+- https://chat.deepseek.com/a/chat/s/6ae96d81-254a-4034-876a-5c367b97e66f
+--- 
 ## Deployment process
 - We follow a structured **monthly release** cycle that includes both
   - business requirements 
