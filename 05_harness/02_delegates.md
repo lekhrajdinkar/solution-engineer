@@ -1,5 +1,5 @@
 ## harness delegate
-
+![img_1.png](img_1.png)
 ## intro
 -  a Delegate is a **lightweight**, secure **worker process** that runs within our infrastructure 
   - Kubernetes cluster **
