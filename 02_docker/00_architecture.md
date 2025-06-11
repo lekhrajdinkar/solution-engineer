@@ -13,6 +13,11 @@
 - **Docker host** : on host machine install docker
   - eg: docker desktop on out laptops.
   - all containers runs on this  docker host.
+- **.dockerignore** : 
+  - Specifies files/directories that should be excluded when building a Docker image.
+  - Reduces build context size
+  - Prevents sensitive files (e.g., .env, credentials.json) from accidentally being copied into the image.
+
 ---
 ## Layered Arch
 
@@ -31,12 +36,12 @@
 
 ---
 ## Container Security:
-  - --user < userID > 
-  - --cap-add/drop < CAPABILITY >
-  - Add these at:
-    - container level :  ![img.png](img/imgg-1.png)
-    - pod level :        ![img_1.png](img/imgg_2.png)
-    - both present, container will override.
+- --user < userID > 
+- --cap-add/drop < CAPABILITY >
+- Add these at:
+  - container level :  ![img.png](img/imgg-1.png)
+  - pod level :        ![img_1.png](img/imgg_2.png)
+  - both present, container will override.
 
 ---
 - pod-1
@@ -48,3 +53,34 @@
       - process-11 : port-11
       - process-22 : port-22
       - ...
+---
+## Docker's architecture
+- **Docker Engine** / container-d
+  - core runtime that powers Docker. 
+  - It is a lightweight, modular application consisting of:
+    - **Docker Daemon** (`docker-d`) :point_left:
+      - A background service 
+      - manages Docker objects (containers, images, networks, volumes).
+      - Handles container lifecycle
+      - Pulls/pushes images from/to registries.
+      - create layers
+    - **REST API** – Allows interaction with the daemon programmatically (e.g., via CLI or SDKs).
+    - **CLI** (optional)
+    - container-d
+- **Docker Images**
+  - read-only template used to create containers
+  - each instruction in a Dockerfile creates a new layer
+  - Application code + dependencies (libraries, runtime)
+  - Metadata (environment variables, default commands)
+- **Container**
+  - **runnable** instance of an image
+  - **Isolated process** running on the host OS via namespace.
+  - Shares the **host kernel** 
+  - but has its own **filesystem**
+```
+Docker Client (CLI)  
+       ↓ (REST API)  
+Docker Daemon (dockerd) → Manages → Images → Containers  
+       ↑  
+Registry (Docker Hub, ECR, etc.)  
+```

@@ -18,7 +18,7 @@
   - -e k=v -e k=v ... 
   - -p host:container 
   - --network = n1 
-  - --user 100 
+  - **--user 100** 
   - --cap-add/drop CAPABILITY-1  --cap-add/drop CAPABILITY-2 ...
   - --entrypoint python app-1.py --> override ENTRYPOINT ["python", "app-1.py"]
   - registry-1/repoName-1/image-1:latest   :point_left: image at last
@@ -26,15 +26,17 @@
 - docker `ps` -a
 - docker start | stop | restart c1
 - docker rm c1
-- docker exec c1 <command>
+- **docker exec c1 <command>**
 - docker logs -f c1 : live log trail
+- **docker inspect** nspect a container's network configuration
 
 ### volume and network
-- docker volume create vol-1:location-on-host
+- docker volume create **vol-name-1**:location-on-host
 - docker network create  --driver=bridge --subnet ... n1
 
 ---
-## dockerfile
+## dockerfile (text file)
+- **FROM** : Specifies the base image
 - **ENDPOINT** : 
   - Specifies the primary command to run inside the container
   - always executed when the container starts
@@ -51,6 +53,9 @@
 - WORKDIR
 - EXPOSE 8080
 - COPY
+- **ENV** NODE_ENV=production
+- **ARG** APP_VERSION=1.0 , Defines build-time variables
+- **VOLUME** /data
 - USER userId  
   - by default all process run the `root user` (with limited set of **capability**)
 
@@ -67,3 +72,8 @@ apk info
 # Use --no-cache to avoid storing index files and temporary data in the final image
 # rm -rf /var/cache/apk
 ```
+- Reduce size of image:
+  - Multi-stage builds
+  - Alpine-based images 
+  - remove unnecessary dependencies.
+  - docker scan
