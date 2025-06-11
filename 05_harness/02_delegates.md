@@ -1,5 +1,55 @@
 ## harness delegate
-- 3 ways to run:
+
+## intro
+-  a Delegate is a **lightweight**, secure **worker process** that runs within our infrastructure 
+  - Kubernetes cluster **
+  - VM
+- execute tasks on behalf of the Harness Platform.
+- It acts as a communication **bridge** between `Harness SaaS` and `our environment`
+  - ensuring secure
+  - scalable
+  - efficient pipeline operations
+
+- **Key Roles of a Delegate**
+  - **Task Execution**:
+    - Delegates perform **pipeline actions** directly in your environment, such as:
+    ```
+    - git clone
+    - prepare image - Dind
+    - run terrafom - login plan apply.
+      - deploy aws iac ; inbound, outbound,etc
+      - kafka iac
+    - prepare version from pipeline variable.
+    - Deploying artifacts to Kubernetes, ECS, or VMs.
+      - run helm
+      - run k8s manifest
+    - Running scripts (e.g., Shell, PowerShell).
+      - push to ecr
+      - restart ecs
+    - Connecting to cloud providers (AWS, Azure, GCP).
+    - Integrating with tools like Terraform, or databases.
+    - Push to Nexus
+    - push helm package to nexux/ecr
+    ```
+
+  - **Security**:
+    - Delegates make outbound connections to Harness SaaS
+    - They execute tasks within our network, avoiding exposure of sensitive credentials to external systems.
+
+  - **Connectivity**:
+    - Harness SaaS **sends tasks** to the Delegate via a persistent connection (**gRPC/HTTPs**).
+    - The Delegate polls for tasks, executes them locally, and sends results back.
+  - **Scalability**: 
+    - Add multiple Delegates for high availability or workload distribution.
+    - Harness auto-scales task execution **across available Delegates**.
+
+- Types of Delegates:
+  - **Kubernetes Delegate**: Runs as a Pod (most common for containerized environments).
+  - **Docker Delegate**: Runs as a container on VMs or bare metal.
+  - Shell Script Delegate: Installed via script on Linux/Windows hosts.
+
+---
+## Run delegate
 ### 1. terraform provider
 - this terraform module, deploys helm chart on K8s cluster (minikube)
 - trf: [terraform-helm-delegate](../04_terraform/project/terraform-helm-delegate)
