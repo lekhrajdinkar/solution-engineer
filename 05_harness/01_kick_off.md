@@ -1,61 +1,89 @@
-https://developer.harness.io/docs/continuous-delivery/get-started/key-concepts
+- https://developer.harness.io/docs/continuous-delivery/get-started/key-concepts
 ---
 # Harness
-- **Account**: `lekhrajdinkar` : https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/all/settings/
-- **Organization**: `default`
-- module - **Cd** , CI, security testing, etc
-
+## onboarding
+- https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/all/settings/
+- **Account**: `lekhrajdinkar`  
+  - **Organization**: `default`
+    - **project**
+      - **outbound-api : dashboard**
+        - pipelines 
+        - users 
+        - Environments
+        - Services
+      - outbound-ui : dashboard
+        - ...
+        - ...
 --- 
-## project:1 - maps-outbound-api
-- https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/home/orgs/default/projects/mapsoutboundapi/details
-- `update secret` : https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/all/settings/secrets/aws_eks_get_token/overview :point_left:
-  -  **aws eks get-token  --cluster-name maps-outbound-us-west-2-dev2-eks-fargate-cluster --region us-west-2**
-### common
-- **pipeline**
-  - https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/all/orgs/default/projects/mapsoutboundapi/pipelines
-  - pipeline > stages (build, deploy, another pipleline) > steps (run, image push, etc)
-    - input set
-    - triggers
-- **services**
-- **connectors**
-    - k8s-cluster-connector
-    - `github-repo-connector`
-    - terraform-hcp-connector
-    - aws-secret-manager-connector
-    - aws-account-connector
-      - authentication : AWS access key *, assume role on aws-delegate, IRSA
-    - nexus-repo-connector (optional)
-    - service-now-connector (optional)
-- **environment**
-  - env-group : `oz-dev`
-      - `dev1`
-        - infrastructure definition : none
-        - input files
-      - `dev2`
-      - `prod`
-### more
-- **secrets**
-    - added by aws-account-connector
-    - added manual
-- **Access control**
-  - **service account** : none
-  - **user group** : `OZ_DEV_MAPS_DEV_LEAD` ( u1, u2,  coming from ? integrate with lDAP ?)
-    - manage role-binding --> `role-1 <==bind==> resource-group-1` ,etc.
-    - added binding : `pipelineExecutor - All-Project-Level-Resources`
-    - **roles**
-      - found 19, built-in. eg : `pipeline-executor`, etc
-      - cant add more with enterprise version - role-1,2,...
-      - role has granular permission.
-      - create later:
-        - OZ_dev_role : service, template, pipeline
-        - OZ_prod_role  : service, template, pipeline
-    - **resource-groups**
-      - found 1 : `All-Project-Level-Resources`  
-      - cant add more with enterprise version - resource-group-1,2,...
-      - create later:
-        - OZ_dev_resource-group : services, templates, pipelines
-        - OZ_prod_resource-group : services, templates, pipelines
+## project1 - maps-outbound-api
+### A. pre-work (plateform team)
+#### 1 setup : secrets
+- **aws**
+  - aws_eks_get_token
+    - **aws eks get-token  --cluster-name maps-outbound-us-west-2-dev2-eks-fargate-cluster --region us-west-2**
+    - Need to update token manually, once expired
+    - https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/all/settings/secrets/aws_eks_get_token/overview
+  - aws_eks_cluster_ca_data
+  - aws_533267082359_secret_access_key
+- **minikube**
+  - minikube-admin-client-key
+  - minikube-admin-client-crt
+  - C:\Users\Manisha\.minikube\profiles\minikube
+- **github**-access-token-org
+- **terraform**-hcp-dev
+
+#### 2 setup : delegates
+[02_delegates.md](02_delegates.md)
+
+#### 3 setup : connectors
+- **kubernetes**
+  - k8s-eks-cluster-connector
+  - k8s-minikube-cluster-connector
+- **github**-lekhrajdinkar-connector
+- **terraform**-hcp-connector
+- **aws**
+  - aws-secret-manager-connector
+  - aws-account-connector
+- **more**
+  - nexus-repo-connector 
+  - service-now-connector
+
+![img.png](img.png)
+
+#### 4 Access control
+- **service account** : none
+- **user group** : `app_DevLead` (LDAP role)
+  - u1, u2
+- **roles**
+  - found 19, built-in. eg: pipeline-executor
+  - create custom role
+    - pipeline-owner
+    - pipeline-developer
+  - role has defined granular **permission**.
+    - **resource/s : action/s**
+    - service  : R , W, Edit, View, etc
+    - template : R , W, Edit, View, etc
+    - pipeline : R , W, Edit, View, etc
+    - ...
 
 ---
-## project:2 - maps-outbound-ui (`hold`)
-- https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/module/cd/orgs/default/projects/frontendproject/overview
+### B. CD pipeline (developer team)
+#### 1 template
+#### 2 pipeline
+- https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/all/orgs/default/projects/mapsoutboundapi/pipelines
+- pipeline > stages (build, deploy, another pipleline) > steps (run, image push, etc)
+  - input set
+  - triggers
+
+#### 3 services :x:
+
+#### 4 environment :x:
+- **env-group**
+  - oz-dev
+    - dev1 (pre-prod)
+    - dev2 (pre-prod)
+    - prod\
+    
+---
+## project2 - maps-outbound-ui
+- [dashboard](https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/module/cd/orgs/default/projects/frontendproject/overview)
