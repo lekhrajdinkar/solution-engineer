@@ -16,7 +16,7 @@
         - ...
 --- 
 ## B. project 1 - app-outbound-api
-### B.1. pre-work (plateform team) :circle_yellow:
+### B.1. pre-work (plateform team) :yellow_circle:
 #### 1 setup : secrets
 - **aws**
   - aws_eks_get_token
@@ -67,16 +67,22 @@
     - ...
 
 ---
-### B.2. CD pipeline (developer team) :circle_yellow:
+### B.2. CD pipeline (developer team) :yellow_circle:
 #### 1 Template
-- template for  step, stage, pipeline, service
+- can create template for : **step, stages, pipeline**
+- then re-use it.
   
 #### 2 pipeline :point_left: :point_left:
 - https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/all/orgs/default/projects/mapsoutboundapi/pipelines
 - pipeline > stages (build, deploy, another pipleline) > steps (run, image push, etc)
-  - input-set + pipeline variable
-  - triggers
-  - codebase : github connector + repo
+  - pipeline variable
+    - input-set-env-1
+    - input-set-env-2
+    - ...
+  - triggers : on git actions
+  - codebase : github connector + repoName
+  - studio/yaml
+  - save : inline / gitrepo
 
 #### 3 services :x:
 
@@ -86,18 +92,18 @@
     - dev1 (pre-prod)
     - dev2 (pre-prod)
     - prod\
-    
+- created but not used/referenced in pipeline. ??    
 ---
 ## D. project 2 - ccgg :circle_yellow:
 ### D.0 platform team shared templates
-#### gauntlet scan
+#### template : gauntlet-scan
 - input: image-container-registry + image(tf,k8s,aws)
-- env var: git-branch, atm, env_gate (oz_dev)
-#### service Now
+- env var: **git-branch, atm, env_gate (oz_dev)**
+#### template : serviceNow
 - input: CRQ no
 
 ### D.1. M-app :pipelines
-#### 1. iac-terraform-pipeline ( input::component - in, out, kafka, engine)
+#### 1. :parking: iac-terraform-pipeline ( input::component - in, out, kafka, engine)
 - stage1
   - gauntlet scan
   - bash :: **TRF_PLAN**
@@ -112,9 +118,14 @@ terraform -v
 tfr_workspace=<+pipeline.variables.tf_ws>
 tfe_ws_id=<+pipeline.variables.tf_ws_id>
 tfe_host=<+pipeline.variables.tf_host>
+
+# login
+# option-1
 wget ccggAnsible/tfeSync.zip
 unzip tfeSync.zip
 ./tfesync -w tfe_ws_id
+# option-2
+terrafom login -p $TFE_TOKEN
 
 # create :: credential.trfc.son with $TFE_TOKEN
 # create :: backend.tf with tf_ws_id
@@ -122,7 +133,7 @@ terrafom init
 terrafom plan -var-file ./env/${ENV}.tfvars
 ```
 
-#### 2. interface-pipeline-dev/qa/prod (3 diff pipeline)
+#### 2. :parking: interface-pipeline-dev/qa/prod (3 diff pipeline)
 - stage 1 : **BUILD**
   - gauntlet scan
   - get version (from branch name)
@@ -159,7 +170,7 @@ terrafom plan -var-file ./env/${ENV}.tfvars
   ```
 ---
 ### D.2. P-app :pipelines (common for all env)
-#### app pipeline
+#### :parking: 1. app-pipeline
 - Stage 1 **Build** : 
   - gauntlet scan 
   - get version(from helm) 
@@ -240,6 +251,7 @@ terrafom plan -var-file ./env/${ENV}.tfvars
   
   export $(printf "AWS_ACCESS_KEY=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s")
   $(aws sts assume --role harness-pipleline-role --session-name --query "Credential.[AccesskeyId, SecretAccesskey, SessionToken] --output text")
+  
   aws ssm get-parameter --region --name "mc/cluster-1/kubeconfig" --query "parameter.Value" --output text > kubeconfig
   
   export KUBECONFID="$PWD/kubconfig"
@@ -249,6 +261,16 @@ terrafom plan -var-file ./env/${ENV}.tfvars
   tar ...  
   helm upgrade --install $RELEASE_NAME $image:$appVersion --value ./values.yaml -n --wait 300s --atomic
   ```
+#### :parking: 2. lambda layer pipeline
+```bash
+  export $(printf "AWS_ACCESS_KEY=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s")
+  $(aws sts assume --role harness-pipleline-role --session-name --query "Credential.[AccesskeyId, SecretAccesskey, SessionToken] --output text")
+   
+  pip3 install ${requiements_path} --target ./python/lib/python3.11/site-packages
+  python3 -c "import shutil.make_archive(${ZIP_FILE} , 'zip', root_dir = '.' base_dir='python')"
+  aws s3 cp ${layer_name}.zip
+```
+
 ---
 ### D.3. F-app :pipelines
 - later
