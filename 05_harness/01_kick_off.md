@@ -213,29 +213,29 @@ terrafom plan -var-file ./env/${ENV}.tfvars
   
   #========== 4 copy2ECR  (nexus dev >> ecr) ===========
   crane version
-  crane auth login -u <+pipeline.getvalue(nexus_user)> -p  <+pipeline.getvalue(nexus_password)>
+  crane auth login -u <+pipeline.getvalue(nexus_user)> -p  <+pipeline.getvalue(nexus_password)> nexus-dev-registry
   
   # copy from nexus to ecr 
   export $(printf "AWS_ACCESS_KEY=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s")
   $(aws sts assume --role harness-pipleline-role --session-name --query "Credential.[AccesskeyId, SecretAccesskey, SessionToken] --output text")
   ecr_password=$(aws ecr get-login-password --region)
-  crane auth login -u AWS -p  ecr_password
+  crane auth login -u AWS -p  ecr_password erc-repo
   
   # copy app-image and helm
   crane cp nexus-prod/$app_image:$app_image $ecr-repo-prod/$app_image:$app_image
   crane cp nexus-prod/$app_image:$app_image-helm $ecr-repo-prod/$app_image:$app_image-helm
   
-  #========== 5 Promote to prod (nexus dev >> nexus prod) ===========
+  #========== 5 Promote to prod (nexus dev >> nexus prod >> ECR) ===========
   
   crane version
-  crane auth login -u <+pipeline.getvalue(nexus_user)> -p  <+pipeline.getvalue(nexus_password)>
-  crane auth login -u <+pipeline.getvalue(nexus_user_prod)> -p  <+pipeline.getvalue(nexus_password_prod)>
+  crane auth login -u <+pipeline.getvalue(nexus_user)> -p  <+pipeline.getvalue(nexus_password)> nexus-dev-registry
+  crane auth login -u <+pipeline.getvalue(nexus_user_prod)> -p  <+pipeline.getvalue(nexus_password_prod)> nexus-prod-registry
   
   # copy from nexus to ecr (of Life cycle AWS )
   export $(printf "AWS_ACCESS_KEY=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s")
   $(aws sts assume --role harness-pipleline-role --session-name --query "Credential.[AccesskeyId, SecretAccesskey, SessionToken] --output text")
   ecr_password=$(aws ecr get-login-password --region)
-  crane auth login -u AWS -p  ecr_password
+  crane auth login -u AWS -p  ecr_password erc-repo
   
   # copy app-image : nexus dev >> nexus prod >> ECR
   crane cp nexus-dev/$app_image:$app_image nexus-prod/$app_image:$app_image 
@@ -256,8 +256,11 @@ terrafom plan -var-file ./env/${ENV}.tfvars
   
   export KUBECONFID="$PWD/kubconfig"
   kubectl auth can-i create deployment -n ns-1
+  
   ecr_password=$(aws ecr get-login-password --region)
-  helm pull oci://ecr_repo/$image:$appVersion  --version $helmVersion
+  helm registry login -u AWS -p ecr_password
+  
+  helm pull oci://$ecr_repo/$image:$appVersion  --version $helmVersion
   tar ...  
   helm upgrade --install $RELEASE_NAME $image:$appVersion --value ./values.yaml -n --wait 300s --atomic
   ```
