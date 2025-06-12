@@ -1,7 +1,7 @@
 - https://developer.harness.io/docs/continuous-delivery/get-started/key-concepts
 ---
 # Harness
-## onboarding
+## A. onboarding
 - https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/all/settings/
 - **Account**: `lekhrajdinkar`  
   - **Organization**: `default`
@@ -15,8 +15,8 @@
         - ...
         - ...
 --- 
-## B project1 - maps-outbound-api
-### B.1. pre-work (plateform team)
+## B. project 1 - app-outbound-api
+### B.1. pre-work (plateform team) :circle_yellow:
 #### 1 setup : secrets
 - **aws**
   - aws_eks_get_token
@@ -67,7 +67,7 @@
     - ...
 
 ---
-### B.2. CD pipeline (developer team)
+### B.2. CD pipeline (developer team) :circle_yellow:
 #### 1 Template
 - template for  step, stage, pipeline, service
   
@@ -88,20 +88,25 @@
     - prod\
     
 ---
-## C. project2 - maps-outbound-ui
-- [dashboard](https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/module/cd/orgs/default/projects/frontendproject/overview)
+## D. project 2 - ccgg :circle_yellow:
+### D.0 platform team shared templates
+#### gauntlet scan
+- input: image-container-registry + image(tf,k8s,aws)
+- env var: git-branch, atm, env_gate (oz_dev)
+#### service Now
+- input: CRQ no
 
----
-## D. project3- ccgg
-### D.1 maps :pipelines
-#### 1 terraform-pipeline ( input::component - in, out, kafka, engine)
-- stage1/step1 - **template-1** :: gauntlet scan
-  - input: image-container-registry + image(tf,k8s,aws)
-  - env var: git-branch, atm, env_gate
-- stage2 - bash :: **TRF_PLAN**
-- stage3 - **TRF_PLAN_APPROVAL**
+### D.1. M-app :pipelines
+#### 1. iac-terraform-pipeline ( input::component - in, out, kafka, engine)
+- stage1
+  - gauntlet scan
+  - bash :: **TRF_PLAN**
+- stage2 - **TRF_PLAN_APPROVAL**
   - harness-template-2 :: manual approval
-- stage14 - bash :: **TFR_APPLY**
+- stage3
+  - gauntlet scan
+  - bash :: **TFR_APPLY**
+  
 ```bash
 terraform -v
 tfr_workspace=<+pipeline.variables.tf_ws>
@@ -110,34 +115,40 @@ tfe_host=<+pipeline.variables.tf_host>
 wget ccggAnsible/tfeSync.zip
 unzip tfeSync.zip
 ./tfesync -w tfe_ws_id
+
 # create :: credential.trfc.son with $TFE_TOKEN
-# create :; backend.tf with tf_ws_id
+# create :: backend.tf with tf_ws_id
 terrafom init
 terrafom plan -var-file ./env/${ENV}.tfvars
 ```
 
-#### 2 interface-pipeline 
-- **template-1** :: gauntlet scan
-- **version**
-```
-GIT_BRANCH = <+pipeline.variables.GIT_BRANCH>
-VERSION = $GIT_BRANCH.split('\/')[1]
-VERSION_WITH_SEQ = "${VERSION}-"<+pipeline.sequenceId>
-```
-- stage1 **BUILD**
-  - harness-template :: **AWS (build and push to ECR)**
+#### 2. interface-pipeline-dev/qa/prod (3 diff pipeline)
+- stage 1 : **BUILD**
+  - gauntlet scan
+  - get version (from branch name)
+  - `harness-template-1` :: **build and push to docker Hub**, or
+  - `harness-template-2` :: **build and push to AWS-ECR**, or :point_left:
     - aws connector (aws secret key from broadAccessRole)
     - aws account id + region
     - image name
     - codebase, already present
-  - **harness-template-1** :: **build and push to docker Hub**
-  - bash :: push
-- stage2 **DEPLOY**
-  - bash :: deploy to ECS
+
+- stage 2 (only for prod pipeline)  : **servicenow**
+- stage 3  : **DEPLOY**
+  - `bash` :: deploy to ECS
+  
   ```bash
+  # === 1 git version ===========
+  
+  GIT_BRANCH = <+pipeline.variables.GIT_BRANCH>
+  VERSION = $GIT_BRANCH.split('\/')[1]
+  VERSION_WITH_SEQ = "${VERSION}-"<+pipeline.sequenceId>
+  
+  # === 2 deploy to ECS  =========== 
+  
   current_role = $(aws sts get-caller-identity)
   export $(printf "AWS_ACCESS_KEY=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s")
-  $(aws sts assume --role harness-pipleline-role --session-name --query "Credential.[AccesskeyId,SecretAccesskey,SessionToken] --output text")
+  $(aws sts assume --role harness-pipleline-role --session-name --query "Credential.[AccesskeyId, SecretAccesskey, SessionToken] --output text")
   
   current_role = $(aws sts get-caller-identity)
   
@@ -146,3 +157,98 @@ VERSION_WITH_SEQ = "${VERSION}-"<+pipeline.sequenceId>
   do aws ecs stop task --cluster --service-name --region
   aws ecs stop task --cluster --service-name --region --force-new-deployment
   ```
+---
+### D.2. P-app :pipelines (common for all env)
+#### app pipeline
+- Stage 1 **Build** : 
+  - gauntlet scan 
+  - get version(from helm) 
+  - dind > dockerize 
+  - push app-image to nexus-dev 
+  - update helm-value.yml with new image detail
+  - push helm-chart to nexus-dev
+- Stage 2 **Deploy-dev/qa** : 
+  - copy2ECR (primary) > helm (primary)
+  - copy2ECR (secondary) > helm (secondary)
+- Stage 3 **service-now**
+- Stage 4 **Deploy-prod**
+  - gauntlet scan - image (not codebase) - input:imageName+version
+  - **promote to prod (nexus dev >> nexus-prod)**
+  - copy2ECR (primary) > helm (primary)
+  - copy2ECR (secondary) > helm (secondary)
+
+  ```bash
+  #========== 1 get version (from helm chart) ===========
+  
+  helmVersion=$(cat $HELM_CHART_DIR/chart.yaml | grep version:)
+  appVersion=$(cat $HELM_CHART_DIR/chart.yaml | grep version:)
+  # major and minor version using regex in $major $minor
+  
+  #========== 2 dockerize ===========
+  
+  docker login -u <+pipeline.getvalue(nexus_user)> -p  <+pipeline.getvalue(nexus_password)>
+  docker build -t nexus-dev/$image:appVersion --label git_branch= --label=commit_id=
+  docker push  nexus-dev/$image:appVersion
+  
+  #========== 3  update helm (new image) >> push helm-chart to nexus-dev  ===========
+  yq --version
+  helm e -i '.image.name = env(repoAndImageName)' $HELM_CHART_DIR/value.yaml
+  helm e -i '.image.tag = env(version)' $HELM_CHART_DIR/value.yaml
+  
+  helm lint  $HELM_CHART_DIR --value=$HELM_CHART_DIR/value.yaml
+  helm package  $HELM_CHART_DIR
+  helm registry login -u <+pipeline.getvalue(nexus_user)> -p  <+pipeline.getvalue(nexus_password)>
+  helm push  $image:helmVersion nexus-dev
+  
+  #========== 4 copy2ECR  (nexus dev >> ecr) ===========
+  crane version
+  crane auth login -u <+pipeline.getvalue(nexus_user)> -p  <+pipeline.getvalue(nexus_password)>
+  
+  # copy from nexus to ecr 
+  export $(printf "AWS_ACCESS_KEY=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s")
+  $(aws sts assume --role harness-pipleline-role --session-name --query "Credential.[AccesskeyId, SecretAccesskey, SessionToken] --output text")
+  ecr_password=$(aws ecr get-login-password --region)
+  crane auth login -u AWS -p  ecr_password
+  
+  # copy app-image and helm
+  crane cp nexus-prod/$app_image:$app_image $ecr-repo-prod/$app_image:$app_image
+  crane cp nexus-prod/$app_image:$app_image-helm $ecr-repo-prod/$app_image:$app_image-helm
+  
+  #========== 5 Promote to prod (nexus dev >> nexus prod) ===========
+  
+  crane version
+  crane auth login -u <+pipeline.getvalue(nexus_user)> -p  <+pipeline.getvalue(nexus_password)>
+  crane auth login -u <+pipeline.getvalue(nexus_user_prod)> -p  <+pipeline.getvalue(nexus_password_prod)>
+  
+  # copy from nexus to ecr (of Life cycle AWS )
+  export $(printf "AWS_ACCESS_KEY=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s")
+  $(aws sts assume --role harness-pipleline-role --session-name --query "Credential.[AccesskeyId, SecretAccesskey, SessionToken] --output text")
+  ecr_password=$(aws ecr get-login-password --region)
+  crane auth login -u AWS -p  ecr_password
+  
+  # copy app-image : nexus dev >> nexus prod >> ECR
+  crane cp nexus-dev/$app_image:$app_image nexus-prod/$app_image:$app_image 
+  crane cp nexus-prod/$app_image:$app_image $ecr-repo-prod/$app_image:$app_image
+  
+  # copy helm  : nexus dev >> nexus prod >> ECR
+  crane cp nexus-prod/$app_image:$app_image-helm $ecr-repo-prod/$app_image:$app_image-helm
+  crane cp nexus-dev/$app_image:$app_image-helm nexus-prod/$app_image:$app_image-helm 
+  
+  #========== 6. Helm install ===========
+  kubectl version
+  helm version
+  
+  export $(printf "AWS_ACCESS_KEY=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s")
+  $(aws sts assume --role harness-pipleline-role --session-name --query "Credential.[AccesskeyId, SecretAccesskey, SessionToken] --output text")
+  aws ssm get-parameter --region --name "mc/cluster-1/kubeconfig" --query "parameter.Value" --output text > kubeconfig
+  
+  export KUBECONFID="$PWD/kubconfig"
+  kubectl auth can-i create deployment -n ns-1
+  ecr_password=$(aws ecr get-login-password --region)
+  helm pull oci://ecr_repo/$image:$appVersion  --version $helmVersion
+  tar ...  
+  helm upgrade --install $RELEASE_NAME $image:$appVersion --value ./values.yaml -n --wait 300s --atomic
+  ```
+---
+### D.3. F-app :pipelines
+- later
