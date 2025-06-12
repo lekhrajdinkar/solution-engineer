@@ -15,7 +15,7 @@
         - ...
         - ...
 --- 
-## B. project 1 - app-outbound-api
+## B. project 1 - app-outbound-api :green_circle:
 ### B.1. pre-work (plateform team) :yellow_circle:
 #### 1 setup : secrets
 - **aws**
@@ -85,7 +85,6 @@
   - save : inline / gitrepo
 
 #### 3 services :x:
-
 #### 4 environment :x:
 - **env-group**
   - oz-dev
@@ -94,8 +93,8 @@
     - prod\
 - created but not used/referenced in pipeline. ??    
 ---
-## D. project 2 - ccgg :circle_yellow:
-### D.0 platform team shared templates
+## D. project 2 - ccgg :green_circle:
+### D.0. platform team shared templates
 #### template : gauntlet-scan
 - input: image-container-registry + image(tf,k8s,aws)
 - env var: **git-branch, atm, env_gate (oz_dev)**
@@ -103,7 +102,7 @@
 - input: CRQ no
 
 ### D.1. M-app :pipelines
-#### 1. :parking: iac-terraform-pipeline ( input::component - in, out, kafka, engine)
+#### :parking: 1. iac-terraform-pipeline ( input::component - in, out, kafka, engine)
 - stage1
   - gauntlet scan
   - bash :: **TRF_PLAN**
@@ -133,7 +132,7 @@ terrafom init
 terrafom plan -var-file ./env/${ENV}.tfvars
 ```
 
-#### 2. :parking: interface-pipeline-dev/qa/prod (3 diff pipeline)
+#### :parking: 2. interface-pipeline-dev/qa/prod (3 diff pipeline)
 - stage 1 : **BUILD**
   - gauntlet scan
   - get version (from branch name)
@@ -142,7 +141,7 @@ terrafom plan -var-file ./env/${ENV}.tfvars
     - aws connector (aws secret key from broadAccessRole)
     - aws account id + region
     - image name
-    - codebase, already present
+    - codebase, already present in pipeline
 
 - stage 2 (only for prod pipeline)  : **servicenow**
 - stage 3  : **DEPLOY**

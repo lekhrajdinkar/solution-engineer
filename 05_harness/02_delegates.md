@@ -1,8 +1,8 @@
 ## harness delegate
 ![img_1.png](img_1.png)
 ## intro
--  a Delegate is a **lightweight**, secure **worker process** that runs within our infrastructure 
-  - Kubernetes cluster **
+- **lightweight**, secure **worker process** that runs within our infrastructure
+  - Kubernetes cluster
   - VM
 - execute tasks on behalf of the Harness Platform.
 - It acts as a communication **bridge** between `Harness SaaS` and `our environment`
