@@ -116,22 +116,10 @@
 ---
 ### D.5 admin user (automatic created)
 - Note: users === outside k8s user / federated === represent aws `IAM user/role`
-- admin-user (role-1) auto created
-- user-2 (eks-cluster-role-1-for-federated-user) 
+- **admin-user** (role-1) auto created
+- **user-2** (eks-cluster-role-1-for-federated-user) 
   - created role : https://us-east-1.console.aws.amazon.com/iam/home?region=us-west-2#/roles/details/eks-cluster-role-1-for-federated-user?section=permissions
-  - **kubectl edit configmap aws-auth -n kube-system**
-- **Authentication flow** :point_left: :point_left:
-```txt
-- aws eks get-token
-- sts:GetCallerIdentity with your IAM credentials (e.g., from ~/.aws/credentials or an IAM role).
-- AWS STS returns a presigned **URL** containing - user ID, account ID, roleArn
-  - kubectl cli, converts to -->  k8s-aws-v1.<base64-encoded-sts-**url**>
-  - k8s-aws-v1.aHR0cHM6Ly9zdHMuYW1hem9uYXdzLmNvbS8...
-- send this token to the EKS cluster’s API server with Authorization header  <<<<
-  - API server decodes the token to extract the STS presigned URL
-  - forwards the URL to **AWS IAM Authenticator**
-  - The authenticator checks the **aws-auth** ConfigMap in the kube-system namespace
-```
+  - kubectl edit configmap aws-auth -n kube-system
 ```
 aws-auth: (kube-system namespace)
 ========
@@ -165,6 +153,18 @@ users:
 ```
 ![img.png](../99_img/02/img.png)
 
+- **Authentication flow** :point_left: :point_left:
+```txt
+- aws eks get-token
+- sts:GetCallerIdentity with your IAM credentials (e.g., from ~/.aws/credentials or an IAM role).
+- AWS STS returns a presigned **URL** containing - user ID, account ID, roleArn
+  - kubectl cli, converts to -->  k8s-aws-v1.<base64-encoded-sts-**url**>
+  - k8s-aws-v1.aHR0cHM6Ly9zdHMuYW1hem9uYXdzLmNvbS8...
+- send this token to the EKS cluster’s API server with Authorization header  <<<<
+  - API server decodes the token to extract the STS presigned URL
+  - forwards the URL to **AWS IAM Authenticator**
+  - The authenticator checks the **aws-auth** ConfigMap in the kube-system namespace
+```
 ---
 ### D.6 Create :: Nodegroup
 - **compute** tab 

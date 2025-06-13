@@ -36,8 +36,20 @@ spec:
     secretName: app-backend-release-dev4-tls-cert
 ```
 - **SSL setup**
-  - option-1 : ingress controller + tls **
+  - option-1 : ingress controller + **tls**
   - option-2 : ALB-controller + ACM
-- **ingress scenario** : https://chatgpt.com/c/684a9edb-fe24-800d-94b0-bb0f7a89cb3e
-  - App1.ui.org.com → service.ui (ClusterIP)
-  - App1.api.org.com → service.api (ClusterIP)
+  
+- **ingress scenario-1** :
+    - App1.ui.org.com → service.ui (ClusterIP)
+    - App1.api.org.com → service.api (ClusterIP)
+    - R53: Cname
+    ```
+    Subdomain	      Type	Target
+    app1.ui.org.com	  A	    Ingress Controller's Load Balancer hostname <<
+    app1.api.org.com  A	    Ingress Controller's Load Balancer hostname >>
+    ```
+- **ingress scenario-2** :
+  - App1.ui.org.com → service.1 (ClusterIP)
+  - App1.ui.org.com → service.2 (ClusterIP)
+  - App1.ui.org.com would go service1/2
+  - ans: reolve by age. so service1 (since older)
