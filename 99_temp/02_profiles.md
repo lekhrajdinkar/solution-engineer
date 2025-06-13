@@ -1,5 +1,5 @@
 # 2024
-- **Solutions Engineer II**
+## 1 Solutions Engineer II**
 - https://capgroup.wd1.myworkdayjobs.com/en-US/capitalgroupcareers/details/Software-Development-Engineer_JR3404?source=CGCareerSite&jobFamilyGroup=d003e6d28e091011fe8da2e495870000
 - SQL and relational databases (especially PostgreSQL). **
   - Design and optimize SQL databases.
@@ -38,6 +38,7 @@
 ## 3 Senior Software Engineer/ Solutions Engineer IV :point_left
 - https://capgroup.wd1.myworkdayjobs.com/en-US/capitalgroupcareers/jobTasks/completed/application :x: withdrawn
 - https://capgroup.wd1.myworkdayjobs.com/en-US/capitalgroupcareers/job/Solutions-Engineer-IV_JR4532 SE4 again submit from ld@us
+- [lekhraj Dinkar-sse-se4.pdf](lekhraj%20Dinkar-sse-se4.pdf)
 ```
 CSS HTML , Relational Database Management System (RDBMS) , kafka confluent
 Angular, Docker, RabbitMQ, OAuth, Kubernetes , HELM Charts, RESTful APIs Microservices Architecture
