@@ -1,4 +1,5 @@
-## 1. FSR :point_left:
+## 1. deplyment folder :point_left:
+- manifest yaml :: [spring_app_v2](../../deployment/manifest/spring_app_v2)
 - [10_podDisruptionBudget.yaml](../../deployment/manifest/spring_app_v2/more/10_podDisruptionBudget.yaml)
 - [09_HPA.yaml](../../deployment/manifest/spring_app_v2/more/09_HPA.yaml)
 - [08_external_secret.md](99_CG_Ext-secret-2)
@@ -8,8 +9,8 @@
   - [07_annotation-sa.md](99_CG_annotation-sa)
 
 ---
+## 2. Commnds
 ```
-
 aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-id-from-output" --region us-west-2
 aws ec2 describe-vpcs --vpc-ids vpc-id-from-output --region us-west-2
 aws eks list-fargate-profiles --cluster-name your-cluster-name --region us-west-2
@@ -29,7 +30,8 @@ aws eks describe-update --name maps-outbound-us-west-2-dev2-eks-fargate-cluster 
 kubectl get configmap aws-logging -n kube-system
 ```
 ---
-## 2. ECS vs EKS
+## 3. Comparison :: ECS vs EKS
+ - [02_Containers_ECS.md](../../01_aws/01_compute/02_Containers_ECS.md) vs [02_Kubernetes_EKS.md](../../01_aws/01_compute/02_Kubernetes_EKS.md)
 - `Clusters`
     - logical grouping of tasks or services.
     - Equivalent to `Cluster in Kubernetes`
