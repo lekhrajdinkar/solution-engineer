@@ -1,4 +1,4 @@
-# 1. FSR :point_left:
+## 1. FSR :point_left:
 - [10_podDisruptionBudget.yaml](../../deployment/manifest/spring_app_v2/more/10_podDisruptionBudget.yaml)
 - [09_HPA.yaml](../../deployment/manifest/spring_app_v2/more/09_HPA.yaml)
 - [08_external_secret.md](99_CG_Ext-secret-2)
@@ -6,7 +6,6 @@
   - [07_annotation-ingress.md](99_CG_annotation-ingress)
   - [07_annotation-Pod.md](99_CG_annotation-Pod)
   - [07_annotation-sa.md](99_CG_annotation-sa)
----  
 
 ---
 ```
@@ -30,7 +29,7 @@ aws eks describe-update --name maps-outbound-us-west-2-dev2-eks-fargate-cluster 
 kubectl get configmap aws-logging -n kube-system
 ```
 ---
-## ECS vs EKS
+## 2. ECS vs EKS
 - `Clusters`
     - logical grouping of tasks or services.
     - Equivalent to `Cluster in Kubernetes`
@@ -61,7 +60,7 @@ kubectl get configmap aws-logging -n kube-system
     - A serverless compute engine for containers that eliminates the need to manage EC2 instances.
 
 ---
-### Okta (ignore)
+## 3. Okta (ignore)
   - https://dev-16206041-admin.okta.com/
   - https://dev-16206041.okta.com/
   - https://dev-16206041-admin.okta.com/admin/app/oidc_client/client/0oal3d72smuSHBhwF5d7#tab-general
