@@ -1,5 +1,5 @@
 # references
-- starbucks Q: https://chat.deepseek.com/a/chat/s/da139fc5-e06f-42e3-8419-a2c17a94a9cf
+- starbucks Q: 
 - OIDC provider: with Okta `Dont use this`  <<<
     - https://dev-16206041-admin.okta.com/
     - https://dev-16206041.okta.com/
@@ -13,11 +13,11 @@
 # Additional :point_left:
 - [10_podDisruptionBudget.yaml](../../deployment/manifest/spring_app_v2/more/10_podDisruptionBudget.yaml)
 - [09_HPA.yaml](../../deployment/manifest/spring_app_v2/more/09_HPA.yaml)
-- [08_external_secret.md](08_external_secret.md)
+- [08_external_secret.md](99_CG_Ext-secret-2)
 - **annotation**:
-  - [07_annotation-ingress.md](07_annotation-ingress.md)
-  - [07_annotation-Pod.md](07_annotation-Pod.md)
-  - [07_annotation-sa.md](07_annotation-sa.md)
+  - [07_annotation-ingress.md](99_CG_annotation-ingress)
+  - [07_annotation-Pod.md](99_CG_annotation-Pod)
+  - [07_annotation-sa.md](99_CG_annotation-sa)
 ---  
 # chatgpt:
 - EKS 04 - Authentication + IRSA  : https://chatgpt.com/c/67342f43-7220-800d-8831-68fe91ea7a87
@@ -52,5 +52,33 @@ aws eks describe-update --name maps-outbound-us-west-2-dev2-eks-fargate-cluster 
 
 kubectl get configmap aws-logging -n kube-system
 ```
+---
+## ECS vs EKS
+- `Clusters`
+    - logical grouping of tasks or services.
+    - Equivalent to `Cluster in Kubernetes`
 
--https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html
+- `Tasks` === pod
+    - A single running copy of a container defined by a task definition.
+
+- `Task Definitions` == pod
+    - Blueprints for your application that specify the container images, CPU, memory, and other settings.
+
+- `Services`  === Replica Set
+    - Allows you to run and maintain a specified number of instances of a task definition simultaneously.
+
+- `Container Instances` == work Nodes
+    - Amazon EC2 instances registered to your cluster and used to run tasks.
+    - Equivalent in Kubernetes: `Nodes`
+
+- `Elastic Load Balancing (ELB)`   === Service (specifically, LoadBalancer type)
+    - Distributes incoming application traffic across multiple targets.
+
+- `Auto Scaling` === Horizontal Pod Autoscaler
+    - Adjusts the desired count of tasks in a service automatically based on criteria.
+
+- `ECS Agent` === Kubelet
+    - Software that runs on each container instance and communicates with ECS to start and stop tasks.
+
+- `ECS Fargate`
+    - A serverless compute engine for containers that eliminates the need to manage EC2 instances.

@@ -13,7 +13,7 @@
 ---
 ## AWS
 ### EKS
-- [00_EKS_reference.md](04_EKS/00_EKS_reference.md)
+- [00_EKS_reference.md](04_EKS/00_EKS_start)
 - workshop : https://catalog.us-east-1.prod.workshops.aws/workshops/afee4679-89af-408b-8108-44f5b1065cc7/en-US/010-introduction/basics/concepts-objects
 - eksctl: https://github.com/eksctl-io/eksctl/tree/main/examples
 - Terraform Module : [eks](../04_terraform/project/aws-config-maps/03_outbound/modules/eks)

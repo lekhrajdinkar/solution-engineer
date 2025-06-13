@@ -1,8 +1,8 @@
-## Nodegroup
+# A. Nodegroup
 - collection of nodes (virtual machines) within a cluster that share the same configuration. 
 - Node groups make it easier to manage and scale the infrastructure that runs your Kubernetes workloads.
 
-## Key Points 
+## 1 Key Points 
 -` Homogeneous Configuration`: 
   - All nodes within a node group have the same instance type, disk size, AMI (Amazon Machine Image), and other configurations.
   - This ensures consistency in the resources available to the workloads scheduled on these nodes.
@@ -15,9 +15,7 @@
   - Use different instance types in separate node groups to optimize costs based on workload requirements. 
 - `High Availability`: 
   - Spread node groups **across multiple availability zones** to ensure high availability and fault tolerance.
-  
 - In short, providing flexibility, scalability, and efficiency in handling diverse workload requirements.
-
 
 ```
 aws eks create-nodegroup \
@@ -28,6 +26,53 @@ aws eks create-nodegroup \
 --scaling-config minSize=1,maxSize=10,desiredSize=2 \
 --ami-type AL2_x86_64 \
 --node-role arn:aws:iam::123456789012:role/EKSNodeInstanceRole
+```
+
+---
+# B. Fargate profile
+## 1 intro
+- input:
+  - namespace 
+  - podExecutionRoleArn
+
+## 2 create (3 ways)
+```yaml
+# =========CRD============
+apiVersion: eks.amazonaws.com/v1
+kind: FargateProfile
+metadata:
+  name: dev-fargate-profile
+spec:
+  clusterName: your-eks-cluster-name
+  podExecutionRoleArn: arn:aws:iam::123456789012:role/your-pod-execution-role
+  selectors:
+    - namespace: dev-ns
+```
+```bash
+# ==========aws cli===========
+aws eks create-fargate-profile \
+  --cluster-name your-eks-cluster-name \
+  --fargate-profile-name dev-fargate-profile \
+  --namespace dev-ns \
+  --pod-execution-role-arn arn:aws:iam::123456789012:role/your-pod-execution-role
+```
+```terraform
+# ==========trf===========
+resource "aws_eks_fargate_profile" "eks_fargate_profile" {
+  cluster_name = aws_eks_cluster.eks_cluster.name
+  fargate_profile_name = "${local.prefix}-fargate-profile"
+  pod_execution_role_arn = aws_iam_role.eks_pod_exec_role.arn
+
+  subnet_ids = aws_subnet.eks_private_subnet[*].id
+
+  selector {
+    namespace = var.namespace
+  }
+  depends_on = [
+    aws_eks_cluster.eks_cluster,
+    aws_iam_role.eks_pod_exec_role
+  ]
+}
 ```
 
 

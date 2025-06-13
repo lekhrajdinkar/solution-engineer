@@ -35,6 +35,9 @@ spec:
     - backend-dew4.app-1.msi-dev.lekhraj.com
     secretName: app-backend-release-dev4-tls-cert
 ```
-- Side Note:
+- **SSL setup**
   - option-1 : ingress controller + tls **
   - option-2 : ALB-controller + ACM
+- **ingress scenario** : https://chatgpt.com/c/684a9edb-fe24-800d-94b0-bb0f7a89cb3e
+  - App1.ui.org.com → service.ui (ClusterIP)
+  - App1.api.org.com → service.api (ClusterIP)
