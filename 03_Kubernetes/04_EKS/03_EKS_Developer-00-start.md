@@ -1,7 +1,19 @@
-## 1. deplyment folder :point_left:
+## 1. deployment folder :point_left:
 - manifest yaml :: [spring_app_v2](../../deployment/manifest/spring_app_v2)
 - [10_podDisruptionBudget.yaml](../../deployment/manifest/spring_app_v2/more/10_podDisruptionBudget.yaml)
-- [09_HPA.yaml](../../deployment/manifest/spring_app_v2/more/09_HPA.yaml)
+- [09_HPA.yaml](../../deployment/manifest/spring_app_v2/more/09_HPA.yaml) vs **Cluster Autoscaler**
+  - **deployment** : deployment-1
+  - **metric (single / mutli)** : 
+    - cpu and memory 
+    - custom metric 
+    - high traffic
+  - **behaviour** : policy - up /down
+    - stabilization window
+    - no/% of pod up/down, every x seconds
+  - must see: https://chat.deepseek.com/a/chat/s/00db1638-b5bc-4a70-a585-4a487e210a63 :point_left:
+    - scenarios:
+      - configure HPA for a stateful application
+      - mplement a "warm pool" for sudden traffic spike
 - [08_external_secret.md](99_CG_Ext-secret-2)
 - **annotation**:
   - [07_annotation-ingress.md](99_CG_annotation-ingress)

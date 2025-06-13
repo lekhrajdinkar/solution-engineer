@@ -29,8 +29,6 @@
 - AWS experience preferred.
 - You have experience working with CI/CD tools
 
-
-
 ## 2 Solutions Engineer III june 
 - https://capgroup.wd1.myworkdayjobs.com/en-US/capitalgroupcareers/job/Software-Engineer--Solutions-Engineer-III-_JR4763
 - [lekhraj Dinkar-SE-3.pdf](lekhraj%20Dinkar-SE-3.pdf)
