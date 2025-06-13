@@ -1,4 +1,4 @@
-## create :: eks-user (non-admin)
+## A. create :: eks-user (non-admin)
 - eg: user-app( broad-access-role )
 - same as admin. but remove this group `system:masters`
 - **RBAC** 
@@ -46,13 +46,16 @@ roleRef:
   
 ```
 ---
-# C  create new service Account
+## B. create :: service Account
 - create eks object yaml, inside ns.
 - for permission to k8s-resource : `role and role-binding`
 - for permission to aws-resource : `IRSA`
   - **annotate** service account with `aws iam role`.
-  - Pods assuming IAM roles via serviceAccount(annoated role-1)
-
+  - Pods assuming IAM roles via serviceAccount(annotated role-1)
+- fact : also attaching role on fargate-role:
+  - pulling image
+  - eni
+  - ...
 ---
 
 ![Untitled Diagram.drawio.png](Untitled%20Diagram.drawio.png)

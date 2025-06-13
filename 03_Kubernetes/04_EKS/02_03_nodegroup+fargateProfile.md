@@ -27,10 +27,15 @@ aws eks create-nodegroup \
 # B. Fargate profile
 ## 1 intro
 - input:
-  - namespace 
-  - podExecutionRoleArn ?
+  - namespace + additional label 
+  - podExecutionRoleArn : role-1 (used by pods) - to Pull container images from ECR,Create ENIs, etc
+  - subnets
+- Also, SA annotated with role-2, mounted on pod.
+  - Used by the Pod for AWS SDK/API calls
+  - for accessing AWS services (like S3, DynamoDB, etc.)
+- https://chatgpt.com/c/684c5acc-4de4-800d-9b8b-2bb44031a6e5
 
-## 2 create (3 ways)
+## 2 create with eks eksCtl, CRD, trf
 ```yaml
 # =========CRD============
 apiVersion: eks.amazonaws.com/v1
@@ -50,6 +55,7 @@ aws eks create-fargate-profile \
   --fargate-profile-name profile-1 \
   --namespace dev-ns \
   --pod-execution-role-arn arn:aws:iam::123456789012:role/your-pod-execution-role
+  --lable env=dev-pod
 ```
 ```terraform
 # ==========trf===========

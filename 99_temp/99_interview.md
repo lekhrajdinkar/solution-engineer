@@ -25,8 +25,10 @@
 
 ---
 # D. AWS
-## DR - https://chat.deepseek.com/a/chat/s/6ae96d81-254a-4034-876a-5c367b97e66f
-## ECS / EKS : https://chatgpt.com/c/684b7e2d-0224-800d-a691-d2d1be4a7233
+## DR 
+- https://chat.deepseek.com/a/chat/s/6ae96d81-254a-4034-876a-5c367b97e66f
+## ECS / EKS 
+- https://chatgpt.com/c/684b7e2d-0224-800d-a691-d2d1be4a7233
 ## Lambda
 ## S3
 ## SQS
