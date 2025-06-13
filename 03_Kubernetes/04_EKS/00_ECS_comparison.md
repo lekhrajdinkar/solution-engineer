@@ -1,37 +1,30 @@
-## ECS components
-
+## ECS vs EKS
 - `Clusters`
     - logical grouping of tasks or services.
     - Equivalent to `Cluster in Kubernetes`
 
-- `Tasks`
+- `Tasks` === pod
     - A single running copy of a container defined by a task definition.
-    - Equivalent to `Kubernetes Pod`
 
-- `Task Definitions`
+- `Task Definitions` == pod
     - Blueprints for your application that specify the container images, CPU, memory, and other settings.
-    - Equivalent in Kubernetes: `Pod Specification (PodSpec)`
 
-- `Services`
+- `Services`  === Replica Set
     - Allows you to run and maintain a specified number of instances of a task definition simultaneously.
-    - Equivalent in Kubernetes: `Deployment/ReplicaSet`
 
-- `Container Instances`
+- `Container Instances` == work Nodes
   - Amazon EC2 instances registered to your cluster and used to run tasks.
   - Equivalent in Kubernetes: `Nodes`
   
-- `Elastic Load Balancing (ELB)`
+- `Elastic Load Balancing (ELB)`   === Service (specifically, LoadBalancer type)
   - Distributes incoming application traffic across multiple targets.
-  - Equivalent in Kubernetes: `Service (specifically, LoadBalancer type)`
   
-- `Auto Scaling`
+- `Auto Scaling` === Horizontal Pod Autoscaler
   - Adjusts the desired count of tasks in a service automatically based on criteria.
-  - Equivalent in Kubernetes: `Horizontal Pod Autoscaler`
   
-- `ECS Agent`
+- `ECS Agent` === Kubelet
   - Software that runs on each container instance and communicates with ECS to start and stop tasks.
-  - Equivalent in Kubernetes: `Kubelet`
   
-- `ECS Fargat`
+- `ECS Fargate`
   - A serverless compute engine for containers that eliminates the need to manage EC2 instances.
-
+---

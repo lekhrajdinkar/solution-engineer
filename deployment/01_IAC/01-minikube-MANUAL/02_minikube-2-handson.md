@@ -89,6 +89,12 @@ C:\Windows\System32\drivers\etc
 http://hello-world.local/spring/swagger-ui/index.html
 
 
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+  namespace: my-namespace 
+specs:  
   rules:
     - host: hello-world.local
       http:
@@ -100,6 +106,24 @@ http://hello-world.local/spring/swagger-ui/index.html
                 name: spring-app-service
                 port:
                   number: 8080 # Matches the `port` defined in your service
+
+```
+- By default, an `Ingress` resource is **namespace-scoped**, 
+  - meaning you create it inside a specific namespace,
+  - and it only affects routing for services within that namespace.
+  - Ingress cannot route traffic to services in other namespaces
+  - some ingress controllr like, AWS ALB, support cross-namespace routing :point_left:
+- The `Ingress controller` itself (e.g., Nginx, Traefik, Istio) is typically **cluster-scoped**, 
+  - meaning it runs in one namespace 
+  - but can manage Ingress resources across multiple namespaces.
+  
+- scenario:
+```
+host-1 is mentioned in : 
+- ingress object-1 in namespace-1, path /  goes to  service1
+- ingress object-2 in namespace-2, path /  goes to  service2
+
+where traffic will go ?
 
 ```
 
