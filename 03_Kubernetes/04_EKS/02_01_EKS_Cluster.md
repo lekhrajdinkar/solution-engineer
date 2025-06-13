@@ -46,7 +46,8 @@
 - Aws Secrets manager -> externalSecret -> k8s:Secret
 
 ---
-## C. EKS cluster Setup (platform team)
+## D. EKS cluster Setup (platform team) :: terraform/HCL :yellow_circle:
+### options
 - AWS managed service (EKS - **fargate**)
 - AWS managed service (EKS - **ec2 launch type**)
   - Node 
@@ -57,13 +58,12 @@
   - spin up EC2 machine
   - set up VPC
   - software installation manually
----
-## D. create with **terraform/HCL**
-- HCP workspace: https://app.terraform.io/app/lekhrajdinkar-org/workspaces/aws-config-maps-outbound-dev2-eks/runs
-- HCL **configuration** : [eks](..%2F..%2F04_terraform%2Fproject%2Faws-config-maps%2F03_outbound%2Fmodules%2Feks)
-- aws provider using `role-1` (will become admin user)
+ 
+- HCP workspace: https://app.terraform.io/app/lekhrajdinkar-org/workspaces/aws-config-maps-outbound-dev2-eks/runs :point_left:
+- HCL **configuration** : [terraforn config](..%2F..%2F04_terraform%2Fproject%2Faws-config-maps%2F03_outbound%2Fmodules%2Feks)
+- aws provider using `role-1` (will become **admin user**)
   ```
-  === attach ====
+  === attach on role-1 ====
   - AmazonEKSClusterPolicy
   - AmazonEKSWorkerNodePolicy
   - AmazonEKSServicePolicy
