@@ -5,6 +5,7 @@
     - https://conduktor.io/apache-kafka-for-beginners
     - slides : https://learn.conduktor.io/kafka/ :point_left:
 - https://chatgpt.com/c/674a1fef-5634-800d-b445-dfa969b74011
+- ccgg program : https://chatgpt.com/c/68007bd1-4a04-800d-ace4-39873a168454 :point_left:
 ---
 # kafka
 ## A intro
