@@ -1,10 +1,22 @@
-- https://chat.deepseek.com/a/chat/s/1125c5bb-48e4-4aff-9e3e-4720011cfd45 : cluster setup
-- https://chat.deepseek.com/a/chat/s/da139fc5-e06f-42e3-8419-a2c17a94a9cf : cluster setup 2
-- https://chatgpt.com/c/673940a9-d1cc-800d-a117-847107be2e53 : create first user
+## Reference/chatgpt
+- cluster setup 
+  - https://chat.deepseek.com/a/chat/s/1125c5bb-48e4-4aff-9e3e-4720011cfd45  
+  - https://chat.deepseek.com/a/chat/s/da139fc5-e06f-42e3-8419-a2c17a94a9cf 
+- create first user 
+  - https://chatgpt.com/c/673940a9-d1cc-800d-a117-847107be2e53 
+  - https://chatgpt.com/c/67371203-d934-800d-94f1-3c996d9584dd
+- Authentication + IRSA  : https://chatgpt.com/c/67342f43-7220-800d-8831-68fe91ea7a87
+- aws-auth : https://chatgpt.com/c/6734280e-7d48-800d-b410-280da79926fe
+- pipeline
+  - https://chatgpt.com/c/67346f23-ce58-800d-9b35-a0ccf088f920
+  - https://chatgpt.com/c/67352892-e094-800d-a053-9a51c1074097
+  - https://chatgpt.com/c/67358116-3f1c-800d-96c6-c6d447f1b283
+
 ---
 ## A. kubernetes Architecture
 - [03_k8s-architcture+features.md](..%2F00_kickOff%2F03_k8s-architcture%2Bfeatures.md)
 
+---
 ## B EKS cluster
 ### B.1 master node / control panel 
 - kube-apiserver
@@ -17,18 +29,18 @@
   - **splunk agent**
   - ingress-controller / ALB controller (gateway)
   
-### worker node
+### B.2 worker node
 - kubelet
 - kube proxy
 - docker / container-d
 
-### setup network
+### B.3 setup network
 - **awsvpc**
 - none
 - host
 - bridge
 
-### cloud service
+### B.4 cloud service
 - ALB (alb-controller, install with helm)
 - EBS / EFS
 - Aws Secrets manager -> externalSecret -> k8s:Secret
@@ -51,7 +63,7 @@
 - HCL **configuration** : [eks](..%2F..%2F04_terraform%2Fproject%2Faws-config-maps%2F03_outbound%2Fmodules%2Feks)
 - aws provider using `role-1` (will become admin user)
   ```
-  === attach :
+  === attach ====
   - AmazonEKSClusterPolicy
   - AmazonEKSWorkerNodePolicy
   - AmazonEKSServicePolicy
@@ -76,20 +88,18 @@
   - CNI policy
 ---  
 ### D.2 create :: VPC for EKS 
-- create vpc-1 
+- create **vpc-1** 
   - with standard cloudformation template.
-  - of your own
+  - on your own
 ---
 ### D.3 create :: cluster
 - choose cluster type : **public and private**
-- Configure AWS temp credential for `role-1` : getStsToken, gimme-aws-creds(okta)
+- Configure AWS temp credential for **role-1**(become admin): getStsToken, gimme-aws-creds(okta)
 - input :
   - cluster name - cluster-1
-  - cluster-role-1
+  - **cluster-role-1**
   - vpc-1
-  - role-1 : act as admin user 
-    - cluster > ns:kube-sysytem > configMap: `aws-auth` : MapRole ->  role-1 (admin)
-    - later on, can add more role for other users.
+
 ---
 ### D.4 Associate :: OIDC provider
 - Associate **identity provider** (OIDC)  
@@ -126,8 +136,8 @@ aws-auth: (kube-system namespace)
 ========
 ...
 mapRoles: |
-  - rolearn: arn:aws:iam::123456789012:role/aws-role-used-by-admin
-    username: arn:aws:iam::123456789012:role/aws-role-used-by-admin    
+  - rolearn: arn:aws:iam::123456789012:role/role-1
+    username: arn:aws:iam::123456789012:role/role-1    
     groups:
       - system:masters         
 ...
@@ -137,7 +147,7 @@ kubeconfig
 ============
 ...
 users:
-- name: arn:aws:iam::123456789012:role/aws-role-used-by-admin
+- name: arn:aws:iam::123456789012:role/role-1
   user:
     exec:
       apiVersion: client.authentication.k8s.io/v1beta1
@@ -164,9 +174,9 @@ users:
   - instance-type
   - scaling
 - it will  install k8s software needed for **worker node**.
-
 - READY :green_circle:
 
+---
 ### D.7 volumes : EFS
 - **storageClass (CSI) + pvc**
 - integrate 3rd party storage on k8s -EFS

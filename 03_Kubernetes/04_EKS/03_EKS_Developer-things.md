@@ -1,16 +1,4 @@
-# references
-- starbucks Q: 
-- OIDC provider: with Okta `Dont use this`  <<<
-    - https://dev-16206041-admin.okta.com/
-    - https://dev-16206041.okta.com/
-    - eks-cluster-app : https://dev-16206041-admin.okta.com/admin/app/oidc_client/client/0oal3d72smuSHBhwF5d7#tab-general
-        - client_id : 0oal3d72smuSHBhwF5d7
-        - issuer URI :
-            - https://dev-16206041.okta.com/oauth2/default (default)
-            - https://dev-16206041.okta.com/oauth2/ausl3dg4kkpyvEBft5d7
-
----          
-# Additional :point_left:
+# 1. FSR :point_left:
 - [10_podDisruptionBudget.yaml](../../deployment/manifest/spring_app_v2/more/10_podDisruptionBudget.yaml)
 - [09_HPA.yaml](../../deployment/manifest/spring_app_v2/more/09_HPA.yaml)
 - [08_external_secret.md](99_CG_Ext-secret-2)
@@ -19,18 +7,7 @@
   - [07_annotation-Pod.md](99_CG_annotation-Pod)
   - [07_annotation-sa.md](99_CG_annotation-sa)
 ---  
-# chatgpt:
-- EKS 04 - Authentication + IRSA  : https://chatgpt.com/c/67342f43-7220-800d-8831-68fe91ea7a87
-- EKS 02 - OIDC with okta : https://chatgpt.com/c/67341083-2714-800d-b4f6-6b52821c0181 `skip`
-- EKS-03 - `ns:kube-system > configMap:aws-auth` : https://chatgpt.com/c/6734280e-7d48-800d-b410-280da79926fe
-    - access  specific namespace based on iam-role-assumed-by-sa  <<<
-    - eg: sa-1 > assumed role-1 > access ns-1
-- EKS + harness pipeline - `handson`
-  - https://chatgpt.com/c/67346f23-ce58-800d-9b35-a0ccf088f920
-  - https://chatgpt.com/c/67352892-e094-800d-a053-9a51c1074097
-  - https://chatgpt.com/c/67358116-3f1c-800d-96c6-c6d447f1b283
-- setup new user
-  - https://chatgpt.com/c/67371203-d934-800d-94f1-3c996d9584dd
+
 ---
 ```
 
@@ -82,3 +59,13 @@ kubectl get configmap aws-logging -n kube-system
 
 - `ECS Fargate`
     - A serverless compute engine for containers that eliminates the need to manage EC2 instances.
+
+---
+### Okta (ignore)
+  - https://dev-16206041-admin.okta.com/
+  - https://dev-16206041.okta.com/
+  - https://dev-16206041-admin.okta.com/admin/app/oidc_client/client/0oal3d72smuSHBhwF5d7#tab-general
+    - client_id : 0oal3d72smuSHBhwF5d7
+    - issuer URI :
+      - https://dev-16206041.okta.com/oauth2/default (default)
+      - https://dev-16206041.okta.com/oauth2/ausl3dg4kkpyvEBft5d7
