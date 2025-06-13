@@ -58,7 +58,8 @@
   - spin up EC2 machine
   - set up VPC
   - software installation manually
- 
+  
+### artifacts 
 - HCP workspace: https://app.terraform.io/app/lekhrajdinkar-org/workspaces/aws-config-maps-outbound-dev2-eks/runs :point_left:
 - HCL **configuration** : [terraforn config](..%2F..%2F04_terraform%2Fproject%2Faws-config-maps%2F03_outbound%2Fmodules%2Feks)
 - aws provider using `role-1` (will become **admin user**)
