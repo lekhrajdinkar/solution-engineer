@@ -1,16 +1,20 @@
-- **Amazon Aurora `provisioned`** vs **Amazon Aurora `Serverless`**
-
+# Amazon RDS :: Aurora provisioned
+- optimal read : upto ram 1024 GB,  40,000 mbps
+- burstable : 2 Gb ram , 4 cpu unit
+- Memory optimized  -- SSD, eni-speed-high
+- single, multi-az mode
 ---
-# Aurora serverless (cluster DB)
+# Aurora RDS :: serverless v2
 ## A. Intro
 - engine : `Postgres` 3x  and `MySQL` 5x
-- serverless
-- **no capacity planning**
+- serverless v2 improvement : instant auto-scaling with no warm-up time.
+- forwarding writes from secondary to primary region. developer dont nned to write logic.
+- **no capacity planning** : configure min/max **ACU**  (1acu === 2 gb ram , equ n/w and cpu)
 - scale to **128TB** per db instance :point_left:
 - OLTP | rdbms
-- cluster  is **fault tolerance** by design:
+- cluster design, **fault tolerance** by design:
   - cluster spans multiple AZ in region.
-  - 1 primary + read replica(assign priority, can change at any time.)
+  - 1 primary + ( 5-16 )read replica(assign priority, can change at any time.)
   - if no reader, the primary itself re-created.
 
 ## B. DR

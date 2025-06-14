@@ -36,11 +36,12 @@
 - [00_01_DR.md](../10_Architecture/00_01_DR.md)
 ## Aurora
 - https://chatgpt.com/c/684cc581-6c3c-800d-9a2f-dbfbe1e8a353
-- https://chat.deepseek.com/a/chat/s/33d95d37-5578-48b9-b769-1e6c203534de
+- https://chatgpt.com/c/684d3c4c-82d8-800d-92c3-4ca50e71d841 (paper notes)
 ## ECS / EKS 
 - https://chatgpt.com/c/684b7e2d-0224-800d-a691-d2d1be4a7233
 ## Lambda
 ## S3
+- MRAP : https://chat.deepseek.com/a/chat/s/d41490fe-a389-40b5-896d-67e3f9476d8c
 ## SQS
 ## SNS
 ## EventBridge
