@@ -8,7 +8,32 @@
 - SpringBoot
 - Hibernate
 - OAuth
+ 
 
+
+
+
+
+
+
+How can you restrict container access to certain AWS services in ECS/EKS?
+
+How do you enable runtime security and vulnerability scanning for containers?
+
+How do you ensure Kubernetes secrets are protected in EKS?
+
+🔹 Tips, Tricks & Optimization
+How do you optimize cost in ECS and EKS environments?
+
+What are some tools to simplify EKS cluster management?
+
+Any gotchas or limitations you’ve faced using ECS or EKS?
+
+How do you keep your clusters clean and avoid resource waste?
+
+What are some performance tuning tips for EKS workloads?
+
+What tagging strategy would you use for ECS/EKS resources?
 ---
 # C. DevOps
 ## 2.1 docker  :green_circle:
