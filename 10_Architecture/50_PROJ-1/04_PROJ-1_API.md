@@ -10,27 +10,34 @@
 - tg > sg
 
 ---
-# B. EKS
-- [04_EKS](../../03_Kubernetes/04_EKS)add on: 
+# B. EKS [04_EKS](../../03_Kubernetes/04_EKS)
 ## 1 Expose with TLS
-- clusterIP service for app service>pod
-- platform team add : **ingress Controller** ( host-main ) + ALB controller
-  - security group
-  - WAF [08_WAF+FirewallManager.md](../../01_aws/06_Security/08_WAF%2BFirewallManager.md)
-    - rate limit
+- **clusterIP service** for app-service>pod
+- platform team added
+  - **ingress Controller** ( `host-main` ) 
+    - TLS ?
+    - rate limiting ?
     - ...
-- helix AWS : R53
-  - appl1.org.com --> host-main
-  - appl2.org.com --> host-main
-  - ...
-- App-1 AWS
-  - k8s ingress object :: 
-  - host: appl1.org.com
-    - path-1 : service-1
-    - path-2 : service-2
+  - **ALB controller**
+    - security group
+    - WAF [08_WAF+FirewallManager.md](../../01_aws/06_Security/08_WAF%2BFirewallManager.md)
+      - rate limit
+      - ...
+- **Routing**: 
+  - helix AWS : R53
+    - `appl1.org.com` --> `host-main`
+    - appl2.org.com --> host-main
     - ...
-  - tls
-## 2 rate limit
+  - App-1 AWS
+    - k8s ingress object :: 
+    - host: `appl1.org.com`
+      - path-1 : service-1
+      - path-2 : service-2
+      - ...
+    - tls
+      - secret (aws scret > extSecret)
+      - encryption Object while cluster setup
+## 2 Rate limit
 - level-1 : ingress-controller
     - ...
     - ...
