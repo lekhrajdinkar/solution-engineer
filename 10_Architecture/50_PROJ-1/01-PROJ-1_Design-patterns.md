@@ -12,13 +12,13 @@
 
 ## 2. Event-driven microservices using Lambda and EventBridge
 - s3 file drop > l1 > java-api-1 > sqs-fifo > l2 > java-api-2 > event-bus-1 > process-api > sqs-2
-- more patterns on MS : [01_design_pattern-1.md](03_Miscroservice/01_design_pattern-1.md)
+- more patterns on MS : [01_design_pattern-1.md](../03_Miscroservice/01_design_pattern-1.md)
 - engine > SQS
   - l1 > py(add toekn and call jav-api)
   - sns > http (health check api, not secured)
   - eb (pipe)
     - emph SQS > filter pattern > enrich with lambda + transformation > **output**
-    - ![img.png](img/proj-1/01/img.png)
+    - ![img.png](../99_img/proj-1/01/img.png)
     - output: l, kdf, eb, **ecs+taskDefination(spawn task)**  :point_left:, sns, sqs, step function, etc
 
 ## 3. Idempotent consumers

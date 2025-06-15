@@ -27,7 +27,7 @@ Use Case:
 Order processing in e-commerce (inventory, payment, shipping services).
 ```
 - SAGA vs 2PC (2 phase commit)
-![img.png](../img/03/img.png)
+![img.png](../99_img/03/img.png)
 
 ---
 ### 2. Circuit Breaker
