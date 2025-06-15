@@ -43,6 +43,7 @@
 ## Lambda
 ## S3
 - MRAP : https://chat.deepseek.com/a/chat/s/d41490fe-a389-40b5-896d-67e3f9476d8c
+- https://chatgpt.com/c/684e115a-1404-800d-8610-cc6600417f02
 ## SQS
 ## SNS
 ## EventBridge
