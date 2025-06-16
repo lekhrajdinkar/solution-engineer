@@ -1,13 +1,23 @@
 # A. Frontend
 - angular : https://chat.deepseek.com/a/chat/s/cde1169c-f909-4927-a7c7-d3a3b38d5423 :green_circle:
+- typescript: 
 ---
 # B. Backend
+## 1 middleware
 - kafka : https://chat.deepseek.com/a/chat/s/135c1db5-d5c3-4cf3-8172-20d28b51e77d  :green_circle:
-- RMQ
+- RMQ :
+
+## 2 java
 - Java
 - SpringBoot
 - Hibernate
-- OAuth
+
+## 3 OAuth2.0
+
+## 4 py
+
+## sql / rdbms
+- https://chatgpt.com/c/684f8fe5-c36c-800d-b8cd-f9e0b32887ce
 
 ---
 # C. DevOps
@@ -25,6 +35,7 @@
 ## 2.5 terraform / Cloud Formation
 
 ## 2.6 Observability
+- AWS CW
 - DataDog
 - prometheous
 - otel / micrometer
@@ -41,10 +52,20 @@
 - https://chatgpt.com/c/684b7e2d-0224-800d-a691-d2d1be4a7233
 - https://chatgpt.com/share/684dcfe0-a214-800d-9d65-c5e79af9cc75 (public-link)
 
-## 4 networking
+---
+## 4 Networking
 ###  ELB
+- https://chatgpt.com/c/684f8847-c760-800d-903c-d86c1ebdd8f6
+- https://chatgpt.com/share/684f88fe-12d0-800d-aa10-3669a29b5301 (public-link)
 ###  API gateway
-###  VPC + Subnet + R53 + Transient-gateway
+- https://chatgpt.com/c/684f8889-3744-800d-9b8c-97f019931060
+- https://chatgpt.com/share/684f8917-1a9c-800d-8dc9-d3ecd05a0d39 (public link)
+###  VPC + Subnet 
+
+### R53 
+- skip for now
+### Topology : Transient-gateway, s2s, Dx, etc
+- skip for now
 
 ## 5 Lambda :green_circle:
 - https://chatgpt.com/c/684e2c1f-e040-800d-b0a6-48e345a7b9f1
@@ -56,9 +77,10 @@
 - https://chatgpt.com/c/684e7596-67a8-800d-b010-495371801137 sns
 - https://chatgpt.com/c/684e75a3-5c84-800d-8b7a-2be49b76fc83 eb
 
-## 10 IAM
-## 11 KMS
-## 12 AWS org + Identity provider
-## 13 Secret Manager + SSM
+---
+## 8 Security
+## IAM
+## KMS
+## AWS org + Identity provider
+## Secret Manager + SSM
 
-## 14 CloudWatch
