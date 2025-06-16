@@ -54,10 +54,10 @@
 
 ---
 ## 4 Networking
-###  ELB
+###  ELB :green_circle:
 - https://chatgpt.com/c/684f8847-c760-800d-903c-d86c1ebdd8f6
 - https://chatgpt.com/share/684f88fe-12d0-800d-aa10-3669a29b5301 (public-link)
-###  API gateway
+###  API gateway :green_circle:
 - https://chatgpt.com/c/684f8889-3744-800d-9b8c-97f019931060
 - https://chatgpt.com/share/684f8917-1a9c-800d-8dc9-d3ecd05a0d39 (public link)
 ###  VPC + Subnet 
