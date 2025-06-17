@@ -1,5 +1,5 @@
 # Improvement :point_left:
-## A. performance :yellow_circle:
+## A. performance :green_circle:
 ### achieved
 - TACT / COPS
   - legacy  app performance - inner sql, database connection pool
@@ -9,14 +9,16 @@
 - cache static data + refresh api
 
 ---
-## B. monitoring :yellow_circle:
+## B. monitoring :green_circle:
+### achieved
 - built dashboard in angular + s3 URI + s3 metadata on dynamoDB
-- **proposal-1:**
-  - custom metric (label, dimension)
-  - traceability for l,sqs,eb microservice
-  - x-ray, dd(otel)
+### proposal
+- custom metric (label, dimension)
+- traceability for l,sqs,eb microservice
+- x-ray, dd(otel)
+
 ---
-## C. business :yellow_circle:
+## C. business :green_circle:
 ### achieved
 - SWIFT - driver program
 - ETL driver program : flask + unicorn
@@ -25,7 +27,7 @@
 ### proposal
 
 ---
-## D. AWS :yellow_circle:
+## D. AWS :green_circle:
 ### achieved
 - vpce
 - sqs extended queue 256
@@ -41,6 +43,10 @@
 - lambda cold start fix: remove eni, run outside  vpc, layers, use: py
 - IAM based auth, expired in 15 min, best for B2B internal omm, inside VPC, good usecase
 
+---  
+## E. more
+- infosys training cheat jar
+
 ---
 # learnings :point_left:
 - Devops
@@ -51,8 +57,6 @@
 - kubernetes
   - preparing for CKAD, did training, completing online labs
 
---   
-## E. more
-- infosys training cheat jar
+
 
 
