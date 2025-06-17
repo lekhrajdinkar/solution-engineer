@@ -5,6 +5,7 @@
 - https://chatgpt.com/c/6850fafa-fc18-800d-9a4a-e8a9641cae8c
 
 # manager interview
+- https://chatgpt.com/c/685115cc-eef4-800d-971d-1665c4af2684
 
 # project Achievements
 - [97_achievement+learnings.md](97_achievement%2Blearnings.md)

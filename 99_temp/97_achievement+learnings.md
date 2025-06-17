@@ -18,13 +18,21 @@
 - x-ray, dd(otel)
 
 ---
-## C. business :green_circle:
+## C. core app :green_circle:
 ### achieved
+- ETL - autosys jobs : event driver + scheduled jobs (SLA) + dependency+check (DB base)
 - SWIFT - driver program
 - ETL driver program : flask + unicorn
   - Design
   - poc program.
 ### proposal
+- solution-1 : **autosys**
+  - proposal, Custom CRD (jil : yaml) > spin up k8s::Job + side car pod > push event > kafka
+  - event processing 
+  - custom controller (DemonSet) > read yml > spin up other job
+- solution-2 : **autosys**
+  - s3:file-drop > lambda > webhook::harness pipeline
+- **fsr autosys** :parking:
 
 ---
 ## D. AWS :green_circle:
