@@ -13,11 +13,19 @@
 - Hibernate
 
 ## 3 OAuth2.0
+- authorization flow
+- implicit flow:
 
 ## 4 py
 
-## sql / rdbms
+## 5 sql / rdbms
 - https://chatgpt.com/c/684f8fe5-c36c-800d-b8cd-f9e0b32887ce
+
+## 6 performance
+- caching app level :
+- cache on AWS :
+- sql tuning : 
+- connection pool :not sure
 
 ---
 # C. DevOps
@@ -58,8 +66,10 @@
 - https://chatgpt.com/c/684f8847-c760-800d-903c-d86c1ebdd8f6
 - https://chatgpt.com/share/684f88fe-12d0-800d-aa10-3669a29b5301 (public-link)
 ###  API gateway :green_circle:
-- https://chatgpt.com/c/684f8889-3744-800d-9b8c-97f019931060
+- #1 https://chatgpt.com/c/684f8889-3744-800d-9b8c-97f019931060 , till 30/40 q
 - https://chatgpt.com/share/684f8917-1a9c-800d-8dc9-d3ecd05a0d39 (public link)
+- VTL (velocity template language) : https://chatgpt.com/c/68506cfe-9d68-800d-b0a6-a2471d33e514
+- #2 https://chatgpt.com/c/68508a49-ff44-800d-93db-08808f55ccd7
 ###  VPC + Subnet 
 
 ### R53 
