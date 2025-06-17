@@ -26,27 +26,8 @@
 - idempotent producer.
   - ack=0,1,all
 
-## 4. 
+## 4. observability
 
 ## 5.
 
----
-# B. Issue and fixes
-## list of items
-- vpc endpoint
-- handle concurrency with fifo queue.
-- Extended sqs 256
-- MRAP
-- prepared initial draft of DR.
-- IAM based taken expired in 15 min
-- lambda layer > terraform
-- token refresh lambda
-- SWIFT - driver program
-- ETL driver program : flask + unicorn
-  - Design
-  - poc program.
 
-## proposals
-- x-rays + x-ray sdk
-- archive loc : s3 URI + built angular UI
-- otel + dataDog
