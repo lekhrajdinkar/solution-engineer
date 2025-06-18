@@ -1,0 +1,14 @@
+connector:
+  name: Harness Docker Connector
+  identifier: harnessImage
+  description: Harness internal connector
+  accountIdentifier: e0wDKKO_S46x3M75TWv0iw
+  type: DockerRegistry
+  spec:
+    dockerRegistryUrl: https://index.docker.io/v2/
+    providerType: DockerHub
+    auth:
+      type: Anonymous
+    executeOnDelegate: false
+    proxy: false
+    ignoreTestConnection: false

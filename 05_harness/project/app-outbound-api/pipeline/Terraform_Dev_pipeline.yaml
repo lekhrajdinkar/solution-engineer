@@ -1,0 +1,172 @@
+pipeline:
+  name: Terraform_Dev_pipeline
+  identifier: Terraform_Dev_pipeline
+  projectIdentifier: mapsoutboundapi
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: org.githubrepoconnector
+        build: <+input>
+  stages:
+    - stage:
+        name: tr_plan
+        identifier: tr_plan
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Docker
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: tr_plan
+                  identifier: tr_plan
+                  spec:
+                    shell: Bash
+                    command: |-
+                      terraform -v
+                      TFE_WORKSPACE=${APP_NAME}-${APP_COMPOENET}-${REGION}-S{APP_NAME}-${IAC_COMPONENT}
+
+
+                      echo "TFE workspace     = ${TFE_WORKSPACE}"
+                      echo "TFE_TOKEN         = ${TFE_TOKEN}"
+
+
+                      # TFESync util - set identity credential as workspace variable
+                      # download it > unzip it
+                      # ./tfesysnc -w ${TFE_WORKSPACE}
+                      # ./tfesysnc -w ${TFE_WORKSPACE_ID}
+
+                      # verify
+                      aws get get-caller-identity
+
+                      # create ceredentail file from $TFE_TOKEN
+
+                      # override backend.tf (if needed)
+
+                      terraform init 
+
+                      terraform apply --var-file ..\..\S{app_env}.tfvars --auto-approve
+    - stage:
+        name: tr_plan_approval
+        identifier: tr_plan_approval
+        description: ""
+        type: Approval
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: HarnessApproval
+                  name: tr_plan_approval
+                  identifier: tr_plan_approval
+                  spec:
+                    approvalMessage: Please review the following information and approve the pipeline progression
+                    includePipelineExecutionHistory: true
+                    isAutoRejectEnabled: false
+                    approvers:
+                      userGroups:
+                        - account._account_all_users
+                      minimumCount: 1
+                      disallowPipelineExecutor: false
+                    approverInputs: []
+                  timeout: 1d
+        tags: {}
+    - stage:
+        name: tr_apply
+        identifier: tr_apply
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Windows
+            arch: Arm64
+          runtime:
+            type: Docker
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: tf_apply
+                  identifier: tf_apply
+                  spec:
+                    shell: Bash
+                    command: |-
+                      terraform -v
+                      TFE_WORKSPACE=${app_name}-${app_componet}-${region}-S{app_env}-${iac_component}
+                      TFE_WORKSPACE_ID=""
+
+                      echo "TFE workspace = ${TFE_WORKSPACE}  ( ${TFE_WORKSPACE_ID} )"
+                      echo "$TFE_TOKEN"
+                      echo "$TFE_TOKEN"
+
+                      # TFESync util - set identity credential as workspace variable
+                      # download it > unzip it
+                      # ./tfesysnc -w ${TFE_WORKSPACE}
+                      # ./tfesysnc -w ${TFE_WORKSPACE_ID}
+
+                      # verify
+                      aws get get-caller-identity
+
+                      # create ceredentail file from $TFE_TOKEN
+
+                      # override backend.tf (if needed)
+
+                      terraform init 
+
+                      terraform apply --var-file ..\..\S{app_env}.tfvars --auto-approve
+  variables:
+    - name: TRF_TOKEN
+      type: Secret
+      description: ""
+      required: false
+      value: <+input>
+    - name: TRF_HOST
+      type: String
+      description: ""
+      required: false
+      value: app.terraform.io
+    - name: TRF_WORKSPACE
+      type: String
+      description: ""
+      required: false
+      value: <+input>
+    - name: APP_NAME
+      type: String
+      description: ""
+      required: false
+      value: maps
+    - name: APP_COMPONENT
+      type: String
+      description: ""
+      required: false
+      value: outbound
+    - name: APP_ENV
+      type: String
+      description: ""
+      required: false
+      value: dev2
+    - name: REGION
+      type: String
+      description: ""
+      required: false
+      value: <+input>
+    - name: IAC_COMPONENT
+      type: String
+      description: ""
+      required: false
+      value: <+input>
+    - name: GIT_BRANCH
+      type: String
+      description: ""
+      required: false
+      value: <+input>

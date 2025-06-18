@@ -1,0 +1,2202 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Technical Documentation">
+      
+      
+        <meta name="author" content="lekhraj Dinkar">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Cloud Formation (IAC) - lekhraj-Dinkar-Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cloud-formation-iac" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="lekhraj-Dinkar-Docs" class="md-header__button md-logo" aria-label="lekhraj-Dinkar-Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            lekhraj-Dinkar-Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cloud Formation (IAC)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lekhrajdinkar/02-backend-java-spring" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="lekhraj-Dinkar-Docs" class="md-nav__button md-logo" aria-label="lekhraj-Dinkar-Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    lekhraj-Dinkar-Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lekhrajdinkar/02-backend-java-spring" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Frontend
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Frontend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Frontend/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Springboot
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Springboot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/00_others/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Others
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spring Core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Spring Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/01_Spring_Core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Core Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/02_Spring_bean_lifeCycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Bean Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/03_AOP_concept/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AOP Concept
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/03_point-cut-examples.txt" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Point-cut Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/04_spring_properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Spring Boot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/01_SB_kickoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kickoff
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/02_SB_AutoConfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Auto Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/03_SB_starter_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Starter & Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Web
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/00%20WEB_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/00_general_web_task/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    General Web Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/01_servlet_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Servlet 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/02_spring_MVC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring MVC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/03_spring_boot_stater_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot Starter Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/04_REST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/05_Jackson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jackson
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/06_swagger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Swagger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/07_error_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Error Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/08_gRPC%2Bwebflux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    gRPC & Webflux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/09_webflux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webflux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Layer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Data Layer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/00_common_task/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/01_JPA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JPA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/02_presistence-context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Persistence Context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/03_ACID%2BLocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACID & Locks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-1-anno%2Bconverter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Annotations & Converter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-2-identifier%2Bvalidator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Identifier & Validator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-3-query/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Query
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-1-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-3-txn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Transactions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/er-diagram.png" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ER Diagram
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/00_OAuth_2.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OAuth 2.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/01_sb-security-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot Security Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/02_Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/03_Authorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/04_REST-secure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. Intro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. Template
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B. Template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. resource
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. resource">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      reference
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#21-custom-resource" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Custom resource
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-delete-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Delete Policy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-parameter-dynamic-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. parameter (dynamic input)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-mapping-mapstringobject" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. mapping : map(string,object)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-output-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. output (optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-conditional" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Conditional
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-intrinsic-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Intrinsic function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-input-from-ssm-secretmanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. input from SSM + secretManager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#99-more" class="md-nav__link">
+    <span class="md-ellipsis">
+      99. more
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="99. more">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stackupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      stackUpdate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changeset" class="md-nav__link">
+    <span class="md-ellipsis">
+      changeset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stackset" class="md-nav__link">
+    <span class="md-ellipsis">
+      stackSet
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      C. Security
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C. Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-iam-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. IAM role
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-stack-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. stack policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-capability" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. CAPABILITY
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. CAPABILITY">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-create-iam-role-from-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Create iam role from stack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-include-nested-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Include nested-stack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-termination-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. termination protection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#d-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      D. Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="D. Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ec2-example-with-short-desc" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. EC2 example with short desc.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cli
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cli">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cfn-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      cfn-init
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="cloud-formation-iac">Cloud Formation (IAC)<a class="headerlink" href="#cloud-formation-iac" title="Permanent link">&para;</a></h1>
+<h2 id="a-intro">A. Intro<a class="headerlink" href="#a-intro" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>declarative way</strong> of provisioning AWS Infrastructure</li>
+<li><strong>IAC</strong> </li>
+<li><strong>stack</strong>-1 (for vpc)<ul>
+<li><strong>reource</strong>-1 (<strong>tags</strong> - stackid(arn), logicalId, physicalId,etc)</li>
+<li>rsource-2</li>
+<li>...</li>
+<li>resolves order / dependency</li>
+<li><img alt="img_2.png" src="../../99_img/dva/cf/01/img_2.png" /></li>
+</ul>
+</li>
+<li>stack-2 (app stack)</li>
+<li>...</li>
+<li>versioned in git</li>
+<li><strong>app composer</strong> to visualize</li>
+<li><strong>cost</strong></li>
+<li>Each resources within the stack is tagged with an identifier so you can easily see how much a stack costs you</li>
+<li>estimate the costs of your resources</li>
+<li>schedule to destroy and re-create, to save cost.</li>
+</ul>
+<p><img alt="img.png" src="../../99_img/dva/cf/01/img.png" /></p>
+<hr />
+<h2 id="b-template">B. Template<a class="headerlink" href="#b-template" title="Permanent link">&para;</a></h2>
+<h3 id="1-overview">1. overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="err">•</span><span class="w"> </span><span class="err">AWSTemplateFormatVersion</span><span class="w">  </span><span class="err">–</span><span class="w"> </span><span class="err">identifies</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">capabilities</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">template</span><span class="w"> </span><span class="err">“</span><span class="mf">2010-09-09</span><span class="err">”</span>
+<span class="err">•</span><span class="w"> </span><span class="err">Description</span><span class="w">               </span><span class="err">–</span><span class="w"> </span><span class="err">comments</span><span class="w"> </span><span class="err">about</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">template</span>
+<span class="err">•</span><span class="w"> </span><span class="err">Resources</span><span class="w"> </span><span class="err">(MANDATORY)</span><span class="w">     </span><span class="err">–</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">AWS</span><span class="w"> </span><span class="err">resources</span><span class="w"> </span><span class="err">declared</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">template</span>
+<span class="err">•</span><span class="w"> </span><span class="err">Parameters</span><span class="w">                </span><span class="err">–</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">dynamic</span><span class="w"> </span><span class="err">inputs</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">template</span>
+<span class="err">•</span><span class="w"> </span><span class="err">Mappings</span><span class="w">                  </span><span class="err">–</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">static</span><span class="w"> </span><span class="err">variables</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">template</span>
+<span class="err">•</span><span class="w"> </span><span class="err">Outputs</span><span class="w">                   </span><span class="err">–</span><span class="w"> </span><span class="err">references</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">what</span><span class="w"> </span><span class="err">has</span><span class="w"> </span><span class="err">been</span><span class="w"> </span><span class="err">created</span>
+<span class="err">•</span><span class="w"> </span><span class="err">Conditionals</span><span class="w">              </span><span class="err">–</span><span class="w"> </span><span class="err">list</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">conditions</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">perform</span><span class="w"> </span><span class="err">resource</span><span class="w"> </span><span class="err">creation</span>
+</code></pre></div>
+<h3 id="2-resource">2. resource<a class="headerlink" href="#2-resource" title="Permanent link">&para;</a></h3>
+<h4 id="reference">reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h4>
+<ul>
+<li>check : https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+<li>700+ resource with example and doc.</li>
+<li>will use CDK anyway.</li>
+</ul>
+<h4 id="21-custom-resource">2.1 Custom resource <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /><a class="headerlink" href="#21-custom-resource" title="Permanent link">&para;</a></h4>
+<ul>
+<li>certain resources not support</li>
+<li>use <strong><code>CF custom resource</code></strong> <ul>
+<li>backed by <strong>lambda</strong>  - serviceToken (arm od lambda)</li>
+<li><img alt="img_1.png" src="../../99_img/dva/cf/02/img_1.png" /></li>
+<li><strong>usecase</strong>-1: empty s3 bucket before delete.</li>
+<li><img alt="img_2.png" src="../../99_img/dva/cf/02/img_2.png" /></li>
+</ul>
+</li>
+</ul>
+<h4 id="22-delete-policy">2.2 Delete Policy<a class="headerlink" href="#22-delete-policy" title="Permanent link">&para;</a></h4>
+<ul>
+<li>resource-1<ul>
+<li><strong>DeletePolicy=<code>Delete</code></strong> (default)<ul>
+<li>for s3, bucket must be empty <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+</ul>
+</li>
+<li><strong>DeletePolicy=<code>Retain</code></strong></li>
+<li><strong>DeletePolicy=<code>Snapshot</code></strong><ul>
+<li>for EBS volume</li>
+<li>databases :<ul>
+<li>RDS</li>
+<li>DocumnetDB</li>
+<li>ElastiCache</li>
+<li>Neptune</li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="3-parameter-dynamic-input">3. parameter (dynamic input)<a class="headerlink" href="#3-parameter-dynamic-input" title="Permanent link">&para;</a></h3>
+<ul>
+<li><img alt="img_3.png" src="../../99_img/dva/cf/01/img_3.png" /></li>
+<li>refer/use them</li>
+<li><strong>!Ref</strong> parameter1</li>
+<li><strong>Fn::Ref</strong> parameter1, or resource1</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="c1"># -- parameter --</span>
+<span class="err">-</span><span class="w"> </span><span class="err">Type</span>
+<span class="w">    </span><span class="err">•</span><span class="w"> </span><span class="err">String</span><span class="w"> </span><span class="err">•</span><span class="w"> </span><span class="err">Number</span><span class="w"> </span><span class="err">•</span><span class="w"> </span><span class="err">CommaDelimitedList</span>
+<span class="w">    </span><span class="err">•</span><span class="w"> </span><span class="err">List&lt;Number&gt;</span>
+<span class="w">    </span><span class="err">•</span><span class="w"> </span><span class="err">AWS-Specific</span><span class="w"> </span><span class="err">Parameter</span><span class="w"> </span><span class="err">+</span><span class="w"> </span><span class="err">List&lt;AWS-Specific</span><span class="w"> </span><span class="err">Parameter&gt;</span>
+<span class="w">    </span><span class="err">•</span><span class="w"> </span><span class="err">SSM</span><span class="w"> </span><span class="err">Parameter</span><span class="w"> </span><span class="err">(get</span><span class="w"> </span><span class="err">parameter</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">SSM</span><span class="w"> </span><span class="err">Parameter</span><span class="w"> </span><span class="err">store)</span>
+
+<span class="err">-</span><span class="w"> </span><span class="err">Default</span><span class="w"> </span>
+<span class="err">-</span><span class="w"> </span><span class="err">Description</span>
+
+<span class="err">-</span><span class="w"> </span><span class="err">Constarint</span>
+<span class="w">    </span><span class="err">•</span><span class="w"> </span><span class="err">Min/MaxLength</span>
+<span class="w">    </span><span class="err">•</span><span class="w"> </span><span class="err">Min/MaxValue</span>
+<span class="w">    </span><span class="err">•</span><span class="w"> </span><span class="err">AllowedValues</span><span class="w"> </span><span class="err">(array)</span>
+<span class="w">    </span><span class="err">•</span><span class="w"> </span><span class="err">AllowedPattern</span><span class="w"> </span><span class="err">(regex)</span>
+<span class="w">    </span><span class="err">•</span><span class="w"> </span><span class="err">NoEcho</span><span class="w"> </span><span class="err">(Boolean)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">passowrd</span><span class="w"> </span><span class="err">feild,</span><span class="w"> </span><span class="err">so</span><span class="w"> </span><span class="err">wont</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">logged/dispalyed</span><span class="w"> </span><span class="err">anywhere</span>
+</code></pre></div>
+- <strong>Pseudo parameter</strong>
+<div class="highlight"><pre><span></span><code><span class="err">AWS</span><span class="p">::</span><span class="err">AccountId</span><span class="w"> </span><span class="mf">123456789012</span>
+<span class="err">AWS</span><span class="p">::</span><span class="err">Region</span><span class="w"> </span><span class="err">us-east</span><span class="mf">-1</span>
+<span class="err">AWS</span><span class="p">::</span><span class="err">StackId</span><span class="w"> </span><span class="err">arn</span><span class="p">:</span><span class="err">aws</span><span class="p">:</span><span class="err">cloudformation</span><span class="p">:</span><span class="err">us-east</span><span class="mf">-1</span><span class="p">:</span><span class="mf">123456789012</span><span class="p">:</span><span class="err">stack/MyStack/</span><span class="mf">1</span><span class="err">c</span><span class="mf">2</span><span class="err">fa</span><span class="mf">620-982</span><span class="err">a</span><span class="mf">-11e3</span><span class="err">-aff</span><span class="mf">7-50e2416294</span><span class="err">e</span><span class="mf">0</span>
+<span class="err">AWS</span><span class="p">::</span><span class="err">StackName</span><span class="w"> </span><span class="err">MyStack</span>
+<span class="err">AWS</span><span class="p">::</span><span class="err">NotificationARNs</span><span class="w"> </span><span class="p">[</span><span class="err">arn</span><span class="p">:</span><span class="err">aws</span><span class="p">:</span><span class="err">sns</span><span class="p">:</span><span class="err">us-east</span><span class="mf">-1</span><span class="p">:</span><span class="mf">123456789012</span><span class="p">:</span><span class="err">MyTopic</span><span class="p">]</span>
+<span class="err">AWS</span><span class="p">::</span><span class="err">NoValue</span><span class="w"> </span><span class="err">Doesn’t</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">value</span>
+</code></pre></div></p>
+<hr />
+<h3 id="4-mapping-mapstringobject">4. mapping : map(string,object)<a class="headerlink" href="#4-mapping-mapstringobject" title="Permanent link">&para;</a></h3>
+<ul>
+<li>static variable, fixed hardcoded value</li>
+<li>use/refer</li>
+<li>!FindInMap [ map-1, key, object-attribute-1]</li>
+<li><img alt="img_4.png" src="../../99_img/dva/cf/01/img_4.png" /></li>
+</ul>
+<hr />
+<h3 id="5-output-optional">5. output (optional)<a class="headerlink" href="#5-output-optional" title="Permanent link">&para;</a></h3>
+<ul>
+<li>must be unique in region</li>
+<li><strong>print</strong> for console</li>
+<li>IAC-1 (<strong>collaboration</strong>)</li>
+<li>stack-1(vpc-1) : output <strong>export</strong> <code>vpc-id</code></li>
+<li>stack-2(app-1) : refer <code>vpc-id</code> in this stack</li>
+<li>eg:</li>
+<li><img alt="img_5.png" src="../../99_img/dva/cf/01/img_5.png" /></li>
+<li><img alt="img_6.png" src="../../99_img/dva/cf/01/img_6.png" /></li>
+</ul>
+<hr />
+<h3 id="6-conditional">6. Conditional<a class="headerlink" href="#6-conditional" title="Permanent link">&para;</a></h3>
+<ul>
+<li>conditionally create resource. </li>
+<li>eg based on env type.
+<div class="highlight"><pre><span></span><code><span class="nt">Parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">envType</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;The</span><span class="nv"> </span><span class="s">environment</span><span class="nv"> </span><span class="s">type</span><span class="nv"> </span><span class="s">(prd</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">dev)&quot;</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;String&quot;</span>
+<span class="w">    </span><span class="nt">AllowedValues</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">prd</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dev</span>
+<span class="w">    </span><span class="nt">Default</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;dev&quot;</span>
+
+<span class="nt">Conditions</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">IsProd</span><span class="p">:</span><span class="w"> </span><span class="kt">!Equals</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="kt">!Ref</span><span class="w"> </span><span class="nv">envType</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;prd&quot;</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># True if envType is &#39;prd&#39;</span>
+<span class="w">    </span><span class="nt">IsDev</span><span class="p">:</span><span class="w"> </span><span class="kt">!Equals</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="kt">!Ref</span><span class="w"> </span><span class="nv">envType</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;dev&quot;</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># True if envType is &#39;dev&#39;</span>
+<span class="w">    </span><span class="nt">IsNotProd</span><span class="p">:</span><span class="w"> </span><span class="kt">!Not</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="kt">!Equals</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="kt">!Ref</span><span class="w"> </span><span class="nv">envType</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;prd&quot;</span><span class="p p-Indicator">]]</span><span class="w">  </span><span class="c1"># True if envType is not &#39;prd&#39;</span>
+<span class="w">    </span><span class="nt">IsProdOrDev</span><span class="p">:</span><span class="w"> </span><span class="kt">!Or</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!Equals</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="kt">!Ref</span><span class="w"> </span><span class="nv">envType</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;prd&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!Equals</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="kt">!Ref</span><span class="w"> </span><span class="nv">envType</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;dev&quot;</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># True if envType is &#39;prd&#39; or &#39;dev&#39;</span>
+<span class="w">    </span><span class="nt">IsNotDev</span><span class="p">:</span><span class="w"> </span><span class="kt">!Not</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="kt">!Equals</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="kt">!Ref</span><span class="w"> </span><span class="nv">envType</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;dev&quot;</span><span class="p p-Indicator">]]</span><span class="w">  </span><span class="c1"># True if envType is not &#39;dev&#39;</span>
+<span class="w">    </span><span class="nt">IsProdAndNotDev</span><span class="p">:</span><span class="w"> </span><span class="kt">!And</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!Equals</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="kt">!Ref</span><span class="w"> </span><span class="nv">envType</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;prd&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!Not</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="kt">!Equals</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="kt">!Ref</span><span class="w"> </span><span class="nv">envType</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;dev&quot;</span><span class="p p-Indicator">]]</span><span class="w">  </span><span class="c1"># True if envType is &#39;prd&#39; and not &#39;dev&#39;</span>
+
+<span class="nt">Resources</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">Resource1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;AWS::S3::Bucket&quot;</span>
+<span class="w">    </span><span class="nt">Condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IsProd</span><span class="w"> </span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+
+<span class="w">  </span><span class="nt">Resource2</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;AWS::DynamoDB::Table&quot;</span>
+<span class="w">    </span><span class="nt">Condition</span><span class="p">:</span><span class="w"> </span><span class="kt">!Not</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">IsProd</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+
+<span class="w">  </span><span class="nt">Resource3</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;AWS::Lambda::Function&quot;</span>
+<span class="w">    </span><span class="nt">Condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IsProdOrDev</span><span class="w"> </span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+
+<span class="w">  </span><span class="nt">Resource4</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;AWS::SNS::Topic&quot;</span>
+<span class="w">    </span><span class="nt">Condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IsProdAndNotDev</span><span class="w">  </span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h3 id="6-intrinsic-function">6. Intrinsic function<a class="headerlink" href="#6-intrinsic-function" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>!Ref</code>  resource | parameter</li>
+<li>resource-1 : returns resource-1.<strong>id</strong> </li>
+<li>parameter-1 : returns value</li>
+<li><code>!GetAtt</code>  resource.attributename</li>
+<li>!GetAtt ec2-i1.<strong>id</strong></li>
+<li>!GetAtt ec2-i1.<strong>AvialabilityZone</strong></li>
+<li>...</li>
+<li><code>!FindInMap</code></li>
+<li><code>!ImportValue</code></li>
+<li><code>!Base64</code></li>
+<li><strong>conditions</strong> :: <code>!Equals. !And !If !Not !Or</code></li>
+<li>...</li>
+</ul>
+<hr />
+<h3 id="7-input-from-ssm-secretmanager">7. input from SSM + secretManager<a class="headerlink" href="#7-input-from-ssm-secretmanager" title="Permanent link">&para;</a></h3>
+<p><img alt="img.png" src="../../99_img/dva/kms/05/img.png" /></p>
+<hr />
+<h3 id="99-more">99. more<a class="headerlink" href="#99-more" title="Permanent link">&para;</a></h3>
+<h4 id="stackupdate"><strong>stackUpdate</strong><a class="headerlink" href="#stackupdate" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>success</code></li>
+<li><code>failed</code> (stack failure options)<ul>
+<li>option-1: <strong>preserve provisioned resource</strong> </li>
+<li>option-2 <strong>rollback</strong> to previous working stack (default)</li>
+<li><code>success</code></li>
+<li><code>fail</code>: (if some has manual interruption on resource)<ul>
+<li>manually fix resource</li>
+<li>call <code>ContinueUpdateRollback</code> from console/cli to get things in sync</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="changeset"><strong>changeset</strong><a class="headerlink" href="#changeset" title="Permanent link">&para;</a></h4>
+<ul>
+<li>change in template - add, modify (replacemnet=true/false), etc</li>
+<li><img alt="img_1.png" src="../../99_img/dva/cf/01/img_1.png" /></li>
+</ul>
+<h4 id="stackset"><strong>stackSet</strong><a class="headerlink" href="#stackset" title="Permanent link">&para;</a></h4>
+<ul>
+<li>AWS org<ul>
+<li>admin account</li>
+<li>child accounts/s</li>
+</ul>
+</li>
+</ul>
+<p><img alt="img_3.png" src="../../99_img/dva/cf/02/img_3.png" /></p>
+<hr />
+<h2 id="c-security">C. Security <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /><a class="headerlink" href="#c-security" title="Permanent link">&para;</a></h2>
+<h3 id="1-iam-role">1. <strong><code>IAM role</code></strong><a class="headerlink" href="#1-iam-role" title="Permanent link">&para;</a></h3>
+<ul>
+<li>being used for running stack</li>
+<li><strong>Borad-access-role</strong></li>
+<li><code>iam:PassRole</code> </li>
+<li><code>iam:getRole</code></li>
+<li><code>Cloudformation:*</code></li>
+<li><strong>pipelineRole-1</strong></li>
+<li>
+<p><code>s3:*</code></p>
+</li>
+<li>
+<p><img alt="img.png" src="../../99_img/dva/cf/02/img.png" /></p>
+</li>
+<li>
+<p>login in with Board-access-role</p>
+</li>
+<li>by default, it will be used for deploying stack.</li>
+<li>or can explicitly choose other role/s :<ul>
+<li>pipelineRole-1 : can create only s3, then.</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-stack-policy">2. stack policy<a class="headerlink" href="#2-stack-policy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>resource policy like s3 policy,etc</li>
+<li>goal is to protect, resource from unintentional updates</li>
+</ul>
+<h3 id="3-capability">3. CAPABILITY<a class="headerlink" href="#3-capability" title="Permanent link">&para;</a></h3>
+<h4 id="31-create-iam-role-from-stack">3.1. Create iam role from stack<a class="headerlink" href="#31-create-iam-role-from-stack" title="Permanent link">&para;</a></h4>
+<ul>
+<li>need to capability for that</li>
+<li><strong>CAPABILITY_IAM</strong></li>
+<li><strong>CAPABILITY_NAMED_IAM</strong></li>
+<li>else <code>InsufficientCapabilitiesException</code></li>
+</ul>
+<h4 id="32-include-nested-stack">3.2 Include nested-stack<a class="headerlink" href="#32-include-nested-stack" title="Permanent link">&para;</a></h4>
+<ul>
+<li>need to capability<ul>
+<li><strong>CAPABILITY_AUTO_EXPAND</strong></li>
+</ul>
+</li>
+<li>else <code>InsufficientCapabilitiesException</code></li>
+</ul>
+<h3 id="4-termination-protection">4. termination protection<a class="headerlink" href="#4-termination-protection" title="Permanent link">&para;</a></h3>
+<ul>
+<li>disable (default)</li>
+<li>allows to delete stack</li>
+<li>if enabled, then won't allow anyone to delete stack.</li>
+</ul>
+<hr />
+<h2 id="d-example">D. Example<a class="headerlink" href="#d-example" title="Permanent link">&para;</a></h2>
+<h3 id="1-ec2-example-with-short-desc">1. EC2 example with short desc.<a class="headerlink" href="#1-ec2-example-with-short-desc" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">AWSTemplateFormatVersion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2010-09-09&quot;</span><span class="w">  </span><span class="c1"># Identifies the capabilities of the template.</span>
+
+<span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Sample</span><span class="nv"> </span><span class="s">CloudFormation</span><span class="nv"> </span><span class="s">template</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">deploying</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">web</span><span class="nv"> </span><span class="s">server.&quot;</span><span class="w"> </span><span class="c1"># Comments about the template.</span>
+
+<span class="nt">Parameters</span><span class="p">:</span><span class="w">  </span><span class="c1"># Dynamic inputs for your template.</span>
+<span class="w">  </span><span class="nt">InstanceType</span><span class="p">:</span><span class="w">  </span><span class="c1"># Logical name for the parameter.</span>
+<span class="w">    </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;EC2</span><span class="nv"> </span><span class="s">instance</span><span class="nv"> </span><span class="s">type&quot;</span><span class="w">  </span><span class="c1"># Description of the parameter.</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;String&quot;</span><span class="w">  </span><span class="c1"># Type of the parameter (e.g., String, Number).</span>
+<span class="w">    </span><span class="nt">Default</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;t2.micro&quot;</span><span class="w">  </span><span class="c1"># Default value for the parameter.</span>
+<span class="w">    </span><span class="nt">AllowedValues</span><span class="p">:</span><span class="w">  </span><span class="c1"># Allowed values for the parameter.</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;t2.micro&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;t2.small&quot;</span>
+<span class="w">    </span><span class="nt">ConstraintDescription</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Must</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">valid</span><span class="nv"> </span><span class="s">EC2</span><span class="nv"> </span><span class="s">instance</span><span class="nv"> </span><span class="s">type.&quot;</span>
+
+<span class="nt">Mappings</span><span class="p">:</span><span class="w">  </span><span class="c1"># Static variables for your template.</span>
+<span class="w">  </span><span class="nt">RegionMap</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">us-east-1</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">AMI</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ami-0abcdef1234567890&quot;</span><span class="w">  </span><span class="c1"># AMI for US East (N. Virginia).</span>
+<span class="w">    </span><span class="nt">us-west-1</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">AMI</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ami-0fedcba9876543210&quot;</span><span class="w">  </span><span class="c1"># AMI for US West (N. California).</span>
+
+<span class="nt">Resources</span><span class="p">:</span><span class="w">  </span><span class="c1"># Contains definitions of AWS resources to be created (MANDATORY).</span>
+<span class="w">  </span><span class="nt">MyEC2Instance</span><span class="p">:</span><span class="w">  </span><span class="c1"># Logical name for the EC2 instance.</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;AWS::EC2::Instance&quot;</span><span class="w">  </span><span class="c1"># Specifies the resource type (an EC2 instance in this case). # service-provider::service-name::data-type-name</span>
+<span class="w">    </span><span class="nt">Properties</span><span class="p">:</span><span class="w">  </span><span class="c1"># Contains properties to configure the resource.</span>
+<span class="w">      </span><span class="nt">InstanceType</span><span class="p">:</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InstanceType</span><span class="w">  </span><span class="c1"># Uses the parameter for instance type.</span>
+<span class="w">      </span><span class="nt">KeyName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;MyKeyPair&quot;</span><span class="w">  </span><span class="c1"># Name of the key pair for SSH access.</span>
+<span class="w">      </span><span class="nt">ImageId</span><span class="p">:</span><span class="w"> </span><span class="kt">!FindInMap</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">RegionMap</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="s">&quot;AWS::Region&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">AMI</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># Uses mappings to select the AMI.</span>
+<span class="w">      </span><span class="nt">SecurityGroupIds</span><span class="p">:</span><span class="w">  </span><span class="c1"># Specifies security groups for the instance.</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MySecurityGroup</span><span class="w">  </span><span class="c1"># References the security group defined below.</span>
+<span class="w">      </span><span class="nt">Tags</span><span class="p">:</span><span class="w">  </span><span class="c1"># Adds metadata to the instance.</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Name&quot;</span>
+<span class="w">          </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;WebServer&quot;</span>
+
+<span class="w">  </span><span class="nt">MySecurityGroup</span><span class="p">:</span><span class="w">  </span><span class="c1"># Logical name for the security group.</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;AWS::EC2::SecurityGroup&quot;</span><span class="w">  </span><span class="c1"># Specifies the resource type (a security group in this case).</span>
+<span class="w">    </span><span class="nt">Properties</span><span class="p">:</span><span class="w">  </span><span class="c1"># Contains properties to configure the security group.</span>
+<span class="w">      </span><span class="nt">GroupDescription</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Allow</span><span class="nv"> </span><span class="s">HTTP</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">SSH</span><span class="nv"> </span><span class="s">access&quot;</span><span class="w">  </span><span class="c1"># Description of the security group.</span>
+<span class="w">      </span><span class="nt">SecurityGroupIngress</span><span class="p">:</span><span class="w">  </span><span class="c1"># Rules for inbound traffic.</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">IpProtocol</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tcp&quot;</span><span class="w">  </span><span class="c1"># Protocol type (TCP).</span>
+<span class="w">          </span><span class="nt">FromPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">22</span><span class="w">  </span><span class="c1"># Allows SSH traffic.</span>
+<span class="w">          </span><span class="nt">ToPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">22</span>
+<span class="w">          </span><span class="nt">CidrIp</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.0.0.0/0&quot;</span><span class="w">  </span><span class="c1"># Allows traffic from all IP addresses.</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">IpProtocol</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tcp&quot;</span>
+<span class="w">          </span><span class="nt">FromPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span><span class="w">  </span><span class="c1"># Allows HTTP traffic.</span>
+<span class="w">          </span><span class="nt">ToPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">          </span><span class="nt">CidrIp</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.0.0.0/0&quot;</span>
+
+<span class="nt">Conditions</span><span class="p">:</span><span class="w">  </span><span class="c1"># List of conditions to perform resource creation.</span>
+<span class="w">  </span><span class="nt">CreateProdResources</span><span class="p">:</span><span class="w"> </span><span class="kt">!Equals</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="kt">!Ref</span><span class="w"> </span><span class="s">&quot;AWS::Region&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;us-east-1&quot;</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># Example condition based on region.</span>
+
+<span class="nt">Outputs</span><span class="p">:</span><span class="w">  </span><span class="c1"># References to what has been created.</span>
+<span class="w">  </span><span class="nt">InstanceId</span><span class="p">:</span><span class="w">  </span><span class="c1"># Logical name for the output.</span>
+<span class="w">    </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ID</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">EC2</span><span class="nv"> </span><span class="s">instance&quot;</span><span class="w">  </span><span class="c1"># Description of the output.</span>
+<span class="w">    </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyEC2Instance</span><span class="w">  </span><span class="c1"># References the EC2 instance to get its ID.</span>
+
+<span class="w">  </span><span class="nt">PublicIP</span><span class="p">:</span><span class="w">  </span><span class="c1"># Logical name for the output.</span>
+<span class="w">    </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Public</span><span class="nv"> </span><span class="s">IP</span><span class="nv"> </span><span class="s">address</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">EC2</span><span class="nv"> </span><span class="s">instance&quot;</span><span class="w">  </span><span class="c1"># Description of the output.</span>
+<span class="w">    </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="kt">!GetAtt</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyEC2Instance.PublicIp</span><span class="w">  </span><span class="c1"># Retrieves the public IP address of the EC2 instance.</span>
+</code></pre></div>
+<h2 id="cli">Cli<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h2>
+<h3 id="cfn-init">cfn-init <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /><a class="headerlink" href="#cfn-init" title="Permanent link">&para;</a></h3>
+<ul>
+<li>helper script to initialize and configure EC2 instances. </li>
+<li>It reads the <strong>AWS::CloudFormation::Init</strong> metadata from a CloudFormation template </li>
+<li>and <strong>executes</strong> the specified configuration tasks, such as:
+<div class="highlight"><pre><span></span><code>Installing packages  &lt;&lt;&lt;
+Configuring files
+Running shell commands
+Managing services 
+</code></pre></div></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.side", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
