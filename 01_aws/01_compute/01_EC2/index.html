@@ -1,0 +1,2200 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Technical Documentation">
+      
+      
+        <meta name="author" content="lekhraj Dinkar">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>01 EC2 - lekhraj-Dinkar-Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ec2-ecc-elastic-compute-cloud" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="lekhraj-Dinkar-Docs" class="md-header__button md-logo" aria-label="lekhraj-Dinkar-Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            lekhraj-Dinkar-Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01 EC2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lekhrajdinkar/02-backend-java-spring" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="lekhraj-Dinkar-Docs" class="md-nav__button md-logo" aria-label="lekhraj-Dinkar-Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    lekhraj-Dinkar-Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lekhrajdinkar/02-backend-java-spring" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Frontend
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Frontend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Frontend/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Springboot
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Springboot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/00_others/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Others
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spring Core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Spring Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/01_Spring_Core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Core Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/02_Spring_bean_lifeCycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Bean Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/03_AOP_concept/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AOP Concept
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/03_point-cut-examples.txt" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Point-cut Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/04_spring_properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Spring Boot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/01_SB_kickoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kickoff
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/02_SB_AutoConfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Auto Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/03_SB_starter_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Starter & Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Web
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/00%20WEB_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/00_general_web_task/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    General Web Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/01_servlet_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Servlet 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/02_spring_MVC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring MVC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/03_spring_boot_stater_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot Starter Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/04_REST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/05_Jackson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jackson
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/06_swagger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Swagger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/07_error_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Error Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/08_gRPC%2Bwebflux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    gRPC & Webflux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/09_webflux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webflux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Layer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Data Layer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/00_common_task/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/01_JPA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JPA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/02_presistence-context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Persistence Context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/03_ACID%2BLocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACID & Locks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-1-anno%2Bconverter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Annotations & Converter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-2-identifier%2Bvalidator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Identifier & Validator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-3-query/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Query
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-1-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-3-txn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Transactions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/er-diagram.png" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ER Diagram
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/00_OAuth_2.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OAuth 2.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/01_sb-security-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot Security Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/02_Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/03_Authorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/04_REST-secure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Intro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-ec2-instance-type-familygensize-yellow_circle" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. ec2: Instance type (family,gen,size) :yellow_circle:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. ec2: Instance type (family,gen,size) :yellow_circle:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      general purpose :
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compute-optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      compute optimized,
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      memory optimized
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-optimized" class="md-nav__link">
+    <span class="md-ellipsis">
+      storage optimized
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-purchase-options-yellow_circle" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Purchase options :yellow_circle:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Purchase options :yellow_circle:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-on-demand" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 On-Demand
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 On-Demand">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#capacity-reservations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capacity Reservations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Reserved
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Reserved">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convertible-reserved" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convertible Reserved
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-savings-plans" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Savings Plans
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-spot-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Spot Instances
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 Spot Instances">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341-spot-fleet" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 Spot fleet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#341-spot-block-deprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1 Spot block (deprecated)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-dedicated-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.6. Dedicated Instances
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-dedicated-hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.7 Dedicated Hosts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      summary
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-hibernate" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. hibernate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-a-machine-learning-research-group-uses-a-proprietary-computer-vision-application-hosted-on-an-amazon-ec2-instance-every-time-the-instance-needs-to-be-stopped-and-started-again-the-application-takes-about-3-minutes-to-start-as-some-auxiliary-software-programs-need-to-be-executed-so-that-the-application-can-function-the-research-group-would-like-to-minimize-the-application-boostrap-time-whenever-the-system-needs-to-be-stopped-and-then-started-at-a-later-point-in-time-as-a-solutions-architect-which-of-the-following-solutions-would-you-recommend-for-this-use-case-create-an-amazon-machine-image-ami-and-launch-your-amazon-ec2-instances-from-that-use-amazon-ec2-instance-hibernate" class="md-nav__link">
+    <span class="md-ellipsis">
+      #1 A Machine Learning research group uses a proprietary computer vision application hosted on an Amazon EC2 instance. Every time the instance needs to be stopped and started again, the application takes about 3 minutes to start as some auxiliary software programs need to be executed so that the application can function. The research group would like to minimize the application boostrap time whenever the system needs to be stopped and then started at a later point in time. As a solutions architect, which of the following solutions would you recommend for this use-case? - Create an Amazon Machine Image (AMI) and launch your Amazon EC2 instances from that - Use Amazon EC2 Instance Hibernate **
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-placement-group-yellow_circle" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Placement group :yellow_circle:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-provision-instance-yellow_circle" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. provision instance :yellow_circle:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-save-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Save cost
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Save cost">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-cost-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Cost Explorer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-compute-optimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Compute Optimizer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<ul>
+<li>EC2_01: https://chatgpt.com/c/7ddee1bf-7240-4789-913a-72dae8438d00</li>
+<li>EC2_02 : https://chatgpt.com/c/636011e3-1ce6-4268-8089-47ca3b12c9b9</li>
+</ul>
+<hr />
+<h1 id="ec2-ecc-elastic-compute-cloud">EC2 / ECC (elastic compute cloud)<a class="headerlink" href="#ec2-ecc-elastic-compute-cloud" title="Permanent link">&para;</a></h1>
+<h2 id="1-intro">1. Intro<a class="headerlink" href="#1-intro" title="Permanent link">&para;</a></h2>
+<ul>
+<li>IaaS</li>
+<li>connect from terminal (instance must have public IP)</li>
+<li><strong>SSH</strong> (OS : linux,mac,W10+) <ul>
+<li>generate SSH key-Pair</li>
+</ul>
+</li>
+<li><strong>Putty</strong> ( OS: W7,8,9) </li>
+<li><strong>EC2 instance Connect</strong> (Amazon Linux 2) - browser session.
+<div class="highlight"><pre><span></span><code>- aws cli installed in ec2
+- run any commnd, provided IAM permission added on ec2-role
+- don&#39;t run &quot;aws configure&quot; 
+</code></pre></div></li>
+<li>get Instance <strong>metadata</strong></li>
+<li>http://169.254.169.254/latest/meta-data/ <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /> (169.254)</li>
+<li>instance ID,</li>
+<li>public IP, private IP, elastic IP, etc</li>
+<li>...</li>
+<li>
+<p>Retrieve runtime information dynamically</p>
+</li>
+<li>
+<p><strong>AMI</strong> </p>
+</li>
+<li>ami accidental deledte --&gt; goes to <strong>recycle bin</strong></li>
+<li>AMIs are bound to the Region they are created in. </li>
+<li>So, you need to copy the AMI across Regions for disaster recovery readiness.</li>
+<li>When the new <strong>EBS-backed AMI</strong> is copied from Region A into Region B,  <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /><ul>
+<li>no charges for copying an AMI.However, standard storage and data transfer rates apply.</li>
+<li>it automatically <strong>creates a snapshot (root volumee)</strong> in Region B because AMIs are based on the underlying snapshots</li>
+<li>Region B will have :</li>
+<li>1 AMI </li>
+<li>1 snapshot (root + additional optional EBS vol)</li>
+<li>https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html</li>
+</ul>
+</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">t2.micro      1     1     EBS-Only          Low to Moderate</span>
+<span class="l l-Scalar l-Scalar-Plain">t2.xlarge     4     16    EBS-Only          Moderate</span>
+<span class="l l-Scalar l-Scalar-Plain">c5d.4xlarge   16    32    1 x 400 NVMe SSD  Up to 10 Gbps</span><span class="w">     </span>
+<span class="l l-Scalar l-Scalar-Plain">r5.16xlarge   64    512   EBS Only          20 Gbps</span><span class="w">           </span>
+<span class="l l-Scalar l-Scalar-Plain">m5.8xlarge    32    128   EBS Only          10 Gbps</span><span class="w">           </span>
+</code></pre></div>
+- <strong>instance profile</strong> <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" />
+  - container for a <strong>role</strong> that can be attached to an Amazon EC2 instance when launched
+  - contain only <strong>one</strong> role, and that limit cannot be increased</p>
+<hr />
+<h2 id="2-ec2-instance-type-familygensize-yellow_circle">2. ec2: Instance type (family,gen,size) :yellow_circle:<a class="headerlink" href="#2-ec2-instance-type-familygensize-yellow_circle" title="Permanent link">&para;</a></h2>
+<ul>
+<li>https://ec2instances.github.io/ </li>
+<li>https://instances.vantage.sh/</li>
+<li><img alt="img.png" src="../../99_img/compute/ec2/01/img.png" /></li>
+</ul>
+<h3 id="general-purpose"><strong>general purpose</strong> :<a class="headerlink" href="#general-purpose" title="Permanent link">&para;</a></h3>
+<ul>
+<li>balanced, </li>
+<li>eg: t2.micro</li>
+<li><img alt="img_1.png" src="../../99_img/compute/ec2/01/img_1.png" /></li>
+</ul>
+<h3 id="compute-optimized"><strong>compute optimized</strong>,<a class="headerlink" href="#compute-optimized" title="Permanent link">&para;</a></h3>
+<ul>
+<li>gaming server, media, batch, ML, HPC</li>
+<li><img alt="img_2.png" src="../../99_img/compute/ec2/01/img_2.png" /></li>
+</ul>
+<h3 id="memory-optimized"><strong>memory optimized</strong><a class="headerlink" href="#memory-optimized" title="Permanent link">&para;</a></h3>
+<ul>
+<li>real-time system, large dataset processing, BI</li>
+<li><img alt="img_3.png" src="../../99_img/compute/ec2/01/img_3.png" /></li>
+</ul>
+<h3 id="storage-optimized"><strong>storage optimized</strong><a class="headerlink" href="#storage-optimized" title="Permanent link">&para;</a></h3>
+<ul>
+<li>File System, RDBMS, data-ware house, cache server, OLTP etc</li>
+<li><img alt="img_4.png" src="../../99_img/compute/ec2/01/img_4.png" /></li>
+</ul>
+<hr />
+<h2 id="3-purchase-options-yellow_circle">3. Purchase options :yellow_circle:<a class="headerlink" href="#3-purchase-options-yellow_circle" title="Permanent link">&para;</a></h2>
+<h3 id="31-on-demand">3.1 On-Demand<a class="headerlink" href="#31-on-demand" title="Permanent link">&para;</a></h3>
+<ul>
+<li>No long-term commitment</li>
+<li>no upfront payment</li>
+<li><strong>Flexible</strong></li>
+<li>use case: short workload</li>
+<li>pay by </li>
+<li><strong>second</strong> (after the first minute) (Window and Linux) </li>
+<li><strong>hour</strong> (other OS)</li>
+</ul>
+<h4 id="capacity-reservations">Capacity Reservations<a class="headerlink" href="#capacity-reservations" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Reserve <strong>On-Demand</strong> instances capacity in a <strong>specific AZ</strong> for <strong>any duration</strong></li>
+</ul>
+<hr />
+<h3 id="32-reserved">3.2 Reserved<a class="headerlink" href="#32-reserved" title="Permanent link">&para;</a></h3>
+<ul>
+<li>1 &amp; 3 years</li>
+<li><strong>fixed</strong> : InstanceType, scope:<strong>Region/AZ</strong>, Tenancy, OS </li>
+<li>up to 72% discount</li>
+<li>Payment Options – No Upfront (+), Partial Upfront (++), All Upfront (+++)</li>
+<li>use case: </li>
+<li>long workloads</li>
+<li>steady-state usage applications</li>
+</ul>
+<h4 id="convertible-reserved">Convertible Reserved<a class="headerlink" href="#convertible-reserved" title="Permanent link">&para;</a></h4>
+<ul>
+<li>upto 66%  discount</li>
+<li><strong>flexible</strong> : Instance Type, scope:<strong>Region/AZ</strong>, Tenancy, OS</li>
+<li>use case: long workloads with flexible instances types</li>
+</ul>
+<hr />
+<h3 id="33-savings-plans">3.3 Savings Plans<a class="headerlink" href="#33-savings-plans" title="Permanent link">&para;</a></h3>
+<ul>
+<li>(1 &amp; 3 years) </li>
+<li>commitment to an amount of usage.</li>
+<li>Usage beyond EC2 Savings Plans is billed at the On-Demand price <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+<li><strong>fixed</strong> : instance family &amp; AWS region</li>
+<li><strong>Flexible</strong> : Instance Size, OS, Tenancy</li>
+</ul>
+<hr />
+<h3 id="34-spot-instances">3.4 Spot Instances<a class="headerlink" href="#34-spot-instances" title="Permanent link">&para;</a></h3>
+<ul>
+<li>upto 90% discount +  MOST cost-efficient</li>
+<li>can lose instances (less reliable), </li>
+<li>When we <strong>cancel</strong> an active spot request, it does not <strong>terminate</strong> the associated instance <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /></li>
+<li><code>2 min</code> <strong>grace period.</strong></li>
+<li>use case:</li>
+<li>Not suitable for critical jobs or databases</li>
+<li>workloads that are <strong>resilient to failure</strong> : Batch jobs, Data Analysis, Image processing, etc</li>
+<li><strong>type</strong>: </li>
+<li><strong>one time</strong> <ul>
+<li>if interrupted then terminated.</li>
+</ul>
+</li>
+<li><strong>persistent</strong><ul>
+<li>has to terminate instance manually <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+</ul>
+</li>
+<li>
+<p><strong>provision</strong> : define launch pool
+    <div class="highlight"><pre><span></span><code>launch pool :
+    duration/expiry            &lt;&lt;&lt;
+    type: one-time/persistent 
+    count
+    instance Types 
+    cpu (min.max)    
+
+-   define **our max spot price** , else od-price
+
+        if max spot price  &lt; current Spot price 
+           then use it
+        if max spot price  &gt; current Spot price
+            then stop/terminate instance
+            with 2 min grace
+</code></pre></div></p>
+</li>
+<li>
+<p>terminate:</p>
+</li>
+<li><img alt="img.png" src="../../99_img/compute/ec2/img54321.png" /></li>
+</ul>
+<hr />
+<h4 id="341-spot-fleet">3.4.1 Spot fleet<a class="headerlink" href="#341-spot-fleet" title="Permanent link">&para;</a></h4>
+<ul>
+<li>collection of Spot Instances (and optionally On-Demand Instances)</li>
+<li>on-time Instances only</li>
+<li>define <strong>multiple launch pool</strong></li>
+<li>thus request various instance types</li>
+<li>provides higher availability and fault tolerance</li>
+<li>if spot instance is termninated, it will match with another spot instance</li>
+<li>if none found then OD</li>
+<li>
+<p>thus <strong>maintain target capacity</strong> <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /></p>
+</li>
+<li>
+<p><strong>strategies</strong>: <img alt="📚" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f4da.svg" title=":books:" /></p>
+</li>
+<li><code>lowestPrice</code>: <ul>
+<li>from the pool with the lowest price </li>
+<li>(cost optimization, short workload)</li>
+</ul>
+</li>
+<li><code>diversified</code>: <ul>
+<li>distributed across all pools </li>
+<li>(great for availability, long workloads)</li>
+</ul>
+</li>
+<li><code>capacityOptimized</code>: <ul>
+<li>pool with the optimal capacity for the number of instances</li>
+</ul>
+</li>
+<li><code>priceCapacityOptimized</code> (recommended): <ul>
+<li>pools with highest capacity available, </li>
+<li>then selectthe pool with the lowest price (best choice for most workloads)</li>
+</ul>
+</li>
+</ul>
+<h4 id="341-spot-block-deprecated">3.4.1 Spot block (deprecated) <img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/274c.svg" title=":x:" /><a class="headerlink" href="#341-spot-block-deprecated" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Spot Blocks are priced at the same rate as Spot Instances</li>
+<li>but with the added benefit of no interruptions for the block duration (<code>1-6 hr</code>)</li>
+</ul>
+<hr />
+<h3 id="36-dedicated-instances">3.6. Dedicated Instances<a class="headerlink" href="#36-dedicated-instances" title="Permanent link">&para;</a></h3>
+<ul>
+<li>underlying h/w not shared with <strong>other account</strong>.</li>
+<li>May share hardware with other instances in <strong>same account</strong></li>
+</ul>
+<hr />
+<h3 id="37-dedicated-hosts">3.7 Dedicated Hosts<a class="headerlink" href="#37-dedicated-hosts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>most expensive $$</li>
+<li>book an entire physical <strong>server/racks/building</strong>. </li>
+<li>for companies that have strong regulatory or compliance needs</li>
+<li>control over <strong>instance placement</strong></li>
+<li>pay by : </li>
+<li>physical cores</li>
+<li>underlying network socket visibility.</li>
+<li>Purchasing Options</li>
+<li>On-demand – pay per second for active Dedicated Host</li>
+<li>Reserved - 1 or 3 years (No Upfront, Partial Upfront, All Upfront)</li>
+</ul>
+<h3 id="summary">summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<h2 id="_1"><img alt="img_5.png" src="../../99_img/compute/ec2/01/img_5.png" /><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="4-hibernate">4. hibernate<a class="headerlink" href="#4-hibernate" title="Permanent link">&para;</a></h2>
+<ul>
+<li>RAM state ( &lt; <code>150 GB</code>), gets preserved in </li>
+<li><strong>EBS root volume</strong> <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+<li>with/without <strong>Encryption</strong></li>
+<li>hence boot up fast. </li>
+<li>supported family instances : C3, C4, C5, I3, M3, M4, R3, R4, T2, T3, …</li>
+<li><code>C**</code> </li>
+<li><code>M**</code> </li>
+<li><code>T**</code></li>
+<li>max for <code>60 days</code></li>
+<li>Also, <strong>Root Volume</strong> – must be EBS, encrypted. <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+</ul>
+<h2 id="1-a-machine-learning-research-group-uses-a-proprietary-computer-vision-application-hosted-on-an-amazon-ec2-instance-every-time-the-instance-needs-to-be-stopped-and-started-again-the-application-takes-about-3-minutes-to-start-as-some-auxiliary-software-programs-need-to-be-executed-so-that-the-application-can-function-the-research-group-would-like-to-minimize-the-application-boostrap-time-whenever-the-system-needs-to-be-stopped-and-then-started-at-a-later-point-in-time-as-a-solutions-architect-which-of-the-following-solutions-would-you-recommend-for-this-use-case-create-an-amazon-machine-image-ami-and-launch-your-amazon-ec2-instances-from-that-use-amazon-ec2-instance-hibernate"><div class="highlight"><pre><span></span><code>#1
+A Machine Learning research group uses a proprietary computer vision application hosted on an Amazon EC2 instance. 
+Every time the instance needs to be stopped and started again, the application takes about 3 minutes to start 
+as some auxiliary software programs need to be executed so that the application can function. 
+The research group would like to minimize the application boostrap time whenever 
+the system needs to be stopped and then started at a later point in time.
+
+As a solutions architect, which of the following solutions would you recommend for this use-case?
+- Create an Amazon Machine Image (AMI) and launch your Amazon EC2 instances from that
+- Use Amazon EC2 Instance Hibernate **
+</code></pre></div><a class="headerlink" href="#1-a-machine-learning-research-group-uses-a-proprietary-computer-vision-application-hosted-on-an-amazon-ec2-instance-every-time-the-instance-needs-to-be-stopped-and-started-again-the-application-takes-about-3-minutes-to-start-as-some-auxiliary-software-programs-need-to-be-executed-so-that-the-application-can-function-the-research-group-would-like-to-minimize-the-application-boostrap-time-whenever-the-system-needs-to-be-stopped-and-then-started-at-a-later-point-in-time-as-a-solutions-architect-which-of-the-following-solutions-would-you-recommend-for-this-use-case-create-an-amazon-machine-image-ami-and-launch-your-amazon-ec2-instances-from-that-use-amazon-ec2-instance-hibernate" title="Permanent link">&para;</a></h2>
+<h2 id="5-placement-group-yellow_circle">5. Placement group :yellow_circle:<a class="headerlink" href="#5-placement-group-yellow_circle" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>cluster</strong> </li>
+<li><strong>low-latency group</strong> in a <strong>single AZ</strong></li>
+<li>close-proximity. </li>
+<li>hence high n/w throughput</li>
+<li>usecase : HCP</li>
+<li>
+<p><img alt="img.png" src="../../99_img/compute/ec2/02/img.png" /></p>
+</li>
+<li>
+<p><strong>spread</strong></p>
+</li>
+<li>spreads instances across underlying hardware in <strong>mutli-AZ</strong></li>
+<li>max : <code>7 instance/group/AZ</code></li>
+<li>
+<p><img alt="img_1.png" src="../../99_img/compute/ec2/02/img_1.png" /></p>
+</li>
+<li>
+<p><strong>partition</strong></p>
+</li>
+<li>partition-1 in AZ-1 </li>
+<li>partition-2 in AZ-1</li>
+<li>...</li>
+<li>partition-3 in AZ-2</li>
+<li>...</li>
+<li>max /restriction<ul>
+<li><code>100 instances/group</code></li>
+<li><code>7 partitions/AZ</code></li>
+</ul>
+</li>
+<li>use case: hadoop, kafka, casandra</li>
+<li><img alt="img_2.png" src="../../99_img/compute/ec2/02/img_2.png" /></li>
+</ul>
+<hr />
+<h2 id="6-provision-instance-yellow_circle">6. provision instance :yellow_circle:<a class="headerlink" href="#6-provision-instance-yellow_circle" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Tenancy</strong></li>
+<li><strong>host</strong> / physical building and racks</li>
+<li><strong>Dedicated</strong> / single-tenant (single aws account)</li>
+<li><strong>default</strong>/shared/multi-tenant (multiple aws account, shares same hardware)</li>
+<li>change tenancy: <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /></li>
+<li>```
+    dedicated &lt;==&gt; host : can change
+    cannot change any other, fixed once
+    ---
+    some rules to remember:<ol>
+<li>VPC tenancy take precidence over ASG's LT's tenancy</li>
+<li>host &gt; dedicated &gt; default : cannot downgrade.
+```</li>
+</ol>
+</li>
+<li><strong>OS / AMI</strong> </li>
+<li>can create AMI on ec2-i. </li>
+<li>OS boot volume : <code>gp* / io*</code> <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+<li><strong>memory/RAM</strong> </li>
+<li><strong>cpu architecture</strong></li>
+<li><code>ARM</code> </li>
+<li><code>AMD</code></li>
+<li><strong>user-data script</strong> </li>
+<li>bootstrap script  - automate boot tasks<ul>
+<li>install update</li>
+<li>install software</li>
+<li>...</li>
+</ul>
+</li>
+<li>run only once (first launch by-default)<ul>
+<li>can change to run everytime instance <strong>restarted</strong> <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /></li>
+</ul>
+</li>
+<li>
+<p>run with <strong>root user</strong> permission.</p>
+</li>
+<li>
+<p><strong>Storage</strong> </p>
+</li>
+<li><a href="../02_storage">02_storage</a></li>
+<li>Network-attached (EBS &amp; EFS) </li>
+<li>
+<p>hardware (EC2 Instance Store)</p>
+</li>
+<li>
+<p><strong>Network</strong> : </p>
+</li>
+<li><a href="../04_network">04_network</a></li>
+<li>ENI <a href="../04_network/00_eni%2Bsg.md">00_eni+sg.md</a></li>
+<li>
+<p>sg: <a href="../04_network/00_eni%2Bsg.md">00_eni+sg.md</a></p>
+</li>
+<li>
+<p><strong>Elastic load Balancer</strong>  <a href="../../04_network/01_ELB/">01_ELB.md</a></p>
+</li>
+<li><strong>Auto Scaling group</strong>  <a href="../01_ASG/">01_ASG.md</a></li>
+</ul>
+<hr />
+<h2 id="7-save-cost">7. Save cost <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /><a class="headerlink" href="#7-save-cost" title="Permanent link">&para;</a></h2>
+<h3 id="aws-cost-explorer"><strong>AWS Cost Explorer</strong><a class="headerlink" href="#aws-cost-explorer" title="Permanent link">&para;</a></h3>
+<ul>
+<li>helps you identify <strong>under-utilized</strong> Amazon EC2 instances.<ul>
+<li>that may be downsized on an instance by instance basis within the same instance family, </li>
+</ul>
+</li>
+<li>understand the potential impact on your AWS bill by taking these <strong>purchace option</strong>:<ul>
+<li><strong>Reserved Instances</strong> </li>
+<li><strong>Savings Plans</strong>s</li>
+</ul>
+</li>
+</ul>
+<h3 id="aws-compute-optimizer"><strong>AWS Compute Optimizer</strong><a class="headerlink" href="#aws-compute-optimizer" title="Permanent link">&para;</a></h3>
+<ul>
+<li>recommends optimal AWS Compute resources for your workloads </li>
+<li>to reduce <code>costs</code> and improve <code>performance</code> by using <strong>machine learning</strong> <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /><ul>
+<li>to analyze <strong>historical utilization metrics</strong>.</li>
+<li>helps you choose the optimal Amazon EC2 instance types.</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

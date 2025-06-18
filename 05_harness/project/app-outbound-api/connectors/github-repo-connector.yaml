@@ -1,0 +1,24 @@
+connector:
+  name: github-repo-connector
+  identifier: githubrepoconnector
+  description: ""
+  accountIdentifier: e0wDKKO_S46x3M75TWv0iw
+  orgIdentifier: default
+  type: Github
+  spec:
+    url: https://github.com/lekhrajdinkar/02-spring
+    authentication:
+      type: Http
+      spec:
+        type: UsernameToken
+        spec:
+          username: lekhrajdinkar@gmail.com
+          tokenRef: org.github-repo-access-token
+    apiAccess:
+      type: Token
+      spec:
+        tokenRef: org.github-repo-access-token
+    executeOnDelegate: false
+    proxy: false
+    ignoreTestConnection: false
+    type: Repo

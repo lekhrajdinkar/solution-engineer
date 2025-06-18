@@ -1,0 +1,2157 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Technical Documentation">
+      
+      
+        <meta name="author" content="lekhraj Dinkar">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>01 EBS EFS - lekhraj-Dinkar-Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#storage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="lekhraj-Dinkar-Docs" class="md-header__button md-logo" aria-label="lekhraj-Dinkar-Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            lekhraj-Dinkar-Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01 EBS EFS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lekhrajdinkar/02-backend-java-spring" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="lekhraj-Dinkar-Docs" class="md-nav__button md-logo" aria-label="lekhraj-Dinkar-Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    lekhraj-Dinkar-Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lekhrajdinkar/02-backend-java-spring" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Frontend
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Frontend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Frontend/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Springboot
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Springboot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/00_others/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Others
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spring Core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Spring Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/01_Spring_Core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Core Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/02_Spring_bean_lifeCycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Bean Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/03_AOP_concept/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AOP Concept
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/03_point-cut-examples.txt" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Point-cut Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/04_spring_properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Spring Boot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/01_SB_kickoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kickoff
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/02_SB_AutoConfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Auto Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/03_SB_starter_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Starter & Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Web
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/00%20WEB_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/00_general_web_task/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    General Web Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/01_servlet_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Servlet 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/02_spring_MVC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring MVC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/03_spring_boot_stater_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot Starter Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/04_REST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/05_Jackson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jackson
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/06_swagger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Swagger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/07_error_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Error Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/08_gRPC%2Bwebflux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    gRPC & Webflux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/09_webflux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webflux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Layer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Data Layer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/00_common_task/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/01_JPA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JPA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/02_presistence-context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Persistence Context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/03_ACID%2BLocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACID & Locks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-1-anno%2Bconverter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Annotations & Converter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-2-identifier%2Bvalidator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Identifier & Validator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-3-query/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Query
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-1-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-3-txn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Transactions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/er-diagram.png" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ER Diagram
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/00_OAuth_2.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OAuth 2.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/01_sb-security-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot Security Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/02_Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/03_Authorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/04_REST-secure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#a-ec2-instant-store-block-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      A. EC2 instant-store (block-storage)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A. EC2 instant-store (block-storage)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#b-ebs" class="md-nav__link">
+    <span class="md-ellipsis">
+      B. EBS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="B. EBS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Intro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ebs-snapshot" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. EBS: snapshot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Types
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-purpose-ssd-gp3-iops-up-to-16000-iops-throughput-up-to-1000-mbs-use-case-balanced-priceperformance-for-a-wide-variety-of-workloads-provisioned-iops-ssd-io2io2-block-express-iops-up-to-64000-iops-io2-up-to-256000-iops-io2-block-express-throughput-up-to-1000-mbs-io2-up-to-4000-mbs-io2-block-express-use-case-critical-applications-requiring-high-performance-and-reliability-throughput-optimized-hdd-st1-iops-up-to-500-iops-throughput-up-to-500-mbs-use-case-big-data-data-warehouses-and-log-processing-cold-hdd-sc1-iops-up-to-250-iops-throughput-up-to-250-mbs-use-case-infrequently-accessed-data-with-lower-cost-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Purpose SSD (gp3): - IOPS: Up to 16,000 IOPS. - Throughput: Up to 1,000 MB/s. - Use Case: Balanced price/performance for a wide variety of workloads. Provisioned IOPS SSD (io2/io2 Block Express): - IOPS: Up to 64,000 IOPS (io2), up to 256,000 IOPS (io2 Block Express). - Throughput: Up to 1,000 MB/s (io2), up to 4,000 MB/s (io2 Block Express). - Use Case: Critical applications requiring high performance and reliability. Throughput Optimized HDD (st1): - IOPS: Up to 500 IOPS. - Throughput: Up to 500 MB/s. - Use Case: Big data, data warehouses, and log processing. Cold HDD (sc1): - IOPS: Up to 250 IOPS. - Throughput: Up to 250 MB/s. - Use Case: Infrequently accessed data with lower cost requirements.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-efs-regional" class="md-nav__link">
+    <span class="md-ellipsis">
+      C. EFS (regional)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C. EFS (regional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#intro_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Intro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      storage class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#target-mount" class="md-nav__link">
+    <span class="md-ellipsis">
+      Target Mount
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#efs-throughput-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      EFS Throughput Modes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#efs-performance-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      EFS Performance Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dr" class="md-nav__link">
+    <span class="md-ellipsis">
+      DR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hands-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      hands on
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-create-efs-efs-1-efs-sg-1-ec2-i1-and-i2-launch-instance-attach-efs-1-choose-mount-location-mntefsfs1-aws-automatically-adds-sg-ec2-i1-sg-inbound-rule-typenfs-protocoltcp-port2049-sourceefs-sg-1-similary-outbound-rule-ssh-to-ec2-i1-and-echo-hello-mntefsfs1hellotxt-ssh-to-ec2-i2-and-cat-mntefsfs1hellotxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      - Create EFS `efs-1` + efs-sg-1 - Ec2-i1 and i2 : launch instance &gt; attach efs-1 - choose mount location : /mnt/efs/fs1 - aws automatically adds sg - ec2-i1-sg : inbound rule : Type:NFS, protocol:TCP, port:2049, source:efs-sg-1 - similary outbound rule. - ssh to ec2-i1 and echo &quot;hello&quot; &gt; /mnt/efs/fs1/hello.txt - ssh to ec2-i2 and cat /mnt/efs/fs1/hello.txt
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exam
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<ul>
+<li>https://chatgpt.com/c/677dbc0a-3414-800d-8960-b0d969c9ffda</li>
+<li>ebs,efs,Fxs,snowball</li>
+</ul>
+<hr />
+<h1 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h1>
+<ul>
+<li>check these 3 aspects:</li>
+<li><code>size</code> (capacity)</li>
+<li><code>iops</code> <ul>
+<li>read iops</li>
+<li>write iops</li>
+</ul>
+</li>
+<li><code>throughput</code> (MB/s)</li>
+</ul>
+<hr />
+<h2 id="a-ec2-instant-store-block-storage">A. EC2 instant-store (block-storage)<a class="headerlink" href="#a-ec2-instant-store-block-storage" title="Permanent link">&para;</a></h2>
+<h3 id="intro">Intro<a class="headerlink" href="#intro" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>better Read/write iops</strong> <img alt="😄" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f604.svg" title=":smile:" /></li>
+<li>high-performance hardware disk</li>
+<li>depends on ec2-i family type.</li>
+<li><img alt="img.png" src="../../99_img/dva/storage/01/img99.png" /></li>
+<li>risk of data loss if h/w fails </li>
+<li><strong>manual backup</strong></li>
+<li>volume size is <strong>fixed</strong> </li>
+<li>determined by the EC2 instance type.</li>
+<li>so dont have option to choose custom instant store <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /></li>
+<li>fact : AMIs do not preserve instance store data <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+<li>fixed to host machine</li>
+<li>cannot be detached or reattached</li>
+<li>can be used as boot volume <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /> not preferred</li>
+<li>AMI does NOT preserve instance store volumes. </li>
+<li>only EBS backed AMI <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /></li>
+</ul>
+<hr />
+<h2 id="b-ebs">B. EBS<a class="headerlink" href="#b-ebs" title="Permanent link">&para;</a></h2>
+<p><img alt="img.png" src="../../99_img/dva/storage/01/img.png" /></p>
+<h3 id="1-intro">1. Intro<a class="headerlink" href="#1-intro" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>AZ bounded</strong> <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+<li>Have <strong>volumes</strong></li>
+<li><strong>network drive</strong> (bit latency, same az) + <strong>limited performance</strong></li>
+<li>can be attach/dettach to ec2-i</li>
+<li>persist data, even after their termination</li>
+<li>only be mounted to <strong>one instance</strong> at a time. multiple volumes can be attached. <code>1-2-M</code></li>
+<li><strong>deleteOnTermination</strong> </li>
+<li>root volume - <code>true</code><ul>
+<li>if disable it on running app - how ? console or api/cli**</li>
+</ul>
+</li>
+<li>additional ebs volume - <code>false</code></li>
+<li>use <code>e2label</code> <strong>command</strong> to change label name</li>
+<li>scenario:
+  <div class="highlight"><pre><span></span><code>  - ec2-1 root volume &gt; snapshot-1 &gt; created volume-2 &gt; attached to ec2-2 as additional volume 
+  - vol-1 is root vol for ec2-2
+  - re-b0ot ec2-2, it will boot from volume-2, rather than vol-1
+</code></pre></div></li>
+</ul>
+<h3 id="2-ebs-snapshot">2. EBS: snapshot<a class="headerlink" href="#2-ebs-snapshot" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Snapshots are <strong>incremental backups</strong> <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /></li>
+<li>which means that only the blocks on the device that have changed after your most recent snapshot are saved.</li>
+<li><code>point in time</code> snapshot.</li>
+<li>no need to detach volumn while taking snapshot, but recommended.</li>
+<li><strong>cross az/region restore</strong> <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+<li><img alt="img_1.png" src="../../99_img/dva/storage/01/img_1.png" /></li>
+<li>
+<p>Build an AMI, will also create EBS snapshots <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></p>
+</li>
+<li>
+<p>store snapshot to <strong>archive tier</strong></p>
+</li>
+<li>75% cheaper, save cost</li>
+<li>but restore time 24-72 hrs </li>
+<li>
+<p><img alt="img_3.png" src="../../99_img/dva/storage/01/img_3.png" /></p>
+</li>
+<li>
+<p>accidental delete </p>
+</li>
+<li>setup <strong>recycle bin</strong> with retention policy (1 day to 1 year)</li>
+<li>
+<p><img alt="img_2.png" src="../../99_img/dva/storage/01/img_2.png" /></p>
+</li>
+<li>
+<p><strong>Fast Snapshot Restore</strong> (FSR)  </p>
+</li>
+</ul>
+<h3 id="3-security">3. Security<a class="headerlink" href="#3-security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>encrypt at rest, both - <strong>volume and snapshot</strong> using KMS</li>
+</ul>
+<h3 id="4-types">4. Types <img alt="📚" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f4da.svg" title=":books:" /><a class="headerlink" href="#4-types" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>General Purpose SSD</strong></li>
+<li><strong>gp2</strong>  <ul>
+<li>size defines iops --&gt; <code>3 iops / GB</code>    </li>
+<li>max --&gt;  <code>16TB | 3K iops | 125 MB/s</code></li>
+</ul>
+</li>
+<li>
+<p><strong>gp3</strong> </p>
+<ul>
+<li>max --&gt;  <code>16TB | 16k iops | 1000 MB/s</code></li>
+<li>System boot volumes, Virtual desktops, Development and test environments</li>
+<li>Balanced price/performance for a wide variety of workloads</li>
+</ul>
+</li>
+<li>
+<p><strong>Provisioned IOPS SSD</strong></p>
+</li>
+<li><strong>io1</strong> <ul>
+<li>max --&gt;  <code>16TB | 64k iops | 1000 MB/s</code></li>
+</ul>
+</li>
+<li>
+<p><strong>io2</strong> </p>
+<ul>
+<li>max --&gt;  <code>64TB | 256k iops | 4000 MB/s</code></li>
+<li>supports multi attach <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+<li>max - 16 ec2-i</li>
+<li>databases workloads</li>
+</ul>
+</li>
+<li>
+<p><strong>HDD</strong></p>
+</li>
+<li>dont use as boot volume <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /></li>
+<li>
+<p><strong>HDD</strong>  / Throughput Optimized HDD / <code>st1</code></p>
+<ul>
+<li>max --&gt;  <code>? | 500 iops | max-500 MB/s</code></li>
+<li>Big Data, Data Warehouses, Log Processing</li>
+<li></li>
+</ul>
+</li>
+<li>
+<p><strong>cold HDD</strong>  / <code>sc1</code></p>
+<ul>
+<li>max --&gt; <code>? | 250 iops | max-250 MB/s</code></li>
+<li>data that is infrequently accessed</li>
+</ul>
+</li>
+</ul>
+<h2 id="general-purpose-ssd-gp3-iops-up-to-16000-iops-throughput-up-to-1000-mbs-use-case-balanced-priceperformance-for-a-wide-variety-of-workloads-provisioned-iops-ssd-io2io2-block-express-iops-up-to-64000-iops-io2-up-to-256000-iops-io2-block-express-throughput-up-to-1000-mbs-io2-up-to-4000-mbs-io2-block-express-use-case-critical-applications-requiring-high-performance-and-reliability-throughput-optimized-hdd-st1-iops-up-to-500-iops-throughput-up-to-500-mbs-use-case-big-data-data-warehouses-and-log-processing-cold-hdd-sc1-iops-up-to-250-iops-throughput-up-to-250-mbs-use-case-infrequently-accessed-data-with-lower-cost-requirements"><div class="highlight"><pre><span></span><code>General Purpose SSD (gp3):
+- IOPS: Up to 16,000 IOPS.
+- Throughput: Up to 1,000 MB/s.
+- Use Case: Balanced price/performance for a wide variety of workloads.
+
+Provisioned IOPS SSD (io2/io2 Block Express):
+- IOPS: Up to 64,000 IOPS (io2), up to 256,000 IOPS (io2 Block Express).
+- Throughput: Up to 1,000 MB/s (io2), up to 4,000 MB/s (io2 Block Express).
+- Use Case: Critical applications requiring high performance and reliability.
+
+Throughput Optimized HDD (st1):
+- IOPS: Up to 500 IOPS.
+- Throughput: Up to 500 MB/s.
+- Use Case: Big data, data warehouses, and log processing.
+
+Cold HDD (sc1):
+- IOPS: Up to 250 IOPS.
+- Throughput: Up to 250 MB/s.
+- Use Case: Infrequently accessed data with lower cost requirements.
+</code></pre></div><a class="headerlink" href="#general-purpose-ssd-gp3-iops-up-to-16000-iops-throughput-up-to-1000-mbs-use-case-balanced-priceperformance-for-a-wide-variety-of-workloads-provisioned-iops-ssd-io2io2-block-express-iops-up-to-64000-iops-io2-up-to-256000-iops-io2-block-express-throughput-up-to-1000-mbs-io2-up-to-4000-mbs-io2-block-express-use-case-critical-applications-requiring-high-performance-and-reliability-throughput-optimized-hdd-st1-iops-up-to-500-iops-throughput-up-to-500-mbs-use-case-big-data-data-warehouses-and-log-processing-cold-hdd-sc1-iops-up-to-250-iops-throughput-up-to-250-mbs-use-case-infrequently-accessed-data-with-lower-cost-requirements" title="Permanent link">&para;</a></h2>
+<h2 id="c-efs-regional">C. EFS (regional)<a class="headerlink" href="#c-efs-regional" title="Permanent link">&para;</a></h2>
+<h3 id="intro_1">Intro<a class="headerlink" href="#intro_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>distributed</strong> across an unconstrained number of storage servers.</li>
+<li>grow elastically to <strong>petabyte scale</strong>.</li>
+<li><strong>high availability</strong> Managed NFS (network file system)</li>
+<li>protocol    : <strong>NFSv4</strong></li>
+<li>file system : <strong>POXIS-complaint</strong></li>
+<li><strong>3x times expensive</strong> than EBS(gp2), because:</li>
+<li>no capacity planning<ul>
+<li>auto-Scale in Size(PB) </li>
+<li>auto/manual adjust performance.</li>
+</ul>
+</li>
+<li>supports <ul>
+<li>multi-AZ (Regional)  <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+<li>single AZ</li>
+<li><img alt="img.png" src="../../99_img/refactor/01/img_3.png" /></li>
+<li>attach to multiple EC2 ( <strong>Linux based AMI</strong> only) <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+</ul>
+</li>
+<li>
+<p>high performance </p>
+<ul>
+<li>Read - <code>3 GB / s</code></li>
+<li>Write - <code>1 GB / s</code></li>
+</ul>
+</li>
+<li>
+<p><strong>use case</strong></p>
+</li>
+<li>content management, web serving, data sharing, Wordpress, big data, media processing.</li>
+</ul>
+<h3 id="storage-class">storage class<a class="headerlink" href="#storage-class" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>lifecycle policy</strong> to move between </li>
+<li><strong>standard</strong> (with One-Zone option as well)</li>
+<li><strong>Infrequent-Access</strong> (with One-Zone option as well) </li>
+<li><strong>Archive</strong> 50% low cost</li>
+</ul>
+<h3 id="target-mount">Target Mount <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /><a class="headerlink" href="#target-mount" title="Permanent link">&para;</a></h3>
+<ul>
+<li><img alt="img.png" src="../../99_img/ec2/img.png" /></li>
+<li>Allows EC2 instances in a VPC to access an EFS file system</li>
+<li>not needed for <strong>lambda</strong>.</li>
+<li>not needed for <strong>on-prem</strong>  ( if DX/VPN, is setup)</li>
+<li>configure:</li>
+<li>Subnet ID</li>
+<li>Security Groups</li>
+<li>EFS mount targets are:</li>
+<li>created <strong>per AZ</strong>, not per subnet.</li>
+<li>EFS is <strong>not multi-VPC</strong>, use VPC peering <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /></li>
+<li>eg: 
+  ```text<ul>
+<li>tm-1 create for az-1, and for VPC-1</li>
+<li>VPC-1 has 3 subnets for az-1  </li>
+<li>VPC-2 has 3 subnets for az-1</li>
+<li>Next, VPC-1 --- peer --- VPC-2</li>
+<li>update security group</li>
+<li>then can mount EFS on ec2 intance of VPC-2
+   ```</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="efs-throughput-modes">EFS Throughput Modes<a class="headerlink" href="#efs-throughput-modes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Bursting Throughput</strong> ( default)</li>
+<li>
+<p>throughput scales with file system size</p>
+</li>
+<li>
+<p><strong>elastic Throughput</strong></p>
+</li>
+<li>throughput scale regardless of size</li>
+<li>
+<p>auto-scale with the best performance. (R/recommended)</p>
+</li>
+<li>
+<p><strong>provisioned Throughput</strong></p>
+</li>
+<li>manually configure throughput.</li>
+<li>If your workloads require even higher and consistent throughput</li>
+<li>allows you to specify the throughput you need, independent of the amount of data stored.</li>
+</ul>
+<hr />
+<h3 id="efs-performance-mode">EFS Performance Mode<a class="headerlink" href="#efs-performance-mode" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>general-purpose</strong> ( default)</li>
+<li><strong>low-latency</strong> operations :)</li>
+<li>lower throughput</li>
+<li>
+<p>and is not ideal for highly parallelized/concurrent big data processing tasks.</p>
+</li>
+<li>
+<p><strong>max I/O</strong> </p>
+</li>
+<li>Highly <code>parallelized</code> applications and <strong>big data workloads</strong> that require higher throughput.</li>
+<li>supports thousands of <code>concurrent</code> connections and higher I/O operations.</li>
+<li><strong>higher latencies</strong></li>
+<li>higher throughput</li>
+</ul>
+<h3 id="summary">Summary <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /><a class="headerlink" href="#summary" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Category</strong></th>
+<th><strong>Option</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Best For</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Performance Modes</strong></td>
+<td><strong>General Purpose</strong></td>
+<td>Low latency, limited concurrency, fixed throughput per client.</td>
+<td>Latency-sensitive workloads.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Max I/O</strong></td>
+<td>Higher latency, massive concurrency, elastic throughput scaling.</td>
+<td>High-concurrency workloads.</td>
+</tr>
+<tr>
+<td><strong>Throughput Modes</strong></td>
+<td><strong>Bursting Throughput</strong></td>
+<td>Default mode; scales with file system size.</td>
+<td>Variable workloads with spiky demand.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Provisioned</strong></td>
+<td>Fixed throughput, independent of file system size.</td>
+<td>Consistent high-throughput workloads.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong>Elastic Throughput</strong></td>
+<td>Automatically scales throughput to match workload needs (Enhanced Mode).</td>
+<td>Unpredictable or spiky workloads.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<ul>
+<li>choose VPC/subnet &gt;  add security group.</li>
+<li>Encryption at rest using <code>KMS</code> + enable/disable automatic backup</li>
+</ul>
+<hr />
+<h3 id="dr">DR<a class="headerlink" href="#dr" title="Permanent link">&para;</a></h3>
+<ul>
+<li>EFS cross region replication : enable. <code>preferrered</code> <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /> <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /></li>
+<li>DataSync also, as alternative.</li>
+</ul>
+<hr />
+<h3 id="hands-on">hands on<a class="headerlink" href="#hands-on" title="Permanent link">&para;</a></h3>
+<h2 id="-create-efs-efs-1-efs-sg-1-ec2-i1-and-i2-launch-instance-attach-efs-1-choose-mount-location-mntefsfs1-aws-automatically-adds-sg-ec2-i1-sg-inbound-rule-typenfs-protocoltcp-port2049-sourceefs-sg-1-similary-outbound-rule-ssh-to-ec2-i1-and-echo-hello-mntefsfs1hellotxt-ssh-to-ec2-i2-and-cat-mntefsfs1hellotxt"><div class="highlight"><pre><span></span><code>- Create EFS `efs-1` + efs-sg-1
+- Ec2-i1 and i2 : launch instance &gt; attach efs-1
+- choose mount location : /mnt/efs/fs1
+- aws automatically adds sg
+    - ec2-i1-sg : inbound rule : Type:NFS, protocol:TCP, port:2049, source:efs-sg-1
+    - similary outbound rule.
+- ssh to ec2-i1 and echo &quot;hello&quot; &gt;  /mnt/efs/fs1/hello.txt
+- ssh to ec2-i2 and cat  /mnt/efs/fs1/hello.txt
+</code></pre></div><a class="headerlink" href="#-create-efs-efs-1-efs-sg-1-ec2-i1-and-i2-launch-instance-attach-efs-1-choose-mount-location-mntefsfs1-aws-automatically-adds-sg-ec2-i1-sg-inbound-rule-typenfs-protocoltcp-port2049-sourceefs-sg-1-similary-outbound-rule-ssh-to-ec2-i1-and-echo-hello-mntefsfs1hellotxt-ssh-to-ec2-i2-and-cat-mntefsfs1hellotxt" title="Permanent link">&para;</a></h2>
+<h2 id="extra">Extra<a class="headerlink" href="#extra" title="Permanent link">&para;</a></h2>
+<ul>
+<li><img alt="img.png" src="../../99_img/ec2/img_4.png" /></li>
+<li>
+<p><img alt="img_1.png" src="../../99_img/ec2/img_3.png" /></p>
+</li>
+<li>
+<p>price compare
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">Storage Class               Price (per GB)</span><span class="w">  </span>
+
+<span class="l l-Scalar l-Scalar-Plain">EBS General Purpose (gp3)   $0.08</span>
+<span class="l l-Scalar l-Scalar-Plain">EBS General Purpose (gp2)   $0.10</span>
+<span class="l l-Scalar l-Scalar-Plain">EBS Provisioned IOPS (io1)  $0.125</span>
+<span class="l l-Scalar l-Scalar-Plain">EBS Provisioned IOPS (io2)  $0.125</span>
+<span class="l l-Scalar l-Scalar-Plain">EBS Magnetic (standard)     $0.05</span>
+
+<span class="l l-Scalar l-Scalar-Plain">=== SSD 12 cent , for HDD 5 cent</span>
+
+<span class="l l-Scalar l-Scalar-Plain">EFS Standard                $0.30</span>
+<span class="l l-Scalar l-Scalar-Plain">EFS Standard-IA             $0.025</span>
+<span class="l l-Scalar l-Scalar-Plain">EFS One Zone                $0.16</span>
+<span class="l l-Scalar l-Scalar-Plain">EFS One Zone-IA             $0.0133</span>
+
+<span class="l l-Scalar l-Scalar-Plain">=== standard 30 cent , IA - 2 cent</span>
+</code></pre></div></p>
+</li>
+</ul>
+<hr />
+<h2 id="exam">Exam <img alt="🎯" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f3af.svg" title=":dart:" /><a class="headerlink" href="#exam" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<h1 id="1-need-high-frequency-reading-and-writing-20-mb-file-max-1-tb-total-size">1 need high-frequency reading and writing (20 MB file) max 1 TB total size.<a class="headerlink" href="#1-need-high-frequency-reading-and-writing-20-mb-file-max-1-tb-total-size" title="Permanent link">&para;</a></h1>
+</li>
+<li><strong>EFS with Provisioned Throughput mode</strong> <img alt="👈" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f448.svg" title=":point_left:" /><ul>
+<li>supports concurrent access </li>
+<li>Provisioned Throughput, Ensures consistent performance for high I/O workloads</li>
+</ul>
+</li>
+<li>
+<p><strong>DynamoDB</strong> <img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/274c.svg" title=":x:" /></p>
+<ul>
+<li>Not optimized for large file storage &amp; high-frequency writes.</li>
+</ul>
+</li>
+<li>
+<h1 id="2-ebs-volume-automate">2 EBS volume : automate:<a class="headerlink" href="#2-ebs-volume-automate" title="Permanent link">&para;</a></h1>
+</li>
+<li>every 12 hr screenshot</li>
+<li>delete older screenshot</li>
+<li>options:<ul>
+<li>use event rule schedular &gt; lambda &gt; ...</li>
+<li>use Amazon <strong>Data Lifecycle manager</strong> **</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

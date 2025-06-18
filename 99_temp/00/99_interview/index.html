@@ -1,0 +1,1678 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Technical Documentation">
+      
+      
+        <meta name="author" content="lekhraj Dinkar">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>A. Frontend - lekhraj-Dinkar-Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-frontend" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="lekhraj-Dinkar-Docs" class="md-header__button md-logo" aria-label="lekhraj-Dinkar-Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            lekhraj-Dinkar-Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A. Frontend
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lekhrajdinkar/02-backend-java-spring" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="lekhraj-Dinkar-Docs" class="md-nav__button md-logo" aria-label="lekhraj-Dinkar-Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    lekhraj-Dinkar-Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lekhrajdinkar/02-backend-java-spring" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Frontend
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Frontend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Frontend/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Springboot
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Springboot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/00_others/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Others
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spring Core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Spring Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/01_Spring_Core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Core Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/02_Spring_bean_lifeCycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Bean Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/03_AOP_concept/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AOP Concept
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/03_point-cut-examples.txt" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Point-cut Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/04_spring_properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Spring Boot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/01_SB_kickoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kickoff
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/02_SB_AutoConfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Auto Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/03_SB_starter_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Starter & Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Web
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/00%20WEB_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/00_general_web_task/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    General Web Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/01_servlet_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Servlet 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/02_spring_MVC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring MVC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/03_spring_boot_stater_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot Starter Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/04_REST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/05_Jackson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jackson
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/06_swagger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Swagger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/07_error_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Error Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/08_gRPC%2Bwebflux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    gRPC & Webflux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/09_webflux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webflux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Layer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Data Layer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/00_common_task/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/01_JPA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JPA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/02_presistence-context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Persistence Context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/03_ACID%2BLocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACID & Locks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-1-anno%2Bconverter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Annotations & Converter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-2-identifier%2Bvalidator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Identifier & Validator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-3-query/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Query
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-1-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-3-txn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Transactions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/er-diagram.png" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ER Diagram
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/00_OAuth_2.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OAuth 2.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/01_sb-security-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot Security Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/02_Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/03_Authorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/04_REST-secure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="a-frontend">A. Frontend<a class="headerlink" href="#a-frontend" title="Permanent link">&para;</a></h1>
+<ul>
+<li>angular : https://chat.deepseek.com/a/chat/s/cde1169c-f909-4927-a7c7-d3a3b38d5423 :green_circle:</li>
+<li>typescript: </li>
+</ul>
+<hr />
+<h1 id="b-backend">B. Backend<a class="headerlink" href="#b-backend" title="Permanent link">&para;</a></h1>
+<h2 id="1-middleware">1 middleware<a class="headerlink" href="#1-middleware" title="Permanent link">&para;</a></h2>
+<ul>
+<li>kafka : https://chat.deepseek.com/a/chat/s/135c1db5-d5c3-4cf3-8172-20d28b51e77d  :green_circle:</li>
+<li>RMQ :</li>
+</ul>
+<h2 id="2-java">2 java<a class="headerlink" href="#2-java" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Java</li>
+<li>SpringBoot</li>
+<li>Hibernate</li>
+</ul>
+<h2 id="3-oauth20">3 OAuth2.0<a class="headerlink" href="#3-oauth20" title="Permanent link">&para;</a></h2>
+<ul>
+<li>authorization flow</li>
+<li>implicit flow:</li>
+</ul>
+<h2 id="4-py">4 py<a class="headerlink" href="#4-py" title="Permanent link">&para;</a></h2>
+<h2 id="5-sql-rdbms">5 sql / rdbms<a class="headerlink" href="#5-sql-rdbms" title="Permanent link">&para;</a></h2>
+<ul>
+<li>https://chatgpt.com/c/684f8fe5-c36c-800d-b8cd-f9e0b32887ce</li>
+</ul>
+<h2 id="6-performance">6 performance<a class="headerlink" href="#6-performance" title="Permanent link">&para;</a></h2>
+<ul>
+<li>caching app level :</li>
+<li>cache on AWS :</li>
+<li>sql tuning : </li>
+<li>connection pool :not sure</li>
+</ul>
+<hr />
+<h1 id="c-devops">C. DevOps<a class="headerlink" href="#c-devops" title="Permanent link">&para;</a></h1>
+<h2 id="21-docker-green_circle">2.1 docker  :green_circle:<a class="headerlink" href="#21-docker-green_circle" title="Permanent link">&para;</a></h2>
+<ul>
+<li>https://chat.deepseek.com/a/chat/s/91b5b6a2-4aa1-43bf-b594-21bab0c9549c </li>
+</ul>
+<h2 id="22-k8s-green_circle">2.2 k8s :green_circle:<a class="headerlink" href="#22-k8s-green_circle" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Starbucks Q: https://chat.deepseek.com/a/chat/s/da139fc5-e06f-42e3-8419-a2c17a94a9cf</li>
+<li><a href="../../../03_Kubernetes/01_k8s-interview-question/">01_k8s-interview-question.md</a></li>
+<li>HPA : https://chat.deepseek.com/a/chat/s/00db1638-b5bc-4a70-a585-4a487e210a63</li>
+</ul>
+<h2 id="23-helm">2.3 helm<a class="headerlink" href="#23-helm" title="Permanent link">&para;</a></h2>
+<h2 id="24-cicd-pipeline">2.4 CI/Cd pipeline<a class="headerlink" href="#24-cicd-pipeline" title="Permanent link">&para;</a></h2>
+<h2 id="25-terraform-cloud-formation">2.5 terraform / Cloud Formation<a class="headerlink" href="#25-terraform-cloud-formation" title="Permanent link">&para;</a></h2>
+<h2 id="26-observability">2.6 Observability<a class="headerlink" href="#26-observability" title="Permanent link">&para;</a></h2>
+<ul>
+<li>AWS CW</li>
+<li>DataDog</li>
+<li>prometheous</li>
+<li>otel / micrometer</li>
+</ul>
+<hr />
+<h1 id="d-aws">D. AWS<a class="headerlink" href="#d-aws" title="Permanent link">&para;</a></h1>
+<ul>
+<li>scenarios : https://chatgpt.com/c/68511f33-9680-800d-afe7-d7512848aeed</li>
+</ul>
+<h2 id="1-dr-release-green_circle">1 DR + release  :green_circle:<a class="headerlink" href="#1-dr-release-green_circle" title="Permanent link">&para;</a></h2>
+<ul>
+<li>https://chat.deepseek.com/a/chat/s/6ae96d81-254a-4034-876a-5c367b97e66f</li>
+<li><a href="../10_Architecture/00_01_DR.md">00_01_DR.md</a></li>
+</ul>
+<h2 id="2-aurora-green_circle">2 Aurora :green_circle:<a class="headerlink" href="#2-aurora-green_circle" title="Permanent link">&para;</a></h2>
+<ul>
+<li>https://chatgpt.com/c/684cc581-6c3c-800d-9a2f-dbfbe1e8a353</li>
+<li>https://chatgpt.com/c/684d3c4c-82d8-800d-92c3-4ca50e71d841 (paper notes)</li>
+</ul>
+<h2 id="3-ecs-eks-green_circle">3 ECS / EKS  :green_circle:<a class="headerlink" href="#3-ecs-eks-green_circle" title="Permanent link">&para;</a></h2>
+<ul>
+<li>https://chatgpt.com/c/684b7e2d-0224-800d-a691-d2d1be4a7233</li>
+<li>https://chatgpt.com/share/684dcfe0-a214-800d-9d65-c5e79af9cc75 (public-link)</li>
+</ul>
+<hr />
+<h2 id="4-networking">4 Networking<a class="headerlink" href="#4-networking" title="Permanent link">&para;</a></h2>
+<h3 id="elb-green_circle">ELB :green_circle:<a class="headerlink" href="#elb-green_circle" title="Permanent link">&para;</a></h3>
+<ul>
+<li>https://chatgpt.com/c/684f8847-c760-800d-903c-d86c1ebdd8f6</li>
+<li>https://chatgpt.com/share/684f88fe-12d0-800d-aa10-3669a29b5301 (public-link)</li>
+</ul>
+<h3 id="api-gateway-green_circle">API gateway :green_circle:<a class="headerlink" href="#api-gateway-green_circle" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<h1 id="1-httpschatgptcomc684f8889-3744-800d-9b8c-97f019931060-till-3040-q">1 https://chatgpt.com/c/684f8889-3744-800d-9b8c-97f019931060 , till 30/40 q<a class="headerlink" href="#1-httpschatgptcomc684f8889-3744-800d-9b8c-97f019931060-till-3040-q" title="Permanent link">&para;</a></h1>
+</li>
+<li>https://chatgpt.com/share/684f8917-1a9c-800d-8dc9-d3ecd05a0d39 (public link)</li>
+<li>VTL (velocity template language) : https://chatgpt.com/c/68506cfe-9d68-800d-b0a6-a2471d33e514</li>
+<li>
+<h1 id="2-httpschatgptcomc68508a49-ff44-800d-93db-08808f55ccd7">2 https://chatgpt.com/c/68508a49-ff44-800d-93db-08808f55ccd7<a class="headerlink" href="#2-httpschatgptcomc68508a49-ff44-800d-93db-08808f55ccd7" title="Permanent link">&para;</a></h1>
+</li>
+</ul>
+<h3 id="vpc-subnet">VPC + Subnet<a class="headerlink" href="#vpc-subnet" title="Permanent link">&para;</a></h3>
+<h3 id="r53">R53<a class="headerlink" href="#r53" title="Permanent link">&para;</a></h3>
+<ul>
+<li>skip for now</li>
+</ul>
+<h3 id="topology-transient-gateway-s2s-dx-etc">Topology : Transient-gateway, s2s, Dx, etc<a class="headerlink" href="#topology-transient-gateway-s2s-dx-etc" title="Permanent link">&para;</a></h3>
+<ul>
+<li>skip for now</li>
+</ul>
+<h2 id="5-lambda-green_circle">5 Lambda :green_circle:<a class="headerlink" href="#5-lambda-green_circle" title="Permanent link">&para;</a></h2>
+<ul>
+<li>https://chatgpt.com/c/684e2c1f-e040-800d-b0a6-48e345a7b9f1</li>
+</ul>
+<h2 id="6-s3-green_circle">6 S3 :green_circle:<a class="headerlink" href="#6-s3-green_circle" title="Permanent link">&para;</a></h2>
+<ul>
+<li>MRAP : https://chat.deepseek.com/a/chat/s/d41490fe-a389-40b5-896d-67e3f9476d8c</li>
+<li>https://chatgpt.com/c/684e115a-1404-800d-8610-cc6600417f02</li>
+</ul>
+<h2 id="7-sqs-sns-eventbridge-green_circle">7 SQS / SNS / EventBridge :green_circle:<a class="headerlink" href="#7-sqs-sns-eventbridge-green_circle" title="Permanent link">&para;</a></h2>
+<ul>
+<li>https://chatgpt.com/c/684e7573-afb0-800d-ae9d-6fd4b32cffc8 sqs</li>
+<li>https://chatgpt.com/c/684e7596-67a8-800d-b010-495371801137 sns</li>
+<li>https://chatgpt.com/c/684e75a3-5c84-800d-8b7a-2be49b76fc83 eb</li>
+</ul>
+<hr />
+<h2 id="8-security">8 Security<a class="headerlink" href="#8-security" title="Permanent link">&para;</a></h2>
+<h2 id="iam">IAM<a class="headerlink" href="#iam" title="Permanent link">&para;</a></h2>
+<h2 id="kms">KMS<a class="headerlink" href="#kms" title="Permanent link">&para;</a></h2>
+<h2 id="aws-org-identity-provider">AWS org + Identity provider<a class="headerlink" href="#aws-org-identity-provider" title="Permanent link">&para;</a></h2>
+<h2 id="secret-manager-ssm">Secret Manager + SSM<a class="headerlink" href="#secret-manager-ssm" title="Permanent link">&para;</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

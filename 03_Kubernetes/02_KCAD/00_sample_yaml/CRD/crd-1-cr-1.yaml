@@ -1,0 +1,9 @@
+kind: Internal
+apiVersion: datasets.kodekloud.com/v1
+metadata:
+  name: internal-space
+  namespace: default
+spec:
+  internalLoad: "high"
+  range: 80
+  percentage: "50"

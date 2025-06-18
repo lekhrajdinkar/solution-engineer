@@ -1,0 +1,10 @@
+environmentGroup:
+  name: oz-dev
+  identifier: ozdev
+  description: ""
+  tags: {}
+  orgIdentifier: default
+  projectIdentifier: mapsoutboundapi
+  envIdentifiers:
+    - dev1
+    - dev2

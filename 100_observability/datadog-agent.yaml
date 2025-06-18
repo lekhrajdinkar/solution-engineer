@@ -1,0 +1,40 @@
+apiVersion: "datadoghq.com/v2alpha1"
+kind: "DatadogAgent"
+metadata:
+  name: "datadog"
+spec:
+  global:
+    clusterName: "datadog-cluster"
+    registry: "docker.io/datadog"
+    site: "us5.datadoghq.com"
+    tags:
+      - "env:dev"
+      - "k8s:minikube"
+    credentials:
+      apiSecret:
+        secretName: "datadog-secret"
+        keyName: "api-key"
+  features:
+    apm:
+      instrumentation:
+        enabled: true
+        targets:
+          - name: "default-target"
+            ddTraceVersions:
+              java: "1"
+              python: "3"
+              js: "5"
+              php: "1"
+              dotnet: "3"
+    logCollection:
+      enabled: true
+      containerCollectAll: true
+    otelCollector:
+      enabled: true
+      ports:
+        - containerPort: 4317
+          hostPort: 4317
+          name: "otel-grpc"
+        - containerPort: 4318
+          hostPort: 4318
+          name: "otel-http"
