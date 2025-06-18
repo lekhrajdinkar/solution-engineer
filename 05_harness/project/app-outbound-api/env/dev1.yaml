@@ -1,6 +1,0 @@
-environment:
-  name: dev1
-  identifier: dev1
-  orgIdentifier: default
-  projectIdentifier: mapsoutboundapi
-  type: PreProduction

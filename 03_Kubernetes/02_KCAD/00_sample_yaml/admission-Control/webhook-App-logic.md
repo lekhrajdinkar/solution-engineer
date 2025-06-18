@@ -1,4 +1,0 @@
-- **Webhook logic**
-  - `Denies` all request for `pod` to run as `root` in container if no securityContext is provided.
-  - If no value is set for runAsNonRoot, a default of true is applied, and the user ID defaults to 1234
-  - Allow to run containers as root if `runAsNonRoot set explicitly to false` in the securityContext
