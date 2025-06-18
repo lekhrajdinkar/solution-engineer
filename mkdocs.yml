@@ -4,7 +4,75 @@ site_author: lekhraj Dinkar
 
 # Navigation based on your Notes folder
 nav:
-  - Home: README.md
+  - AWS:
+      - AWS DVA-C02:
+          - "DVA Overview": 01_aws/00_DVA-C02/00_DVA.md
+          - "CLI & SDK": 01_aws/00_DVA-C02/12_CLI_SDK_more.md
+          - "CloudFormation": 01_aws/00_DVA-C02/18_CLOUD_FORMATION.md
+          - "CI/CD": 01_aws/00_DVA-C02/24_CI_CD.md
+          - "SAM": 01_aws/00_DVA-C02/25_SAM.md
+          - "CDK": 01_aws/00_DVA-C02/26_CDK.md
+          - "Handson": 01_aws/00_DVA-C02/99_handson.md
+
+      - AWS Compute:
+          - "EC2": 01_aws/01_compute/01_EC2.md
+          - "ECS": 01_aws/01_compute/02_Containers_ECS.md
+          - "EKS": 01_aws/01_compute/02_Kubernetes_EKS.md
+          - "Lambda Intro": 01_aws/01_compute/03_lambda-01-saa.md
+          - "Lambda CLI": 01_aws/01_compute/03_lambda-dva-01-CLI.md
+          - "Lambda Triggers": 01_aws/01_compute/03_lambda-dva-02-trigger.md
+          - "Lambda Event/Context": 01_aws/01_compute/03_lambda-dva-03-context+event.md
+          - "App Runner": 01_aws/01_compute/04_AppRunner.md
+          - "Step Functions": 01_aws/01_compute/28_1_STEP_FUNCTION_DVA.md
+
+      - AWS Storage:
+          - "S3 Basics": 01_aws/02_storage/03_S3-1.md
+          - "S3 Advanced": 01_aws/02_storage/03_S3-2-more.md
+          - "EBS & EFS": 01_aws/02_storage/01_EBS_EFS.md
+          - "FSx": 01_aws/02_storage/02_FSx_serverless-FS.md
+          - "Snow Family": 01_aws/02_storage/02_snow-family.md
+
+      - AWS Database:
+          - "RDS": 01_aws/03_database/01_RDS.md
+          - "Aurora": 01_aws/03_database/02_RDS_Aurora.md
+          - "DynamoDB SSA": 01_aws/03_database/04_1_DynamoDB_SSA.md
+          - "DynamoDB Ops": 01_aws/03_database/04_3_DynamoDB_DVA-operations.md
+          - "DAX": 01_aws/03_database/05_DAX.md
+
+      - AWS Security:
+          - "IAM": 01_aws/06_Security/01_IAM.md
+          - "SSO": 01_aws/06_Security/01_SSO+DirectoryService.md
+          - "KMS Basics": 01_aws/06_Security/04_1_KMS_SSA.md
+          - "KMS CLI": 01_aws/06_Security/04_2_KMS_DVA-cli.md
+          - "Secrets Manager": 01_aws/06_Security/06_secret_manager.md
+          - "SSM": 01_aws/06_Security/05_SSM-param-store.md
+
+      - AWS Networking:
+          - "VPC Basics": 01_aws/04_network/03_VPC-1-start.md
+          - "VPC NAT": 01_aws/04_network/03_VPC-2-NAT.md
+          - "VPC Peering": 01_aws/04_network/03_VPC-3-vpcPeer+vpce.md
+          - "CloudFront": 01_aws/04_network/04_CloudFront.md
+          - "API Gateway": 01_aws/04_network/05_2_API_gateway_DVA.md
+
+      - AWS Monitoring:
+          - "CloudWatch Metrics": 01_aws/07_monitoring/01_CW-Metric.md
+          - "CloudWatch Logs": 01_aws/07_monitoring/02_CW-Logs.md
+          - "X-Ray": 01_aws/07_monitoring/04_X-rays_DVA.md
+          - "CloudTrail": 01_aws/07_monitoring/05_cloudTrail.md
+
+      - AWS Analytics:
+          - "Athena": 01_aws/08_Analytics/01_athena_adhocSQL_serverless.md
+          - "Redshift": 01_aws/08_Analytics/02_Redshift_OLAP.md
+          - "QuickSight": 01_aws/08_Analytics/05_QuickSight_dashboard.md
+          - "Glue ETL": 01_aws/08_Analytics/06_glue_ETL.md
+
+      - AWS DR & Migration:
+          - "DR Strategies": 01_aws/09_DR/01_dr-strategies.md
+          - "Migration Part 1": 01_aws/09_DR/02_migration-1.md
+          - "Migration Part 2": 01_aws/09_DR/02_migration-2.md
+
+      - AWS Practice:
+          - "Practice Test": 01_aws/practice-test/readme.md
   - Frontend:
       - Overview: 00_Frontend/readme.md
   - Springboot:
