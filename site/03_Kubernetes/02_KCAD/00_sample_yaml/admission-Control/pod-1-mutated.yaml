@@ -1,0 +1,122 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2024-11-02T21:14:14Z"
+  labels:
+    app: pod-with-defaults
+  name: pod-with-defaults
+  namespace: default
+  resourceVersion: "2891"
+  uid: 249614f9-0d16-458b-b2ed-f7f1d7ad5d36
+spec:
+  containers:
+    - command:
+        - sh
+        - -c
+        - echo I am running as user $(id -u)
+      image: busybox
+      imagePullPolicy: Always
+      name: busybox
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: kube-api-access-2m4h7
+          readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: controlplane
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: OnFailure
+  schedulerName: default-scheduler
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1234
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+  volumes:
+    - name: kube-api-access-2m4h7
+      projected:
+        defaultMode: 420
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              items:
+                - key: ca.crt
+                  path: ca.crt
+              name: kube-root-ca.crt
+          - downwardAPI:
+              items:
+                - fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+                  path: namespace
+status:
+  conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-11-02T21:14:21Z"
+      status: "False"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2024-11-02T21:14:14Z"
+      reason: PodCompleted
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-11-02T21:14:18Z"
+      reason: PodCompleted
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-11-02T21:14:18Z"
+      reason: PodCompleted
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-11-02T21:14:14Z"
+      status: "True"
+      type: PodScheduled
+  containerStatuses:
+    - containerID: containerd://2430e79a8ae1fc0f53be8c6f7bb91d7f0cb5919e224fb4ffb9fb1597c0ce14a8
+      image: docker.io/library/busybox:latest
+      imageID: docker.io/library/busybox@sha256:768e5c6f5cb6db0794eec98dc7a967f40631746c32232b78a3105fb946f3ab83
+      lastState: {}
+      name: busybox
+      ready: false
+      restartCount: 0
+      started: false
+      state:
+        terminated:
+          containerID: containerd://2430e79a8ae1fc0f53be8c6f7bb91d7f0cb5919e224fb4ffb9fb1597c0ce14a8
+          exitCode: 0
+          finishedAt: "2024-11-02T21:14:16Z"
+          reason: Completed
+          startedAt: "2024-11-02T21:14:16Z"
+      volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: kube-api-access-2m4h7
+          readOnly: true
+          recursiveReadOnly: Disabled
+  hostIP: 192.29.205.3
+  hostIPs:
+    - ip: 192.29.205.3
+  phase: Succeeded
+  podIP: 10.244.0.6
+  podIPs:
+    - ip: 10.244.0.6
+  qosClass: BestEffort
+  startTime: "2024-11-02T21:14:14Z"

@@ -1,0 +1,92 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Employee API",
+    "description": "Sample API for managing employees.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/employee/get-all": {
+      "get": {
+        "summary": "Get all employees",
+        "description": "Returns a list of all employees.",
+        "responses": {
+          "200": {
+            "description": "A successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "integer", "example": 1 },
+                      "name": { "type": "string", "example": "John Doe" },
+                      "position": { "type": "string", "example": "Developer" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "type": "AWS_PROXY",
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:{region}:lambda:path/2015-03-31/functions/{lambda-arn}/invocations",
+          "payloadFormatVersion": "2.0"
+        }
+      }
+    },
+    "/employee/delete": {
+      "delete": {
+        "summary": "Delete an employee",
+        "description": "Deletes an employee by ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "The ID of the employee to delete.",
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Employee successfully deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Employee deleted successfully" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request: Invalid ID"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "type": "AWS_PROXY",
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:{region}:lambda:path/2015-03-31/functions/{lambda-arn}/invocations",
+          "payloadFormatVersion": "2.0"
+        }
+      }
+    }
+  },
+  "components": {},
+  "x-amazon-apigateway-importexport-version": "1.0"
+}

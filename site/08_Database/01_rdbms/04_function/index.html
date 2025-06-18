@@ -1,0 +1,2218 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Technical Documentation">
+      
+      
+        <meta name="author" content="lekhraj Dinkar">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>postgres - functions - lekhraj-Dinkar-Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#postgres-functions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="lekhraj-Dinkar-Docs" class="md-header__button md-logo" aria-label="lekhraj-Dinkar-Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            lekhraj-Dinkar-Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              postgres - functions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lekhrajdinkar/02-backend-java-spring" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="lekhraj-Dinkar-Docs" class="md-nav__button md-logo" aria-label="lekhraj-Dinkar-Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    lekhraj-Dinkar-Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lekhrajdinkar/02-backend-java-spring" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Frontend
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Frontend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Frontend/readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Springboot
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Springboot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/00_others/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Others
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spring Core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Spring Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/01_Spring_Core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Core Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/02_Spring_bean_lifeCycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Bean Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/03_AOP_concept/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AOP Concept
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/03_point-cut-examples.txt" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Point-cut Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_Spring-core/04_spring_properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Spring Boot
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/01_SB_kickoff/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kickoff
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/02_SB_AutoConfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Auto Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/01_springboot/03_SB_starter_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Starter & Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Web
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Web
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/00%20WEB_start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Web Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/00_general_web_task/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    General Web Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/01_servlet_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Servlet 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/02_spring_MVC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring MVC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/03_spring_boot_stater_web/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot Starter Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/04_REST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/05_Jackson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jackson
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/06_swagger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Swagger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/07_error_handling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Error Handling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/08_gRPC%2Bwebflux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    gRPC & Webflux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/02_web/09_webflux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webflux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Layer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Data Layer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/00_common_task/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Tasks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/01_JPA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JPA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/02_presistence-context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Persistence Context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/03_ACID%2BLocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACID & Locks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-1-anno%2Bconverter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Annotations & Converter
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-2-identifier%2Bvalidator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Identifier & Validator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/04_Hibernate-3-query/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hibernate Query
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-1-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/05-SBjpaData-3-txn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SB JPA Data Transactions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/03_data-layer/er-diagram.png" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ER Diagram
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/00_OAuth_2.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OAuth 2.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/01_sb-security-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spring Boot Security Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/02_Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/03_Authorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../00_Springboot/04_security/04_REST-secure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REST Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-string-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 String Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mathematical-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 Mathematical Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-datetime-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 Date/Time Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-aggregate-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 Aggregate Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-window-functions-skip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 Window Functions (skip)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-jsonjsonb-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 JSON/JSONB Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 JSON/JSONB Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-name-john-age-30json-name-as-result-john-select-name-john-age-30json-age-as-result-30-not-30-select-jsonb_array_elements10-20-30jsonb-as-value-10-n-20-n-30-select-json_build_objectname-alice-age-25-as-result-namealiceage25" class="md-nav__link">
+    <span class="md-ellipsis">
+      SELECT &#39;{&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}&#39;::json-&gt;&#39;name&#39; AS result; -- &quot;John&quot; SELECT &#39;{&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}&#39;::json-&gt;&gt;&#39;age&#39; AS result; -- &quot;30&quot;, not 30 SELECT JSONB_ARRAY_ELEMENTS(&#39;[10, 20, 30]&#39;::jsonb) AS value; -- 10 \n 20 \n 30 SELECT JSON_BUILD_OBJECT(&#39;name&#39;, &#39;Alice&#39;, &#39;age&#39;, 25) AS result; -- {&quot;name&quot;:&quot;Alice&quot;,&quot;age&quot;:25}
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-array-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 Array Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-full-text-search-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      8 Full-Text Search Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-geometric-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      9 Geometric Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-network-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      10 Network Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-system-information-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      11 System Information Functions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-advanced-and-rarely-used-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      12 Advanced and Rarely Used Functions
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="postgres-functions">postgres - functions<a class="headerlink" href="#postgres-functions" title="Permanent link">&para;</a></h1>
+<h2 id="1-string-functions">1 String Functions<a class="headerlink" href="#1-string-functions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Usage Level</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>length()</code></td>
+<td>Get the length of a string</td>
+<td>Most Used</td>
+<td><code>SELECT length('hello');</code></td>
+</tr>
+<tr>
+<td><code>concat()</code></td>
+<td>Concatenate strings</td>
+<td>Most Used</td>
+<td><code>SELECT concat('a', 'b', 'c');</code></td>
+</tr>
+<tr>
+<td><code>upper()</code>/<code>lower()</code></td>
+<td>Convert to upper/lowercase</td>
+<td>Most Used</td>
+<td><code>SELECT upper('hello');</code></td>
+</tr>
+<tr>
+<td><code>strpos()</code></td>
+<td>Find substring position</td>
+<td>Rarely Used</td>
+<td><code>SELECT strpos('hello', 'e');</code></td>
+</tr>
+<tr>
+<td><code>regexp_replace()</code></td>
+<td>Replace substring using regex</td>
+<td>Advanced Use</td>
+<td><code>SELECT regexp_replace('123abc', '[a-z]', '');</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-mathematical-functions">2 Mathematical Functions<a class="headerlink" href="#2-mathematical-functions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Usage Level</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>abs()</code></td>
+<td>Absolute value</td>
+<td>Most Used</td>
+<td><code>SELECT abs(-5);</code></td>
+</tr>
+<tr>
+<td><code>round()</code></td>
+<td>Round to nearest integer</td>
+<td>Most Used</td>
+<td><code>SELECT round(4.6);</code></td>
+</tr>
+<tr>
+<td><code>sqrt()</code></td>
+<td>Square root</td>
+<td>Rarely Used</td>
+<td><code>SELECT sqrt(16);</code></td>
+</tr>
+<tr>
+<td><code>power()</code></td>
+<td>Raise to a power</td>
+<td>Rarely Used</td>
+<td><code>SELECT power(2, 3);</code></td>
+</tr>
+<tr>
+<td><code>random()</code></td>
+<td>Generate random number</td>
+<td>Advanced Use</td>
+<td><code>SELECT random();</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-datetime-functions">3 Date/Time Functions<a class="headerlink" href="#3-datetime-functions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Usage Level</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>now()</code></td>
+<td>Current date/time</td>
+<td>Most Used</td>
+<td><code>SELECT now();</code></td>
+</tr>
+<tr>
+<td><code>age()</code></td>
+<td>Difference between dates</td>
+<td>Most Used</td>
+<td><code>SELECT age('2024-01-01');</code></td>
+</tr>
+<tr>
+<td><code>date_trunc()</code></td>
+<td>Truncate to specified precision</td>
+<td>Rarely Used</td>
+<td><code>SELECT date_trunc('month', now());</code></td>
+</tr>
+<tr>
+<td><code>to_char()</code></td>
+<td>Format date/time</td>
+<td>Rarely Used</td>
+<td><code>SELECT to_char(now(), 'YYYY-MM-DD');</code></td>
+</tr>
+<tr>
+<td><code>interval</code></td>
+<td>Add/subtract time intervals</td>
+<td>Advanced Use</td>
+<td><code>SELECT now() + interval '1 day';</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-aggregate-functions">4 Aggregate Functions<a class="headerlink" href="#4-aggregate-functions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Usage Level</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>COUNT(*)</code></td>
+<td>Counts rows.</td>
+<td>Most Used</td>
+<td><code>COUNT(*) → 42</code></td>
+</tr>
+<tr>
+<td><code>SUM(value)</code></td>
+<td>Sums values.</td>
+<td>Most Used</td>
+<td><code>SUM(salary) → 50000</code></td>
+</tr>
+<tr>
+<td><code>AVG(value)</code></td>
+<td>Calculates average.</td>
+<td>Most Used</td>
+<td><code>AVG(salary) → 5000</code></td>
+</tr>
+<tr>
+<td><code>MIN(value)</code></td>
+<td>Finds minimum value.</td>
+<td>Most Used</td>
+<td><code>MIN(salary) → 1000</code></td>
+</tr>
+<tr>
+<td><code>STRING_AGG(value, delimiter)</code></td>
+<td>Concatenates strings.</td>
+<td>Rarely Used</td>
+<td><code>STRING_AGG(name, ', ')</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-window-functions-skip">5 Window Functions (skip) <img alt="🔴" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/1f534.svg" title=":red_circle:" /><a class="headerlink" href="#5-window-functions-skip" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Usage Level</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ROW_NUMBER()</code></td>
+<td>Assigns a unique row number.</td>
+<td>Most Used</td>
+<td><code>ROW_NUMBER() OVER (PARTITION BY dept)</code></td>
+</tr>
+<tr>
+<td><code>RANK()</code></td>
+<td>Assigns rank with gaps.</td>
+<td>Most Used</td>
+<td><code>RANK() OVER (ORDER BY salary DESC)</code></td>
+</tr>
+<tr>
+<td><code>LEAD(value)</code></td>
+<td>Accesses subsequent row value.</td>
+<td>Advanced</td>
+<td><code>LEAD(salary) OVER ()</code></td>
+</tr>
+<tr>
+<td><code>LAG(value)</code></td>
+<td>Accesses previous row value.</td>
+<td>Advanced</td>
+<td><code>LAG(salary) OVER ()</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-jsonjsonb-functions">6 JSON/JSONB Functions<a class="headerlink" href="#6-jsonjsonb-functions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Usage Level</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-&gt;</code></td>
+<td>Accesses a JSON object field by key.</td>
+<td>Most Used</td>
+<td><code>json_column-&gt;'key' → "value"</code></td>
+</tr>
+<tr>
+<td><code>-&gt;&gt;</code></td>
+<td>Accesses a JSON object field as text.</td>
+<td>Most Used</td>
+<td><code>json_column-&gt;&gt;'key' → value</code></td>
+</tr>
+<tr>
+<td><code>#&gt;</code></td>
+<td>Accesses a JSON object using a path.</td>
+<td>Advanced</td>
+<td><code>json_column#&gt;'{path,key}' → "value"</code></td>
+</tr>
+<tr>
+<td><code>#&gt;&gt;</code></td>
+<td>Accesses a JSON object field as text using a path.</td>
+<td>Advanced</td>
+<td><code>json_column#&gt;&gt;'{path,key}' → value</code></td>
+</tr>
+<tr>
+<td><code>JSONB_ARRAY_ELEMENTS(jsonb)</code></td>
+<td>Expands a JSON array to a set of rows.</td>
+<td>Advanced</td>
+<td><code>JSONB_ARRAY_ELEMENTS('[1,2,3]') → 1, 2, 3</code></td>
+</tr>
+<tr>
+<td><code>JSON_BUILD_OBJECT(keys, values...)</code></td>
+<td>Builds a JSON object from key-value pairs.</td>
+<td>Most Used</td>
+<td><code>JSON_BUILD_OBJECT('a', 1, 'b', 2) → {"a":1,"b":2}</code></td>
+</tr>
+<tr>
+<td><code>JSONB_BUILD_ARRAY(values...)</code></td>
+<td>Builds a JSONB array.</td>
+<td>Most Used</td>
+<td><code>JSONB_BUILD_ARRAY(1, 2, 'a') → [1,2,"a"]</code></td>
+</tr>
+<tr>
+<td><code>JSONB_SET(jsonb, path, value)</code></td>
+<td>Updates a JSONB object by setting a value at a path.</td>
+<td>Advanced</td>
+<td><code>JSONB_SET('{"a":1}', '{a}', '2') → {"a":2}</code></td>
+</tr>
+<tr>
+<td><code>JSONB_INSERT(jsonb, path, value)</code></td>
+<td>Inserts a value into a JSONB array at a specified path.</td>
+<td>Rarely Used</td>
+<td><code>JSONB_INSERT('[1,2]', '{1}', '1.5') → [1,1.5,2]</code></td>
+</tr>
+<tr>
+<td><code>TO_JSON(value)</code></td>
+<td>Converts a SQL value to JSON.</td>
+<td>Most Used</td>
+<td><code>TO_JSON(ROW('a', 1)) → {"f1":"a","f2":1}</code></td>
+</tr>
+<tr>
+<td><code>JSON_EACH(json)</code></td>
+<td>Expands JSON object to key-value rows.</td>
+<td>Rarely Used</td>
+<td><code>JSON_EACH('{"a":1, "b":2}') → "a", 1 and "b", 2</code></td>
+</tr>
+<tr>
+<td><code>JSON_OBJECT(keys, values...)</code></td>
+<td>Constructs a JSON object from text arrays.</td>
+<td>Advanced</td>
+<td><code>JSON_OBJECT(ARRAY['a','b'], ARRAY[1,2]) → {"a":1,"b":2}</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="example">Example:<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<h2 id="select-name-john-age-30json-name-as-result-john-select-name-john-age-30json-age-as-result-30-not-30-select-jsonb_array_elements10-20-30jsonb-as-value-10-n-20-n-30-select-json_build_objectname-alice-age-25-as-result-namealiceage25"><div class="highlight"><pre><span></span><code> SELECT &#39;{&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}&#39;::json-&gt;&#39;name&#39; AS result; -- &quot;John&quot;
+
+ SELECT &#39;{&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}&#39;::json-&gt;&gt;&#39;age&#39; AS result; -- &quot;30&quot;, not 30
+
+ SELECT JSONB_ARRAY_ELEMENTS(&#39;[10, 20, 30]&#39;::jsonb) AS value; -- 10 \n 20 \n 30
+
+ SELECT JSON_BUILD_OBJECT(&#39;name&#39;, &#39;Alice&#39;, &#39;age&#39;, 25) AS result;  -- {&quot;name&quot;:&quot;Alice&quot;,&quot;age&quot;:25}
+</code></pre></div><a class="headerlink" href="#select-name-john-age-30json-name-as-result-john-select-name-john-age-30json-age-as-result-30-not-30-select-jsonb_array_elements10-20-30jsonb-as-value-10-n-20-n-30-select-json_build_objectname-alice-age-25-as-result-namealiceage25" title="Permanent link">&para;</a></h2>
+<h2 id="7-array-functions">7 Array Functions<a class="headerlink" href="#7-array-functions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Usage Level</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ARRAY_APPEND(array, value)</code></td>
+<td>Appends an element to the end of the array.</td>
+<td>Most Used</td>
+<td><code>ARRAY_APPEND(ARRAY[1, 2], 3) → {1,2,3}</code></td>
+</tr>
+<tr>
+<td><code>ARRAY_PREPEND(value, array)</code></td>
+<td>Prepends an element to the beginning of the array.</td>
+<td>Most Used</td>
+<td><code>ARRAY_PREPEND(0, ARRAY[1, 2]) → {0,1,2}</code></td>
+</tr>
+<tr>
+<td><code>ARRAY_CAT(array1, array2)</code></td>
+<td>Concatenates two arrays.</td>
+<td>Most Used</td>
+<td><code>ARRAY_CAT(ARRAY[1,2], ARRAY[3,4]) → {1,2,3,4}</code></td>
+</tr>
+<tr>
+<td><code>CARDINALITY(array)</code></td>
+<td>Returns the number of elements in the array.</td>
+<td>Most Used</td>
+<td><code>CARDINALITY(ARRAY[1,2,3]) → 3</code></td>
+</tr>
+<tr>
+<td><code>ARRAY_REMOVE(array, value)</code></td>
+<td>Removes all occurrences of a value in the array.</td>
+<td>Rarely Used</td>
+<td><code>ARRAY_REMOVE(ARRAY[1,2,2], 2) → {1}</code></td>
+</tr>
+<tr>
+<td><code>ARRAY_REPLACE(array, search, replace)</code></td>
+<td>Replaces occurrences of a value.</td>
+<td>Rarely Used</td>
+<td><code>ARRAY_REPLACE(ARRAY[1,2,3], 2, 99) → {1,99,3}</code></td>
+</tr>
+<tr>
+<td><code>UNNEST(array)</code></td>
+<td>Expands an array into a set of rows.</td>
+<td>Advanced</td>
+<td><code>UNNEST(ARRAY[1,2,3]) → 1, 2, 3</code></td>
+</tr>
+<tr>
+<td><code>ARRAY_POSITION(array, value)</code></td>
+<td>Returns the position of the first occurrence.</td>
+<td>Rarely Used</td>
+<td><code>ARRAY_POSITION(ARRAY[10,20,30], 20) → 2</code></td>
+</tr>
+<tr>
+<td><code>ARRAY_AGG(value)</code></td>
+<td>Aggregates values into an array.</td>
+<td>Advanced</td>
+<td><code>ARRAY_AGG(column) → {val1, val2, ...}</code></td>
+</tr>
+<tr>
+<td><code>STRING_TO_ARRAY(string, delimiter)</code></td>
+<td>Splits a string into an array.</td>
+<td>Most Used</td>
+<td><code>STRING_TO_ARRAY('a,b,c', ',') → {a,b,c}</code></td>
+</tr>
+<tr>
+<td><code>ARRAY_TO_STRING(array, delimiter)</code></td>
+<td>Joins array elements into a string.</td>
+<td>Most Used</td>
+<td><code>ARRAY_TO_STRING(ARRAY['a', 'b'], ',') → 'a,b'</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-full-text-search-functions">8 Full-Text Search Functions<a class="headerlink" href="#8-full-text-search-functions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Usage Level</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TO_TSVECTOR(text)</code></td>
+<td>Converts text to tsvector.</td>
+<td>Rarely Used</td>
+<td><code>TO_TSVECTOR('english', 'text')</code></td>
+</tr>
+<tr>
+<td><code>TO_TSQUERY(text)</code></td>
+<td>Converts text to tsquery.</td>
+<td>Rarely Used</td>
+<td><code>TO_TSQUERY('english', 'query')</code></td>
+</tr>
+<tr>
+<td><code>TS_RANK(vector, query)</code></td>
+<td>Ranks search results.</td>
+<td>Advanced</td>
+<td><code>TS_RANK(vector, query)</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-geometric-functions">9 Geometric Functions<a class="headerlink" href="#9-geometric-functions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Usage Level</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POINT(x, y)</code></td>
+<td>Creates a geometric point.</td>
+<td>Rarely Used</td>
+<td><code>POINT(1, 2)</code></td>
+</tr>
+<tr>
+<td><code>LENGTH(segment)</code></td>
+<td>Calculates segment length.</td>
+<td>Rarely Used</td>
+<td><code>LENGTH(LINE((0,0),(3,4))) → 5</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-network-functions">10 Network Functions<a class="headerlink" href="#10-network-functions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Usage Level</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>INET_CLIENT_ADDR()</code></td>
+<td>Returns client IP.</td>
+<td>Rarely Used</td>
+<td><code>INET_CLIENT_ADDR()</code></td>
+</tr>
+<tr>
+<td><code>HOSTMASK(address)</code></td>
+<td>Returns network host mask.</td>
+<td>Advanced</td>
+<td><code>HOSTMASK('192.168.1.0/24')</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-system-information-functions">11 System Information Functions<a class="headerlink" href="#11-system-information-functions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Usage Level</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VERSION()</code></td>
+<td>Returns PostgreSQL version.</td>
+<td>Most Used</td>
+<td><code>VERSION()</code></td>
+</tr>
+<tr>
+<td><code>PG_TABLE_SIZE(table)</code></td>
+<td>Gets table size.</td>
+<td>Advanced</td>
+<td><code>PG_TABLE_SIZE('users')</code></td>
+</tr>
+<tr>
+<td><code>CURRENT_SETTING(name)</code></td>
+<td>Returns configuration parameter.</td>
+<td>Advanced</td>
+<td><code>CURRENT_SETTING('work_mem')</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="12-advanced-and-rarely-used-functions">12 Advanced and Rarely Used Functions<a class="headerlink" href="#12-advanced-and-rarely-used-functions" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Usage Level</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SETVAL(sequence, value)</code></td>
+<td>Sets sequence value.</td>
+<td>Rarely Used</td>
+<td><code>SETVAL('seq_name', 42)</code></td>
+</tr>
+<tr>
+<td><code>TS_HEADLINE(text, query)</code></td>
+<td>Generates search result snippet.</td>
+<td>Advanced</td>
+<td><code>TS_HEADLINE('document', query)</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.side", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
