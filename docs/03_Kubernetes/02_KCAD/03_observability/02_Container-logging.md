@@ -1,5 +1,0 @@
-- single c pod
-  - k logs -f pod-1
-- multi c pod
-  - k logs -f pod-1 **container-1**
-  - k logs -f pod-1 **container-2**
