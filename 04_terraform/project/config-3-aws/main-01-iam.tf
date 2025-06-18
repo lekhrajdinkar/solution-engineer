@@ -6,7 +6,7 @@ locals {
 }
 
 module "s3_archive_bucket_role" {
-  source = "./modules/iam"
+  source = "modules/iam"
   permission_boundary_name = "DefaultPermissionBoundary"
   policy_desc = "s3 policy"
   policy_name = "${var.app_name}-${var.app_component}-${var.aws_primary_region}-${var.app_env}-${local.s3_bucket_1}-policy"

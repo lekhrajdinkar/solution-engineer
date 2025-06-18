@@ -48,7 +48,7 @@
   - nexus-repo-connector 
   - service-now-connector
 
-![img.png](img.png)
+![img.png](../../99_temp/05_harness_image/img.png)
 
 #### 4 Access control
 - **service account** : none

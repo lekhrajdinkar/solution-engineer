@@ -1,6 +1,6 @@
 ## hands on:
 - deployment project (minikube) : [readme.md](../deployment/readme.md)
-- terraform (cluster set-up) :  [eks](../04_terraform/project/aws-config-maps/03_outbound/modules/eks)  | [ecs](../04_terraform/project/aws-config-maps/03_outbound/modules/ecs)
+- terraform (cluster set-up) :  [eks](../04_terraform/project/config-3-aws/modules/eks)  | [ecs](../04_terraform/project/config-3-aws/modules/ecs)
 
 ---
 ## CKAD (Certfication)
@@ -16,7 +16,7 @@
 - [00_EKS_reference.md](04_EKS/00_EKS_start)
 - workshop : https://catalog.us-east-1.prod.workshops.aws/workshops/afee4679-89af-408b-8108-44f5b1065cc7/en-US/010-introduction/basics/concepts-objects
 - eksctl: https://github.com/eksctl-io/eksctl/tree/main/examples
-- Terraform Module : [eks](../04_terraform/project/aws-config-maps/03_outbound/modules/eks)
+- Terraform Module : [eks](../04_terraform/project/config-3-aws/modules/eks)
 
 ### ECS
 - [03_ECS](03_ECS)

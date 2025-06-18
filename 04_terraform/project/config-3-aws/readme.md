@@ -2,9 +2,9 @@
 - cd ./
 - https://app.terraform.io/app/lekhrajdinkar-org/workspaces/aws-config-maps-outbound-dev1-all
 - deploys these 3 modules : 
-  - [iam](./main-01-iam.tf)
-  - [s3](./main-01-iam.tf)
-  - [ecs](./main-01-iam.tf)
+  - [iam](main-01-iam.tf)
+  - [s3](main-01-iam.tf)
+  - [ecs](main-01-iam.tf)
 - terraform plan --var-file .\env\dev1.tfvars
 
 - run other module on `dev2`, individually

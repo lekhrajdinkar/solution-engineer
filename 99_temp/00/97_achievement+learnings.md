@@ -20,23 +20,30 @@
 ---
 ## C. **CORE app** :green_circle:
 ### achieved
-- ETL - autosys jobs : event-bus + scheduled-event for (SLA) + dependency+check (DB base)
-- SWIFT - driver program
-- ETL driver program : flask + unicorn
-  - Design
-  - poc program.
-- helping **fsr**
+- **maps**
+  - inbound ETL poc
+    - no autosys jobs, event driven design ::  event-bus + scheduled-event for (SLA) + dependency+check (DB base)
+    - ETL driver program : flask / fastapi + unicorn
+  - outbound:
+    - SWIFT - driver program
+    - CIT external TD blend (BR/SS) - special series - 166
+    - CIAM design + JIRA, coding, refactoring, dashboard API
+    - design JSON contract and RDBMS for outbound
+    - design event-payload json - allocation (1), re-balance(1), generic(M) trade/s
+    - bucket_mapping_id -- driver of all event, metric and dimension
+- **fsr**
   - jwt token validation + method based authorization @pre/postAuth + helped to understand Auth/implicit flow
   - suggest **implicit flow with pkce**
   - batch job 15 sec IAM token
+  - disagree with UI arch : forced old them to redux, observability over Js-promises, etc
 - **tact** :  
-  - built screen for TACt fto swift message. no angular Vanilla JS + simulator to fast forward developmnet
+  - built screen for TACt fto swift message. no angular Vanilla JS + simulator to fast-forward development
 - **refactor**
   - eg: swift for AF vs AFIS
   - SB property load, avoid inner class
   - simple, clean
   - utility api : kafka, config, ibm/mq, decode TIP file
-  - health check dynamic factor
+  - health check : static vs dynamic factor
 - **quick prod fixes:**
   - data mod
   - code fix (not delegate to offshore)
@@ -49,6 +56,7 @@
 - solution-2 : **autosys**
   - s3:file-drop > lambda > webhook::harness pipeline
 - **fsr autosys** :parking:
+- custom-metric to create  event Dashboard: eb-event json payload, add tags
 
 ---
 ## D. AWS :green_circle:

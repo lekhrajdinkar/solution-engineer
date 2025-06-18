@@ -4,7 +4,7 @@ locals{
 }
 
 module "outbound_archive_bucket" {
-  source = "./modules/s3"
+  source = "modules/s3"
   bucket_name           = "${local.bucket_prefix}-${var.aws_primary_region}-${var.app_env}-archive-bucket"
   replicate_bucket_name = "${local.bucket_prefix}-${var.aws_secondary_region}-${var.app_env}-archive-bucket"
   force_destroy_flag    = false

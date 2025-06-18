@@ -27,7 +27,7 @@ locals {
 # ECR
 ###################################################################
 module "ecr"{
-  source = "./modules/ecr"
+  source = "modules/ecr"
 
   app_component = var.app_component
   app_env = var.app_env
@@ -40,7 +40,7 @@ module "ecr"{
 # ECS -> cluster, service, task/container + ALB (listener, targetGroup)
 ###################################################################
 module "ecs"{
-  source = "./modules/ecs"
+  source = "modules/ecs"
 
   app_component       = var.app_component
   app_env             = var.app_env

@@ -18,11 +18,11 @@
 # B. My Skills
 ## java
 - java upgrades
-- spring/springBoot [00_Springboot](../00_Springboot)
+- spring/springBoot [00_Springboot](../../00_Springboot)
   - springBatch
   - REST API, web socket, rpc
   - microservices https://github.com/lekhrajdinkar/03-spring-cloud-v2/tree/main/Notes
-- hibernate [03_data-layer](../00_Springboot/03_data-layer)
+- hibernate [03_data-layer](../../00_Springboot/03_data-layer)
 - lib
   - IBM/MQ, rmq, kafka
   - provider - iso/swift
@@ -43,7 +43,7 @@
   - rxjs
 ---
 # AWS
-- [01_aws](../01_aws)
+- [01_aws](../../01_aws)
 ---
 # Devops
 - git, maven, npm

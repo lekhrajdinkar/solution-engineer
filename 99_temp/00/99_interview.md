@@ -33,7 +33,7 @@
 - https://chat.deepseek.com/a/chat/s/91b5b6a2-4aa1-43bf-b594-21bab0c9549c 
 ## 2.2 k8s :green_circle:
 - Starbucks Q: https://chat.deepseek.com/a/chat/s/da139fc5-e06f-42e3-8419-a2c17a94a9cf
-- [01_k8s-interview-question.md](../03_Kubernetes/01_k8s-interview-question.md)
+- [01_k8s-interview-question.md](../../03_Kubernetes/01_k8s-interview-question.md)
 - HPA : https://chat.deepseek.com/a/chat/s/00db1638-b5bc-4a70-a585-4a487e210a63
 
 ## 2.3 helm
@@ -50,6 +50,7 @@
 
 ---
 # D. AWS
+- scenarios : https://chatgpt.com/c/68511f33-9680-800d-afe7-d7512848aeed
 ## 1 DR + release  :green_circle:
 - https://chat.deepseek.com/a/chat/s/6ae96d81-254a-4034-876a-5c367b97e66f
 - [00_01_DR.md](../10_Architecture/00_01_DR.md)

@@ -32,6 +32,26 @@ https://developer.hashicorp.com/terraform/tutorials/modules/pattern-module-creat
 - `${path.module}` --> built-in expression ,file path of the current module being executed
 ---
 
-## customize module
+## example: my s3 module
+- check : [s3](../project/config-3-aws/modules/s3)
+- resource aws_s3_bucket
+- resource aws_s3_bucket_`logging`
+- resource aws_s3_bucket_`public_access_block`
+- resource aws_s3_bucket_`versioning` - t/f
+  - mfa_delete - t/f
+- resource aws_s3_bucket_`server_side_encryption `
+  - SSE-S3, SSE-KMS
+- resource aws_s3_`bucket_ownership_controls`
+  - **ACL disable**
+    - objects in this bucket are owned by this account.
+    - Access to this bucket and its objects is specified using only **policies**.
+  - **ACL enable**
+    - Objects in this bucket can be owned by other AWS accounts
+- resource aws_s3_`bucket_policy`
+- resource aws_s3_`bucket_replication_configuration`
+- `more`
+  - s3 event **notification**
+  - **object lock** : WORM - enable / disable.
+  - static **website** hosting
 
 

@@ -56,7 +56,7 @@ resource "aws_route_table_association" "public_association_2" {
 */
 
 module "vpce" {
-  source = "./vpce"
+  source = "vpce"
 
   app_component                 = var.app_component
   app_env                       = var.app_env

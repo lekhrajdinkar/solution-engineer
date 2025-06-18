@@ -31,12 +31,12 @@
 
 ## 2 Solutions Engineer III june 
 - https://capgroup.wd1.myworkdayjobs.com/en-US/capitalgroupcareers/job/Software-Engineer--Solutions-Engineer-III-_JR4763
-- [lekhraj Dinkar-SE-3.pdf](lekhraj%20Dinkar-SE-3.pdf)
+- [lekhraj Dinkar-SE-3.pdf](lekhraj Dinkar-SE-3.pdf)
 
 ## 3 Senior Software Engineer/ Solutions Engineer IV :point_left
 - https://capgroup.wd1.myworkdayjobs.com/en-US/capitalgroupcareers/jobTasks/completed/application :x: withdrawn
 - https://capgroup.wd1.myworkdayjobs.com/en-US/capitalgroupcareers/job/Solutions-Engineer-IV_JR4532 SE4 again submit from ld@us
-- [lekhraj Dinkar-sse-se4.pdf](lekhraj%20Dinkar-sse-se4.pdf)
+- [lekhraj Dinkar-sse-se4.pdf](lekhraj Dinkar-sse-se4.pdf)
 ```
 CSS HTML , Relational Database Management System (RDBMS) , kafka confluent
 Angular, Docker, RabbitMQ, OAuth, Kubernetes , HELM Charts, RESTful APIs Microservices Architecture

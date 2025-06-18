@@ -67,7 +67,7 @@ resource "aws_ecs_task_definition" "task" {
 
 # 5. alb
 module "alb" {
-  source = "./alb"
+  source = "alb"
   app_component = var.app_component
   app_env = var.app_env
   app_name = var.app_name
