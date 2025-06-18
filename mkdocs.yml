@@ -1,3 +1,7 @@
+# Get-ChildItem -Recurse -Depth 2 -File | Select-Object FullName
+# mkdocs gh-deploy
+# mkdocs serve | build
+
 site_name: lekhraj-Dinkar-Docs
 site_description: Technical Documentation
 site_author: lekhraj Dinkar
@@ -92,7 +96,15 @@ nav:
 
           - Helm:
                 - Helm Chart Kickoff: 03_Kubernetes/05_helm/01_helm-chart-kickoff.md
-
+    - Terraform:
+          - DevOps Overview: 04_terraform/Notes/00_devOps.md
+          - Terraform Kickoff: 04_terraform/Notes/01-kickoff.md
+          - HCL Syntax: 04_terraform/Notes/02-HCL.md
+          - Modules: 04_terraform/Notes/03_module.md
+    - harness:
+            - kick_off: 05_harness\Notes\01_kick_off.md
+            - delegates: 05_harness\Notes\02_delegates.md
+            - bash: 07_scripting\bash_script\00_bash_script_1.md
     - Docker:
           - Overview: 02_docker/readme.md
           - Architecture: 02_docker/00_architecture.md
@@ -102,7 +114,6 @@ nav:
           - Storage: 02_docker/03_Storage.md
           - Networking: 02_docker/04_network.md
           - Developer Notes: 02_docker/05_developer-Notes.md
-
     - AWS:
           - AWS DVA-C02:
               - "DVA Overview": 01_aws/00_DVA-C02/00_DVA.md
@@ -172,10 +183,8 @@ nav:
 
           - AWS Practice:
               - "Practice Test": 01_aws/practice-test/readme.md
-
     - Frontend:
           - Overview: 00_Frontend/readme.md
-
     - Springboot:
           - Others: 00_Springboot/00_others.md
           - Spring Core:
@@ -218,6 +227,76 @@ nav:
               - Authentication: 00_Springboot/04_security/02_Authentication.md
               - Authorization: 00_Springboot/04_security/03_Authorization.md
               - REST Security: 00_Springboot/04_security/04_REST-secure.md
+    - ETL:
+        - readme: 09_ETL\02_py-spark\readme.md
+        - kickoff: 09_ETL\01_spring-batch\00_kickoff.md
+        - SpringBatch: 09_ETL\01_spring-batch\01_SpringBatch-start.md
+    - Messaging:
+          - Messaging Protocols Overview: 06_messaging/01_messaging_protocols.md
+          - Kafka:
+                - Getting Started: 06_messaging/kakfa/Notes_01-start.md
+                - CLI Commands (.sh): 06_messaging/kakfa/Notes_02-cli.sh
+                - Wikimedia Project: 06_messaging/kakfa/Notes_03_project_wikimedia.md
+                - Extended Notes: 06_messaging/kakfa/Notes_04_extended.md
+                - Case Studies: 06_messaging/kakfa/Notes_05_case-studies.md
+          - RabbitMQ:
+                - Kickoff: 06_messaging/rmq/01_kickoff.md
+                - Project Overview: 06_messaging/rmq/02_project.md
+    - Database:
+          - RDBMS:
+                - Intro to PostgreSQL: 08_Database/01_rdbms/00_postgress.md
+                - Data Types: 08_Database/01_rdbms/01_datatype.md
+                - Constraints: 08_Database/01_rdbms/02_constraints.md
+                - DDL & DML: 08_Database/01_rdbms/02_ddl+dml.md
+                - Joins & Queries: 08_Database/01_rdbms/03_joins+queries.md
+                - Functions: 08_Database/01_rdbms/04_function.md
+                - CTE & Views: 08_Database/01_rdbms/05_CTE+view.md
+                - Permissions: 08_Database/01_rdbms/06_permissions.md
+                - Sharding: 08_Database/01_rdbms/10_sharding.md
+                - Shopping App Project:
+                      - ER Diagram (image): 08_Database/01_rdbms/shopping_app/er.png
+                      - Readme: 08_Database/01_rdbms/shopping_app/readme.md
+                      - Admin SQL: 08_Database/01_rdbms/shopping_app/admin.sql
+                      - DDL SQL: 08_Database/01_rdbms/shopping_app/ddl.sql
+                      - DML SQL: 08_Database/01_rdbms/shopping_app/dml.sql
+    - Architecture:
+          - Overview: 10_Architecture/readme.md
+          - Web Security:
+                - Public Key Infrastructure (PKI): 10_Architecture/01_web_Security/01_PKI.md
+                - SAML: 10_Architecture/01_web_Security/02_SAML.md
+                - OAuth & OIDC: 10_Architecture/01_web_Security/03_OAUth+OIDC.md
+          - Modern Web Architecture:
+                - Kickoff 2024: 10_Architecture/02_web_modern_architecture/01_kickoff-2024.md
+                - Twelve-Factor App: 10_Architecture/02_web_modern_architecture/02_twelve_factor_app.md
+          - Microservices:
+                - Kickoff: 10_Architecture/03_Miscroservice/00_kick_off.md
+                - Design Patterns: 10_Architecture/03_Miscroservice/01_design_pattern-1.md
+                - Communication: 10_Architecture/03_Miscroservice/02_Microservce-communication.md
+                - Deployment: 10_Architecture/03_Miscroservice/04_Deployment.md
+                - Actuator Config (JSON): 10_Architecture/03_Miscroservice/actuator.json
+          - Project 1 (PROJ-1):
+                - Design Patterns: 10_Architecture/50_PROJ-1/01-PROJ-1_Design-patterns.md
+                - Disaster Recovery: 10_Architecture/50_PROJ-1/02_PROJ-1_DR.md
+                - Release Process: 10_Architecture/50_PROJ-1/03_PROJ-1_release_process.md
+                - API Overview: 10_Architecture/50_PROJ-1/04_PROJ-1_API.md
+                - Observability: 10_Architecture/50_PROJ-1/05_PROJ-1_Observability.md
+                - Distributed & Scalable Design: 10_Architecture/50_PROJ-1/06_PROJ-1_Distribted-Scalable.md
+    - Observability:
+          - Kickoff: 100_observability/00_kick_off.md
+          - Observability with Spring: 100_observability/01_Observability-spring.md
+          - Observability with Datadog: 100_observability/02_observabilty-datadog.md
+          - Datadog Agent Config (YAML): 100_observability/datadog-agent.yaml
+    - Career Docs:
+          - Skills: 99_temp/00/01_skills.md
+          - Profiles: 99_temp/00/02_profiles.md
+          - Achievements & Learnings: 99_temp/00/97_achievement+learnings.md
+          - Behavioural Prep: 99_temp/00/98_behavioural.md
+          - Interview Q&A: 99_temp/00/99_interview.md
+          - Resumes:
+                - SE-2: 99_temp/00/lekhraj Dinkar-SE-2.pdf
+                - SE-3: 99_temp/00/lekhraj Dinkar-SE-3.pdf
+                - SSE/SE-4: 99_temp/00/lekhraj Dinkar-sse-se4.pdf
+
 
 theme:
   name: material
