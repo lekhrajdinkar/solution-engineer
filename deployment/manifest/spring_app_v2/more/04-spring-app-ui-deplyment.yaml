@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-app-ui-deployment
+  namespace: dev-ns
+  labels:
+    app: spring-app-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-app-ui
+  template:
+    metadata:
+      labels:
+        app: spring-app-ui
+    spec:
+      containers:
+        - name: spring-app
+          image: lekhrajdinkar18/spring-app-ui:latest
+          ports:
+            - containerPort: 8083  # Adjust this port based on the app's configuration
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-app-ui-service
+  namespace: dev-ns
+spec:
+  type: NodePort
+  selector:
+    app: spring-app-ui
+  ports:
+    - protocol: TCP
+      port: 8080         # The service port
+      targetPort: 8083   # The container's port
+

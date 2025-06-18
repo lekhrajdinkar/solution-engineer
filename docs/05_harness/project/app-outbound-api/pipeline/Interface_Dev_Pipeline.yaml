@@ -1,0 +1,105 @@
+pipeline:
+  name: build_push_deploy_Pipeline
+  identifier: Interface_Dev_Pipeline
+  projectIdentifier: mapsoutboundapi
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: org.githubrepoconnector
+        build: <+input>
+  stages:
+    - stage:
+        name: build push and updated ecs
+        identifier: build_and_push
+        description: this stage updates image and restart ecs services to fetch new images
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Docker
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build and push Docker
+                  identifier: Build_and_push_Docker
+                  spec:
+                    connectorRef: account.harnessImage
+                    repo: <+pipeline.variable.DOCKER_HUB_REPO>
+                    tags:
+                      - spring-app
+              - step:
+                  type: Run
+                  name: restart ECS task
+                  identifier: restart_ECS_task
+                  spec:
+                    shell: Bash
+                    command: |-
+                      CURRENT_ROLE=$(aws sts get-caller-identity)
+                      echo $CURRENT_ROLE
+
+                      # Assume the role and capture the credentials in a variable
+                      CREDENTIALS=$(aws sts assume-role --role-arn arn:aws:iam::533267082359:role/maps-outbound-harness-pipeline-role --role-session-name "session1")
+
+                      # Parse and export the credentials as environment variables
+                      export AWS_ACCESS_KEY_ID=$(echo $CREDENTIALS | jq -r '.Credentials.AccessKeyId')
+                      export AWS_SECRET_ACCESS_KEY=$(echo $CREDENTIALS | jq -r '.Credentials.SecretAccessKey')
+                      export AWS_SESSION_TOKEN=$(echo $CREDENTIALS | jq -r '.Credentials.SessionToken')
+
+                      # Print a success message
+                      echo "AWS environment variables set successfully."
+
+                      CLUSTER = "${APP_NAME}-${APP_COMPONENT}-${REGION}-S{APP_ENV}-ecs-cluster"
+                      SERVICE = "${APP_NAME}-${APP_COMPONENT}-${REGION}-S{APP_ENV}-ecs-service"
+                      TASKS = $(aws ecs list-tasks --cluster <cluster-name> --desired-status RUNNING --query 'taskArns' --output text)
+
+                      for TASK in TASKS;
+                      do aws ecs stop-task --cluster  $CLUSTER --region $REGION --task $TASK;
+                      echo Stopping $TASK
+                      done
+
+                      echo updating services...
+                      aws ecs update-service --cluster  $CLUSTER --region $REGION --service $SERVICE --for-new-deployment
+                  description: eds task gets image from docker.
+          caching:
+            enabled: false
+            paths: []
+          buildIntelligence:
+            enabled: false
+  variables:
+    - name: APP_NAME
+      type: String
+      description: ""
+      required: false
+      value: maps
+    - name: APP_COMPONENT
+      type: String
+      description: ""
+      required: false
+      value: outbound
+    - name: APP_ENV
+      type: String
+      description: ""
+      required: false
+      value: dev2
+    - name: GIT_BRANCH
+      type: String
+      description: ""
+      required: false
+      value: <+input>
+    - name: REGION
+      type: String
+      description: ""
+      required: false
+      value: us-west-2
+    - name: DOCKER_HUB_REPO
+      type: String
+      description: ""
+      required: false
+      value: <+input>

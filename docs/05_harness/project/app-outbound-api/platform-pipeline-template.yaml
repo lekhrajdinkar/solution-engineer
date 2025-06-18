@@ -1,0 +1,184 @@
+pipeline:
+  name: Interfaces Dev Pipeline
+  identifier: Inbound_Outbound_Dev_pipeline
+  projectIdentifier: mapsaaD0003199
+  orgIdentifier: capgroupict
+  tags:
+    type: container application
+  properties:
+    ci:
+      codebase:
+        connectorRef: org.capgroupictgithubcgictemu
+        repoName: <+input>
+        build: <+input>
+        sslVerify: false
+  stages:
+    - stage:
+        name: Build Push Deploy
+        identifier: build_push
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: mapsaa00003199_kubernetes_shared
+              namespace: mapsaa00003199-delegate-oz-dev
+              automountServiceAccountToken: true
+              nodeselector: {}
+              os: Linux
+          execution:
+            steps:
+              - step:
+                  name: Gauntlet Scan
+                  identifier: Gauntlet_Scan
+                  template:
+                    templateRef: account.cggauntletscansteptemplate
+                    versionLabel: v.02
+                    gitBranch: main
+                    templateInputs:
+                      type: Run
+                      spec:
+                        connectorRef: account.acct_cgregistry_readonly
+                        image: harness/delegate-immutable-tf-k8s-aws:22.09.76810
+                        envVariables:
+                          GIT_BRANCH:
+                          ATM_ID: <+pipeline.variables.ATM_ID>
+                          ENV_GATE: <+pipeline.variables.ENV_GATES
+                          oktaclientid: <+input>
+                          oktaclienttoken: <+input>
+              - step:
+                  type: BuildAndPushECR
+                  name: Build and Push
+                  identifier: BuildAndPush
+                  spec:
+                    connectorRef: <+input>
+                    region: <+matrix.BUILD_REGION>
+                    account: <+pipeline.variables.AWS_ACCOUNT_ID>
+                    imageName: <+pipeline.variables.ATM_ID>-ecr-<+pipeline.Variables.ENV>-<+matrix.BUILD_REGION>-<+pipeline.variables.COMPONENT>
+                    tags: <+input>
+                    dockerfile: <+input>
+                    context: <+input>
+                    optimize: false
+                    runAsUser:
+                    resources:
+                      limits:
+                        memory: 8G
+                        cpu: 800m
+                  when:
+                    stageStatus: Success
+                  strategy: <+input>
+              - step:
+                  type: Run
+                  name: Deploy
+                  identifier: Deploy
+                  spec:
+                    connectorRef: account.acct_cgregistry_readonly
+                    image: harness, /delegate-immutable tf-kBs-aws:22.09.76810
+                    shell: Bash
+                    command: |-
+                      echo Current Role
+                      CURRENT_ROLE=$(aws sts get-caller-identity)
+                      
+                      # Uppercase ATM ID because harness role is uppercase, avoids variable repitition
+                      UPPERCASE_ATM-S(echo "$ATM_ID" | tr '[:lower:]' '[:upper:]')
+                      
+                      echo Assuming Harness Pipeline Role...
+                      # Assume role into lifecycle account S Harness deployment role
+                      export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
+                      $(aws sts assume-role \
+                      --role-arn arn:aws:iam::$LIFECYCLE:role/$(UPPERCASE_ATM)_Harness_Pipeline_Role
+                      --role-session-name HarnessDeployRoleSession
+                      --query "Credentials.[AccesskeyId, SecretAccesskey, SessionToken]"
+                      --output text))
+                      
+                      CURRENT_ROLE=$(aws sts get-caller-identity)
+                      echo $CURRENT_ROLE
+                      
+                      # Set cluster and service based on component
+                      if ["$COMPONENT" = "outbound-api" ]: then
+                        CLUSTER="maps-outbound-${ENV}-cluster"
+                        SERVICE="outbound-api-${ENV}-${REGION}-service"
+                      elif ["$COMPONENT" = "outbound-api" ]: then
+                        CLUSTER="maps-inbound-${ENV}-cluster"
+                        SERVICE="inbound-api-${ENV}-${REGION}-service"
+                      else
+                        echo "Error: The COMPONENT pipeline value is not one of inbound/outbound please fix"
+                        exit
+                      fi
+                      
+                      echo Deploying ECS...
+                      OLD_TASKS-$(aws ecs list-tasks --cluster $CLUSTER --service-name #SERVICE --desired-status RUNNING --region SREGION --output text --query taskArns[*])
+                      for OLD_TASK in $OLD_TASKS; do aws ecs stop-task  --cluster $CLUSTER --task $OLD_TASK --region SREGION; done
+                      aws ecs update-service --region $REGION --force-new-deployment  -cluster $CLUSTER -service $SERVICE
+                    envVariables:
+                      REGION: <+pipeline.variables.ACTIVE_REGION>
+                      AWS_ACCOUNT_ID: <+pipeline.variables.AWS_ACCOUNT_ID>
+                      ENV: +pipeline.variables.ENV>
+                      ATM_ID: <+pipeline.variables.ATM_ID>
+                      LIFECYCLE: <+pipeline.variables.AWS_ACCOUNT_ID>
+                      COMPONENT: <+pipeline.variables.COMPONENT>
+                    runAsuser: "0"
+                    resources:
+                      limits:
+                        memory: 4G
+                        cpu: "1"
+                  description: Restarts ECS task to force the deployment to pick up the latest image in ECR
+          caching:
+            enabled: false
+            paths: [ ]
+        delegateSelectors:
+          - mapsaa0003199-delegate-oz-dev
+  variables:
+    - name: ATM_ID
+      type: String
+      description: Used by Gauntlet scan step
+      required: false
+      value: aa00003199
+    - name: ENV_GATE
+      type: String
+      description: Used by Gauntlet scan step
+      required: false
+      value: <+input>
+    - name: AWS_ACCOUNT_ID
+      type: String
+      description:
+      required: true
+      value: <+input>
+    - name: IMAGE_TAG
+      type: String
+      description: Value to tag image with
+      required: true
+      value: <+input
+    - name: ENV
+      type: String
+      description:
+      required: true
+      value: <+input>
+    - name: ACTIVE_REGION
+      type: String
+      description:
+      required: true
+      value: <+input>
+    - name: COMPONENT
+      type: String
+      description:
+      required: false
+      value: <+input>
+  notificationRules:
+    - name: Build Failure Notification
+      identifier: Build_Failure_Notification
+      pipelineEvents:
+        - type: PipelineFailed
+        - type: StageFailed
+          forStages:
+            - AllStages
+        - type: StepFailed
+      notificationMethod:
+        type: Email
+        spec:
+          userGroups: []
+          recipients:
+            - lekhrajdinkarus@gmail.com
+      enabled: true

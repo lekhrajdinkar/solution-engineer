@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-app-deployment
+  namespace: dev1-manifest
+  labels:
+    app: spring-app
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-app
+      tier: backend
+  template:
+    metadata:
+      labels:
+        app: spring-app
+        tier: backend
+    spec:
+      imagePullSecrets:
+        - name: dockerhub-secret
+      serviceAccountName: spring-app-sa
+      containers:
+        - name: spring-app-container
+          image: lekhrajdinkar18/02-backend-java-spring:spring-app-06.04.2025
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: dev1
+            - name: DATABASE_URL
+              value: jdbc:postgresql://postgres-service:5432/postgres
+          ports:
+            - containerPort: 8083  # Adjust this port based on the app's configuration

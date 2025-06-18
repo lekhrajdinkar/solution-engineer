@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-logging
+  namespace: kube-system
+data:
+  cluster-name: maps-outbound-us-west-2-dev2-eks-fargate-cluster
+  log-group-name: /aws/eks/maps-outbound-us-west-2-dev2-eks-fargate-cluster/fargate
+  log-stream-prefix: fargate

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "spring-app.fullname" . }}
+  namespace: {{ .Values.global.namespace}}
+  labels:
+    {{- include "spring-app.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.springApp.service.type | quote }}
+  ports:
+    - name: http
+      port: {{ .Values.springApp.service.port }}
+      targetPort: {{ .Values.springApp.service.targetPort }}
+      {{- if eq .Values.springApp.service.type "NodePort" }}
+      nodePort: {{ .Values.springApp.service.nodePort }}
+      {{- end }}
+      protocol: TCP
+  selector:
+    {{- include "spring-app.selectorLabels" . | nindent 4 }}

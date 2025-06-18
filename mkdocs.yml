@@ -1,0 +1,144 @@
+site_name: lekhraj-Dinkar-Docs
+site_description: Technical Documentation
+site_author: lekhraj Dinkar
+
+# Navigation based on your Notes folder
+nav:
+  - Home: README.md
+  - Frontend:
+      - Overview: 00_Frontend/readme.md
+  - Springboot:
+      - Others: 00_Springboot/00_others.md
+      - Spring Core:
+          - Spring Core Basics: 00_Springboot/01_Spring-core/01_Spring_Core.md
+          - Spring Bean Lifecycle: 00_Springboot/01_Spring-core/02_Spring_bean_lifeCycle.md
+          - AOP Concept: 00_Springboot/01_Spring-core/03_AOP_concept.md
+          - Point-cut Examples: 00_Springboot/01_Spring-core/03_point-cut-examples.txt
+          - Spring Properties: 00_Springboot/01_Spring-core/04_spring_properties.md
+      - Spring Boot:
+          - Kickoff: 00_Springboot/01_springboot/01_SB_kickoff.md
+          - Auto Configuration: 00_Springboot/01_springboot/02_SB_AutoConfig.md
+          - Starter & Testing: 00_Springboot/01_springboot/03_SB_starter_test.md
+      - Web:
+          - Web Start: 00_Springboot/02_web/00 WEB_start.md
+          - General Web Tasks: 00_Springboot/02_web/00_general_web_task.md
+          - Servlet 3: 00_Springboot/02_web/01_servlet_3.md
+          - Spring MVC: 00_Springboot/02_web/02_spring_MVC.md
+          - Spring Boot Starter Web: 00_Springboot/02_web/03_spring_boot_stater_web.md
+          - REST: 00_Springboot/02_web/04_REST.md
+          - Jackson: 00_Springboot/02_web/05_Jackson.md
+          - Swagger: 00_Springboot/02_web/06_swagger.md
+          - Error Handling: 00_Springboot/02_web/07_error_handling.md
+          - gRPC & Webflux: 00_Springboot/02_web/08_gRPC+webflux.md
+          - Webflux: 00_Springboot/02_web/09_webflux.md
+      - Data Layer:
+          - Common Tasks: 00_Springboot/03_data-layer/00_common_task.md
+          - JPA: 00_Springboot/03_data-layer/01_JPA.md
+          - Persistence Context: 00_Springboot/03_data-layer/02_presistence-context.md
+          - ACID & Locks: 00_Springboot/03_data-layer/03_ACID+Locks.md
+          - Hibernate Annotations & Converter: 00_Springboot/03_data-layer/04_Hibernate-1-anno+converter.md
+          - Hibernate Identifier & Validator: 00_Springboot/03_data-layer/04_Hibernate-2-identifier+validator.md
+          - Hibernate Query: 00_Springboot/03_data-layer/04_Hibernate-3-query.md
+          - SB JPA Data Part 1: 00_Springboot/03_data-layer/05-SBjpaData-1-start.md
+          - SB JPA Data Part 2: 00_Springboot/03_data-layer/05-SBjpaData-2.md
+          - SB JPA Data Transactions: 00_Springboot/03_data-layer/05-SBjpaData-3-txn.md
+          - ER Diagram: 00_Springboot/03_data-layer/er-diagram.png
+      - Security:
+          - OAuth 2.0: 00_Springboot/04_security/00_OAuth_2.0.md
+          - Spring Boot Security Start: 00_Springboot/04_security/01_sb-security-start.md
+          - Authentication: 00_Springboot/04_security/02_Authentication.md
+          - Authorization: 00_Springboot/04_security/03_Authorization.md
+          - REST Security: 00_Springboot/04_security/04_REST-secure.md
+  - AWS:
+      - AWS DVA-C02:
+          - "DVA Overview": 01_aws/00_DVA-C02/00_DVA.md
+          - "CLI & SDK": 01_aws/00_DVA-C02/12_CLI_SDK_more.md
+          - "CloudFormation": 01_aws/00_DVA-C02/18_CLOUD_FORMATION.md
+          - "CI/CD": 01_aws/00_DVA-C02/24_CI_CD.md
+          - "SAM": 01_aws/00_DVA-C02/25_SAM.md
+          - "CDK": 01_aws/00_DVA-C02/26_CDK.md
+          - "Handson": 01_aws/00_DVA-C02/99_handson.md
+      - AWS Compute:
+          - "EC2": 01_aws/01_compute/01_EC2.md
+          - "ECS": 01_aws/01_compute/02_Containers_ECS.md
+          - "EKS": 01_aws/01_compute/02_Kubernetes_EKS.md
+          - "Lambda Intro": 01_aws/01_compute/03_lambda-01-saa.md
+          - "Lambda CLI": 01_aws/01_compute/03_lambda-dva-01-CLI.md
+          - "Lambda Triggers": 01_aws/01_compute/03_lambda-dva-02-trigger.md
+          - "Lambda Event/Context": 01_aws/01_compute/03_lambda-dva-03-context+event.md
+          - "App Runner": 01_aws/01_compute/04_AppRunner.md
+          - "Step Functions": 01_aws/01_compute/28_1_STEP_FUNCTION_DVA.md
+      - AWS Storage:
+          - "S3 Basics": 01_aws/02_storage/03_S3-1.md
+          - "S3 Advanced": 01_aws/02_storage/03_S3-2-more.md
+          - "EBS & EFS": 01_aws/02_storage/01_EBS_EFS.md
+          - "FSx": 01_aws/02_storage/02_FSx_serverless-FS.md
+          - "Snow Family": 01_aws/02_storage/02_snow-family.md
+      - AWS Database:
+          - "RDS": 01_aws/03_database/01_RDS.md
+          - "Aurora": 01_aws/03_database/02_RDS_Aurora.md
+          - "DynamoDB SSA": 01_aws/03_database/04_1_DynamoDB_SSA.md
+          - "DynamoDB Ops": 01_aws/03_database/04_3_DynamoDB_DVA-operations.md
+          - "DAX": 01_aws/03_database/05_DAX.md
+      - AWS Security:
+          - "IAM": 01_aws/06_Security/01_IAM.md
+          - "SSO": 01_aws/06_Security/01_SSO+DirectoryService.md
+          - "KMS Basics": 01_aws/06_Security/04_1_KMS_SSA.md
+          - "KMS CLI": 01_aws/06_Security/04_2_KMS_DVA-cli.md
+          - "Secrets Manager": 01_aws/06_Security/06_secret_manager.md
+          - "SSM": 01_aws/06_Security/05_SSM-param-store.md
+      - AWS Networking:
+          - "VPC Basics": 01_aws/04_network/03_VPC-1-start.md
+          - "VPC NAT": 01_aws/04_network/03_VPC-2-NAT.md
+          - "VPC Peering": 01_aws/04_network/03_VPC-3-vpcPeer+vpce.md
+          - "CloudFront": 01_aws/04_network/04_CloudFront.md
+          - "API Gateway": 01_aws/04_network/05_2_API_gateway_DVA.md
+      - AWS Monitoring:
+          - "CloudWatch Metrics": 01_aws/07_monitoring/01_CW-Metric.md
+          - "CloudWatch Logs": 01_aws/07_monitoring/02_CW-Logs.md
+          - "X-Ray": 01_aws/07_monitoring/04_X-rays_DVA.md
+          - "CloudTrail": 01_aws/07_monitoring/05_cloudTrail.md
+      - AWS Analytics:
+          - "Athena": 01_aws/08_Analytics/01_athena_adhocSQL_serverless.md
+          - "Redshift": 01_aws/08_Analytics/02_Redshift_OLAP.md
+          - "QuickSight": 01_aws/08_Analytics/05_QuickSight_dashboard.md
+          - "Glue ETL": 01_aws/08_Analytics/06_glue_ETL.md
+      - AWS DR & Migration:
+          - "DR Strategies": 01_aws/09_DR/01_dr-strategies.md
+          - "Migration Part 1": 01_aws/09_DR/02_migration-1.md
+          - "Migration Part 2": 01_aws/09_DR/02_migration-2.md
+      - AWS Practice:
+          - "Practice Test": 01_aws/practice-test/readme.md
+theme:
+  name: material
+  features:
+    - navigation.side
+    - navigation.sections
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+
+repo_url: https://github.com/lekhrajdinkar/02-backend-java-spring
+repo_name: GitHub
+edit_uri: edit/main/Notes/
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+
+plugins:
+  - search

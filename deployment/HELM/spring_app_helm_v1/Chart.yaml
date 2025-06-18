@@ -1,0 +1,14 @@
+apiVersion: v2
+name: spring-app
+description: A Helm chart for Spring Boot application with PostgreSQL and RabbitMQ
+version: 0.1.0
+appVersion: "1.0.0"
+dependencies:
+  - name: postgresql
+    version: "12.1.2"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: postgresql.enabled
+  - name: rabbitmq
+    version: "11.10.0"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: rabbitmq.enabled

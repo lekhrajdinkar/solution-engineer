@@ -1,0 +1,22 @@
+inputSet:
+  name: dev2
+  tags: {}
+  identifier: dev2
+  orgIdentifier: default
+  projectIdentifier: mapsoutboundapi
+  pipeline:
+    identifier: Interface_Dev_Pipeline
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+input>
+    variables:
+      - name: GIT_BRANCH
+        type: String
+        value: release/v1.0.0
+      - name: DOCKER_HUB_REPO
+        type: String
+        value: lekhrajdinkar18/spring-app
