@@ -1,0 +1,37 @@
+- https://chat.deepseek.com/a/chat/s/6ae96d81-254a-4034-876a-5c367b97e66f
+--- 
+## Deployment process
+- We follow a structured **monthly release** cycle that includes both
+  - business requirements 
+  - technical improvements. \
+- **Release Planning**
+  - At the start of each cycle, we identify business features and technical items
+  - like infrastructure updates or tech debt reduction, for the upcoming release. 
+  - These are prioritized and assigned to sprints leading up to the release date.
+  - idh/kafka update
+  - deploymnet infra ahead of time.
+  - talking and idh/comet team
+- **Development Workflow**
+  - updating terraform module for tech upgrac
+  - business jira
+  - peer review
+  - offshore code review
+  - CI pipeline 
+    - Junit
+    - synk scan
+- **Release Branch Creation**
+- Harness Pipeline for Deployment
+  - our deployment orchestration tool.
+  - stages for building artifacts, running tests, and deploying through environments (dev → QA → staging → production).
+  - nexus / ecr
+    - registry for image + helm package
+  - requires manual approval before production deployment
+  - helm chart are version with pipeline var.
+- no blue and green
+  - helm release-blue label:blue
+  - helm release-green label:green
+  - update service 
+- rollback
+  - roll back to the previous version using Harness + helm
+- **Post-Release monitoring**
+- **retrospective** to identify any process improvements for the next cycle.

@@ -1,0 +1,18 @@
+{{- if .Values.springApp.pdb.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "spring-app.fullname" . }}
+  namespace: {{ .Values.global.namespace}}
+  labels:
+    {{- include "spring-app.labels" . | nindent 4 }}
+spec:
+  {{- if .Values.springApp.pdb.minAvailable }}
+  minAvailable: {{ .Values.springApp.pdb.minAvailable }}
+  {{- else if .Values.springApp.pdb.maxUnavailable }}
+  maxUnavailable: {{ .Values.springApp.pdb.maxUnavailable }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "spring-app.selectorLabels" . | nindent 6 }}
+  {{- end }}

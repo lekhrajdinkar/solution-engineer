@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "spring-app.fullname" . }}-test-connection"
+  labels:
+    {{- include "spring-app.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: test-connection
+      image: busybox:1.28
+      command: ['sh', '-c',
+        'set -ex;
+      
+      # Test Spring Boot application connectivity
+      until wget --spider --tries=3 --timeout=5 http://{{ include "spring-app.fullname" . }}:{{ .Values.springApp.service.port }}/actuator/health; do 
+        sleep 2; 
+      done;
+      
+      {{- if .Values.postgresql.enabled }}
+      # Test PostgreSQL connectivity
+      until nc -zv {{ include "spring-app.fullname" . }}-postgresql 5432; do 
+        sleep 2; 
+      done;
+      {{- end }}
+      
+      {{- if .Values.rabbitmq.enabled }}
+      # Test RabbitMQ connectivity
+      until nc -zv {{ include "spring-app.fullname" . }}-rabbitmq 5672; do 
+        sleep 2; 
+      done;
+      {{- end }}
+      
+      echo "All tests completed successfully";']
+  restartPolicy: Never

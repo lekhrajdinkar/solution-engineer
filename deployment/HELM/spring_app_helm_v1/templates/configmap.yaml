@@ -1,0 +1,15 @@
+{{- if .Values.springApp.configMaps }}
+  {{- range .Values.springApp.configMaps }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .name }}
+  namespace: {{ .Values.global.namespace}}
+  labels:
+    {{- include "spring-app.labels" $ | nindent 4 }}
+data:
+  {{- range .data }}
+    {{ .key }}: {{ .value | quote }}
+    {{- end }}
+  {{- end }}
+  {{- end }}

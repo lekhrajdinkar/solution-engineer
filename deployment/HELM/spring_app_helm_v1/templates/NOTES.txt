@@ -1,0 +1,43 @@
+{{- if .Values.springApp.enabled }}
+1. Get the application URL by running these commands:
+{{- if .Values.springApp.ingress.enabled }}
+{{- range $host := .Values.springApp.ingress.hosts }}
+  {{- range .paths }}
+  http{{ if $.Values.springApp.ingress.tls }}s{{ end }}://{{ $host.host }}{{ .path }}
+  {{- end }}
+{{- end }}
+{{- else if contains "ClusterIP" .Values.springApp.service.type }}
+  export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "spring-app.name" . }},app.kubernetes.io/instance={{ .Release.Name }}" -o jsonpath="{.items[0].metadata.name}")
+  echo "Visit http://127.0.0.1:8080 to use your application"
+  kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8080:{{ .Values.springApp.service.targetPort }}
+{{- else if contains "LoadBalancer" .Values.springApp.service.type }}
+     NOTE: It may take a few minutes for the LoadBalancer IP to be available.
+           You can watch the status by running 'kubectl get svc --namespace {{ .Release.Namespace }} -w {{ include "spring-app.fullname" . }}'
+  export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ include "spring-app.fullname" . }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+  echo "http://$SERVICE_IP:{{ .Values.springApp.service.port }}"
+{{- else if contains "NodePort" .Values.springApp.service.type }}
+  export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ include "spring-app.fullname" . }})
+  export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
+  echo "http://$NODE_IP:$NODE_PORT"
+{{- end }}
+
+{{- if .Values.postgresql.enabled }}
+2. PostgreSQL can be accessed via port 5432 on the following DNS name from within your cluster:
+   {{ include "spring-app.fullname" . }}-postgresql.{{ .Release.Namespace }}.svc.cluster.local
+
+   To get your password run:
+   export POSTGRES_PASSWORD=$(kubectl get secret --namespace {{ .Release.Namespace }} {{ include "spring-app.fullname" . }}-postgresql -o jsonpath="{.data.postgres-password}" | base64 --decode)
+{{- end }}
+
+{{- if .Values.rabbitmq.enabled }}
+3. RabbitMQ can be accessed via port 5672 on the following DNS name from within your cluster:
+   {{ include "spring-app.fullname" . }}-rabbitmq.{{ .Release.Namespace }}.svc.cluster.local
+
+   To get your password run:
+   export RABBITMQ_PASSWORD=$(kubectl get secret --namespace {{ .Release.Namespace }} {{ include "spring-app.fullname" . }}-rabbitmq -o jsonpath="{.data.rabbitmq-password}" | base64 --decode)
+
+   You can access the RabbitMQ Management UI using:
+   kubectl port-forward --namespace {{ .Release.Namespace }} svc/{{ include "spring-app.fullname" . }}-rabbitmq 15672:15672
+   Then open http://localhost:15672 in your browser (username: {{ .Values.rabbitmq.auth.username }}, password: $RABBITMQ_PASSWORD)
+{{- end }}
+{{- end }}

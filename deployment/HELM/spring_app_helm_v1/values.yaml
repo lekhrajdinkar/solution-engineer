@@ -1,0 +1,98 @@
+# Global values
+global:
+  imageRegistry: ""
+  imagePullSecrets:
+    - name: dockerhub-secret
+  storageClass: ""
+  namespace: dev1-helm
+
+# Spring Application configuration
+springApp:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: lekhrajdinkar18/02-backend-java-spring
+    tag: spring-app-06.04.2025
+    pullPolicy: IfNotPresent
+  service:
+    type: NodePort
+    port: 8083
+    targetPort: 8083
+    nodePort: 30008
+  ingress:
+    enabled: false
+    className: ""
+    annotations: {}
+    hosts:
+      - host: chart-example.local
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+      - host: chart-example.local
+        secretName: spring-app-tls-secret
+  resources:
+    limits:
+      cpu: 1000m
+      memory: 1Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 5
+    targetCPUUtilizationPercentage: 80
+
+  livenessProbe:
+    enabled: true
+    path: /actuator/health
+    initialDelaySeconds: 30
+    periodSeconds: 10
+
+  readinessProbe:
+    enabled: true
+    path: /actuator/health
+    initialDelaySeconds: 5
+    periodSeconds: 5
+
+  podAnnotations: {}
+  podSecurityContext: {}
+  securityContext: {}
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  env: []
+  secrets: []
+  configMaps: []
+  serviceAccount:
+    create: true
+    name: "spring-app-sa"
+  pdb:
+    enabled: false
+    minAvailable: 1
+
+# PostgreSQL configuration (using Bitnami chart)
+postgresql:
+  enabled: false
+  global:
+    postgresql:
+      auth:
+        database: "postgres"
+        username: "postgres"
+        password: "primary_pass"
+  primary:
+    persistence:
+      enabled: true
+      size: 1Gi
+
+# RabbitMQ configuration (using Bitnami chart)
+rabbitmq:
+  enabled: false
+  auth:
+    username: "guest"
+    password: "guest"
+    erlangCookie: "secretcookie"
+  persistence:
+    enabled: true
+    size: 1Gi
