@@ -210,7 +210,7 @@ nav:
       - Java 9-11: 00_java/03_Java-9-11-new.md
       - Java 11-17: 00_java/04_Java-11-17-new.md
       - Java 17-21: 00_java/05_Java-17-21-new.md
-      - more: 00_java/01_java-7-basic.md
+      - more: 00_java/99_other.md
 
   - F. Springboot:
       - 00 lombok mvn git: 00_Springboot/00_others.md
