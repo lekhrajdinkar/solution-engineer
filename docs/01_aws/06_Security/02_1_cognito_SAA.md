@@ -3,6 +3,7 @@
 - Complicated service, Need to have high level idea for SAA/DVA
 - https://chatgpt.com/c/676b51a6-3388-800d-a754-f5872af7a68a
 
+---
 ## 1. Intro
 - ![img.png](../99_img/dva/cognito/01/img.png)
 - **sign-in functionality for global user** (web/mobile)

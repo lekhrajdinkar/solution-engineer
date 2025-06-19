@@ -1,5 +1,5 @@
-- reference:
-  - https://chatgpt.com/c/675945a8-f8b8-800d-a789-e07e6db38e8d
+- https://chatgpt.com/c/675945a8-f8b8-800d-a789-e07e6db38e8d
+
 --- 
 # A. Choosing Right database
 ## `Data model`
@@ -29,9 +29,9 @@
   - MySQL + Postgres has IAM role based security
 
 ## cost
-- 
----
 
+
+---
 # B. AWS Database Offerings
 
 ## B.1 Relational Databases

@@ -20,14 +20,6 @@ nav:
           - Certification Topics: 03_Kubernetes/02_KCAD/00_certification-topic.md
           - Labs: 03_Kubernetes/02_KCAD/03_lab.md
           - Commands (YAML): 03_Kubernetes/02_KCAD/02_commands.yaml
-          - Sample YAML:
-              - Cluster Role: 03_Kubernetes/02_KCAD/00_sample_yaml/cluster-role-1.yaml
-              - Cluster Role Binding: 03_Kubernetes/02_KCAD/00_sample_yaml/cluster-role-binding-1.yaml
-              - Config Map: 03_Kubernetes/02_KCAD/00_sample_yaml/config-map-1.yaml
-              - Role: 03_Kubernetes/02_KCAD/00_sample_yaml/role-1.yaml
-              - Secret: 03_Kubernetes/02_KCAD/00_sample_yaml/secret-1.yaml
-              - Service Account: 03_Kubernetes/02_KCAD/00_sample_yaml/service-account-1.yaml
-
           - Core Concepts:
               - Container: 03_Kubernetes/02_KCAD/01_Core/01-container-d.md
               - Pod: 03_Kubernetes/02_KCAD/01_Core/02-pod.md
@@ -114,8 +106,9 @@ nav:
       - Storage: 02_docker/03_Storage.md
       - Networking: 02_docker/04_network.md
       - Developer Notes: 02_docker/05_developer-Notes.md
+
   - AWS:
-      - AWS DVA-C02:
+      - 00 AWS DVA-C02:
           - "DVA Overview": 01_aws/00_DVA-C02/00_DVA.md
           - "CLI & SDK": 01_aws/00_DVA-C02/12_CLI_SDK_more.md
           - "CloudFormation": 01_aws/00_DVA-C02/18_CLOUD_FORMATION.md
@@ -124,7 +117,9 @@ nav:
           - "CDK": 01_aws/00_DVA-C02/26_CDK.md
           - "Handson": 01_aws/00_DVA-C02/99_handson.md
 
-      - AWS Compute:
+
+
+      - 01 AWS Compute:
           - "EC2": 01_aws/01_compute/01_EC2.md
           - "ECS": 01_aws/01_compute/02_Containers_ECS.md
           - "EKS": 01_aws/01_compute/02_Kubernetes_EKS.md
@@ -135,34 +130,58 @@ nav:
           - "App Runner": 01_aws/01_compute/04_AppRunner.md
           - "Step Functions": 01_aws/01_compute/28_1_STEP_FUNCTION_DVA.md
 
-      - AWS Storage:
+      - 02 AWS Storage:
           - "S3 Basics": 01_aws/02_storage/03_S3-1.md
           - "S3 Advanced": 01_aws/02_storage/03_S3-2-more.md
           - "EBS & EFS": 01_aws/02_storage/01_EBS_EFS.md
           - "FSx": 01_aws/02_storage/02_FSx_serverless-FS.md
           - "Snow Family": 01_aws/02_storage/02_snow-family.md
 
-      - AWS Database:
+      - 03 AWS Database:
           - "RDS": 01_aws/03_database/01_RDS.md
           - "Aurora": 01_aws/03_database/02_RDS_Aurora.md
           - "DynamoDB SSA": 01_aws/03_database/04_1_DynamoDB_SSA.md
           - "DynamoDB Ops": 01_aws/03_database/04_3_DynamoDB_DVA-operations.md
           - "DAX": 01_aws/03_database/05_DAX.md
 
-      - AWS Security:
-          - "IAM": 01_aws/06_Security/01_IAM.md
-          - "SSO": 01_aws/06_Security/01_SSO+DirectoryService.md
-          - "KMS Basics": 01_aws/06_Security/04_1_KMS_SSA.md
-          - "KMS CLI": 01_aws/06_Security/04_2_KMS_DVA-cli.md
-          - "Secrets Manager": 01_aws/06_Security/06_secret_manager.md
-          - "SSM": 01_aws/06_Security/05_SSM-param-store.md
+      - 05 AWS Decouple:
+            - "SQS": 01_aws/01_compute/01_SQS.md
+            - "SNS": 01_aws/01_compute/02_SNS.md
+            - "KDS": 01_aws/01_compute/03_01_KDS_KinesisDataStream.md
+            - "KDF": 01_aws/01_compute/03_02_KDF_KinesisDataFirehose.md
+            - "Active MQ": 01_aws/01_compute/04_active_MQ.md
+            - "EventBridge": 01_aws/01_compute/05_eventBridge.md
+            - "MSK": 01_aws/01_compute/06_MSK.md
 
-      - AWS Networking:
-          - "VPC Basics": 01_aws/04_network/03_VPC-1-start.md
-          - "VPC NAT": 01_aws/04_network/03_VPC-2-NAT.md
-          - "VPC Peering": 01_aws/04_network/03_VPC-3-vpcPeer+vpce.md
-          - "CloudFront": 01_aws/04_network/04_CloudFront.md
-          - "API Gateway": 01_aws/04_network/05_2_API_gateway_DVA.md
+      - 06 AWS Networking:
+            - "VPC 1": 01_aws/04_network/03_VPC-1-start.md
+            - "VPC 2 NAT": 01_aws/04_network/03_VPC-1-NAT.md
+            - "VPC 3 VPC-peer vpce": 01_aws/04_network/03_VPC-3-vpcPeer+vpce.md
+            - "VPC 4 topologies": 01_aws/04_network/03_VPC-4-tolologies.md
+            - "ENI + SG": 01_aws/04_network/00_eni+securityGroup.md
+            - "ELB": 01_aws/04_network/01_ELB.md
+            - "CloudFront": 01_aws/04_network/04_CloudFront.md
+            - "CloudFront(DVA)": 01_aws/04_network/04_CloudFront_DVA.md
+            - "global Acceleartor": 01_aws/04_network/04_global_Acceleartor.md
+            - "API Gateway SAA": 01_aws/04_network/05_1_API_gateway_SAA.md
+            - "API Gateway DVA": 01_aws/04_network/05_2_API_gateway_DVA.md
+            - "RAM": 01_aws/04_network/06_RAM.md
+            - "Questions-1": 01_aws/04_network/99_Questions-1.md
+            - "Route 53": 01_aws/04_network/02_Rout53.md
+
+      - 07 AWS Security:
+          - "IAM": 01_aws/06_Security/01_IAM.md
+          - "SSO & DirectoryService": 01_aws/06_Security/01_SSO+DirectoryService.md
+          - "cognito_SAA": 01_aws/06_Security/02_1_cognito_SAA.md
+          - "KMS SSA": 01_aws/06_Security/04_1_KMS_SSA.md
+          - "KMS DVA": 01_aws/06_Security/04_2_KMS_DVA-cli.md
+          - "Secrets Manager": 01_aws/06_Security/06_secret_manager.md
+          - "SSM-param-store": 01_aws/06_Security/05_SSM-param-store.md
+          - "ACM": 01_aws/06_Security/07_ACM.md
+          - "WAF+FirewallManager": 01_aws/06_Security/08_WAF+FirewallManager.md
+          - "AWS Sheild": 01_aws/06_Security/09_sheild.md
+          - "HSM DVA": 01_aws/06_Security/10_HSM_DVA.md
+          - "more": 01_aws/06_Security/99_more.md
 
       - AWS Monitoring:
           - "CloudWatch Metrics": 01_aws/07_monitoring/01_CW-Metric.md
@@ -297,6 +316,8 @@ nav:
           - SE-3: 99_temp/00/lekhraj Dinkar-SE-3.pdf
           - SSE/SE-4: 99_temp/00/lekhraj Dinkar-sse-se4.pdf
 
+extra_css:
+  - mkdocs.css
 
 theme:
   name: material

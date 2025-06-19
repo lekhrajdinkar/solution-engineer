@@ -28,6 +28,7 @@
 - AMI does NOT preserve instance store volumes. 
   - only EBS backed AMI :dart:
 ---
+
 ## B. EBS
 ![img.png](../99_img/dva/storage/01/img.png)
 ### 1. Intro
@@ -103,6 +104,7 @@
     - data that is infrequently accessed
 
 ```
+
 General Purpose SSD (gp3):
 - IOPS: Up to 16,000 IOPS.
 - Throughput: Up to 1,000 MB/s.
@@ -123,6 +125,7 @@ Cold HDD (sc1):
 - Throughput: Up to 250 MB/s.
 - Use Case: Infrequently accessed data with lower cost requirements.
 ```
+
 ---
 ## C. EFS (regional)
 ### Intro
@@ -220,6 +223,7 @@ Cold HDD (sc1):
 ### DR
 - EFS cross region replication : enable. `preferrered` :point_left: :dart:
 - DataSync also, as alternative.
+
 ---
 ### hands on
   ```
@@ -232,6 +236,7 @@ Cold HDD (sc1):
   - ssh to ec2-i1 and echo "hello" >  /mnt/efs/fs1/hello.txt
   - ssh to ec2-i2 and cat  /mnt/efs/fs1/hello.txt
   ```
+
 ---
 ## Extra
 - ![img.png](../99_img/ec2/img_4.png)
@@ -256,6 +261,7 @@ EFS One Zone-IA	            $0.0133
 
 === standard 30 cent , IA - 2 cent
 ```
+
 ---
 ## Exam :dart:
 - #1 need high-frequency reading and writing (20 MB file) max 1 TB total size.
