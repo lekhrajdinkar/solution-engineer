@@ -21,42 +21,42 @@
 ## C. **CORE app** :green_circle:
 ### achieved
 - **maps**
-  - inbound ETL poc
-    - no autosys jobs, event driven design ::  event-bus + scheduled-event for (SLA) + dependency+check (DB base)
-    - ETL driver program : flask / fastapi + unicorn
-  - outbound:
-    - SWIFT - driver program
-    - CIT external TD blend (BR/SS) - special series - 166
-    - CIAM design + JIRA, coding, refactoring, dashboard API
-    - design JSON contract and RDBMS for outbound
-    - design event-payload json - allocation (1), re-balance(1), generic(M) trade/s
-    - bucket_mapping_id -- driver of all event, metric and dimension
+    - inbound ETL poc
+      - no autosys jobs, event driven design ::  event-bus + scheduled-event for (SLA) + dependency+check (DB base)
+      - ETL driver program : flask / fastapi + unicorn
+    - outbound:
+      - SWIFT - driver program
+      - CIT external TD blend (BR/SS) - special series - 166
+      - CIAM design + JIRA, coding, refactoring, dashboard API
+      - design JSON contract and RDBMS for outbound
+      - design event-payload json - allocation (1), re-balance(1), generic(M) trade/s
+      - bucket_mapping_id -- driver of all event, metric and dimension
 - **fsr**
-  - jwt token validation + method based authorization @pre/postAuth + helped to understand Auth/implicit flow
-  - suggest **implicit flow with pkce**
-  - batch job 15 sec IAM token
-  - disagree with UI arch : forced old them to redux, observability over Js-promises, etc
+    - jwt token validation + method based authorization @pre/postAuth + helped to understand Auth/implicit flow
+    - suggest **implicit flow with pkce**
+    - batch job 15 sec IAM token
+    - disagree with UI arch : forced old them to redux, observability over Js-promises, etc
 - **tact** :  
-  - built screen for TACt fto swift message. no angular Vanilla JS + simulator to fast-forward development
+    - built screen for TACt fto swift message. no angular Vanilla JS + simulator to fast-forward development
 - **refactor**
-  - eg: swift for AF vs AFIS
-  - SB property load, avoid inner class
-  - simple, clean
-  - utility api : kafka, config, ibm/mq, decode TIP file
-  - health check : static vs dynamic factor
+    - eg: swift for AF vs AFIS
+    - SB property load, avoid inner class
+    - simple, clean
+    - utility api : kafka, config, ibm/mq, decode TIP file
+    - health check : static vs dynamic factor
 - **quick prod fixes:**
-  - data mod
-  - code fix (not delegate to offshore)
+    - data mod
+    - code fix (not delegate to offshore)
   
 ### proposal
 - solution-1 : **autosys**
-  - proposal, Custom CRD (jil : yaml) > spin up k8s::Job + side car pod > push event > kafka
-  - event processing 
-  - custom controller (DemonSet) > read yml > spin up other job
+    - proposal, Custom CRD (jil : yaml) > spin up k8s::Job + side car pod > push event > kafka
+    - event processing 
+    - custom controller (DemonSet) > read yml > spin up other job
 - solution-2 : **autosys**
-  - s3:file-drop > lambda > webhook::harness pipeline
-- **fsr autosys** :parking:
-- custom-metric to create  event Dashboard: eb-event json payload, add tags
+    - s3:file-drop > lambda > webhook::harness pipeline
+- **fsr autosys** :parking: check pod solution
+- **custom-metric** to create event Dashboard: eb-event json payload, add tags
 
 ---
 ## D. AWS :green_circle:
@@ -69,7 +69,7 @@
 - OAuth : token refresh lambda
 - batch job (RDS iam based auth, 15 min expiry)
 - arch disagree
-  - s3 > SQS vs S3 > eb:bus >... can replay and archive...
+    - s3 > SQS vs S3 > eb:bus >... can replay and archive...
 
 ### proposal
 - parallel processing with sns fifo group id 
@@ -80,23 +80,30 @@
 
 ---  
 ## E. more
-- always checking what going on etacs,fsr,path tech upgrade
-- found k8s - logs temp > not forwarded to dd
-- infosys training cheat jar
-- georgey - decrypt password util
-- footNotes Deletion tools CSV to delete script (cascaded and complex joins, 7 tables)
+- Always checking what going on : **etacs, fsr, path** tech/helix upgrade
+    - found etac k8s - logs temp > not forwarded to dd
+    - fsr goes to splunk
+- Infosys training : share-code.jar
+- OPAC/FAC days:
+    - georgey - decrypt password util
+    - **footNotes Deletion** tools CSV to delete script (cascaded and complex joins, 7 tables)
 
 
 ---
-# learnings :point_left:
-- Devops
-  - did terraform, easy to understand, persnel project done
-  - okta, kafka terraform script
-  - create harness pipeline + delegates
-  - Minikube and persnal EKS
-- kubernetes
-  - preparing for CKAD, did training, completing online labs
+# learnings / poc :point_left:
+- **okta :: Oauth2.0**
+    - https://dev-16206041.okta.com/
+    - aws org :: SSO + SAML with okta ... in progress
+- **terraform**, easy to understand, persnel project done
+    - https://portal.cloud.hashicorp.com/services/boundary/clusters/list?project_id=ef55c361-4762-4358-9aff-65cd03c360f2 
+    - https://app.terraform.io/app/lekhrajdinkar-org/workspaces
+- **harness CD pipeline** 
+    - **delegates** setup on minikube
+    - deploy to personal k8s cluster minikube/EKS
+    - preparing for CKAD, did training, completing online labs
+    - https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/all/orgs/default/projects/mapsoutboundapi/pipelines
 
+![img.png](img.png)
 
 
 

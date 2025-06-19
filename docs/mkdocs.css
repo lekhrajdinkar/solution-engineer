@@ -3,6 +3,8 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #edf0f5;
   color: #333;
+  background: #fcf7f9;
+  background: radial-gradient(circle,rgba(252, 247, 249, 1) 0%, rgba(224, 242, 255, 1) 100%);
 }
 
 /* Style headers */
