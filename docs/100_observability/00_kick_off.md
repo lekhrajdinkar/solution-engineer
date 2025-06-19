@@ -1,3 +1,9 @@
+## references
+- https://chat.deepseek.com/a/chat/s/60acbcc7-ec7d-4980-8b85-5fa9d2a82f9f forwards logs java1
+- https://chat.deepseek.com/a/chat/s/577558f7-a977-4e8b-b64d-ac8647bcb825 forwards logs java2
+- in progress
+
+---
 ## what are common things in microservices, developer instruments
 ```text
 Here are the common elements developers instrument in microservices for monitoring with tools like Prometheus:
