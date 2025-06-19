@@ -8,19 +8,29 @@ site_author: lekhraj Dinkar
 
 # Navigation based on your Notes folder
 nav:
-  - Kubernetes:
+  - Frontend: 00_Frontend/readme.md
+
+  - A1. Docker:
+        - Overview: 02_docker/readme.md
+        - Architecture: 02_docker/00_architecture.md
+        - Docker Commands: 02_docker/00_commands.md
+        - Docker Compose: 02_docker/01_docker-compose.md
+        - Engine: 02_docker/02_engine.md
+        - Storage: 02_docker/03_Storage.md
+        - Networking: 02_docker/04_network.md
+        - Developer Notes: 02_docker/05_developer-Notes.md
+
+  - A2. Kubernetes:
       - Readme: 03_Kubernetes/readme.md
-      - Interview Questions: 03_Kubernetes/01_k8s-interview-question.md
       - Kickoff:
           - Monolith vs Microservices: 03_Kubernetes/00_kickOff/01_monolith_MicroServices.md
           - Container Orchestration: 03_Kubernetes/00_kickOff/02_Container_orchestration.md
           - K8s Architecture + Features: 03_Kubernetes/00_kickOff/03_k8s-architcture+features.md
-
-      - KCAD:
+      - A2.1 KCAD:
           - Certification Topics: 03_Kubernetes/02_KCAD/00_certification-topic.md
           - Labs: 03_Kubernetes/02_KCAD/03_lab.md
           - Commands (YAML): 03_Kubernetes/02_KCAD/02_commands.yaml
-          - Core Concepts:
+          - 01 Core Concepts:
               - Container: 03_Kubernetes/02_KCAD/01_Core/01-container-d.md
               - Pod: 03_Kubernetes/02_KCAD/01_Core/02-pod.md
               - ReplicaSet: 03_Kubernetes/02_KCAD/01_Core/03-replicaSet.md
@@ -37,27 +47,27 @@ nav:
               - PDB: 03_Kubernetes/02_KCAD/01_Core/14_PDB.md
               - DaemonSet: 03_Kubernetes/02_KCAD/01_Core/15_DeamonSet.md
 
-          - Pod Design:
+          - 02 Pod Design:
               - Multi-Container Pods: 03_Kubernetes/02_KCAD/02_pod-design/01_Multi-Container-pod-design.md
               - Labels + Selectors: 03_Kubernetes/02_KCAD/02_pod-design/02_label+selectors.md
               - Deployments: 03_Kubernetes/02_KCAD/02_pod-design/03-Deployments.md
               - Jobs: 03_Kubernetes/02_KCAD/02_pod-design/04-jobs.md
 
-          - Observability:
+          - 03 Observability:
               - Readiness + Liveness: 03_Kubernetes/02_KCAD/03_observability/01_readiness+liveness.md
               - Logging: 03_Kubernetes/02_KCAD/03_observability/02_Container-logging.md
               - Monitor & Debug: 03_Kubernetes/02_KCAD/03_observability/03_monitor+debug.md
 
-          - Services + Networking:
+          - 04 Services + Networking:
               - Services: 03_Kubernetes/02_KCAD/04_services+Networking/01-services.md
               - Ingress: 03_Kubernetes/02_KCAD/04_services+Networking/02_ingress.md
               - Network Policies: 03_Kubernetes/02_KCAD/04_services+Networking/03_network-policies.md
 
-          - State Persistence:
+          - 05 State Persistence:
               - Volumes: 03_Kubernetes/02_KCAD/05_state-persistence/01_volume.md
               - Storage Class: 03_Kubernetes/02_KCAD/05_state-persistence/02_storage-class.md
 
-          - Security:
+          - 06 Security:
               - Authentication: 03_Kubernetes/02_KCAD/06-security/01-Authentication.md
               - Kubeconfig File: 03_Kubernetes/02_KCAD/06-security/02-kubeConfig-file.md
               - API Groups: 03_Kubernetes/02_KCAD/06-security/03-API-Group.md
@@ -65,11 +75,11 @@ nav:
               - Cluster Roles: 03_Kubernetes/02_KCAD/06-security/06-Cluster-roles.md
               - Admission Controllers: 03_Kubernetes/02_KCAD/06-security/07-Admission-controller.md
 
-          - Others:
+          - 07 Others:
               - API Versioning: 03_Kubernetes/02_KCAD/08_Others/01-API-version.md
               - CRD: 03_Kubernetes/02_KCAD/08_Others/02-Custom-resource-defintions.md
 
-      - EKS:
+      - A2.2 EKS:
           - Cluster Setup: 03_Kubernetes/04_EKS/02_01_EKS_Cluster.md
           - Add User + SA: 03_Kubernetes/04_EKS/02_02_EKS-AddUser+ServiceAcct.md
           - Nodegroup + Fargate: 03_Kubernetes/04_EKS/02_03_nodegroup+fargateProfile.md
@@ -86,28 +96,21 @@ nav:
               - External Secret v2: 03_Kubernetes/04_EKS/99_CG_Ext-secret-2.md
               - IRSA: 03_Kubernetes/04_EKS/99_CG_IRSA.md
 
-      - Helm:
+      - A2.3 Helm:
           - Helm Chart Kickoff: 03_Kubernetes/05_helm/01_helm-chart-kickoff.md
-  - Terraform:
+
+  - B. Terraform:
       - DevOps Overview: 04_terraform/Notes/00_devOps.md
       - Terraform Kickoff: 04_terraform/Notes/01-kickoff.md
       - HCL Syntax: 04_terraform/Notes/02-HCL.md
       - Modules: 04_terraform/Notes/03_module.md
-  - harness:
+
+  - C. Harness / CD pipleine:
       - kick_off: 05_harness\Notes\01_kick_off.md
       - delegates: 05_harness\Notes\02_delegates.md
       - bash: 07_scripting\bash_script\00_bash_script_1.md
-  - Docker:
-      - Overview: 02_docker/readme.md
-      - Architecture: 02_docker/00_architecture.md
-      - Docker Commands: 02_docker/00_commands.md
-      - Docker Compose: 02_docker/01_docker-compose.md
-      - Engine: 02_docker/02_engine.md
-      - Storage: 02_docker/03_Storage.md
-      - Networking: 02_docker/04_network.md
-      - Developer Notes: 02_docker/05_developer-Notes.md
 
-  - AWS:
+  - D. AWS:
       - 00 AWS DVA-C02:
           - "DVA Overview": 01_aws/00_DVA-C02/00_DVA.md
           - "CLI & SDK": 01_aws/00_DVA-C02/12_CLI_SDK_more.md
@@ -116,8 +119,6 @@ nav:
           - "SAM": 01_aws/00_DVA-C02/25_SAM.md
           - "CDK": 01_aws/00_DVA-C02/26_CDK.md
           - "Handson": 01_aws/00_DVA-C02/99_handson.md
-
-
 
       - 01 AWS Compute:
           - "EC2": 01_aws/01_compute/01_EC2.md
@@ -183,40 +184,42 @@ nav:
           - "HSM DVA": 01_aws/06_Security/10_HSM_DVA.md
           - "more": 01_aws/06_Security/99_more.md
 
-      - AWS Monitoring:
+      - 08 AWS Monitoring:
           - "CloudWatch Metrics": 01_aws/07_monitoring/01_CW-Metric.md
           - "CloudWatch Logs": 01_aws/07_monitoring/02_CW-Logs.md
           - "X-Ray": 01_aws/07_monitoring/04_X-rays_DVA.md
           - "CloudTrail": 01_aws/07_monitoring/05_cloudTrail.md
 
-      - AWS Analytics:
+      - 09 AWS Analytics:
           - "Athena": 01_aws/08_Analytics/01_athena_adhocSQL_serverless.md
           - "Redshift": 01_aws/08_Analytics/02_Redshift_OLAP.md
           - "QuickSight": 01_aws/08_Analytics/05_QuickSight_dashboard.md
           - "Glue ETL": 01_aws/08_Analytics/06_glue_ETL.md
 
-      - AWS DR & Migration:
+      - 10 AWS DR & Migration:
           - "DR Strategies": 01_aws/09_DR/01_dr-strategies.md
           - "Migration Part 1": 01_aws/09_DR/02_migration-1.md
           - "Migration Part 2": 01_aws/09_DR/02_migration-2.md
 
-      - AWS Practice:
+      - 11 AWS Practice:
           - "Practice Test": 01_aws/practice-test/readme.md
-  - Frontend:
-      - Overview: 00_Frontend/readme.md
-  - Springboot:
-      - Others: 00_Springboot/00_others.md
-      - Spring Core:
+
+  - E. Java:
+  - F. Springboot:
+      - 00 lombok mvn git: 00_Springboot/00_others.md
+      - 01 Spring Core:
           - Spring Core Basics: 00_Springboot/01_Spring-core/01_Spring_Core.md
           - Spring Bean Lifecycle: 00_Springboot/01_Spring-core/02_Spring_bean_lifeCycle.md
           - AOP Concept: 00_Springboot/01_Spring-core/03_AOP_concept.md
           - Point-cut Examples: 00_Springboot/01_Spring-core/03_point-cut-examples.txt
           - Spring Properties: 00_Springboot/01_Spring-core/04_spring_properties.md
-      - Spring Boot:
+
+      - 02 Spring Boot:
           - Kickoff: 00_Springboot/01_springboot/01_SB_kickoff.md
           - Auto Configuration: 00_Springboot/01_springboot/02_SB_AutoConfig.md
           - Starter & Testing: 00_Springboot/01_springboot/03_SB_starter_test.md
-      - Web:
+
+      - 03 Web:
           - Web Start: 00_Springboot/02_web/00 WEB_start.md
           - General Web Tasks: 00_Springboot/02_web/00_general_web_task.md
           - Servlet 3: 00_Springboot/02_web/01_servlet_3.md
@@ -228,7 +231,8 @@ nav:
           - Error Handling: 00_Springboot/02_web/07_error_handling.md
           - gRPC & Webflux: 00_Springboot/02_web/08_gRPC+webflux.md
           - Webflux: 00_Springboot/02_web/09_webflux.md
-      - Data Layer:
+
+      - 04 Data Layer:
           - Common Tasks: 00_Springboot/03_data-layer/00_common_task.md
           - JPA: 00_Springboot/03_data-layer/01_JPA.md
           - Persistence Context: 00_Springboot/03_data-layer/02_presistence-context.md
@@ -240,29 +244,34 @@ nav:
           - SB JPA Data Part 2: 00_Springboot/03_data-layer/05-SBjpaData-2.md
           - SB JPA Data Transactions: 00_Springboot/03_data-layer/05-SBjpaData-3-txn.md
           - ER Diagram: 00_Springboot/03_data-layer/er-diagram.png
-      - Security:
+
+      - 05 Security:
           - OAuth 2.0: 00_Springboot/04_security/00_OAuth_2.0.md
           - Spring Boot Security Start: 00_Springboot/04_security/01_sb-security-start.md
           - Authentication: 00_Springboot/04_security/02_Authentication.md
           - Authorization: 00_Springboot/04_security/03_Authorization.md
           - REST Security: 00_Springboot/04_security/04_REST-secure.md
-  - ETL:
+
+  - G. ETL:
       - readme: 09_ETL\02_py-spark\readme.md
       - kickoff: 09_ETL\01_spring-batch\00_kickoff.md
       - SpringBatch: 09_ETL\01_spring-batch\01_SpringBatch-start.md
-  - Messaging:
+
+  - H. Messaging:
       - Messaging Protocols Overview: 06_messaging/01_messaging_protocols.md
-      - Kafka:
+      - 01 Kafka:
           - Getting Started: 06_messaging/kakfa/Notes_01-start.md
           - CLI Commands (.sh): 06_messaging/kakfa/Notes_02-cli.sh
           - Wikimedia Project: 06_messaging/kakfa/Notes_03_project_wikimedia.md
           - Extended Notes: 06_messaging/kakfa/Notes_04_extended.md
           - Case Studies: 06_messaging/kakfa/Notes_05_case-studies.md
-      - RabbitMQ:
+
+      - 02 RabbitMQ:
           - Kickoff: 06_messaging/rmq/01_kickoff.md
           - Project Overview: 06_messaging/rmq/02_project.md
-  - Database:
-      - RDBMS:
+
+  - I. Database:
+      - 01 RDBMS:
           - Intro to PostgreSQL: 08_Database/01_rdbms/00_postgress.md
           - Data Types: 08_Database/01_rdbms/01_datatype.md
           - Constraints: 08_Database/01_rdbms/02_constraints.md
@@ -272,39 +281,41 @@ nav:
           - CTE & Views: 08_Database/01_rdbms/05_CTE+view.md
           - Permissions: 08_Database/01_rdbms/06_permissions.md
           - Sharding: 08_Database/01_rdbms/10_sharding.md
-          - Shopping App Project:
-              - ER Diagram (image): 08_Database/01_rdbms/shopping_app/er.png
-              - Readme: 08_Database/01_rdbms/shopping_app/readme.md
-              - Admin SQL: 08_Database/01_rdbms/shopping_app/admin.sql
-              - DDL SQL: 08_Database/01_rdbms/shopping_app/ddl.sql
-              - DML SQL: 08_Database/01_rdbms/shopping_app/dml.sql
-  - Architecture:
+          - Project-01 (Shopping App) : 08_Database/01_rdbms/shopping_app/readme.md
+
+  - J. Architecture:
       - Overview: 10_Architecture/readme.md
-      - Web Security:
+
+      - 01 Web Security:
           - Public Key Infrastructure (PKI): 10_Architecture/01_web_Security/01_PKI.md
           - SAML: 10_Architecture/01_web_Security/02_SAML.md
           - OAuth & OIDC: 10_Architecture/01_web_Security/03_OAUth+OIDC.md
-      - Modern Web Architecture:
+
+      - 02 Modern Web Architecture:
           - Kickoff 2024: 10_Architecture/02_web_modern_architecture/01_kickoff-2024.md
           - Twelve-Factor App: 10_Architecture/02_web_modern_architecture/02_twelve_factor_app.md
-      - Microservices:
+
+      - 03 Microservices:
           - Kickoff: 10_Architecture/03_Miscroservice/00_kick_off.md
           - Design Patterns: 10_Architecture/03_Miscroservice/01_design_pattern-1.md
           - Communication: 10_Architecture/03_Miscroservice/02_Microservce-communication.md
           - Deployment: 10_Architecture/03_Miscroservice/04_Deployment.md
           - Actuator Config (JSON): 10_Architecture/03_Miscroservice/actuator.json
-      - Project 1 (PROJ-1):
+
+      - 04 Project 1 (PROJ-1):
           - Design Patterns: 10_Architecture/50_PROJ-1/01-PROJ-1_Design-patterns.md
           - Disaster Recovery: 10_Architecture/50_PROJ-1/02_PROJ-1_DR.md
           - Release Process: 10_Architecture/50_PROJ-1/03_PROJ-1_release_process.md
           - API Overview: 10_Architecture/50_PROJ-1/04_PROJ-1_API.md
           - Observability: 10_Architecture/50_PROJ-1/05_PROJ-1_Observability.md
           - Distributed & Scalable Design: 10_Architecture/50_PROJ-1/06_PROJ-1_Distribted-Scalable.md
-  - Observability:
+
+  - K. Observability:
       - Kickoff: 100_observability/00_kick_off.md
-      - Observability with Spring: 100_observability/01_Observability-spring.md
-      - Observability with Datadog: 100_observability/02_observabilty-datadog.md
+      - Springboot: 100_observability/01_Observability-spring.md
+      - Datadog: 100_observability/02_observabilty-datadog.md
       - Datadog Agent Config (YAML): 100_observability/datadog-agent.yaml
+
   - Career Docs:
       - Skills: 99_temp/00/01_skills.md
       - Profiles: 99_temp/00/02_profiles.md
