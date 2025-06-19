@@ -204,7 +204,14 @@ nav:
       - 11 AWS Practice:
           - "Practice Test": 01_aws/practice-test/readme.md
 
-  #- E. Java:
+  - E. Java:
+      - Java 7: 00_java/01_java-7-basic.md
+      - Java 8: 00_java/02_Java-8-new.md
+      - Java 9-11: 00_java/03_Java-9-11-new.md
+      - Java 11-17: 00_java/04_Java-11-17-new.md
+      - Java 17-21: 00_java/05_Java-17-21-new.md
+      - more: 00_java/01_java-7-basic.md
+
   - F. Springboot:
       - 00 lombok mvn git: 00_Springboot/00_others.md
       - 01 Spring Core:
