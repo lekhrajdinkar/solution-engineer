@@ -204,7 +204,7 @@ nav:
       - 11 AWS Practice:
           - "Practice Test": 01_aws/practice-test/readme.md
 
-  - E. Java:
+  #- E. Java:
   - F. Springboot:
       - 00 lombok mvn git: 00_Springboot/00_others.md
       - 01 Spring Core:
