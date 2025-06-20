@@ -4,7 +4,7 @@
 
 ---
 ## A. Architecture
-![img_1.png](../99_img/img_1.png)
+![img_1.png](../99_img/etl-sb/img_1.png)
 ###  key components
 - **Job**     : Represents the batch process.
 - **Step**    : A stage in the job (e.g., reading, processing, writing).
@@ -48,9 +48,10 @@
 
 @EnableAsync 
 tells Spring to look for methods annotated with @Async and execute them asynchronously.
-		
 ```
+
 ### 2 add dashboard
+- add dependency
 ```
 <dependency>
     <groupId>org.springframework.batch</groupId>
@@ -74,6 +75,7 @@ tells Spring to look for methods annotated with @Async and execute them asynchro
   <artifactId>opentelemetry-exporter-otlp</artifactId>
    </dependency>
 ```
+
 ### 4 Monitor
 - https://github.com/spring-projects/spring-batch/blob/main/spring-batch-core/src/main/resources/org/springframework/batch/core/schema-postgresql.sql
 - [BatchDDLRunner.java](../../src/main/java/com/lekhraj/java/spring/etl/springbatch/BatchDDLRunner.java)
@@ -86,4 +88,4 @@ tells Spring to look for methods annotated with @Async and execute them asynchro
   - batch_step_execution_context: Similar to batch_job_execution_context, but this table stores the execution context data for each step of the job.
 
 ---
-![img.png](../99_img/img.png)
+![img.png](../99_img/etl-sb/img.png)

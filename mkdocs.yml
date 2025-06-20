@@ -211,7 +211,6 @@ nav:
       - Java 9-11: 00_java/03_Java-9-11-new.md
       - Java 11-17: 00_java/04_Java-11-17-new.md
       - Java 17-21: 00_java/05_Java-17-21-new.md
-      - more: 00_java/99_other.md
 
   - Springboot:
       - 00 lombok mvn git: 00_Springboot/00_others.md
@@ -260,10 +259,9 @@ nav:
           - Authorization: 00_Springboot/04_security/03_Authorization.md
           - REST Security: 00_Springboot/04_security/04_REST-secure.md
 
-  - ETL:
-      - readme: 09_ETL\02_py-spark\readme.md
-      - kickoff: 09_ETL\01_spring-batch\00_kickoff.md
-      - SpringBatch: 09_ETL\01_spring-batch\01_SpringBatch-start.md
+      - 06 ETL SpringBatch:
+          - index: 00_Springboot/05_spring-batch-ETL/00_index.md
+          - SpringBatch: 00_Springboot/05_spring-batch-ETL/01_SpringBatch-start.md
 
   - Messaging:
       - Messaging Protocols Overview: 06_messaging/01_messaging_protocols.md

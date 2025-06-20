@@ -1,4 +1,5 @@
-https://chatgpt.com/c/6752bc19-2988-800d-a0b6-b2d118c74141
+- https://chatgpt.com/c/6752bc19-2988-800d-a0b6-b2d118c74141
+
 ---
 # Spring batch
 - Architecture
@@ -16,9 +17,8 @@ https://chatgpt.com/c/6752bc19-2988-800d-a0b6-b2d118c74141
 - Restarting jobs
 - Reusability - reuse same step among several job.
 - nested jobs
+
 ```
-
-
 job1
     .listener(listener)                                     # event - job start,end
     .next(step2())
@@ -28,7 +28,6 @@ job1
 Step1.
     .<InputType, OutputType>chunk(10)
     .listener(listener)                                     # event - step start,end
-
 ```
 
 ## Reading
@@ -47,6 +46,7 @@ Step1.
 - Writing to a database with PreparedStatements 
 - Writing to a database with named parameters 
 - Writing a JSON file 
+
 ```
  return new JdbcBatchItemWriter<>();
  FlatFileItemWriter<OutputType> writer = new FlatFileItemWriter<>();
@@ -63,8 +63,8 @@ Step1.
 - skip logic for jobs
 - retry logic for steps
 - multithreaded steps
-```
 
+```
 Step1.
     .skip(Exception.class)
     .skipLimit(10)
