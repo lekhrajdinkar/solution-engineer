@@ -338,9 +338,12 @@ extra_css:
   - mkdocs.css
 
 theme:
+  font:
+    text: Roboto
+    code: Roboto Mono
   name: material
   features:
-    - navigation.side
+    - navigation.tab
     - navigation.sections
   palette:
     - media: "(prefers-color-scheme: light)"
@@ -370,3 +373,11 @@ markdown_extensions:
 
 plugins:
   - search
+  - markdownextradata
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/lekhrajdinkar
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/lekhraj-dinkar-25872140/
