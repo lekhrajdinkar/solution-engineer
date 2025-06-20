@@ -2,4 +2,4 @@ mkdocs
 mkdocs-material
 pymdown-extensions
 mkdocs-markdownextradata-plugin
-mkdocs-copyfiles
+mkdocs-simple-hooks
