@@ -2,16 +2,16 @@
 # mkdocs gh-deploy
 # mkdocs serve | build
 
-site_name: lekhraj-Dinkar-Docs
+site_name: Backend Document (lekhraj Dinkar)
 site_description: Technical Documentation
 site_author: lekhraj Dinkar
 
 # docs_dir: .
 # Navigation based on your Notes folder
 nav:
-  - Frontend: 00_Frontend/readme.md
+  #- Frontend: 00_Frontend/readme.md
 
-  - A1. Docker:
+  - Docker:
         - Overview: 02_docker/readme.md
         - Architecture: 02_docker/00_architecture.md
         - Docker Commands: 02_docker/00_commands.md
@@ -21,7 +21,7 @@ nav:
         - Networking: 02_docker/04_network.md
         - Developer Notes: 02_docker/05_developer-Notes.md
 
-  - A2. Kubernetes:
+  - Kubernetes:
       - Readme: 03_Kubernetes/readme.md
       - Kickoff:
           - Monolith vs Microservices: 03_Kubernetes/00_kickOff/01_monolith_MicroServices.md
@@ -100,18 +100,18 @@ nav:
       - A2.3 Helm:
           - Helm Chart Kickoff: 03_Kubernetes/05_helm/01_helm-chart-kickoff.md
 
-  - B. Terraform:
+  - Terraform:
       - DevOps Overview: 04_terraform/Notes/00_devOps.md
       - Terraform Kickoff: 04_terraform/Notes/01-kickoff.md
       - HCL Syntax: 04_terraform/Notes/02-HCL.md
       - Modules: 04_terraform/Notes/03_module.md
 
-  - C. Harness / CD pipleine:
+  - Harness / CD pipleine:
       - kick_off: 05_harness\Notes\01_kick_off.md
       - delegates: 05_harness\Notes\02_delegates.md
       - bash: 07_scripting\bash_script\00_bash_script_1.md
 
-  - D. AWS:
+  - AWS:
       - 00 AWS DVA-C02:
           - "DVA Overview": 01_aws/00_DVA-C02/00_DVA.md
           - "CLI & SDK": 01_aws/00_DVA-C02/12_CLI_SDK_more.md
@@ -205,7 +205,7 @@ nav:
       - 11 AWS Practice:
           - "Practice Test": 01_aws/practice-test/readme.md
 
-  - E. Java:
+  - Java:
       - Java 7: 00_java/01_java-7-basic.md
       - Java 8: 00_java/02_Java-8-new.md
       - Java 9-11: 00_java/03_Java-9-11-new.md
@@ -213,7 +213,7 @@ nav:
       - Java 17-21: 00_java/05_Java-17-21-new.md
       - more: 00_java/99_other.md
 
-  - F. Springboot:
+  - Springboot:
       - 00 lombok mvn git: 00_Springboot/00_others.md
       - 01 Spring Core:
           - Spring Core Basics: 00_Springboot/01_Spring-core/01_Spring_Core.md
@@ -260,12 +260,12 @@ nav:
           - Authorization: 00_Springboot/04_security/03_Authorization.md
           - REST Security: 00_Springboot/04_security/04_REST-secure.md
 
-  - G. ETL:
+  - ETL:
       - readme: 09_ETL\02_py-spark\readme.md
       - kickoff: 09_ETL\01_spring-batch\00_kickoff.md
       - SpringBatch: 09_ETL\01_spring-batch\01_SpringBatch-start.md
 
-  - H. Messaging:
+  - Messaging:
       - Messaging Protocols Overview: 06_messaging/01_messaging_protocols.md
       - 01 Kafka:
           - Getting Started: 06_messaging/kakfa/Notes_01-start.md
@@ -278,7 +278,7 @@ nav:
           - Kickoff: 06_messaging/rmq/01_kickoff.md
           - Project Overview: 06_messaging/rmq/02_project.md
 
-  - I. Database:
+  - Database:
       - 01 RDBMS:
           - Intro to PostgreSQL: 08_Database/01_rdbms/00_postgress.md
           - Data Types: 08_Database/01_rdbms/01_datatype.md
@@ -291,7 +291,7 @@ nav:
           - Sharding: 08_Database/01_rdbms/10_sharding.md
           - Project-01 (Shopping App) : 08_Database/01_rdbms/shopping_app/readme.md
 
-  - J. Architecture:
+  - Architecture:
       - Overview: 10_Architecture/readme.md
 
       - 01 Web Security:
@@ -318,7 +318,7 @@ nav:
           - Observability: 10_Architecture/50_PROJ-1/05_PROJ-1_Observability.md
           - Distributed & Scalable Design: 10_Architecture/50_PROJ-1/06_PROJ-1_Distribted-Scalable.md
 
-  - K. Observability:
+  - Observability:
       - Kickoff: 100_observability/00_kick_off.md
       - Springboot: 100_observability/01_Observability-spring.md
       - Datadog: 100_observability/02_observabilty-datadog.md
@@ -349,12 +349,9 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: grey
+      accent: black
+
 
 repo_url: https://github.com/lekhrajdinkar/02-backend-pack
 repo_name: GitHub

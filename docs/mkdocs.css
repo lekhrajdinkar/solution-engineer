@@ -24,11 +24,11 @@ h2 {
 
 /* Style links */
 a {
-  color: #277de0;
+  color: orange;
   text-decoration: none;
 }
 a:hover {
-  color: #5bb6bd;
+  color: orange;
   text-decoration: underline;
 }
 
