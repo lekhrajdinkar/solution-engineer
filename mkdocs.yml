@@ -344,7 +344,7 @@ theme:
     code: Roboto Mono
   name: material
   features:
-    - navigation.tab
+    - navigation.tabs
     - navigation.sections
   palette:
     - media: "(prefers-color-scheme: light)"
