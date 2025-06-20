@@ -6,6 +6,7 @@ site_name: lekhraj-Dinkar-Docs
 site_description: Technical Documentation
 site_author: lekhraj Dinkar
 
+docs_dir: .
 # Navigation based on your Notes folder
 nav:
   - Frontend: 00_Frontend/readme.md
