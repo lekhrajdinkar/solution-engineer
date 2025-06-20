@@ -2,7 +2,7 @@
 # mkdocs gh-deploy
 # mkdocs serve | build
 
-site_name: Backend Document (lekhraj Dinkar)
+site_name: Backend Document (lekhraj Dinkar) 2025
 site_description: Technical Documentation
 site_author: lekhraj Dinkar
 
@@ -348,7 +348,7 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: grey
-      accent: black
+      accent: pink
 
 
 repo_url: https://github.com/lekhrajdinkar/02-backend-pack

@@ -22,16 +22,6 @@ h2 {
   font-size: 1.5em;
 }
 
-/* Style links */
-a {
-  color: orange;
-  text-decoration: none;
-}
-a:hover {
-  color: orange;
-  text-decoration: underline;
-}
-
 /* Code blocks */
 code {
   background-color: #e4dbdb;
