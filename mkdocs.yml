@@ -374,11 +374,13 @@ markdown_extensions:
 
 plugins:
   - search
-  - markdownextradata
-  - copyfiles
+  #- markdownextradata
+  #- simple-hooks:
+      #hooks:
+        #on_post_build: "copy_extra_files.copy_yaml_files"
 
-copyfiles:
-  - deployment/manifest
+#copyfiles:
+  #- deployment/manifest
 
 extra:
   social:
