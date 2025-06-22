@@ -322,16 +322,16 @@ nav:
       - Datadog: 100_observability/02_observabilty-datadog.md
       - Datadog Agent Config (YAML): 100_observability/datadog-agent.yaml
 
-  - Career Docs:
-      - Skills: 99_temp/00/01_skills.md
-      - Profiles: 99_temp/00/02_profiles.md
-      - Achievements & Learnings: 99_temp/00/97_achievement+learnings.md
-      - Behavioural Prep: 99_temp/00/98_behavioural.md
-      - Interview Q&A: 99_temp/00/99_interview.md
-      - Resumes:
-          - SE-2: 99_temp/00/lekhraj Dinkar-SE-2.pdf
-          - SE-3: 99_temp/00/lekhraj Dinkar-SE-3.pdf
-          - SSE/SE-4: 99_temp/00/lekhraj Dinkar-sse-se4.pdf
+  #- Career Docs:
+      #- Skills: 99_temp/00/01_skills.md
+      #- Profiles: 99_temp/00/02_profiles.md
+      #- Achievements & Learnings: 99_temp/00/97_achievement+learnings.md
+      #- Behavioural Prep: 99_temp/00/98_behavioural.md
+      #- Interview Q&A: 99_temp/00/99_interview.md
+      #- Resumes:
+          #- SE-2: 99_temp/00/lekhraj Dinkar-SE-2.pdf
+          #- SE-3: 99_temp/00/lekhraj Dinkar-SE-3.pdf
+          #- SSE/SE-4: 99_temp/00/lekhraj Dinkar-sse-se4.pdf
 
 extra_css:
   - mkdocs.css
