@@ -1,6 +1,7 @@
 # A. ECS
 ## 1 Expose
-- expose ALB (public subnet)
+- expose ALB (public subnet) with DNS
+- db also publicly exposed
 ## 2 rate limit
 - alb + waf
 ## 3 TLS

@@ -20,6 +20,10 @@
     - emph SQS > filter pattern > enrich with lambda + transformation > **output**
     - ![img.png](../99_img/proj-1/01/img.png)
     - output: l, kdf, eb, **ecs+taskDefination(spawn task)**  :point_left:, sns, sqs, step function, etc
+- event source mapping (sync call L + batch)
+- FIFO with group == multiple call 
+- SQS serverless :: autoscale
+- future state -> kafka topic (as point to point) + rabbit
 
 ## 3. Idempotent consumers
 - kafka/rabbit consumer.
