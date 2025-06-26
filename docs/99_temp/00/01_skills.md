@@ -1,4 +1,5 @@
 ## A. Resume
+- https://chatgpt.com/c/685761dd-37b8-800d-97f0-2132e9c0a2c1 - resume-builder with py
 - https://www.resume.com/resume/builder/e5b3121e-3480-4c77-ad83-3c0101f54225/ - `not good`
 - https://www.resume-now.com/build-resume/final-resume?docid=3740611a-211f-4626-a875-7c5814b18581 - `paid`
 - Canva pdf
