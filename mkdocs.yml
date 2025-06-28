@@ -6,6 +6,9 @@ site_name: Backend Document (lekhraj Dinkar) 2025
 site_description: Technical Documentation
 site_author: lekhraj Dinkar
 
+extra_javascript:
+  - mkdocs.js
+
 # docs_dir: .
 # Navigation based on your Notes folder
 nav:
