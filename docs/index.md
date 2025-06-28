@@ -11,4 +11,4 @@
 <img src="https://skillicons.dev/icons?i=java,aws,terraform,docker,kubernetes,git,github,linux,bash" />
 
 <a href="https://lekhrajdinkar.netlify.app/" target="_blank">python + genAI</a><br>
-<img src="https://skillicons.dev/icons?i=java,aws,terraform,docker,kubernetes,git,github,linux,bash" />
+<img src="https://skillicons.dev/icons?i=python,genai,chatgpt" />
