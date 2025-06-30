@@ -299,13 +299,13 @@ nav:
           - SAML: 10_Architecture/01_web_Security/02_SAML.md
           - OAuth & OIDC: 10_Architecture/01_web_Security/03_OAUth+OIDC.md
       - Modern Web:
-          - 12-Factor App: 10_Architecture/02_web_modern_architecture/00_12_factor_app.md
-          - Start: 10_Architecture/02_web_modern_architecture/01_start_2025.md
-          - webApp: 10_Architecture/02_web_modern_architecture/03_WEB_design.md
-          - B2B design: 10_Architecture/02_web_modern_architecture/02_B2B_design.md
-          - API design: 10_Architecture/02_web_modern_architecture/04_API_design.md
-          - AWS design: 10_Architecture/02_web_modern_architecture/05_AWS_design.md
-          - Database design: 10_Architecture/02_web_modern_architecture/06_Database_design.md
+          - 12-Factor App: 10_Architecture/02_web_modern/00_12_factor_app.md
+          - Start: 10_Architecture/02_web_modern/01_start_2025.md
+          - webApp: 10_Architecture/02_web_modern/03_code_design_patterns.md
+          - B2B design: 10_Architecture/02_web_modern/02_B2B_design.md
+          - API design: 10_Architecture/02_web_modern/04_API_design.md
+          #- AWS design: 10_Architecture/02_web_modern/05_AWS_design.md
+          - Database design: 10_Architecture/02_web_modern/06_Database_design.md
           - Micro services Design:
               - start: 10_Architecture/03_Miscroservice/00_kick_off.md
               - Design Patterns: 10_Architecture/03_Miscroservice/01_design_pattern-1.md
@@ -326,7 +326,7 @@ nav:
       - Datadog Agent Config (YAML): 100_observability/datadog-agent.yaml
 
   #- Career Docs:
-      #- Skills: 99_temp/00/01_skills.md
+      #- Skills: 99_temp/00/01_resume_old.md
       #- Profiles: 99_temp/00/02_profiles.md
       #- Achievements & Learnings: 99_temp/00/97_achievement+learnings.md
       #- Behavioural Prep: 99_temp/00/98_behavioural.md

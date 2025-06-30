@@ -6,6 +6,11 @@
 # B. Backend
 
 ## 0. Architecture
+- new:
+  - DP : https://chatgpt.com/c/685dd143-0840-800d-8660-0f9cb8afb117
+  - upload review and ask to gpt   https://chatgpt.com/c/685c8d70-b318-800d-8315-42e5d791c67b
+  - AWS : https://chatgpt.com/c/68511f33-9680-800d-afe7-d7512848aeed
+  
 - **Design pattern**
     - 01: <a href="https://chat.deepseek.com/a/chat/s/81394dc5-20ff-45bb-8fc3-001520d7ef4f" target="_blank">Design Pattern Chat </a>
     - 02: EDD vs DDD : <a href="https://chat.deepseek.com/a/chat/s/065201f8-58cd-4064-ada2-c61075720515" target="_blank">EDD vs DDD</a>

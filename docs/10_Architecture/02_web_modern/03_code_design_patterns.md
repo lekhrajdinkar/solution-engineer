@@ -1,4 +1,5 @@
 ## A. web::Design pattern  🟢
+### Service-Oriented Architecture (SOA)
 ### Separation of Concerns
 - **independent**
    - Keep frontend 
