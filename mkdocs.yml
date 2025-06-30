@@ -293,25 +293,25 @@ nav:
           - Project-01 (Shopping App) : 08_Database/01_rdbms/shopping_app/readme.md
 
   - Architecture:
-      - Overview: 10_Architecture/readme.md
-
-      - 01 Web Security:
+      - Overview: 10_Architecture/03_Miscroservice/00_kick_off.md
+      - Web Security:
           - Public Key Infrastructure (PKI): 10_Architecture/01_web_Security/01_PKI.md
           - SAML: 10_Architecture/01_web_Security/02_SAML.md
           - OAuth & OIDC: 10_Architecture/01_web_Security/03_OAUth+OIDC.md
-
-      - 02 Modern Web Architecture:
-          - Kickoff 2024: 10_Architecture/02_web_modern_architecture/01_kickoff-2024.md
-          - Twelve-Factor App: 10_Architecture/02_web_modern_architecture/02_twelve_factor_app.md
-
-      - 03 Microservices:
-          - Kickoff: 10_Architecture/03_Miscroservice/00_kick_off.md
-          - Design Patterns: 10_Architecture/03_Miscroservice/01_design_pattern-1.md
-          - Communication: 10_Architecture/03_Miscroservice/02_Microservce-communication.md
-          - Deployment: 10_Architecture/03_Miscroservice/04_Deployment.md
-          - Actuator Config (JSON): 10_Architecture/03_Miscroservice/actuator.json
-
-      - 04 Project 1 (PROJ-1):
+      - Modern Web:
+          - 12-Factor App: 10_Architecture/02_web_modern_architecture/00_12_factor_app.md
+          - Start: 10_Architecture/02_web_modern_architecture/01_start_2025.md
+          - webApp: 10_Architecture/02_web_modern_architecture/03_WEB_design.md
+          - B2B design: 10_Architecture/02_web_modern_architecture/02_B2B_design.md
+          - API design: 10_Architecture/02_web_modern_architecture/04_API_design.md
+          - AWS design: 10_Architecture/02_web_modern_architecture/05_AWS_design.md
+          - Database design: 10_Architecture/02_web_modern_architecture/06_Database_design.md
+          - Micro services Design:
+              - start: 10_Architecture/03_Miscroservice/00_kick_off.md
+              - Design Patterns: 10_Architecture/03_Miscroservice/01_design_pattern-1.md
+              - Communication: 10_Architecture/03_Miscroservice/02_Microservce-communication.md
+              - Deployment: 10_Architecture/03_Miscroservice/04_Deployment.md
+      - Project 1 (PROJ-1):
           - Design Patterns: 10_Architecture/50_PROJ-1/01-PROJ-1_Design-patterns.md
           - Disaster Recovery: 10_Architecture/50_PROJ-1/02_PROJ-1_DR.md
           - Release Process: 10_Architecture/50_PROJ-1/03_PROJ-1_release_process.md
