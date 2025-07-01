@@ -15,14 +15,11 @@ nav:
   #- Frontend: 00_Frontend/readme.md
 
   - Docker:
-        - Overview: 02_docker/readme.md
         - Architecture: 02_docker/00_architecture.md
-        - Docker Commands: 02_docker/00_commands.md
+        - Docker Commands: 02_docker/00_dev_guide.md
         - Docker Compose: 02_docker/01_docker-compose.md
-        - Engine: 02_docker/02_engine.md
         - Storage: 02_docker/03_Storage.md
         - Networking: 02_docker/04_network.md
-        - Developer Notes: 02_docker/05_developer-Notes.md
 
   - Kubernetes:
       - Readme: 03_Kubernetes/readme.md

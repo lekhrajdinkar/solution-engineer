@@ -13,8 +13,8 @@
 - `Volumes`: Supports persistent storage via volumes and allows mounting host directories to containers.
 
 ---
-## versions :
-### version-3  **
+
+## Example
 - example
   - will start the nginx **web** server and the **PostgreSQL** database, 
   - linking them through the custom network : **webnet**. 
@@ -54,36 +54,4 @@ volumes:
     driver: local
 
 ```
----
 
-### version-2
-- by default create one network ( name:current_dir_default ) and associate all containers with it.
-- `services`:
-    - container-name-1 :
-        - link not needed, already **link all container/s (within default n/w)** with each other.
-        - for external network can add link.
-    - container-name-1 :
-    - `depends on` :
-    - network/s:
-        - network-1
-        - network-2
-        - one container can be associated with multiple networks
-- `networks`:
-    - can also create
-    - network-1
-    - network-2
-
-
-### version-1
-- container-name-1 :
-    - image or build :
-    - ports:
-    - environment:
-        - ENV_1: xxxxx
-        - ENV_2: xxxxxx
-    - **link**:
-        - db:db or just db, which become hostname.
-        - redis:rd
-- container-name-2 :
-- container-name-3 :
-- note: sequence of container matters. v2 has depends-on.
