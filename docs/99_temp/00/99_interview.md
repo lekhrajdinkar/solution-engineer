@@ -76,7 +76,7 @@
 - <a href="../../03_Kubernetes/01_k8s-interview-question.md" target="_blank">01_k8s-interview-question.md</a>
 - networking 1 : https://chatgpt.com/c/686384ec-e514-800d-8781-e6642abc8653
 - HPA / karpentor : https://chatgpt.com/c/68634112-d10c-800d-9754-4248f00e0ed3
-
+- core : https://chatgpt.com/c/686393d8-85c8-800d-8e9f-dd2e8c32ff86
 ## 2.3 helm
 
 ## 2.4 CI/Cd pipeline
