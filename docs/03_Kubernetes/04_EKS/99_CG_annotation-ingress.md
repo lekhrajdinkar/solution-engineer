@@ -53,3 +53,40 @@ spec:
   - App1.ui.org.com → service.2 (ClusterIP)
   - App1.ui.org.com would go service1/2
   - ans: reolve by age. so service1 (since older)
+
+---
+
+## ⚖️ AWS ALB Ingress vs NGINX Ingress
+
+| Feature                    | **ALB Ingress Controller**                             | **NGINX Ingress Controller**                               |
+| -------------------------- | ------------------------------------------------------ | ---------------------------------------------------------- |
+| **Managed by**             | AWS                                                    | You (runs inside your EKS cluster)                         |
+| **Ingress type**           | AWS-native Ingress using **Application Load Balancer** | Pod-based controller using **NGINX reverse proxy**         |
+| **TLS via ACM**            | ✅ Yes (ACM certs on ALB)                               | ✅ Yes (via cert-manager or mounted certs)                  |
+| **AWS WAF & Shield**       | ✅ Yes (integrates easily)                              | ❌ Not directly (you'd need external tools or custom setup) |
+| **Auth (OIDC, Cognito)**   | ✅ Built-in                                             | ✅ With **OAuth2 Proxy** or NGINX config                    |
+| **Rate Limiting**          | ⚠️ Limited                                             | ✅ Yes (with annotations or NGINX config)                   |
+| **Caching**                | ❌ Not supported                                        | ✅ Yes (proxy caching config)                               |
+| **Flexibility**            | ❌ Less (opinionated, limited customization)            | ✅ Highly customizable                                      |
+| **CloudWatch Integration** | ✅ Built-in                                             | ❌ Needs manual setup                                       |
+
+- Can integrate tools like, for NGINX Ingress Controller 👈🏻
+    - cert-manager for TLS
+    - OAuth2 Proxy for auth
+    - ModSecurity for WAF
+    - NGINX annotations for rate limiting & cac
+
+##  AWS ALB Ingress : more 
+
+| Feature                    | Ingress Controller (Yes/No) | How to Achieve                                                                        |
+| -------------------------- | --------------------------- | ------------------------------------------------------------------------------------- |
+| **SSL Termination (TLS)**  | ✅ Yes                       | Use **ACM** with ALB Ingress or mount certs (e.g., Let's Encrypt with Cert-Manager)   |
+| **Authentication**         | ✅ Yes                       | OIDC/JWT via annotations (e.g., ALB) or middleware (e.g., OAuth2 Proxy, NGINX config) |
+| **Authorization**          | ✅ Yes                       | Custom auth layers in NGINX or service mesh (e.g., Istio RBAC)                        |
+| **Rate Limiting**          | ✅ Yes                       | NGINX annotations / Kong plugins / Envoy filters                                      |
+| **Caching**                | ✅ Yes                       | NGINX proxy cache, Kong plugins, or sidecar cache (e.g., Varnish)                     |
+| **WAF (Web App Firewall)** | ✅ Yes                       | Use **AWS WAF** with ALB Ingress or deploy **ModSecurity** with NGINX                 |
+| **DDoS Protection**        | ✅ Yes (partially)           | Handled via **AWS Shield** on ALB/NLB                                                 |
+| **Logging & Monitoring**   | ✅ Yes                       | Ingress logs + CloudWatch / Prometheus + Grafana                                      |
+| **IP Whitelisting**        | ✅ Yes                       | Annotation-based IP restriction (ALB) or NGINX directives                             |
+| **Custom Domain Mapping**  | ✅ Yes                       | Use Route53 to map domains to ALB DNS or external IP                                  |
