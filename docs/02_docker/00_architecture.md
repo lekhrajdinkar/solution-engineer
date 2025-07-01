@@ -69,9 +69,8 @@ Registry (Docker Hub, ECR, etc.)
   - u - user-oriented format
   - x - includes daemon process
   - same process has diff pid in diff namespace. ⬅️
+  
 ![img_2.png](img/crash-course/img_2.png)
-
-- restrict resource, which running container:
 
 
 ## Docker host (agent)

@@ -14,7 +14,7 @@
     - now standalone project under CNCF
     - needed only runtime, no other feature, then install it.
 
-## Command line 
+## Command line 🚫
 ### a. for container-d
 - `ctl` -  debug purpose , not user-friendly
   - `ctl image` pull image1

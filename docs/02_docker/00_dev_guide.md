@@ -84,6 +84,11 @@
 
 
 ###  2. best practices while writing a docker image
+- docker scan
+- docker stats or cAdvisor.
+- avoid latest image
+- docker inspect c1
+- **BuildKit** ❓
 
 | Practice                                                 | Why                                                |
 | -------------------------------------------------------- | -------------------------------------------------- |
@@ -134,7 +139,7 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 | ✅ Use `.dockerignore` to exclude unnecessary files       | Speeds up builds and reduces image size |
 
 
-### 3. more :: java
+### 3. java
 
 ```
 chmod +x ./target/spring-app-1.0.0.jar
@@ -149,5 +154,25 @@ layes:
     - spring-boot-loader/
     - snapshot-dependencies/ (if any)
     - application/
-    
+```
+
+### 4. py
+```dockerfile
+# ---- Build Stage ----
+FROM python:3.9-slim as builder
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --user --no-cache-dir -r requirements.txt
+COPY . .
+
+# ---- Runtime Stage ----
+FROM python:3.9-slim
+WORKDIR /app
+COPY --from=builder /root/.local /root/.local  # Installed packages
+COPY --from=builder /app .                     # Application code
+ENV PATH=/root/.local/bin:$PATH
+
+USER 1000
+EXPOSE 5000
+CMD ["python", "app.py"]
 ```

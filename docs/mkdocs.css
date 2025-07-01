@@ -1,30 +1,8 @@
-/* Set global font and background */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #edf0f5;
-  color: #333;
-  background: #fcf7f9;
-  background: radial-gradient(circle,rgba(252, 247, 249, 1) 0%, rgba(224, 242, 255, 1) 100%);
-}
-
-/* Style headers */
-h1, h2, h3, h4 {
-  color: #8d4f99;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 4px;
-}
-
-h1 {
-  font-size: 2em;
-}
-
-h2 {
-  font-size: 1.5em;
-}
 
 /* Code blocks */
 code {
-  background-color: #e4dbdb;
+  background-color: #665959;
+  color: #89C93A;
   padding: 2px 4px;
   border-radius: 4px;
   font-family: monospace;
@@ -40,17 +18,56 @@ blockquote {
 }
 
 /* Tables */
-table {
-  border-collapse: collapse;
-  width: 100%;
+table {  border-collapse: collapse;  width: 100%;}
+table, th, td {  border: 1px solid #ccc;}
+th, td {  padding: 8px;  text-align: left;}
+th {  background-color: #e3f2fd;}
+
+.md-grid {
+  max-width: 1400px; /* default is 960px */
 }
-table, th, td {
-  border: 1px solid #ccc;
-}
-th, td {
-  padding: 8px;
-  text-align: left;
-}
-th {
-  background-color: #e3f2fd;
-}
+/*
+🔷 Layout Containers
+| Selector                 | Description                           |
+| ------------------------ | ------------------------------------- |
+| `.md-container`          | Main container for the entire page    |
+| `.md-main`               | Container for main content + sidebars |
+| `.md-main__inner`        | Holds left nav, content, right TOC    |
+| `.md-sidebar--primary`   | Left navigation sidebar               |
+| `.md-sidebar--secondary` | Right table-of-contents sidebar       |
+| `.md-content`            | The content area in the center        |
+
+🟦 Header / Top Bar
+| Selector             | Description                     |
+| -------------------- | ------------------------------- |
+| `.md-header`         | The top sticky header           |
+| `.md-header__title`  | Site/project title text         |
+| `.md-header__button` | Buttons like menu, theme toggle |
+
+🟨 Navigation (Left Sidebar)
+| Selector         | Description              |
+| ---------------- | ------------------------ |
+| `.md-nav`        | Entire left nav area     |
+| `.md-nav__title` | Section headers in nav   |
+| `.md-nav__link`  | Each navigation link     |
+| `.md-nav__item`  | Nav item (can be nested) |
+
+🟩 Table of Contents (Right Sidebar)
+| Selector             | Description         |
+| -------------------- | ------------------- |
+| `.md-nav--secondary` | Container for TOC   |
+| `.md-nav__list`      | List of TOC entries |
+| `.md-nav__item`      | TOC entry           |
+
+🟥 Content Area
+| Selector                   | Description                   |
+| -------------------------- | ----------------------------- |
+| `.md-typeset`              | The rendered Markdown content |
+| `.md-typeset h1/h2/h3/...` | Headings                      |
+| `.md-typeset p`            | Paragraphs                    |
+| `.md-typeset code`         | Inline code                   |
+| `.md-typeset pre`          | Code blocks                   |
+| `.md-typeset table`        | Markdown tables               |
+| `.md-typeset img`          | Images                        |
+
+*/
