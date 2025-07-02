@@ -82,7 +82,6 @@ nav:
               - Pod Annotation: 03_Kubernetes/04_EKS/99_CG_annotation-Pod.md
               - SA Annotation: 03_Kubernetes/04_EKS/99_CG_annotation-sa.md
               - External Secret: 03_Kubernetes/04_EKS/99_CG_Ext-secret.md
-              - External Secret v2: 03_Kubernetes/04_EKS/99_CG_Ext-secret-2.md
               - IRSA: 03_Kubernetes/04_EKS/99_CG_IRSA.md
 
       - ⭕Helm:
