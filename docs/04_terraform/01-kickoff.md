@@ -18,7 +18,7 @@
 ---
 
 ## B.Terraform  - intro
-- ![img.png](../../99_temp/04_trf_img/01/img-04.png)
+- ![img.png](../99_temp/04_trf_img/01/img-04.png)
 - Switching from one provider (e.g., AWS) to another (e.g., Azure) usually requires rewriting the configuration.
   - https://registry.terraform.io/providers/
   - https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs
@@ -31,17 +31,17 @@
 ---
 ## C. install / setup
 - windows: install binary in local, set PATH.
-  - ![img_1.png](../../99_temp/04_trf_img/01/img_1.png)
+  - ![img_1.png](../99_temp/04_trf_img/01/img_1.png)
 - next, run locally or through HCP 
 - **HCP** (hashicorp cloud plateform) : **remote state**
   - create account. (signup with github)
   - create **org** (`lekhrajdinkar-org`) 
   - create **projects** (`default project` and `maps`)  
   - under projects > add **workspace** (cli/api driven)
-    - ![img.png](../../99_temp/04_trf_img/01/img.png)
+    - ![img.png](../99_temp/04_trf_img/01/img.png)
     - https://app.terraform.io/app/lekhrajdinkar-org/workspaces/banzai-dev_api-driven
     - https://app.terraform.io/app/lekhrajdinkar-org/workspaces/docker
-    - ![img.png](../../99_temp/04_trf_img/01/img-ws-type.png)
+    - ![img.png](../99_temp/04_trf_img/01/img-ws-type.png)
   - check out confiurationCode from git
     - root-module >> main.tf >> `terraform` { `cloud` { update this } }
   - **benefits**
@@ -92,7 +92,7 @@
 - **terraform login**
   - copy token from, C:\Users\Manisha\AppData\Roaming\terraform.d\credentials.tfrc.json
   - or create new token : https://app.terraform.io/app/settings/tokens?source=terraform-login
-  - ![img_2.png](../../99_temp/04_trf_img/01/img_2.png)
+  - ![img_2.png](../99_temp/04_trf_img/01/img_2.png)
 - **terraform init** - finds and downloads required provider.
 ```
 Initializing HCP Terraform...

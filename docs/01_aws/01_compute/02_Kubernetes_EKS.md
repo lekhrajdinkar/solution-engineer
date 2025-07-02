@@ -24,7 +24,7 @@
   
 ---
 ## hands on
-- [eks::terraform](../../04_terraform/project/config-3-aws/modules/eks)
+- [eks::terraform](../../../deployment/terraform_iac/config-3-aws/modules/eks)
 ```
 1.  create cluster-1
   - choose K8s version

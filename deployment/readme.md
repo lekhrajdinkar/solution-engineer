@@ -107,7 +107,7 @@ kubectl delete pvc --all -n dev1-manifest
 ```
 ---
 # Project-2 - spring-app-helm
-- chart: [spring_app_helm_v1](HELM/spring_app_helm_v1)
+- chart: [spring_app_helm_v1](helm/spring_app_helm_v1)
 - refernce: https://chat.deepseek.com/a/chat/s/fdefc9eb-f153-4f45-91c9-6695d9f9b202
 
 ### 1 deployment

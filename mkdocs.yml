@@ -91,15 +91,15 @@ nav:
           - Helm Chart Kickoff: 03_Kubernetes/05_helm/01_helm-chart-kickoff.md
 
   - Terraform:
-      - DevOps Overview: 04_terraform/Notes/00_devOps.md
-      - Terraform Kickoff: 04_terraform/Notes/01-kickoff.md
-      - HCL Syntax: 04_terraform/Notes/02-HCL.md
-      - Modules: 04_terraform/Notes/03_module.md
+      - DevOps Overview: 04_terraform/00_devOps.md
+      - Terraform Kickoff: 04_terraform/01-kickoff.md
+      - HCL Syntax: 04_terraform/02-HCL.md
+      - Modules: 04_terraform/03_module.md
 
-  - Harness / CD pipleine:
-      - kick_off: 05_harness\Notes\01_kick_off.md
-      - delegates: 05_harness\Notes\02_delegates.md
-      - bash: 07_scripting\bash_script\00_bash_script_1.md
+  - Harness / CD pipeline:
+      - kick_off: 05_harness/01_kick_off.md
+      - delegates: 05_harness/02_delegates.md
+      - bash: 07_scripting/00_bash_script_1.md
 
   - AWS:
       - 00 AWS DVA-C02:

@@ -33,7 +33,7 @@ https://developer.hashicorp.com/terraform/tutorials/modules/pattern-module-creat
 ---
 
 ## example: my s3 module
-- check : [s3](../project/config-3-aws/modules/s3)
+- check : [s3](../../deployment/terraform_iac/config-3-aws/modules/s3)
 - resource aws_s3_bucket
 - resource aws_s3_bucket_`logging`
 - resource aws_s3_bucket_`public_access_block`
