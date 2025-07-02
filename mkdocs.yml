@@ -46,7 +46,7 @@ nav:
           - DaemonSets: '03_Kubernetes/02_KCAD/03_04_deamonSet.md'
           - Deployment: '03_Kubernetes/02_KCAD/04_deployment_1.md'
           - Deployment (EKS): '03_Kubernetes/04_EKS/03_EKS_Developer-Deployment.md'
-          - HPA + VPA (EKS): '03_Kubernetes/04_EKS/03_EKS_Developer-01-HPA.md'
+          - HPA (EKS): '03_Kubernetes/04_EKS/03_EKS_Developer-01-HPA.md'
       - ✅Networking:
           - Services: '03_Kubernetes/02_KCAD/05_01_services.md'
           - Ingress: '03_Kubernetes/02_KCAD/05_02_ingress.md'

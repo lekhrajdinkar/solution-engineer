@@ -1,33 +1,29 @@
-## project 
-- [spring_app_v2 - manifest yaml](https://github.com/lekhrajdinkar/02-backend-pack/tree/main/deployment/manifest/spring_app_v2)
-
-- [08_external_secret.md](99_CG_Ext-secret-2)
-- **annotation**:
-  - [07_annotation-ingress.md](99_CG_annotation-ingress)
-  - [07_annotation-Pod.md](99_CG_annotation-Pod)
-  - [07_annotation-sa.md](99_CG_annotation-sa)
-
----
-## 2. Commnds
-```
-aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-id-from-output" --region us-west-2
-aws ec2 describe-vpcs --vpc-ids vpc-id-from-output --region us-west-2
-aws eks list-fargate-profiles --cluster-name your-cluster-name --region us-west-2
-aws ec2 describe-vpc-endpoints --filters "Name=vpc-id,Values=vpc-id-from-output" --region us-west-2
-aws ec2 describe-route-tables --filters "Name=vpc-id,Values=vpc-id-from-output" --region us-west-2
-aws ec2 describe-security-groups --filters "Name=vpc-id,Values=vpc-id-from-output" --region us-west-2
-
-
+## Commands
+- useful commands
+- [spring_app_v2 - manifest all yaml](https://github.com/lekhrajdinkar/02-backend-pack/tree/main/deployment/manifest/spring_app_v2)
+```bash
 aws eks describe-cluster  --name maps-outbound-us-west-2-dev2-eks-fargate-cluster --region us-west-2 --query "cluster.identity.oidc.issuer"
+
 aws iam create-open-id-connect-provider --url https://oidc.eks.us-west-2.amazonaws.com/id/867FAFA03F6706024B5895223D5D3451 --client-id-list sts.amazonaws.co
+
 aws eks get-token  --cluster-name maps-outbound-us-west-2-dev2-eks-fargate-cluster --region us-west-2
 aws eks update-kubeconfig --name maps-outbound-us-west-2-dev2-eks-fargate-cluster --region us-west-2
 
 aws eks describe-update --name maps-outbound-us-west-2-dev2-eks-fargate-cluster  --update-id 388626d9-068d-3325-b988-f15ecd94ee51 --region us-west-2
-# got update it from trf logs
 
 kubectl get configmap aws-logging -n kube-system
+
+aws eks list-fargate-profiles --cluster-name your-cluster-name --region us-west-2
 ```
+- worknode/node
+```bash
+aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-id-from-output" --region us-west-2
+aws ec2 describe-vpcs --vpc-ids vpc-id-from-output --region us-west-2
+aws ec2 describe-vpc-endpoints --filters "Name=vpc-id,Values=vpc-id-from-output" --region us-west-2
+aws ec2 describe-route-tables --filters "Name=vpc-id,Values=vpc-id-from-output" --region us-west-2
+aws ec2 describe-security-groups --filters "Name=vpc-id,Values=vpc-id-from-output" --region us-west-2
+```
+
 ---
 ## 3. Comparison :: ECS vs EKS
  - [02_Containers_ECS.md](../../01_aws/01_compute/02_Containers_ECS.md) vs [02_Kubernetes_EKS.md](../../01_aws/01_compute/02_Kubernetes_EKS.md)
@@ -61,7 +57,8 @@ kubectl get configmap aws-logging -n kube-system
     - A serverless compute engine for containers that eliminates the need to manage EC2 instances.
 
 ---
-## 3. Okta (ignore)
+## Okta (ignore) ❌
+```yaml
   - https://dev-16206041-admin.okta.com/
   - https://dev-16206041.okta.com/
   - https://dev-16206041-admin.okta.com/admin/app/oidc_client/client/0oal3d72smuSHBhwF5d7#tab-general
@@ -69,3 +66,4 @@ kubectl get configmap aws-logging -n kube-system
     - issuer URI :
       - https://dev-16206041.okta.com/oauth2/default (default)
       - https://dev-16206041.okta.com/oauth2/ausl3dg4kkpyvEBft5d7
+```

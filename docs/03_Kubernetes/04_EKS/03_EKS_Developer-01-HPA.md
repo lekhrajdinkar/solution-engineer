@@ -1,25 +1,22 @@
-
-
-## B. HPA
+### concept
 - [🗨️gpt](https://chat.deepseek.com/a/chat/s/00db1638-b5bc-4a70-a585-4a487e210a63) 👈🏻
 - Monitor scaling events
-- HPA 
-- VPA
-- **Cluster Autoscaler** ❌
+- **Cluster Autoscaler** is differenct❌
     - node level scaling
-    - Use node affinity/taints
+    - mix with node affinity/taints
+- has:
+    - **deployment** : deployment-1
+    - **metric (single / mutli)** :
+        - cpu and memory
+        - custom metric
+        - high traffic
+    - **behaviour** : policy - up /down
+        - stabilization window
+        - no/% of pod up/down, every x seconds
 
-### B.1 create
-- **deployment** : deployment-1
-- **metric (single / mutli)** :
-    - cpu and memory
-    - custom metric
-    - high traffic
-- **behaviour** : policy - up /down
-    - stabilization window
-    - no/% of pod up/down, every x seconds
+### Example/yaml
 ```yaml
-metrics:
+metrics🔸:
 - type: Resource
   resource:
     name: cpu
@@ -27,7 +24,7 @@ metrics:
       type: Utilization
       averageUtilization: 70
 
-behavior:
+behavior🔸:
   scaleUp:
     policies:
       - type: Pods
@@ -39,7 +36,8 @@ behavior:
     selectPolicy: Max
 ```
 
-### B.2  Ext/custom metric (datadog)
+### datadog metric
+- Ext/custom metric (datadog)
 - intro
     - capture application-specific load patterns
     - eg: no of business req count , no of transaction, etc
@@ -49,22 +47,23 @@ behavior:
 - Deploy datadog Adapter/agent in cluster
 - list all datadog metrics: curl "https://api.datadoghq.com/api/v1/metrics?api_key=${DD_API_KEY}&application_key=${DD_APP_KEY}"
     - eg: datadog.nginx.net.request_per_s
-    - datadog.<METRIC_NAME_IN_DATADOG>{<TAG_FILTERS>}
+    - format: `datadog.METRIC_NAME_IN_DATADOG{TAG_FILTERS}`
     - ...
 - kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/**datadog.nginx.net.request_per_s**" | jq
+
 ```yaml
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: nginx-hpa
 spec:
-  scaleTargetRef:
+  scaleTargetRef 🔸:
     apiVersion: apps/v1
-    kind: Deployment
+    kind: Deployment 🔸
     name: nginx
-  minReplicas: 2
-  maxReplicas: 10
-  metrics:
+  minReplicas🔸: 2
+  maxReplicas🔸: 10
+  metrics🔸:
     - type: External
       external:
         metric:
@@ -92,7 +91,7 @@ spec:
 - Optimize container images
 
 ---
-## scenarios:
+## scenarios🟡
 ### C.1 configure HPA for a **stateful** application
 - **StatefulSets** instead of Deployments
 - Implement PV and PVC
