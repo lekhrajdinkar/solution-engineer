@@ -4,7 +4,7 @@
 - just use **localhost** + port
 
 ## k8s Services
-### ClusterIP
+### 🔸ClusterIP
 - Exposes the service internally within the cluster. 
 - check for service IP (internal cluster IP, stable) 
   - manually grab it and use.
@@ -17,7 +17,7 @@
 ![img.png](../99_img/99_2_img/06/img-6.png)
 
 ---
-### NodePort
+### 🔸NodePort
 - external-client --> internet --> k8s-cluster -->  `node-1|2|..[static-node-ip:node-port] `--> `nodePort-service[internal-ip:service-port] `--> `pod/s[internal-ip:target-port]`  
   - maps `port-on-Node` to `pod`::container::process(port)
   - listens traffic on node-port and forward traffic to pod.
@@ -36,7 +36,7 @@
   - if 3 nodes, then 3 endpoints
   
 ---
-### LoadBalancer
+### 🔸LoadBalancer
 - calls cloud provider API and automatically creates external lb inside cloud infra, that routes the traffic to this service.
 - so use this, if deploying services on AWS,etc
 - Note: for minikube
@@ -44,7 +44,7 @@
   - in EKS, we don't need this additional step, can always see external url.
 
 ---
-### headless service
+### 🔸headless service 👈🏻
 - outside <==>  pod, directly.
 - allows direct access to individual pod IPs without a load balancer or cluster IP. 
 - Key Features:
@@ -61,7 +61,7 @@
 - This approach offers more control over **pod communication** compared to standard services.
 
 ---
-# deploy frontend on K8s
+## ✅Deploy frontend on K8s 
 - deploy frontend as pod/deploymnet object in k8s cluster
 - have fe-service (expose on 8080), **loadbalance** Type
 - host fe with **nginx**. 
@@ -70,8 +70,7 @@
     - location `/my-be/` { proxy-pass https://fe-sevice.namespace1:8080 } 
 
 ---
-# understand yaml
-## properties
+## yaml>properties
 - `Enableservicelink`  : T/F - environment variables for services are automatically injected into the pod
 - `sessionAffinity` : None
 - `internalTrafficPolicy` Cluster or local(node)
@@ -82,13 +81,10 @@
 - soon
 
 ---
-
-## scenario
-### Access a service running in Kubernetes without exposing it publicly in dev env.
-- forward traffic from your local machine to a Kubernetes service
-    - kubectl **port-forward** svc/my-app-service 5000:80 -n <namespace>
-    - 8080 is the port on your local machine.
-    - 80 is the port exposed by the my-app-servic
-- forward directly to a pod (if the service has no pods
-    - kubectl port-forward pod/my-pod-name 5000:80
+## port forwarding
+- Access a service/pod running in Kubernetes  **from local machine**
+- **port-forward** command, eg
+- kubectl port-forward **svc**/my-app-service 5000:80 -n ns1
+- kubectl port-forward **pod**/my-pod-name 5000:80
+- port === host:container
 

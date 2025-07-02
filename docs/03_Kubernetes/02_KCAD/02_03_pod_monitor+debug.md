@@ -1,7 +1,7 @@
 ![img.png](../99_img/99_2_img/03/01/img.png)
 
 --- 
-## addon: metric-Server
+## minikube addon: metric-Server
 - heapster is deprecated, use metric Server
 - **in memory** analytic, does not store on disk
 - `kubelet` has `C-advisor`, responsible to receiver **performance data** and send to metric-server
@@ -19,18 +19,19 @@
 - kubectl logs -l **app=my-app** -n my-namespace  [-c <container-name> ] **--tail=100**  // label
 - kubectl logs **pod/pod-1 pod/pod-2** --prefix
 - Kubernetes Dashboard provides a GUI. eg: **lens**.
-- kubectl logs -l app=my-app **--previous** // for Crashed Pods
+- kubectl logs -l app=my-app **--previous** // for Crashed Pods 👈🏻
 - filter log:
     -  | **jq** 'select(.level == "error")'
     -  | **grep** "ERROR"
 - Default Location --> Node-level: /var/log/containers/
-    - Rotated every 10MB, max 5 files
-    - --container-log-max-size, --container-log-max-files
+    - Rotated every 10MB, max 5 files 👈🏻
+    - `--container-log-max-size`
+    - `--container-log-max-files`
 
-## AWS CW::log
-- By default, EKS doesn't send application logs to CloudWatch - only control plane logs
-    - /aws/eks/<cluster-name>/cluster
-    - /aws/eks/<cluster-name>/workload/**<namespace>/<pod-name>**
+## AWS CW::log (cluster masterNode only)
+- By default, EKS doesn't send application logs to CloudWatch - only control plane logs. log group:
+    - /aws/eks/cluster-name/cluster
+    - /aws/eks/cluster-name/workload/**namespace/pod-name**
 ```
 aws logs filter-log-events \
   --log-group-name "/aws/eks/my-cluster/workload/my-namespace/my-pod" \
@@ -39,7 +40,8 @@ aws logs filter-log-events \
 ```
 
 ## take heap dumps from pod before, it died
-- `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/path/to/dump.hprof`
+- `-XX:+HeapDumpOnOutOfMemoryError`
+- `-XX:HeapDumpPath=/path/to/dump.hprof`
 - JVisual, jhat for local
 - actuator will die, so cant use it.
 
@@ -47,20 +49,58 @@ aws logs filter-log-events \
 - Fargate does not store logs on disk
 - CloudWatch Logs is disabled
 - logs are ephemeral—they disappear when the pod terminates or crashes.
-- use **Sidecar Container** for Log Forwarding to S3
-    - image: amazon/aws-for-fluent-bit:latest
-    - env : AWS_REGION, S3_BUCKET
-    - awslogs driver
+- use **Sidecar Container** for Log Forwarding
 
 ```yaml
+    spec:
       containers:
-      - name: app
-        image: nginx
-        # Add logging driver
-        logging:
-          driver: awslogs
-          options:
-            awslogs-group: "/eks/fargate-logs"
-            awslogs-region: "us-east-1"
-            awslogs-stream-prefix: "my-app"
+        - name: main-app
+          image: my-application:latest
+          ports:
+            - containerPort: 8080
+
+        # 📚 CloudWatch Logs Sidecar
+        - name: cloudwatch-sidecar
+          image: amazon/aws-for-fluent-bit:latest
+          env:
+            - name: AWS_REGION
+              value: us-west-2
+          volumeMounts:
+            - name: app-logs
+              mountPath: /var/log/app
+            - name: config
+              mountPath: /fluent-bit/etc/cloudwatch.conf
+              subPath: cloudwatch.conf
+          command: ["/fluent-bit/bin/fluent-bit", "-c", "/fluent-bit/etc/cloudwatch.conf"]
+
+        # 📚 Datadog Sidecar
+        - name: datadog-sidecar
+          image: gcr.io/datadoghq/agent:latest
+          env:
+            - name: DD_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: datadog-secret
+                  key: api-key
+            - name: DD_LOGS_ENABLED
+              value: "true"
+            - name: DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL
+              value: "true"
+          volumeMounts:
+            - name: app-logs
+              mountPath: /var/log/app
+              readOnly: true
+            - name: docker-socket
+              mountPath: /var/run/docker.sock
+              readOnly: true
+
+      volumes:
+        - name: app-logs
+          emptyDir🔸: {}
+        - name: config
+          configMap🔸:
+            name: fluent-bit-config
+        - name: docker-socket
+          hostPath🔸:
+            path: /var/run/docker.sock
 ```

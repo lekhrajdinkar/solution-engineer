@@ -34,23 +34,40 @@
 - (optional, just try)
 - generating new client certificates and adding the user to your kubeconfig (say:u1)
 
-```
-openssl genrsa -out new-user.key 2048
-openssl req -new -key new-user.key -out new-user.csr -subj "/CN=new-user"
-openssl x509 -req -in new-user.csr -CA C:\Users\Manisha\.minikube\ca.crt -CAkey C:\Users\Manisha\.minikube\ca.key -CAcreateserial -out new-user.crt -days 365
+```bash
+# Generate RSA Private Key: new-user.key
+openssl genrsa \
+ -out new-user.key  \
+ 2048
 
-```
-- update kubeconfig file
-  - context
-    - user : **new-user**
-    - cluster :
+# Create Certificate Signing Request (CSR), using the private key
+# Common Name (CN) to "new-user"
+openssl req -new \
+  -key new-user.key \
+  -out new-user.csr \
+  -subj "/CN=new-user"
 
-- kubectl get ClusterRoleBindings
-  - see below role :  **cluster-admin**
+# Sign the CSR with the Cluster CA
+openssl x509 -req -in new-user.csr \ 
+  -CA C:\Users\lekhrajdinkar\.minikube\ca.crt \
+  -CAkey C:\Users\Manisha\.minikube\ca.key 
+  -CAcreateserial -out new-user.crt  \
+  -days 365
+```
+
+- update **kubeconfig** file
+```
+- context
+     - user : new-user  🔺
+     - cluster : ...
+```
+
+- **kubectl get ClusterRoleBindings**
 ```
 NAME              ROLE
-minikube-rbac     ClusterRole/cluster-admin (existing role)
+minikube-rbac     ClusterRole/cluster-admin 👈🏻 (existing role)
 ```
+
 - Create a ClusterRoleBinding for that user with **cluster-admin** rights
 ```
 kind: ClusterRoleBinding
@@ -59,11 +76,11 @@ metadata:
   name: admin-binding-1
 subjects:
 - kind: User
-  name: new-user                              <<<< same name used in kubeConfig
+  name: new-user🔺                              
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
-  name: cluster-admin                          <<<<
+  name: cluster-admin  👈🏻                         
   apiGroup: rbac.authorization.k8s.io
 
 ```

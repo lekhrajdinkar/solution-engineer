@@ -20,7 +20,7 @@
 - http://127.0.0.1:59962/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/#/daemonset?namespace=default
 - **minikube addons  enable|disable addon-name**
 ```  
-- Ingress,
+ - Ingress,
  - Dashboard,
  - DNS,
  - Metrics Server

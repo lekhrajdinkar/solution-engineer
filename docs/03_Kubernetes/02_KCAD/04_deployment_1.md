@@ -20,7 +20,7 @@
 
 ## commands
 ``` 
-create first deploymnet ✅
+create first deploymnet 
   - kubectl create deployment --image=nginx nginx
   - kubectl create deployment --image=nginx nginx --dry-run -o yaml > def.yaml 🔷
   - kubectl apply -f deployment.yaml

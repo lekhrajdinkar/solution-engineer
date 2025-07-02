@@ -12,26 +12,22 @@
 - [gRPC](../../00_Springboot/02_web/08_gRPC%2Bwebflux.md)
 
 ## 3. messaging broker for async communication 
-    - [rmq](../../06_messaging/rmq) 
-    - [kakfa](../../06_messaging/kakfa)
+- [rmq](../../06_messaging/rmq) 
+- [kakfa](../../06_messaging/kakfa)
   
 ## 4. API-first Development:
 - Design APIs before implementation to enable parallel development.
 
-## 4. Event-Driven Architecture
+## 5. Event-Driven Architecture
 - Use `event streams` for **real-time updates** 
   - Kafka, 
   - AWS::SQS + AWS::EventBridge
   - RMQ::StreamingQueue
 
-## 5. Serverless Architecture (auto-scale,etc)
+## 6. Serverless Architecture (auto-scale,etc)
 - AWS :: Lambda
   - for scalable and cost-effective solutions.
 - Other AWS serverless offering 
   - fargate (ECS/EKS)
   - sqs,s3
   - AWS DB :: DynamoDB,Aurora
-
-## B. components 🟢
-
-

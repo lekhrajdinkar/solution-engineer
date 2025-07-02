@@ -50,6 +50,8 @@
     - Network config
     - Network traffic Rule (from/to nodes) ingress/outgress
 
+###  🟡 fargate profile (EKS)
+
 ---
 ## B. user and serviceAcct
 ### ServiceAcct(inside k8s)🔷
@@ -82,7 +84,7 @@
 ## 🔸Summary 🔸
 ### Pods
 - The smallest deployable units in Kubernetes that you create and manage.
-- pod/node talk to each other using `Service` (has DNS).
+- pod talks to each other using `Service` (has DNS).
 
 ### Replica Set
 - one pod goes down another comes up from replica set.
@@ -102,9 +104,6 @@
 - Runs various controller processes in the background to regulate the state of the cluster.
 - Node Controller, Replication Controller, Endpoints Controller,etc
 
-### Services
-- Abstract a set of pods and provide a consistent way to access them, even if the individual pods' IP addresses change.
-
 ### Nodes + nodeGroup(EKS concept)
 - The worker machines in the Kubernetes cluster, which can run multiple pods.
 - typically runs on a separate virtual machine (VM), but this is not a strict requirement.
@@ -123,7 +122,7 @@
 - 1MB max of a value.
 - store all its cluster data, such as cluster state, configurations, and metadata.
 
-### services`
+### services
 - An abstract way to expose an application running on a `set of Pods`, as a network service.
 - has DNS and static IP
 - **ClusterIP** : Exposes the service on a cluster-internal IP.
@@ -138,7 +137,7 @@
 
 ### admission controller
 
-### ServiceAcct RBAC (role +  role binding)
+### ServiceAcct RBAC
 
 ### HPA / VPA
 

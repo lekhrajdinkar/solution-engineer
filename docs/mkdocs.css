@@ -23,9 +23,8 @@ table, th, td {  border: 1px solid #ccc;}
 th, td {  padding: 8px;  text-align: left;}
 th {  background-color: #e3f2fd;}
 
-.md-grid {
-  max-width: 1400px; /* default is 960px */
-}
+.md-grid {}
+.md-grid {  max-width: 95%;}
 /*
 🔷 Layout Containers
 | Selector                 | Description                           |

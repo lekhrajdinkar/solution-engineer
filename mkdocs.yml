@@ -330,13 +330,16 @@ extra_css:
   - mkdocs.css
 
 theme:
-  font:
-    text: Roboto
-    code: Roboto Mono
   name: material
   features:
-    - navigation.tabs
+    #- content.code.annotate
+    - navigation.tracking          # Enables breadcrumbs
+    - navigation.tabs              # Optional: if using tabs layout
+    - navigation.top               # Scroll-to-top button
     - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.footer
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
