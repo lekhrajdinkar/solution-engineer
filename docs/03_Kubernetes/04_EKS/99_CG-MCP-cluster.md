@@ -10,8 +10,8 @@
   
 ---
 - **on-boarding request**, provide:
-  - `cluster name`: mcp-etc|im-use1|usw2-dev|qa|prod-ns-01
-  - `role` --> our AWS account: `Broad-access-role`
+  - `cluster name`
+  - `role`
 
 ---
 ## ✅Platform-team::Actions 

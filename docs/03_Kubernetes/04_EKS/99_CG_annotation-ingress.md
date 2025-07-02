@@ -1,5 +1,5 @@
-# Annotation
-## 1. on ingress : nginx.ingress.kubernetes.io/xxxxxx
+## ingress::nginx ✔️
+- **annotations** : nginx.ingress.kubernetes.io/xxxxxx
 - set up CORS for UI :point_left:
 - notice: ssl/tls: certificated added on secret.
 - Ensure you have an NGINX Ingress Controller installed
@@ -20,7 +20,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: backend-dew4.app-1.msi-dev.lekhraj.com
+  - host: api.lekhrajdinkar.netlify.app
     http:
       paths:
       - path: /
@@ -32,8 +32,8 @@ spec:
               number: 8080
   tls:
   - hosts:
-    - backend-dew4.app-1.msi-dev.lekhraj.com
-    secretName: app-backend-release-dev4-tls-cert
+    - api.lekhrajdinkar.netlify.app
+    secretName: tls-cert-1
 ```
 - **SSL setup**
   - option-1 : ingress controller + **tls**
@@ -45,18 +45,33 @@ spec:
     - R53: Cname
     ```
     Subdomain	      Type	Target
-    app1.ui.org.com	  A	    Ingress Controller's Load Balancer hostname <<
-    app1.api.org.com  A	    Ingress Controller's Load Balancer hostname >>
+    app1.ui.org.com	  A	    Ingress Controller's Load Balancer hostname/public-ip 
+    app1.api.org.com  A	    Ingress Controller's Load Balancer hostname/public-ip 
     ```
 - **ingress scenario-2** :
   - App1.ui.org.com → service.1 (ClusterIP)
   - App1.ui.org.com → service.2 (ClusterIP)
   - App1.ui.org.com would go service1/2
-  - ans: reolve by age. so service1 (since older)
+  - ans: reolve by age. so service1 (**since older**) 👈🏻
 
 ---
 
-## ⚖️ AWS ALB Ingress vs NGINX Ingress
+## Ingress::AWS ALB ✖️
+
+| Feature                    | Ingress Controller (Yes/No) | How to Achieve                                                                        |
+| -------------------------- | --------------------------- | ------------------------------------------------------------------------------------- |
+| **SSL Termination (TLS)**  | ✅ Yes                       | Use **ACM** with ALB Ingress or mount certs (e.g., Let's Encrypt with Cert-Manager)   |
+| **Authentication**         | ✅ Yes                       | OIDC/JWT via annotations (e.g., ALB) or middleware (e.g., OAuth2 Proxy, NGINX config) |
+| **Authorization**          | ✅ Yes                       | Custom auth layers in NGINX or service mesh (e.g., Istio RBAC)                        |
+| **Rate Limiting**          | ✅ Yes                       | NGINX annotations / Kong plugins / Envoy filters                                      |
+| **Caching**                | ✅ Yes                       | NGINX proxy cache, Kong plugins, or sidecar cache (e.g., Varnish)                     |
+| **WAF (Web App Firewall)** | ✅ Yes                       | Use **AWS WAF** with ALB Ingress or deploy **ModSecurity** with NGINX                 |
+| **DDoS Protection**        | ✅ Yes (partially)           | Handled via **AWS Shield** on ALB/NLB                                                 |
+| **Logging & Monitoring**   | ✅ Yes                       | Ingress logs + CloudWatch / Prometheus + Grafana                                      |
+| **IP Whitelisting**        | ✅ Yes                       | Annotation-based IP restriction (ALB) or NGINX directives                             |
+| **Custom Domain Mapping**  | ✅ Yes                       | Use Route53 to map domains to ALB DNS or external IP                                  |
+
+## Ingress(AWS ALB)  vs  Ingress(NGINX) 
 
 | Feature                    | **ALB Ingress Controller**                             | **NGINX Ingress Controller**                               |
 | -------------------------- | ------------------------------------------------------ | ---------------------------------------------------------- |
@@ -76,17 +91,4 @@ spec:
     - ModSecurity for WAF
     - NGINX annotations for rate limiting & cac
 
-##  AWS ALB Ingress : more 
 
-| Feature                    | Ingress Controller (Yes/No) | How to Achieve                                                                        |
-| -------------------------- | --------------------------- | ------------------------------------------------------------------------------------- |
-| **SSL Termination (TLS)**  | ✅ Yes                       | Use **ACM** with ALB Ingress or mount certs (e.g., Let's Encrypt with Cert-Manager)   |
-| **Authentication**         | ✅ Yes                       | OIDC/JWT via annotations (e.g., ALB) or middleware (e.g., OAuth2 Proxy, NGINX config) |
-| **Authorization**          | ✅ Yes                       | Custom auth layers in NGINX or service mesh (e.g., Istio RBAC)                        |
-| **Rate Limiting**          | ✅ Yes                       | NGINX annotations / Kong plugins / Envoy filters                                      |
-| **Caching**                | ✅ Yes                       | NGINX proxy cache, Kong plugins, or sidecar cache (e.g., Varnish)                     |
-| **WAF (Web App Firewall)** | ✅ Yes                       | Use **AWS WAF** with ALB Ingress or deploy **ModSecurity** with NGINX                 |
-| **DDoS Protection**        | ✅ Yes (partially)           | Handled via **AWS Shield** on ALB/NLB                                                 |
-| **Logging & Monitoring**   | ✅ Yes                       | Ingress logs + CloudWatch / Prometheus + Grafana                                      |
-| **IP Whitelisting**        | ✅ Yes                       | Annotation-based IP restriction (ALB) or NGINX directives                             |
-| **Custom Domain Mapping**  | ✅ Yes                       | Use Route53 to map domains to ALB DNS or external IP                                  |
