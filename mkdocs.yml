@@ -77,7 +77,7 @@ nav:
           - Nodegroup + Fargate: 03_Kubernetes/04_EKS/02_03_nodegroup+fargateProfile.md
           - Developer guide:
               - Start: 03_Kubernetes/04_EKS/03_EKS_Developer-00-start.md
-              - MCP Cluster: 03_Kubernetes/04_EKS/99_CG-MCP-cluster.md
+              - multi tenant Cluster: 03_Kubernetes/04_EKS/99_CG-MCP-cluster.md
               - Ingress Annotation: 03_Kubernetes/04_EKS/99_CG_annotation-ingress.md
               - Pod Annotation: 03_Kubernetes/04_EKS/99_CG_annotation-Pod.md
               - SA Annotation: 03_Kubernetes/04_EKS/99_CG_annotation-sa.md
