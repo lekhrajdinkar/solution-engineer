@@ -1,11 +1,8 @@
-# Kubernetes / K8s
-- Google/CNCF
-- k8s - 01 intro: https://chatgpt.com/c/6726267e-2a8c-487d-8ffe-937c2c4d0f0f
-- Monolithic  vs Microservice
-- microservices advantages in the cloud
-- monolith's challenges in the cloud
+## Java Microservice project
+- [project Notes](https://github.com/lekhrajdinkar/03-spring-cloud-v2/tree/main/Notes)
+- [code](https://github.com/lekhrajdinkar/03-spring-cloud-v2)
+- [architecture](https://chatgpt.com/c/2f54de12-b416-4a76-80a0-ebd286b0c467) 🗨️
 
---- 
 ## Monolithic
 - Entire software run as `single heavy process` on `expensive hardware`
   - tightly couple
@@ -23,7 +20,6 @@
 
 ---
 ## Micro service
-- architecture: https://chatgpt.com/c/2f54de12-b416-4a76-80a0-ebd286b0c467
 - small independent services,  lightweight applications, for each business/feature.
 - `On-demand scalability` : run MS on different hosts /Availability
 - `Optimal resource usage` : run on matching hardware-requirement| efficeint | low cost.

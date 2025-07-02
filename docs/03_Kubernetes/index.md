@@ -1,5 +1,6 @@
 ## references
 - <a href="https://chat.deepseek.com/a/chat/s/7ad6e329-5ae5-4ae7-9d7c-e7fa955f4966"> starbucks chat 🗨️ </a>
+- [k8s - 00 intro](https://chatgpt.com/c/6726267e-2a8c-487d-8ffe-937c2c4d0f0f)  🗨️
 - [k8s - 01 cases tudies ](https://chatgpt.com/c/6726267e-2a8c-487d-8ffe-937c2c4d0f0f) 🗨️
 - [k8s - 02 Containers ](https://chatgpt.com/c/9836b4c7-2b23-497e-b06b-16885e3e18aa) 🗨️
 - [k8s - 03 Components ](https://chatgpt.com/c/da40b952-dbd9-46a9-ad58-92c828a89118) 🗨️

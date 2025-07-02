@@ -1,0 +1,37 @@
+## 1. Separation of Concerns
+- **independent**
+   - Keep frontend 
+   - backend
+   - database
+   - middleware
+   - IAC
+   - ...
+
+## 2. Service-Oriented Architecture (SOA)
+- [REST](../../00_Springboot/02_web/04_REST.md)
+- [gRPC](../../00_Springboot/02_web/08_gRPC%2Bwebflux.md)
+
+## 3. messaging broker for async communication 
+    - [rmq](../../06_messaging/rmq) 
+    - [kakfa](../../06_messaging/kakfa)
+  
+## 4. API-first Development:
+- Design APIs before implementation to enable parallel development.
+
+## 4. Event-Driven Architecture
+- Use `event streams` for **real-time updates** 
+  - Kafka, 
+  - AWS::SQS + AWS::EventBridge
+  - RMQ::StreamingQueue
+
+## 5. Serverless Architecture (auto-scale,etc)
+- AWS :: Lambda
+  - for scalable and cost-effective solutions.
+- Other AWS serverless offering 
+  - fargate (ECS/EKS)
+  - sqs,s3
+  - AWS DB :: DynamoDB,Aurora
+
+## B. components 🟢
+
+

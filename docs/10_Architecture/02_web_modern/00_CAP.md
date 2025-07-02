@@ -1,12 +1,3 @@
-## B2B system::Design Pattern
-### robust
-### scalability
-### maintainability
-### reliability and robust
-### flexibility
-### Observability
-
----
 ## CAP theorem
 - CAP = Consistency, Availability, Partition Tolerance
 - ➡️ In a **distributed system**, you can only guarantee two of the three at any time.

@@ -1,6 +1,6 @@
+## reference
 - [chatgpt reference](https://chatgpt.com/c/685dd143-0840-800d-8660-0f9cb8afb117)
 
----
 ## topics
 ```
 - use diff language for diff usecase

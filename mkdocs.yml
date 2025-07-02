@@ -280,27 +280,28 @@ nav:
           - Project-01 (Shopping App) : 08_Database/01_rdbms/shopping_app/index.md
 
   - Architecture:
-      - Overview: 10_Architecture/03_Miscroservice/00_project.md
-      - Web Security:
-          - Public Key Infrastructure (PKI): 10_Architecture/01_web_Security/01_PKI.md
-          - SAML: 10_Architecture/01_web_Security/02_SAML.md
+      - ✅Web Security:
           - OAuth & OIDC: 10_Architecture/01_web_Security/03_OAUth+OIDC.md
-      - Modern Web:
+          - SAML: 10_Architecture/01_web_Security/02_SAML.md
+          - Public Key Infrastructure (PKI): 10_Architecture/01_web_Security/01_PKI.md
+      - ✅Modern Web:
+          - 🔹webapp tech-stack: 10_Architecture/02_web_modern/03_webapp_tech_stack.md
+          - 🔹webapp design-pattern: 10_Architecture/02_web_modern/03_webapp_design_patterns.md
+          - 🔹webapp coding-pattern: 10_Architecture/02_web_modern/03_webapp_coding_patterns.md
+          - 🔸API design: 10_Architecture/02_web_modern/04_API_design.md
+          - 🔸Database design: 10_Architecture/02_web_modern/06_Database_design.md
+          - 🔸K8s design pattern : 10_Architecture/02_web_modern/07_K8s_design_pattern.md
+      - ✅Micro services:
+          - monolith: 10_Architecture/03_Miscroservice/00_monolith_vs_ms.md
+          - Design Patterns: 10_Architecture/03_Miscroservice/01_ms_design_pattern.md
+          - Communication: 10_Architecture/03_Miscroservice/03_ms_comm.md
+          - Deployment: 10_Architecture/03_Miscroservice/04_ms_deployment.md
+          - Container orchestration: 10_Architecture/03_Miscroservice/02_ms_orchestration.md
+          - CAP theorem: 10_Architecture/02_web_modern/00_CAP.md
           - 12-Factor App: 10_Architecture/02_web_modern/00_12_factor_app.md
-          - Start: 10_Architecture/02_web_modern/01_start_2025.md
-          - webApp: 10_Architecture/02_web_modern/03_code_design_patterns.md
-          - B2B design: 10_Architecture/02_web_modern/02_B2B_design.md
-          - API design: 10_Architecture/02_web_modern/04_API_design.md
-          #- AWS design: 10_Architecture/02_web_modern/05_AWS_design.md
-          - Database design: 10_Architecture/02_web_modern/06_Database_design.md
-          - Micro services Design:
-              - start: 10_Architecture/03_Miscroservice/00_project.md
-              - monolith: 10_Architecture/03_Miscroservice/00_monolith_vs_ms.md
-              - Design Patterns: 10_Architecture/03_Miscroservice/01_ms_design_pattern.md
-              - Communication: 10_Architecture/03_Miscroservice/03_ms_comm.md
-              - Deployment: 10_Architecture/03_Miscroservice/04_ms_deployment.md
-              - Container orchestration: 10_Architecture/03_Miscroservice/02_ms_orchestration.md
-      - Project 1 (PROJ-1):
+          - 🔺B2B design: 10_Architecture/02_web_modern/02_B2B_design.md
+          - 🔺B2C design: 10_Architecture/02_web_modern/02_B2C_design.md
+      - ✅Project 1:
           - Design Patterns: 10_Architecture/50_PROJ-1/01-PROJ-1_Design-patterns.md
           - Disaster Recovery: 10_Architecture/50_PROJ-1/02_PROJ-1_DR.md
           - Release Process: 10_Architecture/50_PROJ-1/03_PROJ-1_release_process.md

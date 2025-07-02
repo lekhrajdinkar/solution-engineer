@@ -1,46 +1,4 @@
-## A. web::Design pattern  🟢
-### Service-Oriented Architecture (SOA)
-### Separation of Concerns
-- **independent**
-   - Keep frontend 
-   - backend
-   - database
-   - middleware
-   - IAC
-   - ...
-
-### Service-Oriented Architecture (SOA)
-- Microservices communicating over: [microservice in details](https://github.com/lekhrajdinkar/03-spring-cloud-v2/tree/main/Notes) 
-  - [REST](../../00_Springboot/02_web/04_REST.md)
-  - [gRPC](../../00_Springboot/02_web/08_gRPC%2Bwebflux.md)
-  - messaging systems :
-    - [rmq](../../06_messaging/rmq) 
-    - [kakfa](../../06_messaging/kakfa)
-  
-### API-first Development:
-- Design APIs before implementation to enable parallel development.
-
-### Event-Driven Architecture
-- Use `event streams` for **real-time updates** 
-  - Kafka, 
-  - AWS::SQS + AWS::EventBridge
-  - RMQ::StreamingQueue
-
-### Serverless Architecture (auto-scale,etc)
-- AWS :: Lambda
-  - for scalable and cost-effective solutions.
-- Other AWS serverless offering 
-  - fargate (ECS/EKS)
-  - sqs,s3
-  - AWS DB :: DynamoDB,Aurora
-
-### Twelve-Factor App :point_left:
-- Guidelines for building `scalable` and `maintainable` applications.
-- -[02_twelve_factor_app.md](02_twelve_factor_app.md)
-
----
-## B. web::Infrastructure components 🟢
-### B.1 Front-end
+## B.1 Front-end
 - framework:
     - `Reactjs` : [project-1](https://github.com/lekhrajdinkar/01-Frontend-reactJs) | [project-2(redux)](https://github.com/lekhrajdinkar/01-Frontend-ReactJS-16-redux)
     - `Angular 2+` :
@@ -51,7 +9,7 @@
 - **SPA**
 - **PWA**
 
-### B.2 Backend
+## B.2 Backend
 - **GraphQL APIs** : pending
 - frameworks for RESTful APIs
     - java --> **SpringBoot**
@@ -78,7 +36,7 @@
     - [01_aws](../../01_aws)
 
 ---
-###  B.3 Database
+##  B.3 Database
 - **Relational Databases**:
     - PostgresSQL / `Aurora`(serverless)
     - MySQL
@@ -96,12 +54,12 @@
     - Redis
     - Memcached
 
-### B.4 CI/CD pipeline
+## B.4 CI/CD pipeline
 - GitHub Actions
 - Harness
 - containerization: docker/k8s
 
-### B.5. Observability and Monitoring (log,metric,traces)
+## B.5. Observability and Monitoring (log,metric,traces)
 - `OpenTelemetry`
 - `micrometer`
 - Prometheus, grafana, AWS:CloudWatch
@@ -109,11 +67,10 @@
 - distributed tracing
     - AWS:CloudWatch>x-rays
 
-### B.6. Security
+## B.6. Security
 - [01_web_Security](../01_web_Security)
 - SAML + SSO
 - LDAP
 - Okta
     - OAuth 2.0,
     - OpenID Connect
-

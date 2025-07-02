@@ -71,12 +71,13 @@
 ## 2.1 docker  :green_circle:
 - <a href="https://chat.deepseek.com/a/chat/s/91b5b6a2-4aa1-43bf-b594-21bab0c9549c " target="_blank">docker</a> 
 ## 2.2 k8s :green_circle:
-- <a href="https://chat.deepseek.com/a/chat/s/da139fc5-e06f-42e3-8419-a2c17a94a9cf " target="_blank">Starbucks Q</a>
-- <a href="https://chat.deepseek.com/a/chat/s/00db1638-b5bc-4a70-a585-4a487e210a63 " target="_blank">HPA</a>
-- <a href="../../03_Kubernetes/01_k8s-interview-question.md" target="_blank">01_k8s-interview-question.md</a>
-- networking 1 : https://chatgpt.com/c/686384ec-e514-800d-8781-e6642abc8653
-- HPA / karpentor : https://chatgpt.com/c/68634112-d10c-800d-9754-4248f00e0ed3
-- core : https://chatgpt.com/c/686393d8-85c8-800d-8e9f-dd2e8c32ff86
+- [Question 1](https://chat.deepseek.com/a/chat/s/82016b25-91dd-4e7a-9672-92979fe31339) 🗨️
+- [Microservice + EKS](https://chat.deepseek.com/a/chat/s/da139fc5-e06f-42e3-8419-a2c17a94a9cf) 🗨️
+- [networking 1](https://chatgpt.com/c/686384ec-e514-800d-8781-e6642abc8653)
+- [HPA / karpentor ](https://chatgpt.com/c/68634112-d10c-800d-9754-4248f00e0ed3)
+- [HPA 2 ](https://chat.deepseek.com/a/chat/s/00db1638-b5bc-4a70-a585-4a487e210a63)
+- [core](https://chatgpt.com/c/686393d8-85c8-800d-8e9f-dd2e8c32ff86)
+
 ## 2.3 helm
 
 ## 2.4 CI/Cd pipeline
