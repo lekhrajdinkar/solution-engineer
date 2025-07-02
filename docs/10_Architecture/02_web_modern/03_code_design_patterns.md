@@ -70,7 +70,7 @@
         - orchestration (**Kubernetes**) : pods+services
             - [03_Kubernetes](../../03_Kubernetes)
     - https://github.com/lekhrajdinkar/03-spring-cloud-v2/tree/main/Notes
-    - [01_monolith_MicroServices.md](../../03_Kubernetes/00_kickOff/01_monolith_MicroServices.md)[00_kickOff](../../03_Kubernetes/00_kickOff)
+    - [01_monolith_MicroServices.md](../03_Miscroservice/01_monolith_MicroServices.md)[00_kickOff](../../03_Kubernetes/00_kickOff)
 - **Load Balancers**
     - AWS :: ELB/Elastic Load Balancer - alb, nlb,
     - `NGINX`

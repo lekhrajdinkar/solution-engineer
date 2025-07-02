@@ -1,13 +1,29 @@
-https://chat.deepseek.com/a/chat/s/3d8b4d99-81b7-4dac-ad69-519f9bc33dea
-- Event-Drive Deployment and Domain-Drive Deployment
+## Container orchestrators
+- framework for managing containers at scale at **runtime**
+- For Distributed-System (ms), provides **deployment patterns of container**.
+- orchestrators make things easier, when managing hundreds or thousands of containers.
+- **Automates:**
+- release - rollout / rollback
+- scale
+- service discovery + networking
+- storage
+- config + secrets
+
+## offerings
+- Docker Swarm (native)
+- Kubernetes/k8s - minikube, EKS, AKS
+- AWS - ECS
+- marathon
+
 ---
-# Scenarios
-## 1 
+## Scenarios
+### 1
 ```text
 having 3 microservice - ms1, ms2, ms3.
 need to install in production first time. then upgrade it.
 trigger from CD pipeline-1 > stage: bashScript (run helm command)
 ```
+
 ![img_1.png](img_1.png)
 
 ```bash
@@ -29,7 +45,7 @@ helm upgrade $RELEASE_NAME $CHART_PATH \
 kubectl rollout status deploy/ms1 -n production  
 ```
 ---
-## 2 one or multi helm
+### 2 one or multi helm
 ```text
 ms-1 - git-repo-1
 ms-2 - git-repo-2
@@ -43,5 +59,10 @@ Key Files to Modify in CI/CD pipeline:
     Chart.yaml	- version
     templates/*.yaml	- ?
 ```
+
+
+
+
+
 
 

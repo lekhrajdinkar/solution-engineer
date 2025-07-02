@@ -1,7 +1,7 @@
 ## reference
 - https://chat.deepseek.com/a/chat/s/81394dc5-20ff-45bb-8fc3-001520d7ef4f
 ---
-## Desifn patterns :parking:
+## Design patterns :parking:
 ### 1. SAGA
 - https://www.youtube.com/watch?v=d2z78guUR4g&ab_channel=ByteMonk
 - Concept of a long-running, interconnected sequence of operations, like a "saga" in storytelling
