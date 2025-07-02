@@ -3,32 +3,32 @@
 
 ## create pod without definition yaml / imperative command
 ```
-- kubectl run pod-1 --image=image-1 -n=ns-1
+- kubectl run pod-1 --image=image-1 -n=ns-1 👈🏻
 - kubectl get svc ( or service )
 - kubectl get all
 - k get all
-- k exec pod-1 < my-command >
+- k exec pod-1 < my-command > 👈🏻
 - k logs -f pod-1 c1
-- k top node
-- k top pod
+- k top node 
+- k top pod 👈🏻
 ```
 
 ## create/delete some pods
 ```
-- kubectl create -f .\maps-outbound-pod.yml
-- kubectl delete -f .\maps-outbound-pod.yml
-- kubectl create -f .\maps-outbound-pod.yml
+- kubectl create -f .\app-outbound-pod.yml
+- kubectl delete -f .\app-outbound-pod.yml
+- kubectl create -f .\app-outbound-pod.yml
 
 - kubectl get pods
-- kubectl get pod maps-outbound-pod -o yaml
-- kubectl delete pod maps-outbound-pod
+- kubectl get pod app-outbound-pod -o yaml
+- kubectl delete pod app-outbound-pod
 ```
 
 ## 2.2 rs:
 ```
 - kubectl get replicaset
 - kubectl create -f <yaml>
-- kubectl scale --replicas=6 -f replicaSet-definition.yaml
+- kubectl scale --replicas=6 -f replicaSet-definition.yaml 👈🏻
 - kubectl scale --replicas=6 replicaset replicaset-1
 - kubectl delete replicaset rs-1
     - all linked pods will be deleted.
@@ -36,7 +36,7 @@
 - Note: use rs
 ```
 
-## 2.3 staefulSet:
+## 2.3 stateful Set:
 ```
 - kubectl create -f <yaml>
 - kubectl scale --replicas=6 statefulset statefulset-1 # pod-1 > pod-2 > .... pod-6
@@ -45,10 +45,10 @@
 
 ## output option with get command
 ```
--o json Output a JSON formatted API object.
--o name Print only the resource name and nothing else.
--o wide Output in the plain-text format with any additional information.
--o yaml Output a YAML formatted API object.
+-o json - Output a JSON formatted API object.
+-o name - Print only the resource name and nothing else.
+-o wide - Output in the plain-text format with any additional information.
+-o yaml - Output a YAML formatted API object.
 ```
 
 ## Namespace
@@ -60,7 +60,7 @@
 - use while create/delete/replace
 ```
 
-## Don’t create it(–dry-run) and -o yaml
+## Don’t create :: (–dry-run)  -o yaml
 ```
 - kubectl run nginx --image=nginx --dry-run=client -o yaml > abc.yaml
 - kubectl create deployment --image=nginx deployment-1  --replicas=4 --dry-run -o yaml
@@ -71,7 +71,7 @@
 ## imperative + declarative/yaml
 ```
 - kubectl run redis --image=redis:alpine --dry-run=client -o yaml > redis-pod-def.yaml
-- kubectl expose pod redis --name=redis-service --port=6379 --type=clusterip
+- kubectl expose pod redis --name=redis-service --port=6379 --type=clusterip 👈🏻
 - kubectl create deployment webapp --replicas=2 --image=kodekloud/webapp-color
 - kubectl scale deployment webapp --replicas=3
 - kubectl create ns dev-ns
@@ -84,16 +84,16 @@
 ```
 - k create -f deployment-1.yaml
 - k delete deployment deployment-1
-- k set image deployment-1 c1 new-image (imperative way) --record=true
+- k set image deployment-1 c1 new-image (imperative way) --record=true 👈🏻
 - k edit deployment deployment-1 --record=true
-- k rollout status deployment/deployment-1 --> status for deployment, status of each replica/pod
-- k rollout history deployment/deployment-1 --> show revision history
-- k rollout undo deployment/deployment-1 --to-revision=1
+- k rollout status deployment/deployment-1 --> status for deployment, status of each replica/pod  👈🏻
+- k rollout history deployment/deployment-1 --> show revision history 👈🏻
+- k rollout undo deployment/deployment-1 --to-revision=1 👈🏻
 ```
 
 ## Autoscaling / HPA
 ```
-- k autoscale deployment  deployment-1 --max=10 --cpu-percent=70 : creates HPA
+- k autoscale deployment  deployment-1 --max=10 --cpu-percent=70 : creates HPA 👈🏻
 - kubectl autoscale deployment my-app   --min=1 --max=5   --metric=custom_metric_name   --target-value=100
 - k get/describe/delete hpa hpa-1
 ```
@@ -107,7 +107,7 @@
 - kubectl create -f /tmp/kubectl-edit-1598052637.yaml
 ```
 
-## pass arg/cmd
+## pass arg/cmd 👈🏻
 ```
 - kubectl run pod-1 image=image-1 -- --arg1 value --arg2 value2
 - arg1/2 are argument to kubectl
@@ -172,13 +172,18 @@ kubectl create secret generic db-secret \
 
 ## Authorization
 ```
+- k auth can-i list pods --as dev-user --namespace default 👈🏻
+
 - kubectl auth can-i [create|delete]    [deploymnets|node|pods] --as user1 --namespace ns1
 - k get roles
 - k get role kube-proxy -o json -n kube-system
-- k auth can-i list pods --as dev-user --namespace default
-- k create role developer --verb=get --verb=list --verb=delete --resource=pod
-- k create rolebinding dev-user-binding --user=dev-user --role=developer
+
+- k create role developer --verb=get --verb=list --verb=delete --resource=pod 👈🏻
+- k create rolebinding dev-user-binding --user=dev-user --role=developer 
+    - add "dev-user" in kubeconfig
 - k edit role developer --> it wil open yaml in vi editor.
+
+
 - k get clusterroles | wc
 - k get clusterrolebindings | wc
 - k create clusterrole clusterrole1 --verb=* --resource=nodes --dry-run=client -o yaml
@@ -210,16 +215,16 @@ kubectl create secret generic db-secret \
 - k get customresourcedefinitions
 ```
 
-## helm
+## helm 👈🏻
 ```
 - helm pull --untar bitnami/wordpress
 - helm lint chart-1
 - helm package chart-1
-- helm registry login -u -p (ecr, nexus, docker, etc)
+- helm registry login -u -p (ecr, nexus, docker, etc) 👈🏻
 - helm create chart-1
 - helm install releaseName bitnami/chartName
 - helm update releaseName chart-1
-- helm list
+- helm list 👈🏻
 ```  
 
 

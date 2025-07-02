@@ -34,7 +34,7 @@
 
 ---
 ## example
-### annotation
+### annotation (aws alb)
 
 | Annotation Key                                       | Value Example                           | Description                                                |
 | ---------------------------------------------------- | --------------------------------------- | ---------------------------------------------------------- |
@@ -49,6 +49,10 @@
 | `alb.ingress.kubernetes.io/tags`                     | `"k1=v1,...”`                           | Tag the ALB with metadata like cost center or environment. |
 | `alb.ingress.kubernetes.io/target-type`              | `ip`                                    | Target backend pods directly by IP (used in EKS).          |
 | `external-dns.alpha.kubernetes.io/hostname`          | `{{ .Values.hostname }}`                | Used by ExternalDNS to create/update Route53 records.      |
+
+### annotation (nginx)
+- for tls + cert_manager
+- for cors
 
 ### yaml (5)
 ```yaml
