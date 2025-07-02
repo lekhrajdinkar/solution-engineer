@@ -1,0 +1,15 @@
+## container-d
+- K8s initially supports docker runtime only (cli,api,build, volumne, auth, security, **runtime/container-d**)
+- Afterward supports different Runtime/s via `CRI` - OCI-standard imageSpec and ContainerSpec
+  - OCI - Open Container Interface.
+  - Any image follows OCI/imageSpec is supported by k8s
+  - Any Container follows OCI/ContainerSpec is support
+  - runtime:
+    - rkt
+    - docker ( supported via `dockershim`)
+  - v1.24 
+    - `dockershim` removed 
+    - docker is removed k8s
+  - so, `container-d` is runtime for docker as per OCI/ContainerSpec for kubernetes.
+    - now standalone project under CNCF
+    - needed only runtime, no other feature, then install it.

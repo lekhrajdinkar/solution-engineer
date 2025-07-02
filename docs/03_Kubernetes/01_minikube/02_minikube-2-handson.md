@@ -1,9 +1,3 @@
-# run a Spring project inside pod
-## yaml reference 
-- https://medium.com/@javatechie/kubernetes-tutorial-run-deploy-spring-boot-application-in-k8s-cluster-using-yaml-configuration-3b079154d232
-- https://github.com/Java-Techie-jt/springboot-crud-k8s/blob/main/db-deployment.yaml
-- check project-01
-
 ## minikube command
 - minikube start --driver=docker
 - minikube status
@@ -15,11 +9,23 @@
 - minikube delete ?
 
 ## steps
-
-1. minikube start --driver=docker
-2. minikube docker-env
-3. kubectl create -f deployment-spring.yml
-4. kubectl create -f service-spring.yml
+- minikube start --driver=docker
+- minikube docker-env
+- kubectl create -f deployment-spring.yml
+- kubectl create -f service-spring.yml
+- minikube service service-1  --> host services with external IPs.
+- minikube tunnel
+- minikube status
+- minikube dashboard
+- http://127.0.0.1:59962/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/#/daemonset?namespace=default
+- **minikube addons  enable|disable addon-name**
+```  
+- Ingress,
+ - Dashboard,
+ - DNS,
+ - Metrics Server
+ - dashboard
+```
 
 ---
 
@@ -69,6 +75,7 @@ NAME       STATUS   ROLES           AGE    VERSION   INTERNAL-IP    EXTERNAL-IP 
 minikube   Ready    control-plane   3d2h   v1.30.0   192.168.49.2   <none>        Ubuntu 22.04.4 LTS   5.15.153.1-microsoft-standard-WSL2   docker://26.1.1
 
 ```
+
 ---
 ## ingress
 ```
@@ -108,11 +115,12 @@ specs:
                   number: 8080 # Matches the `port` defined in your service
 
 ```
+
 - By default, an `Ingress` resource is **namespace-scoped**, 
   - meaning you create it inside a specific namespace,
   - and it only affects routing for services within that namespace.
   - Ingress cannot route traffic to services in other namespaces
-  - some ingress controllr like, AWS ALB, support cross-namespace routing :point_left:
+  - some ingress controller like, AWS ALB, support cross-namespace routing :point_left:
 - The `Ingress controller` itself (e.g., Nginx, Traefik, Istio) is typically **cluster-scoped**, 
   - meaning it runs in one namespace 
   - but can manage Ingress resources across multiple namespaces.
@@ -126,4 +134,7 @@ host-1 is mentioned in :
 where traffic will go ?
 
 ```
+
+
+
 
