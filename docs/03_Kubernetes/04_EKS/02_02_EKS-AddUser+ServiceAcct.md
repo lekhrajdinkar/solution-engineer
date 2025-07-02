@@ -6,16 +6,17 @@
   - create Role and RoleBinding for this group. (**for ns-level resource**)
   
 ### 1. update/Add : aws-auth configmap
-```
+```yaml
 mapRoles: |
   - rolearn: arn:aws:iam::123456789012:role/aws-role-1
     username: aws-role-1-user    
     groups:
       - app_DevLead         
 ```
-### 2. ClusterRole : developer-role-1
+### 2. ClusterRole 
+- developer-role-1
 - allow access to  any resource in namespace
-```
+```yaml
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -25,12 +26,14 @@ rules:
 - apiGroups: [""]
   resources: ["namespace"]
   verbs: ["*"]
-  labelSelector
+  labelSelector:
     matchLabels:
-        atm-id: "aa003199" 
+        app-id: "aa0000app1" 
 ```
-### 3. ClusterRoleBinding :  developer-role-1 === app_DevLead(group)
-```
+
+### 3. ClusterRoleBinding 
+- developer-role-1 === app_DevLead(group)
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
@@ -45,6 +48,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
   
 ```
+
 ---
 ## B. create :: service Account
 - create eks object yaml, inside ns.
@@ -58,6 +62,3 @@ roleRef:
   - ...
 ---
 
-![Untitled Diagram.drawio.png](Untitled%20Diagram.drawio.png)
-
-[Untitled Diagram.drawio](Untitled%20Diagram.drawio)

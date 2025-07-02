@@ -1,17 +1,17 @@
-# A. Nodegroup
-## 1. intro
+## Nodegroup  🟡
 - collection of nodes (virtual machines) within a cluster that share the **same/Homogeneous configuration**. 
-  - same instance type, 
-  - disk size, 
-  - AMI (Amazon Machine Image)
-  - ...
-- Scaling + Availability
-- Workload Separation, eg:
-  - nodegroup-1: frontend/s (need to more secure security, facing interbet)
-  - nodegroup-2: backend/s + batch processing/s
-  - ...
+    - same instance type, 
+    - disk size, 
+    - AMI (Amazon Machine Image)
+    - ...
+- **Scaling + Availability**
+- **Workload Separation**
+    - nodegroup-1: frontend/s (need to more secure security, facing interbet)
+    - nodegroup-2: backend/s + batch processing/s
+    - ...
 - Cost Optimization :Use different instance-types in separate node groups to optimize costs **based on workload requirements**. 
 
+### create with cli
 ```
 aws eks create-nodegroup \
 --cluster-name my-cluster \
@@ -23,19 +23,20 @@ aws eks create-nodegroup \
 --node-role arn:aws:iam::123456789012:role/EKSNodeInstanceRole
 ```
 
----
-# B. Fargate profile
-## 1 intro
+## Fargate profile  🟡
+- [gpt 🗨️](https://chatgpt.com/c/684c5acc-4de4-800d-9b8b-2bb44031a6e5)
 - input:
-  - namespace + additional label 
-  - podExecutionRoleArn : role-1 (used by pods) - to Pull container images from ECR,Create ENIs, etc
-  - subnets
+    - namespace name
+    - additional label 
+    - **podExecutionRoleArn** : used by pods,to Pull container images from ECR,Create ENIs, etc ⬅️
+    - **subnets**
 - Also, SA annotated with role-2, mounted on pod.
-  - Used by the Pod for AWS SDK/API calls
-  - for accessing AWS services (like S3, DynamoDB, etc.)
-- https://chatgpt.com/c/684c5acc-4de4-800d-9b8b-2bb44031a6e5
+    - Used by the Pod for AWS SDK/API calls
+    - for accessing AWS services (like S3, DynamoDB, etc.)
 
-## 2 create with eks eksCtl, CRD, trf
+### create Fargate profile 
+- options: with eks eksCtl, CRD, trf
+
 ```yaml
 # =========CRD============
 apiVersion: eks.amazonaws.com/v1

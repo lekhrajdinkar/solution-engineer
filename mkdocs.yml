@@ -44,8 +44,9 @@ nav:
           - ReplicaSets: '03_Kubernetes/02_KCAD/03_02_replicaSet.md'
           - Jobs / cronjob: '03_Kubernetes/02_KCAD/03_03_jobs.md'
           - DaemonSets: '03_Kubernetes/02_KCAD/03_04_deamonSet.md'
-          - Deployments 1: '03_Kubernetes/02_KCAD/04_deployment_1.md'
-          - Deployments 2: '03_Kubernetes/02_KCAD/04_deployment_2.md'
+          - Deployment: '03_Kubernetes/02_KCAD/04_deployment_1.md'
+          - Deployment (EKS): '03_Kubernetes/04_EKS/03_EKS_Developer-Deployment.md'
+          - HPA + VPA (EKS): '03_Kubernetes/04_EKS/03_EKS_Developer-01-HPA.md'
       - ✅Networking:
           - Services: '03_Kubernetes/02_KCAD/05_01_services.md'
           - Ingress: '03_Kubernetes/02_KCAD/05_02_ingress.md'
@@ -74,11 +75,8 @@ nav:
           - Cluster Setup: 03_Kubernetes/04_EKS/02_01_EKS_Cluster.md
           - Add User + SA: 03_Kubernetes/04_EKS/02_02_EKS-AddUser+ServiceAcct.md
           - Nodegroup + Fargate: 03_Kubernetes/04_EKS/02_03_nodegroup+fargateProfile.md
-          - Developer:
-              - Getting Started: 03_Kubernetes/04_EKS/03_EKS_Developer-00-start.md
-              - HPA: 03_Kubernetes/04_EKS/03_EKS_Developer-01-HPA.md
-              - Deployment: 03_Kubernetes/04_EKS/03_EKS_Developer-Deployment.md
-          - Code Guide:
+          - Developer guide:
+              - Start: 03_Kubernetes/04_EKS/03_EKS_Developer-00-start.md
               - MCP Cluster: 03_Kubernetes/04_EKS/99_CG-MCP-cluster.md
               - Ingress Annotation: 03_Kubernetes/04_EKS/99_CG_annotation-ingress.md
               - Pod Annotation: 03_Kubernetes/04_EKS/99_CG_annotation-Pod.md

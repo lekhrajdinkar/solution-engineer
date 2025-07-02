@@ -1,7 +1,7 @@
-- reference:
-  - Overview: https://chatgpt.com/c/67457115-702c-800d-9c19-7cd222a8deff
----
-# DevOps
+## reference:
+- [https://chatgpt.com/c/67457115-702c-800d-9c19-7cd222a8deff](https://chatgpt.com/c/67457115-702c-800d-9c19-7cd222a8deff)
+
+## DevOps
 - collaboration between **development team** and **operations teams** 
 - improve the speed, quality, and reliability of SDLC / software delivery.
   - automation 
@@ -14,8 +14,8 @@
     - more: Prometheus, Grafana
   - faster feedback loops.
     - due to frequent release from CD pipeline, users get frequent update.
-- 
----
+
+
 ## A. IAC
 - **Terraform** 
   - shared EKS cluster
@@ -23,7 +23,8 @@
   - generated cloud formation template using - java, `typescript`
   - **cdk synth**
   - **cdk deploy stack-1**
----
+
+
 ## B. CI
 ### tasks:
 - Developers commit their code changes to VCS.
@@ -44,7 +45,7 @@
 - Test Automation: JUnit, Selenium, karma & jasmine.
 - **Harness CI pipeline**
 
----
+
 ## C. CD
 ### tasks
 - CD takes the concept of CI, a step further by automating the **release process**

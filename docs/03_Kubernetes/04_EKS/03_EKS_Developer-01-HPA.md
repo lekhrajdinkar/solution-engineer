@@ -1,14 +1,13 @@
-- https://chat.deepseek.com/a/chat/s/00db1638-b5bc-4a70-a585-4a487e210a63
----
-## A. pod disruption budgets
-- maintain availability during scaling
+
 
 ## B. HPA
-- FSR :: [09_HPA.yaml](../../deployment/manifest/spring_app_v2/more/09_HPA.yaml) 
-- Monitor scaling events ?
-- HPA vs **Cluster Autoscaler**
-  - node level scaling
-  - Use node affinity/taints
+- [🗨️gpt](https://chat.deepseek.com/a/chat/s/00db1638-b5bc-4a70-a585-4a487e210a63) 👈🏻
+- Monitor scaling events
+- HPA 
+- VPA
+- **Cluster Autoscaler** ❌
+    - node level scaling
+    - Use node affinity/taints
 
 ### B.1 create
 - **deployment** : deployment-1
@@ -42,16 +41,16 @@ behavior:
 
 ### B.2  Ext/custom metric (datadog)
 - intro
-  - capture application-specific load patterns
-  - eg: no of business req count , no of transaction, etc
-  - good for stateful app
+    - capture application-specific load patterns
+    - eg: no of business req count , no of transaction, etc
+    - good for stateful app
 - **flow**: app-metric > datadog/prometheous > HPA (monitor it) > perform scaling
 - **hands-on**
 - Deploy datadog Adapter/agent in cluster
 - list all datadog metrics: curl "https://api.datadoghq.com/api/v1/metrics?api_key=${DD_API_KEY}&application_key=${DD_APP_KEY}"
-  - eg: datadog.nginx.net.request_per_s
-  - datadog.<METRIC_NAME_IN_DATADOG>{<TAG_FILTERS>}
-  - ...
+    - eg: datadog.nginx.net.request_per_s
+    - datadog.<METRIC_NAME_IN_DATADOG>{<TAG_FILTERS>}
+    - ...
 - kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/**datadog.nginx.net.request_per_s**" | jq
 ```yaml
 apiVersion: autoscaling/v2
@@ -81,10 +80,10 @@ spec:
           averageValue: 100  # Scale when average requests per second per pod exceeds 100
 ```
 
-### B.3 warm pool
+### warm pool
 - pending...
 
-### b.4 troubleshoot :: scaling issue
+### troubleshoot :: scaling issue
 - kubectl describe hpa
 - kubectl get events
 - hpa-controller logs
@@ -93,7 +92,7 @@ spec:
 - Optimize container images
 
 ---
-## C. scenarios:
+## scenarios:
 ### C.1 configure HPA for a **stateful** application
 - **StatefulSets** instead of Deployments
 - Implement PV and PVC

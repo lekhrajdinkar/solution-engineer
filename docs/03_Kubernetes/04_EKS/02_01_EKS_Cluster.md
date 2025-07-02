@@ -72,9 +72,9 @@
     - set up VPC **manually**
     - software installation **manually**
   
-### artifacts 
+### autumate with terraform 
 - [HCP workspace - state file](https://app.terraform.io/app/lekhrajdinkar-org/workspaces/aws-config-maps-outbound-dev2-eks/runs) 👈🏻👈🏻
-- HCL **configuration** : [terraforn config](..%2F..%2F04_terraform%2Fproject%2Faws-config-maps%2F03_outbound%2Fmodules%2Feks)
+- HCL **configuration** : [terraforn config](https://github.com/lekhrajdinkar/02-backend-pack/tree/main/deployment/terraform_iac/config-3-aws/modules/eks)
 - aws provider using `role-1` (will become **admin user**)
   ```
   === attach on role-1 ====
@@ -251,4 +251,7 @@ users:
                 claimName:
               #mountpath: /app/abc  
 ```
+
+## draw.io
+![Untitled Diagram.drawio.png](../99_img/02/Untitled%20Diagram.drawio.png)
   
