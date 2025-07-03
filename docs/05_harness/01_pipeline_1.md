@@ -12,6 +12,8 @@
 - code g-scan
 - custom bash ::**TFR_APPLY**
 
+<details> <summary>Custom bash scripts</summary>
+
 ```bash
 terraform -v
 tfr_workspace=<+pipeline.variables.tf_ws>
@@ -31,6 +33,7 @@ terrafom login -p $TFE_TOKEN
 terrafom init
 terrafom plan -var-file ./env/${ENV}.tfvars
 ```
+</details>
 
 ## ✔️api-pipeline
 - 3 diff pipeline, one for each env.

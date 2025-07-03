@@ -88,8 +88,8 @@ nav:
 
   - Terraform:
       - DevOps Overview: 04_terraform/00_devOps.md
-      - Terraform Kickoff: 04_terraform/01-kickoff.md
-      - HCL Syntax: 04_terraform/02-HCL.md
+      - start: 04_terraform/01-kickoff.md
+      - HCL: 04_terraform/02-HCL.md
       - Modules: 04_terraform/03_module.md
 
   - CD pipeline:
@@ -101,7 +101,7 @@ nav:
       - project 3 pipeline: 05_harness/01_pipeline_3.md
 
   - AWS:
-      - 00 AWS DVA-C02:
+      - ✔️ AWS DVA-C02:
           - "DVA Overview": 01_aws/00_DVA-C02/00_DVA.md
           - "CLI & SDK": 01_aws/00_DVA-C02/12_CLI_SDK_more.md
           - "CloudFormation": 01_aws/00_DVA-C02/18_CLOUD_FORMATION.md
@@ -110,7 +110,7 @@ nav:
           - "CDK": 01_aws/00_DVA-C02/26_CDK.md
           - "Handson": 01_aws/00_DVA-C02/99_handson.md
 
-      - 01 AWS Compute:
+      - ✔️ AWS Compute:
           - "EC2": 01_aws/01_compute/01_EC2.md
           - "ECS": 01_aws/01_compute/02_Containers_ECS.md
           - "EKS": 01_aws/01_compute/02_Kubernetes_EKS.md
@@ -121,21 +121,21 @@ nav:
           - "App Runner": 01_aws/01_compute/04_AppRunner.md
           - "Step Functions": 01_aws/01_compute/28_1_STEP_FUNCTION_DVA.md
 
-      - 02 AWS Storage:
+      - ✔️ AWS Storage:
           - "S3 Basics": 01_aws/02_storage/03_S3-1.md
           - "S3 Advanced": 01_aws/02_storage/03_S3-2-more.md
           - "EBS & EFS": 01_aws/02_storage/01_EBS_EFS.md
           - "FSx": 01_aws/02_storage/02_FSx_serverless-FS.md
           - "Snow Family": 01_aws/02_storage/02_snow-family.md
 
-      - 03 AWS Database:
+      - ✔️ AWS Database:
           - "RDS": 01_aws/03_database/01_RDS.md
           - "Aurora": 01_aws/03_database/02_RDS_Aurora.md
           - "DynamoDB SSA": 01_aws/03_database/04_1_DynamoDB_SSA.md
           - "DynamoDB Ops": 01_aws/03_database/04_3_DynamoDB_DVA-operations.md
           - "DAX": 01_aws/03_database/05_DAX.md
 
-      - 05 AWS Decouple:
+      - ✔️ AWS Decouple:
             - "SQS": 01_aws/01_compute/01_SQS.md
             - "SNS": 01_aws/01_compute/02_SNS.md
             - "KDS": 01_aws/01_compute/03_01_KDS_KinesisDataStream.md
@@ -144,7 +144,7 @@ nav:
             - "EventBridge": 01_aws/01_compute/05_eventBridge.md
             - "MSK": 01_aws/01_compute/06_MSK.md
 
-      - 06 AWS Networking:
+      - ✔️ AWS Networking:
             - "VPC 1": 01_aws/04_network/03_VPC-1-start.md
             - "VPC 2 NAT": 01_aws/04_network/03_VPC-1-NAT.md
             - "VPC 3 VPC-peer vpce": 01_aws/04_network/03_VPC-3-vpcPeer+vpce.md
@@ -160,7 +160,7 @@ nav:
             - "Questions-1": 01_aws/04_network/99_Questions-1.md
             - "Route 53": 01_aws/04_network/02_Rout53.md
 
-      - 07 AWS Security:
+      - ✔️ AWS Security:
           - "IAM": 01_aws/06_Security/01_IAM.md
           - "SSO & DirectoryService": 01_aws/06_Security/01_SSO+DirectoryService.md
           - "cognito_SAA": 01_aws/06_Security/02_1_cognito_SAA.md
@@ -174,24 +174,24 @@ nav:
           - "HSM DVA": 01_aws/06_Security/10_HSM_DVA.md
           - "more": 01_aws/06_Security/99_more.md
 
-      - 08 AWS Monitoring:
+      - ✔️ AWS Monitoring:
           - "CloudWatch Metrics": 01_aws/07_monitoring/01_CW-Metric.md
           - "CloudWatch Logs": 01_aws/07_monitoring/02_CW-Logs.md
           - "X-Ray": 01_aws/07_monitoring/04_X-rays_DVA.md
           - "CloudTrail": 01_aws/07_monitoring/05_cloudTrail.md
 
-      - 09 AWS Analytics:
+      - ✔️ AWS DR & Migration:
+          - "DR Strategies": 01_aws/09_DR/01_dr-strategies.md
+          - "Migration Part 1": 01_aws/09_DR/02_migration-1.md
+          - "Migration Part 2": 01_aws/09_DR/02_migration-2.md
+
+      - ✅ AWS Analytics:
           - "Athena": 01_aws/08_Analytics/01_athena_adhocSQL_serverless.md
           - "Redshift": 01_aws/08_Analytics/02_Redshift_OLAP.md
           - "QuickSight": 01_aws/08_Analytics/05_QuickSight_dashboard.md
           - "Glue ETL": 01_aws/08_Analytics/06_glue_ETL.md
 
-      - 10 AWS DR & Migration:
-          - "DR Strategies": 01_aws/09_DR/01_dr-strategies.md
-          - "Migration Part 1": 01_aws/09_DR/02_migration-1.md
-          - "Migration Part 2": 01_aws/09_DR/02_migration-2.md
-
-      - 11 AWS Practice:
+      - AWS Practice:
           - "Practice Test": 01_aws/practice-test/index.md
 
   - Java:
