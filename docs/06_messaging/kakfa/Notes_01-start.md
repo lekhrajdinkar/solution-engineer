@@ -1,11 +1,9 @@
-# reference
-- project : [kafka](..%2F..%2Fsrc%2Fmain%2Fjava%2Fcom%2Flekhraj%2Fjava%2Fspring%2Fkafka)
-- udemy:
-    - https://www.udemy.com/course/apache-kafka
-    - https://conduktor.io/apache-kafka-for-beginners
-    - slides : https://learn.conduktor.io/kafka/ :point_left:
-- https://chatgpt.com/c/674a1fef-5634-800d-b445-dfa969b74011
-- ccgg program : https://chatgpt.com/c/68007bd1-4a04-800d-ace4-39873a168454 :point_left:
+## reference
+- [java springboot project](https://github.com/lekhrajdinkar/02-backend-pack/tree/main/src/main/java/com/lekhraj/java/spring/kafka)
+- [https://www.udemy.com/course/apache-kafka](https://www.udemy.com/course/apache-kafka)
+- [https://conduktor.io/apache-kafka-for-beginners](https://conduktor.io/apache-kafka-for-beginners)
+- [https://learn.conduktor.io/kafka/](https://learn.conduktor.io/kafka/)
+- [🗨️gpt session](https://chatgpt.com/c/674a1fef-5634-800d-b445-dfa969b74011)
 ---
 # kafka
 ## A intro

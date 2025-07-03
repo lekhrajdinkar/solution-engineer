@@ -87,7 +87,7 @@ nav:
           - Helm Chart Kickoff: 03_Kubernetes/05_helm/01_helm-chart-kickoff.md
 
   - Terraform:
-      - DevOps Overview: 04_terraform/00_devOps.md
+      - DevOps: 04_terraform/00_devOps.md
       - start: 04_terraform/01-kickoff.md
       - HCL: 04_terraform/02-HCL.md
       - Modules: 04_terraform/03_module.md
@@ -253,15 +253,14 @@ nav:
           - SpringBatch: 00_Springboot/05_spring-batch-ETL/01_SpringBatch-start.md
 
   - Messaging:
-      - Messaging Protocols Overview: 06_messaging/01_messaging_protocols.md
-      - 01 Kafka:
+      - Messaging Protocols: 06_messaging/01_messaging_protocols.md
+      - ✅Kafka:
           - Getting Started: 06_messaging/kakfa/Notes_01-start.md
-          - CLI Commands (.sh): 06_messaging/kakfa/Notes_02-cli.sh
-          - Wikimedia Project: 06_messaging/kakfa/Notes_03_project_wikimedia.md
+          #- CLI Commands (.sh): 06_messaging/kakfa/Notes_02-cli.sh
           - Extended Notes: 06_messaging/kakfa/Notes_04_extended.md
+          - Wikimedia Project: 06_messaging/kakfa/Notes_03_project_wikimedia.md
           - Case Studies: 06_messaging/kakfa/Notes_05_case-studies.md
-
-      - 02 RabbitMQ:
+      - ✅RabbitMQ:
           - Kickoff: 06_messaging/rmq/01_kickoff.md
           - Project Overview: 06_messaging/rmq/02_project.md
 

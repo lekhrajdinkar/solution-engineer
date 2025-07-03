@@ -61,13 +61,13 @@
 - can create template for : **step, stages, pipeline**
 - re-usable
 
-### 🔸template : g-scan 
+### 🔸template : code-scan 
 - synk
 - wiz
 - template arg: app-image, git repo
 - env var: 
 
-### 🔸template : serviceNow
+### 🔸template : snow
 - input: change request
 
 ---

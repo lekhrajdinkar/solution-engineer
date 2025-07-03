@@ -38,8 +38,7 @@
 - create **org** (`lekhrajdinkar-org`) 
 - create **projects** (`default project` and `maps`)  
 - under projects > add **workspace** (cli/api driven)
-    - [https://app.terraform.io/app/lekhrajdinkar-org/workspaces/banzai-dev_api-driven](https://app.terraform.io/app/lekhrajdinkar-org/workspaces/banzai-dev_api-driven)
-    - [https://app.terraform.io/app/lekhrajdinkar-org/workspaces/docker](https://app.terraform.io/app/lekhrajdinkar-org/workspaces/banzai-dev_api-driven)
+    - [workspace-1](https://app.terraform.io/app/lekhrajdinkar-org/workspaces/banzai-dev_api-driven)
     - ![img.png](../99_temp/04_trf_img/01/img-ws-type.png)
 - update **backend.tf** in project config
 - **more benefits**
