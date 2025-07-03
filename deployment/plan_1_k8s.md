@@ -9,8 +9,8 @@
     ```yaml
     kubectl create secret docker-registry dockerhub-secret  -n dev1-manifest \
     --docker-server=docker.io \
-    --docker-username=lekhrajdinkar18 \
-    --docker-password=dckr_pat_Xc5Q6X58_nVagNmIL0S7PzxSlpc \
+    --docker-username= \
+    --docker-password= \
     --docker-email=your-email@example.com
   
     kubectl create secret docker-registry dockerhub-secret  -n dev1-manifest  --docker-server=docker.io   --docker-username=lekhrajdinkar18   --docker-password=dckr_pat_Xc5Q6X58_nVagNmIL0S7PzxSlpc   --docker-email=your-email@example.com
