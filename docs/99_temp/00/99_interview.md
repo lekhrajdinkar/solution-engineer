@@ -76,7 +76,8 @@
 - [networking 1](https://chatgpt.com/c/686384ec-e514-800d-8781-e6642abc8653)
 - [HPA / karpentor ](https://chatgpt.com/c/68634112-d10c-800d-9754-4248f00e0ed3)
 - [HPA 2 ](https://chat.deepseek.com/a/chat/s/00db1638-b5bc-4a70-a585-4a487e210a63)
-- [core](https://chatgpt.com/c/686393d8-85c8-800d-8e9f-dd2e8c32ff86)
+- [core refactring](https://chatgpt.com/c/686393d8-85c8-800d-8e9f-dd2e8c32ff86) - can skip
+- [K8s istio service mesh](https://chatgpt.com/c/68661f5f-42f8-800d-9b91-53b238d8b34c) 🗨️
 
 ## 2.3 helm
 
