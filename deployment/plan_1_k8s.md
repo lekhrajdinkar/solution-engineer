@@ -55,15 +55,21 @@
   - kubectl get all -n dev1-manifest
   - kubectl **port-forward** spring-app-rmq 15672:15672 (optinal)
 
-### 4 update
-```yaml
+### 4 update / patch
+- commands
+```bash
 - Pods are immutable, use deploymnet for update. <<<
 - kubectl set image deployment/<deployment-name> <container-name>=<new-image>:<tag>
 - kubectl set env deployment/<deployment-name> <ENV_VAR>=<value>
 - kubectl patch deployment <deployment-name> --type='json' -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/image", "value":"<new-image>:<tag>"}]'
 - kubectl edit deployment <deployment-name>
 ```
-### 5 rollback deploymnet
+### 5 rollback deployment
+- kubectl rollout **history** deployment spring-app-deployment -n dev1-manifest
+- kubectl rollout **undo** deployment spring-app-deployment -n dev1-manifest --revision=1
+- kubectl rollout **undo** deployment spring-app-deployment -n dev1-manifest --previous
+
+### 5 delete deployment 
 - **App**
   - kubectl delete deployment spring-app-deployment -n dev1-manifest
   - kubectl delete service/spring-app-nodeport-service -n dev1-manifest
@@ -94,7 +100,7 @@
 
 ![img.png](../99_temp/icon/img.png)
 
-### 7 cleanup :point_left:
+### 7 cleanup all :point_left:
 - Option 1: kubectl delete namespace dev1-manifest
 - Option 2: kubectl delete pods,services,serviceaccounts,deployments --all -n dev1-manifest
 ```yaml
@@ -105,65 +111,3 @@ kubectl delete deployments,statefulsets,daemonsets --all -n dev1-manifest
 kubectl delete configmaps,secrets --all -n dev1-manifest
 kubectl delete pvc --all -n dev1-manifest
 ```
----
-# Project-2 - spring-app-helm
-- chart: [spring_app_helm_v1](helm/spring_app_helm_v1)
-- refernce: https://chat.deepseek.com/a/chat/s/fdefc9eb-f153-4f45-91c9-6695d9f9b202
-
-### 1 deployment
-- middleware, manually run
-  - **Database** : kubectl create -f 02_postgres-pod.yaml -n dev1-helm
-  - **RMQ** :  kubectl create -f 02-rmq-pod.yaml  -n dev1-helm
-- helm dependency build .\spring_app_helm_v1
-- helm dependency update .\spring_app_helm_v1
-- helm **template** release-blue  .\spring_app_helm_v1   > rendered-output.yaml
-  - `--dry-run` `--debug` : Simulates an **install** with rendered output.
-  - `--show-only` : Useful for checking specific files.
-  - --set k=v
-  - 
-- helm install release-blue .\spring_app_helm_v1 -f values-2.yaml (first time)
-- helm status .\spring_app_helm_v1
-- NExt:
-  - **helm get manifest release-blue** 
-    - View generated Kubernetes manifests (dry-run)
-  - **helm get values release-blue**
-    - See what values will be applied
-  - try: --set rabbitmq.enabled=false 
-  
-### 2 upgrade :point_left:
-- helm update release-blue .\spring_app_helm_v1 --create -f values-2.yaml 
-
-### 3 rollback
-- Rollback to a previous version
-  - helm rollback release-blue .\spring_app_helm_v1  1
-
-### cleanup
-- helm uninstall .\spring_app_helm_v1 
-  - --keep-history
-### more
-```txt
-==== understand syntax ====
-{{- if not .Values.autoscaling.enabled }}  {{- end }}
----
-{{ .Values.replicaCount }}
----
-{{- with .Values.imagePullSecrets }}
-imagePullSecrets:
-   {{- toYaml . | nindent 8 }}  ### notice . , it will replaced with value
-{{- end }}
-vs
-imagePullSecrets:
-  {{- toYaml .Values.imagePullSecrets | nindent 8 }} ### no .
-  # so what if .Values.imagePullSecrets not present, then error. go with with above.
----
-image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
----
-            {{- range .Values.springApp.env }}
-            - name: {{ .name }}
-              value: {{ .value | quote }}
-            {{- end }}
-```
-
----
-# project-2 - microservices
-- in progress - ms

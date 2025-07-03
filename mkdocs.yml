@@ -12,8 +12,6 @@ extra_javascript:
 # docs_dir: .
 # Navigation based on your Notes folder
 nav:
-  #- Frontend: 00_Frontend/index.md
-
   - Docker:
         - Architecture: 02_docker/00_architecture.md
         - Commands / Dev guide: 02_docker/00_dev_guide.md
