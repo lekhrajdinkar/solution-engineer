@@ -35,6 +35,8 @@
 - step : **helm install**
 
 ### Custom bash scripts
+<details> <summary>Custom bash scripts</summary>
+
 ```bash
   #========== 1 get version (from helm chart) ===========
   
@@ -50,8 +52,8 @@
   
   #========== 3  update helm (new image) >> push helm-chart to nexus-dev  ===========
   yq --version
-  helm e -i '.image.name = env(repoAndImageName)' $HELM_CHART_DIR/value.yaml
-  helm e -i '.image.tag = env(version)' $HELM_CHART_DIR/value.yaml
+  yq e -i '.image.name = env(repoAndImageName)' $HELM_CHART_DIR/value.yaml
+  yq e -i '.image.tag = env(version)' $HELM_CHART_DIR/value.yaml
   
   helm lint  $HELM_CHART_DIR --value=$HELM_CHART_DIR/value.yaml
   helm package  $HELM_CHART_DIR
@@ -111,6 +113,7 @@
   tar ...  
   helm upgrade --install $RELEASE_NAME $image:$appVersion --value ./values.yaml -n --wait 300s --atomic
 ```
+</details> 
 
 ## ✔️lambda layer pipeline
 ### Stage: build

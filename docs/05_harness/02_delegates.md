@@ -62,7 +62,9 @@
 
 ---
 ### 2. docker
-```
+<details> <summary>docker</summary>
+
+```bash
         docker run  --cpus=1 --memory=2g \
         -e DELEGATE_NAME=docker-delegate \
         -e NEXT_GEN="true" \
@@ -75,8 +77,11 @@
         
         docker run  --cpus=1 --memory=2g -e DELEGATE_NAME=docker-delegate -e NEXT_GEN="true" -e DELEGATE_TYPE="DOCKER" -e ACCOUNT_ID=e0wDKKO_S46x3M75TWv0iw -e DELEGATE_TOKEN=MGY2OGJmMWQwYjMwZGM5NDYzZDM5NGFlMDg5Mzk4NzY= -e DELEGATE_TAGS="" -e LOG_STREAMING_SERVICE_URL=https://app.harness.io/log-service/  -e MANAGER_HOST_AND_PORT=https://app.harness.io harness/delegate:24.10.84200
 ```
+</details>
 
 ### 3. K8s manifest
+<details> <summary>yaml</summary>
+
 ```yaml
 apiVersion: v1
 kind: Namespace
@@ -337,3 +342,4 @@ spec:
                 name: kubernetes-delegate-upgrader-config
 
 ```
+</details>
