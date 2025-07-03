@@ -1,9 +1,9 @@
-# reference
-- https://www.youtube.com/watch?v=yLQnpmkNFmk&list=PLBf0hzazHTGMJzHon4YXGscxUvsFpxrZT&index=3&ab_channel=HackerSploit
-- All topic : https://chatgpt.com/c/674528ff-dbc8-800d-9237-9e757230df84
+## reference
+- [Youtube](https://www.youtube.com/watch?v=yLQnpmkNFmk&list=PLBf0hzazHTGMJzHon4YXGscxUvsFpxrZT&index=3&ab_channel=HackerSploit)
+- [https://chatgpt.com/c/674528ff-dbc8-800d-9237-9e757230df84](https://chatgpt.com/c/674528ff-dbc8-800d-9237-9e757230df84)
 
 ---
-# bash
+## bash
 - #!/bin/{**interpretator-name**}
     - bash (linux, WSL)
     - zsh (mac)

@@ -56,14 +56,3 @@ aws ec2 describe-security-groups --filters "Name=vpc-id,Values=vpc-id-from-outpu
 - `ECS Fargate`
     - A serverless compute engine for containers that eliminates the need to manage EC2 instances.
 
----
-## Okta (ignore) ❌
-```yaml
-  - https://dev-16206041-admin.okta.com/
-  - https://dev-16206041.okta.com/
-  - https://dev-16206041-admin.okta.com/admin/app/oidc_client/client/0oal3d72smuSHBhwF5d7#tab-general
-    - client_id : 0oal3d72smuSHBhwF5d7
-    - issuer URI :
-      - https://dev-16206041.okta.com/oauth2/default (default)
-      - https://dev-16206041.okta.com/oauth2/ausl3dg4kkpyvEBft5d7
-```

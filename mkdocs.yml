@@ -20,7 +20,6 @@ nav:
         - Docker Compose: 02_docker/01_docker-compose.md
         - Storage: 02_docker/03_Storage.md
         - Networking: 02_docker/04_network.md
-
   - Kubernetes:
       - Start: 03_Kubernetes/index.md
       - ✅Minikube:
@@ -93,10 +92,13 @@ nav:
       - HCL Syntax: 04_terraform/02-HCL.md
       - Modules: 04_terraform/03_module.md
 
-  - Harness / CD pipeline:
-      - kick_off: 05_harness/01_kick_off.md
-      - delegates: 05_harness/02_delegates.md
-      - bash: 07_scripting/00_bash_script_1.md
+  - CD pipeline:
+      - bash: 05_harness/00_bash_script_1.md
+      - harness delegates: 05_harness/02_delegates.md
+      - harness setup: 05_harness/00_pre_work.md
+      - project 1 pipeline: 05_harness/01_pipeline_1.md
+      - project 2 pipeline: 05_harness/01_pipeline_2.md
+      - project 3 pipeline: 05_harness/01_pipeline_3.md
 
   - AWS:
       - 00 AWS DVA-C02:
