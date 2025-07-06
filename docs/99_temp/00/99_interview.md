@@ -101,8 +101,7 @@
 
 ---
 ## 3. ECS / EKS :green_circle:
-- <a href="https://chatgpt.com/c/684b7e2d-0224-800d-a691-d2d1be4a7233" target="_blank">ECS / EKS</a>
-- <a href="https://chatgpt.com/share/684dcfe0-a214-800d-9d65-c5e79af9cc75" target="_blank">ECS / EKS (public-link)</a>
+- <a href="https://chatgpt.com/c/684b7e2d-0224-800d-a691-d2d1be4a7233" target="_blank">ECS / EKS</a> 
 
 ---
 ## 4. Networking
