@@ -230,7 +230,7 @@ nav:
           - Common Tasks: 00_Springboot/03_data-layer/00_common_task.md
           - JPA: 00_Springboot/03_data-layer/01_JPA.md
           - Persistence Context: 00_Springboot/03_data-layer/02_presistence-context.md
-          - ACID & Locks: 00_Springboot/03_data-layer/03_ACID+Locks.md
+          -
           - Hibernate Annotations & Converter: 00_Springboot/03_data-layer/04_Hibernate-1-anno+converter.md
           - Hibernate Identifier & Validator: 00_Springboot/03_data-layer/04_Hibernate-2-identifier+validator.md
           - Hibernate Query: 00_Springboot/03_data-layer/04_Hibernate-3-query.md
@@ -264,14 +264,18 @@ nav:
 
   - Database:
       - 01 RDBMS:
-          - Intro to PostgreSQL: 08_Database/01_rdbms/00_postgress.md
+          - Postgres SQL: 08_Database/01_rdbms/00_postgress.md
           - Data Types: 08_Database/01_rdbms/01_datatype.md
           - Constraints: 08_Database/01_rdbms/02_constraints.md
-          - DDL & DML: 08_Database/01_rdbms/02_ddl+dml.md
-          - Joins & Queries: 08_Database/01_rdbms/03_joins+queries.md
+          - Index: 08_Database/01_rdbms/00_index.md
+          - DDL: 08_Database/01_rdbms/02_ddl.md
+          - DML: 08_Database/01_rdbms/02_dml.md
+          - DQL: 08_Database/01_rdbms/02_dql.md
+          - DCL: 08_Database/01_rdbms/03_dcl.md
+          - ACID & Locks: 08_Database/01_rdbms/07_ACID+Locks.md
           - Functions: 08_Database/01_rdbms/04_function.md
-          - CTE & Views: 08_Database/01_rdbms/05_CTE+view.md
-          - Permissions: 08_Database/01_rdbms/06_permissions.md
+          - CTE: 08_Database/01_rdbms/05_CTE.md
+          - Views: 08_Database/01_rdbms/06_view.md
           - Sharding: 08_Database/01_rdbms/10_sharding.md
           - Project-01 (Shopping App) : 08_Database/01_rdbms/shopping_app/index.md
 

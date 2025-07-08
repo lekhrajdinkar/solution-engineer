@@ -1,7 +1,7 @@
-# DDL :green_circle:
+## DDL 🟢
 - define, modify, and manage the **structure** of database.
 - **Implicitly commits** changes
-## A. Schemas
+###  A. Schemas
 - **search path** : determines the order in which schemas are searched when a table, view, function, or other database objects are referenced by name
 ```
 CREATE SCHEMA hr;
@@ -9,7 +9,7 @@ DROP SCHEMA IF EXISTS hr CASCADE;
 SET search_path TO hr;
 ```
 ---
-## B Table and view
+###  B Table and view
 ```
 CREATE TABLE employees (...);
 DROP TABLE employees;
@@ -44,7 +44,7 @@ DROP VIEW IF EXISTS active_employees;
 ```
 
 ---
-## C Indexes
+###  C Indexes
 - improve query performance, but take up additional disk space.
   - **speed up** SELECT queries
   - **slow down** INSERT, UPDATE, DELETE,  as the index must be updated whenever the data changes.
@@ -67,7 +67,7 @@ CREATE UNIQUE INDEX idx_unique_name ON employees(name); -- Unique Index : adds o
 DROP INDEX IF EXISTS idx_name;
 ```
 
-## D Sequence
+###  D Sequence
 ```
 CREATE SEQUENCE seq_emp_id START WITH 1 INCREMENT BY 1;
 DROP SEQUENCE IF EXISTS seq_emp_id;
@@ -78,7 +78,7 @@ DROP SEQUENCE IF EXISTS seq_emp_id;
     );
 ```
 
-## E extension
+###  E extension
 - `add-ons` that extend PostgreSQL’s functionality.
 - System-wide, available to all schemas.
 - These can provide new:
@@ -99,7 +99,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 DROP EXTENSION IF EXISTS "uuid-ossp";
 ```
 
-## F triggers
+###  F triggers
 - automatically execute :
   - specified function 
   - in response to certain events (such as INSERT, UPDATE, or DELETE) occurring on a table/view
@@ -110,7 +110,7 @@ CREATE TRIGGER after_employee_update
         EXECUTE FUNCTION log_employee_update();
 ```
 ---
-## G Function
+###  G Function
 ```
 CREATE FUNCTION my_function(integer) RETURNS integer AS
 $$
@@ -129,30 +129,31 @@ $$ LANGUAGE plpgsql;
 ```
 
 ---
-## H Stored procedure
+###  H Stored procedure
 ```
 ```
 
 ---
 
-# DML :green_circle:
+## DML 🟢
 
-## A. INSERT
+###  A. INSERT
 ```
 ```
 ---
 
-## A. UPDATE
+###  B. UPDATE
 ```
 ```
 ---
 
-## A. DELETE
+###  C. DELETE
 ```
 ```
 ---
 
-## A. SELECT
+## DQL Data query language
+###  SELECT
 ```
 # 1. JSONB
 CREATE TABLE products ( id SERIAL PRIMARY KEY,data JSONB );
@@ -160,5 +161,12 @@ INSERT INTO products (data) VALUES ('{"name": "Laptop", "price": 1200}');
 
 SELECT data->>'name', data->>'price' FROM products WHERE data->>'name' = 'Laptop';
 
+```
 
+###  Subqueries
+```
+```
+
+###  Aggregation function
+```
 ```

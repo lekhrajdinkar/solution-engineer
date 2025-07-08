@@ -56,7 +56,7 @@
 ### `isolation` 
 - txn side effect : Dirty-read, Non-repeatable read, Phantom read.
 - protection levele: READ_UNCOMMITTED, READ_COMMITTED, REPEATABLE_READ and SERIALIZABLE.
-- can check: [03_ACID.md](03_ACID+Locks)
+- can check: [03_ACID.md](../../08_Database/01_rdbms/03_ACID+Locks.md)
 
 ### `timeout`
 
