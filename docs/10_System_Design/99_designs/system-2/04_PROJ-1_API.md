@@ -11,7 +11,7 @@
 - tg > sg
 
 ---
-# B. EKS [04_EKS](../../03_Kubernetes/04_EKS)
+# B. EKS [04_EKS](../../../03_Kubernetes/04_EKS)
 ## 1 Expose with TLS
 - **clusterIP service** for app-service>pod
 - platform team added
@@ -21,7 +21,7 @@
     - ...
   - **ALB controller**
     - security group
-    - WAF [08_WAF+FirewallManager.md](../../01_aws/06_Security/08_WAF%2BFirewallManager.md)
+    - WAF [08_WAF+FirewallManager.md](../../../01_aws/06_Security/08_WAF+FirewallManager.md)
       - rate limit
       - ...
 - **Routing**: 

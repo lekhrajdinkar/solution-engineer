@@ -18,7 +18,7 @@
   - sns > http (health check api, not secured)
   - eb (pipe)
     - emph SQS > filter pattern > enrich with lambda + transformation > **output**
-    - ![img.png](../99_img/proj-1/01/img.png)
+    - ![img.png](../../99_img/proj-1/01/img.png)
     - output: l, kdf, eb, **ecs+taskDefination(spawn task)**  :point_left:, sns, sqs, step function, etc
 - event source mapping (sync call L + batch)
 - FIFO with group == multiple call 

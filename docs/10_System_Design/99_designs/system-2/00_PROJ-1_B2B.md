@@ -15,10 +15,5 @@
     - service first
     - separation of concern
 
-## robust
-## scalability
-## maintainability
-## reliability and robust
-## flexibility
-## Observability
+
   

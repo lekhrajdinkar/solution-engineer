@@ -280,35 +280,37 @@ nav:
           - Sharding: 08_Database/01_rdbms/10_sharding-rdbms.md
           - Project-01 (Shopping App) : 08_Database/01_rdbms/shopping_app/readme.md
 
-  - Architecture:
-      - ✅Web Security:
-          - OAuth & OIDC: 10_Architecture/01_web_Security/03_OAUth+OIDC.md
-          - SAML: 10_Architecture/01_web_Security/02_SAML.md
-          - Public Key Infrastructure (PKI): 10_Architecture/01_web_Security/01_PKI.md
-      - ✅Modern Web:
-          - 🔹webapp tech-stack: 10_Architecture/02_web_modern/03_webapp_tech_stack.md
-          - 🔹webapp design-pattern: 10_Architecture/02_web_modern/03_webapp_design_patterns.md
-          - 🔹webapp coding-pattern: 10_Architecture/02_web_modern/03_webapp_coding_patterns.md
-          - 🔸API design: 10_Architecture/02_web_modern/04_API_design.md
-          - 🔸Database design: 10_Architecture/02_web_modern/06_Database_design.md
-          - 🔸K8s design pattern : 10_Architecture/02_web_modern/07_K8s_design_pattern.md
-      - ✅Micro services:
-          - monolith: 10_Architecture/03_Miscroservice/00_monolith_vs_ms.md
-          - Design Patterns: 10_Architecture/03_Miscroservice/01_ms_design_pattern.md
-          - Communication: 10_Architecture/03_Miscroservice/03_ms_comm.md
-          - Deployment: 10_Architecture/03_Miscroservice/04_ms_deployment.md
-          - Container orchestration: 10_Architecture/03_Miscroservice/02_ms_orchestration.md
-          - CAP theorem: 10_Architecture/02_web_modern/00_CAP.md
-          - 12-Factor App: 10_Architecture/02_web_modern/00_12_factor_app.md
-          - 🔺B2B design: 10_Architecture/02_web_modern/02_B2B_design.md
-          - 🔺B2C design: 10_Architecture/02_web_modern/02_B2C_design.md
-      - ✅Project 1:
-          - Design Patterns: 10_Architecture/50_PROJ-1/01-PROJ-1_Design-patterns.md
-          - Disaster Recovery: 10_Architecture/50_PROJ-1/02_PROJ-1_DR.md
-          - Release Process: 10_Architecture/50_PROJ-1/03_PROJ-1_release_process.md
-          - API Overview: 10_Architecture/50_PROJ-1/04_PROJ-1_API.md
-          - Observability: 10_Architecture/50_PROJ-1/05_PROJ-1_Observability.md
-          - Distributed & Scalable Design: 10_Architecture/50_PROJ-1/06_PROJ-1_Distribted-Scalable.md
+  - 🔸System Design:
+      - Start:
+        - CAP theorem: 10_System_Design/00_CAP.md
+        - Technologies stack: 10_System_Design/00_tech_stack.md
+        - coding pattern: 10_System_Design/01_code_patterns.md
+
+      - ✔️reliable system: 10_System_Design/05_01_reliable-system.md
+      - ✔️distributed system: 10_System_Design/05_02_distrubted-system.md
+      - ✔️scalable system: 10_System_Design/05_03_scalable-system.md
+      - ✔️high-performance system: 10_System_Design/05_04_high-performance.md
+      - ✔️database design: 10_System_Design/02_database.md
+      - ✔️Observability design: 10_System_Design/06_01_Observability.md
+      - ✔️Secured system:
+          - OAuth2.0 & OIDC: 10_System_Design/04_03_OAUth+OIDC.md
+          - SAML: 10_System_Design/04_02_SAML.md
+          - Public Key Infrastructure (PKI): 10_System_Design/04_01_PKI.md
+      - ✔️Micro services:
+          - monolith: 10_System_Design/03_Miscroservice/00_monolith_vs_ms.md
+          - Communication: 10_System_Design/03_Miscroservice/03_ms_comm.md
+          - Deployment: 10_System_Design/03_Miscroservice/04_ms_deployment.md
+          - Container orchestration: 10_System_Design/03_Miscroservice/02_ms_orchestration.md
+          - API design 1: 10_System_Design/03_Miscroservice/03_01_API.md
+          - API design 2: 10_System_Design/03_Miscroservice/03_02_API.md
+
+
+      - ✅System-1:
+          - B2B model: 10_System_Design/99_designs/system-2/00_PROJ-1_B2B.md
+          - Design Patterns: 10_System_Design/99_designs/system-2/01-PROJ-1_Design-patterns.md
+          - Disaster Recovery: 10_System_Design/99_designs/system-2/02_PROJ-1_DR.md
+          - Release Process: 10_System_Design/99_designs/system-2/03_PROJ-1_release_process.md
+          - API Overview: 10_System_Design/99_designs/system-2/04_PROJ-1_API.md
 
   - Observability:
       - Kickoff: 100_observability/00_project.md
@@ -319,7 +321,6 @@ nav:
   #- Career Docs:
       #- Skills: 99_temp/00/01_resume_old.md
       #- Profiles: 99_temp/00/02_profiles.md
-      #- Achievements & Learnings: 99_temp/00/97_achievement+learnings.md
       #- Behavioural Prep: 99_temp/00/98_behavioural.md
       #- Interview Q&A: 99_temp/00/99_interview.md
       #- Resumes:

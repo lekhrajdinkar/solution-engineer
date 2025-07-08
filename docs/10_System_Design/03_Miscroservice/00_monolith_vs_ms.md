@@ -1,8 +1,3 @@
-## Java Microservice project
-- [project Notes](https://github.com/lekhrajdinkar/03-spring-cloud-v2/tree/main/Notes)
-- [code](https://github.com/lekhrajdinkar/03-spring-cloud-v2)
-- [architecture](https://chatgpt.com/c/2f54de12-b416-4a76-80a0-ebd286b0c467) 🗨️
-
 ## Monolithic
 - Entire software run as `single heavy process` on `expensive hardware`
   - tightly couple
@@ -50,5 +45,10 @@
       - encapsulated `lightweight` runtime environments.
       - promised `consistent` software environments.
       - each MS/module running in their own execution environments `isolated` from one another.
-      
+
+---
+##  project-1 (java)
+- [project Notes](https://github.com/lekhrajdinkar/03-spring-cloud-v2/tree/main/Notes)
+- [code](https://github.com/lekhrajdinkar/03-spring-cloud-v2)
+- [architecture](https://chatgpt.com/c/2f54de12-b416-4a76-80a0-ebd286b0c467) 🗨️  
 
