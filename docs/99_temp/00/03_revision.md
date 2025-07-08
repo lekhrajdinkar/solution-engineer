@@ -1,9 +1,6 @@
 - https://chatgpt.com/c/6866e4b3-d6d8-800d-a053-ad736cec9b28 |  JWT
 - https://chatgpt.com/c/6869b8d8-7bec-800d-8db8-5a34c3f0f207 | tcp, udp, http
 - https://chatgpt.com/c/6869cbde-48f8-800d-9f0e-41d2e47c0cf4 | CDN
-- https://chatgpt.com/c/686a0fc6-cd78-800d-bf23-300056809998 | public cert
-- https://chatgpt.com/c/686a2ec5-1c7c-800d-8895-4e5e924a4e03 | long discussion on cert ccgg
-- https://chatgpt.com/c/686a0fc6-cd78-800d-bf23-300056809998 | public vs private cert
 - Mtls 2 way SSL
 
 
