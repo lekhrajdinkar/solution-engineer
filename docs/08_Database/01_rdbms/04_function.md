@@ -70,6 +70,7 @@
 | `JSON_OBJECT(keys, values...)`      | Constructs a JSON object from text arrays.                  | Advanced        | `JSON_OBJECT(ARRAY['a','b'], ARRAY[1,2]) → {"a":1,"b":2}`|
 
 ### Example:
+
 ```
  SELECT '{"name": "John", "age": 30}'::json->'name' AS result; -- "John"
 
@@ -80,6 +81,7 @@
  SELECT JSON_BUILD_OBJECT('name', 'Alice', 'age', 25) AS result;  -- {"name":"Alice","age":25}
 
 ```
+
 ---
 ## 7 Array Functions
 | **Function**                | **Description**                                     | **Usage Level** | **Example**                             |

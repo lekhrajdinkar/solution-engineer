@@ -17,16 +17,27 @@
 
 ---
 ## ISOLATION 
-- READ_UNCOMMITTED >> READ_COMMITTED >> REPEATABLE_READ >> SERIALIZABLE
+- **READ_UNCOMMITTED >> READ_COMMITTED >> REPEATABLE_READ >> SERIALIZABLE** 👈🏻
+
+```
+# postgres
+BEGIN TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+# jdbc
+Connection conn = dataSource.getConnection();
+conn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
+```
+
 - code
 ```Java
 @Transactional(isolation = Isolation.READ_COMMITTED)
     public void standardOperation() {
         // ...
     }
-
+```
+```sql
 SHOW default_transaction_isolation;  -- Typically "read committed"
-ALTER SYSTEM SET default_transaction_isolation = 'repeatable read';  <<<
+ALTER SYSTEM SET default_transaction_isolation = 'repeatable read';  
 ```
 
 ### 1. write lock (present default)
@@ -63,23 +74,16 @@ ALTER SYSTEM SET default_transaction_isolation = 'repeatable read';  <<<
 - **problem** : `phantom read`
 - solution - range lock (SERIALIZABLE) :left_point:
 
+---
+## SUMMARY
 ```
-## SUMMARY ##
-
 Isolation_Level	    Dirty_Reads	    Non-Repeatable-Reads	Phantom-Reads
 READ_UNCOMMITTED	✗	            ✗	                    ✗
 READ_COMMITTED	    ✓	            ✗	                    ✗
 REPEATABLE_READ	    ✓	            ✓	                    ✗
 SERIALIZABLE	    ✓	            ✓	                    ✓
 ```
-```
-# postgres
-BEGIN TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 
-# jdbc
-Connection conn = dataSource.getConnection();
-conn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
-```
   
 ---
 ## Durability

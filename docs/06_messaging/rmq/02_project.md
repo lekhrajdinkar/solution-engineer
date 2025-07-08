@@ -1,6 +1,5 @@
-- [RabbitMqConfig.java](../../src/main/java/com/lekhraj/java/spring/SB_99_RESTful_API/configuration/RabbitMqConfig.java)
----
-```
+## java springboot sample code
+```java
     // ============ Connectionfactory ========
     
     @Bean
@@ -70,8 +69,7 @@
     public MessageConverter messageConverter(){
         return new Jackson2JsonMessageConverter();
     }
-
-
-
-
 ```
+
+
+[RabbitMqConfig.java](../../src/main/java/com/lekhraj/java/spring/SB_99_RESTful_API/configuration/RabbitMqConfig.java)

@@ -99,15 +99,6 @@ nav:
       - project 3 pipeline: 05_harness/01_pipeline_3.md
 
   - AWS:
-      - ✔️ AWS DVA-C02:
-          - "DVA Overview": 01_aws/00_DVA-C02/00_DVA.md
-          - "CLI & SDK": 01_aws/00_DVA-C02/12_CLI_SDK_more.md
-          - "CloudFormation": 01_aws/00_DVA-C02/18_CLOUD_FORMATION.md
-          - "CI/CD": 01_aws/00_DVA-C02/24_CI_CD.md
-          - "SAM": 01_aws/00_DVA-C02/25_SAM.md
-          - "CDK": 01_aws/00_DVA-C02/26_CDK.md
-          - "Handson": 01_aws/00_DVA-C02/99_handson.md
-
       - ✔️ AWS Compute:
           - "EC2": 01_aws/01_compute/01_EC2.md
           - "ECS": 01_aws/01_compute/02_Containers_ECS.md
@@ -133,29 +124,29 @@ nav:
           - "DynamoDB Ops": 01_aws/03_database/04_3_DynamoDB_DVA-operations.md
           - "DAX": 01_aws/03_database/05_DAX.md
 
-      - ✔️ AWS Decouple:
-            - "SQS": 01_aws/01_compute/01_SQS.md
-            - "SNS": 01_aws/01_compute/02_SNS.md
-            - "KDS": 01_aws/01_compute/03_01_KDS_KinesisDataStream.md
-            - "KDF": 01_aws/01_compute/03_02_KDF_KinesisDataFirehose.md
-            - "Active MQ": 01_aws/01_compute/04_active_MQ.md
-            - "EventBridge": 01_aws/01_compute/05_eventBridge.md
-            - "MSK": 01_aws/01_compute/06_MSK.md
+      - ✔️ Queues topics streams:
+            - "SQS": 01_aws/05_decoupling/01_SQS.md
+            - "SNS": 01_aws/05_decoupling/02_SNS.md
+            - "KDS": 01_aws/05_decoupling/03_01_KDS_KinesisDataStream.md
+            - "KDF": 01_aws/05_decoupling/03_02_KDF_KinesisDataFirehose.md
+            - "Active MQ": 01_aws/05_decoupling/04_active_MQ.md
+            - "EventBridge": 01_aws/05_decoupling/05_eventBridge.md
+            - "MSK": 01_aws/05_decoupling/06_MSK.md
 
       - ✔️ AWS Networking:
             - "VPC 1": 01_aws/04_network/03_VPC-1-start.md
-            - "VPC 2 NAT": 01_aws/04_network/03_VPC-1-NAT.md
+            - "VPC 2 NAT": 01_aws/04_network/03_VPC-2-NAT.md
             - "VPC 3 VPC-peer vpce": 01_aws/04_network/03_VPC-3-vpcPeer+vpce.md
             - "VPC 4 topologies": 01_aws/04_network/03_VPC-4-tolologies.md
             - "ENI + SG": 01_aws/04_network/00_eni+securityGroup.md
             - "ELB": 01_aws/04_network/01_ELB.md
             - "CloudFront": 01_aws/04_network/04_CloudFront.md
             - "CloudFront(DVA)": 01_aws/04_network/04_CloudFront_DVA.md
-            - "global Acceleartor": 01_aws/04_network/04_global_Acceleartor.md
+            - "global Accelerator": 01_aws/04_network/04_global_Acceleartor.md
             - "API Gateway SAA": 01_aws/04_network/05_1_API_gateway_SAA.md
             - "API Gateway DVA": 01_aws/04_network/05_2_API_gateway_DVA.md
             - "RAM": 01_aws/04_network/06_RAM.md
-            - "Questions-1": 01_aws/04_network/99_Questions-1.md
+            #- "Questions-1": 01_aws/04_network/99_Questions-1.md
             - "Route 53": 01_aws/04_network/02_Rout53.md
 
       - ✔️ AWS Security:
@@ -189,6 +180,15 @@ nav:
           - "QuickSight": 01_aws/08_Analytics/05_QuickSight_dashboard.md
           - "Glue ETL": 01_aws/08_Analytics/06_glue_ETL.md
 
+      - ✔️ AWS DVA-C02:
+          - "DVA Overview": 01_aws/00_DVA-C02/00_DVA.md
+          - "CLI & SDK": 01_aws/00_DVA-C02/12_CLI_SDK_more.md
+          - "CloudFormation": 01_aws/00_DVA-C02/18_CLOUD_FORMATION.md
+          - "CI/CD": 01_aws/00_DVA-C02/24_CI_CD.md
+          - "SAM": 01_aws/00_DVA-C02/25_SAM.md
+          - "CDK": 01_aws/00_DVA-C02/26_CDK.md
+          - "Handson": 01_aws/00_DVA-C02/99_handson.md
+
       - AWS Practice:
           - "Practice Test": 01_aws/practice-test/index.md
 
@@ -199,7 +199,7 @@ nav:
       - Java 11-17: 00_java/04_Java-11-17-new.md
       - Java 17-21: 00_java/05_Java-17-21-new.md
 
-  - Springboot:
+  - Spring boot:
       - 00 lombok mvn git: 00_Springboot/00_others.md
       - 01 Spring Core:
           - Spring Core Basics: 00_Springboot/01_Spring-core/01_Spring_Core.md
@@ -230,7 +230,6 @@ nav:
           - Common Tasks: 00_Springboot/03_data-layer/00_common_task.md
           - JPA: 00_Springboot/03_data-layer/01_JPA.md
           - Persistence Context: 00_Springboot/03_data-layer/02_presistence-context.md
-          -
           - Hibernate Annotations & Converter: 00_Springboot/03_data-layer/04_Hibernate-1-anno+converter.md
           - Hibernate Identifier & Validator: 00_Springboot/03_data-layer/04_Hibernate-2-identifier+validator.md
           - Hibernate Query: 00_Springboot/03_data-layer/04_Hibernate-3-query.md
@@ -260,13 +259,14 @@ nav:
           - Case Studies: 06_messaging/kakfa/Notes_05_case-studies.md
       - ✅RabbitMQ:
           - Kickoff: 06_messaging/rmq/01_kickoff.md
-          - Project Overview: 06_messaging/rmq/02_project.md
+          - project-1(java): 06_messaging/rmq/02_project.md
 
   - Database:
-      - 01 RDBMS:
-          - Postgres SQL: 08_Database/01_rdbms/00_postgress.md
+      - Postgres RDBMS:
+          - start: 08_Database/01_rdbms/00_postgress.md
           - Data Types: 08_Database/01_rdbms/01_datatype.md
           - Constraints: 08_Database/01_rdbms/02_constraints.md
+          - Normalization: 08_Database/01_rdbms/00_Normalization.md
           - Index: 08_Database/01_rdbms/00_index.md
           - DDL: 08_Database/01_rdbms/02_ddl.md
           - DML: 08_Database/01_rdbms/02_dml.md
@@ -276,8 +276,9 @@ nav:
           - Functions: 08_Database/01_rdbms/04_function.md
           - CTE: 08_Database/01_rdbms/05_CTE.md
           - Views: 08_Database/01_rdbms/06_view.md
-          - Sharding: 08_Database/01_rdbms/10_sharding.md
-          - Project-01 (Shopping App) : 08_Database/01_rdbms/shopping_app/index.md
+          - partitioning: 08_Database/01_rdbms/10_partitioning.md
+          - Sharding: 08_Database/01_rdbms/10_sharding-rdbms.md
+          - Project-01 (Shopping App) : 08_Database/01_rdbms/shopping_app/readme.md
 
   - Architecture:
       - ✅Web Security:

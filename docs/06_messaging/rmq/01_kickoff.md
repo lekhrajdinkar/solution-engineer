@@ -20,6 +20,7 @@
 docker run -d --hostname my-rabbit --name my-rabbit -p 5672:5672 -p 15672:15672  rabbitmq:3-management -e ssl_options.verify:verify_none rabbitmq:latest
 >> console : guest/guest http://localhost:15672/
 ```
+
 ---
 ## B Exchange 
 - Type:
