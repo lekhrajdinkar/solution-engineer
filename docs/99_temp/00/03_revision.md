@@ -1,8 +1,6 @@
-- https://chatgpt.com/c/6866e4b3-d6d8-800d-a053-ad736cec9b28 |  JWT
 - https://chatgpt.com/c/6869b8d8-7bec-800d-8db8-5a34c3f0f207 | tcp, udp, http
 - https://chatgpt.com/c/6869cbde-48f8-800d-9f0e-41d2e47c0cf4 | CDN
 - Mtls 2 way SSL
-
 
 ## system Design
 - https://chatgpt.com/c/6868a89c-9af8-800d-9b88-ed2b45d56bb3 | fundamental concept short
@@ -13,7 +11,7 @@
 - https://chatgpt.com/c/686c0c96-58fc-800d-8b47-f0b3a38d576f | distributed system
 - https://chatgpt.com/c/686b077a-b288-800d-9fdd-67aa0b8dbffb | performance
 
-### usecase
+### system-1
 - https://chatgpt.com/c/68688297-3814-800d-8516-bfa0d0710ae7 | ETF price
 
 ## MS
@@ -35,7 +33,6 @@
 
 ## middleware
 - https://chatgpt.com/c/68686ca2-4ea8-800d-a845-5e9470120aca | rabbit vs IBM/MQ vs  kafka
-
 - https://chatgpt.com/c/686adae6-b920-800d-b5ab-cf7efb8ade83 | kafka 
 
 ## Database

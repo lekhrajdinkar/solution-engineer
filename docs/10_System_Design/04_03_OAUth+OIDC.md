@@ -13,12 +13,14 @@
 - authorization flow
 - implicit flow (old) - SPA
 - authorization flow (new) - SPA
-- token/jwt 
-    - issuer
-    - verifier
-    - access token (permissions)
-    - identity token 
+
+## token/jwt 
+- issuer
+- verifier
+- access token (permissions)
+- identity token 
 - claims > scope
+- [JWT](https://chatgpt.com/c/6866e4b3-d6d8-800d-a053-ad736cec9b28)
 
 ## hands on 
 - https://dev-16206041.okta.com/
