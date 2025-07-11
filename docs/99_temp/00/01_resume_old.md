@@ -15,3 +15,10 @@
 // |https://www.udemy.com/certificate/UC-8561f28d-11b7-4f2a-a689-b1378a157082/JavaScript - The Complete Guide on Udemy 
 // |https://www.udemy.com/certificate/UC-ff2f4ad9-17f3-4630-945f-8c348ecf2db7/
 ```
+---
+
+| Role                  | Focus Area              | Key Responsibilities                                                                        | Common Tools                                               | Example Use Case                                           |
+| --------------------- | ----------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| **Software Engineer** | Application development | Design, build, and maintain scalable software systems (e.g., web apps, microservices, APIs) | Java, Python, Git, Docker, Kubernetes, REST, AWS/GCP       | Build a customer-facing e-commerce website                 |
+| **Data Engineer**     | Data infrastructure     | Build and manage data pipelines, ETL jobs, data lakes, and warehouses                       | Spark, PySpark, SQL, Airflow, Hadoop, Snowflake, AWS Glue  | Create a pipeline to process daily user logs into Redshift |
+| **Data Scientist**    | Analytics & ML          | Analyze data, build statistical models, create ML models for predictions and insights       | Python (pandas, scikit-learn), R, SQL, Jupyter, TensorFlow | Predict customer churn using historical behavior data      |
