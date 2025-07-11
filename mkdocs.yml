@@ -2,9 +2,9 @@
 # mkdocs gh-deploy
 # mkdocs serve | build
 
-site_name: Backend Document (lekhraj Dinkar) 2025
+site_name: Study Notes 2025
 site_description: Technical Documentation
-site_author: lekhraj Dinkar
+#site_author:
 
 extra_javascript:
   - mkdocs.js
@@ -283,8 +283,10 @@ nav:
   - 🔸System Design:
       - Start:
         - CAP theorem: 10_System_Design/00_CAP.md
-        - Technologies stack: 10_System_Design/00_tech_stack.md
-        - coding pattern: 10_System_Design/01_code_patterns.md
+        #- Technologies stack: 10_System_Design/00_tech_stack.md
+        - coding:
+          - coding pattern: 10_System_Design/01_code_patterns.md
+          - coding practice: 10_System_Design/00_03_code_best_practice.md
 
       - ✔️reliable system: 10_System_Design/05_01_reliable-system.md
       - ✔️distributed system: 10_System_Design/05_02_distrubted-system.md
@@ -298,23 +300,23 @@ nav:
           - Public Key Infrastructure (PKI): 10_System_Design/04_01_PKI.md
       - ✔️Micro services:
           - monolith: 10_System_Design/03_Miscroservice/00_monolith_vs_ms.md
-          - Communication: 10_System_Design/03_Miscroservice/03_ms_comm.md
+          - microservice comm: 10_System_Design/03_Miscroservice/03_ms_comm.md
           - Deployment: 10_System_Design/03_Miscroservice/04_ms_deployment.md
           - Container orchestration: 10_System_Design/03_Miscroservice/02_ms_orchestration.md
           - API design 1: 10_System_Design/03_Miscroservice/03_01_API.md
           - API design 2: 10_System_Design/03_Miscroservice/03_02_API.md
 
-
-      - ✅System-1:
-          - B2B model: 10_System_Design/99_designs/system-2/00_PROJ-1_B2B.md
-          - Design Patterns: 10_System_Design/99_designs/system-2/01-PROJ-1_Design-patterns.md
-          - Disaster Recovery: 10_System_Design/99_designs/system-2/02_PROJ-1_DR.md
-          - Release Process: 10_System_Design/99_designs/system-2/03_PROJ-1_release_process.md
-          - API Overview: 10_System_Design/99_designs/system-2/04_PROJ-1_API.md
+      - ✅System:
+          - System-1:
+              - B2B model: 10_System_Design/99_designs/system-2/00_PROJ-1_B2B.md
+              - Design Patterns: 10_System_Design/99_designs/system-2/01-PROJ-1_Design-patterns.md
+              - Disaster Recovery: 10_System_Design/99_designs/system-2/02_PROJ-1_DR.md
+              - Release Process: 10_System_Design/99_designs/system-2/03_PROJ-1_release_process.md
+              - API Overview: 10_System_Design/99_designs/system-2/04_PROJ-1_API.md
 
   - Observability:
       - Kickoff: 100_observability/00_project.md
-      - Springboot: 100_observability/01_Observability-spring.md
+      - Spring boot: 100_observability/01_Observability-spring.md
       - Datadog: 100_observability/02_observabilty-datadog.md
       - Datadog Agent Config (YAML): 100_observability/datadog-agent.yaml
 
