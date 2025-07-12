@@ -1,5 +1,5 @@
 ## harness delegate
-![img_1.png](../99_temp/05_harness_image/img_1.png)
+![img_1.png](../04_terraform/img/05_harness_image/img_1.png)
 ## intro
 - **lightweight**, secure **worker process** that runs within our infrastructure
   - Kubernetes cluster
@@ -56,9 +56,9 @@
 - **kubeconfig** set to minikube
 - delegate added : https://app.harness.io/ng/account/e0wDKKO_S46x3M75TWv0iw/all/settings/delegates/list 
 
-![img.png](../99_temp/04_trf_img/05/01/img.png)
+![img.png](../04_terraform/img/04_trf_img/05/01/img.png)
 
-![img_1.png](../99_temp/04_trf_img/05/01/img_1.png)
+![img_1.png](../04_terraform/img/04_trf_img/05/01/img_1.png)
 
 ---
 ### 2. docker

@@ -39,7 +39,7 @@
 - nexus-repo-connector 
 - service-now-connector
 
-![img.png](../99_temp/05_harness_image/img.png)
+![img.png](../04_terraform/img/05_harness_image/img.png)
 
 ## ✔️RBAC
 - **service account** : none

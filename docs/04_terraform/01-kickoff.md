@@ -25,12 +25,12 @@
 - However, Terraform provides ways to make this process **more manageable/consistent.**
 - Define common Variables,Outputs, modules, etc across providers.
 
-![img.png](../99_temp/04_trf_img/01/img-04.png)
+![img.png](img/04_trf_img/01/img-04.png)
 
 ## install / setup
 - windows: install binary in local, set PATH.
 
-![img_1.png](../99_temp/04_trf_img/01/img_1.png)
+![img_1.png](img/04_trf_img/01/img_1.png)
 
 ## HCP hashicorp cloud plateform
 - **remote state mgt**
@@ -39,7 +39,7 @@
 - create **projects** (`default project` and `maps`)  
 - under projects > add **workspace** (cli/api driven)
     - [workspace-1](https://app.terraform.io/app/lekhrajdinkar-org/workspaces/banzai-dev_api-driven)
-    - ![img.png](../99_temp/04_trf_img/01/img-ws-type.png)
+    - ![img.png](img/04_trf_img/01/img-ws-type.png)
 - update **backend.tf** in project config
 - **more benefits**
     - state mgt
