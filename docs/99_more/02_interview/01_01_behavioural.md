@@ -3,6 +3,7 @@
 - https://chatgpt.com/c/6850fafa-fc18-800d-9a4a-e8a9641cae8c | behaviour 1 🗨️
 - [behaviour 2 - exponent : se | behaviour ](https://www.tryexponent.com/questions?page=2&role=swe&type=behavioral) 
 - https://chatgpt.com/c/685115cc-eef4-800d-971d-1665c4af2684 | behaviour 3 🗨️
+- tip : show leadership, show learning
 
 ---
 
@@ -76,24 +77,19 @@ result.show()
 
 ```
 
+## 6.4 Missed timeline
+
+## 6.3 Cut the corner to meet timeline
+
 | **Problem**                     | **Fix**                                |
 | ------------------------------- | -------------------------------------- |
 | Large shuffle on join           | Use `broadcast()` on smaller dataset   |
 | Shuffle due to groupBy          | Use `.repartition()` by the group key  |
 | Inefficient wide transformation | Reduce or chain narrow transformations |
 
+## 6.2 Solved problem with innovation
 
-## 7. why u should not hire me
-
-| **STAR Element** | **Answer**                                                                                                                                                                                                                                                                                                                                                                            |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **✔️ Situation** | In interviews, I’ve sometimes been asked why a company might hesitate to hire me.                                                                                                                                                                                                                                                                                                     |
-| **✔️ Task**      | My task is to answer honestly while showing self-awareness and confidence in my fit.                                                                                                                                                                                                                                                                                                  |
-| **✔️ Action**    | - I say you shouldn’t hire me if:<br>  • You feel I’m **overqualified** and may not stay long-term<br>  • You feel I’m **underqualified** and not ready to contribute at your expected level<br><br>- But if:<br>  • You want someone with a **balanced profile** of experience and adaptability<br>  • You want someone who can **deliver from day one** and **grow with your team** |
-| **✔️ Result**    | - This shows I’m **self-aware**, flexible, and focused on **long-term fit**<br>- I leave the decision to the team while **positioning myself as a strong, thoughtful candidate**                                                                                                                                                                                                      |
-
-
-## 6 Complex problem
+## 6.1 Complex problem
 | **STAR Element** | **Response**                                                                                                                                                                                                                                                                                                                                                           |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ✔️ **Situation** | In our production environment, SNS alerts were intermittently failing, and business users were not receiving critical email notifications.                                                                                                                                                                                                                             |
@@ -142,8 +138,15 @@ more
 | **✔️ Action**    | - Developed **stateless REST APIs** using Java/Python + Spring Boot<br>- Built **event-driven architecture** using SQS, EventBridge, and Lambda<br>- Implemented **distributed tracing** using OpenTelemetry and X-Ray<br>- Used **Aurora Serverless** with read replicas for performance<br>- Set up **DR strategy** and automated deployments using Terraform + Harness |
 | **✔️ Result**    | The system became scalable, observable, and cloud-native. It improved my skills in **system design**, **AWS architecture**, and **cross-team collaboration**.                                                                                                                                                                                                             |
 
+## 2.4 Earned trust on someone ?
+- sov under estimated me
 
-## 2 Conflict  with manager
+## 2.3 under estimated someone ?
+- bharat
+
+## 2.2 Received negative feedback. handled How ?
+
+## 2.1 Conflict  with manager
 | **STAR Element** | **Answer**                                                                                                                                                                                                                                                                       |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **✔️ Situation** | I was part of a large Angular upgrade project focused on front-end development — rendering JSON responses per UX designs. After go-live, all 18 offshore back-end API developers were released.                                                                                  |
@@ -151,8 +154,34 @@ more
 | **✔️ Action**    | - I respectfully explained the knowledge gap to my manager<br>- Suggested retaining a few API developers temporarily until things stabilized<br>- Documented every issue I encountered<br>- Proactively started learning key back-end flows using logs and limited system access |
 | **✔️ Result**    | - My manager appreciated my transparency<br>- Temporary backend support was re-engaged<br>- I managed the situation without escalation<br>- Learned the value of **clarifying expectations early** and being proactive in tough situations                                       |
 
+---
+## 1.4 why you should not hire me
 
-## 1 Tell me about yourself.
+| **STAR Element** | **Answer**                                                                                                                                                                                                                                                                                                                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **✔️ Situation** | In interviews, I’ve sometimes been asked why a company might hesitate to hire me.                                                                                                                                                                                                                                                                                                     |
+| **✔️ Task**      | My task is to answer honestly while showing self-awareness and confidence in my fit.                                                                                                                                                                                                                                                                                                  |
+| **✔️ Action**    | - I say you shouldn’t hire me if:<br>  • You feel I’m **overqualified** and may not stay long-term<br>  • You feel I’m **underqualified** and not ready to contribute at your expected level<br><br>- But if:<br>  • You want someone with a **balanced profile** of experience and adaptability<br>  • You want someone who can **deliver from day one** and **grow with your team** |
+| **✔️ Result**    | - This shows I’m **self-aware**, flexible, and focused on **long-term fit**<br>- I leave the decision to the team while **positioning myself as a strong, thoughtful candidate**                                                                                                                                                                                                      |
+
+## 1.3 weakness
+
+## 1.2 strength
+- Adapt to new team and enjoy learning new things
+- changed to 6 teams and catch up with team.
+- spend extra hour to learn about new role and project, process
+- collaborate well, always share my finding. **transparent**
+  - could be anything, like new tool, new feature, poc, aws n/w, internal confluence page and devhub guide, issue and fix.
+  - future improvements ideas.
+- system design | writing elegant code.
+- teams channel. manage 10-15  in to look and see what kind issue org facing and if i can help.
+
+## 1.1 Tell me about yourself.
+- 🔸why we should hire you for this role ?
+- 🔸why we should not hire you ?
+- why you want to work here ?
+- keep relevant as per current jobs need.
+
 | **Section**                                   | **Answer**                                                                                                                                                                                                                                                                                   |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **✔️ Present**<br>(Who you are now)           | - Software engineer with **12 years of experience**<br>- Skilled in building **scalable backend services** and **distributed systems**<br>- Tech stack: **Java, Python, Spring Boot, Angular, AWS, RDBMS, Kubernetes (EKS)**                                                                 |
