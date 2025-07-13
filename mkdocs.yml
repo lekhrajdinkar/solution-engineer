@@ -279,6 +279,13 @@ nav:
           - partitioning: 08_Database/01_rdbms/10_partitioning.md
           - Sharding: 08_Database/01_rdbms/10_sharding-rdbms.md
           - Project-01 (Shopping App) : 08_Database/01_rdbms/shopping_app/readme.md
+  - Observability:
+      - Kickoff: 100_observability/00_project.md
+      - Spring boot: 100_observability/01_Observability-spring.md
+      - Datadog: 100_observability/02_observabilty-datadog.md
+      - Datadog Agent Config (YAML): 100_observability/datadog-agent.yaml
+
+  # =========================================================================
 
   - 🔸System Design:
       - Start:
@@ -306,7 +313,7 @@ nav:
           - API design 1: 10_System_Design/03_Miscroservice/03_01_API.md
           - API design 2: 10_System_Design/03_Miscroservice/03_02_API.md
 
-      - ✅System:
+      - ✅Systems:
           - System-1:
               - B2B model: 10_System_Design/99_designs/system-2/00_PROJ-1_B2B.md
               - Design Patterns: 10_System_Design/99_designs/system-2/01-PROJ-1_Design-patterns.md
@@ -314,21 +321,26 @@ nav:
               - Release Process: 10_System_Design/99_designs/system-2/03_PROJ-1_release_process.md
               - API Overview: 10_System_Design/99_designs/system-2/04_PROJ-1_API.md
 
-  - Observability:
-      - Kickoff: 100_observability/00_project.md
-      - Spring boot: 100_observability/01_Observability-spring.md
-      - Datadog: 100_observability/02_observabilty-datadog.md
-      - Datadog Agent Config (YAML): 100_observability/datadog-agent.yaml
+  - interview:
+      - ✔️behaviour:
+        - behaviour 1 (Teamwork) : 99_more/02_interview/01_01_behavioural.md
+        - behaviour 2 (leadership) : 99_more/02_interview/01_02_behavioural.md
+        - behaviour 3 (Resilience) : 99_more/02_interview/01_03_behavioural.md
+        - behaviour 4 (skills) : 99_more/02_interview/01_04_behavioural.md
+        - behaviour 5 (more) : 99_more/02_interview/01_05_behavioural.md
+      - ✔️system Design :
+          - design 1 : 99_more/02_interview/02_01_System_design.md
 
-  #- Career Docs:
-      #- Skills: 99_temp/00/01_resume_old.md
-      #- Profiles: 99_temp/00/02_profiles.md
-      #- Behavioural Prep: 99_temp/00/01_01_behavioural.md
-      #- Interview Q&A: 99_temp/00/04_technical.md
-      #- Resumes:
-          #- SE-2: 99_temp/00/lekhraj Dinkar-SE-2.pdf
-          #- SE-3: 99_temp/00/lekhraj Dinkar-SE-3.pdf
-          #- SSE/SE-4: 99_temp/00/lekhraj Dinkar-sse-se4.pdf
+      - ✔️coding :
+          - coding 1: 99_more/02_interview/03_01_coding.md
+      - 📚revision :
+          - revision 1 : 99_more/02_interview/04_technical.md
+      - 📚️brain dump :
+          - 2025 (maps): 99_more/02_interview/2025.md
+          - 2022-24 (maps): 99_more/02_interview/2022-2024.md
+          - 2019-21 (fsr tact): 99_more/02_interview/2019-2021.md
+          - 2017-18 (eom:on-shore): 99_more/02_interview/2017-2018.md
+          - 2012-16 (eom:off-shore) : 99_more/02_interview/2012-2016.md
 
 extra_css:
   - mkdocs.css
@@ -369,13 +381,6 @@ markdown_extensions:
 
 plugins:
   - search
-  #- markdownextradata
-  #- simple-hooks:
-      #hooks:
-        #on_post_build: "copy_extra_files.copy_yaml_files"
-
-#copyfiles:
-  #- deployment/manifest
 
 extra:
   social:
