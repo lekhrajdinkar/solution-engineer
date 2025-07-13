@@ -3,6 +3,8 @@
 - working with : onshore/offshore engineer, API n/w security team, BSA, senior, different zone, business user/stakeholder, fsr/etacs, partner app (comet,casa)
 - Swift alliance cloud, we start ahead and showing my approach to CASA.
 - volunteer during event/s
+
+### 0. tech talk with business
 - talk / rephrase my sentence as per individual background and strength.
     - eg: sns alert with business, QA and dev
 
@@ -14,6 +16,13 @@
 - learned : proactively reaching out and aligning early to avoid miscommunication.
 
 ### 2.1 Conflict in team
+- **ibm/mq vs MFT**
+- **inbound poc** : webapp/etls as API and thread + refactoring
+    - explained him, after poc we directly jump into coding, never designed the code structure.
+    - is good practice to use class to organise rather in throwing multiple scripts.
+    - better to readability and set context for future change
+    - later on upgraded to fastapi
+
 | **STAR Element** | **Response**                                                                                                                                                                                                                                                                                                                                                            |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **✔️ Situation** | I was working on a project to publish SWIFT messages to a downstream vendor, who would forward them to a transfer agent or customer agent.                                                                                                                                                                                                                              |
@@ -59,13 +68,15 @@
 
 ---
 
-## Links
+## Links 
 - https://chatgpt.com/c/6850d0a3-3d8c-800d-98ce-1a4b4bd9a2ce | business 🗨️
 - https://chatgpt.com/c/6850fafa-fc18-800d-9a4a-e8a9641cae8c | behaviour 1 🗨️
 - [behaviour 2 - exponent : se | behaviour ](https://www.tryexponent.com/questions?page=2&role=swe&type=behavioral)
 - https://chatgpt.com/c/685115cc-eef4-800d-971d-1665c4af2684 | behaviour 3 🗨️
-- tip : show leadership, show learning / take away from  experience 👈🏻
-- **show** them, dont tell | captivating story | not boring | at least 2 story👈🏻
+
+## Tips
+- tip : `show` leadership, show learning / take away from  experience 👈🏻
+- **show** them, `dont just tell `| **captivating story** | not boring | at least 2/3 stories 👈🏻
 - practice and delivery
 - no script | keep bullet only
-- dont use filler | use silence and thinks
+- **don't use filler | use silence and thinks**

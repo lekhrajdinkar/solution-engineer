@@ -1,7 +1,12 @@
-## ✔️B. leadership 
+## leadership 
 - initiative | problem-solving
 - don't wait for order and continue the work
 - lead junior by example | take decision
+- **re-evaluate design and write future upgrade** ✅
+    - SNS + add dlq + enable SSN delivery logs
+    - de-duplicationID 
+    - Dashboard API for UI team
+    - helix : mc, eks, custom metrics (engine request process rate)
 
 ### 1. short term sacrifice for long term gain
 - created CIAM dashboard
@@ -14,7 +19,19 @@
   - created endpoints to stage and manually publish.
   - Documented steps. since  manual steps so risk
 
-### 3. Simplified complex problem
+### 3. Simplified Complex Problem
+- **outbound config:**
+  - flexibility in active/deactivate outbound
+  - future changes were considered
+  - weight based, k1=[v1,v2,...], resolve by weight
+  - future state : dynamoDB
+- **UMC**
+  - added staging areas/s3, for manual update
+  - api to enable/disable
+- **processing bucket**
+  - all event driver by some bucket_mapping_id
+  - will be used for tracking and custom metric
+- **pySpark Job**
 
 | **STAR Element** | **Answer**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,6 +66,36 @@ result = df_partitioned.groupBy("region").count()
 result.show()
 ```
 ### 4. decision with limited time Data
+
+### 5. project with tight deadline
+- CIAM
+
+### 6. lead end2end project
+- **maps**
+    - scalable system design : ms + event-driven + eventpayload
+    - API design
+    - implementation
+    - handle 
+
+### 7. deal with offshore / juniors 🟢
+
+### 8. context switching
+
+### 9. handle unrealistic deadline
+- re-scoping
+
+### 10. project did not go as planned
+- **maps**
+    - monthly release for Business and non-functional
+    - postpone non-functional items due to delayed QA testing, since working on multiple release
+- **FSR**
+    - planned writing test-case / karma for new screen in phase-2
+    - API contract changed, ended up reworks.
+    - pushed as planned but impacted the release and delivery
+
+
+
+
 
 
 

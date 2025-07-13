@@ -18,3 +18,4 @@
 - I was too technical while talking to business in beginning.
 - 
 
+### 4. mistakes/bugs

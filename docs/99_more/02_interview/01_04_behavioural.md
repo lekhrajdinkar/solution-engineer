@@ -54,3 +54,30 @@ more
 - used Aurora serverless
 - no no-SQL distributed DB, becoz of eventual consistency.
 
+### 6.1 disagreement on system Design (yours)
+- **inbound etl**
+    - S3 > SQS > `poll`(py) > etl::thread
+    - s3 > SQS > lambda-trigger (async + destination) > api >  exposed etl as API. === `PUSH`
+- **Aurora config vs DynamoDB** :
+    - needed flexibility in schema evolution
+  
+### 6.2 disagreement on system Design (others)
+
+### 7.1 balance innovation with stability
+
+### 7.2 innovation solutions
+- create API for dev and QA profile.
+- enable/disable , config API
+- mock incoming message | mock vendor behaviour
+- create API to S3 bucket view and download + UI ng
+- create API for message broker
+- merge TIP files + additional logic to decode row and show summarized API. API to validate it.
+- For CIAM : day-1 + day-2 response | staging failure response
+
+### 8. Technical quality vs consistency
+
+### 9. Design phase with business 
+- how you interact
+
+### 10. evaluating build vs buy decision
+
