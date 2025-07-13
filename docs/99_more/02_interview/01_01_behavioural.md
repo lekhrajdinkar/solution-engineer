@@ -66,6 +66,15 @@
 
 ### 8. Put someone else interest 🔸
 
+### 9. diff style people 
+- good to have mix of people of diff skill background.
+- good for teamwork and balanced team
+- kesav : AWS + env issue
+- randy : bash script
+- sov : vendor and plate form team and contact
+- offshore : good developer
+- learnt/perceived from everyone 
+
 ---
 
 ## Links 

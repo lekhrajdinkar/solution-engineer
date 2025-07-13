@@ -29,18 +29,27 @@
 | **✔️ Result**    | - This shows I’m **self-aware**, flexible, and focused on **long-term fit**<br>- I leave the decision to the team while **positioning myself as a strong, thoughtful candidate**                                                                                                                                                                                                      |
 
 ### 3 weakness
+- back then used to do everything by my own.
+- **learnt** seeking help, team work, collaboration, delegate work, break down jira, mentoring offshore
 
 ### 2 strength
-- Adapt to new team and enjoy learning new things
-- changed to 6 teams and catch up with team.
-- spend extra hour to learn about new role and project, process
+- **quick learner**
+    - Adapt to new team and enjoy learning new things
+    - changed to 6 teams and catch up with team.
+    - spend extra hour to learn about new role and project, process
+- **innovative solution + simplified solution**
+- **attribute** 
+    - scaling not scaling system but people, grow organization, 
+    - learn from perception 
+    - collaborate with everyone
+    - continues leaning
 - **transparent**
-- always share my finding. real challenges, and experience.
-- learn better with experience
-- could be anything, like new tool, new feature, poc, aws n/w, internal confluence page and devhub guide, issue and fix.
+    - always share my finding. real challenges, and experience.
+    - learn better with experience
+    - could be anything, like new tool, new feature, poc, aws n/w, internal confluence page and devhub guide, issue and fix.
 - **future improvements ideas**.
-- system design | writing elegant code.
-- teams channel. manage 10-15  in to look and see what kind issue org facing and if i can help.
+    - system design | writing elegant code.
+    - teams channel. manage 10-15  in to look and see what kind issue org facing and if i can help.
 
 ### 1 Tell me about yourself.
 - 🔸why we should hire you for this role ?
@@ -55,7 +64,19 @@
 | **✔️ Skills / Strengths**<br>(What you bring) | - Strong in **system design**, **microservices**, and **observability**<br>- Hands-on with **Kafka integration** and cloud-first solutions                                                                                                                                                   |
 | **✔️ Future goal ✅**<br>(Why you're here)   | - Looking for a role to contribute to **high-scale architecture**<br>- Eager to grow in **cloud-native engineering** and explore **GenAI applications**                                                                                                                                      |
 
+### 0 motivation
+- CSE > Data science , genAI
+- they way , its getting revolution keep me motivated
+- quantum computer | AI
+- puzzle
+- learning book , newsletter
+- overtime also been fun
+- well organized | full-grown community
+- framework + library + cloud computing
+- easy to recognize pattern, keep things simple, good analogy
+- no idea is new, just incrementation p n c
 
+---
 ## ✔️B. influencing / persuasion / convince
 - convincing on your side - peer and seniors
 - **Disagreement**

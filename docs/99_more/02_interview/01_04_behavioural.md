@@ -1,3 +1,15 @@
+## ✔️Future improvement ideas
+- x-rays | dd metric : custom performance metric
+- dashboard api
+- s3 MRAP
+- eventbus - deduplication
+- SQS fifo with kafka 
+- lambda cold fix
+- VPCE endpoint
+- sns - failure : enable delivery log | dlq
+- SQS > Lambda trigger > **async call** with destination + exp retry
+
+---
 ## ✔️learning / skills
 ### 1 innovation solution
 - Solved problem with innovation
@@ -11,6 +23,11 @@
 | ✔️ **Action**    | Through investigation, I found the failures occurred during firewall updates that blocked outbound internet traffic. Since SNS used public endpoints, the service was unreachable. I resolved this by configuring a **VPC endpoint for SNS**, enabling private communication via AWS’s internal network. I also tested the solution under simulated outage conditions. |
 | ✔️ **Result**    | After the change, SNS alerts became consistently reliable, even during firewall updates. This restored business confidence, improved system reliability, and reduced incident escalations.                                                                                                                                                                             |
 
+| **Problem**                     | **Fix**                                |
+| ------------------------------- | -------------------------------------- |
+| Large shuffle on join           | Use `broadcast()` on smaller dataset   |
+| Shuffle due to groupBy          | Use `.repartition()` by the group key  |
+| Inefficient wide transformation | Reduce or chain narrow transformations |
 ```
 more
 - sns alerts, failed multiple time : created 🔸vpce
@@ -26,6 +43,12 @@ more
 ```
 
 ### 3 learn new
+- learnt devops (4)
+- learnt ng and did FSR project
+- learnt py,aws
+- learnt pySpark (data pipeline)
+- learning genAI
+
 | **Step**                                      | **Approach**                                                                                                                                          |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ✔️ **1. Depends on type of technology**       | My approach varies based on whether it's a new language, framework, or concept.                                                                       |
@@ -80,4 +103,10 @@ more
 - how you interact
 
 ### 10. evaluating build vs buy decision
+
+### 11. Fast delivery
+- jira with clear acceptance | expectation | scope
+- Automate UT with junit , pytest
+- CI pipeline (platform) - wiz and synk scan + fix vul
+- CD pipeline (developer) - harness pipleine (generic) + add input set | helm | k8s manifest
 

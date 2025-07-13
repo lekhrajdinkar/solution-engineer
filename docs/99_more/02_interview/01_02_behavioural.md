@@ -77,7 +77,49 @@ result.show()
     - implementation
     - handle 
 
-### 7. deal with offshore / juniors 🟢
+### 7.1 deal with offshore / juniors 🟢
+- **communication** : `collaboration | leadership | ownership | empathy`
+    - transparent with them. 
+    - **listen** | no friction | no blame
+    - makesure no one have any personal problem
+    - comm based on their strength and background | not want to overload | steps by step approaches
+    - appreciate work and keep motivated.
+    - periodic 1-2-1 session : clarification + highlight area of improvement
+    - async comm - confluence + developer guide
+    - sync comm - teams daily chat, tag, 
+    - summary for long session + ping bullet point/minutes
+    - collaborate with team, trust team, seek help from offshore, delegate task
+- **leaning** : empower with guidance
+    - taught them terraform, and now they rae doing all IAC and pipeline
+    - guide on tech  and soft skills
+    - my design review and feedback.
+    - taught harsh py
+    - scale people
+- **planning** 
+    - assign work based on strenght.
+    - plan work with available bandwidth | jira > subtask
+    - set clear expectation + set context | discuss roadmap and timeline
+    - stepping only when needed.
+    - shared UT scenario list, i add more.
+    - discuss high level implementation pla and give feedback
+    - everyone tell upfront their vacation plan
+    - network outage + laptop taken for security
+- code review and daily commit
+- delegate unplanned work | discuss daily priority | set clear expectation
+
+### 7.2 soft skills 🟢
+- Simplify complex idea
+- understand individual challenge
+- towards the end ensure all ok, any followup question ?
+- long session : summarize
+- active listening - take input and share my thoughts
+- always calm and no friction
+   - stay compose and supportive
+   - rather than pushy
+- strategic collaboration with seniors
+- lead by example
+- encourage team work
+- ensure eveyone equally involved in planning, solutioning and retrospectives
 
 ### 8. context switching
 
