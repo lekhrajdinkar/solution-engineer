@@ -337,11 +337,11 @@ nav:
           - revision 1 : 99_more/02_interview/04_technical.md
           - revision 2 : 99_more/01_revision/revision-1-2025-july.md
       - 📚️brain dump :
-          - 2025 (maps): 99_more/02_interview/2025.md
-          - 2022-24 (maps): 99_more/02_interview/2022-2024.md
-          - 2019-21 (fsr tact): 99_more/02_interview/2019-2021.md
-          - 2017-18 (eom:on-shore): 99_more/02_interview/2017-2018.md
-          - 2012-16 (eom:off-shore) : 99_more/02_interview/2012-2016.md
+          - 2025 (app-6): 99_more/02_interview/2025.md
+          - 2022-24 app-6): 99_more/02_interview/2022-2024.md
+          - 2019-21 (app-4/5): 99_more/02_interview/2019-2021.md
+          - 2017-18 (app-1/2/3:on-shore): 99_more/02_interview/2017-2018.md
+          - 2012-16 (app-1/2/3:off-shore) : 99_more/02_interview/2012-2016.md
 
 extra_css:
   - mkdocs.css
