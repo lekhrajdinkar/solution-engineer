@@ -323,25 +323,25 @@ nav:
 
   - interview:
       - ✔️behaviour:
-        - behaviour 1 (Teamwork) : 99_more/02_interview/01_01_behavioural.md
-        - behaviour 2 (leadership) : 99_more/02_interview/01_02_behavioural.md
-        - behaviour 3 (Resilience) : 99_more/02_interview/01_03_behavioural.md
-        - behaviour 4 (skills) : 99_more/02_interview/01_04_behavioural.md
-        - behaviour 5 (more) : 99_more/02_interview/01_05_behavioural.md
+        - behaviour 1 (Teamwork) : 99_more/02_interview/behaviour/01_01_behavioural.md
+        - behaviour 2 (leadership) : 99_more/02_interview/behaviour/01_02_behavioural.md
+        - behaviour 3 (Resilience) : 99_more/02_interview/behaviour/01_03_behavioural.md
+        - behaviour 4 (skills) : 99_more/02_interview/behaviour/01_04_behavioural.md
+        - behaviour 5 (more) : 99_more/02_interview/behaviour/01_05_behavioural.md
       - ✔️system Design :
-          - design 1 : 99_more/02_interview/02_01_System_design.md
-
+          - 01 rate limiting : 99_more/02_interview/system-design/01_rate-limiter.md
+          - 10 notification system : 99_more/02_interview/system-design/10_notification-system.md
       - ✔️coding :
           - coding 1: 99_more/02_interview/03_01_coding.md
       - 📚revision :
-          - revision 1 : 99_more/02_interview/04_technical.md
-          - revision 2 : 99_more/01_revision/revision-1-2025-july.md
+          - revision 0 : 99_more/01_revision/00_technical-all.md
+          - revision 1 : 99_more/01_revision/revision-1-2025-july.md
       - 📚️brain dump :
-          - 2025 (app-6): 99_more/02_interview/2025.md
-          - 2022-24 app-6): 99_more/02_interview/2022-2024.md
-          - 2019-21 (app-4/5): 99_more/02_interview/2019-2021.md
-          - 2017-18 (app-1/2/3:on-shore): 99_more/02_interview/2017-2018.md
-          - 2012-16 (app-1/2/3:off-shore) : 99_more/02_interview/2012-2016.md
+          - 2025 (app-6): 99_more/02_interview/brain-dump/2025.md
+          - 2022-24 app-6): 99_more/02_interview/brain-dump/2022-2024.md
+          - 2019-21 (app-4/5): 99_more/02_interview/brain-dump/2019-2021.md
+          - 2017-18 (app-1/2/3:on-shore): 99_more/02_interview/brain-dump/2017-2018.md
+          - 2012-16 (app-1/2/3:off-shore) : 99_more/02_interview/brain-dump/2012-2016.md
 
 extra_css:
   - mkdocs.css
