@@ -1,3 +1,16 @@
+## code practice
+- modularity
+- re-use
+- comment and git-messages | documnet (mkdocs)
+- peer and slew review
+- wix scan and fix | junit pytest UT | sonar qude - code quality and coverage
+- no hardcoding  | clear text pwd
+- OOPS - Solid , functional , script
+- update to date new feature java 8,11,21,23
+- use co-pilot to save time, plug-in
+- observability
+- use library and framework
+
 | **#** | **Category**           | **Best Practice**                                                                     |
 | ----- | ---------------------- | ------------------------------------------------------------------------------------- |
 | 1     | **Code Style**         | Use meaningful names, consistent naming conventions (e.g., `camelCase`, `snake_case`) |

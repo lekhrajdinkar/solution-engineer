@@ -288,13 +288,7 @@ nav:
   # =========================================================================
 
   - 🔸System Design:
-      - Start:
-        - CAP theorem: 10_System_Design/00_CAP.md
-        #- Technologies stack: 10_System_Design/00_tech_stack.md
-        - coding:
-          - coding pattern: 10_System_Design/01_code_patterns.md
-          - coding practice: 10_System_Design/00_03_code_best_practice.md
-
+      - ✔️CAP theorem: 10_System_Design/00_CAP.md
       - ✔️reliable system: 10_System_Design/05_01_reliable-system.md
       - ✔️distributed system: 10_System_Design/05_02_distrubted-system.md
       - ✔️scalable system: 10_System_Design/05_03_scalable-system.md
@@ -331,12 +325,13 @@ nav:
       - ✔️system Design :
           - 01 rate limiting : 99_more/02_interview/system-design/01_rate-limiter.md
           - 10 notification system : 99_more/02_interview/system-design/10_notification-system.md
-      - ✔️coding :
-          - coding 1: 99_more/02_interview/03_01_coding.md
-      - 📚revision :
+      - ✔️general coding :
+          - best practice: 99_more/02_interview/coding-int/01_code_patterns.md
+          - coding patterns: 99_more/02_interview/coding-int/00_03_code_best_practice.md
+      - 📚Revision/s :
           - revision 0 : 99_more/01_revision/00_technical-all.md
           - revision 1 : 99_more/01_revision/revision-1-2025-july.md
-      - 📚️brain dump :
+      - 📚️Brain dump :
           - 2025 (app-6): 99_more/02_interview/brain-dump/2025.md
           - 2022-24 app-6): 99_more/02_interview/brain-dump/2022-2024.md
           - 2019-21 (app-4/5): 99_more/02_interview/brain-dump/2019-2021.md
@@ -354,7 +349,7 @@ theme:
     - navigation.tabs              # Optional: if using tabs layout
     - navigation.top               # Scroll-to-top button
     - navigation.sections
-    - navigation.expand
+    #- navigation.expand
     - navigation.indexes
     - navigation.footer
   palette:
