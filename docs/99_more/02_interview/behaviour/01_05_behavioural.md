@@ -1,4 +1,5 @@
 ## ✔️A. Fit for role
+### 6. problem solving
 ### 5. prioritize work
 - **task and priority**
 - production issue, business query
