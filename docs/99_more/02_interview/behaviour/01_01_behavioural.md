@@ -74,6 +74,7 @@
 - sov : vendor and plate form team and contact
 - offshore : good developer
 - learnt/perceived from everyone 
+- learnt soft skills from seniors,bsa
 
 ---
 

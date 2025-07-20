@@ -308,13 +308,15 @@ nav:
           - API design 2: 10_System_Design/03_Miscroservice/03_02_API.md
 
       - ✅Systems:
-          - System-1:
+          - System-1 app-6:
               - B2B model: 10_System_Design/99_designs/system-2/00_PROJ-1_B2B.md
               - Design Patterns: 10_System_Design/99_designs/system-2/01-PROJ-1_Design-patterns.md
               - Disaster Recovery: 10_System_Design/99_designs/system-2/02_PROJ-1_DR.md
               - Release Process: 10_System_Design/99_designs/system-2/03_PROJ-1_release_process.md
               - API Overview: 10_System_Design/99_designs/system-2/04_PROJ-1_API.md
-
+          - system-2 byte-byte-go eg:
+              - 01 rate limiting: 10_System_Design/99_designs/byte-byte-go/01_rate-limiter.md
+              - 10 notification system: docs/10_System_Design/99_designs/byte-byte-go/10_notification-system.md
   - interview:
       - ✔️behaviour:
         - behaviour 1 (Teamwork) : 99_more/02_interview/behaviour/01_01_behavioural.md
@@ -322,9 +324,7 @@ nav:
         - behaviour 3 (Resilience) : 99_more/02_interview/behaviour/01_03_behavioural.md
         - behaviour 4 (skills) : 99_more/02_interview/behaviour/01_04_behavioural.md
         - behaviour 5 (more) : 99_more/02_interview/behaviour/01_05_behavioural.md
-      - ✔️system Design :
-          - 01 rate limiting : 99_more/02_interview/system-design/01_rate-limiter.md
-          - 10 notification system : 99_more/02_interview/system-design/10_notification-system.md
+
       - ✔️general coding :
           - best practice: 99_more/02_interview/coding-int/01_code_patterns.md
           - coding patterns: 99_more/02_interview/coding-int/00_03_code_best_practice.md
@@ -337,6 +337,8 @@ nav:
           - 2019-21 (app-4/5): 99_more/02_interview/brain-dump/2019-2021.md
           - 2017-18 (app-1/2/3:on-shore): 99_more/02_interview/brain-dump/2017-2018.md
           - 2012-16 (app-1/2/3:off-shore) : 99_more/02_interview/brain-dump/2012-2016.md
+  - learnings:
+      - 2025:  99_more/03_daily_learning/2025.md
 
 extra_css:
   - mkdocs.css
