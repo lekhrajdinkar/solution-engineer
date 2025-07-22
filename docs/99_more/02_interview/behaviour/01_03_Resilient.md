@@ -37,3 +37,14 @@
     - batch fail and production issue.
     - big codebase, not much framework and library
     - leaning: Modern technology, can compare and connect dots with their purpose and abstraction
+
+### 6. Failures
+- **real intent** :
+    - Accountability: Do you own your mistakes?
+    - Self-awareness: Can you reflect and identify what went wrong?
+    - Growth mindset: Did you learn and improve from the experience?
+    - Problem-solving ability: How did you respond or recover?
+    - Communication: Can you explain it clearly and professionally?
+- Avoid Repeated patterns of the same mistake
+- Avoid Huge outages with no recovery or learnings
+- eg: **Missed edge cases** in system integration + **Poor estimation** in effort or capacity + Assuming a dependency was stable
