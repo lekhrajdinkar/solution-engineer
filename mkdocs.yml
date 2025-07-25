@@ -287,45 +287,59 @@ nav:
 
   # =========================================================================
 
-  - 🔸System Design:
-      - ✔️CAP theorem: 10_System_Design/00_CAP.md
-      - ✔️reliable system: 10_System_Design/05_01_reliable-system.md
-      - ✔️distributed system: 10_System_Design/05_02_distrubted-system.md
-      - ✔️scalable system: 10_System_Design/05_03_scalable-system.md
-      - ✔️high-performance system: 10_System_Design/05_04_high-performance.md
-      - ✔️database design: 10_System_Design/02_database.md
-      - ✔️Observability design: 10_System_Design/06_01_Observability.md
-      - ✔️Secured system:
-          - OAuth2.0 & OIDC: 10_System_Design/04_03_OAUth+OIDC.md
-          - SAML: 10_System_Design/04_02_SAML.md
-          - Public Key Infrastructure (PKI): 10_System_Design/04_01_PKI.md
-      - ✔️Micro services:
-          - monolith: 10_System_Design/03_Miscroservice/00_monolith_vs_ms.md
-          - microservice comm: 10_System_Design/03_Miscroservice/03_ms_comm.md
-          - Deployment: 10_System_Design/03_Miscroservice/04_ms_deployment.md
-          - Container orchestration: 10_System_Design/03_Miscroservice/02_ms_orchestration.md
-          - API design 1: 10_System_Design/03_Miscroservice/03_01_API.md
-          - API design 2: 10_System_Design/03_Miscroservice/03_02_API.md
+  - System Design:
+      - 🔸Theorem and Patterns:
+          - CAP : 10_System_Design/SD_00_theorum+patterns/00_CAP.md
+          - tech_stack : 10_System_Design/SD_00_theorum+patterns/00_tech_stack.md
+      - 🔸High performance:
+          - Start: 10_System_Design/SD_01_performance/01_start.md
+      - 🔸High Availability:
+          - Start: 10_System_Design/SD_02_Availability/01_start.md
+      - 🔸Scalability:
+          - Start: 10_System_Design/SD_03_scalability/01-start.md
+          - Microservices:
+              - monolith: 10_System_Design/SD_03_scalability/miscroservice/00_monolith_vs_ms.md
+              - microservice comm: 10_System_Design/SD_03_scalability/miscroservice/03_ms_comm.md
+              - Deployment: 10_System_Design/SD_03_scalability/miscroservice/04_ms_deployment.md
+              - Container orchestration: 10_System_Design/SD_03_scalability/miscroservice/02_ms_orchestration.md
+              - API design 1: 10_System_Design/SD_03_scalability/miscroservice/03_01_API.md
+              - API design 2: 10_System_Design/SD_03_scalability/miscroservice/03_02_API.md
+      - 🔸Reliability + Durability:
+          - Start: 10_System_Design/SD_04_reliability+durability/01_reliable-start.md
+      - 🔸Distributed system:
+          - Start: 10_System_Design/SD_05_Distributed/01_distributed-start.md
+      - 🔸Observability:
+          - Start: 10_System_Design/SD_06_obs/01_Obs_start.md
+      - 🔸Security:
+          - OAuth2.0 & OIDC: 10_System_Design/SD_07_security/04_03_OAUth+OIDC.md
+          - SAML: 10_System_Design/SD_07_security/04_02_SAML.md
+          - Public Key Infrastructure (PKI): 10_System_Design/SD_07_security/04_01_PKI.md
+      - 🔸Database + storage:
+          - Start: 10_System_Design/SD_08_Storage+database/01_start.md
+          - DB: 10_System_Design/SD_08_Storage+database/02_database.md
+          - distributed DB: 10_System_Design/SD_08_Storage+database/02_distributed_database.md
 
       - ✅Systems:
-          - System-1 app-6:
-              - B2B model: 10_System_Design/99_designs/system-2/00_PROJ-1_B2B.md
-              - Design Patterns: 10_System_Design/99_designs/system-2/01-PROJ-1_Design-patterns.md
-              - Disaster Recovery: 10_System_Design/99_designs/system-2/02_PROJ-1_DR.md
-              - Release Process: 10_System_Design/99_designs/system-2/03_PROJ-1_release_process.md
-              - API Overview: 10_System_Design/99_designs/system-2/04_PROJ-1_API.md
-          - system-2 byte-byte-go eg:
-              - 01 rate limiting: 10_System_Design/99_designs/byte-byte-go/01_rate-limiter.md
-              - 10 notification system: docs/10_System_Design/99_designs/byte-byte-go/10_notification-system.md
+          - System-1(app-6):
+              - B2B model: 10_System_Design/SD_99_Examples/system-2/00_PROJ-1_B2B.md
+              - Design Patterns: 10_System_Design/SD_99_Examples/system-2/01-PROJ-1_Design-patterns.md
+              - Disaster Recovery: 10_System_Design/SD_99_Examples/system-2/02_PROJ-1_DR.md
+              - Release Process: 10_System_Design/SD_99_Examples/system-2/03_PROJ-1_release_process.md
+              - API Overview: 10_System_Design/SD_99_Examples/system-2/04_PROJ-1_API.md
+          - byte-byte-go:
+              - 101 rate limiting: 10_System_Design/SD_99_Examples/byte-byte-go/101_rate-limiter.md
+              - 110 notification system: 10_System_Design/SD_99_Examples/byte-byte-go/110_notification-system.md
+          - byteMonk:
+              - 201 paypal: 10_System_Design/SD_99_Examples/byteMonk/01_paypal.md
   - interview:
-      - ✔️behaviour:
+      - 🔸behaviour:
         - behaviour 1 (Teamwork) : 99_more/02_interview/behaviour/01_01_behavioural.md
         - behaviour 2 (leadership) : 99_more/02_interview/behaviour/01_02_behavioural.md
         - behaviour 3 (Resilience) : 99_more/02_interview/behaviour/01_03_Resilient.md
         - behaviour 4 (skills) : 99_more/02_interview/behaviour/01_04_behavioural.md
         - behaviour 5 (more) : 99_more/02_interview/behaviour/01_05_behavioural.md
 
-      - ✔️general coding :
+      - 🔸general coding :
           - best practice: 99_more/02_interview/coding-int/01_code_patterns.md
           - coding patterns: 99_more/02_interview/coding-int/00_03_code_best_practice.md
       - 📚Revision/s :
@@ -359,6 +373,10 @@ theme:
       scheme: default
       primary: grey
       accent: pink
+    - media: "(prefers-color-scheme: dark)"
+      scheme: default
+      primary: grey
+      accent: pink
 
 
 repo_url: https://github.com/lekhrajdinkar/02-backend-pack
@@ -386,3 +404,4 @@ extra:
       link: https://github.com/lekhrajdinkar
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/lekhraj-dinkar-25872140/
+

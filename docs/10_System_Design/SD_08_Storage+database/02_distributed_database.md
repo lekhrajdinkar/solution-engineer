@@ -24,5 +24,5 @@ Use Case:
 Order processing in e-commerce (inventory, payment, shipping services).
 ```
 - SAGA vs 2PC (2 phase commit)
-![img_1.png](99_img/03/img_1.png)
+![img_1.png](../SD_99_img/03/img_1.png)
 

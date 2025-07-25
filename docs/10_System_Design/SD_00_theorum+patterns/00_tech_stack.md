@@ -13,7 +13,7 @@
 - **GraphQL APIs** : pending
 - frameworks for RESTful APIs
     - java --> **SpringBoot**
-        - [00_Springboot](../00_Springboot)
+        - [00_Springboot](../../00_Springboot)
     - js/ts/nodejs --> **Express.js**
         - [project-1](https://github.com/lekhrajdinkar/02-Backend-API-NodeJS)
     - py --> **Django/fastApi/flask**
@@ -26,14 +26,14 @@
     - deploy via
         - containers (Docker)
         - orchestration (**Kubernetes**) : pods+services
-            - [03_Kubernetes](../03_Kubernetes)
+            - [03_Kubernetes](../../03_Kubernetes)
     - https://github.com/lekhrajdinkar/03-spring-cloud-v2/tree/main/Notes
-    - [01_monolith_MicroServices.md](../03_Miscroservice/01_monolith_MicroServices.md)[00_kickOff](../../03_Kubernetes/00_kickOff)
+    - [01_monolith_MicroServices.md](../SD_03_scalability/micro-service/01_monolith_MicroServices.md)[00_kickOff](../../03_Kubernetes/00_kickOff)
 - **Load Balancers**
     - AWS :: ELB/Elastic Load Balancer - alb, nlb,
     - `NGINX`
 - Cloud services : **AWS**: lambda, s3, sqs, etc
-    - [01_aws](../01_aws)
+    - [01_aws](../../01_aws)
 
 ---
 ##  B.3 Database

@@ -3,7 +3,7 @@
 - https://chat.deepseek.com/a/chat/s/5effe43a-7c05-433f-8df6-3326b6e311c6 :point_left:
 - **actuator**
     - http://localhost:8083/spring/actuator/metrics --> show metric **names**
-    - [actuator.json](../10_System_Design/03_Miscroservice/actuator.json)
+    - [actuator.json](../10_System_Design/SD_03_scalability/micro-service/actuator.json)
 - **prometheous**
     - http://localhost:8083/spring/actuator/prometheus
     - [PrometheusMicrometerConfig.java](../src/main/java/com/lekhraj/java/spring/SB_99_RESTful_API/configuration/PrometheusMicrometerConfig.java)
