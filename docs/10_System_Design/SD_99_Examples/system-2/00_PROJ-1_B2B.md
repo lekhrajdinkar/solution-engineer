@@ -16,4 +16,7 @@
     - separation of concern
 
 
+![system-2022-design.png](../../draw-io/system-2022-design.png)
+
+
   
