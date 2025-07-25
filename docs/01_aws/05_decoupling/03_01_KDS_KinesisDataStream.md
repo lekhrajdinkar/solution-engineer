@@ -5,7 +5,7 @@
   - web activity
 ---
 # A. Kinesis Data Stream `KDS` (serverless)
-- think of [kakfa](../../06_messaging/kakfa)
+- think of [kakfa](../../06_message-broker/kakfa)
 
 - **serverless**
   - manages the infrastructure

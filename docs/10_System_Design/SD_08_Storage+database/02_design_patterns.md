@@ -1,4 +1,22 @@
-## SAGA
+## Polyglot Persistence
+
+## CQRS (Command Query Responsibility Segregation)
+- read replicas
+- write replicas
+- Global Database Replication
+
+## Sharding 
+- across nodes
+
+## Partitioning
+- within same node
+
+## Schema Evolution & Versioning
+
+## Event Sourcing
+
+## Saga Pattern 
+- Distributed transaction management across services.
 - [youtube](https://www.youtube.com/watch?v=d2z78guUR4g&ab_channel=ByteMonk)
 - [deepseek 🗨️](https://chat.deepseek.com/a/chat/s/81394dc5-20ff-45bb-8fc3-001520d7ef4f)
 - Concept of a long-running, interconnected sequence of operations, like a "saga" in storytelling
@@ -23,6 +41,3 @@ Implement compensation actions for rollback (e.g., CancelOrder, RefundPayment).
 Use Case: 
 Order processing in e-commerce (inventory, payment, shipping services).
 ```
-- SAGA vs 2PC (2 phase commit)
-![img_1.png](../SD_99_img/03/img_1.png)
-

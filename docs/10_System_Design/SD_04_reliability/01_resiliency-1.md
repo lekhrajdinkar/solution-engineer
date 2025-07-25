@@ -1,4 +1,5 @@
-## Circuit Breaker
+## 1 with messaging Queues
+## 2 with Circuit Breaker pattern in MS
 ```text
 Purpose: 
 Prevent cascading failures in distributed systems.
@@ -11,3 +12,4 @@ Implement fallback mechanisms (e.g., cached responses, default values).
 Use Case: 
 Microservices calling external APIs (e.g., payment gateways, third-party services).
 ```
+

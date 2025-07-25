@@ -249,17 +249,17 @@ nav:
           - index: 00_Springboot/05_spring-batch-ETL/00_index.md
           - SpringBatch: 00_Springboot/05_spring-batch-ETL/01_SpringBatch-start.md
 
-  - Messaging:
-      - Messaging Protocols: 06_messaging/01_messaging_protocols.md
+  - MessageBroker:
+      - Messaging Protocols: 06_message-broker/01_messaging_protocols.md
+      - More: 06_message-broker/02_more.md
       - ✅Kafka:
-          - Getting Started: 06_messaging/kakfa/Notes_01-start.md
-          #- CLI Commands (.sh): 06_messaging/kakfa/Notes_02-cli.sh
-          - Extended Notes: 06_messaging/kakfa/Notes_04_extended.md
-          - Wikimedia Project: 06_messaging/kakfa/Notes_03_project_wikimedia.md
-          - Case Studies: 06_messaging/kakfa/Notes_05_case-studies.md
+          - Getting Started: 06_message-broker/kakfa/Notes_01-start.md
+          - Extended Notes: 06_message-broker/kakfa/Notes_04_extended.md
+          - Wikimedia Project: 06_message-broker/kakfa/Notes_03_project_wikimedia.md
+          - Case Studies: 06_message-broker/kakfa/Notes_05_case-studies.md
       - ✅RabbitMQ:
-          - Kickoff: 06_messaging/rmq/01_kickoff.md
-          - project-1(java): 06_messaging/rmq/02_project.md
+          - Kickoff: 06_message-broker/rmq/01_kickoff.md
+          - project-1(java): 06_message-broker/rmq/02_project.md
 
   - Database:
       - Postgres RDBMS:
@@ -291,33 +291,36 @@ nav:
       - 🔸Theorem and Patterns:
           - CAP : 10_System_Design/SD_00_theorum+patterns/00_CAP.md
           - tech_stack : 10_System_Design/SD_00_theorum+patterns/00_tech_stack.md
+          - concepts : 10_System_Design/SD_00_theorum+patterns/03_concepts.md
       - 🔸High performance:
           - Start: 10_System_Design/SD_01_performance/01_start.md
       - 🔸High Availability:
           - Start: 10_System_Design/SD_02_Availability/01_start.md
       - 🔸Scalability:
-          - Start: 10_System_Design/SD_03_scalability/01-start.md
+          - services: 10_System_Design/SD_03_scalability/01-services.md
+          - Database: 10_System_Design/SD_03_scalability/02-db+storage.md
           - Microservices:
-              - monolith: 10_System_Design/SD_03_scalability/miscroservice/00_monolith_vs_ms.md
-              - microservice comm: 10_System_Design/SD_03_scalability/miscroservice/03_ms_comm.md
-              - Deployment: 10_System_Design/SD_03_scalability/miscroservice/04_ms_deployment.md
-              - Container orchestration: 10_System_Design/SD_03_scalability/miscroservice/02_ms_orchestration.md
-              - API design 1: 10_System_Design/SD_03_scalability/miscroservice/03_01_API.md
-              - API design 2: 10_System_Design/SD_03_scalability/miscroservice/03_02_API.md
-      - 🔸Reliability + Durability:
-          - Start: 10_System_Design/SD_04_reliability+durability/01_reliable-start.md
+              - monolith: 10_System_Design/SD_03_scalability/micro-service/00_monolith_vs_ms.md
+              - microservice comm: 10_System_Design/SD_03_scalability/micro-service/03_ms_comm.md
+              - Deployment: 10_System_Design/SD_03_scalability/micro-service/04_ms_deployment.md
+              - Container orchestration: 10_System_Design/SD_03_scalability/micro-service/02_ms_orchestration.md
+              - API design 1: 10_System_Design/SD_03_scalability/micro-service/03_01_API.md
+              - API design 2: 10_System_Design/SD_03_scalability/micro-service/03_02_API.md
+      - 🔸Reliability:
+          - resilient: 10_System_Design/SD_04_reliability/01_resiliency-1.md
+          - durable: 10_System_Design/SD_04_reliability/02_durability-1.md
       - 🔸Distributed system:
           - Start: 10_System_Design/SD_05_Distributed/01_distributed-start.md
       - 🔸Observability:
           - Start: 10_System_Design/SD_06_obs/01_Obs_start.md
       - 🔸Security:
+          - JWT: 10_System_Design/SD_07_security/01_JWT.md
           - OAuth2.0 & OIDC: 10_System_Design/SD_07_security/04_03_OAUth+OIDC.md
           - SAML: 10_System_Design/SD_07_security/04_02_SAML.md
           - Public Key Infrastructure (PKI): 10_System_Design/SD_07_security/04_01_PKI.md
       - 🔸Database + storage:
           - Start: 10_System_Design/SD_08_Storage+database/01_start.md
-          - DB: 10_System_Design/SD_08_Storage+database/02_database.md
-          - distributed DB: 10_System_Design/SD_08_Storage+database/02_distributed_database.md
+          - Design Patterns: 10_System_Design/SD_08_Storage+database/02_design_patterns.md
 
       - ✅Systems:
           - System-1(app-6):
