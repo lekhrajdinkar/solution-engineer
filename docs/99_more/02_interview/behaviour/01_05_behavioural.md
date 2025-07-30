@@ -79,16 +79,44 @@
 
 ---
 ## ✔️B. influencing / persuasion / convince
-- convincing on your side - peer and seniors
+- convincing on your side - peer and seniors, junior
 - **Disagreement**
+```
+== Tips ==
+  - 5 mistakes in SD
+```
 
 ### 1. convince system design
-### 2. convince senior 
-### 
 
+
+### 2. convince senior 
+- **story-1**
+    - app-6's inbound module 🔸
+    - senior over did engineer - aws glue job, cluster serverless, hourly pay
+    - I advised, max 2 GB csv coming daily and  single server could handle, no cluster needed for processing 
+    - advised to write custom etl code with pyspark.
+    - start with ECS cluster task with task=1. will scale task count horizontally in the future.
+
+- **story-2**
+   
+
+### 3. Convince junior
+- Daily doing at offshore call
+- **Decision taken for offshore** ? ❓
+- offshore usually jumping into implementation directly, with **implementation design** 🔸
+   - kafka with single system, initially
+   - later on new partner added comet,ois,idh,etc
+   - IAC refactor to create topic with same okta (1-M vs 1-1)
+   - wrote java interface + updated spring-boot properties to show my design : serializer
+   - code review : redundant code  for  connection
+
+---
 ## ✔️C. Ethical / moral / integrity
 
 ### how did you react when someone at work behave unethically
+
+
+
 
 
 

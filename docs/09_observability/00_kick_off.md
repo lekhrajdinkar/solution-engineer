@@ -1,102 +1,95 @@
-## references
-- https://chat.deepseek.com/a/chat/s/60acbcc7-ec7d-4980-8b85-5fa9d2a82f9f forwards logs java1
-- https://chat.deepseek.com/a/chat/s/577558f7-a977-4e8b-b64d-ac8647bcb825 forwards logs java2
-- in progress
+## ✅ Observe :: Micro services (Distributed System)
+### 1. HTTP-Requests metrics
+- Latency, errors, retries 🔸
+- **Latency** : rpc > http > https
+- **throughput**: no of request per/min
+    - Performance per endpoint (GET/POST/PUT/DELETE)
+- **error rates** (status codes 4xx/5xx)
+- **Custom Business Metrics**: 
+```    
+    - no of etf 
+    - no on mf
+    - series yet to approved
+    - re-balance/allocation
+    - how many times cash adjusted
+    - ...
+```
+- **ms communication**
+  - retries : Attempt counts, exponential backoff stats
+  - circuit breaker : State (open/closed/half-open), failure rates
+  - ratelimit at ms level
+  - Dist tracing, Request Flow: Latency across service boundaries
+  - Rate Limiting: Throttled requests
+
+- **External paid Service**: eg:
+  - pricing api
+  - one tick api
+  
+### 2. Infrastructure Metrics
+#### compute
+- **lambda metric**
+- **container** : EKS pod or ECS task
+    - Pod Resource Usage: CPU/memory
+    - Restarts: Crash loop detection
+    - Liveness/Readiness: Health check statuses
+      - Heartbeats: Service alive checks
+    - **CPU Usage**: Process and system-level CPU consumption
+    - **Memory Usage**: Heap, non-heap, buffer pools (JVM), RSS (native)
+    - **Network**: Bandwidth, connections, errors
+
+#### Storage | DB | Cache
+- **Storage**: EBS | EFS | s3
+- **Database** :  
+     - Aurora serverless metric 
+         - R count, W count, replication delay, ACU
+         - Transaction Rates: Commits, rollbacks, deadlocks
+         - Connection Pools: Active/idle connections, wait time
+         - Query Performance: Slow queries, latency percentiles
+     - DynamoDB : RCU, RCU
+- **cache**
+    - Hit/Miss Ratios: Cache effectiveness
+    - Evictions: Items evicted due to size limits
+    - Latency: Read/write times for cache operations
+
+#### Message Queue/Event Metrics
+- sqs,sns,eb
+- Queue Length: Messages waiting to be processed
+- Processing Time: Consumer lag, throughput
+- Errors: Failed deliveries, retries
 
 ---
-## what are common things in microservices, developer instruments
-```text
-Here are the common elements developers instrument in microservices for monitoring with tools like Prometheus:
+### 3.1 JVM Metrics
+- Garbage Collection: GC cycles, pause times, memory reclaimed
+- Threads: Active, daemon, deadlocked threads
+- Class Loading: Loaded/unloaded classes
+- JVM Uptime: Time since last restart
 
-1. Application Metrics
-   HTTP Requests: Latency, throughput, error rates (status codes 4xx/5xx)
+### 3.1 Python Metrics
+- ...
 
-API Endpoints: Performance per endpoint (GET/POST/PUT/DELETE)
+### 4 Logging & Errors
+- Error Rates: Exceptions
+- log error patterns
 
-Custom Business Metrics: Transactions processed, orders placed, etc.
 
-2. System/Infrastructure Metrics
-   CPU Usage: Process and system-level CPU consumption
+### 5. Cron job Task Metrics:  
+- durations
+- success/failure   
+- Dependency Map:  Service-to-service call patterns
 
-Memory Usage: Heap, non-heap, buffer pools (JVM), RSS (native)
+### 6. Security Metrics
+- Authentication Attempts: Success/failure rates
+- load balancer
+- ACM
 
-Disk I/O: Read/write operations, latency
+---
+## ✅ Key Considerations
+- Labels/Dimensions: Environment, service name, version, region
+- Cardinality Management: Avoid high-cardinality labels
+- Sampling: For high-volume metrics
+- Alerting Rules: Define meaningful thresholds
 
-Network: Bandwidth, connections, errors
-
-File Descriptors: Open files/sockets
-
-3. JVM Metrics (For Java Services)
-   Garbage Collection: GC cycles, pause times, memory reclaimed
-
-Threads: Active, daemon, deadlocked threads
-
-Class Loading: Loaded/unloaded classes
-
-JVM Uptime: Time since last restart
-
-4. Database Metrics
-   Connection Pools: Active/idle connections, wait time
-
-Query Performance: Slow queries, latency percentiles
-
-Transaction Rates: Commits, rollbacks, deadlocks
-
-5. Cache Metrics
-   Hit/Miss Ratios: Cache effectiveness
-
-Evictions: Items evicted due to size limits
-
-Latency: Read/write times for cache operations
-
-6. Message Queue/Event Metrics
-   Queue Length: Messages waiting to be processed
-
-Processing Time: Consumer lag, throughput
-
-Errors: Failed deliveries, retries
-
-7. External Service Dependencies
-   HTTP Clients: Latency, errors, retries (outbound calls)
-
-Circuit Breakers: State (open/closed/half-open), failure rates
-
-Retries: Attempt counts, exponential backoff stats
-
-8. Kubernetes/Container Metrics (If Applicable)
-   Pod Resource Usage: CPU/memory requests vs. usage
-
-Restarts: Crash loop detection
-
-Liveness/Readiness: Health check statuses
-
-9. Logging & Errors
-   Error Rates: Exceptions, log error patterns
-
-Warning Signals: Unusual but non-critical events
-
-10. Synthetic Metrics (Proactive Monitoring)
-    Heartbeats: Service alive checks
-
-Scheduled Task Metrics: Cron job durations, success/failure
-
-11. Distributed Tracing Metrics
-    Request Flow: Latency across service boundaries
-
-Dependency Map: Service-to-service call patterns
-
-12. Security Metrics
-    Authentication Attempts: Success/failure rates
-
-Rate Limiting: Throttled requests
-
-Key Non-Metric Considerations
-Labels/Dimensions: Environment, service name, version, region
-
-Cardinality Management: Avoid high-cardinality labels
-
-Sampling: For high-volume metrics
-
-Alerting Rules: Define meaningful thresholds
-
-```
+---
+## ✅ references
+- https://chat.deepseek.com/a/chat/s/60acbcc7-ec7d-4980-8b85-5fa9d2a82f9f forwards logs java1
+- https://chat.deepseek.com/a/chat/s/577558f7-a977-4e8b-b64d-ac8647bcb825 forwards logs java2
