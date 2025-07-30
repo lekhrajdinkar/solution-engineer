@@ -1,5 +1,5 @@
 # Datadog
-- DASHBOARD : https://us5.datadoghq.com/dashboard/lists?p=1
+- DASHBOARD : https://us5.datadoghq.com/dashboard/lists?p=1 | ldus@g
 --- 
 ## 1. Kubernetes - Install the Datadog-Agent
 - reference:
@@ -15,7 +15,7 @@
     # install the Datadog Operator 
     helm repo add datadog https://helm.datadoghq.com
     helm install datadog-operator datadog/datadog-operator --namespace=datadog  --set datadog.logs.containerCollectAll=true
-    kubectl create secret generic datadog-secret --from-literal api-key=2ba01eb9cb57e01bae167c008872c752 -n datadog
+    kubectl create secret generic datadog-secret --from-literal api-key=xxxxxxxxxxxxxxxxxxxxxxx -n datadog
     --- d o n e ---
     
     helm get manifest datadog-operator -n datadog > datadog-operator-manifest.yaml
