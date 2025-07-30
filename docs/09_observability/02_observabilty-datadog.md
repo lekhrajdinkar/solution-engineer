@@ -2,24 +2,27 @@
 - DASHBOARD : https://us5.datadoghq.com/dashboard/lists?p=1 | ldus@g
 --- 
 ## 1. Kubernetes - Install the Datadog-Agent
-- reference:
+- Reference:
   - https://us5.datadoghq.com/signup/agent?platform=kubernetes
   - https://docs.datadoghq.com/containers/kubernetes/distributions/?tab=datadogoperator
   - OpenTelemetry Collector : https://docs.datadoghq.com/opentelemetry/setup/ddot_collector/
   
-- **Step-1** Install the **Datadog Operator**
+- **Step-1** Install the **Datadog Operator** in k8s cluster
   - manage your Datadog Cluster Agents
-    ```yaml
+    ```bash
     kubectl create namespace datadog 
   
-    # install the Datadog Operator 
+    # ✔️install the Datadog Operator, from helm
+    # release name : datadog-operator
     helm repo add datadog https://helm.datadoghq.com
     helm install datadog-operator datadog/datadog-operator --namespace=datadog  --set datadog.logs.containerCollectAll=true
-    kubectl create secret generic datadog-secret --from-literal api-key=xxxxxxxxxxxxxxxxxxxxxxx -n datadog
-    --- d o n e ---
+    kubectl create secret generic datadog-secret --from-literal api-key=XXXX -n datadog
+    # get api-key= from aws secret manager
     
+    # ✔️check manifest post install
     helm get manifest datadog-operator -n datadog > datadog-operator-manifest.yaml
-    ---
+    
+    # ✔️check helm release
     helm list -n datadog
     NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
     datadog-operator        datadog         1               2025-06-04 17:40:48.5564105 -0700 PDT   deployed        datadog-operator-2.9.2  1.14.0
