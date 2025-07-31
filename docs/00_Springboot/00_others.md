@@ -10,6 +10,7 @@
 ## git
 - merge vs rebase : https://chatgpt.com/c/325c3956-8c00-4d9f-8056-9350020cc1fc
 - interview question : https://chatgpt.com/c/67428185-c2e4-800d-a691-97f034a12433
+- bbgo : http://youtube.com/post/Ugkxyu-gn0pFn8ERIJ9Edwmpjn67cLr2kDxx?feature=shared | essential
 
 ## model mapper
 - kickoff : https://chatgpt.com/c/6742d97f-5798-800d-bf8e-f0f0939ae338
