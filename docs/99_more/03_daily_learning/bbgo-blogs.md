@@ -65,9 +65,12 @@
 - http://youtube.com/post/UgkxqQ0HX7efAlYLoaVevP2arF5syQMb_gja?feature=shared | How to Learn Databases 
 - http://youtube.com/post/Ugkx8-t9pQQqug7XlQCyEDpY2TGJtE1KuGPi?feature=shared | Database :: Data Structures 1
 - http://youtube.com/post/UgkxC14_n0hdN8YZHXEa_KeWlgNbUprjbvMA?feature=shared | Database :: Data Structures 2 
-- http://youtube.com/post/Ugkx39ZUx1nXK1PZsxanKxp6jUlsRoMVvLgs?feature=shared | Database Index🔸
+- https://blog.bytebytego.com/p/database-index-internals-understanding?utm_source=substack&utm_medium=email | Database Index 1🔸
+- https://blog.bytebytego.com/p/consistency-and-partition-tolerance?utm_source=substack&utm_medium=email    | Database Index 2
 - http://youtube.com/post/UgkxWMhcK0DUjeITG8DGj2DVQ4bj_D7zGJSK?feature=shared | Normalization 🔸
 - http://youtube.com/post/UgkxgI1e28CdG5UtHOPomzv6gP17knkpWE2l?feature=shared | SQL Joins Types
+- https://blog.bytebytego.com/p/a-guide-to-database-sharding-key?utm_source=substack&utm_medium=email | **sharding** Strategies
+- https://blog.bytebytego.com/p/a-guide-to-database-replication-key?utm_source=substack&utm_medium=email | **Database Replication** Strategies
 
 #### 🔹NoSQL
 - ...
@@ -89,6 +92,11 @@
 - http://youtube.com/post/Ugkx2U_ma2QmG6Fz2BBr_dEhG1v4l4eBJVHd?feature=shared | SSO 2
 - http://youtube.com/post/Ugkxhc6xVI-EwpHjijziVLLVe_USqMQJpl2I?feature=shared | OAuth2.0
 
+## System Design :: theorems
+- https://blog.bytebytego.com/p/top-leader-election-algorithms-in | CAP vs PACELC
+- 
+
+---
 ## ✅system Design :: case study 🔸
 - http://youtube.com/post/UgkxVjodgmangJZ_pdj1vEtFKvkFun7sgrG-?feature=shared | papers
 ### 🔹shopify
@@ -99,6 +107,7 @@
 ### 🔹payment system
 - http://youtube.com/post/UgkxVqGK_bc_VivnsxsaQLIuY47JX_lGb1W0?feature=shared | scan to pay 
 - http://youtube.com/post/UgkxGvw1HtCKogJZlgGcDQk09gRn4-9WzMN4?feature=shared
+
 
 ---
 ## ✔️web 
