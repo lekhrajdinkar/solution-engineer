@@ -28,7 +28,7 @@
 ### 🔸Programming
 
 ---
-## ✔️july
+## ✔️july ✅
 ### 🔸Programming
 - **leetcode** 50 problems 
 - java techie : spring-modulith, virtual thread
@@ -52,7 +52,7 @@
     - keep token in apple notes / password manager
 
 ---
-## ✔️June
+## ✔️June ✅
 ### 🔸AI
 - udemy **AWS AI practitioner** course started / stephane
 - poc: **RAG**, prompt engineering
