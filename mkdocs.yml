@@ -285,32 +285,6 @@ nav:
       - Datadog: 100_observability/02_observabilty-datadog.md
       - Datadog Agent Config (YAML): 100_observability/datadog-agent.yaml
 
-  # =========================================================================
-
-
-  - interview:
-      - 🔸behaviour:
-        - behaviour 1 (Teamwork) : 99_more/02_interview_behaviour/01_01_teamwork.md
-        - behaviour 2 (leadership) : 99_more/02_interview_behaviour/01_02_leadership.md
-        - behaviour 3 (Resilience) : 99_more/02_interview_behaviour/01_03_Resilient.md
-        - behaviour 4 (skills) : 99_more/02_interview_behaviour/01_04_tech_skills.md
-        - behaviour 5 (more) : 99_more/02_interview_behaviour/01_05_behavioural_more.md
-
-      - 🔸general coding :
-          - best practice: 99_more/02_interview/coding-int/01_code_patterns.md
-          - coding patterns: 99_more/02_interview/coding-int/00_03_code_best_practice.md
-      - 📚Revision/s :
-          - revision 0 : 99_more/01_revision/revision_01_2024.md
-          - revision 1 : 99_more/01_revision/revision_02_2025.md
-      - 📚️Brain dump :
-          - 2025 (app-6): 99_more/02_interview/brain-dump/2025.md
-          - 2022-24 app-6): 99_more/02_interview/brain-dump/2022-2024.md
-          - 2019-21 (app-4/5): 99_more/02_interview/brain-dump/2019-2021.md
-          - 2017-18 (app-1/2/3:on-shore): 99_more/02_interview/brain-dump/2017-2018.md
-          - 2012-16 (app-1/2/3:off-shore) : 99_more/02_interview/brain-dump/2012-2016.md
-  - learnings:
-      - 2025:  99_more/03_daily_learning/learning_2025.md
-
 extra_css:
   - mkdocs.css
 
