@@ -2,15 +2,8 @@
 # mkdocs gh-deploy
 # mkdocs serve | build
 
-site_name: Study Notes 2025
+site_name: System Design 2025
 site_description: Technical Documentation
-#site_author:
-
-extra_javascript:
-  - mkdocs.js
-
-# docs_dir: .
-# Navigation based on your Notes folder
 nav:
   - Docker:
         - Architecture: 02_docker/00_architecture.md
@@ -261,24 +254,7 @@ nav:
           - Kickoff: 06_message-broker/rmq/01_kickoff.md
           - project-1(java): 06_message-broker/rmq/02_project.md
 
-  - Database:
-      - Postgres RDBMS:
-          - start: 08_Database/01_rdbms/00_postgress.md
-          - Data Types: 08_Database/01_rdbms/01_datatype.md
-          - Constraints: 08_Database/01_rdbms/02_constraints.md
-          - Normalization: 08_Database/01_rdbms/00_Normalization.md
-          - Index: 08_Database/01_rdbms/00_db_index.md
-          - DDL: 08_Database/01_rdbms/02_ddl.md
-          - DML: 08_Database/01_rdbms/02_dml.md
-          - DQL: 08_Database/01_rdbms/02_dql.md
-          - DCL: 08_Database/01_rdbms/03_dcl.md
-          - ACID & Locks: 08_Database/01_rdbms/07_ACID+Locks.md
-          - Functions: 08_Database/01_rdbms/04_function.md
-          - CTE: 08_Database/01_rdbms/05_CTE.md
-          - Views: 08_Database/01_rdbms/06_view.md
-          - partitioning: 08_Database/01_rdbms/10_partitioning.md
-          - Sharding: 08_Database/01_rdbms/10_sharding-rdbms.md
-          - Project-01 (Shopping App) : 08_Database/01_rdbms/shopping_app/readme.md
+
   - Observability:
       - Kickoff: 100_observability/00_project.md
       - Spring boot: 100_observability/01_Observability-spring.md
@@ -310,7 +286,7 @@ theme:
       accent: pink
 
 
-repo_url: https://github.com/lekhrajdinkar/02-backend-pack
+repo_url: https://github.com/lekhrajdinkar/solution-engineer
 repo_name: GitHub
 edit_uri: edit/main/Notes/
 
