@@ -1,0 +1,26 @@
+## CAP theorem
+- CAP = Consistency, Availability, Partition Tolerance
+- ➡️ In a **distributed system**, you can only guarantee two of the three at any time.
+
+| System            | Consistency | Availability | Partition Tolerance | CAP Type |
+| ----------------- | ----------- | ------------ | ------------------- | -------- |
+| **Kafka**         | ✅           | ❌            | ✅                   | **CP**   |
+| **Aurora Global** | ❌           | ✅            | ✅                   | **AP**   |
+| **DynamoDB**      | ❌ (default) | ✅            | ✅                   | **AP**   |
+
+```
+🔺 C – Consistency
+    Every read gets the most recent write.
+    Like a single up-to-date copy of data everywhere.
+    ✅ e.g., traditional RDBMS, quorum-based systems.
+
+🔺 A – Availability
+    Every request gets a non-error response, even if it’s not the latest data.
+    System remains responsive at all times.
+    ✅ e.g., DynamoDB (default), DNS
+
+🔺 P – Partition Tolerance
+    System continues to operate despite network failures between nodes.
+    You must tolerate partitions in any real distributed system.
+    ✅ e.g., all cloud-native distributed systems (Kafka, DynamoDB, etc.)
+```

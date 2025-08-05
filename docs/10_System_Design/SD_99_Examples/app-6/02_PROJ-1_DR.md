@@ -1,0 +1,27 @@
+- https://chat.deepseek.com/a/chat/s/ef2aa85a-50b7-4d00-bb42-44275dedf2ba
+---
+- RTo and RPO 
+- 4 strategies
+- runbook
+  - Aurora manual backup ?
+- Schedule quarterly DR drills
+- region replication : S3, SQS, SNS
+- r53 : fail over entry for 
+  - in helix account, app/pod - ingress controller > ingress > path app.c.com --> service1(k8s):selects - my pods
+  - in Aurora
+- light warm (0 scale)
+  - app on eks
+  - SNS, SQS, S3, secret, etc
+  - DB - global Db - standBy + active , with R53
+  - enable/ disable sqs trigger, event rule, s3 notification ,etc
+- IAC to spin up env
+- cd pipeline
+  - stage:deploy (pipeline param - region)
+  - assume role harness pipeline
+  - read ssm param > kubeconfig
+  - helm install (update it, keep same image, scale = 2)
+- DataDog metric
+  - pod health/metric
+- kafka cc
+  - 2 regions
+  - configure by env var.
