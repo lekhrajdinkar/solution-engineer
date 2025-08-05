@@ -1,0 +1,9 @@
+[submodule "microservice-python"]
+	path = microservice-python
+	url = https://github.com/lekhrajdinkar/microservice-python.git
+[submodule "microservice-java"]
+	path = microservice-java
+	url = https://github.com/lekhrajdinkar/microservice-java.git
+[submodule "genai"]
+	path = genai
+	url = https://github.com/lekhrajdinkar/genai.git

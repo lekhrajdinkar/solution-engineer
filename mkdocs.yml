@@ -2,7 +2,7 @@
 # mkdocs gh-deploy
 # mkdocs serve | build
 
-site_name: System Design 2025
+site_name: System Engineering 2025
 site_description: Technical Documentation
 nav:
   - Docker:
