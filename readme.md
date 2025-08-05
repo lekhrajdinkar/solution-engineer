@@ -1,47 +1,39 @@
-# Solution Engineer Knowledge Base
+# System Design 2025
 
-Welcome to the Solution Engineer Knowledge Base, a comprehensive collection of documentation, guides, and resources organized for effective learning and reference in Docker, Kubernetes, Terraform, AWS, and related technologies.
+**Technical Documentation Hub**
 
-## Overview
+Welcome to **System Design 2025**, comprehensive resource for modern backend, DevOps, and cloud system engineering. This documentation covers practical guides, architectural concepts, and hands-on labs on Docker, Kubernetes, Terraform, AWS, messaging systems, CI/CD, observability, and high-level system design.
 
-This repository is structured with **MkDocs** navigation in mind to provide clear and easy access to curated content for solution engineers. It covers a broad range of topics including containerization, orchestration, infrastructure as code, cloud, messaging, observability, and system design.
+## 🚀 Getting Started
 
-## How to Run MkDocs
-
-To serve and browse this documentation locally using MkDocs, follow these steps:
-
-1. **Install MkDocs** (if not already installed):
+1. **Clone the Repository**
 
 ```bash
-pip install mkdocs
+git clone <your-repo-url>
+cd <repo-directory>
 ```
 
-2. **Navigate to the root directory** of your documentation where the `mkdocs.yml` file is located:
+2. **Install mkdocs and Plugins**
 
 ```bash
-cd path/to/your/docs
+pip install mkdocs mkdocs-material
+# Add any required plugins here
 ```
 
-3. **Serve the documentation locally:**
+3. **Start the Documentation Site**
 
 ```bash
 mkdocs serve
 ```
 
-4. **Open your browser** and navigate to:
+4. **Preview**
+    - Open [http://localhost:8000](http://localhost:8000) in your browser.
 
-```
-http://127.0.0.1:8000/
-```
+---
 
-You will see a live preview of the documentation with the navigation as defined.
-5. **Build the static site** for deployment:
+## 📚 Documentation Structure
 
-```bash
-mkdocs build
-```
-
-This generates a `site/` folder with static HTML files you can deploy to any web server.
+The site is organized into the following key modules:
 ## Table of Contents
 
 ### Docker ✅
