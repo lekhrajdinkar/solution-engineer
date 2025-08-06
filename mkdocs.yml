@@ -231,7 +231,7 @@ nav:
       - Observability ☑️:
           - Start: 10_System_Design/SD_06_obs/01_Obs_start.md
       - Security ☑️:
-          - JWT: 10_System_Design/SD_07_security/01_JWT.md
+          - JWT: 10_System_Design/SD_07_security/01_start.md
           - OAuth2.0 & OIDC: 10_System_Design/SD_07_security/04_03_OAUth+OIDC.md
           - SAML: 10_System_Design/SD_07_security/04_02_SAML.md
           - Public Key Infrastructure (PKI): 10_System_Design/SD_07_security/04_01_PKI.md
