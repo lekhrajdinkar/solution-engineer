@@ -4,13 +4,13 @@
   - https://www.perplexity.ai/search/ssh-https-www-youtube-com-watc-ScmhmYP.RDe3ZxozAqsjMg
 - securely connect to and control remote machines
 - all with strong encryption protecting your session and credentials.
-- SSL handshake 
+- **Step-1 :: SSL handshake** 
   - public key exc + 
   - mutual generated same private key (without sharing over internet.)
 
 ![img.png](../SD_99_img/07/01-ssh/img.png)
 
-- next, **Authentication**
+- **Step-2 :: Authentication**
 
 ![img_1.png](../SD_99_img/07/01-ssh/img_1.png)
 

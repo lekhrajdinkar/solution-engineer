@@ -205,10 +205,11 @@ nav:
       #- Datadog Agent Config (YAML): 09_observability/datadog-agent.yaml
 
   - 💻System Design:
-      - Theorem and Patterns ☑️:
-          - CAP: 10_System_Design/SD_00_theorum+patterns/00_CAP.md
-          - tech_stack: 10_System_Design/SD_00_theorum+patterns/00_tech_stack.md
-          - concepts: 10_System_Design/SD_00_theorum+patterns/03_concepts.md
+      - start/kickoff ☑️:
+          - cap-theorem: 10_System_Design/SD_00_start/00_cap-theorem.md
+          - tech-stack-master-list-1: 10_System_Design/SD_00_start/01_technology-stack-master-list-1.md
+          - sd-core-concepts: 10_System_Design/SD_00_start/02_sd-core-concepts.md
+          - design-patterns: 10_System_Design/SD_00_start/03_design-patterns-1.md
       - High performance ☑️:
           - Start: 10_System_Design/SD_01_performance/01_start.md
       - High Availability ☑️:

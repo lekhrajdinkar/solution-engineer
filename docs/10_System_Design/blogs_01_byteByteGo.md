@@ -10,13 +10,13 @@
 - http://youtube.com/post/Ugkx_92r6HXAXHttGJ1abuoDpho6VxfuVA4D?feature=shared | Generative AI Learning Roadmap
 - http://youtube.com/post/Ugkx4n7vmuYD8TZg5lC6cVSiC_F3RWbbi4Za?feature=shared | AI Vs Machine Learning Vs Deep Learning Vs Generative AI 🔸
 - http://youtube.com/post/UgkxyLb8lutU8QVZNH8GGddkxs5AogF4pgWU?feature=shared | genAI Stack 1 
-- http://youtube.com/post/Ugkx9DmDL3BXNDemTLMdBUG0_tjnUyaW6tDn?feature=shared | genAI Stack 2 (openSource) 
+- http://youtube.com/post/Ugkx9DmDL3BXNDemTLMdBUG0_tjnUyaW6tDn?feature=shared | genAI Stack 2 (openSource)
 - http://youtube.com/post/UgkxdJ0F0S58vwtN5ybA8JzQiZ-LkhcT7U7Z?feature=shared | 20 AI concepts
 - http://youtube.com/post/UgkxpD91Wn6ly9bt65NraUh2YJaZ8mLZtbct?feature=shared | glossary
 
 ### ☑️Architecture
 - http://youtube.com/post/UgkxiGkglRO7ZeSJPZn1tImu3sVmiGJM3fCk?feature=shared | LLM Transformers Architecture
-- http://youtube.com/post/UgkxtXo68IX-nFdsI3zrxMuuBFm0d5jhOscA?feature=shared | OpenAI (MOE, tranasformer-layer)
+- http://youtube.com/post/UgkxtXo68IX-nFdsI3zrxMuuBFm0d5jhOscA?feature=shared | OpenAI (MOE, transformer-layer)
 - http://youtube.com/post/UgkxI5Mg7pol-Ij6-MOezHhAdo7X2C7dfGxO?feature=shared | LLM 2
 
 
@@ -24,6 +24,7 @@
 - http://youtube.com/post/Ugkx9AX0bdS2gXlJnpF2Yf2zJ-misc01w0ZM?feature=shared | AI agents
 - http://youtube.com/post/UgkxxoSKT6I5Zn8vH6t0ZJDKR75PK8YqYaJT?feature=shared | AI agents - concepts 🔸
 - http://youtube.com/post/UgkxiXywBvSf0H7210kdCyM5mRwTDZcCrFMr?feature=shared | Learning Roadmap
+- http://youtube.com/post/UgkxkB4mhVzgFxga-bCAiFky_plozQNHxDgD?feature=shared | AI agent frameworks
 - http://youtube.com/post/Ugkx7ph0csSOcDPOnjzBDO5Z5YZ0Y9KCFLAP?feature=shared | MCP vs A2A
 - http://youtube.com/post/Ugkx-1f7nHQpMTmtdUTvQlPRUiEWB3hqIN9u?feature=shared | 12 MCP server eg
 - http://youtube.com/post/UgkxKlMvjtSfaQXfATRoDnFI6yWbO5scNrgk?feature=shared | RAG vs Agentic RAG 🔸
@@ -53,6 +54,7 @@
 - http://youtube.com/post/UgkxXOstKzspQ_ZbzNuTANIFgAyGv5myw4SR?feature=shared | 20 Concepts
 - http://youtube.com/post/UgkxYRzkXIu17xCJjzXkcCGNTta1EDiDPyYa?feature=shared | 8 Concepts
 #### 🔹Architecture
+- http://youtube.com/post/Ugkxsp9vbQyhRMntjeafgymNL1C3G8LDJQOC?feature=shared | master Design list  👈🏻 
 - http://youtube.com/post/Ugkx2xmpT1gAZq6d1CXTfVxUCH66kmj7vSrg?feature=shared | System Design :: Topic Map 👈🏻
 - http://youtube.com/post/UgkxPaab93xLd-X_6AyWKRZQYTBsZh38EHoc?feature=shared | Architectural :: roadmap
 - http://youtube.com/post/Ugkxey0sLc10-r8Htfca9rMS8BTeeXW-aeJ_?feature=shared | Software
@@ -112,6 +114,7 @@
 - http://youtube.com/post/Ugkxs3Kf724NDauoctik_wP2doKwoHZYzQkJ?feature=shared | TCP
 - http://youtube.com/post/Ugkxs3Kf724NDauoctik_wP2doKwoHZYzQkJ?feature=shared | SSO 1
 - http://youtube.com/post/Ugkx2U_ma2QmG6Fz2BBr_dEhG1v4l4eBJVHd?feature=shared | SSO 2
+- http://youtube.com/post/UgkxEnxeNAdJChm3M-FJrEmUnXOEo2aMvFx1?feature=shared | SS0 3
 - http://youtube.com/post/Ugkxhc6xVI-EwpHjijziVLLVe_USqMQJpl2I?feature=shared | OAuth2.0
 
 
