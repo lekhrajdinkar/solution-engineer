@@ -24,11 +24,12 @@
 ![img.png](../../../99_img/2026/02/07/03/img.png)
 
 ### Long Polling
-- A variation where the server holds the client's request 
-- until data is available or a timeout occurs
-- This allows the server to "push" information, 
-- but clients still need to reconnect periodically after timeouts
-- https://www.youtube.com/watch?v=pnj3Jbho5Ck (02:00)
+- A variation where the server **holds the client's request** 
+  - `hanging GET (with timeout)` 👈🏻
+- until data is available **or** a timeout occurs
+  - This allows the server to "push" information, 
+  - but clients still need to reconnect periodically after timeouts
+  - https://www.youtube.com/watch?v=pnj3Jbho5Ck (02:00)
 
 **problem**: since holds client's request, thus resource intensive.
 
@@ -78,6 +79,30 @@ Async comm between client-server
 - **Content based filter** subscriber to filter data
 
 ---
+## ✔️fan-out (opposite of pull)
+**Concept**
+- `Twitter` 2012-2013 problem : https://www.youtube.com/watch?v=FEkXjNFrL1o
+```
+Twitter had 150 million users 
+ handled write - 6,000 tweets per second. 
+ Challenge-1:
+  - read requests: 300,000 requests per second to serve homepages
+    - User timeline 
+    - Home timeline
+  - Fix-1: Adding indices speeds up reads but slows down writes.
+           Since reads are more frequent than writes, this is a fair trade-off.
+           
+  - Fix-2: 
+    - pre-computed and stored user home timelines in a Redis cluster
+    - Twitter serves the cached timeline from Redis, significantly reducing latency
+    - When a user tweets, the tweet is replicated into the home timeline queue of each follower, 
+    - resulting in thousands of writes to redis, for a single tweet
+    - this is fanOut 👈🏻
+  
+```
+![img.png](../../../99_img/2026/02/07/04/img.png)
+
+---
 ## ✔️Peer 2 Peer
 https://www.youtube.com/watch?v=2v6KqRB7adg
 
@@ -96,21 +121,23 @@ https://www.youtube.com/watch?v=2v6KqRB7adg
 ---
 ## ✔️Web protocol
 
-### Rest (https/tls)
+### ➖ Rest (https/tls)
 
-### Web Socket (ws)
+### ➖ Web Socket (ws)
 - https://www.youtube.com/watch?v=pnj3Jbho5Ck
 - check Long Polling problem
+- **Full Duplex async messaging**
 - This protocol establishes a persistent, **bi-directional connection** between the client and server
+  - both can stream data 👈🏻
 - It allows for simultaneous sending and receiving of data
-  - over a single **TCP connection** (handshake, tcp, ws)
+  - over a single **TCP connection** (handshake, tcp, ws-handler)
   - eliminating latency issues found in long polling
 
 WebSockets are ideal for **real-time applications**
 ```
-Stock trading websites displaying live price fluctuations (4:27).
-Chat applications (4:35).
+Stock trading websites displaying live price fluctuations 
+Chat applications
 Gaming applications that require automatic UI refreshes
 ```
 
-### GRPC
+### ➖ GRPC

@@ -19,7 +19,10 @@
   - **batching** reduces n/w bandwidth bt 90%
   - **true parallelism** through partitioning
   - **fault tolerance** via replication
-  
+- Serialization
+  - data/pojo --> `json`(3 types) --> binary ---> topic 
+  - data/pojo --> `avro`(many types)--> binary ---> topic (production) ✔️
+  - De-serialization is reverse
 ---
 ## ✔️use cases
 - https://chatgpt.com/c/6748bff9-8df8-800d-8faa-ac5244853529
