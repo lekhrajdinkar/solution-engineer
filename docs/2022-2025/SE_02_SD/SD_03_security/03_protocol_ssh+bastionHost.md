@@ -28,11 +28,11 @@
   - aws > ec2 > create key-pair (type=rsa, file-format=.pem)
   - **github push** also uses ssh-channel
   
-![img.png](../SD_99_img/07/01-ssh/img.png)
+![img.png](../../../99_img/2025/se_02_sd/07/01-ssh/img.png)
 
 ### Step-2 : Authentication
 - key based authn
-![img_1.png](../SD_99_img/07/01-ssh/img_1.png)
+![img_1.png](../../../99_img/2025/se_02_sd/07/01-ssh/img_1.png)
 
 ---
 ## bastion host

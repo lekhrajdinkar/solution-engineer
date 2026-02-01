@@ -24,7 +24,7 @@ need to install in production first time. then upgrade it.
 trigger from CD pipeline-1 > stage: bashScript (run helm command)
 ```
 
-![img_1.png](../SE_02_SD/SD_99_img/03/img_1.png)
+![img_1.png](../../99_img/2025/se_02_sd/03/img_1.png)
 
 ```bash
 # install first time

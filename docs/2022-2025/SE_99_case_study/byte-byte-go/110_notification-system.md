@@ -1,4 +1,4 @@
-![img.png](../../SE_02_SD/SD_99_img/10/img.png)
+![img.png](../../../99_img/2025/se_02_sd/10/img.png)
 
-![img_1.png](../../SE_02_SD/SD_99_img/10/img_1.png)
+![img_1.png](../../../99_img/2025/se_02_sd/10/img_1.png)
 

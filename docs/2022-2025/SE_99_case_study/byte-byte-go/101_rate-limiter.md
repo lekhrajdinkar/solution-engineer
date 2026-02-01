@@ -1,1 +1,1 @@
-![img10-1.png](../../SE_02_SD/SD_99_img/10/img10-1.png)
+![img10-1.png](../../../99_img/2025/se_02_sd/10/img10-1.png)

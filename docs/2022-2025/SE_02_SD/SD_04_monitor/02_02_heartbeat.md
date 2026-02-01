@@ -46,7 +46,7 @@
 --- 
 ### 💠**heartbeat with quorum**
 ![img_1.png](../../../99_img/2026/04/01/img_1.png)
-- Leader-Based Heartbeats | [05_concept_01_LeaderElection.md](../SD_01_basics/05_concept_01_LeaderElection.md)
+- Leader-Based Heartbeats | [05_concept_01_LeaderElection.md](../SD_01_system/05_concept_01_LeaderElection.md)
 - majority vote is required to confirm availability. 
 - Leader Nodes send heartbeat signals to multiple peers foloweer nodes
 - Leader node is considered alive only if it receives a quorum (majority) of acknowledgment responses from its peers.
