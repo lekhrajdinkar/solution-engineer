@@ -30,21 +30,21 @@
 ## Heartbeat Detection Mechanisms
 ✔️**Based on network overhead and failure detection speed.**
 
-💠**Push-based models**
+### 💠**Push-based models**
 ![img.png](../../../99_img/2026/04/01/img.png)
 - Nodes actively send their heartbeat signals at regular intervals (frequent) to designated **monitoring systems**
 - Usefulness strict failure detection requirements
 - potentially **increasing network congestion**.
 
 --- 
-💠**pull-based models**
+### 💠**pull-based models**
 - A **central monitoring system** periodically (not frequent) sends "are you alive" requests
 - The other nodes then respond with a heartbeat message to **confirm their availability**.
 - Nodes do not send unsolicited messages, which **reduces overall network traffic**. 👈🏻
 - detected with a slight delay, since not frequent
 
 --- 
-💠**heartbeat with quorum**
+### 💠**heartbeat with quorum**
 ![img_1.png](../../../99_img/2026/04/01/img_1.png)
 - Leader-Based Heartbeats | [05_concept_01_LeaderElection.md](../SD_01_basics/05_concept_01_LeaderElection.md)
 - majority vote is required to confirm availability. 
@@ -58,7 +58,7 @@
   - Managing and reaching quorum consensus adds complexity to the system.
 
 ---
-💠**Gossip Protocols**
+### 💠**Gossip Protocols**
 - used in CDN and any peer2peer n/w
 - Servers share heartbeat information with **immediate neighbor node**
 - who then propagate it, ensuring everyone stays informed
