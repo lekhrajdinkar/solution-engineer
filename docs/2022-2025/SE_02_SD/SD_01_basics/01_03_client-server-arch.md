@@ -6,7 +6,7 @@
 
 ---
 ## ✔️Polling
-### Short Polling
+### ➖Short Polling
 - https://www.youtube.com/watch?v=b4qyOpGg748
 - client repeatedly requests data from a server **at set intervals** 
   - using any network protocol.eg: https, etc
@@ -23,7 +23,7 @@
 
 ![img.png](../../../99_img/2026/02/07/03/img.png)
 
-### Long Polling
+### ➖Long Polling
 - A variation where the server **holds the client's request** 
   - `hanging GET (with timeout)` 👈🏻
 - until data is available **or** a timeout occurs
@@ -141,4 +141,27 @@ Chat applications
 Gaming applications that require automatic UI refreshes
 ```
 
+### ➖ SSE / server sent event
+- designed for streaming **textual data** over HTTP
+- SSE is a unidirectional protocol
+- server pushes data to the client over a single, long-lived HTTP connection.
+
 ### ➖ GRPC
+
+---
+## ✔️Videos Streaming / ABS
+- https://www.youtube.com/watch?v=kCAXpAikMVc
+- ABS **Adaptive Bitrate Streaming**
+  - adjusts video quality based on the viewer's internet
+  - ABS works by encoding video at **multiple bitrates**
+- Types of Video Streaming
+  - Live streaming: 
+  - On-demand streaming
+  - Peer-to-peer streaming: Distributing content where viewers share their bandwidth and computing resources
+### ➖DASH - Dynamic Adaptive Streaming over HTTP 
+popular
+
+![img.png](img.png)
+### ➖HLS - HTTP Live Streaming
+### ➖RTMP - realTime messaging Prot
+
