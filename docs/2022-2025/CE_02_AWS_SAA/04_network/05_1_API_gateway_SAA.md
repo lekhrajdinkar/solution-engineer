@@ -2,23 +2,27 @@
 --- 
 # API gateway (Serverless)
 ## A. Intro
-- **API** ( `REST API`** , `http API` ,`websocket API`), with other benefit:
-  - **caching**
-  - API **versioning** : enable
-  - API **documentation** : enable SDK/doc generation
-  - **interceptor** : `mapping template` to transform req/resp (json/xml only)
-  - more:
-    - **No infrastructure** to manage. :)
-    - create **environment**  - dev,qa,prod
-    - **throttling** - rate limiting
-      - has default setting to prevent from DDoS :dart:
-    - **security** - check below.
-    - **import**
-      - already have pre-define API
-      - from Swagger/OpenAPI
-      - req/resp body schema validation
+**Supports 3 types API** 
+- REST API  ✔️
+- HTTP API 
+- Websocket API
+
+**Feature**:
+- centralized security
+- throttling call / rate-limiting,  prevent from DDoS
+- caching API response
+- interceptor : `mapping template` to transform req/resp (json/xml only)
+- **Developer feature**:
+  - API versioning : enable
+  - API doc : enable SDK/doc generation
+  - create **environment**  - dev,qa,prod
+  - **import existing API**
+    - already have pre-define API
+    - from Swagger/OpenAPI
+    - req/resp body schema validation
+    
 ---
-## B. API gateway: integration :books:
+## B. API gateway: integration 📚
 ### B.1. **Backend**
 - can have **multiple backend** and create **forwarding/transformation rule** at api-gateway level as well. :point_left:
   - use it **gateway for microservice**

@@ -22,4 +22,6 @@
   - **Enhances security** by hiding the original web server's information
   - cache static assets like images and HTML
   - LB, distribute requests among multiple servers
-- eg: control panel in K8s 👈🏻
+- eg: 
+  - control panel in K8s 👈🏻
+  - API-gateway in microServices 👈🏻
