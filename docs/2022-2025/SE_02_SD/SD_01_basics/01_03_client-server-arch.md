@@ -108,6 +108,8 @@ https://www.youtube.com/watch?v=2v6KqRB7adg
 
 ![img.png](../../../99_img/2026/02/07/02/img.png) ![img_1.png](../../../99_img/2026/02/07/02/img_1.png)
 
+![img_2.png](../../../99_img/2026/04/01/01/img_2.png)
+
 **Example of transferring large video files to thousands of machines**
 1. single server approach (10 videos, 5GB each) - `15 min`
 2. sharding, 5 server (2 videos each, 5GB each) - `15/5 = 3 min`
@@ -199,7 +201,7 @@ WebSockets are ideal for:
   - reduce latency, 
   - and are crucial in modern microservices architectures for enabling system decoupling
 
-![img_1.png](img_1.png)
+![img_1.png](../../../99_img/2026/04/01/01/img_1.png)
 
 ### Async processing
 - push to message broker - SQS, Kafka, rmq 👈🏻
@@ -221,7 +223,7 @@ WebSockets are ideal for:
 ### ➖DASH - Dynamic Adaptive Streaming over HTTP 
 popular
 
-![img.png](img.png)
+![img.png](../../../99_img/2026/04/01/01/img.png)
 ### ➖HLS - HTTP Live Streaming
 ### ➖RTMP - realTime messaging Prot
 
