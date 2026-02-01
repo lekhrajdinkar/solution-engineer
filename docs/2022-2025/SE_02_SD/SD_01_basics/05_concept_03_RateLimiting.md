@@ -18,6 +18,7 @@
 ## Algo
 https://bytebytego.com/courses/system-design-interview/design-a-rate-limiter
 
+---
 **Token bucket** 
 - bucket with token, refilled at interval  === **Refill rate**
 - but with pre-defined capacity (to hold limited token)  === **Bucket size**
@@ -25,15 +26,17 @@ https://bytebytego.com/courses/system-design-interview/design-a-rate-limiter
 
 ![img_2.png](../../../99_img/2026/02/07/04/img_2.png)
 
+---
 **Leaking bucket** (no token)
 - Bucket has **capacity** (to hold request)  === **Bucket size**
 - bucket has **leak**, for constant rate processing === `FIFO queue`
 
 ![img_3.png](../../../99_img/2026/02/07/04/img_3.png)
 
+---
 **Fixed window counter**
 - divides the timeline into fix-sized time windows 
-- and assign a **counter** + threshold,  for each window
+- and assign a **threshold counter** ,  for each window
 - Each request:
   - increments the counter by one.
   - NOT logging request-time 🔺
@@ -41,6 +44,7 @@ https://bytebytego.com/courses/system-design-interview/design-a-rate-limiter
 - problem:  **burst of traffic at the edges of time windows**
   - ![img_4.png](../../../99_img/2026/02/07/04/img_4.png)
 
+---
 **Sliding window log**
 - variation for above to fix that edge burst problem
 - algo:
@@ -52,4 +56,5 @@ https://bytebytego.com/courses/system-design-interview/design-a-rate-limiter
 
 ![img_5.png](../../../99_img/2026/02/07/04/img_5.png)
 
+---
 **Sliding window counter**
