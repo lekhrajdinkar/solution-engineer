@@ -11,7 +11,7 @@
 - tg > sg
 
 ---
-# B. EKS [04_EKS](../../PE_02_Kubernetes/04_EKS)
+# B. EKS [04_EKS](../PE_02_Kubernetes/04_EKS)
 ## 1 Expose with TLS
 - **clusterIP service** for app-service>pod
 - platform team added

@@ -1,4 +1,7 @@
-# System Design
+#  Design - Distributed System
+
+> key problems and solutions around : **Network partition** 🌐
+
 ## Artifacts
 ### ByteByteGo
 - https://blog.bytebytego.com/p/free-system-design-pdf-158-pages | Digital Archive 2024
