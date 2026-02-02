@@ -1,5 +1,5 @@
-# metrics
-## latency
+# Metrics
+## ✔️ latency
 - performance metrics
 - tradeoff : latency vs accuracy.
 - time it takes for data to travel from one point in a system to another.
@@ -17,8 +17,18 @@ read 1MB for Data from:
 So there is latency always. no need to remeber, just of idea.
 ```
 
+**Evaluate** https://www.youtube.com/watch?v=lJ4NEMNBeS4
+- P90 Latency : evaluate user experience, check on aws metrics
+- P95 Latency :
+- P99 Latency :
+- Median latency: 
+
+> percentile : sort the data set and determining the index position of the desired percentile
+> Median : sort the data set and determining the (mid+midNext)/2
+> 
+
 ---
-## throughput
+## ✔️ Throughput
 - performance metrics
 - the amount of work a computer can perform within a given time.
 - could be:
@@ -27,5 +37,5 @@ So there is latency always. no need to remeber, just of idea.
   - ...
 
 ---
-## bitrate
+## ✔️ Bitrate
 - use to measure video streaming

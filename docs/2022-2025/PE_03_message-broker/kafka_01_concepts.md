@@ -1,5 +1,6 @@
 # kafka Concepts
 ## ✔️Overview
+- [http://youtube.com/post/Ugkxofy9hY5YHsxp_Z433ksoys1QpnPeKjB2?feature=shared](http://youtube.com/post/Ugkxofy9hY5YHsxp_Z433ksoys1QpnPeKjB2?feature=shared)
 -  **real-time data streaming pipelines**. (primary task)
 - **data stream** : unbounded/endless sequence of data, with data throughput can high or low. eg:
     - Log Analysis - Log stream from multiple ms.
@@ -28,8 +29,8 @@
 - https://chatgpt.com/c/6748bff9-8df8-800d-8faa-ac5244853529
 ### 1 as a data integration layer
 - producer  and consumer system/s, with diff data-format + schema, protocol
-- ![img.png](../../../99_img/2025/pe_03/img-3.png)
-- ![img.png](../../../99_img/2025/pe_03/img.png)
+- ![img.png](../../99_img/2025/pe_03/img-3.png)
+- ![img.png](../../99_img/2025/pe_03/img.png)
 ### 2 Decouple systems
 ### 3 Microservice communication
 ### 4 Integration with Big Data technologies
@@ -39,8 +40,8 @@
 - collect logs
 - collect web user activity
 
-- ![img_1.png](../../../99_img/2025/pe_03/img_1.png)
-- ![img.png](../../../99_img/2025/pe_03/01/img.png)
+- ![img_1.png](../../99_img/2025/pe_03/img_1.png)
+- ![img.png](../../99_img/2025/pe_03/01/img.png)
 
 ---
 ## ✔️fundamental component
@@ -53,7 +54,7 @@
 - if we connect to any broker, then can discover and connect to other broker in the same cluster
     - Every broker in the cluster has metadata about all the other brokers
     - therefore any broker in the cluster is also called a `bootstrap server`.
-    - ![img_5.png](../../../99_img/2025/pe_03/01/img_5.png)
+    - ![img_5.png](../../99_img/2025/pe_03/01/img_5.png)
 
 --- 
 ### **1 topics**
@@ -105,7 +106,7 @@
   
   - RF=4 (invalid) :  must be <= no of broker
   ```
-- ![img_6.png](../../../99_img/2025/pe_03/01/img_6.png)
+- ![img_6.png](../../99_img/2025/pe_03/01/img_6.png)
 
 ---
 ### **2 producer**
@@ -123,7 +124,7 @@
     - use kafka 3+
     - detects duplicate and prevent it.
     - has retry ability with duplicate check.
-    - ![img.png](../../../99_img/2025/pe_03/01/img-99.png)
+    - ![img.png](../../99_img/2025/pe_03/01/img-99.png)
 
 - kafka 3+ sets below :point_left:
 ```
@@ -142,12 +143,12 @@
 - **High throughput producer**:
     - **partition class**
         - **RoundRobin**
-            - ![img_1.png](../../../99_img/2025/pe_03/04/img_1.png)
+            - ![img_1.png](../../99_img/2025/pe_03/04/img_1.png)
         - **sticky** (looks for batch.size + linger.ms)
             - **linger.ms = 10ms** # `accumulate` message for 10 ms and then send
             - **batch.size = 16000** # `accumulate` message till 16 kb and then publish
             - note: increase above values, to achieve High throughput
-            - ![img.png](../../../99_img/2025/pe_03/04/img.png)
+            - ![img.png](../../99_img/2025/pe_03/04/img.png)
     - compression (use **snappy**)
         - compression.type=snappy
         - spring.kafka.producer.properties.compression.type=snappy
@@ -162,7 +163,7 @@
         - true unless partition NOT chnages :point_left:
         - uses **hashing** `murmur2 algo`
 
-- ![img_1.png](../../../99_img/2025/pe_03/01/img_1.png)
+- ![img_1.png](../../99_img/2025/pe_03/01/img_1.png)
 - `Kafka Message Serializers` / `Kafka Message Deserializers`
     - IntegerSerializer
     - StringSerializer
@@ -180,10 +181,10 @@
 - each partition of topic is consumed by one consumer within a consumer group :point_left:
 - Messages are effectively divided among the consumers.
 - static consumer in group --> having `group.instance.id` is also set. :point_left:
-- ![img_2.png](../../../99_img/2025/pe_03/01/img_2.png)
-- ![img_3.png](../../../99_img/2025/pe_03/01/img_3.png)
-- ![img_4.png](../../../99_img/2025/pe_03/01/img_4.png)
-- ![img.png](../../../99_img/2025/pe_03/02/img.png)
+- ![img_2.png](../../99_img/2025/pe_03/01/img_2.png)
+- ![img_3.png](../../99_img/2025/pe_03/01/img_3.png)
+- ![img_4.png](../../99_img/2025/pe_03/01/img_4.png)
+- ![img.png](../../99_img/2025/pe_03/02/img.png)
 ```
 topic with 2 partition consumed by :
 - consumer-1
@@ -230,8 +231,8 @@ dividing the workload between the two partitions.
 - whenever consume leaves/joins group, rebalance happens
 - moving partition b/w consumers.
 - if static member leave the group and joins back within **session.timeout.ms**, the gets it original partition.
-- ![img.png](../../../99_img/2025/pe_03/03/img.png)
-- ![img_1.png](../../../99_img/2025/pe_03/03/img_1.png)
+- ![img.png](../../99_img/2025/pe_03/03/img.png)
+- ![img_1.png](../../99_img/2025/pe_03/03/img_1.png)
 
 #### **4.7 liveliness** :yellow_circle:
 - threads running on broker to check  of consumer/s:
@@ -286,7 +287,7 @@ dividing the workload between the two partitions.
     - stores configurations for topics and permissions.
     - does NOT store consumer offsets
     - ensemble / Zookeeper cluster: 3,5, 7,...
-    - ![img_1.png](../../../99_img/2025/pe_03/02/img_1.png)
+    - ![img_1.png](../../99_img/2025/pe_03/02/img_1.png)
 
 - **5.5 Kafka KRaft Mode**
 

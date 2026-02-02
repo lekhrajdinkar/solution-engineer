@@ -1,4 +1,12 @@
-## java springboot sample code
+# RMQ
+## Environment Setup
+```bash
+docker run -d --hostname my-rabbit --name my-rabbit -p 5672:5672 -p 15672:15672  rabbitmq:3-management -e ssl_options.verify:verify_none rabbitmq:latest
+
+# UI console : guest/guest http://localhost:15672/
+````
+---
+## Outline of springboot project
 ```java
     // ============ Connectionfactory ========
     
@@ -70,6 +78,3 @@
         return new Jackson2JsonMessageConverter();
     }
 ```
-
-
-[RabbitMqConfig.java](../../src/main/java/com/lekhraj/java/spring/SB_99_RESTful_API/configuration/RabbitMqConfig.java)

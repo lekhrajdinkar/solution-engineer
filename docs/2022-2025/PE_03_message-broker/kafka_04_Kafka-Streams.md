@@ -104,7 +104,7 @@ while (true)
 ### C.1 Real-Time Fraud Detection App (JT)
 - Kafka Streams + Spring Boot + Java21
 - https://www.youtube.com/watch?v=U7RZcBtP6Dw&list=PLVz2XdJiJQxz55LcpHFM6QIB-Px40w3Gt&index=4
-- ![img.png](../../../99_img/2025/pe_03/06/01/img.png)
+- ![img.png](../../99_img/2025/pe_03/06/01/img.png)
 
 ### C.2 from chatGPT-5.2
 ```declarative

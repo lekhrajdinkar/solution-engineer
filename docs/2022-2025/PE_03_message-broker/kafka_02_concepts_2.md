@@ -3,7 +3,7 @@
 ---
 # Kafka Extended API (`intro`)
 ## A. Kafka connect
-![img.png](../../../99_img/2025/pe_03/05/img.png)
+![img.png](../../99_img/2025/pe_03/05/img.png)
 - **use case**:
 ```
   - external-source --> kafka topic
@@ -26,12 +26,12 @@
 ---
 ## B. kafka stream
 - kafka:topic-1 -->  kafka:topic-1
-- ![img_1.png](../../../99_img/2025/pe_03/05/img_1.png)
+- ![img_1.png](../../99_img/2025/pe_03/05/img_1.png)
 
 ---
 ## C. schema registry
-- ![img_2.png](../../../99_img/2025/pe_03/05/img_2.png)
+- ![img_2.png](../../99_img/2025/pe_03/05/img_2.png)
 
 ---
 # Summary
-![img_3.png](../../../99_img/2025/pe_03/05/img_3.png)
+![img_3.png](../../99_img/2025/pe_03/05/img_3.png)
