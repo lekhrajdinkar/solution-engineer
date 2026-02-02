@@ -5,7 +5,7 @@
 - ...
 
 ---
-## ✔️Polling
+## ✔️Polling (pull)
 ### ➖Short Polling
 - https://www.youtube.com/watch?v=b4qyOpGg748
 - client repeatedly requests data from a server **at set intervals** 
@@ -36,50 +36,7 @@
 ![img_1.png](../../../99_img/2026/02/07/03/img_1.png)
 
 ---
-## ✔️Streaming
-- https://www.youtube.com/watch?v=b4qyOpGg748
-- the client opening a **long-lived connection** with the server, 
-- typically through a **socket**, 
-- allowing the server to **push** information **without a client request**
-- Analogy: client opens a file and server can write any moment until client closes file.
-
-> ℹ️ **instantaneous experiences**
-> - the server proactively sends or "pushes" data to the client, 
-> - rather than passively waiting for requests.
-> - Enables a **continuous flow of data**
-
----
-## ✔️Pub-Sub 
-Async comm between client-server
-
-([🔗kakfa](../../PE_03_message-broker/kakfa) is popular tool) 👈🏻
-
-> **At Least Once Delivery**
->   - subscriber receives a message but loses connection before acknowledging it.
->   - leading the topic to re-send the message when the connection is re-established
->   - **idempotent operation** yields the same outcome regardless of how many times it's performed
-> 
-> **Message Ordering** : "first-in, first-out" (FIFO)
-> 
-> **Message Replay**, due to their underlying persistent storage
-
-**Components(4)**
-- Publishers:
-- Topics: 
-  - Act as channels or intermediaries with specific information.
-  - Persistent Storage via Topic
-- Subscribers: 
-  - Clients that listen for data from topics.
-  - can subscribe to multiple topics based on their needs.
-  - Unlike streaming, subscribers listen to the topic, not directly to the publishers
-- Messages: Represent data or event
-
-**More**
-- **separation of concern**. separate topic for each business domain.
-- **Content based filter** subscriber to filter data
-
----
-## ✔️fan-out (opposite of pull)
+## ✔️Fan-out (opposite of pull)
 **Concept**
 - `Twitter` 2012-2013 problem : https://www.youtube.com/watch?v=FEkXjNFrL1o
 ```
@@ -103,7 +60,7 @@ Twitter had 150 million users
 ![img.png](../../../99_img/2026/02/07/04/img.png)
 
 ---
-## ✔️Peer 2 Peer
+## ✔️Peer2Peer
 https://www.youtube.com/watch?v=2v6KqRB7adg
 
 ![img.png](../../../99_img/2026/02/07/02/img.png) ![img_1.png](../../../99_img/2026/02/07/02/img_1.png)
@@ -127,8 +84,18 @@ https://www.youtube.com/watch?v=2v6KqRB7adg
 - [security/03_protocol_https_tls.md](../SD_03_security/03_protocol_https_tls.md)
 - short live http/s connection. handshake takes time. 
 - open-close, open-close, ...
+- A stateless, text-based protocol commonly used for APIs.
+- Simple request-response model using HTTP verbs (GET, POST, PUT, DELETE).
 
 ### ➖ Web Socket (ws)
+**Understand `Streaming` Concept**, first
+- https://www.youtube.com/watch?v=b4qyOpGg748
+- the client opening a **long-lived connection** with the server,
+- typically through a **socket**,
+- allowing the server to **push** information **without a client request**
+- Analogy: client opens a file and server can write any moment until client closes file.
+
+**Web Socket**:
 > **Full Duplex async messaging**
 > - https://www.youtube.com/watch?v=pnj3Jbho5Ck 1
 > - https://www.youtube.com/watch?v=G0_e02DdH7I 2
@@ -177,38 +144,49 @@ WebSockets are ideal for:
     Gaming applications that require automatic UI refreshes
 ```
 
+---
 ### ➖ SSE / server sent event
 - designed for streaming **textual data** over HTTP
 - SSE is a unidirectional protocol
 - server pushes data to the client over a single, long-lived HTTP connection.
 
+---
 ### ➖ GRPC
-
+- **Description**: A high-performance, open-source RPC framework by Google.
+- **Key Features**:
+    - Uses Protocol Buffers (Protobuf) for serialization.
+    - Supports bi-directional streaming.
+    - Highly efficient binary format.
+- **Common Use Cases**:
+    - Low-latency communication in microservices.
+    - Distributed systems needing real-time communication.
+- **Supported by**: Google Cloud, gRPC libraries.
 
 ---
-## ✔️ Event-driven architecture (push based) 👈🏻
-### Synchronous  / with webhook
+### ➖ webhook (sync Event-driven)
 - just **Http Post** with event data.
 - https://www.youtube.com/watch?v=oQaJn6RdA3
+- https://youtu.be/9zfAqoTm4-Q?si=_PGo_F1tcNZvuxyi
 - traditional: polling, long-live connection
-  - eating resources
-- Webhooks allow servers 
-  - to notify client applications 
-  - only when new events occur, rather than requiring clients to check periodically.
+    - eating resources
+- Webhooks allow servers
+    - to notify client applications
+    - only when new events occur, rather than requiring clients to check periodically.
 - eg: gitHub make post call --> harness trigger (POST /api, idempotent), payload: {eventId...}
 - benefit:
-  - Webhooks improve system performance, 
-  - reduce latency, 
-  - and are crucial in modern microservices architectures for enabling system decoupling
+    - Webhooks improve system performance,
+    - reduce latency,
+    - and are crucial in modern microservices architectures for enabling system decoupling
 
 ![img_1.png](../../../99_img/2026/04/01/01/img_1.png)
 
-### Async processing
-- push to message broker - SQS, Kafka, rmq 👈🏻
-- DLQ for failed events
-- [message-broker](../../PE_03_message-broker)
-- [AWS SQS](../../CE_02_AWS_SAA/05_decoupling)
-
+---
+## ✔️Messaging-System
+- [check here for details](../../PE_03_message-broker)
+### P2P queue
+### Pub-Sub (Kafka)
+### Event-Driven-Messaging : EventBridge
+### Stream-processing
 
 ---
 ## ✔️Videos Streaming / ABS

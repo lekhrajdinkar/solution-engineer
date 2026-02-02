@@ -4,7 +4,6 @@
 - ensure reliability, security, and efficiency.
 
 ---
-
 ## 1. Advanced Message Queuing Protocol (AMQP)
 - **Description**: A binary protocol designed for reliable and interoperable message queuing.
 - **Key Features**:
@@ -59,34 +58,6 @@
     - Real-time analytics.
     - Log aggregation.
 - **Supported by**: Apache Kafka.
-
----
-
-## 5. HTTP/REST (Representational State Transfer)
-- check here : [04_REST.md](../00_Springboot/02_web/04_REST.md) :point_left:
-- **Description**: A stateless, text-based protocol commonly used for APIs.
-- **Key Features**:
-    - Simple request-response model using HTTP verbs (GET, POST, PUT, DELETE).
-    - Message formats: JSON or XML.
-    - Easy integration with web applications.
-- **Common Use Cases**:
-    - Web services and APIs.
-    - Microservices communication.
-- **Supported by**: All modern web servers and clients.
-
----
-
-## 6. Google Protocol Buffers (gRPC)
-- check here: [08_gRPC+webflux.md](../00_Springboot/02_web/08_gRPC%2Bwebflux.md) :point_left:
-- **Description**: A high-performance, open-source RPC framework by Google.
-- **Key Features**:
-    - Uses Protocol Buffers (Protobuf) for serialization.
-    - Supports bi-directional streaming.
-    - Highly efficient binary format.
-- **Common Use Cases**:
-    - Low-latency communication in microservices.
-    - Distributed systems needing real-time communication.
-- **Supported by**: Google Cloud, gRPC libraries.
 
 ---
 ## 7 more (skip)
