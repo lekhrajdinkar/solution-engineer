@@ -32,14 +32,17 @@
 
 ![img_4.png](../../../99_img/2026/02/01/01/img_4.png) 
 
+💠 **local cache of each node**
+
+![img_5.png](../../../99_img/2026/02/01/01/img_5.png)
+
 💠 **Distributed** Caches.
 - fault-tolerant
 - scalable
 - serves the response from closest cache-node, thus improved performance
 - Also suitable for session management
 - **Redis** is beyond just being cache
-
-![img_5.png](../../../99_img/2026/02/01/01/img_5.png)
+- check here: [distributed caching](01_concept_04_caching-distributed.md)
 
 ---
 ##  When Caching is Helpful 👈🏻
