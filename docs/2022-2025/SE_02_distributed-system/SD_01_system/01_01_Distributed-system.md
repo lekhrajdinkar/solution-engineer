@@ -1,5 +1,7 @@
 # Distributed System
 > Design Distributed System (large-Scale)
+> 
+> Power can be augmented on the fly
 
 ## Overview
 - independent computers (nodes) that appear to the users as a **single coherent system**.

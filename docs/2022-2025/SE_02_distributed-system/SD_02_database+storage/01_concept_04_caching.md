@@ -1,11 +1,13 @@
 # Caching
+> Solves performance of Distr system with reducing LATENCY
+
 ## Overview
-- storing data in a **different location**  
+- storing frequently used data in a **different location**  
   - other from the original data source
   - to provide faster data access.
 - high-speed data storage layer. 
 
-## **when to use**
+## when to use
   - ideal for **static or immutable data**, 
     - Dynamic data, complex, need to efficiently synchronize data across multiple locations
   - **single entity** reads or writes data
@@ -13,24 +15,31 @@
     - else, design a system to properly **invalidate** stale data
 
 ## Where can Caching be Placed
-**Client Level**
-- The client can store data to avoid going to the server.
-
-**Server Level** 
-- The server can cache data after calling the database once.
-  - **Distributed** Caches. 
-    - eg: use for youtube view count
-  - common **single** cache for all node like eg redis. 
-    - ensuring a single source of truth
-    - eg: use for youtube view coment
-  - ![img_4.png](../../../99_img/2026/02/01/01/img_4.png) ![img_5.png](../../../99_img/2026/02/01/01/img_5.png)
-
-**Between Server and Database** 
-- A dedicated cache layer can exist between the server and the database.
-
-**Hardware Level** 
-- CPU caches are built into hardware for faster data retrieval from memory. 
+### Hardware Level
+- CPU caches are built into hardware for faster data retrieval from memory.
 - This is generally out of scope for software engineers
+
+### Client Level
+- The client can store data to avoid going to the server.
+- redux
+
+### Server Level 
+💠 **centralized** cache for all node like eg redis. 
+- ensuring a single source of truth
+- single point of failure
+- simplicity
+- limited scaling
+
+![img_4.png](../../../99_img/2026/02/01/01/img_4.png) 
+
+💠 **Distributed** Caches.
+- fault-tolerant
+- scalable
+- serves the response from closest cache-node, thus improved performance
+- Also suitable for session management
+- **Redis** is beyond just being cache
+
+![img_5.png](../../../99_img/2026/02/01/01/img_5.png)
 
 ---
 ##  When Caching is Helpful 👈🏻
@@ -47,8 +56,7 @@
 - reducing read requests on Database
 
 ---
-## Caching Systems for Writes 
-
+## Caching Systems for Writes
 ✔️**Write-Through Cache:** 
 - When data is edited, the system writes the data to both :
   - the cache 
@@ -70,17 +78,18 @@
 
 ---
 ## Cache Eviction Policies 
-- Since cache memory is limited
+Since cache memory is limited, have to free-up space
 
-**Least Recently Used (LRU):** 
-Removes the data that hasn't been accessed for the longest time
+💠**Least Recently Used (LRU):** 
+- Removes the data that hasn't been accessed for the longest time
+- oldest one
 
-**Least Frequently Used (LFU):** 
-Removes data that has been accessed the fewest times (4:07).
+💠**Least Frequently Used (LFU):** 
+- Removes data that has been accessed the fewest times (4:07).
+- rarely used
 
-**Other policies**  
-- Last-In, First-Out (LIFO)
-- First-In, First-Out (FIFO) 
-- random eviction
+💠**Last-In, First-Out (LIFO)**
 
-The choice of policy depends on the specific use case of the system
+💠**First-In, First-Out (FIFO)** 
+
+💠**random eviction**
