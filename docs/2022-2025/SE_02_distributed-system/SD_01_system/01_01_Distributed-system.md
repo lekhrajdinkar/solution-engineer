@@ -13,15 +13,18 @@
     - Coordination can be direct
     - or via services like ZooKeeper, etcd, or consensus protocols (Raft, Paxos)
 - Will discover best practice, algo, architecture to built DS. 👈🏻
-- **Scenario-1**:
+
+```
+Scenario-1
   - multiple os process running on same laptop (limited CPU,etc) to achieve common goal.
   - run these os process on diff laptop, connected on same network. little better.
   - take this further ahead brings the concept of DS.
-- eg:
-  - microservices - popular way to build DS 👈🏻
-  - Simple app running on Cloud is also DS, since cloud infra Distributed with region/s, az. And may auto-scale if user base grows
+```
+**Examples**
+- `microservices` - popular way to build DS 👈🏻
+- `Simple app running on Cloud` is also DS, since cloud infra Distributed with region/s, az. And may auto-scale if user base grows
 
-    
+---    
 ## key concepts
 ✔️**Network Partition** 👈🏻👈🏻
 - This occurs when a network failure (temporary and permanent)
@@ -60,7 +63,7 @@
 - ![img.png](../../../99_img/2025/se_02_sd/01/01/img.png)
 
 ---
-### ✔️`Leader-Follower` Clusters
+### `Leader-Follower` Clusters
 ![img_2.png](../../../99_img/2025/se_02_sd/01/01/img_2.png)
 - one node is designated as the **leader** and handles most coordination tasks,
 - while others act as **followers** and carry out tasks assigned by the leader
@@ -77,7 +80,7 @@
 ![img_1.png](../../../99_img/2025/se_02_sd/01/01/img_1.png)
 
 ---
-### ✔️`Independent Node` Clusters
+### `Independent Node` Clusters
 ![img_3.png](../../../99_img/2025/se_02_sd/01/01/img_3.png)
 - each node in this cluster functions independently to handle requests
 - decentralized manner
