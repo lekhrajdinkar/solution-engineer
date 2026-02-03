@@ -14,10 +14,10 @@
 ---
 ## ✔️2021-2025
 > 👩‍💻Solution Engineer | [➕git - java](https://github.com/lekhrajdinkar/microservice-java) | [➕git - py](https://github.com/lekhrajdinkar/microservice-python)
-> - [SE_01_cse](docs/2022-2025/SE_01_cse)
-> - [SE_02_SD](docs/2022-2025/SE_02_SD)
+> - [SE_01_cse](docs/2022-2025/SE_01_CSE)
+> - [SE_02_SD](docs/2022-2025/SE_02_distributed-system)
 > - [SE_03_micro_service_pattern](docs/2022-2025/SE_03_micro-service)
-> - [SE_99_case_study](docs/2022-2025/SE_99_case_study)
+> - [SE_99_case_study](docs/2022-2025/SE_99_case-studies)
  
 > 👩‍💻Platform Engineer
 > - [PE_01_Docker](docs/2022-2025/PE_01_Docker)
