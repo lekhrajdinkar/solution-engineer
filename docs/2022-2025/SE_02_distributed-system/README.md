@@ -1,7 +1,14 @@
 #  Design - Distributed System
 
 > key problems and solutions around : **Network partition** 🌐
+> 
+> [01_system](SD_01_system) |
+[02_database+storage](SD_02_database%2Bstorage) |
+[03_security](SD_03_security)|
+[04_monitor](SD_04_monitor) |
+[05_Decouple](../PE_03_message-broker) |
 
+---
 ## Artifacts
 ### ByteByteGo
 - https://blog.bytebytego.com/p/free-system-design-pdf-158-pages | Digital Archive 2024
@@ -11,6 +18,7 @@
 - https://www.youtube.com/@ByteByteGo/playlists
 - https://github.com/ByteByteGoHq/system-design-101 👈🏻
 
+---
 ### ByteByteMonk
 YouTube playlist
 - https://www.youtube.com/watch?v=yioOQ4ItYuo&list=PLJq-63ZRPdBt423WbyAD1YZO0Ljo1pzvY | SD basic
