@@ -164,9 +164,9 @@ WebSockets are ideal for:
 
 ---
 ### ➖ webhook (sync Event-driven)
+![img_1.png](../../../99_img/2026/04/01/01/img_1.png)
 - just **Http Post** with event data.
 - https://www.youtube.com/watch?v=oQaJn6RdA3
-- https://youtu.be/9zfAqoTm4-Q?si=_PGo_F1tcNZvuxyi
 - traditional: polling, long-live connection
     - eating resources
 - Webhooks allow servers
@@ -178,7 +178,9 @@ WebSockets are ideal for:
     - reduce latency,
     - and are crucial in modern microservices architectures for enabling system decoupling
 
-![img_1.png](../../../99_img/2026/04/01/01/img_1.png)
+**Example for CI/CD pipeline in AWS**
+- https://youtu.be/9zfAqoTm4-Q?si=_PGo_F1tcNZvuxyi
+- ![img.png](../../../99_img/2026/01/img-10.png)
 
 ---
 ## ✔️Messaging-System

@@ -38,9 +38,9 @@
 ## **Role of Message Brokers**
 
 - Message brokers, **decouples** data producers from consumers. 
- - enable asynchronous communication
- - improve system performance 
- - reliable and scalable 
+  - enable asynchronous communication
+  - improve system performance 
+  - reliable and scalable 
 - make system to handling **large message volumes**  👈🏻
 - **recovering from failures using DLQ** 👈🏻
 - **helps to reply** 👈🏻
