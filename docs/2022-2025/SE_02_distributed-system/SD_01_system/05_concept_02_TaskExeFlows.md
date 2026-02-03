@@ -35,7 +35,7 @@ https://youtu.be/zOhiZJn-5cY?si=N88gyw7TQ_SR5InX
 - Check java Threads, concepts
 - nodeJS, no threads.
 
-![img.png](img.png) ![img_1.png](img_1.png)
+![img.png](../../../99_img/2026/01/01/img.png) ![img_1.png](../../../99_img/2026/01/01/img_1.png)
 
 
 

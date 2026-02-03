@@ -14,7 +14,7 @@
 - Efficient acquisition and release.
 - Fair chance of acquiring the lock without starvation.
 
-![img.png](img.png)
+![img.png](../../../99_img/2026/01/img.png)
 
 ## Distributed locking algorithms
 ### **Centralized Locking**
@@ -30,7 +30,7 @@
 ### **Quorum-Based Locking** (Redlock)
 - Acquire lock on multiple resource
 
-![img_1.png](img_1.png)
+![img_1.png](../../../99_img/2026/01/img_1.png)
 
 ---
 ## Services
