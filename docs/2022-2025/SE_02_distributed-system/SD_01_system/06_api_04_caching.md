@@ -19,19 +19,19 @@
 ### 💠Browser Cache
 - The fastest layer,
 - storing content directly in the user's browser for instant access on repeat requests.
+- redux
 
 ### 💠CDN (Content Delivery Network)
 - A globally distributed network of servers that cache
 - and serve content closer to the user, reducing latency.
 
 ### 💠Server-Side/Application Layer Cache
-- Like Redis or Memcached
-- storing metadata or frequently accessed data about resources.
-
 #### Application Layer Caching
 - This involves storing frequently accessed data in memory
 - using tools like Redis or Memcached to minimize database queries.
 - with TTL
+- Like Redis or Memcached
+- storing metadata or frequently accessed data about resourc
 
 #### Request-Level Caching
 - caches entire API responses for specific requests
