@@ -5,7 +5,7 @@
 > [01_system](SD_01_system) |
 [02_database+storage](SD_02_database%2Bstorage) |
 [03_security](SD_03_security)|
-[04_monitor](SD_04_monitor) |
+[04_monitor](SD_04_deployment+monitor) |
 [05_Decouple](../PE_03_message-broker) |
 
 ---

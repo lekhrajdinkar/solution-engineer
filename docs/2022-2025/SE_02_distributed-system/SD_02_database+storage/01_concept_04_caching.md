@@ -6,6 +6,7 @@
   - other from the original data source
   - to provide faster data access.
 - high-speed data storage layer. 
+- caching in REST API [api_04_caching](../SD_01_system/06_api_04_caching.md)
 
 ## when to use
   - ideal for **static or immutable data**, 
