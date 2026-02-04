@@ -5,16 +5,17 @@
 - storing frequently used data in a **different location**  
   - other from the original data source
   - to provide faster data access.
-- high-speed data storage layer. 
-- caching in REST API [api_04_caching](../SD_01_system/06_api_04_caching.md)
-
-## when to use
+  - reduce response time
+- high-speed data storage layer.
+- when to use:
   - ideal for **static or immutable data**, 
-    - Dynamic data, complex, need to efficiently synchronize data across multiple locations
+  - Note: For Dynamic data, its complex, need to efficiently synchronize data across multiple locations
   - **single entity** reads or writes data
   - **consistency or staleness** of data is not a major concern
     - else, design a system to properly **invalidate** stale data
+- [REST api_caching](../SD_01_system/06_api_04_caching.md) 👈🏻
 
+---
 ## Where can Caching be Placed
 ### Hardware Level
 - CPU caches are built into hardware for faster data retrieval from memory.
@@ -64,7 +65,7 @@
 ✔️**Write-Through Cache:** 
 - When data is edited, the system writes the data to both :
   - the cache 
-  - the main database, **at the same time**.
+  - the main database, **at the same time** 
 - Benefit: Cache and database are always in **sync**.
 - Downside: **Doesn't minimize network calls**, as the database is always hit.
 
@@ -72,13 +73,19 @@
 
 ✔️**Write-Back Cache:** 
 - When data is edited, the system  updates 
-  - the cache **immediately** + sends a response back to the client (non-blocking) 
+  - the cache **immediately** + sends a response back to the client (non-blocking)
   - The database is updated **asynchronously** at a later time.
     - (e.g., randomly, scheduled every 30 seconds or 5 minutes).
-- Benefit: Faster response to the client, because the database isn't immediately touched.
-- Downside: The cache and database can **temporarily be out of sync**.
+- Benefit: **Faster** response to the client, because the database isn't immediately touched.
+- Downside: The cache and database can **temporarily be out of sync, with stale data**.
 
 ![img_7.png](../../../99_img/2026/02/01/01/img_7.png)
+
+---
+## Caching Invalidation
+- Write-Through Cache, invalidate the old data as well, sync 👈🏻
+- Write-Back Cache,invalidate the old data as well, Async 👈🏻
+- TTL based eviction
 
 ---
 ## Cache Eviction Policies 
@@ -97,3 +104,5 @@ Since cache memory is limited, have to free-up space
 💠**First-In, First-Out (FIFO)** 
 
 💠**random eviction**
+
+---
