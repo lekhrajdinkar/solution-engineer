@@ -1,6 +1,7 @@
 # CORS ( Cross Origin Resource Sharing)
 ## Overview
 - https://www.youtube.com/watch?v=E6jgEtj-UjI
+- Same origin policy
 - A strict browser rule that prevents web pages from making API requests to different origins
 - same protocol, same domain and same port.
 - local development
