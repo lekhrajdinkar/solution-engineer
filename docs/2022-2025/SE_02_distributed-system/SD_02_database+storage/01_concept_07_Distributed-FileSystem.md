@@ -19,26 +19,27 @@
 
 ---
 ## ✔️ Distributed FS - `consistency Model`
-- Consistency defines how soon updates become visible across the system
+> Consistency - it defines how soon updates become visible across the system
 
-**Strong Consistency**
+💠**Strong Consistency**
 - Every read operation always returns the most recent write
 - Slows down writes 
   - system waits for all replicas to update
   - scalability challenge
 
-**Eventual Consistency** (6:38):
+💠**Eventual Consistency** :
 - Updates propagate gradually; 
 - for a short period, some users might see older versions
   - eg: S3 where new file versions might take time to fully propagate across regions
 - Benefits: Allows faster writes and enables better scalability
 
-**Mixed Consistency Models**  
-- allow developers to choose consistency levels
--  Amazon S3 
-  - new objects immediately visible 
-  - updates/deletes take time
-- DynamoDB (tune consistency level per operation)
+💠**Mixed Consistency Models**  
+- Allow developers to choose consistency levels
+- Amazon S3 :
+  - `new` objects immediately visible 
+  - `updates/deletes` take time
+- DynamoDB :
+  - tune consistency **level per operation**
 
 ---
 ## ✔️ Distributed FS - `Fault Tolerance`
