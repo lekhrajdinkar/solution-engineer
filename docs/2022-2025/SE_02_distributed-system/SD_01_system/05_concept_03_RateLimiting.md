@@ -2,15 +2,16 @@
 > crucial aspect of system design, especially in large-scale distributed systems
 > 
 > DDOS - Distributed DOS
-![img_1.png](../../../99_img/2026/02/07/04/img_1.png)
+> 
+> ![img_1.png](../../../99_img/2026/02/07/04/img_1.png)
 
 ---
-## Overview
+## ✔️Overview
 > - Systems often implement both, starting with throttling and moving to rate limiting if capacity is still threatened
 > - best place to implement is on : [📚API-gateway](02_api_02_apiGateway.md)
 > - https://www.youtube.com/watch?v=_qNHROq0pGk bm
 
-## Rate Limiting
+### Rate Limiting
 - https://bytebytego.com/courses/system-design-interview/design-a-rate-limiter
 - thresholds / **strict cap** on operations
   - ensuring that if a certain number of requests are exceeded within a given time frame.
@@ -24,7 +25,7 @@
     - server-based
 
 
-## Throttling
+### Throttling
 - **Slows down the rate of requests** by:
     - delaying them
     - or limiting processing resources,
@@ -38,7 +39,7 @@
 ![img.png](../../../99_img/2026/02/rl+t.png)
 
 ---
-## Algo
+## ✔️Algo
 https://bytebytego.com/courses/system-design-interview/design-a-rate-limiter
 
 **Token bucket** `(rate-limit)`
