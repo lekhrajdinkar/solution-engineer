@@ -30,4 +30,7 @@ https://www.youtube.com/watch?v=fFHl7psnvz0 bm
 **X-Frame-Options**
 - `X-Frame-Options:DENY`
 - springBoot automatically adds this.
+
+**security header**
+[02_api_06_security.md](02_api_06_security.md)
  

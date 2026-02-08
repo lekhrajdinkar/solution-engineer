@@ -1,3 +1,5 @@
+> security section :[SD_03_security](../SE_02_distributed-system/SD_03_security)
+---
 # API Security
 ## API Authn
 - basic Auth
@@ -28,4 +30,8 @@ X-Frame-Options: DENY
 Referrer-Policy: strict-origin-when-cross-origin
 Permissions-Policy: geolocation=(), camera=(), microphone=()
 ```
+---
+## More
+- [RateLimiting.md](../SE_02_distributed-system/SD_01_system/05_concept_03_RateLimiting.md)
+
 
