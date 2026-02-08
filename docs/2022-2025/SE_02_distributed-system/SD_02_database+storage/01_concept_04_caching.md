@@ -44,7 +44,7 @@
 - serves the response from closest cache-node, thus improved performance
 - Also suitable for session management
 - **Redis** is beyond just being cache
-- check here: [distributed caching](01_concept_04_caching-distributed.md)
+- check here: [distributed caching](02_01_distributed-caching.md)
 
 ---
 ##  When Caching is Helpful 👈🏻
