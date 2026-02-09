@@ -1,8 +1,9 @@
 # CSRF
 ## Overview
+> unauthorized commands from being sent from an authenticated user's browser
 - https://www.youtube.com/watch?v=2cUQWhSrOK0
-- trick user's browsers to unknowingly make malicious unintended request 
-- by taking adv of **already Authenticated session**
+- trick user's browsers to unknowingly make malicious unintended request
+- by taking adv of **already Authenticated `session`**
 - eg:
   - unknow transaction in bank website
   - make unknown post in social media sites. twitter incident
@@ -18,23 +19,24 @@
 
 ![img.png](../../../99_img/2026/02/04/img.png)
 
-- Every state-changing request must include a server-generated token.
+Every state-changing (put,delete,post) request must include a **server-generated token.**
 
 Rules that matter:
-
 - Token is random, unguessable
 - Token is tied to the user session
 - Token is validated on every POST/PUT/PATCH/DELETE
 
 Where to put it:
-
-- HTML forms → hidden input
+- HTML forms → **hidden input**
 - custom header (e.g. X-CSRF-Token)
 
-Spring Security → CSRF protection ON by default (don’t disable it blindly)
-
+Spring Security 
+- CSRF protection ON by default (don’t disable it blindly)
+- No protection needed for **stateless REST APIs**, since no session or cookies.
+    - `http.csrf(x->x.disable()` - can disable in sb app 👈🏻
+    - csrf is enabled by default by sb security
+  
 ### SameSite cookies
-
 - `SameSite=Strict`
-- This attribute prevents cookies from being sent in cross-site requests,
+- This attribute prevents cookies from being sent in **cross-site requests**,
 - automatically blocking many CSRF attacks.
