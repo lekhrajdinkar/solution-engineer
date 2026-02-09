@@ -3,7 +3,8 @@
 - OAuth2.0 - delegated **authorization** protocol
 - OIDC : on top of OAuth with addition oidc scope to return identity token for **Authentication**
 - safe way to connect to app without. sharing password.
-
+- https://github.com/lekhrajdinkar/microservice-java/blob/main/WebSecurityModule/src/main/java/securityApp/README_OAuth2.md
+  https://github.com/lekhrajdinkar/microservice-java/tree/main/WebSecurityModule/src/main/java/securityApp
 - ✔️**component**
   - ➖auth server (token issuer) +  Idp (for authentication)
     - Could be same or separate entity.

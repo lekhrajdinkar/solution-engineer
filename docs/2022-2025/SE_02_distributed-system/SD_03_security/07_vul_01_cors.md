@@ -1,6 +1,13 @@
+> xss and csrf
+> - https://chatgpt.com/c/c86b5fd1-c1b8-4a6b-bb8b-bbd832a606aa
+> - https://chatgpt.com/c/734bd77f-75d3-4be2-acbc-d80ef8b61b21
+> - https://chatgpt.com/c/e1547ff9-6ce4-4645-8fae-56d1924daa47
+
+---
 # CORS ( Cross Origin Resource Sharing)
 ## Overview
 - https://www.youtube.com/watch?v=E6jgEtj-UjI
+- https://chatgpt.com/c/79fe00c5-9852-4956-b0ec-be9a6657359c
 - Same origin policy
 - A strict browser rule that prevents web pages from making API requests to different origins
 - same protocol, same domain and same port.

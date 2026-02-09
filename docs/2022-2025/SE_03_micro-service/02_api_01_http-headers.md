@@ -25,7 +25,7 @@ https://www.youtube.com/watch?v=fFHl7psnvz0 bm
 - client send is in each subsequent request
 
 **CORS (Cross-Origin Resource Sharing)** 
-- [07_vul_cors.md](../SE_02_distributed-system/SD_03_security/07_vul_cors.md)
+- [07_vul_cors.md](../SE_02_distributed-system/SD_03_security/07_vul_01_cors.md)
 
 **X-Frame-Options**
 - `X-Frame-Options:DENY`
