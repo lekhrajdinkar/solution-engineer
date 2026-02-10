@@ -2,7 +2,7 @@
 - dns concept
 - http 80 | https  8443
 - `nslookup` command
-- ...
+- [socket](05_concept_03_socket.md) 👈🏻
 
 ---
 ## ✔️Polling (pull)
