@@ -49,7 +49,8 @@
 >
 > Solution-2
 > - A more efficient solution is the **Event Demultiplexer** 👈🏻
-> - offloading CPU-intensive tasks to internal-worker-threads
+>   - offloading CPU-intensive tasks to internal-worker-threads
+>   - offloading i/o slow tasks to internal-worker-threads
 
 ---
 ## ✔️Event-loop : OS
