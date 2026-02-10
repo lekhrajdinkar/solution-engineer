@@ -24,6 +24,7 @@
 ---
 # C. SSA
 - https://quizlet.com/425396578/aws-solutions-architect-flash-cards/
+- https://prepcatalyst.braincert.com/course/aws-certified-solutions-architect-associate-saa-c03-practice-exams 👈🏻
 
 ## 1. discussion (skip)
 - https://chatgpt.com/c/584769ed-a735-4fa0-958a-208113b7214b

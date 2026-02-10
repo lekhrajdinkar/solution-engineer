@@ -63,7 +63,7 @@ combination of:
 > - **http/3**
 > - **✔️Web-Socket** --> 1 connection --> persisted 2 way comm
 
-- WebSockets sit on top of regular TCP sockets but are browser-friendly
+- WebSockets sit on top of regular **TCP sockets** but are browser-friendly 👈🏻
 - A WebSocket connection starts as an ordinary HTTP request 
 - but then upgrades to a persistent, full-duplex connection, 
 - allowing both browser and server to send messages at any time without polling
@@ -75,10 +75,10 @@ combination of:
 ### Scaling with epoll and kqueue
 > backbone of high-performance servers like **Nginx**
 - To handle thousands of open sockets efficiently without constantly checking each one (polling), 
-- modern servers use event-based models.
-  - epoll (Linux) and kqueue (macOS/BSD) 
-  - they allow the OS to notify the server 
-  - only when specific sockets have data, 
+- modern servers use **event-based models**.
+  - **epoll (Linux)** 
+  - **kqueue (macOS/BSD)** 
+  - they allow the OS to notify the server, only when specific sockets have data, 
   - thus preventing CPU waste
 
 ![img_4.png](../../../99_img/2025/se_02_sd/08/01/img_4.png)
