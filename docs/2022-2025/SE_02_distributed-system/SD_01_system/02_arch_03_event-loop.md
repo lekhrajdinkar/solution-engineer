@@ -68,18 +68,43 @@ Operating systems provide built-in support for **Event Demultiplexer**
 ## ✔️Event-loop : NodeJs Server
 - https://www.youtube.com/watch?v=os7KcmJvtN4
 - http requests --> ....
-- Node.js utilizes the `libuv/c-lib` library
-  - to implement the event demultiplexer concept
+- Relies on a single JavaScript thread and uses `libUV` for offloading IO tasks
+
+![img_3.png](../../../99_img/2025/se_02_sd/08/02/img_4.png)
 
 ![img_2.png](../../../99_img/2025/se_02_sd/08/02/img_2.png)
 
-![img_3.png](../../../99_img/2025/se_02_sd/08/02/img_3.png)
-
 ---
 ## ✔️Event-loop : NgInx 
-- better arch than NodeJs server
-- https://www.youtube.com/watch?v=I6dpN0geIb4&list=PLJq-63ZRPdBt423WbyAD1YZO0Ljo1pzvY&index=72
-- uses `epoll` as demultiplexer concept
+> handle massive traffic loads effortlessly
+
+https://www.youtube.com/watch?v=I6dpN0geIb4&list=PLJq-63ZRPdBt423WbyAD1YZO0Ljo1pzvY&index=72
+
+**Architecture**
+- listen socket
+- connection socket
+- Master Process: 
+  - Manages configurations, spawns child processes, and handles updates
+- Multiple Worker Process/s: 👈🏻
+  - These are the core components 
+  - Each worker runs an **event loop** 
+  - typically assigned to a single CPU core
+  - Workers listen for new connections on **a listen socket** 
+  - single worker can manage thousands of concurrent connections.
+- de-multiplexer
+  - uses OS built-in demultiplexer, `epoll`
+  - epoll notifies the event loop only when a connection is "ready" 
+    - (e.g., has data to send or receive),
+  - preventing wasted time checking idle connections
+  - thus, allows the **event loop** to process ready sockets quickly
+
+![img_1.png](../../../99_img/2025/se_02_sd/08/03/img_1.png) 
+
+![img_3.png](../../../99_img/2025/se_02_sd/08/02/img_3.png)
+
+![img_3.png](../../../99_img/2025/se_02_sd/08/03/img_3.png)
+
+![img_2.png](../../../99_img/2025/se_02_sd/08/03/img_2.png)
 
 ---
 ## ✔️Event-loop : uvicorn 
@@ -87,3 +112,7 @@ Operating systems provide built-in support for **Event Demultiplexer**
 ---
 ## 🔺Traditional : Apache 
 - thread per request
+- thousands of concurrent request.
+- Does not scale well.
+
+![img.png](../../../99_img/2025/se_02_sd/08/03/img.png)

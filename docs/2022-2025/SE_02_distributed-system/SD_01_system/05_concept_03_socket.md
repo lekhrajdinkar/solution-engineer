@@ -35,12 +35,17 @@ combination of:
 ![img_3.png](../../../99_img/2025/se_02_sd/08/01/img_3.png)
 
 ---
+### Connection / socket-connection
+- `TCP` connection to socket
+- `UDP` connection to scoket
+
+---
 ### request
  - is the data that travels inside the connection, 
  - such as an HTTP-Get, WebSocket-message, etc
 
 ---
-### Connection / socket-connection
+## Types od socket
 💠**Stream Sockets** 
 - not built for browser
 - `TCP` connection
@@ -55,6 +60,7 @@ combination of:
 - eg: used in multiplayer games where speed is more critical than perfection, IoT
 
 💠**Web Sockets**
+- [02_arch_01_client-server-arch.md](02_arch_01_client-server-arch.md)
 - built for direct browser use ✔️ | modern
 - `TCP` connection under the hood.
 > - **http/1**    --> 1 connection --> 1 request --> close ❌
@@ -67,8 +73,6 @@ combination of:
 - A WebSocket connection starts as an ordinary HTTP request 
 - but then upgrades to a persistent, full-duplex connection, 
 - allowing both browser and server to send messages at any time without polling
-
-[02_arch_01_client-server-arch.md](02_arch_01_client-server-arch.md)
 
 ---
 ## Advance concepts 
