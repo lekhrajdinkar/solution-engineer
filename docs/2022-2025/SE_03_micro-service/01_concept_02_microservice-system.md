@@ -34,6 +34,9 @@
 - service registry service -  Netflix Eureka
 - k8s services ✔️
 
+### Distributed transaction
+- [distributed-Transaction](../SE_02_distributed-system/SD_02_database%2Bstorage/02_03_distributed-Transaction.md)
+- [distributed-Locking](../SE_02_distributed-system/SD_02_database%2Bstorage/02_02_distributed-Locking.md)
 
 ---
 ## ✔️ Benefits

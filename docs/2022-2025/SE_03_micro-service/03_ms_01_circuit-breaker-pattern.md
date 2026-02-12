@@ -84,13 +84,13 @@ Result: Initial failure in the product service,
 - Acts as a counter, incrementing failures 
 
 **Open State** 
-- If the failure rate exceeds a threshold 
+- If the failure rate **exceeds a threshold** 
 - or the service becomes unresponsive 
 - the circuit breaker trips and opens
 - Subsequent requests are immediately rejected  without even trying to reach the failing service
 
 **Half-Open State** 
-- After a timeout period, the circuit breaker enters a half-open state 
+- **After a timeout period,** the circuit breaker enters a half-open state 
 - A limited number of test requests are allowed through to the dependent service
 - If these test requests succeed 
   - the circuit breaker returns to the closed state
