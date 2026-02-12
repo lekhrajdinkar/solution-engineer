@@ -1,9 +1,18 @@
-https://chat.deepseek.com/a/chat/s/3d8b4d99-81b7-4dac-ad69-519f9bc33dea
-- Event-Drive Deployment and Domain-Drive Deployment
+# Container orchestrators
+> orchestrators make things easier, when managing hundreds or thousands of containers.
+## Overview
+- framework for managing 1000s of containers at scale at **runtime**
+- provides **deployment patterns of container**. many more.
+- [PE_01_Docker](../PE_01_Docker)
+
+framework Examples
+- [PE_02_Kubernetes - EKS, AKS ](../PE_02_Kubernetes)
+- `AWS ECS`
+- `Docker Swarm`
+- `marathon`
 
 ---
-# Scenarios
-## 1 
+## Scenarios
 ```text
 having 3 microservice - ms1, ms2, ms3.
 need to install in production first time. then upgrade it.
@@ -29,8 +38,9 @@ helm upgrade $RELEASE_NAME $CHART_PATH \
 # Post-Deployment Checks  
 kubectl rollout status deploy/ms1 -n production  
 ```
----
-## 2 one or multi helm
+
+
+one or multi helm
 ```text
 ms-1 - git-repo-1
 ms-2 - git-repo-2
