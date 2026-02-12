@@ -1,7 +1,10 @@
 # Microservice
 ## Overview
-reference
+**reference**
 - https://www.youtube.com/watch?v=hrvx8Nv9eQA&list=PLJq-63ZRPdBsPWE24vdpmgeRFMRQyjvvj bm playlist
-- https://github.com/lekhrajdinkar/spring-cloud/tree/main/Notes SpringCloud
-- https://github.com/lekhrajdinkar/microservice-java/blob/main/README.md java Microservice
+- [01_concept_02_microservice-system.md](01_concept_02_microservice-system.md) | start from here
 
+**Projects**
+- https://github.com/lekhrajdinkar/microservice-java#%EF%B8%8Fmicro-services-projects
+- https://github.com/lekhrajdinkar/microservice-java#%EF%B8%8Fmicro-services-projects-1
+- https://github.com/lekhrajdinkar/spring-cloud/tree/main/Notes | SpringCloud
