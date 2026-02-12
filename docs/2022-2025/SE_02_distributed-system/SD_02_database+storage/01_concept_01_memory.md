@@ -1,9 +1,12 @@
 # Memory
 ## Overview
 - https://www.youtube.com/post/UgkxoX2eonTJj6Kg95C5IuYPFRHCA-UDQEh5 bbgo
-- **Primary Memory**
-    - Main Memory
-    - Temporary
+
+---
+## types
+**Primary Memory**
+- Main Memory
+- Temporary
 
 | Type          | Description                    | Volatile | Example Usage        |
 | ------------- | ------------------------------ | -------- | -------------------- |
@@ -11,7 +14,7 @@
 | **Cache**     | Small, fast memory in CPU      | ✅ Yes    | Speeds up CPU access |
 | **Registers** | Smallest & fastest, inside CPU | ✅ Yes    | CPU operations       |
 
-- RAM Types further
+RAM Types further
 
 | Type                         | Description                            | Usage                        |
 | ---------------------------- |----------------------------------------|------------------------------|
@@ -23,9 +26,9 @@
 | **VRAM (Video RAM)**         | Specialized for graphics               | GPUs                         |
 | **ECC RAM**                  | Error-correcting                       | Servers and critical systems |
 
-- **Secondary Memory**
-    - Non-Volatile
-    - Permanent Storage
+**Secondary Memory**
+- Non-Volatile
+- Permanent Storage
 
 | Type             | Description                       | Volatile | Example Usage          |
 | ---------------- | --------------------------------- | -------- | ---------------------- |

@@ -1,25 +1,48 @@
-# rate limiting
+# Rate limiting and throttling
 > crucial aspect of system design, especially in large-scale distributed systems
-
-## Distributed DOS
-![img_1.png](../../../99_img/2026/02/07/04/img_1.png)
-
-## Overview
-- https://bytebytego.com/courses/system-design-interview/design-a-rate-limiter
-- thresholds on operations
-- ensuring that if a certain number of requests are exceeded within a given time frame,
-- safeguards systems from Denial of Service (DoS) + DDOS
-- Type:
-  - user-based 
-  - geographic-based 
-  - server-based
-  - ...
-
-## Algo
-https://bytebytego.com/courses/system-design-interview/design-a-rate-limiter
+> 
+> DDOS - Distributed DOS
+> 
+> ![img_1.png](../../../99_img/2026/02/07/04/img_1.png)
 
 ---
-**Token bucket** 
+## ✔️Overview
+> - Systems often implement both, starting with throttling and moving to rate limiting if capacity is still threatened
+> - best place to implement is on : [📚API-gateway](02_api_02_apiGateway.md)
+> - https://www.youtube.com/watch?v=_qNHROq0pGk bm
+
+### Rate Limiting
+- https://bytebytego.com/courses/system-design-interview/design-a-rate-limiter
+- thresholds / **strict cap** on operations
+  - ensuring that if a certain number of requests are exceeded within a given time frame.
+  - Requests exceeding the limit are blocked or receive a `429` Too Many Requests error.
+- safeguards systems, from: 
+  - preventing brute-force attacks
+  - Denial of Service (DoS) + DDOS
+- **Type**:
+    - user-based
+    - geographic-based
+    - server-based
+
+
+### Throttling
+- **Slows down the rate of requests** by:
+    - delaying them
+    - or limiting processing resources,
+- rather than **rejecting them outright**.
+- Useful for maintaining service availability under heavy load,
+- ensuring all requests are **eventually served**
+- **Type**:
+  - Dynamic  Throttling: adjusts based on real-time metrics like CPU load
+  - Adaptive Throttling: uses machine learning to predict spike
+
+![img.png](../../../99_img/2026/02/rl+t.png)
+
+---
+## ✔️Algo
+https://bytebytego.com/courses/system-design-interview/design-a-rate-limiter
+
+**Token bucket** `(rate-limit)`
 - bucket with token, refilled at interval  === **Refill rate**
 - but with pre-defined capacity (to hold limited token)  === **Bucket size**
 - have to tune these params well
@@ -27,7 +50,8 @@ https://bytebytego.com/courses/system-design-interview/design-a-rate-limiter
 ![img_2.png](../../../99_img/2026/02/07/04/img_2.png)
 
 ---
-**Leaking bucket** (no token)
+**Leaking bucket** `(throttle)`
+- no token thing.
 - Bucket has **capacity** (to hold request)  === **Bucket size**
 - bucket has **leak**, for constant rate processing === `FIFO queue`
 

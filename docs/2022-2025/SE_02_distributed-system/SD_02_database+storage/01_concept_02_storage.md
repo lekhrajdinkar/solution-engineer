@@ -1,8 +1,12 @@
 # Storage
 ## Overview
 - https://www.youtube.com/post/UgkxoX2eonTJj6Kg95C5IuYPFRHCA-UDQEh5 bbgo
+- Delete file | https://youtu.be/cicSnyzm1AQ?si=ChLMGac3v6_iENPy 
+- How Database actually stores | https://youtu.be/Q9xD4J3tezw?si=uuDPRGD25QqB2Dvp
 
-Magnetic Storage
+---
+## Storage type
+💠**Magnetic Storage**
 
 | Type            | Description           | Speed     | Usage                 |
 | --------------- | --------------------- | --------- | --------------------- |
@@ -10,7 +14,7 @@ Magnetic Storage
 | **Floppy Disk** | Obsolete tech         | Very Slow | Old systems           |
 
 
-Solid-State Storage / SSD
+💠**Solid-State Storage / SSD**
 
 | Type                           | Description           | Speed          | Usage             |
 | ------------------------------ | --------------------- | -------------- | ----------------- |
@@ -19,17 +23,11 @@ Solid-State Storage / SSD
 | **Memory Cards (SD, microSD)** | Compact storage       | Medium         | Cameras, phones   |
 
 
-Optical Storage
+💠**Optical Storage**
 
 | Type        | Description             | Speed    | Usage                 |
 | ----------- | ----------------------- | -------- | --------------------- |
 | **CD/DVD**  | Laser-read storage      | Slow     | Media, backups        |
 | **Blu-ray** | Higher capacity optical | Moderate | High-definition media |
 
-Cloud & Network Storage
-
-| Type              | Description                       | Usage                    |
-| ----------------- | --------------------------------- | ------------------------ |
-| **Cloud Storage** | Internet-based (Google Drive, S3) | Backup, sync, access     |
-| **NAS/SAN**       | Network-connected storage systems | Enterprises, home setups |
 

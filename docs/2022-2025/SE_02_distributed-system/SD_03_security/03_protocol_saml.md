@@ -1,5 +1,9 @@
 # SAML
+> - https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Amazon-Web-Service
+> - https://help.okta.com/en-us/content/topics/deploymentguides/aws/aws-configure-aws-app.html
+
 ## Overview 
+
 ```
 SP (sp1, sp2, sp3, ...) <-- SSO ( using some protocol ) --> IDP 
 ---
