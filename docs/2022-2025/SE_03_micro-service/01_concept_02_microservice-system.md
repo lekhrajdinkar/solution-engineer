@@ -25,6 +25,7 @@
 - k8s services ✔️
 
 ### Data Consistency pattern
+> **database per service pattern**, leds data consistency issues. solutions:
 - [distributed-Transaction](../SE_02_distributed-system/SD_02_database%2Bstorage/02_03_distributed-Transaction.md)
 - [distributed-Locking](../SE_02_distributed-system/SD_02_database%2Bstorage/02_02_distributed-Locking.md)
 

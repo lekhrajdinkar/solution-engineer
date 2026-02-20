@@ -1,8 +1,8 @@
 # Microservice
 ## Overview
 **reference**
+- [start from here 👈👈](01_concept_02_microservice-system.md)
 - https://www.youtube.com/watch?v=hrvx8Nv9eQA&list=PLJq-63ZRPdBsPWE24vdpmgeRFMRQyjvvj bm playlist
-- [01_concept_02_microservice-system.md](01_concept_02_microservice-system.md) | start from here
 
 **Projects**
 - https://github.com/lekhrajdinkar/microservice-java#%EF%B8%8Fmicro-services-projects
