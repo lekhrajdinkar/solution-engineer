@@ -3,10 +3,10 @@
 ## Overview
 - framework for managing 1000s of containers at scale at **runtime**
 - provides **deployment patterns of container**. many more.
-- [PE_01_Docker](../PE_01_Docker)
+- [PE_01_Docker](../../PE_01_Docker)
 
 framework Examples
-- [PE_02_Kubernetes - EKS, AKS ](../PE_02_Kubernetes)
+- [PE_02_Kubernetes - EKS, AKS ](../../PE_02_Kubernetes)
 - `AWS ECS`
 - `Docker Swarm`
 - `marathon`
@@ -18,7 +18,7 @@ having 3 microservice - ms1, ms2, ms3.
 need to install in production first time. then upgrade it.
 trigger from CD pipeline-1 > stage: bashScript (run helm command)
 ```
-![img_1.png](../../99_img/2025/se_02_sd/03/img_1.png)
+![img_1.png](../../../99_img/2025/se_02_sd/03/img_1.png)
 
 ```bash
 # install first time

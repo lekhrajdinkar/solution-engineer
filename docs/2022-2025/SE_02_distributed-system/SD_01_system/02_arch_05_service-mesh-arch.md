@@ -24,5 +24,5 @@
 
 ---
 ## Side-cars pattern
-- [check here](../../SE_03_micro-service/02_pattern_04_side-car.md)
+- [check here](../SD_05_micro-service/02_pattern_04_side-car.md)
 

@@ -1,5 +1,5 @@
 # API protocol
-> ![img.png](../../99_img/2025/api-protocol.png)
+> ![img.png](../../../99_img/2025/api-protocol.png)
 > 
 > REST, GraphQL, gRPC, WebSocket, AMQP, MQTT, and SOAP 
 ---

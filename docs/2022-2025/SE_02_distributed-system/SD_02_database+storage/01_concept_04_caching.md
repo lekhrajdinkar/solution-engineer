@@ -13,7 +13,7 @@
   - **single entity** reads or writes data
   - **consistency or staleness** of data is not a major concern
     - else, design a system to properly **invalidate** stale data
-- [REST api_caching](../../SE_03_micro-service/05_api_04_caching.md) 👈🏻
+- [REST api_caching](../SD_05_micro-service/05_api_04_caching.md) 👈🏻
 
 ---
 ## Where can Caching be Placed
