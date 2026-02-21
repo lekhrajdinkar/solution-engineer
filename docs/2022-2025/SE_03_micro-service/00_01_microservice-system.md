@@ -33,7 +33,7 @@
 ### Fault-tolerance and resilience
 > DS continues to operate properly in the event of the failure of some of its components
 - 1 Retry-pattern
-- [2 Circuit-breaker-pattern](01_concept_04_circuit-breaker-pattern.md)
+- [2 Circuit-breaker-pattern](02_pattern_02_circuit-breaker-pattern.md)
 - 3 Load balancer with health mechanism
 
 ### Service-discovery
@@ -45,8 +45,8 @@
 ### Communication architecture
 - [event-driven-arch 👈🏻](../SE_02_distributed-system/SD_01_system/02_arch_04_event-driven-arch.md)
 - [service-mesh-arch 👈🏻](../SE_02_distributed-system/SD_01_system/02_arch_05_service-mesh-arch.md) | Side car pattern
-- API gateway
-- [BFF](01_concept_05_BFF.md)
+- [API-gateway.md](01_concept_04_API-gateway.md)
+- [BFF](02_pattern_01_BFF.md)
 
 ### Data Consistency pattern
 > **database per service pattern**, leds data consistency issues. solutions:
