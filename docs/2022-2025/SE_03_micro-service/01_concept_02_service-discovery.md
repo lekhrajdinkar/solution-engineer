@@ -38,7 +38,7 @@ benefit ✔️
 - client queries a service registry 
 - and uses the information to connect to the appropriate service
 
-### Server-Side Discovery 
+### Server-Side Discovery ✔️
 - client sends a generic request to a central **load balancer or Gateway**
 - load balancer/Gateway handles the discovery process 
 - and forwards the request to the correct service.

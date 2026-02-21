@@ -32,24 +32,26 @@
 ## ✔️ Key concept
 ### Fault-tolerance and resilience
 > DS continues to operate properly in the event of the failure of some of its components
-- Retry-pattern
-- [Circuit-breaker-pattern](01_concept_04_circuit-breaker-pattern.md)
-- Load balancer with health mechanism
+- 1 Retry-pattern
+- [2 Circuit-breaker-pattern](01_concept_04_circuit-breaker-pattern.md)
+- 3 Load balancer with health mechanism
 
 ### Service-discovery
 - process of automatically detecting network locations of service instances.
 - service registry service -  Netflix Eureka
 - k8s services ✔️
+- [service-discovery](01_concept_02_service-discovery.md)
+
+### Communication architecture
+- [event-driven-arch 👈🏻](../SE_02_distributed-system/SD_01_system/02_arch_04_event-driven-arch.md)
+- [service-mesh-arch 👈🏻](../SE_02_distributed-system/SD_01_system/02_arch_05_service-mesh-arch.md) | Side car pattern
+- API gateway
+- [BFF](01_concept_05_BFF.md)
 
 ### Data Consistency pattern
 > **database per service pattern**, leds data consistency issues. solutions:
 - [distributed-Transaction](../SE_02_distributed-system/SD_02_database%2Bstorage/02_03_distributed-Transaction.md)
 - [distributed-Locking](../SE_02_distributed-system/SD_02_database%2Bstorage/02_02_distributed-Locking.md)
-
-### Communication architecture
-- [service-discovery](01_concept_02_service-discovery.md)
-- [event-driven-arch 👈🏻](../SE_02_distributed-system/SD_01_system/02_arch_04_event-driven-arch.md)
-- [service-mesh-arch 👈🏻](../SE_02_distributed-system/SD_01_system/02_arch_05_service-mesh-arch.md)
 
 ---
 ## ✔️ Benefits
@@ -67,6 +69,19 @@ On-demand **scalability**
 **Mix of technologies**
 - java
 - py
+
+---
+## Challenges
+As microservices grow, managing complexities becomes difficult, like:
+- network failures
+- secure communication
+- monitoring
+- load balancing
+- zero-downtime deployments 
+- ...
+
+Solutions:
+- ...
 
 ---
 ## Migrate from Monolithic to Microservice
