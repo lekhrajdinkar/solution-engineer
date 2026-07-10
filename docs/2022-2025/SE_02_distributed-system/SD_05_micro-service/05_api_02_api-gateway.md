@@ -1,6 +1,6 @@
 # API gateway
 ## Overview
-- reverse proxy | [05_concept_03_proxy.md](../SE_02_distributed-system/SD_01_system/05_concept_03_proxy.md)
+- reverse proxy | [05_concept_03_proxy.md](../SD_01_system/05_concept_03_proxy.md)
 - acts as a **middleman** between 
   - a client (like your phone) 
   - and various backend computer programs
@@ -21,5 +21,5 @@
 - google's apiGee
 - Azure gateway
 - AWS api gateway, check their offerings here:
-  - [05_1_API_gateway_SAA.md](../CE_02_AWS_SAA/04_network/05_1_API_gateway_SAA.md)
-  - [05_2_API_gateway_DVA.md](../CE_02_AWS_SAA/04_network/05_2_API_gateway_DVA.md)
+  - [05_1_API_gateway_SAA.md](../../CE_02_AWS_SAA/04_network/05_1_API_gateway_SAA.md)
+  - [05_2_API_gateway_DVA.md](../../CE_02_AWS_SAA/04_network/05_2_API_gateway_DVA.md)

@@ -1,4 +1,22 @@
 # Distributed Transaction
+## Database per service pattern in ms
+- https://www.youtube.com/watch?v=DKQLhy9bgdk
+- each microservice its own independent database
+- This approach enhances scalability, performance, and loose coupling. 👈🏻
+- **Implementation Approaches**
+    - Private table/s per service
+    - Schema per service
+    - Database server per service
+- **Challenges and Data Consistency**
+    -` Distributed transactions` become complex as each service has its own database, requiring eventual consistency models
+    - `Data duplication`
+    - `Cross-service queries` are difficult:
+      - since data **cannot be easily joined** across different databases, 
+      - forcing inter-service communication
+- solution:
+  - use [event-driven-arch.md](../SD_01_system/02_arch_04_event-driven-arch.md)
+  - data will propagate from service to service via event data. 👈🏻
+  
 ## Overview
 - Reference
   - https://www.youtube.com/watch?v=d2z78guUR4g bm ⭐
@@ -9,7 +27,8 @@
   - transaction spans several services/ms
   - participant performs local transactions
   - thus extend the concept of ACID properties to scenarios where transactions span **multiple databases**
-- Check below solution/s. 
+- Check below solution/s. ⤵️
+
 --- 
 
 ## Solutions
