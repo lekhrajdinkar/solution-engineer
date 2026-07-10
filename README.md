@@ -12,12 +12,12 @@
 > Blended to multiple roles
 
 ---
-## ✔️2021-2025
+## ✔️2021-2025 | [summary](docs/2022-2025/_Revision)
 > 👩‍💻Solution Engineer | [➕git - java](https://github.com/lekhrajdinkar/microservice-java) | [➕git - py](https://github.com/lekhrajdinkar/microservice-python)
-> - [SE_01_cse](docs/2022-2025/SE_01_CSE)
-> - [SE_02_SD](docs/2022-2025/SE_02_distributed-system)
-> - [SE_03_micro_service_pattern](docs/2022-2025/SE_02_distributed-system/SD_05_micro-service)
-> - [SE_99_case_study](docs/2022-2025/SE_99_case-studies)
+> - [SE_01_CSE](docs/2022-2025/SE_01_CSE)
+> - [SE_02_Distrubuted System Design](docs/2022-2025/SE_02_distributed-system)
+> - [SE_03_Micro-Service Pattern](docs/2022-2025/SE_02_distributed-system/SD_05_micro-service)
+>   - [System Case-studies](docs/2022-2025/SE_99_case-studies)
  
 > 👩‍💻Platform Engineer
 > - [PE_01_Docker](docs/2022-2025/PE_01_Docker)
@@ -31,10 +31,6 @@
 > 👩‍💻Cloud Engineer
 > - [CE_01_AWS_DVA](docs/2022-2025/CE_01_AWS_DVA)
 > - [CE_02_AWS_SAA](docs/2022-2025/CE_02_AWS_SAA)
-
-- [Discussion1_2024.md](docs/2022-2025/revision_01_2024.md)
-- [Discussion1_2025.md](docs/2022-2025/revision_02_2025.md)
-- [Discussion2_2025.md](docs/2022-2025/revision_03_2025.md)
   
 ---
 ## ✔️2026
