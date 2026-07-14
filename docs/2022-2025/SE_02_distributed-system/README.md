@@ -12,6 +12,8 @@
 
 ---
 ### ByteByteMonk
+https://academy.bytemonk.io/library | ldus J12-m
+
 YouTube playlist
 - https://www.youtube.com/watch?v=yioOQ4ItYuo&list=PLJq-63ZRPdBt423WbyAD1YZO0Ljo1pzvY | SD basic
 - https://www.youtube.com/watch?v=xyLO8ZAk2KE&list=PLJq-63ZRPdBssWTtcUlbngD_O5HaxXu6k | SD Questions
