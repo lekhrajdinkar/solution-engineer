@@ -48,6 +48,7 @@ to a sophisticated **recommendation engine**, analyzing how a four-day-old accou
 
 ### Solving the Cold Start Problem**
 For brand new accounts with no history, Instagram uses two strategies:
+
 **Content Understanding:** 
 - Directly analyzes the audio, images, and text of a post 
 - to create embeddings without needing **historical engagement data**.
