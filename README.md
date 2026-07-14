@@ -1,47 +1,17 @@
-# Senior System Engineer SSE
-## Home
-- [Streamlit-docs-viewer readme.md](streamlit-docs/README.md)
-- **Docs by Roles (6)**:
-    - `DE` | Data Engineer | check [➕git](https://github.com/lekhrajdinkar/data-engineer)
-    - `AI` | AI Engineer | check [➕git](https://github.com/lekhrajdinkar/AI-Engineer)
-    - `SE` | Solution Engineer | check below
-    - `PE` | Platform Engineer | check below
-    - `CE` | Cloud Engineer | check below
-    - `DevOps` |  DevOps Engineer | check below
-  
-> Blended to multiple roles
+# Senior System Engineer (SSE)
+## Docs by Roles (6) | [Streamlit](streamlit-docs/README.md)
+- [2021-2025](docs/2022-2025)
+- [2026](docs/2026)
 
 ---
-## ✔️2021-2025 | [summary](docs/2022-2025/_Revision)
-> 👩‍💻Solution Engineer | [➕git - java](https://github.com/lekhrajdinkar/microservice-java) | [➕git - py](https://github.com/lekhrajdinkar/microservice-python)
-> - [SE_01_CSE](docs/2022-2025/SE_01_CSE)
-> - [SE_02_Distrubuted System Design](docs/2022-2025/SE_02_distributed-system)
-> - [SE_03_Micro-Service Pattern](docs/2022-2025/SE_02_distributed-system/SD_05_micro-service)
->   - [System Case-studies](docs/2022-2025/SE_99_case-studies)
- 
-> 👩‍💻Platform Engineer
-> - [PE_01_Docker](docs/2022-2025/PE_01_Docker)
-> - [PE_02_Kubernetes](docs/2022-2025/PE_02_Kubernetes)
-> - [PE_03_message-broker](docs/2022-2025/PE_03_message-broker)
-
-> 👩‍💻DevOps Engineer
-> - [DevOps_01_terraform](docs/2022-2025/DevOps_01_terraform)
-> - [DevOps_02_harness](docs/2022-2025/DevOps_02_harness)
-
-> 👩‍💻Cloud Engineer
-> - [CE_01_AWS_DVA](docs/2022-2025/CE_01_AWS_DVA)
-> - [CE_02_AWS_SAA](docs/2022-2025/CE_02_AWS_SAA)
-  
+```
+Blended to multiple roles
+- `DE` | Data Engineer
+- `SE` | Solution Engineer
+- `PE` | Platform Engineer
+- `CE` | Cloud Engineer
+- `DevOps` |  DevOps Engineer
 ---
-## ✔️2026
-> 👩‍💻Solution Engineer | [git - java](https://github.com/lekhrajdinkar/microservice-java) | [git - py](https://github.com/lekhrajdinkar/microservice-python)
-> - [SE_01_Design_pattern](docs/2026/SE_01_Design_pattern)
-> - [SE_02_Distributed_system](docs/2026/SE_02_Distributed_system)
-> - [SE_99_case_study](docs/2026/SE_99_case_study)
-
-> 👩‍💻Platform Engineer
-
-> 👩‍💻DevOps Engineer
-
-> 👩‍💻Cloud Engineer
-
+- `AI` | AI Engineer
+- `FDE` | Forward Deployment Engineer 💠💠
+```
