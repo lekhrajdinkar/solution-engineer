@@ -49,9 +49,9 @@ Registry (Docker Hub, ECR, etc.)
   - **REST API** – Allows interaction with the daemon programmatically (e.g., via CLI or SDKs).
   - **CLI** (optional)
 
-![img.png](img/crash-course/img.png)
+![img.png](../../99_img/2025/docker/crash-course/img.png)
 
-![img_1.png](img/crash-course/img_1.png)
+![img_1.png](../../99_img/2025/docker/crash-course/img_1.png)
 
 
 ## Docker Images
@@ -71,7 +71,7 @@ Registry (Docker Hub, ECR, etc.)
   - x - includes daemon process
   - same process has diff pid in diff namespace. ⬅️
   
-![img_2.png](img/crash-course/img_2.png)
+![img_2.png](../../99_img/2025/docker/crash-course/img_2.png)
 
 
 ## Docker host (agent)
@@ -83,18 +83,18 @@ Registry (Docker Hub, ECR, etc.)
 ---
 ## Layered Architecture
 
-![img_3.png](img/crash-course/img_3.png)
+![img_3.png](../../99_img/2025/docker/crash-course/img_3.png)
 
-![img_4.png](img/crash-course/img_4.png)
+![img_4.png](../../99_img/2025/docker/crash-course/img_4.png)
 
-![img_5.png](img/crash-course/img_5.png)
+![img_5.png](../../99_img/2025/docker/crash-course/img_5.png)
 
 ---
 ## Docker Image Registry
 
-![img_1.png](img/crash-course/arch/img_1.png)
+![img_1.png](../../99_img/2025/docker/crash-course/arch/img_1.png)
 
-![img.png](img/crash-course/arch/img.png)
+![img.png](../../99_img/2025/docker/crash-course/arch/img.png)
 
 ---
 ## Container Security
@@ -113,7 +113,7 @@ Registry (Docker Hub, ECR, etc.)
 
 - can add at container level (precedence) +  pod level
 
-![img.png](img/imgg-1.png)  ![img_1.png](img/imgg_2.png)
+![img.png](../../99_img/2025/docker/imgg-1.png)  ![img_1.png](../../99_img/2025/docker/imgg_2.png)
 
 ## v2
 ## A. Containers

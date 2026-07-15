@@ -1,0 +1,418 @@
+site_name: Solution Engineer Docs
+site_description: Learning, PoC, and Research Documentation
+repo_url: https://github.com/yourusername/solution-engineer
+edit_uri: edit/main/docs/
+theme:
+  name: material
+  palette:
+  - scheme: default
+    primary: blue
+    accent: light-blue
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+  - scheme: slate
+    primary: blue
+    accent: light-blue
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
+  features:
+  - navigation.instant
+  - navigation.tracking
+  - navigation.tabs
+  - navigation.expand
+  - toc.integrate
+  - search.suggest
+  - search.highlight
+plugins:
+- search
+markdown_extensions:
+- admonition
+- attr_list
+- codehilite
+- meta
+- pymdownx.arithmatex
+- pymdownx.betterem
+- pymdownx.caret
+- pymdownx.critic
+- pymdownx.details
+- pymdownx.emoji
+- pymdownx.highlight:
+    use_pygments: true
+- pymdownx.inlinehilite
+- pymdownx.keys
+- pymdownx.mark
+- pymdownx.smartsymbols
+- pymdownx.superfences
+- pymdownx.tasklist:
+    custom_checkbox: true
+- pymdownx.tilde
+- tables
+- toc:
+    permalink: true
+nav:
+- 2022 2025:
+  - CE 01 AWS DVA:
+    - CLI SDK More: docs/2022-2025/CE_01_AWS_DVA/12_CLI_SDK_more.md
+    - CLOUD FORMATION: docs/2022-2025/CE_01_AWS_DVA/18_CLOUD_FORMATION.md
+    - CI CD: docs/2022-2025/CE_01_AWS_DVA/24_CI_CD.md
+    - CDK: docs/2022-2025/CE_01_AWS_DVA/26_CDK.md
+    - DVA: docs/2022-2025/CE_01_AWS_DVA/00_DVA.md
+    - Handson: docs/2022-2025/CE_01_AWS_DVA/99_handson.md
+    - SAM: docs/2022-2025/CE_01_AWS_DVA/25_SAM.md
+  - CE 02 AWS SAA:
+    - Analytics:
+      - Athena Adhocsql Serverless: docs/2022-2025/CE_02_AWS_SAA/08_Analytics/01_athena_adhocSQL_serverless.md
+      - AWS Batch: docs/2022-2025/CE_02_AWS_SAA/08_Analytics/10_AWS_batch.md
+      - EMR Elasticmapreduce Hadoop: docs/2022-2025/CE_02_AWS_SAA/08_Analytics/04_EMR_elasticMapReduce_hadoop.md
+      - ELK Stack: docs/2022-2025/CE_02_AWS_SAA/08_Analytics/98_ELK_stack.md
+      - Glue ETL: docs/2022-2025/CE_02_AWS_SAA/08_Analytics/06_glue_ETL.md
+      - Kinesis Data Analytics: docs/2022-2025/CE_02_AWS_SAA/08_Analytics/08_kinesis_data_analytics.md
+      - Lakeformation: docs/2022-2025/CE_02_AWS_SAA/08_Analytics/07_lakeFormation.md
+      - Opensearch: docs/2022-2025/CE_02_AWS_SAA/08_Analytics/03_openSearch.md
+      - Quicksight Dashboard: docs/2022-2025/CE_02_AWS_SAA/08_Analytics/05_QuickSight_dashboard.md
+      - Redshift OLAP: docs/2022-2025/CE_02_AWS_SAA/08_Analytics/02_Redshift_OLAP.md
+      - Summary: docs/2022-2025/CE_02_AWS_SAA/08_Analytics/99_Summary.md
+    - AI ML:
+      - 01 Specific Services: docs/2022-2025/CE_02_AWS_SAA/10_AI_ML/01-specific-services.md
+      - Sagemaker+personlize: docs/2022-2025/CE_02_AWS_SAA/10_AI_ML/02_sageMaker+Personlize.md
+    - Compute:
+      - 99 Lambda Question: docs/2022-2025/CE_02_AWS_SAA/01_compute/99-Lambda-question.md
+      - ASG: docs/2022-2025/CE_02_AWS_SAA/01_compute/01_ASG.md
+      - Apprunner: docs/2022-2025/CE_02_AWS_SAA/01_compute/04_AppRunner.md
+      - AWS Appconfig+cw Evidently DVA: docs/2022-2025/CE_02_AWS_SAA/01_compute/08_AWS_AppConfig+CW-evidently_DVA.md
+      - Appsync DVA: docs/2022-2025/CE_02_AWS_SAA/01_compute/28_2_AppSync_DVA.md
+      - Amplify DVA: docs/2022-2025/CE_02_AWS_SAA/01_compute/28_3_Amplify_DVA.md
+      - Beanstalk SSA: docs/2022-2025/CE_02_AWS_SAA/01_compute/05_1_Beanstalk_SSA.md
+      - Beanstalk DVA Deployments: docs/2022-2025/CE_02_AWS_SAA/01_compute/05_2_Beanstalk_DVA-deployments.md
+      - Containers ECS: docs/2022-2025/CE_02_AWS_SAA/01_compute/02_Containers_ECS.md
+      - Copilot: docs/2022-2025/CE_02_AWS_SAA/01_compute/07_copilot.md
+      - EC2: docs/2022-2025/CE_02_AWS_SAA/01_compute/01_EC2.md
+      - ECR: docs/2022-2025/CE_02_AWS_SAA/01_compute/06_ECR.md
+      - Kubernetes EKS: docs/2022-2025/CE_02_AWS_SAA/01_compute/02_Kubernetes_EKS.md
+      - Lambda 01 Saa: docs/2022-2025/CE_02_AWS_SAA/01_compute/03_lambda-01-saa.md
+      - Lambda Dva 01 CLI: docs/2022-2025/CE_02_AWS_SAA/01_compute/03_lambda-dva-01-CLI.md
+      - Lambda Dva 02 Trigger: docs/2022-2025/CE_02_AWS_SAA/01_compute/03_lambda-dva-02-trigger.md
+      - Lambda Dva 03 Context+event: docs/2022-2025/CE_02_AWS_SAA/01_compute/03_lambda-dva-03-context+event.md
+      - STEP FUNCTION DVA: docs/2022-2025/CE_02_AWS_SAA/01_compute/28_1_STEP_FUNCTION_DVA.md
+    - Database:
+      - Dynamodb SSA: docs/2022-2025/CE_02_AWS_SAA/03_database/04_1_DynamoDB_SSA.md
+      - Dynamodb DVA Components: docs/2022-2025/CE_02_AWS_SAA/03_database/04_2_DynamoDB_DVA-components.md
+      - Dynamodb DVA Operations: docs/2022-2025/CE_02_AWS_SAA/03_database/04_3_DynamoDB_DVA-operations.md
+      - Dynamodb DVA Cli: docs/2022-2025/CE_02_AWS_SAA/03_database/04_4_DynamoDB_DVA-cli.md
+      - DAX: docs/2022-2025/CE_02_AWS_SAA/03_database/05_DAX.md
+      - Elasticache: docs/2022-2025/CE_02_AWS_SAA/03_database/03_ElastiCache.md
+      - Quickoverview: docs/2022-2025/CE_02_AWS_SAA/03_database/00_quickOverview.md
+      - RDS: docs/2022-2025/CE_02_AWS_SAA/03_database/01_RDS.md
+      - RDS Aurora: docs/2022-2025/CE_02_AWS_SAA/03_database/02_RDS_Aurora.md
+    - Decoupling:
+      - Active MQ: docs/2022-2025/CE_02_AWS_SAA/05_decoupling/04_active_MQ.md
+      - Eventbridge: docs/2022-2025/CE_02_AWS_SAA/05_decoupling/05_eventBridge.md
+      - KDS Kinesisdatastream: docs/2022-2025/CE_02_AWS_SAA/05_decoupling/03_01_KDS_KinesisDataStream.md
+      - KDF Kinesisdatafirehose: docs/2022-2025/CE_02_AWS_SAA/05_decoupling/03_02_KDF_KinesisDataFirehose.md
+      - MSK: docs/2022-2025/CE_02_AWS_SAA/05_decoupling/06_MSK.md
+      - SQS: docs/2022-2025/CE_02_AWS_SAA/05_decoupling/01_SQS.md
+      - SNS: docs/2022-2025/CE_02_AWS_SAA/05_decoupling/02_SNS.md
+    - DR:
+      - Awsbackup: docs/2022-2025/CE_02_AWS_SAA/09_DR/03_awsbackup.md
+      - Dr Strategies: docs/2022-2025/CE_02_AWS_SAA/09_DR/01_dr-strategies.md
+      - Migration 1: docs/2022-2025/CE_02_AWS_SAA/09_DR/02_migration-1.md
+      - Migration 2: docs/2022-2025/CE_02_AWS_SAA/09_DR/02_migration-2.md
+    - Kick Off:
+      - Global Infra: docs/2022-2025/CE_02_AWS_SAA/00_kick_off/00_global_infra.md
+      - Readme: docs/2022-2025/CE_02_AWS_SAA/00_kick_off/readme.md
+      - Serverless Pardigm: docs/2022-2025/CE_02_AWS_SAA/00_kick_off/00_serverless_pardigm.md
+      - Whiteboard: docs/2022-2025/CE_02_AWS_SAA/00_kick_off/00_whiteboard.md
+    - Monitoring:
+      - AWS Distro: docs/2022-2025/CE_02_AWS_SAA/07_monitoring/04_AWS_Distro.md
+      - AWS Config: docs/2022-2025/CE_02_AWS_SAA/07_monitoring/06_AWS_config.md
+      - CW Metric: docs/2022-2025/CE_02_AWS_SAA/07_monitoring/01_CW-Metric.md
+      - CW Logs: docs/2022-2025/CE_02_AWS_SAA/07_monitoring/02_CW-Logs.md
+      - CW Alarms: docs/2022-2025/CE_02_AWS_SAA/07_monitoring/03_CW-Alarms.md
+      - Cloudtrail: docs/2022-2025/CE_02_AWS_SAA/07_monitoring/05_cloudTrail.md
+      - Quiz: docs/2022-2025/CE_02_AWS_SAA/07_monitoring/99_quiz.md
+      - Start: docs/2022-2025/CE_02_AWS_SAA/07_monitoring/00_start.md
+      - X Rays DVA: docs/2022-2025/CE_02_AWS_SAA/07_monitoring/04_X-rays_DVA.md
+    - More Services:
+      - AWS Batch: docs/2022-2025/CE_02_AWS_SAA/97_more-services/05_AWS-Batch.md
+      - Appflow: docs/2022-2025/CE_02_AWS_SAA/97_more-services/06_AppFlow.md
+      - Amplify: docs/2022-2025/CE_02_AWS_SAA/97_more-services/07_Amplify.md
+      - Cloudformation: docs/2022-2025/CE_02_AWS_SAA/97_more-services/01_CloudFormation.md
+      - Cost Explorer: docs/2022-2025/CE_02_AWS_SAA/97_more-services/04_cost-explorer.md
+      - Ses+pinpoint: docs/2022-2025/CE_02_AWS_SAA/97_more-services/02_SES+pinpoint.md
+      - SSM And More: docs/2022-2025/CE_02_AWS_SAA/97_more-services/03_SSM-and-more.md
+    - Network:
+      - API Gateway SAA: docs/2022-2025/CE_02_AWS_SAA/04_network/05_1_API_gateway_SAA.md
+      - API Gateway DVA: docs/2022-2025/CE_02_AWS_SAA/04_network/05_2_API_gateway_DVA.md
+      - Cloudfront: docs/2022-2025/CE_02_AWS_SAA/04_network/04_CloudFront.md
+      - Cloudfront DVA: docs/2022-2025/CE_02_AWS_SAA/04_network/04_CloudFront_DVA.md
+      - Eni+securitygroup: docs/2022-2025/CE_02_AWS_SAA/04_network/00_eni+securityGroup.md
+      - ELB: docs/2022-2025/CE_02_AWS_SAA/04_network/01_ELB.md
+      - Global Acceleartor: docs/2022-2025/CE_02_AWS_SAA/04_network/04_global_Acceleartor.md
+      - Questions 1: docs/2022-2025/CE_02_AWS_SAA/04_network/99_Questions-1.md
+      - Rout53: docs/2022-2025/CE_02_AWS_SAA/04_network/02_Rout53.md
+      - RAM: docs/2022-2025/CE_02_AWS_SAA/04_network/06_RAM.md
+      - VPC 1 Start: docs/2022-2025/CE_02_AWS_SAA/04_network/03_VPC-1-start.md
+      - VPC 2 NAT: docs/2022-2025/CE_02_AWS_SAA/04_network/03_VPC-2-NAT.md
+      - VPC 3 Vpcpeer+vpce: docs/2022-2025/CE_02_AWS_SAA/04_network/03_VPC-3-vpcPeer+vpce.md
+      - VPC 4 Tolologies: docs/2022-2025/CE_02_AWS_SAA/04_network/03_VPC-4-tolologies.md
+    - Practice Test:
+      - Readme: docs/2022-2025/CE_02_AWS_SAA/practice-test/readme.md
+      - SSA Attempt 1:
+        - 02.offical Practice Exam: docs/2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/02.offical_practice-Exam.md
+        - 03.practice Exam 1.md: docs/2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/03.practice-exam-1.md.md
+        - 03.practice Exam 2: docs/2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/03.practice-exam-2.md
+        - 03.practice Exam 3: docs/2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/03.practice-exam-3.md
+        - 03.practice Exam 4: docs/2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/03.practice-exam-4.md
+        - 03.practice Exam 5: docs/2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/03.practice-exam-5.md
+        - 03.practice Exam 6: docs/2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/03.practice-exam-6.md
+      - Whizlab:
+        - Whizlab Ssa Exam 4 5: docs/2022-2025/CE_02_AWS_SAA/practice-test/whizlab/whizlab-ssa-exam-4-5.md
+        - Whizlab Ssa Exam 6 7: docs/2022-2025/CE_02_AWS_SAA/practice-test/whizlab/whizlab-ssa-exam-6-7.md
+    - Storage:
+      - Appflow: docs/2022-2025/CE_02_AWS_SAA/02_storage/06_AppFlow.md
+      - EBS EFS: docs/2022-2025/CE_02_AWS_SAA/02_storage/01_EBS_EFS.md
+      - Fsx Serverless FS: docs/2022-2025/CE_02_AWS_SAA/02_storage/02_FSx_serverless-FS.md
+      - Snow Family: docs/2022-2025/CE_02_AWS_SAA/02_storage/02_snow-family.md
+      - S3 1: docs/2022-2025/CE_02_AWS_SAA/02_storage/03_S3-1.md
+      - S3 2 More: docs/2022-2025/CE_02_AWS_SAA/02_storage/03_S3-2-more.md
+      - Storage Gateway: docs/2022-2025/CE_02_AWS_SAA/02_storage/04_Storage_gateway.md
+      - Summary: docs/2022-2025/CE_02_AWS_SAA/02_storage/99_summary.md
+      - Transferfamily+datasync: docs/2022-2025/CE_02_AWS_SAA/02_storage/05_transferFamily+DataSync.md
+    - Security:
+      - AWS Org+control Tower: docs/2022-2025/CE_02_AWS_SAA/06_Security/03_AWS_org+control-tower.md
+      - ACM: docs/2022-2025/CE_02_AWS_SAA/06_Security/07_ACM.md
+      - Cognito SAA: docs/2022-2025/CE_02_AWS_SAA/06_Security/02_1_cognito_SAA.md
+      - HSM DVA: docs/2022-2025/CE_02_AWS_SAA/06_Security/10_HSM_DVA.md
+      - IAM: docs/2022-2025/CE_02_AWS_SAA/06_Security/01_IAM.md
+      - KMS SSA: docs/2022-2025/CE_02_AWS_SAA/06_Security/04_1_KMS_SSA.md
+      - KMS DVA Cli: docs/2022-2025/CE_02_AWS_SAA/06_Security/04_2_KMS_DVA-cli.md
+      - More: docs/2022-2025/CE_02_AWS_SAA/06_Security/99_more.md
+      - Sso+directoryservice: docs/2022-2025/CE_02_AWS_SAA/06_Security/01_SSO+DirectoryService.md
+      - SSM Param Store: docs/2022-2025/CE_02_AWS_SAA/06_Security/05_SSM-param-store.md
+      - Secret Manager: docs/2022-2025/CE_02_AWS_SAA/06_Security/06_secret_manager.md
+      - Sheild: docs/2022-2025/CE_02_AWS_SAA/06_Security/09_sheild.md
+      - Waf+firewallmanager: docs/2022-2025/CE_02_AWS_SAA/06_Security/08_WAF+FirewallManager.md
+    - SAA Discussion:
+      - 11 01 Statelessapp: docs/2022-2025/CE_02_AWS_SAA/98_SAA_discussion/11-01-StatelessApp.md
+      - 11 02 Statefulappwithdb+cache: docs/2022-2025/CE_02_AWS_SAA/98_SAA_discussion/11-02-StatefulAppWithDB+Cache.md
+      - 20 01 Servless+ms: docs/2022-2025/CE_02_AWS_SAA/98_SAA_discussion/20-01-Servless+MS.md
+      - 22 01 Bigdata Ingestion Pipeline: docs/2022-2025/CE_02_AWS_SAA/98_SAA_discussion/22-01-BigData-Ingestion-pipeline.md
+      - 29 01 Event+decouple+cache: docs/2022-2025/CE_02_AWS_SAA/98_SAA_discussion/29-01-event+decouple+cache.md
+      - 29 02 Network 1: docs/2022-2025/CE_02_AWS_SAA/98_SAA_discussion/29-02-network-1.md
+      - 29 03 Highperformancecompute HCP: docs/2022-2025/CE_02_AWS_SAA/98_SAA_discussion/29-03-HighPerformanceCompute-HCP.md
+      - 29 04 Ec2 Avaliability: docs/2022-2025/CE_02_AWS_SAA/98_SAA_discussion/29-04-Ec2-avaliability.md
+      - 99 01 SSA Security: docs/2022-2025/CE_02_AWS_SAA/98_SAA_discussion/99-01-SSA-security.md
+  - PE 01 Docker:
+    - Architecture: docs/2022-2025/PE_01_Docker/00_architecture.md
+    - Dev Guide: docs/2022-2025/PE_01_Docker/00_dev_guide.md
+    - Docker Compose: docs/2022-2025/PE_01_Docker/01_docker-compose.md
+    - Network: docs/2022-2025/PE_01_Docker/04_network.md
+    - Storage: docs/2022-2025/PE_01_Docker/03_Storage.md
+  - PE 02 Kubernetes:
+    - EKS:
+      - CG MCP Cluster: docs/2022-2025/PE_02_Kubernetes/04_EKS/99_CG-MCP-cluster.md
+      - CG Ext Secret: docs/2022-2025/PE_02_Kubernetes/04_EKS/99_CG_Ext-secret.md
+      - CG IRSA: docs/2022-2025/PE_02_Kubernetes/04_EKS/99_CG_IRSA.md
+      - CG Annotation Pod: docs/2022-2025/PE_02_Kubernetes/04_EKS/99_CG_annotation-Pod.md
+      - CG Annotation Ingress: docs/2022-2025/PE_02_Kubernetes/04_EKS/99_CG_annotation-ingress.md
+      - CG Annotation Sa: docs/2022-2025/PE_02_Kubernetes/04_EKS/99_CG_annotation-sa.md
+      - EKS Cluster: docs/2022-2025/PE_02_Kubernetes/04_EKS/02_01_EKS_Cluster.md
+      - EKS Adduser+serviceacct: docs/2022-2025/PE_02_Kubernetes/04_EKS/02_02_EKS-AddUser+ServiceAcct.md
+      - EKS Developer 00 Start: docs/2022-2025/PE_02_Kubernetes/04_EKS/03_EKS_Developer-00-start.md
+      - EKS Developer 01 HPA: docs/2022-2025/PE_02_Kubernetes/04_EKS/03_EKS_Developer-01-HPA.md
+      - EKS Developer Deployment: docs/2022-2025/PE_02_Kubernetes/04_EKS/03_EKS_Developer-Deployment.md
+      - Nodegroup+fargateprofile: docs/2022-2025/PE_02_Kubernetes/04_EKS/02_03_nodegroup+fargateProfile.md
+    - Helm:
+      - Helm Chart Kickoff: docs/2022-2025/PE_02_Kubernetes/05_helm/01_helm-chart-kickoff.md
+    - KCAD:
+      - 00 Configmap: docs/2022-2025/PE_02_Kubernetes/02_KCAD/07_00-configMap.md
+      - 01 Authentication: docs/2022-2025/PE_02_Kubernetes/02_KCAD/07_01-Authentication.md
+      - 02 Kubeconfig File: docs/2022-2025/PE_02_Kubernetes/02_KCAD/07_02-kubeConfig-file.md
+      - 03 API Group: docs/2022-2025/PE_02_Kubernetes/02_KCAD/07_03-API-Group.md
+      - 04 Authorization: docs/2022-2025/PE_02_Kubernetes/02_KCAD/07_04-Authorization.md
+      - 06 Cluster Roles: docs/2022-2025/PE_02_Kubernetes/02_KCAD/07_06-Cluster-roles.md
+      - 07 Admission Controller: docs/2022-2025/PE_02_Kubernetes/02_KCAD/07_07-Admission-controller.md
+      - 01 API Version: docs/2022-2025/PE_02_Kubernetes/02_KCAD/98_01-API-version.md
+      - 02 CRD: docs/2022-2025/PE_02_Kubernetes/02_KCAD/98_02-CRD.md
+      - 07 00 Secrets: docs/2022-2025/PE_02_Kubernetes/02_KCAD/07-00-Secrets.md
+      - Container D: docs/2022-2025/PE_02_Kubernetes/02_KCAD/00_01_container-d.md
+      - Controller: docs/2022-2025/PE_02_Kubernetes/02_KCAD/00_04_controller.md
+      - CKAD Topic: docs/2022-2025/PE_02_Kubernetes/02_KCAD/99_00_CKAD_topic.md
+      - Commands: docs/2022-2025/PE_02_Kubernetes/02_KCAD/99_02_commands.md
+      - Deamonset: docs/2022-2025/PE_02_Kubernetes/02_KCAD/03_04_deamonSet.md
+      - Deployment 1: docs/2022-2025/PE_02_Kubernetes/02_KCAD/04_deployment_1.md
+      - Ingress: docs/2022-2025/PE_02_Kubernetes/02_KCAD/05_02_ingress.md
+      - Jobs: docs/2022-2025/PE_02_Kubernetes/02_KCAD/03_03_jobs.md
+      - K8s Architcture+features: docs/2022-2025/PE_02_Kubernetes/02_KCAD/00_00_k8s-architcture+features.md
+      - Label+selectors: docs/2022-2025/PE_02_Kubernetes/02_KCAD/00_03_label+selectors.md
+      - Lab: docs/2022-2025/PE_02_Kubernetes/02_KCAD/99_01_lab.md
+      - Namespace: docs/2022-2025/PE_02_Kubernetes/02_KCAD/00_02_Namespace.md
+      - Network Policies: docs/2022-2025/PE_02_Kubernetes/02_KCAD/05_03_network-policies.md
+      - Pod: docs/2022-2025/PE_02_Kubernetes/02_KCAD/02_01_pod.md
+      - Pod Placement: docs/2022-2025/PE_02_Kubernetes/02_KCAD/02_02_pod_placement.md
+      - Pod Monitor+debug: docs/2022-2025/PE_02_Kubernetes/02_KCAD/02_03_pod_monitor+debug.md
+      - Pod Readiness+liveness: docs/2022-2025/PE_02_Kubernetes/02_KCAD/02_05_pod_readiness+liveness.md
+      - Pod Resource: docs/2022-2025/PE_02_Kubernetes/02_KCAD/02_06_pod_resource.md
+      - Pod PDB: docs/2022-2025/PE_02_Kubernetes/02_KCAD/02_07_pod_PDB.md
+      - Replicaset: docs/2022-2025/PE_02_Kubernetes/02_KCAD/03_02_replicaSet.md
+      - Statefulsets: docs/2022-2025/PE_02_Kubernetes/02_KCAD/03_01_Statefulsets.md
+      - Services: docs/2022-2025/PE_02_Kubernetes/02_KCAD/05_01_services.md
+      - Storage Class: docs/2022-2025/PE_02_Kubernetes/02_KCAD/06_02_storage-class.md
+      - Service Account: docs/2022-2025/PE_02_Kubernetes/02_KCAD/07_00_service-Account.md
+      - Volume: docs/2022-2025/PE_02_Kubernetes/02_KCAD/06_01_volume.md
+    - Minikube:
+      - Minikube 1 Start: docs/2022-2025/PE_02_Kubernetes/01_minikube/01_miniKube-1-start.md
+      - Minikube 2 Handson: docs/2022-2025/PE_02_Kubernetes/01_minikube/02_minikube-2-handson.md
+  - PE 03 Message Broker:
+    - Distributed Messaging System: docs/2022-2025/PE_03_message-broker/01_Distributed-Messaging-System.md
+    - Kafka 01 Concepts: docs/2022-2025/PE_03_message-broker/kafka_01_concepts.md
+    - Kafka 02 Concepts: docs/2022-2025/PE_03_message-broker/kafka_02_concepts.md
+    - Kafka 03 Case Studies: docs/2022-2025/PE_03_message-broker/kafka_03_case_studies.md
+    - Kafka 04 Kafka Streams: docs/2022-2025/PE_03_message-broker/kafka_04_Kafka-Streams.md
+    - Messaging Protocols: docs/2022-2025/PE_03_message-broker/02_Messaging-protocols.md
+    - Rmq 01 Env Setup: docs/2022-2025/PE_03_message-broker/rmq_01_env-setup.md
+    - Rmq 02 Java Code Outline: docs/2022-2025/PE_03_message-broker/rmq_02_java-code-outline.md
+    - Stream Processing: docs/2022-2025/PE_03_message-broker/03_stream-processing.md
+  - PE 04 Terraform:
+    - 01 Kickoff: docs/2022-2025/PE_04_terraform/01-kickoff.md
+    - 02 HCL: docs/2022-2025/PE_04_terraform/02-HCL.md
+    - Devops: docs/2022-2025/PE_04_terraform/00_devOps.md
+    - Module: docs/2022-2025/PE_04_terraform/03_module.md
+  - PE 05 Harness:
+    - Bash Script 1: docs/2022-2025/PE_05_harness/00_bash_script_1.md
+    - Delegates: docs/2022-2025/PE_05_harness/02_delegates.md
+    - Pre Work: docs/2022-2025/PE_05_harness/00_pre_work.md
+    - Pipeline 1: docs/2022-2025/PE_05_harness/01_pipeline_1.md
+    - Pipeline 2: docs/2022-2025/PE_05_harness/01_pipeline_2.md
+    - Pipeline 3: docs/2022-2025/PE_05_harness/01_pipeline_3.md
+  - Revision:
+    - Revision 01 2024: docs/2022-2025/_Revision/revision_01_2024.md
+    - Revision 02 2025: docs/2022-2025/_Revision/revision_02_2025.md
+    - Revision 03 2025: docs/2022-2025/_Revision/revision_03_2025.md
+  - SE 01 CSE:
+    - Agile Kanban: docs/2022-2025/SE_01_CSE/02_agile-kanban.md
+    - Agile Scrum: docs/2022-2025/SE_01_CSE/02_agile-scrum.md
+    - Coding Best Practice: docs/2022-2025/SE_01_CSE/04_coding_best_practice.md
+    - Code Review: docs/2022-2025/SE_01_CSE/05_code_review.md
+    - Cse Best Practice: docs/2022-2025/SE_01_CSE/06_cse_best_practice.md
+    - DDD: docs/2022-2025/SE_01_CSE/03_DDD.md
+    - Sdlc: docs/2022-2025/SE_01_CSE/01_sdlc.md
+  - SE 02 Distributed System:
+    - SD 00 Algo:
+      - Algo 01 Bloomfilter: docs/2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_01_BloomFilter.md
+      - Algo 02 Leaderelection: docs/2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_02_LeaderElection.md
+      - Algo 02 Mapreduce: docs/2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_02_MapReduce.md
+      - Algo 03 Erasor Coding: docs/2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_03_erasor-coding.md
+      - Algo 04 Hyperloglog: docs/2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_04_hyperloglog.md
+      - Algo 05 Btree: docs/2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_05_btree.md
+    - SD 01 System:
+      - Arch 01 Client Server Arch: docs/2022-2025/SE_02_distributed-system/SD_01_system/02_arch_01_client-server-arch.md
+      - Arch 02 Stateless+stateful Arch: docs/2022-2025/SE_02_distributed-system/SD_01_system/02_arch_02_stateless+Stateful_arch.md
+      - Arch 03 Event Loop: docs/2022-2025/SE_02_distributed-system/SD_01_system/02_arch_03_event-loop.md
+      - Arch 04 Event Driven Arch: docs/2022-2025/SE_02_distributed-system/SD_01_system/02_arch_04_event-driven-arch.md
+      - Arch 05 Service Mesh Arch: docs/2022-2025/SE_02_distributed-system/SD_01_system/02_arch_05_service-mesh-arch.md
+      - Cap Theorem: docs/2022-2025/SE_02_distributed-system/SD_01_system/01_02_cap-theorem.md
+      - Concept 01 Hashing: docs/2022-2025/SE_02_distributed-system/SD_01_system/05_concept_01_hashing.md
+      - Concept 02 Taskexeflows: docs/2022-2025/SE_02_distributed-system/SD_01_system/05_concept_02_TaskExeFlows.md
+      - Concept 03 LB: docs/2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_LB.md
+      - Concept 03 Ratelimiting: docs/2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_RateLimiting.md
+      - Concept 03 Proxy: docs/2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_proxy.md
+      - Concept 03 Socket: docs/2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_socket.md
+      - Concept 04 Scaling: docs/2022-2025/SE_02_distributed-system/SD_01_system/05_concept_04_scaling.md
+      - Distributed System: docs/2022-2025/SE_02_distributed-system/SD_01_system/01_01_Distributed-system.md
+    - SD 02 Compute:
+      - Kernel: docs/2022-2025/SE_02_distributed-system/SD_02_compute/01_01_kernel.md
+    - SD 02 Database+storage:
+      - Concept 01 Memory: docs/2022-2025/SE_02_distributed-system/SD_02_database+storage/01_concept_01_memory.md
+      - Concept 02 Storage: docs/2022-2025/SE_02_distributed-system/SD_02_database+storage/01_concept_02_storage.md
+      - Concept 04 Caching: docs/2022-2025/SE_02_distributed-system/SD_02_database+storage/01_concept_04_caching.md
+      - Concept 05 Database: docs/2022-2025/SE_02_distributed-system/SD_02_database+storage/01_concept_05_database.md
+      - Concept 06 Database Nosql: docs/2022-2025/SE_02_distributed-system/SD_02_database+storage/01_concept_06_database_NoSQL.md
+      - Db Designpatterns: docs/2022-2025/SE_02_distributed-system/SD_02_database+storage/00_01_db-DesignPatterns.md
+      - Distributed Caching: docs/2022-2025/SE_02_distributed-system/SD_02_database+storage/02_01_distributed-caching.md
+      - Distributed Locking: docs/2022-2025/SE_02_distributed-system/SD_02_database+storage/02_02_distributed-Locking.md
+      - Distributed Transaction: docs/2022-2025/SE_02_distributed-system/SD_02_database+storage/02_03_distributed-Transaction.md
+      - Distributed Filesystem: docs/2022-2025/SE_02_distributed-system/SD_02_database+storage/02_04_distributed-FileSystem.md
+      - Datastructure 01 Indexes: docs/2022-2025/SE_02_distributed-system/SD_02_database+storage/03_dataStructure_01_indexes.md
+      - Datastructure 02 Btree+lsm: docs/2022-2025/SE_02_distributed-system/SD_02_database+storage/03_dataStructure_02_Btree+LSM.md
+      - Redis: docs/2022-2025/SE_02_distributed-system/SD_02_database+storage/09_01_redis.md
+    - SD 03 Security:
+      - Iam: docs/2022-2025/SE_02_distributed-system/SD_03_security/01_02_iam.md
+      - Iam Tool OKTA: docs/2022-2025/SE_02_distributed-system/SD_03_security/01_03_iam_tool_OKTA.md
+      - Ldap: docs/2022-2025/SE_02_distributed-system/SD_03_security/01_06_ldap.md
+      - Passkeys: docs/2022-2025/SE_02_distributed-system/SD_03_security/01_05_passkeys.md
+      - Protocol Https Tls: docs/2022-2025/SE_02_distributed-system/SD_03_security/03_protocol_https_tls.md
+      - Protocol Jwt: docs/2022-2025/SE_02_distributed-system/SD_03_security/03_protocol_jwt.md
+      - Protocol Oauth V1: docs/2022-2025/SE_02_distributed-system/SD_03_security/03_protocol_oauth-v1.md
+      - Protocol Oauth V2: docs/2022-2025/SE_02_distributed-system/SD_03_security/03_protocol_oauth-v2.md
+      - Protocol Oidc: docs/2022-2025/SE_02_distributed-system/SD_03_security/03_protocol_oidc.md
+      - Protocol Saml: docs/2022-2025/SE_02_distributed-system/SD_03_security/03_protocol_saml.md
+      - Protocol Ssh+bastionhost: docs/2022-2025/SE_02_distributed-system/SD_03_security/03_protocol_ssh+bastionHost.md
+      - Springboot Security: docs/2022-2025/SE_02_distributed-system/SD_03_security/02_01_springboot-security.md
+      - Vul 01 Cors: docs/2022-2025/SE_02_distributed-system/SD_03_security/07_vul_01_cors.md
+      - Vul 02 XSS: docs/2022-2025/SE_02_distributed-system/SD_03_security/07_vul_02_XSS.md
+      - Vul 03 CSRF: docs/2022-2025/SE_02_distributed-system/SD_03_security/07_vul_03_CSRF.md
+      - Vul 04 Sql Injection: docs/2022-2025/SE_02_distributed-system/SD_03_security/07_vul_04_sql-injection.md
+      - Vul 05 Click Jacking: docs/2022-2025/SE_02_distributed-system/SD_03_security/07_vul_05_click-jacking.md
+      - X.509: docs/2022-2025/SE_02_distributed-system/SD_03_security/01_04_x.509.md
+      - Zts: docs/2022-2025/SE_02_distributed-system/SD_03_security/01_01_zts.md
+    - SD 04 Deployment+monitor:
+      - Durability: docs/2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_02_durability.md
+      - Distributed Tracing: docs/2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/03_distributed-Tracing.md
+      - Deloyment 01 Strategies: docs/2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/09_deloyment_01_strategies.md
+      - Heartbeat: docs/2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_02_heartbeat.md
+      - Metric: docs/2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_01_metric.md
+      - Resiliency: docs/2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_01_resiliency.md
+    - SD 05 Micro Service:
+      - Api 00 Api Protocols: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_00_api-protocols.md
+      - Api 01 Designing: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_01_designing.md
+      - Api 01 Http Headers: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_01_http-headers.md
+      - Api 01 Ratelimiting+throttle: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_01_rateLimiting+throttle.md
+      - Api 02 Api Gateway: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_02_api-gateway.md
+      - Api 03 Idempotency: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_03_idempotency.md
+      - Api 04 Caching: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_04_caching.md
+      - Api 05 Testing: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_05_testing.md
+      - Api 06 Security: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_06_security.md
+      - Concept 02 Service Discovery: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/01_concept_02_service-discovery.md
+      - Concept 03 Container Orchestration: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/01_concept_03_container-orchestration.md
+      - Microservice System: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/00_01_microservice-system.md
+      - Pattern 01 BFF: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/02_pattern_01_BFF.md
+      - Pattern 02 Circuit Breaker Pattern: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/02_pattern_02_circuit-breaker-pattern.md
+      - Pattern 03 Aggregator Pattern: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/02_pattern_03_aggregator-pattern.md
+      - Pattern 04 Sidecar+ambassador: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/02_pattern_04_sidecar+ambassador.md
+      - Pattern 05 CQRS: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/02_pattern_05_CQRS.md
+      - Pattern 06 API Gateway: docs/2022-2025/SE_02_distributed-system/SD_05_micro-service/02_pattern_06_API-gateway.md
+  - SE 99 Case Studies:
+    - Bytebytego:
+      - Notification System: docs/2022-2025/SE_99_case-studies/02_ByteByteGo/02_notification-system.md
+      - Rate Limiter: docs/2022-2025/SE_99_case-studies/02_ByteByteGo/01_rate-limiter.md
+    - Bytemonk:
+      - AWS Dynamodb: docs/2022-2025/SE_99_case-studies/03_ByteMonk/02_AWS_DynamoDB.md
+      - Discord: docs/2022-2025/SE_99_case-studies/03_ByteMonk/03_discord.md
+      - Instagram 2026: docs/2022-2025/SE_99_case-studies/03_ByteMonk/04_instagram_2026.md
+      - Kickoff: docs/2022-2025/SE_99_case-studies/03_ByteMonk/01_kickoff.md
+    - MAPS:
+      - Architecture: docs/2022-2025/SE_99_case-studies/01_MAPS/01_architecture.md
+      - API Design: docs/2022-2025/SE_99_case-studies/01_MAPS/04_API-design.md
+      - Design Patterns: docs/2022-2025/SE_99_case-studies/01_MAPS/02_design-patterns.md
+      - DR Strategies: docs/2022-2025/SE_99_case-studies/01_MAPS/05_DR-strategies.md
+      - Release Process: docs/2022-2025/SE_99_case-studies/01_MAPS/03_release_process.md
+- '2026':
+  - PE 01 Datadog:
+    - Kick Off: docs/2026/PE_01_Datadog/00_kick_off.md
+    - Obs Start: docs/2026/PE_01_Datadog/01_Obs_start.md
+    - Observability Spring: docs/2026/PE_01_Datadog/01_Observability-spring.md
+    - Observabilty Datadog: docs/2026/PE_01_Datadog/02_observabilty-datadog.md
+  - SE 01 Design Pattern:
+    - Architectural Patterns: docs/2026/SE_01_Design_pattern/04_Architectural_Patterns.md
+    - Behavioral Patterns: docs/2026/SE_01_Design_pattern/03_Behavioral_Patterns.md
+    - Creational Patterns: docs/2026/SE_01_Design_pattern/01_Creational_Patterns.md
+    - Cloud Design Patterns: docs/2026/SE_01_Design_pattern/07_Cloud_design_Patterns.md
+    - Event Driven+messaging Patterns: docs/2026/SE_01_Design_pattern/06_Event-Driven+Messaging_Patterns.md
+    - Microservices Design Patterns: docs/2026/SE_01_Design_pattern/05_Microservices_Design_Patterns.md
+    - Observability+reliability Patterns: docs/2026/SE_01_Design_pattern/09_Observability+Reliability_Patterns.md
+    - Structural Patterns: docs/2026/SE_01_Design_pattern/02_Structural_Patterns.md
+    - Security Design Patterns: docs/2026/SE_01_Design_pattern/08_Security_Design_Patterns.md
+    - Ui+frontend Patterns: docs/2026/SE_01_Design_pattern/10_UI+Frontend_Patterns.md

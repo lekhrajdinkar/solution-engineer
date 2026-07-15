@@ -5,15 +5,15 @@
 - **project_dir_default**  (default)
 - all containers are connected.
 
-![img_2.png](img/crash-course/network/img_2.png)
+![img_2.png](../../99_img/2025/docker/crash-course/network/img_2.png)
 
 - **docker network create  --driver=bridge --subnet ... n1**
 
-![img_1.png](img/crash-course/network/img_1.png)
+![img_1.png](../../99_img/2025/docker/crash-course/network/img_1.png)
 
 - **Embedded DNS** `privateIP` == containerName(act as hostname)
 
-![img_3.png](img/crash-course/network/img_3.png)
+![img_3.png](../../99_img/2025/docker/crash-course/network/img_3.png)
 
 ---  
 ### 2. host
@@ -28,4 +28,4 @@
 
 --- 
 ### Summary
-![img.png](img/crash-course/network/img.png)
+![img.png](../../99_img/2025/docker/crash-course/network/img.png)

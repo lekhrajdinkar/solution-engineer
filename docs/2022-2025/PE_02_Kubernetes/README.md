@@ -1,13 +1,5 @@
-# Kubernetes k8s
-## 2022-2025
-### Notes
-- ![k8s-bbgo-start.png](99_img/k8s-bbgo-start.png)
-- [01_minikube](01_minikube)
-- [02_KCAD](02_KCAD)
-- [04_EKS](04_EKS)
-- [05_helm](05_helm)
-
-### References
+# Kubernetes
+## Artifacts
 - chatGPT:
   - [starBucks](https://chat.deepseek.com/a/chat/s/7ad6e329-5ae5-4ae7-9d7c-e7fa955f4966)
   - [k8s - 00 intro](https://chatgpt.com/c/6726267e-2a8c-487d-8ffe-937c2c4d0f0f)  
@@ -20,12 +12,9 @@
 - links:
   - https://kubernetes.io/docs/concepts/overview/components/
   - https://kubernetes.io/docs/tasks/tools/
-- YT
+- Youtube:
   - http://youtube.com/post/Ugkxv7H8irSOFwg9PeUolbWQ8UXrH9p34JJ2?feature=shared
   - https://www.youtube.com/playlist?list=PLVz2XdJiJQxybsyOxK7WFtteH42ayn5i9)
-
----
-## 2026
 
 
 
