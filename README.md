@@ -17,8 +17,7 @@
 
 ---
 ## Generating mkdocs.yml
-Files ending with `__x.md`
-
+> Files ending with `__x.md` will be skipped
 ```bash
 pip install -r requirements-netlify.txt
 python scripts/generate_mkdocs.py

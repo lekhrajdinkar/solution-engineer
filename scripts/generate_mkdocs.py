@@ -99,20 +99,42 @@ def build_nav_tree(start_path: Path, root_docs: Path) -> Optional[Dict]:
             continue
         
         if entry.is_dir():
-            # Recursively process subdirectory
+            # Handle directory: include its README (readme.md / README.md) as index if present,
+            # then include other children (recursively). This maps folder/README.md to folder index.
+            index_file = None
+            for p in entry.iterdir():
+                if p.is_file() and p.name.lower() == 'readme.md':
+                    index_file = p
+                    break
+
+            dir_children = []
+            if index_file:
+                # Skip excluded README variants
+                if not EXCLUDE_PATTERN.search(index_file.name):
+                    fm = extract_front_matter(index_file)
+                    idx_title = fm.get('title', humanize_name(index_file.stem))
+                    rel = index_file.relative_to(root_docs)
+                    rel_str = str(rel).replace('\\', '/')
+                    dir_children.append({'title': idx_title, 'file': rel_str})
+
+            # Recursively process remaining files/directories (build_nav_tree will skip README files)
             sub_tree = build_nav_tree(entry, root_docs)
-            if sub_tree:
+            if sub_tree and 'children' in sub_tree:
+                # extend children after index (if any)
+                for c in sub_tree['children']:
+                    dir_children.append(c)
+
+            if dir_children:
                 items.append({
                     'title': humanize_name(entry.name),
-                    'children': sub_tree.get('children', []) if isinstance(sub_tree, dict) else sub_tree
+                    'children': dir_children
                 })
         elif entry.is_file() and entry.suffix == '.md':
             # Skip excluded files (ending with __x.md)
             if EXCLUDE_PATTERN.search(entry.name):
                 continue
-            
-            # Skip README.md (will be handled as folder index)
-            if entry.name == 'README.md':
+            # Skip README.md (will be handled by parent as folder index)
+            if entry.name.lower() == 'readme.md':
                 continue
             
             # Extract title and weight
@@ -120,8 +142,8 @@ def build_nav_tree(start_path: Path, root_docs: Path) -> Optional[Dict]:
             title = front_matter.get('title', humanize_name(entry.stem))
             weight = front_matter.get('weight', float('inf'))
             
-            # Relative path from repo root for mkdocs (use forward slashes)
-            rel_path = entry.relative_to(root_docs.parent)
+            # Relative path from docs dir for mkdocs (use forward slashes)
+            rel_path = entry.relative_to(root_docs)
             rel_path_str = str(rel_path).replace('\\', '/')
             
             items.append({
@@ -154,7 +176,14 @@ def nav_tree_to_list(tree: Dict) -> List:
     for item in tree['children']:
         if 'children' in item:
             # Folder with children
-            result.append({item['title']: nav_tree_to_list({'children': item['children']})})
+            # If the first child is a file representing the folder README, keep it as first entry
+            children_list = []
+            for c in item['children']:
+                if 'children' in c:
+                    children_list.append({c['title']: nav_tree_to_list({'children': c['children']})})
+                else:
+                    children_list.append({c['title']: c['file']})
+            result.append({item['title']: children_list})
         else:
             # File entry
             result.append({item['title']: item['file']})
@@ -163,8 +192,31 @@ def nav_tree_to_list(tree: Dict) -> List:
 
 def generate_mkdocs_config() -> Dict:
     """Generate mkdocs config with nav from docs/ structure."""
-    nav_tree = build_nav_tree(DOCS_DIR, DOCS_DIR.parent)
+    nav_tree = build_nav_tree(DOCS_DIR, DOCS_DIR)
     nav_list = nav_tree_to_list(nav_tree) if nav_tree else []
+
+    # Ensure there's a Home (root) page: if no docs/index.md or docs/README.md exists at root,
+    # pick the first top-level README (e.g., docs/2022-2025/README.md) as Home to avoid 404 on '/'
+    has_root_index = False
+    for entry in nav_list:
+        # entry can be dict mapping title->file/list
+        for v in entry.values():
+            if isinstance(v, str):
+                if v.lower() in ('index.md', 'readme.md'):
+                    has_root_index = True
+    if not has_root_index:
+        # find first top-level README under docs/
+        first_readme = None
+        for child in DOCS_DIR.iterdir():
+            if child.is_dir():
+                for p in child.iterdir():
+                    if p.is_file() and p.name.lower() == 'readme.md':
+                        first_readme = p.relative_to(DOCS_DIR).as_posix()
+                        break
+            if first_readme:
+                break
+        if first_readme:
+            nav_list.insert(0, {'Home': first_readme})
     
     return {'nav': nav_list}
 
