@@ -1,6 +1,6 @@
 site_name: Solution Engineer Docs
 site_description: Learning, PoC, and Research Documentation
-repo_url: https://github.com/yourusername/solution-engineer
+repo_url: https://github.com/lekhrajdinkar/senior-system-engineer
 edit_uri: edit/main/docs/
 
 theme:
