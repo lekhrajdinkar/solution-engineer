@@ -99,11 +99,11 @@ def build_nav_tree(start_path: Path, root_docs: Path) -> Optional[Dict]:
             continue
         
         if entry.is_dir():
-            # Handle directory: include its README (readme.md / README.md) as index if present,
-            # then include other children (recursively). This maps folder/README.md to folder index.
+            # Handle directory: include its index (index.md) as folder index if present,
+            # then include other children (recursively). We no longer treat README.md as folder index.
             index_file = None
             for p in entry.iterdir():
-                if p.is_file() and p.name.lower() == 'readme.md':
+                if p.is_file() and p.name.lower() == 'index.md':
                     index_file = p
                     break
 
@@ -195,28 +195,34 @@ def generate_mkdocs_config() -> Dict:
     nav_tree = build_nav_tree(DOCS_DIR, DOCS_DIR)
     nav_list = nav_tree_to_list(nav_tree) if nav_tree else []
 
-    # Ensure there's a Home (root) page: if no docs/index.md or docs/README.md exists at root,
-    # pick the first top-level README (e.g., docs/2022-2025/README.md) as Home to avoid 404 on '/'
+    # Ensure there's a Home (root) page: if no docs/index.md exists at root,
+    # pick the first top-level index (e.g., docs/2022-2025/index.md) as Home to avoid 404 on '/'
     has_root_index = False
     for entry in nav_list:
         # entry can be dict mapping title->file/list
         for v in entry.values():
             if isinstance(v, str):
-                if v.lower() in ('index.md', 'readme.md'):
+                # Check only the basename so paths like '2022-2025/README.md' are handled
+                if os.path.basename(v).lower() == 'index.md':
                     has_root_index = True
     if not has_root_index:
-        # find first top-level README under docs/
-        first_readme = None
-        for child in DOCS_DIR.iterdir():
-            if child.is_dir():
-                for p in child.iterdir():
-                    if p.is_file() and p.name.lower() == 'readme.md':
-                        first_readme = p.relative_to(DOCS_DIR).as_posix()
-                        break
-            if first_readme:
-                break
-        if first_readme:
-            nav_list.insert(0, {'Home': first_readme})
+        # find first top-level index under docs/ (exclude README.md)
+        first_index = None
+        # check root docs/index.md first
+        root_index = DOCS_DIR / 'index.md'
+        if root_index.is_file():
+            first_index = root_index.relative_to(DOCS_DIR).as_posix()
+        else:
+            for child in DOCS_DIR.iterdir():
+                if child.is_dir():
+                    for p in child.iterdir():
+                        if p.is_file() and p.name.lower() == 'index.md':
+                            first_index = p.relative_to(DOCS_DIR).as_posix()
+                            break
+                if first_index:
+                    break
+        if first_index:
+            nav_list.insert(0, {'Home': first_index})
     
     return {'nav': nav_list}
 

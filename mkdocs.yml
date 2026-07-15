@@ -21,8 +21,6 @@ theme:
   - navigation.instant
   - navigation.tracking
   - navigation.tabs
-  - navigation.expand
-  - toc.integrate
   - search.suggest
   - search.highlight
 plugins:
@@ -52,9 +50,7 @@ markdown_extensions:
 - toc:
     permalink: true
 nav:
-- Home: 2022-2025/README.md
 - 2022 2025:
-  - README: 2022-2025/README.md
   - CE 01 AWS DVA:
     - CLI SDK More: 2022-2025/CE_01_AWS_DVA/12_CLI_SDK_more.md
     - CLOUD FORMATION: 2022-2025/CE_01_AWS_DVA/18_CLOUD_FORMATION.md
@@ -122,7 +118,6 @@ nav:
       - Migration 1: 2022-2025/CE_02_AWS_SAA/09_DR/02_migration-1.md
       - Migration 2: 2022-2025/CE_02_AWS_SAA/09_DR/02_migration-2.md
     - Kick Off:
-      - Readme: 2022-2025/CE_02_AWS_SAA/00_kick_off/readme.md
       - Global Infra: 2022-2025/CE_02_AWS_SAA/00_kick_off/00_global_infra.md
       - Serverless Pardigm: 2022-2025/CE_02_AWS_SAA/00_kick_off/00_serverless_pardigm.md
       - Whiteboard: 2022-2025/CE_02_AWS_SAA/00_kick_off/00_whiteboard.md
@@ -160,7 +155,6 @@ nav:
       - VPC 3 Vpcpeer+vpce: 2022-2025/CE_02_AWS_SAA/04_network/03_VPC-3-vpcPeer+vpce.md
       - VPC 4 Tolologies: 2022-2025/CE_02_AWS_SAA/04_network/03_VPC-4-tolologies.md
     - Practice Test:
-      - Readme: 2022-2025/CE_02_AWS_SAA/practice-test/readme.md
       - SSA Attempt 1:
         - 02.offical Practice Exam: 2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/02.offical_practice-Exam.md
         - 03.practice Exam 1.md: 2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/03.practice-exam-1.md.md
@@ -213,7 +207,6 @@ nav:
     - Network: 2022-2025/PE_01_Docker/04_network.md
     - Storage: 2022-2025/PE_01_Docker/03_Storage.md
   - PE 02 Kubernetes:
-    - README: 2022-2025/PE_02_Kubernetes/README.md
     - EKS:
       - CG MCP Cluster: 2022-2025/PE_02_Kubernetes/04_EKS/99_CG-MCP-cluster.md
       - CG Ext Secret: 2022-2025/PE_02_Kubernetes/04_EKS/99_CG_Ext-secret.md
@@ -303,7 +296,6 @@ nav:
     - DDD: 2022-2025/SE_01_CSE/03_DDD.md
     - Sdlc: 2022-2025/SE_01_CSE/01_sdlc.md
   - SE 02 Distributed System:
-    - README: 2022-2025/SE_02_distributed-system/README.md
     - SD 00 Algo:
       - Algo 01 Bloomfilter: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_01_BloomFilter.md
       - Algo 02 Leaderelection: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_02_LeaderElection.md
@@ -343,7 +335,6 @@ nav:
       - Datastructure 02 Btree+lsm: 2022-2025/SE_02_distributed-system/SD_02_database+storage/03_dataStructure_02_Btree+LSM.md
       - Redis: 2022-2025/SE_02_distributed-system/SD_02_database+storage/09_01_redis.md
     - SD 03 Security:
-      - README: 2022-2025/SE_02_distributed-system/SD_03_security/README.md
       - Iam: 2022-2025/SE_02_distributed-system/SD_03_security/01_02_iam.md
       - Iam Tool OKTA: 2022-2025/SE_02_distributed-system/SD_03_security/01_03_iam_tool_OKTA.md
       - Ldap: 2022-2025/SE_02_distributed-system/SD_03_security/01_06_ldap.md
@@ -371,7 +362,6 @@ nav:
       - Metric: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_01_metric.md
       - Resiliency: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_01_resiliency.md
     - SD 05 Micro Service:
-      - README: 2022-2025/SE_02_distributed-system/SD_05_micro-service/README.md
       - Api 00 Api Protocols: 2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_00_api-protocols.md
       - Api 01 Designing: 2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_01_designing.md
       - Api 01 Http Headers: 2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_01_http-headers.md
@@ -406,7 +396,6 @@ nav:
       - DR Strategies: 2022-2025/SE_99_case-studies/01_MAPS/05_DR-strategies.md
       - Release Process: 2022-2025/SE_99_case-studies/01_MAPS/03_release_process.md
 - '2026':
-  - README: 2026/README.md
   - PE 01 Datadog:
     - Kick Off: 2026/PE_01_Datadog/00_kick_off.md
     - Obs Start: 2026/PE_01_Datadog/01_Obs_start.md
