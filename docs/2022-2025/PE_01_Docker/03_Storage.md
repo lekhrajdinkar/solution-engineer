@@ -2,7 +2,7 @@
 ### storage drivers
 - based on OS picks auto picks correct one.
 
-![img_7.png](img/crash-course/img_7.png)
+![img_7.png](../../99_img/2025/docker/crash-course/img_7.png)
 
 ### 1. Docker-managed volumes
 - allow to manage data **separately** from host
@@ -15,7 +15,7 @@
 - /volumes  🔸
       /vol-1
 ```
-![img_6.png](img/crash-course/img_6.png)
+![img_6.png](../../99_img/2025/docker/crash-course/img_6.png)
 
 ### 2. share volume with host
 - --mount type=bind,   source=/path/to/host/dir , target=/container/path

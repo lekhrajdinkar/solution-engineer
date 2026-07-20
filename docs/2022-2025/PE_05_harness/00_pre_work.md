@@ -39,7 +39,7 @@
 - nexus-repo-connector 
 - service-now-connector
 
-![img.png](../DevOps_01_terraform/img/05_harness_image/img.png)
+![img.png](../../99_img/2025/terraform/05_harness_image/img.png)
 
 ## ✔️RBAC
 - **service account** : none
@@ -90,7 +90,7 @@
     repoName
 ```
 
-![img.png](img.png)
+![img.png](../../99_img/2025/terraform/img_harness_1.png)
 
 ## ✖️services
 
