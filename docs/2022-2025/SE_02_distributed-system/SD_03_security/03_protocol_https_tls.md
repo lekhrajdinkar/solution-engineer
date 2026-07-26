@@ -1,4 +1,4 @@
-# https
+# HTTPS / TLS
 ## Overview
 - **man in the middle** Attack with `http`
 - TLS / transport layer security (level=4) 
@@ -41,8 +41,7 @@ A TLS certificate contains:
 ![img.png](../../../99_img/2026/02/03/img.png)
 
 ---
-## Scenarios for understanding
-### Flow-1 (No certificate)
+## why need certificate ?
 ```
 ✔️Flow:
 Server creates RSA key pair
@@ -67,42 +66,104 @@ This is exactly why TLS + certificates exist.
 ```
 ![img_5.png](../../../99_img/2026/02/02/img_5.png)
 
+---
+## Modern TLS 1.3
 
-### Flow-2 (Modern TLS 1.3 flow)
-```
 1️⃣ Certificate issuance (offline)
-- Server generates key pair
-- Sends CSR to CA
+- Server (abc.com) generates key pair (abc-private-key + abc-public-key)
+- Sends CSR to CA.
 - CA verifies domain ownership
-- CA signs certificate with CA private key
-- Server installs cert + private key
-```
-```
-2️⃣ Client connects to https://abc.com
-Handshake begins (Authentication):
-    1. Server sends certificate
-        Includes server public key
-        Includes CA signature
-    2. Client verifies certificate
-        Uses CA public key (already in OS/browser trust store) 👈🏻
-        Verifies:
-            Signature valid
-            Domain matches abc.com
-            Not expired / revoked
+- CA signs certificate with CA-private-key
+- CA issued public CERTIFICATE-1 [having abc-public-key + CA-signature]
 
-    ✅ If this passes → server identity is trusted
+```mermaid
+flowchart LR
+    S["abc.com Server"] --> KP["Generate key pair"]
+
+    KP --> PRIV["abc-private-key 🔒<br/>stays on server"]
+    KP --> PUB["abc-public-key 🔑"]
+
+    PUB --> CSR["CSR<br/>domain + public key"]
+    CSR --> CA["Certificate Authority"]
+
+    CA --> VERIFY["Verify domain ownership"]
+    VERIFY --> SIGN["Sign using<br/>CA private key"]
+
+    SIGN --> CERT["abc.com Certificate<br/>abc-public-key 🔑<br/>CA signature"]
+```
+2️⃣ Browser / OS trust store — offline
+```mermaid
+flowchart TD
+    TRUST["Browser / OS Trust Store"]
+
+    TRUST --> R1["Root CA A Certificate"]
+    TRUST --> R2["Root CA B Certificate"]
+    TRUST --> R3["Root CA C Certificate"]
+
+    CLIENT["Browser"]
+    URL["https://abc.com"]
+
+    CLIENT --> URL
+
+    NOTE["Browser trusts Root CAs<br/>NOT abc.com's certificate directly"]
+
+    TRUST --> NOTE
+```
+3️⃣ Server authentication
+```mermaid
+sequenceDiagram
+    participant C as Client / Browser
+    participant S as abc.com Server
+
+    C->>S: Connect to https://abc.com
+
+    S->>C: abc.com Certificate
+    S->>C: Intermediate CA Certificate
+
+    Note over C: Validate certificate chain
+    Note over C: ✓ CA signature
+    Note over C: ✓ Domain = abc.com
+    Note over C: ✓ Valid / not expired
+    Note over C: ✓ Intermediate → trusted Root
+
+    Note over C: Server identity trusted ✅
+
+    Note over S: abc-private-key 🔒
+    S->>C: CertificateVerify<br/>signature over handshake
+
+    Note over C: Verify using<br/>abc-public-key 🔑
+
+    Note over C,S: Server proves possession<br/>of abc-private-key ✅
 ```
 
-```
-3️⃣ Key exchange (ECDHE – mandatory in TLS 1.3)
+4️⃣ ECDHE → shared secret → symmetric keys
 
-- Client sends ephemeral public key (ClientHello)
-- Server sends ephemeral public key (ServerHello)
-- Server signs handshake using its private key
-- Client verifies signature using cert public key
-- Both sides derive the SAME shared secret
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
 
-All application data encrypted with symmetric session keys (fast)
+    Note over C: Generate ephemeral key pair
+    Note over C: Private 🔒 stays local
+    Note over C: Public 🔑
+
+    Note over S: Generate ephemeral key pair
+    Note over S: Private 🔒 stays local
+    Note over S: Public 🗝️
+
+    C->>S: Client ECDHE public key 🔑
+    S->>C: Server ECDHE public key 🗝️
+
+    Note over C: Compute shared secret ⭐<br/>Client private + Server public
+
+    Note over S: Compute same shared secret ⭐<br/>Server private + Client public
+
+    Note over C,S: Both now have the same shared secret ⭐
+
+    Note over C,S: HKDF derives symmetric TLS session keys 🔐
+
+    C->>S: Encrypted application data
+    S->>C: Encrypted application data
 ```
 
 ---
