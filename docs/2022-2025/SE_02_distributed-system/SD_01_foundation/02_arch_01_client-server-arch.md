@@ -5,7 +5,21 @@
 - [Socket](05_concept_03_socket.md) 👈🏻
 
 ## Overview
-3 Scenarios
+```mermaid
+flowchart TB
+    E[Need new information]
+
+    E --> P[Polling]
+    E --> WH[Webhook]
+    E --> SSE[SSE]
+    E --> WS[WebSocket]
+
+    P --> P1[Client repeatedly asks server]
+    WH --> W1[Server sends HTTP request to another server]
+    SSE --> S1[Server streams events to client]
+    WS --> W2[Both sides continuously communicate]
+```
+
 ```mermaid
 flowchart TB
     A[Application Communication]
