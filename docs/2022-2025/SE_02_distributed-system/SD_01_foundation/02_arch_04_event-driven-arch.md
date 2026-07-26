@@ -15,6 +15,15 @@
   -  **event processing order** 
   -  **idempotency**
   - Handling **eventual consistency** across multiple services.
+
+---
+## ✔️Messaging-broker ...
+- [check here for details](../../PE_03_message-broker)
+### P2P queue
+### Pub-Sub (Kafka)
+### Event-Driven-Messaging : EventBridge
+### Stream-processing
+
 ---
 ## ✔️Component
 ![img_2.png](../../../99_img/2025/se_02_sd/01/04/img_2.png)
