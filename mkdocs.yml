@@ -1,6 +1,6 @@
 site_name: Solution Engineer Docs
 site_description: Learning, PoC, and Research Documentation
-repo_url: https://github.com/yourusername/solution-engineer
+repo_url: https://github.com/lekhrajdinkar/senior-system-engineer
 edit_uri: edit/main/docs/
 theme:
   name: material
@@ -362,7 +362,7 @@ nav:
       - Metric: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_01_metric.md
       - Resiliency: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_01_resiliency.md
     - SD 05 Micro Service:
-      - Api 00 Api Protocols: 2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_00_api-protocols.md
+      - Api 00 Api Protocols: 2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_00_network-protocols.md
       - Api 01 Designing: 2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_01_designing.md
       - Api 01 Http Headers: 2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_01_http-headers.md
       - Api 01 Ratelimiting+throttle: 2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_01_rateLimiting+throttle.md

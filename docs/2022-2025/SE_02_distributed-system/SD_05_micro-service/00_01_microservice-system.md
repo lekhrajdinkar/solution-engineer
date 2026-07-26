@@ -43,8 +43,8 @@
 - [service-discovery](01_concept_02_service-discovery.md)
 
 ### Communication architecture
-- [event-driven-arch 👈🏻](../SD_01_system/02_arch_04_event-driven-arch.md)
-- [service-mesh-arch 👈🏻](../SD_01_system/02_arch_05_service-mesh-arch.md) | Side car pattern
+- [event-driven-arch 👈🏻](../SD_01_foundation/02_arch_04_event-driven-arch.md)
+- [service-mesh-arch 👈🏻](../SD_01_foundation/02_arch_05_service-mesh-arch.md) | Side car pattern
 - [API-gateway.md](02_pattern_06_API-gateway.md)
 - [BFF](02_pattern_01_BFF.md)
 

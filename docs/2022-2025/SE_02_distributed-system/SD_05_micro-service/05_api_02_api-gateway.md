@@ -1,6 +1,6 @@
 # API gateway
 ## Overview
-- reverse proxy | [05_concept_03_proxy.md](../SD_01_system/05_concept_03_proxy.md)
+- reverse proxy | [05_concept_03_proxy.md](../SD_01_foundation/05_concept_03_proxy.md)
 - acts as a **middleman** between 
   - a client (like your phone) 
   - and various backend computer programs
