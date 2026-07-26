@@ -17,7 +17,7 @@
   - Handling **eventual consistency** across multiple services.
 ---
 ## ✔️Component
-![img_2.png](img_2.png)
+![img_2.png](../../../99_img/2025/se_02_sd/01/04/img_2.png)
 ### Event
 - eg: order placed event
 
@@ -55,7 +55,7 @@
 > - Netflix uses EDA for asynchronous user events
 > - and a Service Mesh for synchronous service-to-service communication.
 
-![img.png](img.png)
+![img.png](../../../99_img/2025/se_02_sd/01/04/img.png)
 
 ### Uber
 - Manages millions of rides daily using EDA 
@@ -66,5 +66,5 @@
   - pricing. 
 - Uber also collects real-time traffic data via telemetry events from driver phones, optimizing routes.
 
-![img_1.png](img_1.png)
+![img_1.png](../../../99_img/2025/se_02_sd/01/04/img_1.png)
 ---

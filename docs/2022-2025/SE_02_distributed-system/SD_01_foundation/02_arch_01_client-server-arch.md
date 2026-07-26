@@ -1,9 +1,48 @@
 # client-server architecture
-- dns concept
+**Concept**
+- dns concept, `nslookup` command
 - http 80 | https  8443
-- `nslookup` command
 - [socket](05_concept_03_socket.md) 👈🏻
 
+**TCP (Transmission Control Protocol)** 
+- Creates a reliable, stateful connection between two endpoints.
+- Connection starts with 3-way handshake: SYN → SYN-ACK → ACK
+- Identified by: Source IP + Source Port + Destination IP + Destination Port
+- **Provides ordering, acknowledgments, retransmission, flow control, and congestion control**
+- TCP itself does not encrypt data; TLS provides encryption.
+- For HTTPS: HTTP → TLS → TCP → IP
+
+```
+mental Model:
+    TCP = reliable pipe
+    TLS = secure pipe
+    HTTP = language spoken through the pipe
+```
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+
+    Note over C,S: TCP 3-Way Handshake
+
+    C->>S: SYN
+    S->>C: SYN-ACK
+    C->>S: ACK
+
+    Note over C,S: TCP Connection ESTABLISHED
+
+    C->>S: Data (SEQ)
+    S->>C: ACK
+    S->>C: Data (SEQ)
+    C->>S: ACK
+
+    Note over C,S: Connection Termination
+
+    C->>S: FIN
+    S->>C: ACK
+    S->>C: FIN
+    C->>S: ACK
+```
 ---
 ## ✔️Polling (pull)
 ### ➖Short Polling
