@@ -52,7 +52,7 @@ flowchart TB
 
 ---
 ## scenario-1: Request/Response
-### TCP/IP (Transmission Control Protocol) 
+### 💠 TCP/IP (Transmission Control Protocol) 
 > **PASSIVE SERVER**, reply only if client requests
 
 TCP handshake:
@@ -93,7 +93,7 @@ sequenceDiagram
     C->>S: ACK
 ```
 ---
-### HTTP / HTTPS(TLS)
+### 💠 HTTP / HTTPS(TLS)
 A stateless, text-based protocol commonly used for APIs.
 - HTTP connection : HTTP protocol --> TCP handshake
 - HTTPS connection : [HTTP --> TCP handshake --> TLS handshake](../SD_03_security/03_protocol_https_tls.md)
@@ -102,7 +102,7 @@ A stateless, text-based protocol commonly used for APIs.
 - use case - REST API
 
 ---
-### GRPC...
+### 💠 GRPC...
 - **Description**: A high-performance, open-source RPC framework by Google.
 - **Key Features**:
     - Uses Protocol Buffers (Protobuf) for serialization.
@@ -116,7 +116,7 @@ A stateless, text-based protocol commonly used for APIs.
 
 ---
 ## Scenario-2: Data Updates — Polling, SSE, Fan-out
-### Short Polling
+### 💠 Short Polling
 - https://www.youtube.com/watch?v=b4qyOpGg748
 - client repeatedly requests data from a server **at set intervals** 
   - using any network protocol.eg: https, etc
@@ -143,7 +143,7 @@ sequenceDiagram
     S-->>C: New data
 ```
 
-### Long Polling
+### 💠 Long Polling
 - A variation where the server **holds the client's request** 
   - `hanging GET (with timeout)` 👈🏻
 - until data is available **or** a timeout occurs
@@ -155,7 +155,7 @@ sequenceDiagram
 
 ![img_1.png](../../../99_img/2026/02/07/03/img_1.png)
 
-### Fan-out 
+### 💠 Fan-out 
 ```mermaid
 flowchart LR
     P[Producer/server] --> E[Event / Message]
@@ -191,7 +191,7 @@ Twitter had 150 million users
 
 
 ---
-### SSE
+### 💠 SSE
 - server sent event
 - designed for streaming **textual data** over HTTP
 - SSE is a unidirectional protocol
@@ -209,7 +209,7 @@ sequenceDiagram
     S-->>C: event: price=101
     S-->>C: event: price=102
 ```
-### webhook (sync Event-driven)
+### 💠 webhook (sync Event-driven)
 - just **Http Post** with event data.
 - https://www.youtube.com/watch?v=oQaJn6RdA3
 - traditional: polling, long-live connection
@@ -228,7 +228,8 @@ sequenceDiagram
 - ![img.png](../../../99_img/2026/01/img-10.png)
 
 ---
-## Scenario-3. Streaming — WebSocket / WSS
+## Scenario-3. Bidirectional 
+### 💠 WebSocket / WSS
 - **ACTIVE SERVER**, proactively reply/push to client, with even client requesting/polling
 - Streaming https://www.youtube.com/watch?v=b4qyOpGg748
 - Full Duplex async messaging: - https://www.youtube.com/watch?v=pnj3Jbho5Ck  | https://www.youtube.com/watch?v=G0_e02DdH7I
@@ -326,7 +327,7 @@ WebSockets are ideal for:
 ```
 
 ---
-### Videos Streaming / ABS
+### 💠 Videos Streaming / ABS
 - https://www.youtube.com/watch?v=kCAXpAikMVc
 - ABS **Adaptive Bitrate Streaming**
   - adjusts video quality based on the viewer's internet
@@ -343,7 +344,7 @@ WebSockets are ideal for:
 ---
 
 ## More scenario/s
-### Peer 2 Peer
+### 💠 Peer 2 Peer
 https://www.youtube.com/watch?v=2v6KqRB7adg
 
 ![img.png](../../../99_img/2026/02/07/02/img.png) ![img_1.png](../../../99_img/2026/02/07/02/img_1.png)
