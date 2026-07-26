@@ -1,23 +1,54 @@
-# client-server architecture
+# Client-Server Architecture
 **Concept**
 - dns concept, `nslookup` command
 - http 80 | https  8443
 - [Socket](05_concept_03_socket.md) 👈🏻
-- TCP/IP, HTTP/HTTPS, TLS, WS/WSS, SSE, RPC/gRPC,
-- polling/`pull`, fan-out/`push`, `streaming`
+
+## Overview
+3 Scenarios
+```mermaid
+flowchart TB
+    A[Application Communication]
+
+    A --> R[1. Request / Response]
+    A --> U[2. Updates / Events]
+    A --> ST[3. Bidirectional Streaming]
+
+    R --> HTTP[HTTP / HTTPS]
+    R --> RPC[RPC / gRPC]
+    HTTP --> TCP1[TLS + TCP/IP]
+    RPC --> TCP1
+
+    U --> POLL[Polling<br/>Client Pull]
+    U --> SSE[SSE<br/>Server Push]
+    U --> FAN[Fan-out<br/>1 → Many]
+
+    ST --> WS[WebSocket / WSS]
+    WS --> BI[Persistent<br/>Bidirectional Connection]
+```
+
+| Scenario          | Pattern            | Connection        | Direction              | Good for                      |
+| ----------------- | ------------------ | ----------------- | ---------------------- | ----------------------------- |
+| HTTP / REST / RPC | Request → Response | Usually reusable  | Client ↔ Server        | APIs                          |
+| Polling           | Pull               | Repeated requests | Client → Server        | Simple status checks          |
+| SSE               | Push stream        | Long-lived HTTP   | Server → Client        | Notifications/live feeds      |
+| Fan-out           | Distribution       | Varies            | One → Many             | Kafka/pub-sub                 |
+| WebSocket         | Streaming          | Long-lived        | Client ↔ Server        | Chat, trading, real-time apps |
+| gRPC streaming    | Streaming RPC      | Long-lived HTTP/2 | One or both directions | Service-to-service streaming  |
 
 ---
-## ✔️TCP/IP
-**TCP (Transmission Control Protocol)** 
+## scenario-1: Request/Response
+### TCP/IP (Transmission Control Protocol) 
+> **PASSIVE SERVER**, reply only if client requests
+
+TCP handshake:
 - Creates a reliable, stateful connection between two endpoints.
 - Connection starts with 3-way handshake: SYN → SYN-ACK → ACK
 - Identified by: Source IP + Source Port + Destination IP + Destination Port
 - **Provides ordering, acknowledgments, retransmission, flow control, and congestion control**
 - TCP itself does not encrypt data; TLS provides encryption.
-- For HTTPS: HTTP → TLS → TCP → IP
 
 ```
-mental Model:
     TCP = reliable pipe
     TLS = secure pipe
     HTTP = language spoken through the pipe
@@ -48,8 +79,30 @@ sequenceDiagram
     C->>S: ACK
 ```
 ---
-## ✔️Polling (pull)
-### 💠 Short Polling
+### HTTP / HTTPS(TLS)
+A stateless, text-based protocol commonly used for APIs.
+- HTTP connection : HTTP protocol --> TCP handshake
+- HTTPS connection : [HTTP --> TCP handshake --> TLS handshake](../SD_03_security/03_protocol_https_tls.md)
+- **short live stateless connection.** : open-close, open-close, ...
+- Also **handshake takes time.**
+- use case - REST API
+
+---
+### GRPC...
+- **Description**: A high-performance, open-source RPC framework by Google.
+- **Key Features**:
+    - Uses Protocol Buffers (Protobuf) for serialization.
+    - Supports bi-directional streaming.
+    - Highly efficient binary format.
+- **Common Use Cases**:
+    - Low-latency communication in microservices.
+    - Distributed systems needing real-time communication.
+- **Supported by**: Google Cloud, gRPC libraries.
+
+
+---
+## Scenario-2: Data Updates — Polling, SSE, Fan-out
+### Short Polling
 - https://www.youtube.com/watch?v=b4qyOpGg748
 - client repeatedly requests data from a server **at set intervals** 
   - using any network protocol.eg: https, etc
@@ -62,11 +115,21 @@ sequenceDiagram
   -  it significantly increases the **load on the server**, 
   - as clients send many **unnecessary requests**.
   
-> ℹ️ suitable for data that doesn't **need to be updated very frequently**
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    C->>S: Any updates?
+    S-->>C: No
+    Note over C: Wait 5 seconds
+    C->>S: Any updates?
+    S-->>C: No
+    Note over C: Wait 5 seconds
+    C->>S: Any updates?
+    S-->>C: New data
+```
 
-![img.png](../../../99_img/2026/02/07/03/img.png)
-
-### 💠 Long Polling
+### Long Polling
 - A variation where the server **holds the client's request** 
   - `hanging GET (with timeout)` 👈🏻
 - until data is available **or** a timeout occurs
@@ -78,22 +141,109 @@ sequenceDiagram
 
 ![img_1.png](../../../99_img/2026/02/07/03/img_1.png)
 
-## ✔️HTTP
-- [security/03_protocol_https_tls.md](../SD_03_security/03_protocol_https_tls.md)
-- short live http/s connection. handshake takes time.
-- open-close, open-close, ...
-- A stateless, text-based protocol commonly used for APIs.
-- Simple request-response model using HTTP verbs (GET, POST, PUT, DELETE).
+### Fan-out 
+```mermaid
+flowchart LR
+    P[Producer/server] --> E[Event / Message]
+
+    E --> B[Broker / Pub-Sub]
+
+    B --> C1[Consumer 1]
+    B --> C2[Consumer 2]
+    B --> C3[Consumer 3]
+    B --> C4[Consumer 4]
+```
+
+Twitter 2012-2013 problem : https://www.youtube.com/watch?v=FEkXjNFrL1o
+```
+Twitter had 150 million users 
+ handled write - 6,000 tweets per second. 
+ Challenge-1:
+  - read requests: 300,000 requests per second to serve homepages
+    - User timeline 
+    - Home timeline
+  - Fix-1: Adding indices speeds up reads but slows down writes.
+           Since reads are more frequent than writes, this is a fair trade-off.
+           
+  - Fix-2: 
+    - pre-computed and stored user home timelines in a Redis cluster
+    - Twitter serves the cached timeline from Redis, significantly reducing latency
+    - When a user tweets, the tweet is replicated into the home timeline queue of each follower, 
+    - resulting in thousands of writes to redis, for a single tweet
+    - this is fanOut 👈🏻
+  
+```
+![img.png](../../../99_img/2026/02/07/04/img.png)
+
 
 ---
-## ✔️WS (Web-Socket)
-**Understand `Streaming` Concept**, first
-- https://www.youtube.com/watch?v=b4qyOpGg748
+### SSE
+- server sent event
+- designed for streaming **textual data** over HTTP
+- SSE is a unidirectional protocol
+- server pushes data to the client over a single, long-lived HTTP connection.
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+
+    C->>S: GET /events
+    S-->>C: HTTP connection stays open
+
+    S-->>C: event: price=100
+    S-->>C: event: price=101
+    S-->>C: event: price=102
+```
+### webhook (sync Event-driven)
+- just **Http Post** with event data.
+- https://www.youtube.com/watch?v=oQaJn6RdA3
+- traditional: polling, long-live connection
+    - eating resources
+- Webhooks allow servers
+    - to notify client applications
+    - only when new events occur, rather than requiring clients to check periodically.
+- eg: gitHub make post call --> harness trigger (POST /api, idempotent), payload: {eventId...}
+- benefit:
+    - Webhooks improve system performance,
+    - reduce latency,
+    - and are crucial in modern microservices architectures for enabling system decoupling
+
+**Example for CI/CD pipeline in AWS**
+- https://youtu.be/9zfAqoTm4-Q?si=_PGo_F1tcNZvuxyi
+- ![img.png](../../../99_img/2026/01/img-10.png)
+
+---
+## Scenario-3. Streaming — WebSocket / WSS
+- **ACTIVE SERVER**, proactively reply/push to client, with even client requesting/polling
+- Streaming https://www.youtube.com/watch?v=b4qyOpGg748
+- Full Duplex async messaging: - https://www.youtube.com/watch?v=pnj3Jbho5Ck  | https://www.youtube.com/watch?v=G0_e02DdH7I
 - the client opening a **long-lived connection** with the server,
-- typically through a **socket**,
+- typically through a **socket**, 👈
 - allowing the server to **push** information **without a client request**
 - Analogy: client opens a file and server can write any moment until client closes file.
 
+```
+        Persistent connection:
+Client  ◄══════════════════════► Server
+          send / receive
+          send / receive
+          send / receive
+```
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as WebSocket Server
+    C->>S: HTTP request<br/>Upgrade: websocket
+    S-->>C: 101 Switching Protocols
+    Note over C,S: WebSocket connection established
+    C->>S: Message
+    S-->>C: Message
+    S-->>C: Live update
+    C->>S: Command
+    S-->>C: Live update
+    C->>S: Another command
+```
 ```mermaid
 flowchart LR
     A[Browser / Client]
@@ -116,10 +266,6 @@ flowchart LR
 
     D --> E["@app.websocket('/ws')"]
 ```
-
-> **Full Duplex async messaging**
-> - https://www.youtube.com/watch?v=pnj3Jbho5Ck 1
-> - https://www.youtube.com/watch?v=G0_e02DdH7I 2
 - `ws`://localhost:8080/myapp/chat | `wss`://localhost:8080/myapp/chat
 - check short and Long Polling problem.
 - Flow:
@@ -166,31 +312,24 @@ WebSockets are ideal for:
 ```
 
 ---
-## ✔️Fan-out (opposite of pull)
-**Concept**
-- `Twitter` 2012-2013 problem : https://www.youtube.com/watch?v=FEkXjNFrL1o
-```
-Twitter had 150 million users 
- handled write - 6,000 tweets per second. 
- Challenge-1:
-  - read requests: 300,000 requests per second to serve homepages
-    - User timeline 
-    - Home timeline
-  - Fix-1: Adding indices speeds up reads but slows down writes.
-           Since reads are more frequent than writes, this is a fair trade-off.
-           
-  - Fix-2: 
-    - pre-computed and stored user home timelines in a Redis cluster
-    - Twitter serves the cached timeline from Redis, significantly reducing latency
-    - When a user tweets, the tweet is replicated into the home timeline queue of each follower, 
-    - resulting in thousands of writes to redis, for a single tweet
-    - this is fanOut 👈🏻
-  
-```
-![img.png](../../../99_img/2026/02/07/04/img.png)
+### Videos Streaming / ABS
+- https://www.youtube.com/watch?v=kCAXpAikMVc
+- ABS **Adaptive Bitrate Streaming**
+  - adjusts video quality based on the viewer's internet
+  - ABS works by encoding video at **multiple bitrates**
+- Types of Video Streaming
+  - Live streaming: 
+  - On-demand streaming
+  - Peer-to-peer streaming: Distributing content where viewers share their bandwidth and computing resources
+#### DASH - Dynamic Adaptive Streaming over HTTP 
+![img.png](../../../99_img/2026/04/01/01/img.png)
+#### HLS - HTTP Live Streaming
+#### RTMP - realTime messaging Prot
 
 ---
-## ✔️Peer2Peer
+
+## More scenario/s
+### Peer 2 Peer
 https://www.youtube.com/watch?v=2v6KqRB7adg
 
 ![img.png](../../../99_img/2026/02/07/02/img.png) ![img_1.png](../../../99_img/2026/02/07/02/img_1.png)
@@ -201,67 +340,9 @@ https://www.youtube.com/watch?v=2v6KqRB7adg
 1. single server approach (10 videos, 5GB each) - `15 min`
 2. sharding, 5 server (2 videos each, 5GB each) - `15/5 = 3 min`
 3. P2P solution - `1 sec`
-   -  large file is split into small chunks and distributed among peers
-   - These peers then communicate with each other in **parallel** to assemble the complete file
-   - **peer discovery** 
-   - **peer selection strategies** within a P2P network
-   - Centralized database (tracker), Gossip protocol, distributed hash table (DHT)
-
----
-## ✔️SSE / server sent event
-- designed for streaming **textual data** over HTTP
-- SSE is a unidirectional protocol
-- server pushes data to the client over a single, long-lived HTTP connection.
-
----
-## ✔️GRPC
-- **Description**: A high-performance, open-source RPC framework by Google.
-- **Key Features**:
-    - Uses Protocol Buffers (Protobuf) for serialization.
-    - Supports bi-directional streaming.
-    - Highly efficient binary format.
-- **Common Use Cases**:
-    - Low-latency communication in microservices.
-    - Distributed systems needing real-time communication.
-- **Supported by**: Google Cloud, gRPC libraries.
-
----
-### 💠webhook (sync Event-driven)
-![img_1.png](../../../99_img/2026/04/01/01/img_1.png)
-- just **Http Post** with event data.
-- https://www.youtube.com/watch?v=oQaJn6RdA3
-- traditional: polling, long-live connection
-    - eating resources
-- Webhooks allow servers
-    - to notify client applications
-    - only when new events occur, rather than requiring clients to check periodically.
-- eg: gitHub make post call --> harness trigger (POST /api, idempotent), payload: {eventId...}
-- benefit:
-    - Webhooks improve system performance,
-    - reduce latency,
-    - and are crucial in modern microservices architectures for enabling system decoupling
-
-**Example for CI/CD pipeline in AWS**
-- https://youtu.be/9zfAqoTm4-Q?si=_PGo_F1tcNZvuxyi
-- ![img.png](../../../99_img/2026/01/img-10.png)
-
----
-## ✔️Streaming
-
----
-## ✔️Videos Streaming / ABS
-- https://www.youtube.com/watch?v=kCAXpAikMVc
-- ABS **Adaptive Bitrate Streaming**
-  - adjusts video quality based on the viewer's internet
-  - ABS works by encoding video at **multiple bitrates**
-- Types of Video Streaming
-  - Live streaming: 
-  - On-demand streaming
-  - Peer-to-peer streaming: Distributing content where viewers share their bandwidth and computing resources
-### ➖DASH - Dynamic Adaptive Streaming over HTTP 
-popular
-
-![img.png](../../../99_img/2026/04/01/01/img.png)
-### ➖HLS - HTTP Live Streaming
-### ➖RTMP - realTime messaging Prot
+    -  large file is split into small chunks and distributed among peers
+    - These peers then communicate with each other in **parallel** to assemble the complete file
+    - **peer discovery**
+    - **peer selection strategies** within a P2P network
+    - Centralized database (tracker), Gossip protocol, distributed hash table (DHT)
 
