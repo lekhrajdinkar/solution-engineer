@@ -319,7 +319,7 @@ nav:
       - Concept 04 Scaling: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_04_scaling.md
       - Distributed System: 2022-2025/SE_02_distributed-system/SD_01_system/01_01_Distributed-system.md
     - SD 02 Compute:
-      - Kernel: 2022-2025/SE_02_distributed-system/SD_02_compute/01_01_kernel.md
+      - Kernel: 2022-2025/SE_02_distributed-system/SD_02_compute/01_foundation_01_kernel.md
     - SD 02 Database+storage:
       - Concept 01 Memory: 2022-2025/SE_02_distributed-system/SD_02_database+storage/01_concept_01_memory.md
       - Concept 02 Storage: 2022-2025/SE_02_distributed-system/SD_02_database+storage/01_concept_02_storage.md
@@ -333,7 +333,7 @@ nav:
       - Distributed Filesystem: 2022-2025/SE_02_distributed-system/SD_02_database+storage/02_04_distributed-FileSystem.md
       - Datastructure 01 Indexes: 2022-2025/SE_02_distributed-system/SD_02_database+storage/03_dataStructure_01_indexes.md
       - Datastructure 02 Btree+lsm: 2022-2025/SE_02_distributed-system/SD_02_database+storage/03_dataStructure_02_Btree+LSM.md
-      - Redis: 2022-2025/SE_02_distributed-system/SD_02_database+storage/09_01_redis.md
+      - Redis: 2022-2025/SE_02_distributed-system/SD_02_database+storage/09_cache_01_redis.md
     - SD 03 Security:
       - Iam: 2022-2025/SE_02_distributed-system/SD_03_security/01_02_iam.md
       - Iam Tool OKTA: 2022-2025/SE_02_distributed-system/SD_03_security/01_03_iam_tool_OKTA.md
@@ -358,9 +358,9 @@ nav:
       - Durability: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_02_durability.md
       - Distributed Tracing: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/03_distributed-Tracing.md
       - Deloyment 01 Strategies: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/09_deloyment_01_strategies.md
-      - Heartbeat: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_02_heartbeat.md
-      - Metric: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_01_metric.md
-      - Resiliency: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_01_resiliency.md
+      - Heartbeat: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_concepts_02_heartbeat.md
+      - Metric: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_concepts_01_performance-metric.md
+      - Resiliency: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_concept_01_resiliency.md
     - SD 05 Micro Service:
       - Api 00 Api Protocols: 2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_00_network-protocols.md
       - Api 01 Designing: 2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_01_designing.md
