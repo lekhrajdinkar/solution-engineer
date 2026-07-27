@@ -1,5 +1,8 @@
-In system design, a **heartbeat mechanism*- is a periodic signal sent between nodes (or from a node to a central monitoring service) to indicate health, operational status, and availability. 
-It is essential for fault detection, high availability, and load balancing.
+In system design, a **heartbeat mechanism** - is a periodic signal sent between nodes (or from a node to a central monitoring service) to indicate
+- health / operational status
+- and availability. 
+
+> It is essential for fault detection, high availability, and load balancing.
 
 ---
 
@@ -106,14 +109,8 @@ It is essential for fault detection, high availability, and load balancing.
 
 ---
 
-## 3. Key Design Considerations & Trade-offs
-
-- **Interval vs. Timeout Window:**
+## 3. Key Design Considerations
 - **Heartbeat Interval ($T_{interval}$):** - How often the ping/signal is sent.
 - **Timeout ($T_{timeout}$):** - The time window after which a node is marked dead if no signal arrives (typically set to $3 \times T_{interval}$).
-- > ideal values: 5-10 sec. 3 miss --> alarm
-
-
-- **Network Flapping & Jitter:**
-  To prevent false positives from transient network latency, set a threshold of **consecutive missed heartbeats*- (e.g., mark dead only after 3 consecutive failures) rather than reacting to a single dropped packet.
 - **Payload Size:*- Keep heartbeat packets as lightweight as possible (often just a minimal payload with node ID, timestamp, and basic metrics).
+- > ideal values: 5-10 sec interval. 3 mark dead only after 3 consecutive failures --> alarm
