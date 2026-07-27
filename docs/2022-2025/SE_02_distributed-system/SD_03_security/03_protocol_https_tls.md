@@ -1,48 +1,17 @@
 # HTTPS / TLS
 ## Overview
+
 - **man in the middle** Attack with `http`
-- TLS / transport layer security (level=4) 
-  - https (level=7)
-- Its **TLS handshake**, which make connection secure, bts.
-- All communication is encrypted 
-- One brutal truth : 
-    > Certificates authenticate identity.
-    > They do NOT encrypt application data.
-- **Think of mTLS** as 
-  - TLS + “UNO reverse card” for authentication 😄
-  
-    | Aspect                         | TLS (one-way)         | mTLS (two-way)                           |
-    | ------------------------------ | --------------------- | ---------------------------------------- |
-    | Server authenticates to client | ✅                     | ✅                                        |
-    | Client authenticates to server | ❌                     | ✅                                        |
-    | Certificates used by           | Server only           | **Server + Client**                      |
-    | Use cases                      | Browsers, public APIs | Microservices, internal APIs, zero-trust |
-
-
-![img_4.png](../../../99_img/2026/02/02/img_4.png)
-
-- **TLS/SSL certificate**
-
-[01_04_x.509.md](01_04_x.509.md)
-
-```
-A TLS certificate contains:
-    Server public key
-    Server identity (domain: abc.com)
-    Validity period
-    Issuer (CA)
-    Digital signature by CA’s private key
-
-- CA only signs the certificate after verification
-    - sign with ca-private-key
-```
-- 3rd party CA;s public kay is already present in chrome and other browser 👈🏻👈🏻
-
-![img.png](../../../99_img/2026/02/03/img.png)
+- TLS / transport layer security (level=4) | https (level=7)
+- Its **TLS handshake**, which make Https connection secure, bts.
+- All communication is encrypted with symmetric key exchanged between client and **trusted-server**.
+- Servers identity is trusted by **Certificate** [x.509.](01_04_x.509.md)
+> Certificates authenticate identity.They Do NOT encrypt application data.
 
 ---
-## why need certificate ?
+## why need certificate (Skip)?
 ```
+understand by Example
 ✔️Flow:
 Server creates RSA key pair
 Server shares "public-key" 👈🏻
@@ -68,8 +37,7 @@ This is exactly why TLS + certificates exist.
 
 ---
 ## Modern TLS 1.3
-
-1️⃣ Certificate issuance (offline)
+### 1. Certificate issuance (offline)
 - Server (abc.com) generates key pair (abc-private-key + abc-public-key)
 - Sends CSR to CA.
 - CA verifies domain ownership
@@ -91,7 +59,7 @@ flowchart LR
 
     SIGN --> CERT["abc.com Certificate<br/>abc-public-key 🔑<br/>CA signature"]
 ```
-2️⃣ Browser / OS trust store — offline
+### 2. Browser / OS trust store — offline
 ```mermaid
 flowchart TD
     TRUST["Browser / OS Trust Store"]
@@ -109,7 +77,9 @@ flowchart TD
 
     TRUST --> NOTE
 ```
-3️⃣ Server authentication
+![img.png](../../../99_img/2026/02/03/img.png)
+
+### 3. Server authentication
 ```mermaid
 sequenceDiagram
     participant C as Client / Browser
@@ -136,8 +106,7 @@ sequenceDiagram
     Note over C,S: Server proves possession<br/>of abc-private-key ✅
 ```
 
-4️⃣ ECDHE → shared secret → symmetric keys
-
+### 4. ECDHE → shared secret → symmetric keys
 ```mermaid
 sequenceDiagram
     participant C as Client
@@ -165,7 +134,16 @@ sequenceDiagram
     C->>S: Encrypted application data
     S->>C: Encrypted application data
 ```
+---
+## mTLS
+TLS + “UNO reverse card” for authentication 😄
 
+| Aspect                         | TLS (one-way)         | mTLS (two-way)                           |
+| ------------------------------ | --------------------- | ---------------------------------------- |
+| Server authenticates to client | ✅                     | ✅                                        |
+| Client authenticates to server | ❌                     | ✅                                        |
+| Certificates used by           | Server only           | **Server + Client**                      |
+| Use cases                      | Browsers, public APIs | Microservices, internal APIs, zero-trust |
 ---
 ## Encryption
 ![img_2.png](../../../99_img/2026/02/02/img_2.png)
