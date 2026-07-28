@@ -358,7 +358,7 @@ nav:
       - Durability: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_02_durability.md
       - Distributed Tracing: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/03_distributed-Tracing.md
       - Deloyment 01 Strategies: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/09_deloyment_01_strategies.md
-      - Heartbeat: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_concepts_02_heartbeat.md
+      - Heartbeat: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_concept_04_heartbeat.md
       - Metric: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_NFR_02_Latency.md
       - Resiliency: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_concept_01_resiliency.md
     - SD 05 Micro Service:
