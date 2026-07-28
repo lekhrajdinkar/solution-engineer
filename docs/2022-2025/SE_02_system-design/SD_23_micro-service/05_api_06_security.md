@@ -1,4 +1,4 @@
-> security section :[SD_03_security](../SD_03_security)
+> security section :[SD_03_security](../SD_24_security)
 ---
 # API Security
 ## API Authn

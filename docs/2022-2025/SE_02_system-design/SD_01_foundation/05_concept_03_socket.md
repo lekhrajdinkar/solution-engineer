@@ -60,7 +60,7 @@ combination of:
 - eg: used in multiplayer games where speed is more critical than perfection, IoT
 
 💠**Web Sockets**
-- [02_arch_01_client-server-arch.md](02_arch_01_client-server-arch.md)
+- [02_arch_01_client-server-arch.md](../SD_52_architecture/02_arch_01_client-server-arch.md)
 - built for direct browser use ✔️ | modern
 - `TCP` connection under the hood.
 > - **http/1**    --> 1 connection --> 1 request --> close ❌

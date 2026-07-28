@@ -7,7 +7,7 @@
 **useful links**
 - Java https://github.com/lekhrajdinkar/microservice-java/tree/main/docs/2012-2024/02_web
 - py https://github.com/lekhrajdinkar/microservice-python/tree/main/src/webApp1
-- [03_protocol_https_tls.md](../SD_03_security/03_protocol_https_tls.md)
+- [03_protocol_https_tls.md](../SD_24_security/03_protocol_https_tls.md)
 - https://chatgpt.com/c/685dd143-0840-800d-8660-0f9cb8afb117
 - localhost: https://www.youtube.com/watch?v=PwNJXUdMkVY
 

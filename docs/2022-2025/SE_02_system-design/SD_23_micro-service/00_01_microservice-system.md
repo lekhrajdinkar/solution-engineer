@@ -43,15 +43,15 @@
 - [service-discovery](01_concept_02_service-discovery.md)
 
 ### Communication architecture
-- [event-driven-arch 👈🏻](../SD_01_foundation/02_arch_04_event-driven-arch.md)
-- [service-mesh-arch 👈🏻](../SD_01_foundation/02_arch_05_service-mesh-arch.md) | Side car pattern
+- [event-driven-arch 👈🏻](../SD_52_architecture/02_arch_04_event-driven-arch.md)
+- [service-mesh-arch 👈🏻](../SD_52_architecture/02_arch_05_service-mesh-arch.md) | Side car pattern
 - [API-gateway.md](02_pattern_06_API-gateway.md)
 - [BFF](02_pattern_01_BFF.md)
 
 ### Data Consistency pattern
 > **database per service pattern**, leds data consistency issues. solutions:
-- [distributed-Transaction](../SD_02_database+storage/02_03_distributed-Transaction.md)
-- [distributed-Locking](../SD_02_database+storage/02_02_distributed-Locking.md)
+- [distributed-Transaction](../SD_21_database+storage/02_03_distributed-Transaction.md)
+- [distributed-Locking](../SD_21_database+storage/02_02_distributed-Locking.md)
 
 ---
 ## ✔️ Benefits

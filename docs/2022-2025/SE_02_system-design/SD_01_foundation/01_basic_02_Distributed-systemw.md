@@ -75,7 +75,7 @@ Scenario-1
 - thus, maintaining consistency and high availability for billions of users.
 - If the leader fails: 
   - a follower is promoted, ensuring minimal disruption
-  - [Leader Election](../SD_00_algo/03_algo_02_LeaderElection.md)
+  - [Leader Election](../SD_51_algo/03_algo_02_LeaderElection.md)
 
 ![img_1.png](../../../99_img/2025/se_02_sd/01/01/img_1.png)
 

@@ -5,7 +5,7 @@
   - [AWS_Rout53.md](../../CE_02_AWS_SAA/04_network/02_Rout53.md)
   - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360643/posts/2192892033
 - http 80 | https  8443
-- [Socket](05_concept_03_socket.md) 👈🏻
+- [Socket](../SD_01_foundation/05_concept_03_socket.md) 👈🏻
 
 ## Overview
 ```mermaid
@@ -99,7 +99,7 @@ sequenceDiagram
 ### 💠 HTTP / HTTPS(TLS)
 A stateless, text-based protocol commonly used for APIs.
 - HTTP connection : HTTP protocol --> TCP handshake
-- HTTPS connection : [HTTP --> TCP handshake --> TLS handshake](../SD_03_security/03_protocol_https_tls.md)
+- HTTPS connection : [HTTP --> TCP handshake --> TLS handshake](../SD_24_security/03_protocol_https_tls.md)
 - **short live stateless connection.** : open-close, open-close, ...
 - Also **handshake takes time.**
 - use case - REST API

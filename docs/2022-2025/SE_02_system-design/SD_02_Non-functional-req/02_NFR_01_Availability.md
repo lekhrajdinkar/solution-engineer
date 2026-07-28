@@ -143,13 +143,13 @@ flowchart TB
 ```
 ---
 ### Tradeoff
-![img.png](img.png)
+![img.png](../../../99_img/2025/se_02_sd/bm-sd/02/02/img.png)
 
 ---
 ### mistake:
 - Dont skip to ask for avialabilty
 - Over-engineer: if 99.0 is suffice needs, then dont waste infrastructure cost on 99.99
-- SPF [01_concept_02_SFP.md](../SD_06_Resilient/01_concept_02_SFP.md)
+- SPF [01_concept_02_SFP.md](../SD_22_Resilient/01_concept_02_SFP.md)
 - Also discuss the availability of the dependent components (3rd party API, Message broker, etc)
 - dont confuse SLA,SLO,SLI
 ---

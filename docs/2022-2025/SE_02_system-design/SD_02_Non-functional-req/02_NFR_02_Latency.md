@@ -120,15 +120,15 @@ Fastest                                  Slowest
 ```
 ---
 ## Design Decision
-![img_1.png](img_1.png)
+![img_1.png](../../../99_img/2025/se_02_sd/bm-sd/02/02/img_1.png)
 
-![img_2.png](img_2.png)
+![img_2.png](../../../99_img/2025/se_02_sd/bm-sd/02/02/img_2.png)
 
-![img_5.png](img_5.png)
+![img_5.png](../../../99_img/2025/se_02_sd/bm-sd/02/02/img_5.png)
 
-![img_4.png](img_4.png)
+![img_4.png](../../../99_img/2025/se_02_sd/bm-sd/02/02/img_4.png)
 
-![img_3.png](img_3.png)
+![img_3.png](../../../99_img/2025/se_02_sd/bm-sd/02/02/img_3.png)
 
 ---
 ## TradeOff
