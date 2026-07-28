@@ -78,6 +78,14 @@ Total latency            = 170 ms
 ```
 ---
 ## Latency metrics 👈
+**Latency requirement example**
+- **Bad requirement**: The application should be `fast`.
+- **Better requirement**: The read API should respond within `200 ms at p95.`
+- **Even better**: The read API should have:
+    - `p50 below 80 ms`
+    - `p95 below 200 ms`
+    - `p99 below 500 ms`
+  
 **Evaluate** https://www.youtube.com/watch?v=lJ4NEMNBeS4
 - average:
 - Max:
@@ -110,17 +118,51 @@ Fastest                                  Slowest
                     ↑
                   P50 area
 ```
---- 
-**Latency requirement example**
-- **Bad requirement**: The application should be `fast`.
-- **Better requirement**: The read API should respond within `200 ms at p95.`
-- **Even better**: The read API should have:
-  - `p50 below 80 ms`
-  - `p95 below 200 ms`
-  - `p99 below 500 ms`
+---
+## Design Decision
+![img_1.png](img_1.png)
+
+![img_2.png](img_2.png)
+
+![img_5.png](img_5.png)
+
+![img_4.png](img_4.png)
+
+![img_3.png](img_3.png)
 
 ---
-## Architecture shift example
+## TradeOff
+| Lower-latency technique   | Trade-off                                |
+|---------------------------| ---------------------------------------- |
+| Caching                   | Stale data, invalidation complexity      |
+| Multi-region deployment   | Higher cost, replication complexity      |
+| Precomputed views         | More storage, delayed freshness          |
+| Eventual consistency      | Users may briefly see old data           |
+| Async processing          | Work completes later                     |
+| Denormalization SQL table | Duplicate data, harder updates           |
+| Fewer service calls       | Less service independence                |
+| Pre-warmed capacity       | Higher idle infrastructure cost          |
+| Strict timeouts           | More failed or partial responses         |
+| No retries                | Faster failure, lower success rate       |
+| Parallel calls            | Higher load on dependencies              |
+| Edge/CDN caching          | Harder personalization and cache control |
+
+**Source: ByteMonk**
+
+| Category    | Lower-latency approach        | Trade-off                                             |
+| ----------- | ----------------------------- | ----------------------------------------------------- |
+| Cost        | In-memory databases           | Much higher infrastructure cost                       |
+| Cost        | Multi-region deployment       | More compute, networking and replication cost         |
+| Cost        | Aggressive caching            | Additional cache infrastructure and maintenance       |
+| Complexity  | Multiple caching layers       | Difficult cache invalidation; stale-data risk         |
+| Complexity  | Multi-region data             | Synchronization and conflict-resolution complexity    |
+| Processing  | Asynchronous workflows        | Harder debugging, tracing and failure recovery        |
+| Operations  | More monitoring               | Higher observability and operational overhead         |
+| Team        | More specialized architecture | Larger team and steeper learning curve                |
+| Consistency | Local caches and replicas     | Eventual consistency may be required                  |
+
+---
+## Architecture shift : example
 > - let say have to build system with p99 - 500 ms first.
 > - same system needs shift to p100 ms 
 > - then what will be architecture shift need to be made >
@@ -207,3 +249,21 @@ flowchart LR
 5. Can some operations be asynchronous?
 6. Is slightly stale data acceptable?
 7. Which operations are latency-sensitive?
+
+### Common mistake:
+|  # | Mistake                                  | Better approach                                                          |
+| -: | ---------------------------------------- | ------------------------------------------------------------------------ |
+|  1 | Discussing only average latency          | Use **p50, p95 and p99** because averages hide slow users                |
+|  2 | Ignoring network physics                 | Consider user-to-region distance; use edge or multi-region when required |
+|  3 | Ignoring the full request chain          | Calculate latency across every synchronous service and database call     |
+|  4 | Assuming every request is a cache hit    | Discuss cache misses, cold starts, warming and invalidation              |
+|  5 | Over-engineering for unnecessary latency | Match the latency target to the actual business requirement              |
+
+**Interview reminders**
+- Sequential calls add up: 5 services × 50 ms = 250 ms.
+- Parallel calls reduce the dependency portion toward the slowest call, but increase load and failure complexity.
+- A **cache-hit** latency target is incomplete 
+  - unless the **cache-miss** path also meets an acceptable target.
+- Do not promise global 50 ms latency from one region.
+- Start simple, measure, and optimize the actual bottleneck.
+
