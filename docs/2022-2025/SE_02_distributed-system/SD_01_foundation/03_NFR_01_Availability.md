@@ -31,11 +31,6 @@ SLA = What have we contractually promised?
 | **SLO** | **Service Level Objective** — the internal reliability target         | API availability should be **≥ 99.9% per month**                         |
 | **SLA** | **Service Level Agreement** — the contractual commitment to customers | If availability falls below **99.5%**, customers receive service credits |
 
-example:
-- SLI — actual measurement: The API was available `99.92%` this month.
-- SLO — internal target: The engineering team aims for at least `99.9%` availability.
-- SLA — customer commitment:The bank promises customers `99.5%` availability. Below that, customers may receive service credits
-
 ---
 ### Example: Improve Database availability
 > Note: Database availability is not the same as system availability.
