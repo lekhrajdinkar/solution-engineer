@@ -1,6 +1,9 @@
 # Client-Server Architecture
 **Concept**
-- dns concept, `nslookup` command
+- DNS: `nslookup`
+  - root NS, TLD, etc
+  - [AWS_Rout53.md](../../CE_02_AWS_SAA/04_network/02_Rout53.md)
+  - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360643/posts/2192892033
 - http 80 | https  8443
 - [Socket](05_concept_03_socket.md) 👈🏻
 

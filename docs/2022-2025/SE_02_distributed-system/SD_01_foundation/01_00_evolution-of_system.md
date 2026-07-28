@@ -6,7 +6,7 @@ Evolution of System Design video lesson (Module 1, Video 2)
 
 ## 📜 Key Architectural Paradigms Over Time
 
-1. **1960s – Mainframe Computing**
+### 1. **1960s – Mainframe Computing**
 * **Model:** Monolithic, centralized processing where all data processing and application logic ran on a single large machine.
 * **Access:** Dumb terminals served merely as display inputs/outputs.
 * **Characteristics:** 
@@ -16,14 +16,14 @@ Evolution of System Design video lesson (Module 1, Video 2)
   * but simple centralized administration.
 
 
-2. **1980s – Monolithic & Client-Server Architecture**
+### 2. **1980s – Monolithic & Client-Server Architecture**
 * **Model:** Transition toward client-server models and single-tier/two-tier application monoliths as personal computers gained processing power.
 * **Characteristics:** 
   * Workloads split between client interfaces and database backends, 
   * though core applications often remained tightly coupled monolithic binaries.
 
 
-3. **2000s – Microservices & Distributed Systems**
+### 3. **2000s – Microservices & Distributed Systems**
 * **Model:** Breaking down monolithic services into smaller, loosely coupled, independently deployable services.
 * **Characteristics:** 
   - Scales out horizontally rather than vertically.
@@ -33,7 +33,7 @@ Evolution of System Design video lesson (Module 1, Video 2)
   - and resilience.
 
 
-4. **2010s – Event-Driven Architectures**
+### 4. **2010s – Event-Driven Architectures**
 * **Model:** Asynchronous communication patterns using message brokers and event buses (e.g., Kafka, RabbitMQ).
 * **Characteristics:** 
   - Decoupled producers and consumers, 

@@ -312,7 +312,7 @@ nav:
       - Cap Theorem: 2022-2025/SE_02_distributed-system/SD_01_system/01_02_cap-theorem.md
       - Concept 01 Hashing: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_01_hashing.md
       - Concept 02 Taskexeflows: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_02_TaskExeFlows.md
-      - Concept 03 LB: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_LB.md
+      - Concept 03 LB: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_Load-balancer.md
       - Concept 03 Ratelimiting: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_RateLimiting.md
       - Concept 03 Proxy: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_proxy.md
       - Concept 03 Socket: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_socket.md
