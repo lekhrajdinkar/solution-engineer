@@ -1,4 +1,4 @@
-# Scaling
+# BIG-3 of 3 | Scaling
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2192532351
 - https://chatgpt.com/g/g-p-6a68d3926dd4819180c1c9bf855e98f3-system-design-bm-acedemy/c/6a691f19-3b10-83e8-91aa-1f39e15adefc
  
@@ -78,6 +78,10 @@ flowchart LR
     L --> L4[Sharding / NoSQL]
     L --> L5[Kafka]
     L --> L6[Multi-Region]
+
+    style S fill:#D1FAE5,stroke:#059669,stroke-width:2px,color:#000
+    style M fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#000
+    style L fill:#FEE2E2,stroke:#DC2626,stroke-width:2px,color:#000
 ```
 ## Type of Application and basic arch
 ### small
@@ -109,6 +113,9 @@ flowchart TD
     Q --> W[Worker Pool]
 
     A1 --> S3[S3]
+    
+    classDef stage fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#000
+    class CACHE,RR1,RR2,Q,W,S3 stage;
 ```
 ### large
 ```mermaid
@@ -133,22 +140,19 @@ flowchart TD
     MS1 --> K1[Kafka Cluster]
     MS2 --> K2[Kafka Cluster]
 
-    MS1 --> OBJ1[S3 / CDN]
-    MS2 --> OBJ2[S3 / CDN]
+    MS1 --> OBJ1[S3 ]
+    MS2 --> OBJ2[S3 ]
+    MS1 --> CDN1[CDN]
+    MS2 --> CDN2[CDN]
+
+    classDef stage fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#000
+    class GLB,R1,R2,MS1,MS2,K1,K2,CDN1,CDN2 stage;
 ```
 ---
 ## Type of scaling
 ### Vertical Scaling
-Increase the power of a single machine.
-- Add more CPU
-- Add more RAM
-- Use faster storage
-- Upgrade network capacity
+> Increase the power of a single machine.- Add more CPU, RAM, Use faster storage, Upgrade network capacity, etc
 
-```mermaid
-flowchart LR
-    A[4 CPU<br/>16 GB RAM] --> B[16 CPU<br/>64 GB RAM]
-```
 **Advantages:** 
 - Simple to implement
 - Minimal application changes

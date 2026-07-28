@@ -1,5 +1,8 @@
 # NFR (non functional requirement)
 > every decision has tradeoff ⭐
+
+![img.png](img.png)   --> 3 Big fundamental drivers
+
 ---
 ## BIG-1 of 3. Availability
 > Availability: Can the system serve requests right now?
