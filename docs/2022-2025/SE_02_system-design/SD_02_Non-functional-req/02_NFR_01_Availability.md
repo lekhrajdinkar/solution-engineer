@@ -1,7 +1,7 @@
 # NFR (non functional requirement)
 > every decision has tradeoff ⭐
 
-![img.png](img.png)   --> 3 Big fundamental drivers
+![img.png](../../../99_img/2025/se_02_sd/bm-sd/02/03/img.png)   --> 3 Big fundamental drivers
 
 ---
 ## BIG-1 of 3. Availability
