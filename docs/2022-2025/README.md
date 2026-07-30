@@ -4,8 +4,8 @@
 ## Docs
 ### Solution Engineer
 - [CSE](SE_01_CSE)
-- [Distributed-System Design](SE_02_distributed-system)
-- [Micro-Service Pattern](SE_02_distributed-system/SD_05_micro-service)| Project repos:
+- [Distributed-System Design](SE_02_system-design)
+- [Micro-Service Pattern](SE_02_system-design/SD_23_micro-service)| Project repos:
     - [git - java](https://github.com/lekhrajdinkar/microservice-java)
     - [git - py](https://github.com/lekhrajdinkar/microservice-python)
 - [System Case-studies](SE_99_case-studies) 👈

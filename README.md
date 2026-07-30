@@ -1,7 +1,7 @@
 # Senior System Engineer (SSE)
-## Docs by Roles (6) | [readme](streamlit-docs/README.md)
+## Docs by Roles (6)
 - [2021-2025](docs/2022-2025)
-- [2026](docs/2026)
+- [2026-2030](docs/2026)
 
 ---
 ## Blended  roles
@@ -19,8 +19,14 @@
 ## Generating mkdocs.yml
 > Files ending with `__x.md` will be skipped
 ```bash
-pip install -r requirements-netlify.txt
+# pip install -r requirements-netlify.txt
+# - mkdocs 
+# - mkdocs-material
+
+uv add -r requirements-netlify.txt
 python scripts/generate_mkdocs.py
-# .\scripts\generate_mkdocs.bat
 mkdocs serve
+
+# .\scripts\generate_mkdocs.bat
 ```
+[http://localhost:8000](http://localhost:8000)
