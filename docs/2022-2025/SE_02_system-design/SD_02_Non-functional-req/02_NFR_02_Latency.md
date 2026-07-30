@@ -3,12 +3,13 @@
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2192532334
 --- 
 ## Overview
-- **latency has tradeoff with accuracy.** 👈
-  - latency sensitive system : online games, video games, etc
-  - latency tolerant system: Airline booking, banking system, etc
 - Time taken for data to travel from one point in a system to another.
 - **Response time (ms)** =  Queueing time+ Network time+ Processing time+ Dependency time
 - **Latency (ms)** = Response received time − Request sent time
+- Example:
+  - latency sensitive system : online games, video games, etc
+  - latency tolerant system: Airline booking, banking system, etc
+  
 ```
 Request sent:     10:00:00.000
 Response received:10:00:00.250
@@ -18,28 +19,33 @@ Service A = 100 ms | Service B = 150 ms | Service C = 80 ms
 - Total "sequential" dependency latency ≈ max(100, 150, 80) = 330 ms
 - Total "parallel" dependency latency ≈ max(100, 150, 80) - 150 ms
 ```
-## understand latency
-### By Latency Scale
-| Operation                 |                Approximate scale |
-| ------------------------- | -------------------------------: |
-| CPU or memory operation   |                      Nanoseconds |
-| Local cache lookup        | Microseconds to low milliseconds |
-| Redis call in same region |                    Around 1–5 ms |
-| Database query            |                 Around 5–100+ ms |
-| Internal service API call |                Around 10–100+ ms |
-| Cross-region call         |                Around 50–300+ ms |
-| Third-party API           | Around 100 ms to several seconds |
-| Batch job                 |                 Seconds to hours |
+---
+## Tradeoff
+- latency has tradeoff with **accuracy.** 👈
+  
+---
+## Understand latency
+### ✔️By Latency Scale (physic limit)
+| Operation                        |                Approximate scale |
+|----------------------------------| -------------------------------: |
+| CPU or memory operation          |                      Nanoseconds |
+| CPU Local cache                  | Microseconds to low milliseconds |
+| Redis(cache) call in same region |                    Around 1–5 ms |
+| Database query                   |                 Around 5–100+ ms |
+| Internal service API call        |                Around 10–100+ ms |
+| Cross-region API call            |                Around 50–300+ ms |
+| Third-party API                  | Around 100 ms to several seconds |
+| Batch job                        |                 Seconds to hours |
 
 ```
- 1MB READ Data from:
+ 1MB READ Data from: 👈
     memory        - 250  microSec   | storage latency
-    SSD           - 1000 microSec   | storage latency
+    SSD (hot)     - 1000 microSec   | storage latency
     1GBPS network - 10k  microSec   | Network latency
-    HDD           - 20k  microSec   | storage latency
+    HDD (cold)    - 20k  microSec   | storage latency
 ```
 ---
-### Latency benchmark (per human phycology)
+### ✔️Latency benchmark (per human phycology)
 | Use case                        | Recommended **p99 latency** | Human perception                                |
 | ------------------------------- | --------------------------: | ----------------------------------------------- |
 | Typing, autocomplete, drag/drop |                **< 100 ms** | Feels instantaneous                             |
@@ -50,7 +56,7 @@ Service A = 100 ms | Service B = 150 ms | Service C = 80 ms
 | Long-running operation          |            **> 10 seconds** | User may lose attention; process asynchronously |
 
 ---
-### By Examples
+### ✔️By Examples
 ```mermaid
 flowchart LR
     U[User] -->|20 ms| CDN[CDN / Load Balancer]
@@ -259,7 +265,8 @@ flowchart LR
 |  4 | Assuming every request is a cache hit    | Discuss cache misses, cold starts, warming and invalidation              |
 |  5 | Over-engineering for unnecessary latency | Match the latency target to the actual business requirement              |
 
-**Interview reminders**
+### Interview reminders
+- think End-to-end latency
 - Sequential calls add up: 5 services × 50 ms = 250 ms.
 - Parallel calls reduce the dependency portion toward the slowest call, but increase load and failure complexity.
 - A **cache-hit** latency target is incomplete 

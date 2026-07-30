@@ -86,6 +86,7 @@ flowchart LR
 | Consistency  | Reject operations that cannot be safely coordinated      |
 | Availability | Accept operations, even if replicas temporarily disagree |
 
+---
 ## Conflicts in Eventual Consistency
 | Conflict               | Example                                   |
 | ---------------------- | ----------------------------------------- |
@@ -116,7 +117,7 @@ sequenceDiagram
     Note over B: Local value is Jon
 ```
 
-## Conflict-resolution strategies
+### Conflict-resolution strategies
 | Strategy          | How it works                      | Trade-off                            |
 | ----------------- | --------------------------------- | ------------------------------------ |
 | Last write wins   | Latest timestamp wins             | Can silently lose data               |
@@ -128,3 +129,8 @@ sequenceDiagram
 | Manual resolution | User chooses the correct version  | Slow but safest for complex data     |
 | Single writer     | Only one leader accepts writes    | Less availability and higher latency |
 
+---
+## Interview
+- Consistency should be selected **per business operation**, not for the entire system.  👈
+- Critical state transitions require stronger guarantees, 
+- while derived or non-critical data can use eventual consistency for lower latency and higher availability.

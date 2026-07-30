@@ -1,15 +1,14 @@
-# NFR (non functional requirement)
-> every decision has tradeoff ⭐
+> NFR (non functional requirement) 3 Big fundamental drivers
+> - every decision has tradeoff ⭐
+> - ![img.png](../../../99_img/2025/se_02_sd/bm-sd/02/03/img.png)   
+---
 
-![img.png](../../../99_img/2025/se_02_sd/bm-sd/02/03/img.png)   --> 3 Big fundamental drivers
+# BIG-1 of 3. Availability
+- https://chatgpt.com/g/g-p-6a68d3926dd4819180c1c9bf855e98f3/c/6a685942-dc2c-83e8-9507-c227af952455
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2192532087
 
 ---
-## BIG-1 of 3. Availability
-> Availability: Can the system serve requests right now?
-> Reliability: Does the system consistently produce correct results over time?
-> Durability: Will stored data survive failures?
-
-### Overview
+## Overview
 - fundamentally shape entire arch. very important
 - def: system remains accessible and can successfully serve requests
 - Availability = Uptime / Total time × 100
@@ -22,7 +21,7 @@
 | 99.999%      |                     5 minutes |
 
 ---
-### concepts: SLA, SLI, SLO
+## concepts: SLA, SLI, SLO
 ```
 SLI = What are we measuring?
 SLO = What target do we want?
@@ -35,12 +34,12 @@ SLA = What have we contractually promised?
 | **SLA** | **Service Level Agreement** — the contractual commitment to customers | If availability falls below **99.5%**, customers receive service credits |
 
 ---
-### Example: Improve Database availability
+## Example 1: Improve Database availability
 > Note: Database availability is not the same as system availability.
 > if the application, load balancer, and database are each 99.99% available.
 > then 0.9999 × 0.9999 × 0.9999 ≈ `99.97%`
 
-#### Achieving 99.00%–99.95%
+### Achieving 99.00%–99.95%
 - A standard Multi-AZ primary/standby architecture is usually sufficient.
 
 ```
@@ -80,7 +79,7 @@ flowchart TB
     PRIMARY --> BACKUP[(Automated Backups<br/>Point-in-Time Recovery)]
 ```
 
-#### Achieving 99.95%–99.99%
+### Achieving 99.95%–99.99%
 ```
                   Applications
                        |
@@ -124,13 +123,13 @@ flowchart TB
     LB --> APP2[Application Instances<br/>AZ-2]
     LB --> APP3[Application Instances<br/>AZ-3]
 
-    APP1 --> PROXY[Highly Available<br/>Database Proxy]
+    APP1 --> PROXY[⭐Highly Available<br/>Database Proxy]
     APP2 --> PROXY
     APP3 --> PROXY
 
     PROXY --> WRITER[(Writer DB<br/>AZ-1)]
-    PROXY --> READER1[(Reader / Failover DB<br/>AZ-2)]
-    PROXY --> READER2[(Reader / Failover DB<br/>AZ-3)]
+    PROXY --> READER1[(⭐Reader / Failover DB<br/>AZ-2)]
+    PROXY --> READER2[(⭐Reader / Failover DB<br/>AZ-3)]
 
     WRITER -->|Synchronous or quorum replication| READER1
     WRITER -->|Synchronous or quorum replication| READER2
@@ -138,25 +137,15 @@ flowchart TB
     READER1 -. Automatic promotion .-> WRITER
     READER2 -. Automatic promotion .-> WRITER
 
-    MONITOR[Continuous Health<br/>and Lag Monitoring] --> WRITER
+    MONITOR[⭐Continuous Health<br/>and Lag Monitoring] --> WRITER
     MONITOR --> READER1
     MONITOR --> READER2
 
-    WRITER --> BACKUP[(Continuous Backups<br/>Point-in-Time Recovery)]
+    WRITER --> BACKUP[(⭐Continuous Backups<br/>Point-in-Time Recovery)]
 ```
----
-### Tradeoff
-![img.png](../../../99_img/2025/se_02_sd/bm-sd/02/02/img.png)
 
 ---
-### mistake:
-- Dont skip to ask for avialabilty
-- Over-engineer: if 99.0 is suffice needs, then dont waste infrastructure cost on 99.99
-- SPF [01_concept_02_SFP.md](../SD_22_Resilient/01_concept_02_SFP.md)
-- Also discuss the availability of the dependent components (3rd party API, Message broker, etc)
-- dont confuse SLA,SLO,SLI
----
-### More Example to improve availability 
+## Example 2: Application server
 - Remove single points of failure
   ```
   [ User → One server → One database ] --> AVOID
@@ -188,5 +177,23 @@ flowchart TB
     Message queues for asynchronous processing | worker
   ```
 
+---
+## Tradeoff
+- data layer --> cost + data consistency [more](02_NFR_04_consistency.md)
+- application layer --> cost
+![img.png](../../../99_img/2025/se_02_sd/bm-sd/02/02/img.png)
 
+---
+## 🙏Interview
+### Mistake
+- 99.9, 99.99, 99.999, etc --> dont confuse.
+- **Don't skip** to ask for availability + (SLA,SLO,SLI) for each component:
+  - dependent components (3rd party API, Message broker, etc)
+  - Database layer
+  - Application layer
+- **Over-engineer**: 
+  - if `99.0` is sufficed needs, 
+  - then don't waste infrastructure cost on `99.99`, etc
+- **SPF** [01_concept_02_SFP.md](../SD_22_Resilient/01_concept_02_SFP.md) --> eg: no point of running expensive infra, exposed by single LB.
+- 
 

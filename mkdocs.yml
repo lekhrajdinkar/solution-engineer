@@ -302,7 +302,7 @@ nav:
       - Algo 02 Mapreduce: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_02_MapReduce.md
       - Algo 03 Erasor Coding: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_03_erasor-coding.md
       - Algo 04 Hyperloglog: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_04_hyperloglog.md
-      - Algo 05 Btree: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_05_btree.md
+      - Algo 05 Btree: 2022-2025/SE_02_distributed-system/SD_00_algo/05_username_suggestion.md
     - SD 01 System:
       - Arch 01 Client Server Arch: 2022-2025/SE_02_distributed-system/SD_01_system/02_arch_01_client-server-arch.md
       - Arch 02 Stateless+stateful Arch: 2022-2025/SE_02_distributed-system/SD_01_system/02_arch_02_stateless+Stateful_arch.md
