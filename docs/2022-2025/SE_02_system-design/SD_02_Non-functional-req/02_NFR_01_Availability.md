@@ -13,9 +13,9 @@
 - def: system remains accessible and can successfully serve requests
 - Availability = Uptime / Total time × 100
 - Highly availability achieve by : 👈
-  - multi-AZ, multip-region deployment
-  - fast-failover (can have some downtime but received)
-  - Note: fault-tolerant system has 0 downtime
+  - multi-AZ, multip-region deployment (REDUNDANCY)
+  - REPLICATION
+  - health check + fast-failover + Load balancing 
 
 | Availability | Approximate downtime **per year** |
 | ------------ | ----------------------------: |
@@ -29,6 +29,16 @@
 > - if the application, load balancer, and database are each 99.99% available.
 > - then 0.9999 × 0.9999 × 0.9999 ≈ `99.97%`
 
+```mermaid
+flowchart LR
+    HA["Highly Available \n(minimize downtime) "]
+    HA --> A["Redundancy - multi-AZ,Region infra"]
+    HA --> B["Data Replication - prepare for DR"]
+    HA --> C["Load Balancing"]
+    HA --> D["Health Checks monitoring"]
+    HA --> E["Failover (have some downtime)"]
+    style HA fill:#123d2d,stroke:#22c55e,color:#ffffff
+```
 ---
 ## concepts: SLA, SLI, SLO
 ```
@@ -199,6 +209,6 @@ flowchart TB
 - **Over-engineer**: 
   - if `99.0` is sufficed needs, 
   - then don't waste infrastructure cost on `99.99`, etc
-- **SPF** [01_concept_02_SFP.md](../SD_22_Reliability/01_concept_02_SFP.md) --> eg: no point of running expensive infra, exposed by single LB.
+- **SPF** [01_concept_02_SFP.md](../SD_01_foundation/03_failure_01_SFP.md) --> eg: no point of running expensive infra, exposed by single LB.
 - 
 

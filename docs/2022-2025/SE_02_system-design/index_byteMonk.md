@@ -16,9 +16,9 @@
 - Latency + Mastering Latency Metrics [03_NFR_02_Latency.md](SD_02_Non-functional-req/02_NFR_02_Latency.md) 
 - Throughput [05_concept_05_throughput.md](SD_01_foundation/05_concept_05_throughput.md)
 - Replication [01_concept_03_replication.md](SD_21_database%2Bstorage/01_concept_03_replication.md)
-- Single Point of Failure [01_concept_02_SFP.md](SD_22_Reliability/01_concept_02_SFP.md)
+- Single Point of Failure [01_concept_02_SFP.md](SD_01_foundation/03_failure_01_SFP.md)
 - Pre-signed URLs [02_arch_06_PRE-Signed-URL.md](SD_52_architecture/02_arch_06_PRE-Signed-URL.md)
-- Heartbeat [01_concept_03_heartbeat.md](SD_22_Reliability/01_concept_03_heartbeat_2.md)
+- Heartbeat [01_concept_03_heartbeat.md](SD_01_foundation/03_failure_02_heartbeat_2.md)
 - DNS [02_Rout53.md](../CE_02_AWS_SAA/04_network/02_Rout53.md)
 
 ---

@@ -67,16 +67,15 @@ flowchart TB
     T1["PLANNED FOR"]
     T2["EXPECTED FAILURES"]
     T3["Fault tolerance"]
-
     T1 --> T2
 
     subgraph F[" "]
         direction LR
 
-        A["✅<br/><br/>🖥️<br/><br/><b>Server Crash</b>"]
-        B["✅<br/><br/>💽<br/><br/><b>Disk Failure</b>"]
-        C["✅<br/><br/>🔗<br/><br/><b>Network Partition</b>"]
-        D["✅<br/><br/>🏢<br/><br/><b>Data Center Outage</b>"]
+        A["✅<br/>🖥️<br/><b>Server Crash</b>"]
+        B["✅<br/>💽<br/><b>Disk Failure</b>"]
+        C["✅<br/>🔗<br/><b>Network Partition</b>"]
+        D["✅<br/>🏢<br/><b>Data Center Outage</b>"]
     end
 
     T2 --> A
@@ -86,14 +85,11 @@ flowchart TB
 
     style T1 fill:transparent,stroke:transparent,color:#22c55e
     style T2 fill:transparent,stroke:transparent,color:#22c55e,font-size:32px,font-weight:bold
-
     style F fill:transparent,stroke:transparent
-
     style A fill:#102b25,stroke:#22c55e,stroke-width:2px,color:#ffffff
     style B fill:#102b25,stroke:#22c55e,stroke-width:2px,color:#ffffff
     style C fill:#102b25,stroke:#22c55e,stroke-width:2px,color:#ffffff
     style D fill:#102b25,stroke:#22c55e,stroke-width:2px,color:#ffffff
-
     linkStyle 0 stroke:transparent
     linkStyle 1,2,3,4 stroke:transparent
 ```

@@ -1,0 +1,1 @@
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2195014029

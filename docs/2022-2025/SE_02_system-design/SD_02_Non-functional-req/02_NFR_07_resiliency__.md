@@ -5,16 +5,14 @@ flowchart TB
     T1["PLANNED FOR"]
     T2["UNEXPECTED FAILURES (SURPRISES)"]
     T3["Resilience"]
-
     T1 --> T2
 
     subgraph U[" "]
         direction LR
-
-        A["❓<br/><br/>⚡<br/><br/><b>10× Traffic Spike</b>"]
-        B["❓<br/><br/>🛠️<br/><br/><b>Malformed Data</b>"]
-        C["❓<br/><br/>🔗<br/><br/><b>Cascading Failure</b>"]
-        D["❓<br/><br/>🛡️<br/><br/><b>Novel Attack</b>"]
+        A["❓<br/>⚡<br/><b>10× Traffic Spike</b>"]
+        B["❓<br/>🛠️<br/><b>Malformed Data</b>"]
+        C["❓<br/>🔗<br/><b>Cascading Failure</b>"]
+        D["❓<br/>🛡️<br/><b>Novel Attack</b>"]
     end
 
     T2 --> A
@@ -25,12 +23,10 @@ flowchart TB
     style T1 fill:transparent,stroke:transparent,color:#ef4444
     style T2 fill:transparent,stroke:transparent,color:#ef4444,font-size:32px,font-weight:bold
     style U fill:transparent,stroke:transparent
-
     style A fill:#321821,stroke:#ef4444,stroke-width:2px,color:#ffffff
     style B fill:#321821,stroke:#ef4444,stroke-width:2px,color:#ffffff
     style C fill:#4a151c,stroke:#ff3333,stroke-width:3px,color:#ffffff
     style D fill:#321821,stroke:#ef4444,stroke-width:2px,color:#ffffff
-
     linkStyle 0,1,2,3,4 stroke:transparent
 ```
 
@@ -56,5 +52,9 @@ Microservices calling external APIs (e.g., payment gateways, third-party service
 ### 4 rate limiting
 
 ### 5 bulk head
+
+### 5 Gracefully degradation
+
+### 5 Chaos engineering
 
 
