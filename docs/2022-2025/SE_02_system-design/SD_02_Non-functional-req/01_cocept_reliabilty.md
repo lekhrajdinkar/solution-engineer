@@ -1,8 +1,12 @@
 # Reliable System
-> - Reliability is the overall outcome. 
-> - High availability, fault tolerance, and resilience are techniques that help achieve it.
+## ✔️Overview
+* **Core Definition:** Reliability is the **overall outcome**—ensuring the system consistently meets operational standards under normal and adverse conditions.
+* **Key Pillars:**
+    * **Correctness & Consistency:** Delivering accurate results with zero data loss and high data integrity.
+    * **Timeliness:** Maintaining low latency and high performance.
+    * **Failure Recovery:** Utilizing Fault Tolerance (FT) and Resilience (R) strategies.
+    * **Continuous Monitoring:** Leveraging health checks, metrics, failover mechanisms, and load balancing.
 
-## Overview
 ```mermaid
 flowchart LR
     R[Reliable System: \n broader outcome]
@@ -21,8 +25,7 @@ flowchart LR
 - [02_NFR_03_Scaling.md](02_NFR_03_Scaling.md)
 
 ### Timeliness
-- [02_NFR_02-performance.md](02_NFR_02-performance.md)
-- [02_NFR_02_Latency.md](02_NFR_02_Latency.md)
+- [02_NFR_02_Performance.md (latency,etc)](02_NFR_02_Performance-latency.md)
 - [02_NFR_06_ReadWrite-ratio.md](02_NFR_06_ReadWrite-ratio.md)
 
 ### Failure recovery
@@ -30,7 +33,9 @@ flowchart LR
 - [02_NFR_07_resiliency.md](02_NFR_07_resiliency__.md)
 
 ---
-## Levels
+## ✔️Levels
+> **Key Engineering Takeaway:** *The role of an engineer is to choose the right level of reliability for the specific business requirements rather than over-engineering.*
+
 ```
 Each level adds (cost and complexity) 💲
 ⭐Engineer job : choose right level for requiremnet
@@ -43,7 +48,6 @@ Resilience          ---------------------
         ↓
 Reliability         ---------------------------------------
 ```
-
 ```mermaid
 flowchart BT
     HA["HIGH AVAILABILITY\n<small>Minimize downtime, fast recovery</small>"]

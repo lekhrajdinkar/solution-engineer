@@ -5,7 +5,7 @@
 > - A good system design must be easy to operate, update, troubleshoot, and financially sustainable
 > - Design for long-term operational simplicity.
 ---
-## Maintenance
+## A. Maintenance
 ### 1. Failure Modes and Mitigations
 | Failure                    | Possible Impact          | Mitigation                                                |
 | -------------------------- | ------------------------ | --------------------------------------------------------- |
@@ -43,7 +43,7 @@ Cache hit ratio
 ...
 ...
 ```
-### Rolling new feature.
+### 3 Rolling new feature.
 
 | ✔️**Deploymnet Strategy**   | Description                                  | Trade-off                                     |
 |-----------------------| -------------------------------------------- | --------------------------------------------- |
@@ -52,7 +52,7 @@ Cache hit ratio
 | Canary deployment     | Send small traffic percentage to new version | Reduces risk, but requires strong monitoring  |
 | Feature flags         | Enable features independently of deployment  | Flexible, but flags require cleanup           |
 
-### Testing new feature
+### 4 Testing new feature
 ```mermaid
 flowchart LR
     U[Unit Tests] --> I[Integration Tests]
@@ -70,13 +70,13 @@ flowchart LR
 | Stress testing      | Find the system breaking point                         |
 | Chaos testing       | Validate behavior during infrastructure failures       |
 
-### Automation
-### Documentation
-### increasing performance
-### More ...
+### 5 Automation
+### 6 Documentation
+### 7 increasing performance
+### 8 More ...
 
 ---
-## Total Cost 💲
+## B. Total Cost 💲
 ### Overview
 ```mermaid
 flowchart LR
@@ -106,21 +106,23 @@ The cheapest infrastructure is not always the cheapest system. ⭐
 
 ```
 
-### reduce Cost
+### Reduce cost strategies:
 1 Engineering cost
 - won't ask in interview
 
 2 Maintenance cost
+- Use managed services
 - Keep services loosely coupled.
-- Automate infrastructure using Terraform.
-- Automate build, testing and deployment.
-- Apply security patches regularly.
+- Automate infrastructure :
+  - Terraform IAC
+  - Ci/Cd pipeline: Automate build, testing and deployment.
+  - Apply security patches regularly.
 - Upgrade databases and dependencies gradually.
 - Maintain runbooks for common failures.
 - Remove unused services, resources and feature flags.
 - Define service ownership clearly.
 
-Resource cost
+3 Resource cost
 
 ![img.png](../../../99_img/2026/07/sd_nfr_cost.png)
 

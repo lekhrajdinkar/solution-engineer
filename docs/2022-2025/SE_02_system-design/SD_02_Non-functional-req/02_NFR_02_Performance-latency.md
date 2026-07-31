@@ -1,8 +1,12 @@
-# BIG-2 of 3: Latency
+# BIG-2 of 3: Performance: latency
 - https://chatgpt.com/g/g-p-6a68d3926dd4819180c1c9bf855e98f3-system-design-bm-acedemy/c/6a68d435-d7dc-83e8-9947-5b90b0e3bd9f
-- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2192532334
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2192532334 | part-1
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2197869930 | part-2
 --- 
 ## Overview
+**💠Throughput:**  [throughput.md](02_NFR_02_performance-throughput.md)
+
+**💠Latency:**
 - Time taken for data to travel from one point in a system to another.
 - **Response time (ms)** =  Queueing time+ Network time+ Processing time+ Dependency time
 - **Latency (ms)** = Response received time − Request sent time
@@ -20,11 +24,32 @@ Service A = 100 ms | Service B = 150 ms | Service C = 80 ms
 - Total "parallel" dependency latency ≈ max(100, 150, 80) - 150 ms
 ```
 ---
-## Tradeoff
-- latency has tradeoff with **accuracy.** 👈
+## Main sources of latency
+| Category            | Common causes                                   | Optimizations                                                           |
+| ------------------- | ----------------------------------------------- | ----------------------------------------------------------------------- |
+| Network latency     | Distance, protocol overhead, multiple hops      | CDN, edge deployment, compression, fewer round trips                    |
+| Server-side latency | Slow algorithms, disk access, thread contention | Faster algorithms, local cache, parallel processing, thread-pool tuning |
+| Client-side latency | Rendering, blocking I/O, large payloads         | Non-blocking I/O, smaller message formats, compression, browser caching |
+
+---
+## Latency Tradeoff
+- primarily, latency has tradeoff with **accuracy.** 👈
+
+| Category    | Lower-latency approach        | Trade-off                                             |
+| ----------- | ----------------------------- | ----------------------------------------------------- |
+| Cost        | In-memory databases           | Much higher infrastructure cost                       |
+| Cost        | Multi-region deployment       | More compute, networking and replication cost         |
+| Cost        | Aggressive caching            | Additional cache infrastructure and maintenance       |
+| Complexity  | Multiple caching layers       | Difficult cache invalidation; stale-data risk         |
+| Complexity  | Multi-region data             | Synchronization and conflict-resolution complexity    |
+| Processing  | Asynchronous workflows        | Harder debugging, tracing and failure recovery        |
+| Operations  | More monitoring               | Higher observability and operational overhead         |
+| Team        | More specialized architecture | Larger team and steeper learning curve                |
+| Consistency | Local caches and replicas     | Eventual consistency may be required                  |
+
   
 ---
-## Understand latency
+## Understand latency more
 ### ✔️By Latency Scale (physic limit)
 | Operation                        |                Approximate scale |
 |----------------------------------| -------------------------------: |
@@ -125,7 +150,7 @@ Fastest                                  Slowest
                   P50 area
 ```
 ---
-## Design Decision
+## Latency: improving strategies
 ![img_1.png](../../../99_img/2025/se_02_sd/bm-sd/02/02/img_1.png)
 
 ![img_2.png](../../../99_img/2025/se_02_sd/bm-sd/02/02/img_2.png)
@@ -137,38 +162,8 @@ Fastest                                  Slowest
 ![img_3.png](../../../99_img/2025/se_02_sd/bm-sd/02/02/img_3.png)
 
 ---
-## TradeOff
-| Lower-latency technique   | Trade-off                                |
-|---------------------------| ---------------------------------------- |
-| Caching                   | Stale data, invalidation complexity      |
-| Multi-region deployment   | Higher cost, replication complexity      |
-| Precomputed views         | More storage, delayed freshness          |
-| Eventual consistency      | Users may briefly see old data           |
-| Async processing          | Work completes later                     |
-| Denormalization SQL table | Duplicate data, harder updates           |
-| Fewer service calls       | Less service independence                |
-| Pre-warmed capacity       | Higher idle infrastructure cost          |
-| Strict timeouts           | More failed or partial responses         |
-| No retries                | Faster failure, lower success rate       |
-| Parallel calls            | Higher load on dependencies              |
-| Edge/CDN caching          | Harder personalization and cache control |
-
-**Source: ByteMonk**
-
-| Category    | Lower-latency approach        | Trade-off                                             |
-| ----------- | ----------------------------- | ----------------------------------------------------- |
-| Cost        | In-memory databases           | Much higher infrastructure cost                       |
-| Cost        | Multi-region deployment       | More compute, networking and replication cost         |
-| Cost        | Aggressive caching            | Additional cache infrastructure and maintenance       |
-| Complexity  | Multiple caching layers       | Difficult cache invalidation; stale-data risk         |
-| Complexity  | Multi-region data             | Synchronization and conflict-resolution complexity    |
-| Processing  | Asynchronous workflows        | Harder debugging, tracing and failure recovery        |
-| Operations  | More monitoring               | Higher observability and operational overhead         |
-| Team        | More specialized architecture | Larger team and steeper learning curve                |
-| Consistency | Local caches and replicas     | Eventual consistency may be required                  |
-
----
-## Architecture shift : example
+### Latency:  improving strategies : example-1
+> Architecture shift example
 > - let say have to build system with p99 - 500 ms first.
 > - same system needs shift to p100 ms 
 > - then what will be architecture shift need to be made >
