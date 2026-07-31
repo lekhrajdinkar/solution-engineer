@@ -297,7 +297,7 @@ nav:
     - Sdlc: 2022-2025/SE_01_CSE/01_sdlc.md
   - SE 02 Distributed System:
     - SD 00 Algo:
-      - Algo 01 Bloomfilter: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_01_BloomFilter.md
+      - Algo 01 Bloomfilter: 2022-2025/SE_02_distributed-system/SD_00_algo/01_BloomFilter.md
       - Algo 02 Leaderelection: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_02_LeaderElection.md
       - Algo 02 Mapreduce: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_02_MapReduce.md
       - Algo 03 Erasor Coding: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_03_erasor-coding.md
@@ -358,7 +358,7 @@ nav:
       - Durability: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_02_durability.md
       - Distributed Tracing: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/03_distributed-Tracing.md
       - Deloyment 01 Strategies: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/09_deloyment_01_strategies.md
-      - Heartbeat: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_concept_04_heartbeat.md
+      - Heartbeat: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_concept_03_heartbeat_1.md
       - Metric: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_NFR_02_Latency.md
       - Resiliency: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_concept_01_resiliency.md
     - SD 05 Micro Service:

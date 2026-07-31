@@ -12,6 +12,10 @@
 - fundamentally shape entire arch. very important
 - def: system remains accessible and can successfully serve requests
 - Availability = Uptime / Total time × 100
+- Highly availability achieve by : 👈
+  - multi-AZ, multip-region deployment
+  - fast-failover (can have some downtime but received)
+  - Note: fault-tolerant system has 0 downtime
 
 | Availability | Approximate downtime **per year** |
 | ------------ | ----------------------------: |
@@ -19,6 +23,11 @@
 | 99.9%        |            8 hours 46 minutes |
 | 99.99%       |                    52 minutes |
 | 99.999%      |                     5 minutes |
+
+- each component/layer in system has its own Availability
+> - Database availability is not the same as system availability.
+> - if the application, load balancer, and database are each 99.99% available.
+> - then 0.9999 × 0.9999 × 0.9999 ≈ `99.97%`
 
 ---
 ## concepts: SLA, SLI, SLO
@@ -34,11 +43,7 @@ SLA = What have we contractually promised?
 | **SLA** | **Service Level Agreement** — the contractual commitment to customers | If availability falls below **99.5%**, customers receive service credits |
 
 ---
-## Example 1: Improve Database availability
-> Note: Database availability is not the same as system availability.
-> if the application, load balancer, and database are each 99.99% available.
-> then 0.9999 × 0.9999 × 0.9999 ≈ `99.97%`
-
+## Example 1: Database availability
 ### Achieving 99.00%–99.95%
 - A standard Multi-AZ primary/standby architecture is usually sufficient.
 
@@ -145,7 +150,7 @@ flowchart TB
 ```
 
 ---
-## Example 2: Application server
+## Example 2: Application/system
 - Remove single points of failure
   ```
   [ User → One server → One database ] --> AVOID
@@ -194,6 +199,6 @@ flowchart TB
 - **Over-engineer**: 
   - if `99.0` is sufficed needs, 
   - then don't waste infrastructure cost on `99.99`, etc
-- **SPF** [01_concept_02_SFP.md](../SD_22_Resilient/01_concept_02_SFP.md) --> eg: no point of running expensive infra, exposed by single LB.
+- **SPF** [01_concept_02_SFP.md](../SD_22_Reliability/01_concept_02_SFP.md) --> eg: no point of running expensive infra, exposed by single LB.
 - 
 

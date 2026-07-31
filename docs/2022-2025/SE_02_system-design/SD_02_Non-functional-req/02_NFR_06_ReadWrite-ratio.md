@@ -1,4 +1,8 @@
-# 6. Read Write ratio
+# 6. NFR - Read Write ratio
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2193918304
+- https://chatgpt.com/g/g-p-6a68d3926dd4819180c1c9bf855e98f3/c/6a6ad42e-7894-83e8-894e-48f6dbcd2c81
+
+---
 ## Overview
 - `Read–Write Ratio = Number of Reads : Number of Writes`
 - Check AWS RDS metrics
@@ -14,7 +18,7 @@
 **understand underlying Data-structure**:
   - [btree.md](../../SE_99_case-studies/03_ByteMonk/05_username_suggestion.md)
   - [LSM-tree.md](../SD_51_algo/03_algo_06_LSM-tree__.md)
-  - [BloomFilter.md](../SD_51_algo/03_algo_01_BloomFilter.md)
+  - [BloomFilter.md](../SD_53_DataStructure/01_BloomFilter.md)
   - [caseStudy-username_suggestion.md](../../SE_99_case-studies/03_ByteMonk/05_username_suggestion.md)
 
 ---
