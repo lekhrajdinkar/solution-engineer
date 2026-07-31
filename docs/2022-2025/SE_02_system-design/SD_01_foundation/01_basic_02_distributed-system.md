@@ -1,7 +1,6 @@
 # Distributed System
-> Design Distributed System (large-Scale)
-> 
-> Power can be augmented on the fly
+> - Design Distributed System (large-Scale system)
+> - Power can be augmented on the fly
 
 ## Overview
 - independent computers (nodes) that appear to the users as a **single coherent system**.
@@ -20,50 +19,29 @@ Scenario-1
   - run these os process on diff laptop, connected on same network. little better.
   - take this further ahead brings the concept of DS.
 ```
-**Examples**
-- `microservices` - popular way to build DS 👈🏻
-- `Simple app running on Cloud` is also DS, since cloud infra Distributed with region/s, az. And may auto-scale if user base grows
+## Examples (2)
+- **microservices** 
+  - popular way to build DS 
+- **Simple app running on Cloud** is also DS, 
+  - since cloud infra Distributed with region/s, az. 
+  - And may auto-scale if user base grows
 
 ---    
-## key concepts
-✔️**Network Partition** 👈🏻👈🏻
+## key concept: Network Partition👈🏻
 - This occurs when a network failure (temporary and permanent)
 - divides a distributed system into isolated parts,
 - preventing communication between them.
 - This is an **unavoidable fact** in distributed systems
 - Single Node server, has No n/w Partition :)
 
-✔️**persistent Storage**
-- For DS, persistent storage is vital to ensure data retrieval, in case of failures
-  - Database --> not be ideal for asynchronous operations
-  - Topic/Queue
-
-✔️**Transparency** 
-- Users shouldn’t feel the system is distributed (location, access, and failure transparency)
-
-✔️**Fault Tolerance** 
-- A major goal is to survive partial failures 
-- e.g., if one node fails, others continue
-
-✔️**resilience** 
-
-✔️**scalability**
-
-✔️**consistency**
-- Nodes may share or replicate data,
-- consistency models ( eventual or strong consistency)
-
-✔️**Concurrency & Parallelism**
-
 ---
 ## Clusters
 - https://www.youtube.com/watch?v=pjWhtRtaJiA
--  groups of interconnected servers or nodes that work together to handle large volumes of data and traffic by sharing workloads.
+- groups of interconnected servers or nodes that work together to handle large volumes of data and traffic by sharing workloads.
 - essential for **scalability and fault tolerance**
 - ![img.png](../../../99_img/2025/se_02_sd/01/01/img.png)
 
----
-### `Leader-Follower` Clusters
+### Leader-Follower Clusters
 ![img_2.png](../../../99_img/2025/se_02_sd/01/01/img_2.png)
 - one node is designated as the **leader** and handles most coordination tasks,
 - while others act as **followers** and carry out tasks assigned by the leader
@@ -80,7 +58,7 @@ Scenario-1
 ![img_1.png](../../../99_img/2025/se_02_sd/01/01/img_1.png)
 
 ---
-### `Independent Node` Clusters
+### Independent Node Clusters
 ![img_3.png](../../../99_img/2025/se_02_sd/01/01/img_3.png)
 - each node in this cluster functions independently to handle requests
 - decentralized manner
@@ -96,7 +74,6 @@ Scenario-1
 - and handle streaming data, independently
 
 > note: Data is replicated **across brokers** for fault tolerance + an internal consensus mechanism (KRaft protocol) manages cluster metadata and coordination b/w read and in-sync replica
-
 
 **Managers**
 
