@@ -5,8 +5,8 @@
   - reduces the load on databases
   - and speeds up response times
 - done by storing frequently requested data **closer** to the client or server.
-- [04_caching.md](../SD_21_database+storage/01_concept_04_caching.md)
-- [04_caching-distributed.md](../SD_21_database+storage/02_01_distributed-caching.md)
+- [04_caching.md](../SD_05_DataLayer+storage/01_concept_04_caching.md)
+- [04_caching-distributed.md](../SD_05_DataLayer+storage/02_01_distributed-caching.md)
 
 ![img_1.png](../../../99_img/2025/pe_03/img200.png)
 

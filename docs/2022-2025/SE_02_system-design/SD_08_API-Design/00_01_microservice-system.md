@@ -50,8 +50,8 @@
 
 ### Data Consistency pattern
 > **database per service pattern**, leds data consistency issues. solutions:
-- [distributed-Transaction](../SD_21_database+storage/02_03_distributed-Transaction.md)
-- [distributed-Locking](../SD_21_database+storage/02_02_distributed-Locking.md)
+- [distributed-Transaction](../SD_05_DataLayer+storage/02_03_distributed-Transaction.md)
+- [distributed-Locking](../SD_05_DataLayer+storage/02_02_distributed-Locking.md)
 
 ---
 ## ✔️ Benefits

@@ -46,19 +46,16 @@ Reliability         ---------------------------------------
 
 ```mermaid
 flowchart BT
-    HA["HIGH AVAILABILITY<br/><small>Minimize downtime, fast recovery</small>"]
-    FT["FAULT TOLERANCE<br/><small>Zero downtime, failures remain invisible</small>"]
-    RS["RESILIENCE<br/><small>Handles unexpected failures gracefully</small>"]
-    RL["RELIABILITY<br/><small>Availability + Correctness + Timeliness</small>"]
-
+    HA["HIGH AVAILABILITY\n<small>Minimize downtime, fast recovery</small>"]
+    FT["FAULT TOLERANCE\n<small>Zero downtime, failures remain invisible</small>"]
+    RS["RESILIENCE\n<small>Handles unexpected failures gracefully</small>"]
+    RL["RELIABILITY\n<small>Availability + Correctness + Timeliness</small>"]
     HA --> FT
     FT --> RS
     RS --> RL
-
     style HA fill:#123d2d,stroke:#22c55e,stroke-width:3px,color:#22c55e
     style FT fill:#17233d,stroke:#3b82f6,stroke-width:3px,color:#60a5fa
     style RS fill:#3b2418,stroke:#f97316,stroke-width:3px,color:#fb923c
     style RL fill:#2e1c3d,stroke:#a855f7,stroke-width:3px,color:#c084fc
-
     linkStyle 0,1,2 stroke:#64748b,stroke-width:2px
 ```
