@@ -18,8 +18,7 @@
 ---
 ## key relationship
 ### Fault tolerance vs High availability
-
-airplane analogy - has 4 engines, but it does not require all four to remain operational.
+Airplane analogy - has 4 engines, but it does not require all four to remain operational.
 - Engine 1 fails
 - Engines 2, 3, and 4 continue working
 ```mermaid
@@ -93,4 +92,7 @@ flowchart TB
     linkStyle 0 stroke:transparent
     linkStyle 1,2,3,4 stroke:transparent
 ```
+---
+## Strategies
+todo
 

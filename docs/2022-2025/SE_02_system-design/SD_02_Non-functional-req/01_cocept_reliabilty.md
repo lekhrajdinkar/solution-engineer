@@ -29,7 +29,7 @@ flowchart LR
 - [02_NFR_06_ReadWrite-ratio.md](02_NFR_06_ReadWrite-ratio.md)
 
 ### Failure recovery
-- [02_NFR_07_fault-tolerance.md](02_NFR_07_fault-tolerance.md)
+- [02_NFR_07_fault-tolerance.md](02_NFR_07_fault-tolerance__.md)
 - [02_NFR_07_resiliency.md](02_NFR_07_resiliency__.md)
 
 ---

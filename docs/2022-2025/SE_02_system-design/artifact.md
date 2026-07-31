@@ -1,4 +1,4 @@
-#  Design - Distributed System
+# Design - Distributed System
 > key problems and solutions around : **Network partition** 🌐
 
 ## Artifacts ℹ️
