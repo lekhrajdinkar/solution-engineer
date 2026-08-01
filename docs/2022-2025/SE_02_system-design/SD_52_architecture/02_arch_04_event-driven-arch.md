@@ -1,9 +1,12 @@
 # Event-Driven Architecture (EDA)
+**Reference**
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2190592891
+- https://www.youtube.com/watch?v=hrvx8Nv9eQA
+- [01_basic_01_evolution.md](../SD_01_foundation/01_basic_01_evolution.md)
 > - **EDA** focuses on asynchronous, event-based communication, 
 > - **Service Mesh** manages synchronous communication.
 ---
 ## ✔️overview
-- https://www.youtube.com/watch?v=hrvx8Nv9eQA
 - traditional **request-response model**
   - inefficient due to tight coupling and escalating complexity
 - Modern EDA, software design pattern 

@@ -17,7 +17,6 @@
   - ideal for `read-heavy workloads`
   - reads quickly. since tree is structured/organized, 
   - sorted tree structures
-  - similar to a filing cabinet
 
 ![img.png](../../../99_img/2025/oauth2/001/img.png)
 
