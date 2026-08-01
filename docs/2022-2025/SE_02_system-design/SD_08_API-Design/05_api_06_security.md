@@ -32,6 +32,6 @@ Permissions-Policy: geolocation=(), camera=(), microphone=()
 ```
 ---
 ## More
-- [RateLimiting.md](../SD_01_foundation/05_concept_03_RateLimiting.md)
+- [RateLimiting.md](../SD_03_Core-building-blocks/05_concept_03_RateLimiting.md)
 
 
