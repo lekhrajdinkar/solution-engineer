@@ -1,19 +1,52 @@
-# Caching
-> Solves performance of Distr system with reducing LATENCY
-
+# Core building block : Caching
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2190592600
+--- 
 ## Overview
-- storing frequently used data in a **different location**  
+- [REST api_caching](../SD_08_API-Design/05_api_04_caching.md)
+- Act as **high-speed data storage layer.**
+- Definition:
+  - storing frequently used data in a **different location**  
   - other from the original data source
   - to provide faster data access.
-  - reduce response time
-- high-speed data storage layer.
-- when to use:
+  - Reduce response time
+
+**candidate for cache**
   - ideal for **static or immutable data**, 
-  - Note: For Dynamic data, its complex, need to efficiently synchronize data across multiple locations
-  - **single entity** reads or writes data
-  - **consistency or staleness** of data is not a major concern
+    - for Dynamic data, its complex andneed to efficiently design system to:
+      - `synchronize data` across multiple locations
+      - `invalidate cache.`
+  - if **single entity** reads or writes data
+  - if **consistency or staleness** of data is not a major concern. like social-media post.👈
     - else, design a system to properly **invalidate** stale data
-- [REST api_caching](../SD_08_API-Design/05_api_04_caching.md) 👈🏻
+
+
+**When Caching is Helpful** 
+- Minimizing/avoid frequent Network Calls**
+- Speeding Up Computationally Expensive Operations**
+- Preventing Database Overload (Data Hotspots)**
+    - When many clients (e.g., millions of users) try to access the same popular data
+    - reducing read requests on Database
+
+---
+## Caching Systems for Writes
+✔️**Write-Through Cache:**
+- When data is edited, the system writes the data to both :
+    - the cache
+    - the main database, **at the same time**
+- Benefit: Cache and database are always in **sync**.
+- Downside: **Doesn't minimize network calls**, as the database is always hit.
+
+![img_6.png](../../../99_img/2026/02/01/01/img_6.png)
+
+✔️**Write-Back Cache:**
+- When data is edited, the system  updates
+    - the cache **immediately** + sends a response back to the client (non-blocking)
+    - The database is updated **asynchronously** at a later time.
+        - (e.g., randomly, scheduled every 30 seconds or 5 minutes).
+- Benefit: **Faster** response to the client, because the database isn't immediately touched.
+- Downside: The cache and database can **temporarily be out of sync, with stale data**.
+
+![img_7.png](../../../99_img/2026/02/01/01/img_7.png)
 
 ---
 ## Where can Caching be Placed
@@ -47,42 +80,8 @@
 - check here: [distributed caching](../SD_05_DataLayer+storage/02_01_distributed-caching.md)
 
 ---
-##  When Caching is Helpful 👈🏻
-**Minimizing Network Calls** 
-- In a client-server-database architecture, 
-- network calls between these separate machines are common.
-- Caching the results of network operations, could
-- speeds up processes by avoiding frequent calls to the database.
-
-**Speeding Up Computationally Expensive Operations**
-
-**Preventing Database Overload (Data Hotspots)**
-- When many clients (e.g., millions of users) try to access the same popular data 
-- reducing read requests on Database
-
----
-## Caching Systems for Writes
-✔️**Write-Through Cache:** 
-- When data is edited, the system writes the data to both :
-  - the cache 
-  - the main database, **at the same time** 
-- Benefit: Cache and database are always in **sync**.
-- Downside: **Doesn't minimize network calls**, as the database is always hit.
-
-![img_6.png](../../../99_img/2026/02/01/01/img_6.png)
-
-✔️**Write-Back Cache:** 
-- When data is edited, the system  updates 
-  - the cache **immediately** + sends a response back to the client (non-blocking)
-  - The database is updated **asynchronously** at a later time.
-    - (e.g., randomly, scheduled every 30 seconds or 5 minutes).
-- Benefit: **Faster** response to the client, because the database isn't immediately touched.
-- Downside: The cache and database can **temporarily be out of sync, with stale data**.
-
-![img_7.png](../../../99_img/2026/02/01/01/img_7.png)
-
----
 ## Caching Invalidation
+we dont want stale data in cache
 - Write-Through Cache, invalidate the old data as well, sync 👈🏻
 - Write-Back Cache,invalidate the old data as well, Async 👈🏻
 - TTL based eviction
@@ -104,5 +103,3 @@ Since cache memory is limited, have to free-up space
 💠**First-In, First-Out (FIFO)** 
 
 💠**random eviction**
-
----
