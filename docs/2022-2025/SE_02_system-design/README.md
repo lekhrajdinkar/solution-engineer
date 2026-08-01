@@ -5,14 +5,14 @@
   - `78 videos` as of 7/28/2026
 
 ---
-## Module 1: Foundations of System Design
+## Module 1: Foundations of System Design `16`
 [Foundation](SD_01_foundation)
 - Evolution of System Design [01_basic_01_evolution.md](SD_01_foundation/01_basic_01_evolution.md)
 - Client-Server Architecture [02_arch_01_client-server-arch.md](SD_52_architecture/02_arch_01_client-server-arch.md)
   - TCP/IP & HTTP Basics
   - WebSockets & Streaming Fundamentals
   - Polling vs Streaming
-- Caching [01_concept_04_caching.md](SD_05_DataLayer%2Bstorage/01_concept_04_caching.md)
+- Caching [01_concept_04_caching.md](SD_03_Core-building-blocks/01_concept_04_caching.md)
 - Hashing [05_concept_01_hashing.md](SD_01_foundation/05_concept_01_hashing.md)
 - Latency + Mastering Latency Metrics [03_NFR_02_Latency.md](SD_02_Non-functional-req/02_NFR_02_Performance-latency.md) 
 - Throughput [05_concept_05_throughput.md](SD_02_Non-functional-req/02_NFR_02_performance-throughput.md)
@@ -23,11 +23,11 @@
 - DNS [02_Rout53.md](../CE_02_AWS_SAA/04_network/02_Rout53.md)
 
 ---
-## Module 2: NFR (non functional req)
+## Module 2: NFR (non functional req) `9`
 [SD_02_Non-functional-req](SD_02_Non-functional-req)
 
 ---
-## Module 3: Core-building-blocks
+## Module 3: Core-building-blocks `11`
 [SD_03_Core-building-blocks](SD_03_Core-building-blocks)
 
 ---
