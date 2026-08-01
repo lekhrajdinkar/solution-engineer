@@ -1,12 +1,15 @@
 # AWS cloudFront (global)
-### Pictorial description
+## Overview - CDN
+- [01_core_02_CDN.md](../../SE_02_system-design/SD_03_Core-building-blocks/01_core_02_CDN.md)
+---
+## Pictorial description
 - ![img.png](../99_img/CF/img.png)
 - ![img_2.png](../99_img/CF/img_2.png)
 - ![img_3.png](../99_img/CF/cf-2/img_3.png)
 - **1-2-M**
   - one distribution - multiple origins
-
-### key point
+---
+## key point
 - protocol : **HTTP/RTMP**  :dart:
 - CDN **content delivery network**, cache data all around the world/countries
   - `allow-list` countries

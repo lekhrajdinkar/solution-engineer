@@ -6,7 +6,7 @@ Rules:
 - Scan docs/ recursively
 - Extract titles from front-matter 'title' or humanize filename
 - Order by numeric prefix (01_, 02_, etc.), then by weight in front-matter, then alphabetically
-- Map folder/README.md to folder nav entry
+- Map folder/artifact.md to folder nav entry
 - Exclude files ending with __x (e.g., file__x.md)
 - Include all other folders (including 99_img/)
 - Merge generated nav with mkdocs.template.yml and output mkdocs.yml
@@ -100,7 +100,7 @@ def build_nav_tree(start_path: Path, root_docs: Path) -> Optional[Dict]:
         
         if entry.is_dir():
             # Handle directory: include its index (index.md) as folder index if present,
-            # then include other children (recursively). We no longer treat README.md as folder index.
+            # then include other children (recursively). We no longer treat artifact.md as folder index.
             index_file = None
             for p in entry.iterdir():
                 if p.is_file() and p.name.lower() == 'index.md':
@@ -133,7 +133,7 @@ def build_nav_tree(start_path: Path, root_docs: Path) -> Optional[Dict]:
             # Skip excluded files (ending with __x.md)
             if EXCLUDE_PATTERN.search(entry.name):
                 continue
-            # Skip README.md (will be handled by parent as folder index)
+            # Skip artifact.md (will be handled by parent as folder index)
             if entry.name.lower() == 'readme.md':
                 continue
             
@@ -202,11 +202,11 @@ def generate_mkdocs_config() -> Dict:
         # entry can be dict mapping title->file/list
         for v in entry.values():
             if isinstance(v, str):
-                # Check only the basename so paths like '2022-2025/README.md' are handled
+                # Check only the basename so paths like '2022-2025/artifact.md' are handled
                 if os.path.basename(v).lower() == 'index.md':
                     has_root_index = True
     if not has_root_index:
-        # find first top-level index under docs/ (exclude README.md)
+        # find first top-level index under docs/ (exclude artifact.md)
         first_index = None
         # check root docs/index.md first
         root_index = DOCS_DIR / 'index.md'

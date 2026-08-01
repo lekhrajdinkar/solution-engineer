@@ -297,12 +297,12 @@ nav:
     - Sdlc: 2022-2025/SE_01_CSE/01_sdlc.md
   - SE 02 Distributed System:
     - SD 00 Algo:
-      - Algo 01 Bloomfilter: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_01_BloomFilter.md
+      - Algo 01 Bloomfilter: 2022-2025/SE_02_distributed-system/SD_00_algo/01_BloomFilter.md
       - Algo 02 Leaderelection: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_02_LeaderElection.md
       - Algo 02 Mapreduce: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_02_MapReduce.md
       - Algo 03 Erasor Coding: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_03_erasor-coding.md
       - Algo 04 Hyperloglog: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_04_hyperloglog.md
-      - Algo 05 Btree: 2022-2025/SE_02_distributed-system/SD_00_algo/03_algo_05_btree.md
+      - Algo 05 Btree: 2022-2025/SE_02_distributed-system/SD_00_algo/05_username_suggestion.md
     - SD 01 System:
       - Arch 01 Client Server Arch: 2022-2025/SE_02_distributed-system/SD_01_system/02_arch_01_client-server-arch.md
       - Arch 02 Stateless+stateful Arch: 2022-2025/SE_02_distributed-system/SD_01_system/02_arch_02_stateless+Stateful_arch.md
@@ -312,28 +312,28 @@ nav:
       - Cap Theorem: 2022-2025/SE_02_distributed-system/SD_01_system/01_02_cap-theorem.md
       - Concept 01 Hashing: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_01_hashing.md
       - Concept 02 Taskexeflows: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_02_TaskExeFlows.md
-      - Concept 03 LB: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_LB.md
+      - Concept 03 LB: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_Load-balancer.md
       - Concept 03 Ratelimiting: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_RateLimiting.md
       - Concept 03 Proxy: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_proxy.md
       - Concept 03 Socket: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_03_socket.md
       - Concept 04 Scaling: 2022-2025/SE_02_distributed-system/SD_01_system/05_concept_04_scaling.md
       - Distributed System: 2022-2025/SE_02_distributed-system/SD_01_system/01_01_Distributed-system.md
     - SD 02 Compute:
-      - Kernel: 2022-2025/SE_02_distributed-system/SD_02_compute/01_01_kernel.md
+      - Kernel: 2022-2025/SE_02_distributed-system/SD_02_compute/01_foundation_01_kernel.md
     - SD 02 Database+storage:
       - Concept 01 Memory: 2022-2025/SE_02_distributed-system/SD_02_database+storage/01_concept_01_memory.md
       - Concept 02 Storage: 2022-2025/SE_02_distributed-system/SD_02_database+storage/01_concept_02_storage.md
       - Concept 04 Caching: 2022-2025/SE_02_distributed-system/SD_02_database+storage/01_concept_04_caching.md
       - Concept 05 Database: 2022-2025/SE_02_distributed-system/SD_02_database+storage/01_concept_05_database.md
       - Concept 06 Database Nosql: 2022-2025/SE_02_distributed-system/SD_02_database+storage/01_concept_06_database_NoSQL.md
-      - Db Designpatterns: 2022-2025/SE_02_distributed-system/SD_02_database+storage/00_01_db-DesignPatterns.md
+      - Db Designpatterns: 2022-2025/SE_02_distributed-system/SD_02_database+storage/99_DesignPatterns_01_db.md
       - Distributed Caching: 2022-2025/SE_02_distributed-system/SD_02_database+storage/02_01_distributed-caching.md
       - Distributed Locking: 2022-2025/SE_02_distributed-system/SD_02_database+storage/02_02_distributed-Locking.md
       - Distributed Transaction: 2022-2025/SE_02_distributed-system/SD_02_database+storage/02_03_distributed-Transaction.md
       - Distributed Filesystem: 2022-2025/SE_02_distributed-system/SD_02_database+storage/02_04_distributed-FileSystem.md
       - Datastructure 01 Indexes: 2022-2025/SE_02_distributed-system/SD_02_database+storage/03_dataStructure_01_indexes.md
       - Datastructure 02 Btree+lsm: 2022-2025/SE_02_distributed-system/SD_02_database+storage/03_dataStructure_02_Btree+LSM.md
-      - Redis: 2022-2025/SE_02_distributed-system/SD_02_database+storage/09_01_redis.md
+      - Redis: 2022-2025/SE_02_distributed-system/SD_02_database+storage/04_cache_01_REDIS.md
     - SD 03 Security:
       - Iam: 2022-2025/SE_02_distributed-system/SD_03_security/01_02_iam.md
       - Iam Tool OKTA: 2022-2025/SE_02_distributed-system/SD_03_security/01_03_iam_tool_OKTA.md
@@ -358,9 +358,9 @@ nav:
       - Durability: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_02_durability.md
       - Distributed Tracing: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/03_distributed-Tracing.md
       - Deloyment 01 Strategies: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/09_deloyment_01_strategies.md
-      - Heartbeat: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_02_heartbeat.md
-      - Metric: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_01_metric.md
-      - Resiliency: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/01_01_resiliency.md
+      - Heartbeat: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/03_failure_02_heartbeat_1.md
+      - Metric: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_NFR_02_Performance-latency.md
+      - Resiliency: 2022-2025/SE_02_distributed-system/SD_04_deployment+monitor/02_NFR_07_resiliency__.md
     - SD 05 Micro Service:
       - Api 00 Api Protocols: 2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_00_network-protocols.md
       - Api 01 Designing: 2022-2025/SE_02_distributed-system/SD_05_micro-service/05_api_01_designing.md
