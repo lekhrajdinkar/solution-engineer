@@ -1,7 +1,7 @@
 # Bloom Filter
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2192332142
 - https://www.youtube.com/watch?v=GT0En1dGntY
-- [05_concept_01_hashing.md](../SD_01_foundation/05_concept_01_hashing.md)
+- [05_concept_01_hashing.md](../SD_01_foundation/05_concept_04_hashing.md)
 ---
 
 ## Overview

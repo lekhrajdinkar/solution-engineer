@@ -13,7 +13,7 @@
   - WebSockets & Streaming Fundamentals
   - Polling vs Streaming
 - Caching [01_concept_04_caching.md](SD_03_Core-building-blocks/01_concept_04_caching.md)
-- Hashing [05_concept_01_hashing.md](SD_01_foundation/05_concept_01_hashing.md)
+- Hashing [05_concept_01_hashing.md](SD_01_foundation/05_concept_04_hashing.md)
 - Latency + Mastering Latency Metrics [03_NFR_02_Latency.md](SD_02_Non-functional-req/02_NFR_02_Performance-latency.md) 
 - Throughput [05_concept_05_throughput.md](SD_02_Non-functional-req/02_NFR_02_performance-throughput.md)
 - Replication [01_concept_03_replication.md](SD_05_DataLayer%2Bstorage/01_concept_03_replication.md)

@@ -1,7 +1,7 @@
 # Core building block : more 
 ## core concept 
-- [idempotency.md](../SD_01_foundation/05_concept_03_idempotency.md)
-- [hashing.md](../SD_01_foundation/05_concept_01_hashing.md)
+- [idempotency.md](../SD_01_foundation/05_concept_02_idempotency.md)
+- [hashing.md](../SD_01_foundation/05_concept_04_hashing.md)
 
 ## Core data structure
 - [DataStructure - ALL](../SD_53_DataStructure)
