@@ -43,8 +43,8 @@
 - [02_pattern_01_BFF.md](../../SD_08_API-Design/02_pattern_01_BFF.md)
 
 ### 3. Data Consistency pattern
-- [distributed-Transaction](../../SD_05_DataLayer+storage/02_03_distributed-Transaction.md)
-- [distributed-Locking](../../SD_05_DataLayer+storage/02_02_distributed-Locking.md)
+- [distributed-Transaction](../../SD_06_Distributed-system/02_03_distributed-Transaction.md)
+- [distributed-Locking](../../SD_06_Distributed-system/02_02_distributed-Locking.md)
 
 ### 4. [Fault-tolerance](../SD_02_Non-functional-req/02_NFR_07_fault-tolerance__.md)
 

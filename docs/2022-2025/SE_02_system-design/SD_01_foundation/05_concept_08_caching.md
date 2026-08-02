@@ -77,7 +77,7 @@
 - serves the response from closest cache-node, thus improved performance
 - Also suitable for session management
 - **Redis** is beyond just being cache
-- check here: [distributed caching](../SD_05_DataLayer+storage/02_01_distributed-caching.md)
+- check here: [distributed caching](../SD_06_Distributed-system/02_01_distributed-caching.md)
 
 ---
 ## Caching Invalidation
