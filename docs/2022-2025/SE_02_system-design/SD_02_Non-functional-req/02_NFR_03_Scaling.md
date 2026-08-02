@@ -1,7 +1,7 @@
 # BIG-3 of 3 | Scaling
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2192532351
 - https://chatgpt.com/g/g-p-6a68d3926dd4819180c1c9bf855e98f3-system-design-bm-acedemy/c/6a691f19-3b10-83e8-91aa-1f39e15adefc
- 
+
 ## Overview
 - Scaling means increasing a system’s capacity to **handle growth** in below:
   - Users scale (10k > 10M > 1B)
@@ -148,6 +148,15 @@ flowchart TD
     classDef stage fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#000
     class GLB,R1,R2,MS1,MS2,K1,K2,CDN1,CDN2 stage;
 ```
+```mermaid
+flowchart LR
+    P[Publisher] --> T[ Event Broker - Topic \n ➕➕Scale by adding more partition]
+    T --> S1[Subscriber-1 / consumer-group-1]
+    T --> S2[Subscriber-2 / consumer-group-2]
+    T --> S[... / ...]
+    T --> SN[Subscriber-N / consumer-group-N \n ➕➕Scale by adding more]
+    style SN fill:cyan,color:black
+```
 ---
 ## Type of scaling
 ### Vertical Scaling
@@ -178,4 +187,11 @@ flowchart TD
   - Requires distributed data management (DB, cache, etc)
   - Session and consistency handling become harder
 
-    
+---
+## Scale Cube 🧊
+[01_core_06_scale-cube.md](../SD_01_foundation/05_concept_09_scale-cube.md)
+
+---
+## Scaling protects server from Death Spiral ⭐
+- [death-spiral](../SD_04_protecting-servers/02_protection_00_death-spiral.md)
+- [protection server:: auto-scaling.](../SD_04_protecting-servers/02_protection_01_auto-scaling.md)

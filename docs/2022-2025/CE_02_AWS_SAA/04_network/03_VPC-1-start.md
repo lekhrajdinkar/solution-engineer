@@ -325,3 +325,88 @@ to services required by workloads in each of the VPCs?
 ## 2. Transit VPC
 -  Transit VPC uses customer-managed EC2 instances in a dedicated transit VP with an Internet gateway
 - ![img.png](../99_img/vpc-1/Transit-VPC.png)
+
+---
+## Diagrams
+1. Traffic initiated from the home machine
+```mermaid
+sequenceDiagram
+    autonumber
+
+    participant H as Home Machine
+    participant I as Internet
+
+    box rgb(225, 190, 255) Network ACL — Stateless
+        participant NACL as Network ACL
+    end
+
+    box rgb(255, 200, 140) Security Group — Stateful
+        participant SG as Security Group
+    end
+
+    participant AWS as AWS Machine
+
+    H->>I: Send request
+    I->>NACL: Request enters subnet
+
+    NACL->>NACL: Check inbound rule
+    NACL->>SG: Allow request
+
+    SG->>SG: Check inbound rule
+    SG->>AWS: Deliver request
+
+    AWS-->>SG: Send response
+
+    Note over SG: Stateful<br/>Return traffic automatically allowed
+
+    SG-->>NACL: Forward response
+
+    NACL->>NACL: Check outbound rule
+
+    Note over NACL: Stateless<br/>Response requires a separate rule
+
+    NACL-->>I: Allow response
+    I-->>H: Deliver response
+```
+
+2. Traffic initiated from the AWS machine
+```mermaid
+sequenceDiagram
+    autonumber
+
+    participant AWS as AWS Machine
+
+    box rgb(255, 200, 140) Security Group — Stateful
+        participant SG as Security Group
+    end
+
+    box rgb(225, 190, 255) Network ACL — Stateless
+        participant NACL as Network ACL
+    end
+
+    participant I as Internet
+    participant H as Home Machine
+
+    AWS->>SG: Send request
+
+    SG->>SG: Check outbound rule
+    SG->>NACL: Allow request
+
+    NACL->>NACL: Check outbound rule
+    NACL->>I: Request leaves subnet
+
+    I->>H: Deliver request
+    H-->>I: Send response
+
+    I-->>NACL: Response enters subnet
+
+    NACL->>NACL: Check inbound rule
+
+    Note over NACL: Stateless<br/>Response requires a separate rule
+
+    NACL-->>SG: Allow response
+
+    Note over SG: Stateful<br/>Return traffic automatically allowed
+
+    SG-->>AWS: Deliver response
+```

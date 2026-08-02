@@ -1,4 +1,4 @@
-#  Design - Distributed System
+# Design - Distributed System
 > key problems and solutions around : **Network partition** 🌐
 
 ## Artifacts ℹ️
@@ -10,7 +10,7 @@
 
 ---
 ### ByteByteMonk
-https://academy.bytemonk.io/library | `ldus J12bm | USD 50`
+https://academy.bytemonk.io/library | `ldus J12bm | USD 50` |  `78 videos`
 
 YouTube playlist | as of `7/26/2026`
 - https://www.youtube.com/watch?v=yioOQ4ItYuo&list=PLJq-63ZRPdBt423WbyAD1YZO0Ljo1pzvY | SD basic | `90/90`
