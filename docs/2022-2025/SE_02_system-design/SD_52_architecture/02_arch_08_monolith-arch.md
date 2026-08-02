@@ -31,7 +31,7 @@ flowchart LR
   - easier to operate than microservices
 
 ---
-## Limitations as the application grows
+## ✔️Limitations as the application grows
 ### Scaling
 - Cannot easily scale one feature independently.
 - The entire application must be scaled.

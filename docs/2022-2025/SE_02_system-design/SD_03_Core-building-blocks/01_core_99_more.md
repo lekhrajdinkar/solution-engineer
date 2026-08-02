@@ -7,5 +7,6 @@
 - [DataStructure - ALL](../SD_53_DataStructure)
 
 ## Core Architecture
-- [microservice-arch.md](../SD_08_API-Design/00_01_microservice-system.md)
+- [monolith-arch.md](../SD_52_architecture/02_arch_08_monolith-arch.md)
+- [microservice-arch.md](../SD_52_architecture/02_arch_09_microservice-arch.md)
 - [event-driven-arch.md](../SD_52_architecture/02_arch_04_event-driven-arch.md)

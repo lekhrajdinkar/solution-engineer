@@ -62,11 +62,11 @@
 
 ```mermaid
 flowchart LR
-    P[Publisher] --> T[ Event Broker \nTopic-1]
+    P[Publisher] --> T[ Event Broker - Topic \n ➕➕Scale by adding more partition]
     T --> S1[Subscriber-1 / consumer-group-1]
     T --> S2[Subscriber-2 / consumer-group-2]
     T --> S[... / ...]
-    T --> SN[Subscriber-N / consumer-group-N \n Scale by adding more ++]
+    T --> SN[Subscriber-N / consumer-group-N \n ➕➕Scale by adding more]
     style SN fill:cyan,color:black
 ```
 **separation of concern** : create multiple topic
