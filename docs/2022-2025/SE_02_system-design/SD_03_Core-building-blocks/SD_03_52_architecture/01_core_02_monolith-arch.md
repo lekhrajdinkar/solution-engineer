@@ -1,5 +1,5 @@
 # Monolith Architecture
-- [microservice-arch](02_arch_09_microservice-arch.md)
+- [microservice-arch](01_core_03_microservice-arch.md)
 ---
 ## ✔️Overview
 - The entire application runs as a **single deployable unit** or process.

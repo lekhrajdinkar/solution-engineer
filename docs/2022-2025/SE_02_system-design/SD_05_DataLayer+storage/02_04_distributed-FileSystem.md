@@ -50,7 +50,7 @@
 - But, Increases storage cost due to multiple full copies
 
 💠**Erasure Coding** 
-- [03_algo_03_erasor.md](../SD_51_algo/03_algo_03_erasor-coding.md)
+- [03_algo_03_erasor.md](../SD_07_Advance_concepts/03_algo_03_erasor-coding.md)
 
 ---
 ## ✔️ Distributed FS - Optimization

@@ -4,6 +4,7 @@
 - https://www.youtube.com/watch?v=hrvx8Nv9eQA
 - [evolution-of-system.md](../SD_01_foundation/01_basic_01_evolution.md)
 - [Message-broker / Event-broker](../../PE_03_message-broker)
+- [⭐event-loop](../SD_01_foundation/05_concept_05_event-loop.md)
 
 ---
 ## ✔️Overview

@@ -14,7 +14,7 @@
       - since data **cannot be easily joined** across different databases, 
       - forcing inter-service communication
 - solution:
-  - use [event-driven-arch.md](../SD_52_architecture/02_arch_04_event-driven-arch.md)
+  - use [event-driven-arch.md](../SD_52_architecture/01_core_04_event-driven-arch.md)
   - data will propagate from service to service via event data. 👈🏻
   
 ## Overview

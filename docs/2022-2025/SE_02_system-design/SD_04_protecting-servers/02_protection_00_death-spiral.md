@@ -51,7 +51,7 @@ More timeouts → more retries → complete failure
 ![img.png](../../../99_img/2025/se_02_sd/bm-sd/img_7777.png)
 
 ### 2. Load shedding `survival`
-- [01_core_04_Load-Shedding.md](01_core_04_Load-Shedding.md)
+- [01_core_04_Load-Shedding.md](02_protection_02_Load-Shedding.md)
 
 ### 3. Rate limiting `fairness`
-- [01_core_04_RateLimiting.md](01_core_04_RateLimiting.md)
+- [01_core_04_RateLimiting.md](02_protection_03_RateLimiting.md)

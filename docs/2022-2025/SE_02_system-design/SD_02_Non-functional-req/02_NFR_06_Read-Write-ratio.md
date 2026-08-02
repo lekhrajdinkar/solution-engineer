@@ -60,7 +60,7 @@ flowchart LR
 
 ## CQRS
 - Best fit: complex systems with very different read/write workloads.
-- [CQRS.md](../SD_52_architecture/02_arch_07_CQRS.md)
+- [CQRS.md](../SD_05_DataLayer+storage/05_pattern_01_CQRS.md)
 
 ## Summary
 | Decision Area        | Read-Heavy System                    | Write-Heavy System                            |

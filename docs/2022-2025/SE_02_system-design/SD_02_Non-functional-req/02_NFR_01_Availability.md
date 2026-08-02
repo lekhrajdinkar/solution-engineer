@@ -209,6 +209,6 @@ flowchart TB
 - **Over-engineer**: 
   - if `99.0` is sufficed needs, 
   - then don't waste infrastructure cost on `99.99`, etc
-- **SPF** [01_concept_02_SFP.md](../SD_01_foundation/03_failure_01_SFP.md) --> eg: no point of running expensive infra, exposed by single LB.
+- **SPF** [01_concept_02_SFP.md](../SD_01_foundation/03_concept_01_SFP.md) --> eg: no point of running expensive infra, exposed by single LB.
 - 
 

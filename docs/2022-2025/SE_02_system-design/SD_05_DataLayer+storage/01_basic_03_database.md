@@ -7,7 +7,7 @@
 - https://github.com/lekhrajdinkar/data-engineer/tree/main/docs/2012-2021 👈🏻👈🏻
 
 **Non_relational**
-- [check here](01_concept_06_database_NoSQL.md)
+- [check here](01_basic_04_database_NoSQL.md)
 
 ---
 ## ✔️Data Consistency

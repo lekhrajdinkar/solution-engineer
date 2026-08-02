@@ -1,4 +1,4 @@
-# Load Shedding
+# Protection server  :: Load Shedding
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2159577489/posts/2195511826
 
 ---

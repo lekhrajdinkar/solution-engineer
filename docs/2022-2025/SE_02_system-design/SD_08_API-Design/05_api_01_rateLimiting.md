@@ -1,3 +1,3 @@
 # API
 ## rate limiting
-- [01_core_04_RateLimiting.md](../SD_03_Core-building-blocks/01_core_04_RateLimiting.md)
+- [01_core_04_RateLimiting.md](../SD_04_protecting-servers/02_protection_03_RateLimiting.md)

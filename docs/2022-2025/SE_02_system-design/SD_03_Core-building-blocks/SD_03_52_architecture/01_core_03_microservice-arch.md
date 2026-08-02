@@ -1,9 +1,9 @@
 # Microservice Architecture
 ## ✔️References
-- [monolith-arch](02_arch_08_monolith-arch.md)
-- [API-Design](../SD_08_API-Design)
-- [02_arch_04_event-driven-arch.md](02_arch_04_event-driven-arch.md)
-- [02_arch_05_service-mesh-arch.md](02_arch_05_service-mesh-arch.md)
+- [monolith-arch](01_core_02_monolith-arch.md)
+- [API-Design](../../SD_08_API-Design)
+- [02_arch_04_event-driven-arch.md](01_core_04_event-driven-arch.md)
+- [02_arch_05_service-mesh-arch.md](01_core_04_service-mesh-arch.md)
 - gpt:
   - https://chatgpt.com/c/2f54de12-b416-4a76-80a0-ebd286b0c467 | ms arch
   - https://chat.deepseek.com/a/chat/s/6e7456d4-cc1b-42be-ae19-c3ede730936f | ms comm
@@ -37,14 +37,14 @@
 - [service-discovery](01_concept_02_service-discovery.md)
 
 ### 2. Communication architecture
-- [event-driven-arch 👈🏻](../SD_52_architecture/02_arch_04_event-driven-arch.md)
-- [service-mesh-arch 👈🏻](../SD_52_architecture/02_arch_05_service-mesh-arch.md) | Side car pattern
-- [02_pattern_06_API-gateway.md](../SD_08_API-Design/02_pattern_06_API-gateway.md)
-- [02_pattern_01_BFF.md](../SD_08_API-Design/02_pattern_01_BFF.md)
+- [event-driven-arch 👈🏻](01_core_04_event-driven-arch.md)
+- [service-mesh-arch 👈🏻](01_core_04_service-mesh-arch.md) | Side car pattern
+- [02_pattern_06_API-gateway.md](../../SD_08_API-Design/02_pattern_06_API-gateway.md)
+- [02_pattern_01_BFF.md](../../SD_08_API-Design/02_pattern_01_BFF.md)
 
 ### 3. Data Consistency pattern
-- [distributed-Transaction](../SD_05_DataLayer+storage/02_03_distributed-Transaction.md)
-- [distributed-Locking](../SD_05_DataLayer+storage/02_02_distributed-Locking.md)
+- [distributed-Transaction](../../SD_05_DataLayer+storage/02_03_distributed-Transaction.md)
+- [distributed-Locking](../../SD_05_DataLayer+storage/02_02_distributed-Locking.md)
 
 ### 4. [Fault-tolerance](../SD_02_Non-functional-req/02_NFR_07_fault-tolerance__.md)
 

@@ -1,4 +1,4 @@
-# Throttling >> Rate limiting
+# Protection server :: (Throttling >> Rate limiting)
 > Systems often implement both, starting with throttling and moving to rate limiting if capacity is still threatened
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2190592399
 - https://www.youtube.com/watch?v=_qNHROq0pGk bm

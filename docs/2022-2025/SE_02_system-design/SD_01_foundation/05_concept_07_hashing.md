@@ -1,5 +1,5 @@
 # Hashing
-- more: [05_concept_01_consistent-hashing.md](05_concept_05_consistent-hashing.md)
+- more: [05_concept_01_consistent-hashing.md](../SD_05_DataLayer+storage/03_concept_04_consistent-hashing.md)
 
 ---
 ## Overview
