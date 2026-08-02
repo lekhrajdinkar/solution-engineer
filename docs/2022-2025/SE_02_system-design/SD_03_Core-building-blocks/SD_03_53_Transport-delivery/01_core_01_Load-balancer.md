@@ -18,12 +18,12 @@
 - lb for multi-DB reader instance
 - lb for DNS server
 
-![img.png](../../../99_img/2025/se_02_sd/01/02/img.png)
-![img_3.png](../../../99_img/2026/02/01/01/img_3.png)
+![img.png](../../../../99_img/2025/se_02_sd/01/02/img.png)
+![img_3.png](../../../../99_img/2026/02/01/01/img_3.png)
 
 ---
 ## B. Server Selection strategy
-![img_1.png](../../../99_img/2025/se_02_sd/01/02/img_1.png)
+![img_1.png](../../../../99_img/2025/se_02_sd/01/02/img_1.png)
 ### B.1 Static
 #### Random
 - Works well when All servers are identical in capacity and performance,
@@ -50,13 +50,13 @@
 - hash(IP2) --> server-9
 - ...
 
-![img_2.png](../../../99_img/2025/se_02_sd/01/02/img_2.png)
+![img_2.png](../../../../99_img/2025/se_02_sd/01/02/img_2.png)
 
 **URL Hashing**
 - Similar to IP Hashing, but instead of the client's IP address, the URL path is hashed to decide the target server
 - Works well for: Domain-specific workloads
 
-![img_3.png](../../../99_img/2025/se_02_sd/01/02/img_3.png)
+![img_3.png](../../../../99_img/2025/se_02_sd/01/02/img_3.png)
 
 ---
 ### B.2 Dynamic

@@ -3,6 +3,7 @@
 # ByteMonk - system design course
 - https://academy.bytemonk.io/products/system-design-mastery-beta
   - `78 videos` as of 7/28/2026
+  - `ldus@g | J12`
 
 ---
 ## Module 1: Foundations of System Design `16`
@@ -18,7 +19,7 @@
 - [throughput.md](SD_02_Non-functional-req/02_NFR_02_performance-throughput.md)
 - [replication.md](SD_05_DataLayer+storage/03_concept_01_replication.md)
 - [SFP - Single Point of Failure](SD_01_foundation/03_concept_01_SFP.md)
-- [PRE-Signed-URL.md](SD_03_Core-building-blocks/01_core_05_pre-signed-urls.md)
+- [PRE-Signed-URL.md](SD_03_Core-building-blocks/SD_03_53_Transport-delivery/01_core_05_pre-signed-urls.md)
 - [heartbeat_2.md](SD_01_foundation/03_concept_02_heartbeat_2.md) | [heartbeat_1.md](SD_01_foundation/03_concept_02_heartbeat_1.md)
 - [DNS and R53.md](../CE_02_AWS_SAA/04_network/02_Rout53.md)
 
@@ -40,7 +41,7 @@
 
 ---
 ## Module 6: Design scalable system
-[SD_06_Design_saclable-system](SD_06_Design_saclable-system)
+[SD_06_Design_saclable-system](SD_06_Design_scalable-system)
 
 ---
 ## Module 7: Advance concept
