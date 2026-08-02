@@ -1,16 +1,47 @@
-#  Replication
-## Overview:
-- Check AWS RDS, same concept. [AWS database](../../CE_02_AWS_SAA/03_database)
-- helps with availability.
-- primary database <-- sync / Async --> Secondary Database (could be, standby, read replica)
-  - design 1 sync
-  - design 2 Async
-  - both are good and have tradeoff.
+# AI Note: Database Replication
+- https://www.youtube.com/watch?v=CSCw16AfWHM
+- [AWS RDS concepts](../../CE_02_AWS_SAA/03_database)
+- [CAP-theorem](../SD_01_foundation/01_basic_03_CAP-theorem.md) : while replication partition occurred, then choose between AP, CP
 
+## Overview
+Design 1: Synchronous Replication
+```mermaid
+flowchart LR
+    C[Client] --> P[(Primary Database)]
+    P -->|1. Write data| S[(Secondary / Standby)]
+    S -->|2. Replication confirmed| P
+    P -->|3. Success response| C
+
+    style P fill:#f4b183,stroke:#333
+    style S fill:#9dc3e6,stroke:#333
+```
+Design 2: Asynchronous Replication
+```mermaid
+flowchart LR
+    C[Client] --> P[(Primary Database)]
+    P -->|1. Success response| C
+    P -.->|2. Replicate later| S[(Read Replica / Standby)]
+
+    style P fill:#f4b183,stroke:#333
+    style S fill:#9dc3e6,stroke:#333
+```
+TradeOffs
+```mermaid
+flowchart LR
+    R[Database Replication] --> SY[Sync Replication]
+    R --> AS[Async Replication]
+
+    SY --> SC[Strong Consistency]
+    SY --> HL[Higher Latency]
+
+    AS --> LL[Lower Latency]
+    AS --> EL[Eventual Consistency]
+
+    style SY fill:#a9d18e,stroke:#333
+    style AS fill:#9dc3e6,stroke:#333
+```
+  
 ---
-
-# AI NOte: Database Replication, High Availability, and AWS RDS Study Notes
-
 ## 1. Core Concept
 
 A database system can maintain more than one copy of its data.

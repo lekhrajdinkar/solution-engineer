@@ -8,4 +8,4 @@
 - [02_arch_07_CQRS.md](05_pattern_01_CQRS.md)
 - [03_concept_02_partitioning.md](03_concept_02_partitioning.md)
 - [03_concept_03_sharding.md](03_concept_03_sharding.md)
-- [03_concept_04_consistent-hashing.md](03_concept_04_consistent-hashing.md)
+- [03_concept_04_consistent-hashing.md](03_concept_02_consistent-hashing.md)

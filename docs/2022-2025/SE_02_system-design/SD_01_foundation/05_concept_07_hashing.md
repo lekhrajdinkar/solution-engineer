@@ -1,5 +1,6 @@
-# Hashing
-- more: [05_concept_01_consistent-hashing.md](../SD_05_DataLayer+storage/03_concept_04_consistent-hashing.md)
+# Hashing concept
+- https://www.youtube.com/watch?v=pU1uifHXhE4
+- [consistent-hashing](../SD_05_DataLayer+storage/03_concept_02_consistent-hashing.md) : hashing with number line
 
 ---
 ## Overview
