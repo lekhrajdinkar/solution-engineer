@@ -30,8 +30,5 @@ X-Frame-Options: DENY
 Referrer-Policy: strict-origin-when-cross-origin
 Permissions-Policy: geolocation=(), camera=(), microphone=()
 ```
----
-## More
-- [RateLimiting.md](../SD_03_Core-building-blocks/05_concept_03_RateLimiting.md)
 
 

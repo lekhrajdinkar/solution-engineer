@@ -68,4 +68,4 @@ flowchart LR
 
 ### Bloom filters
 - false positive ⭐
-- [03_algo_01_BloomFilter.md](../../SE_02_system-design/SD_53_DataStructure/01_BloomFilter.md)
+- [03_algo_01_BloomFilter.md](../../SE_02_system-design/SD_53_DataStructure/01_core_01_BloomFilter.md)

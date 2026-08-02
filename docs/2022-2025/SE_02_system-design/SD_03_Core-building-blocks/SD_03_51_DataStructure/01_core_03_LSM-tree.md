@@ -31,7 +31,7 @@ Writes are fast because:
 ---
 ## Read behavior (Slow)
 - MemTable → Level 0 SSTables → Level 1 → Level 2
-- Hence LSM systems normally use with [BloomFilter](01_BloomFilter.md)
+- Hence LSM systems normally use with [BloomFilter](01_core_01_BloomFilter.md)
 
 ---
 ## Common systems

@@ -175,7 +175,10 @@ def build_tree_structure(path, base_path):
     return items
 
 def get_docs_structure():
-    docs_path = Path("../docs")
+    # Use absolute path based on script location
+    # Navigate: streamlit-docs/app.py -> streamlit-docs/ -> solution-engineer/ -> docs/
+    script_dir = Path(__file__).parent
+    docs_path = (script_dir.parent / "docs").resolve()
     all_files = []
     
     if not docs_path.exists():

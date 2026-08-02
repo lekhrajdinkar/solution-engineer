@@ -26,7 +26,7 @@ flowchart LR
 
 ### Timeliness
 - [02_NFR_02_Performance.md (latency,etc)](02_NFR_02_Performance-latency.md)
-- [02_NFR_06_ReadWrite-ratio.md](02_NFR_06_ReadWrite-ratio.md)
+- [02_NFR_06_ReadWrite-ratio.md](02_NFR_06_Read-Write-ratio.md)
 
 ### Failure recovery
 - [02_NFR_07_fault-tolerance.md](02_NFR_07_fault-tolerance__.md)

@@ -148,6 +148,15 @@ flowchart TD
     classDef stage fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#000
     class GLB,R1,R2,MS1,MS2,K1,K2,CDN1,CDN2 stage;
 ```
+```mermaid
+flowchart LR
+    P[Publisher] --> T[ Event Broker - Topic \n ➕➕Scale by adding more partition]
+    T --> S1[Subscriber-1 / consumer-group-1]
+    T --> S2[Subscriber-2 / consumer-group-2]
+    T --> S[... / ...]
+    T --> SN[Subscriber-N / consumer-group-N \n ➕➕Scale by adding more]
+    style SN fill:cyan,color:black
+```
 ---
 ## Type of scaling
 ### Vertical Scaling
@@ -181,3 +190,8 @@ flowchart TD
 ---
 ## Scale Cube 🧊
 [01_core_06_scale-cube.md](../SD_03_Core-building-blocks/01_core_06_scale-cube.md)
+
+---
+## Scaling protects server from Death Spiral ⭐
+- [death-spiral](../SD_04_protecting-servers/02_protection_00_death-spiral.md)
+- [protection server:: auto-scaling.](../SD_04_protecting-servers/02_protection_01_auto-scaling.md)
