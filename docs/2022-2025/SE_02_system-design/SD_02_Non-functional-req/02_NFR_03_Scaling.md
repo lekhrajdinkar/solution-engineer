@@ -193,7 +193,7 @@ flowchart LR
 
 ---
 ## Scaling protects server from Death Spiral ⭐
-- [death-spiral](../SD_08_API-Design/01_concept_01_death-spiral.md)
+- [death-spiral](../SD_03_Core-building-blocks/02_protection_01_death-spiral.md)
 
 - Dynamically add capacity to match demand
 ```mermaid

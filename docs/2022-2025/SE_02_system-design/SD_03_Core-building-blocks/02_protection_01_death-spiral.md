@@ -43,15 +43,15 @@ More timeouts → more retries → complete failure
 ---
 ## Protections from "Death-spiral"
 ### 1. Auto-scaling 
-- [check here for more detail](../SD_02_Non-functional-req/02_NFR_03_Scaling.md#protect-server-from---death-spiral-)
+- [check here for more detail](../SD_02_Non-functional-req/02_NFR_03_Scaling.md#scaling-protects-server-from-death-spiral-)
 - Dynamically add capacity to match demand. thus prevent system from overload and thus from  death-spiral
 ![img.png](../../../99_img/2025/se_02_sd/bm-sd/img_7777.png)
 
 ### 2. Load shedding
-[01_core_04_Load-Shedding.md](../SD_03_Core-building-blocks/01_core_04_Load-Shedding.md)
+[01_core_04_Load-Shedding.md](01_core_04_Load-Shedding.md)
 
 ### 3. Rate limiting
-[01_core_04_RateLimiting.md](../SD_03_Core-building-blocks/01_core_04_RateLimiting.md)
+[01_core_04_RateLimiting.md](01_core_04_RateLimiting.md)
 
 ### N. More
 - Circuit breaker + Timeouts
