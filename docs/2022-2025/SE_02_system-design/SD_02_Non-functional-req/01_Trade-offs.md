@@ -1,4 +1,4 @@
-# Module 3: Tradeoff
+# TradeOff
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2198441287
 ## Overview
 - A real engineer does not try to memorize every database, cache, queue, or architecture pattern. 
