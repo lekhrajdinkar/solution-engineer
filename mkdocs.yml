@@ -313,6 +313,7 @@ nav:
       - Concept 06 Idempotency: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_06_idempotency.md
       - Concept 07 Hashing: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_07_hashing.md
       - Concept 08 Caching: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_08_caching.md
+      - Concept 09 Scale Cube: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_09_scale-cube.md
       - Concept 99 More List: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_99_more-list.md
       - Os 01 Kernel: 2022-2025/SE_02_system-design/SD_01_foundation/02_os_01_kernel.md
     - SD 02 Non Functional Req:
@@ -329,17 +330,11 @@ nav:
       - NFR 08 Maintenance+cost: 2022-2025/SE_02_system-design/SD_02_Non-functional-req/02_NFR_08-Maintenance+cost.md
       - Trade Offs: 2022-2025/SE_02_system-design/SD_02_Non-functional-req/01_Trade-offs.md
     - SD 03 Core Building Blocks:
-      - Core 01 Load Balancer: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/01_core_01_Load-balancer.md
-      - Core 02 CDN: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/01_core_02_CDN.md
-      - Core 04 Proxies: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/01_core_04_proxies.md
-      - Core 05 Pre Signed Urls: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/01_core_05_pre-signed-urls.md
-      - Core 06 Scale Cube: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/01_core_06_scale-cube.md
       - SD 03 51 Datastructure:
         - Core 01 Bloomfilter: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_01_BloomFilter.md
         - Core 02 Btree: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_02_btree.md
         - Core 03 LSM Tree: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_03_LSM-tree.md
         - Core 04 Btree+lsm 2: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_04_Btree+LSM_2.md
-        - Core 05 Indexes: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_05_indexes.md
       - SD 03 52 Architecture:
         - Core 01 Client Server Arch: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_52_architecture/01_core_01_client-server-arch.md
         - Core 02 Monolith Arch: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_52_architecture/01_core_02_monolith-arch.md
@@ -347,6 +342,11 @@ nav:
         - Core 04 Event Driven Arch: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_52_architecture/01_core_04_event-driven-arch.md
         - Core 04 Service Mesh Arch: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_52_architecture/01_core_04_service-mesh-arch.md
         - Core 05 Stateless Arch: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_52_architecture/01_core_05_stateless_arch.md
+      - SD 03 53 Transport Delivery:
+        - Core 01 Load Balancer: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_53_Transport-delivery/01_core_01_Load-balancer.md
+        - Core 02 CDN: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_53_Transport-delivery/01_core_02_CDN.md
+        - Core 04 Proxies: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_53_Transport-delivery/01_core_04_proxies.md
+        - Core 05 Pre Signed Urls: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_53_Transport-delivery/01_core_05_pre-signed-urls.md
     - SD 04 Protecting Servers:
       - Protection 00 Death Spiral: 2022-2025/SE_02_system-design/SD_04_protecting-servers/02_protection_00_death-spiral.md
       - Protection 01 Auto Scaling: 2022-2025/SE_02_system-design/SD_04_protecting-servers/02_protection_01_auto-scaling.md
@@ -356,21 +356,22 @@ nav:
     - SD 05 Datalayer+storage:
       - Basic 01 Memory: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/01_basic_01_memory.md
       - Basic 02 Storage: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/01_basic_02_storage.md
-      - Basic 03 Database: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/01_basic_03_database.md
       - Basic 04 Database Nosql: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/01_basic_04_database_NoSQL.md
-      - Concept 01 Replication: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_01_replication.md
-      - Concept 02 Partitioning: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_02_partitioning.md
+      - Concept 00 Indexes: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_00_indexes.md
+      - Concept 01 Database Replication: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_01_database-replication.md
+      - Concept 02 Consistent Hashing: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_02_consistent-hashing.md
+      - Concept 03 Partitioning: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_03_partitioning.md
       - Concept 03 Sharding: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_03_sharding.md
-      - Concept 04 Consistent Hashing: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_04_consistent-hashing.md
       - Concept 05 Mapreduce: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_05_MapReduce.md
-      - Distibuted System: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/02_00_distibuted-system.md
-      - Distributed Caching: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/02_01_distributed-caching.md
-      - Distributed Locking: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/02_02_distributed-Locking.md
-      - Distributed Transaction: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/02_03_distributed-Transaction.md
-      - Distributed Filesystem: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/02_04_distributed-FileSystem.md
       - Pattern 01 CQRS: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/05_pattern_01_CQRS.md
       - Pattern 02 SAGA: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/05_pattern_02_SAGA.md
       - Redis Chapter 1: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/04_redis-chapter-1.md
+    - SD 06 Distributed System:
+      - Distibuted System: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_00_distibuted-system.md
+      - Distributed Caching: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_01_distributed-caching.md
+      - Distributed Locking: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_02_distributed-Locking.md
+      - Distributed Transaction: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_03_distributed-Transaction.md
+      - Distributed Filesystem: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_04_distributed-FileSystem.md
     - SD 07 Advance Concepts:
       - Algo 02 Leaderelection: 2022-2025/SE_02_system-design/SD_07_Advance_concepts/03_algo_02_LeaderElection.md
       - Algo 03 Erasor Coding: 2022-2025/SE_02_system-design/SD_07_Advance_concepts/03_algo_03_erasor-coding.md
@@ -414,6 +415,7 @@ nav:
     - SD 25 Observability:
       - Distributed Tracing: 2022-2025/SE_02_system-design/SD_25_observability/03_distributed-Tracing.md
       - Deloyment 01 Strategies: 2022-2025/SE_02_system-design/SD_25_observability/09_deloyment_01_strategies.md
+    - System Design Navigation Recommended: 2022-2025/SE_02_system-design/system-design-navigation-recommended.md
   - SE 99 Case Studies:
     - Bytebytego:
       - Notification System: 2022-2025/SE_99_case-studies/02_ByteByteGo/02_notification-system.md
