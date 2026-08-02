@@ -41,23 +41,17 @@ More timeouts → more retries → complete failure
 | Slow database/downstream service | Application threads remain blocked                         |
 
 ---
-## Protections from "Death-spiral"
-### 1. Auto-scaling 
+## Protections from Death-spiral
+> - Protecting Servers from **Clients itself** 
+> - A **noisy neighbor problem** occurs when one user, service, pod, or tenant consumes too many shared resources and slows down others.
+
+### 1. Auto-scaling `adaptation`
 - [check here for more detail](../SD_02_Non-functional-req/02_NFR_03_Scaling.md#scaling-protects-server-from-death-spiral-)
 - Dynamically add capacity to match demand. thus prevent system from overload and thus from  death-spiral
 ![img.png](../../../99_img/2025/se_02_sd/bm-sd/img_7777.png)
 
-### 2. Load shedding
-[01_core_04_Load-Shedding.md](01_core_04_Load-Shedding.md)
+### 2. Load shedding `survival`
+- [01_core_04_Load-Shedding.md](01_core_04_Load-Shedding.md)
 
-### 3. Rate limiting
-[01_core_04_RateLimiting.md](01_core_04_RateLimiting.md)
-
-### N. More
-- Circuit breaker + Timeouts
-- Bulkheads + Random jitter
-- **Retries best practice**:
-  - Exponential backoff Retry
-  - set Maximum retry count
-  - Retry only idempotent operations
-  - Return Retry-After with 429 or 503
+### 3. Rate limiting `fairness`
+- [01_core_04_RateLimiting.md](01_core_04_RateLimiting.md)

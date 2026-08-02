@@ -36,12 +36,12 @@
 | Geographic-based | Country, region, IP range   | Control regional traffic |
 | Server-based     | Service, instance, endpoint | Protect system capacity  |
 
-### user-based
+### 1. user-based
 - Limit requests per user, API key, client ID, or JWT subject.
 - Example: `100 requests/minute per use`
 - Use for: Preventing one user from abusing the API
 
-### geographic-based
+### 2. geographic-based
 - Limit traffic based on country, region, or CDN edge location.
 - Example: `10,000 requests/minute from one region`
 - Use for:
@@ -49,7 +49,7 @@
   - Blocking or restricting unsupported locations
 
 
-### server-based
+### 3. server-based
 - Limit requests reaching a server, service, or endpoint
 - Example: `5,000 requests/second per API server`
 - Use for:
@@ -95,5 +95,107 @@
 
 ![img_5.png](../../../99_img/2026/02/07/04/img_5.png)
 
+
 ---
-### 5 Sliding window counter
+## Noisy Neighbor Problem ⭐
+### Overview
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2159577489/posts/2195511825
+- One workload should not be allowed to degrade everyone sharing the same infrastructure.
+- A noisy neighbor occurs when one user, service, pod, or tenant consumes too many shared resources and slows down others.
+
+```
+One tenant spikes CPU / memory / DB connections
+→ shared capacity gets exhausted
+→ other tenants see high latency or failures
+```
+
+### Protection
+- **Per-tenant rate limits**
+- Resource quotas and Kubernetes limits
+- Separate queues or worker pools
+- Bulkheads
+- Tenant isolation or dedicated resources for critical workloads
+
+### local reinforcement of global quota
+- Above **protection** does not handle non-uniform distribution by Load balance.
+
+```mermaid
+flowchart LR
+    T[Each server enforces its quota locally \n and does not know that another server has unused quota.]
+    A[Client A<br/>Global quota: 10 req/s] --> LB[Load Balancer]
+    LB -->|8 requests| S1[Server 1<br/>Local quota: 5 req/s]
+    LB -->|2 requests| S2[Server 2<br/>Local quota: 5 req/s]
+    S1 --> P1[Process 5]
+    S1 --> R1[Reject 3]
+    S2 --> P2[Process 2]
+    S2 --> U2[Unused capacity: 3]
+
+    style S1 fill:#ffedd5,stroke:#ea580c
+    style S2 fill:#dcfce7,stroke:#16a34a
+    style R1 fill:#fee2e2,stroke:#dc2626
+    style U2 fill:#fef3c7,stroke:#d97706
+    style T fill:transparent, stroke:none;
+```
+**Common solutions**
+- Use **sticky routing** so a client consistently reaches the same server.
+- Use a **centralized cache quota** store such as Redis.
+  - or, distributed cache with consistent hashing
+- Dynamically redistribute quota between servers.
+- **Gossip protocol**, to share each other quota.
+
+---
+## what to do after 429
+- **Retry** 
+  - with exponential backoff + jitter 
+  - stop after maximum retries
+  - Retry only idempotent operations
+- **Fallback Gracefully**
+  - Cached data: return slightly stale data.
+  - Queue for later: accept the request and process asynchronously.
+  - Degrade: disable non-critical features or return a simpler response.
+- **Batch Requests**: 
+  - Combine multiple small requests into one request.
+```mermaid
+flowchart TD
+    A[Client receives<br/>429 Too Many Requests] --> B{Retry-After header<br/>available?}
+
+    B -->|Yes| C[Wait for Retry-After duration]
+    B -->|No| D[Use exponential backoff]
+
+    D --> E[Add random jitter]
+    C --> F{Retry allowed?}
+    E --> F
+
+    F -->|No| G[Return error gracefully]
+    F -->|Yes| H{Maximum retries<br/>reached?}
+
+    H -->|Yes| G
+    H -->|No| I[Retry request]
+
+    I --> J{429 received again?}
+    J -->|Yes| B
+    J -->|No| K[Request succeeds]
+
+    A --> L[Reduce request rate<br/>or concurrency]
+    A --> M[Batch multiple requests]
+    A --> N[Use cached data]
+    A --> O[Queue work for later]
+    A --> P[Degrade non-critical features]
+
+    L --> I
+    M --> I
+    N --> Q[Return fallback response]
+    O --> R[Process asynchronously]
+    P --> Q
+
+    style A fill:#fee2e2,stroke:#dc2626
+    style C fill:#fef3c7,stroke:#d97706
+    style D fill:#fef3c7,stroke:#d97706
+    style E fill:#fef3c7,stroke:#d97706
+    style K fill:#dcfce7,stroke:#16a34a
+    style G fill:#fee2e2,stroke:#dc2626
+    style Q fill:#dbeafe,stroke:#2563eb
+    style R fill:#ede9fe,stroke:#7c3aed
+```
+
+
