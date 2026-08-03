@@ -148,28 +148,11 @@ Twitter had 150 million users
 
 ---
 ## 3. Messaging
-### 3.1 point-2-point
-Reference
-- https://www.youtube.com/watch?v=2v6KqRB7adg
-- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360668/posts/2190592897
-
-![img.png](../../../../99_img/2026/02/07/02/img.png) 
-
-![img_1.png](../../../../99_img/2026/02/07/02/img_1.png)
-
-![img_2.png](../../../../99_img/2026/04/01/01/img_2.png)
-
-**Example of transferring large video files to thousands of machines**
-1. single server approach (10 videos, 5GB each) - `15 min`
-2. sharding, 5 server (2 videos each, 5GB each) - `15/5 = 3 min`
-3. P2P solution - `1 sec`
-    -  large file is split into small chunks and distributed among peers
-    - These peers then communicate with each other in **parallel** to assemble the complete file
-    - **peer discovery**
-    - **peer selection strategies** within a P2P network
-    - Centralized database (tracker), Gossip protocol, distributed hash table (DHT)
-
-### 3.2 pub-sub
+### 3.1 point-2-point (Queue)
+- AWS SQS
+- rabit MQ
+---
+### 3.2 pub-sub (Topic)
 > Use Pub-Sub when one business event must trigger multiple independent downstream actions,
 > without tightly coupling the producer to consumers.
 
