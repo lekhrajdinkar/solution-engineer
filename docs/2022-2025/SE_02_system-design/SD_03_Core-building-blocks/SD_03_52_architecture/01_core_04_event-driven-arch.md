@@ -104,9 +104,11 @@ flowchart LR
 
 ---
 ### 3. P2P queue
+https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360668/posts/2190592897
 
 ---
-### 4. Event-Driven-Messaging : EventBridge
+### 4. Event-Sourcing
+https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360668/posts/2190592897
 
 ---
 ## ✔️Real-World EDA Use Cases: 
