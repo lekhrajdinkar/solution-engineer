@@ -27,12 +27,9 @@ flowchart TB
     A --> BATCH[4. Batch / File-Based Communication]
 ```
 
----
-## Communication Patterns
-
-### [A. Synchronous: Request/Response](../SD_03_54_Communication-pattern/file1.md)
-### [B. Asynchronous Communication](../SD_03_54_Communication-pattern/file2.md)
-### [C. Streaming](../SD_03_54_Communication-pattern/file3.md)
-### [D. Batch/File-based](../SD_03_54_Communication-pattern/file4.md)
-### [E. More](../SD_03_54_Communication-pattern/file5.md)
+### [A. Synchronous: Request/Response](../SD_03_54_Communication-pattern/01_synchronous.md)
+### [B. Asynchronous Communication](../SD_03_54_Communication-pattern/02_asynchronous.md)
+### [C. Streaming](../SD_03_54_Communication-pattern/03_streaming.md)
+### [D. Batch/File-based](../SD_03_54_Communication-pattern/04_batch_file_based.md)
+### [More](../SD_03_54_Communication-pattern/05_more.md)
 

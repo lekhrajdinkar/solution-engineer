@@ -2,7 +2,7 @@
 
 ```mermaid
 flowchart TB
-    ASYNC[Asynchronous Communication] --> MSG[Messaging]
+    ASYNC[B. Asynchronous Communication] --> MSG[Messaging]
     ASYNC --> EVENT[Event-Driven Communication]
     ASYNC --> POLL[Polling]
 
@@ -21,7 +21,12 @@ flowchart TB
 
     RELATED --> EVENTSRC[Event Sourcing]
     RELATED --> CQRS[CQRS]
+    
+    style POLL fill:yellow,color:black
+    style MSG fill:yellow,color:black
+    style EVENT fill:yellow,color:black
 ```
+---
 ## B.1. Polling
 ### B.1.1. Short Polling
 - https://www.youtube.com/watch?v=b4qyOpGg748
@@ -62,6 +67,7 @@ sequenceDiagram
 
 ![img_1.png](../../../../99_img/2026/02/07/03/img_1.png)
 
+---
 ## B.2. Event Driven
 ### B.2.1 Fan-out 
 ```mermaid
@@ -116,17 +122,23 @@ Twitter had 150 million users
 - ![img.png](../../../../99_img/2026/01/img-10.png)
 
 ### B.2.3 Event Sourcing
+> Note: just arch pattern
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360668/posts/2190592897
 
 ### B.2.4 CQRS
+> Note: just arch pattern
+- [05_pattern_01_CQRS.md](../../SD_05_DataLayer%2Bstorage/05_pattern_01_CQRS.md)
 
 ---
 ## B.3. Messaging
-### B.3.1 pub-sub
+### B.3.1 point-2-point
+Reference
+- https://www.youtube.com/watch?v=2v6KqRB7adg
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360668/posts/2190592897
 
-### B.3.2 point-2-point
-https://www.youtube.com/watch?v=2v6KqRB7adg
+![img.png](../../../../99_img/2026/02/07/02/img.png) 
 
-![img.png](../../../../99_img/2026/02/07/02/img.png) ![img_1.png](../../../99_img/2026/02/07/02/img_1.png)
+![img_1.png](../../../99_img/2026/02/07/02/img_1.png)
 
 ![img_2.png](../../../../99_img/2026/04/01/01/img_2.png)
 
@@ -139,3 +151,55 @@ https://www.youtube.com/watch?v=2v6KqRB7adg
     - **peer discovery**
     - **peer selection strategies** within a P2P network
     - Centralized database (tracker), Gossip protocol, distributed hash table (DHT)
+
+### B.3.2 pub-sub
+> Use Pub-Sub when one business event must trigger multiple independent downstream actions,
+> without tightly coupling the producer to consumers.
+
+- In event of network failure/partition, subscriber will leave and comeback and, need message again.
+- that's why **at least once** delivery is required, (one or more times delivery),
+    - hence keep idempotent consumer.
+- Message/event are **ordered**.
+- In **kafka** each topic is **distributed in nature (has partitions)**
+- More:
+    - separation of concern
+    - content based filtering
+
+```mermaid
+flowchart LR
+    P[Publisher] --> T[ Event Broker - Topic \n ➕➕Scale by adding more partition]
+    T --> S1[Subscriber-1 / consumer-group-1]
+    T --> S2[Subscriber-2 / consumer-group-2]
+    T --> S[... / ...]
+    T --> SN[Subscriber-N / consumer-group-N \n ➕➕Scale by adding more]
+    style SN fill:cyan,color:black
+```
+**separation of concern** : create multiple topic
+```mermaid
+flowchart LR
+O[Order Service] --> OC[order-created topic]
+O --> OP[order-paid topic]
+O --> OS[order-shipped topic]
+
+    OC --> I[Inventory Service]
+    OC --> N1[Notification Service]
+
+    OP --> B[Billing Service]
+    OP --> A[Analytics Service]
+
+    OS --> T[Tracking Service]
+    OS --> N2[Notification Service]
+```
+**content based filtering**: filter and then subscribe
+```mermaid
+flowchart LR
+    P[Publisher] --> T[Order Events Topic]
+
+    T --> F1{eventType = OrderCreated}
+    T --> F2{region = US}
+    T --> F3{amount > 1000}
+
+    F1 --> I[Inventory Service]
+    F2 --> N[US Notification Service]
+    F3 --> R[Risk Service]
+```
