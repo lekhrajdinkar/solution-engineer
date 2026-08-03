@@ -1,4 +1,5 @@
 # AI Note: Database Replication
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2192327732 (Skip, check AWS notes, kind of same)
 - https://www.youtube.com/watch?v=CSCw16AfWHM
 - [AWS RDS concepts](../../CE_02_AWS_SAA/03_database)
 - [CAP-theorem](../SD_01_foundation/01_basic_03_CAP-theorem.md) : while replication partition occurred, then choose between AP, CP
