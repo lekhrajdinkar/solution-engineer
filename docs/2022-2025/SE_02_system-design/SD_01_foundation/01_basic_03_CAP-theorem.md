@@ -111,10 +111,30 @@ sequenceDiagram
   
 ```mermaid
 flowchart LR
-    U[Users] --> DB[(Single Standalone Database)]
+    U[Users] --> DB[(Single Standalone Database\nSFP)]
     DB --> C[Consistency]
     DB --> A[Availability]
 
+    style C fill:#a9d18e,stroke:#333
+    style A fill:#9dc3e6,stroke:#333
+```
+**Practical CA System**
+```mermaid
+flowchart LR
+    U[Users] --> P[(Primary Database<br/>SFP)]
+
+    P --> C[Consistency]
+    P --> A[Availability]
+
+    P -->|Synchronous replication| S[(Standby Database)]
+    P -.->|Asynchronous replication| R[(Read Replica)]
+
+    R --> RU[Read-only traffic]
+    S --> F[Failover if Primary fails]
+
+    style P fill:#f4b183,stroke:#333
+    style S fill:#ffd966,stroke:#333
+    style R fill:#9dc3e6,stroke:#333
     style C fill:#a9d18e,stroke:#333
     style A fill:#9dc3e6,stroke:#333
 ```
