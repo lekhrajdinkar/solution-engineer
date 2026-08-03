@@ -9,7 +9,7 @@
 ## Module 1: Foundations of System Design `16`
 [Foundation](SD_01_foundation)
 - [Evolution of System Design](SD_01_foundation/01_basic_01_evolution.md)
-- [client-server-arch.md](SD_03_Core-building-blocks/SD_03_52_architecture/01_core_01_client-server-arch.md)
+- [client-server-arch.md](SD_03_Core-building-blocks/SD_03_52_architecture/01_core_00_client-server-arch.md)
   - TCP/IP & HTTP Basics
   - WebSockets & Streaming Fundamentals
   - Polling vs Streaming
@@ -32,11 +32,11 @@
 [SD_03_Core-building-blocks](SD_03_Core-building-blocks)
 
 ---
-## Module 4: Protecting_servers
+## Module 4: Protecting_servers `4`
 [SD_04_protecting-servers](SD_04_protecting-servers)
 
 ---
-## Module 5: DataLayer+storage
+## Module 5: DataLayer+storage `9`
 [SD_05_DataLayer+storage](SD_05_DataLayer%2Bstorage)
 
 ---
