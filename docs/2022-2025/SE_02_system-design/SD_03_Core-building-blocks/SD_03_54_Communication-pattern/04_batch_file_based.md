@@ -1,4 +1,4 @@
-# D. Batch/File-based
+# Batch/File-based
 
 ```mermaid
 flowchart TB
@@ -11,12 +11,13 @@ flowchart TB
 
     JOB --> ETL[ETL / MapReduce / Spark]
 ```
-
-## D.1. File transfer
+---
+## 1. File transfer
 - FTP/SFTP
 - AWS S3
 
-## D.2. Scheduled batch job
+---
+## 2. Scheduled batch job
 - ETL
 - MapReduce / spark
 

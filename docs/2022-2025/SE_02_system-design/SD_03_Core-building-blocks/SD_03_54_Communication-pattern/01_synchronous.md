@@ -1,4 +1,4 @@
-# A. Synchronous: Request/Response
+#  Synchronous: Request/Response
 
 ```mermaid
 flowchart TB

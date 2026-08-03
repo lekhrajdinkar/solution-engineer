@@ -1,8 +1,8 @@
-# B. Asynchronous Communication
+#  Asynchronous Communication
 
 ```mermaid
 flowchart TB
-    ASYNC[B. Asynchronous Communication] --> MSG[Messaging]
+    ASYNC[ Asynchronous Communication] --> MSG[Messaging]
     ASYNC --> EVENT[Event-Driven Communication]
     ASYNC --> POLL[Polling]
 
@@ -27,8 +27,8 @@ flowchart TB
     style EVENT fill:yellow,color:black
 ```
 ---
-## B.1. Polling
-### B.1.1. Short Polling
+## 1. Polling
+### 1.1. Short Polling
 - https://www.youtube.com/watch?v=b4qyOpGg748
 - client repeatedly requests data from a server **at set intervals** 
   - using any network protocol.eg: https, etc
@@ -55,7 +55,7 @@ sequenceDiagram
     S-->>C: New data
 ```
 
-### B.1.2. Long Polling
+### 1.2. Long Polling
 - A variation where the server **holds the client's request** 
   - `hanging GET (with timeout)` 👈🏻
 - until data is available **or** a timeout occurs
@@ -68,18 +68,34 @@ sequenceDiagram
 ![img_1.png](../../../../99_img/2026/02/07/03/img_1.png)
 
 ---
-## B.2. Event Driven
-### B.2.1 Fan-out 
+## 2. Event Driven
+### 2.1 Fan-out 
+| Concept               | Meaning                                                                                       |
+| --------------------- | --------------------------------------------------------------------------------------------- |
+| **Fan-out**           | A delivery pattern: one message is copied to multiple destinations                            |
+| **Publish–Subscribe** | A messaging model: publishers send to a topic, and subscribers independently receive messages |
+
+They look similar because pub-sub usually implements fan-out
+
+fan-out-1:
+
+```mermaid
+flowchart LR
+    P[Producer] --> SNS[SNS Fan-out]
+
+    SNS --> Q1[SQS Queue 1]
+    SNS --> Q2[SQS Queue 2]
+    SNS --> L[Lambda]
+```
+
+fan-out-2: implemented with pub-sub:
 ```mermaid
 flowchart LR
     P[Producer/server] --> E[Event / Message]
-
     E --> B[Broker / Pub-Sub]
-
     B --> C1[Consumer 1]
     B --> C2[Consumer 2]
     B --> C3[Consumer 3]
-    B --> C4[Consumer 4]
 ```
 
 Twitter 2012-2013 problem : https://www.youtube.com/watch?v=FEkXjNFrL1o
@@ -101,9 +117,10 @@ Twitter had 150 million users
     - this is fanOut 👈🏻
   
 ```
-![img.png](../../../99_img/2026/02/07/04/img.png)
+![img.png](../../../../99_img/2026/02/07/04/img.png)
 
-### B.2.2 Webhook / callback
+---
+### 2.2 Webhook / callback
 - just **Http Post** with event data.
 - https://www.youtube.com/watch?v=oQaJn6RdA3
 - traditional: polling, long-live connection
@@ -121,24 +138,24 @@ Twitter had 150 million users
 - https://youtu.be/9zfAqoTm4-Q?si=_PGo_F1tcNZvuxyi
 - ![img.png](../../../../99_img/2026/01/img-10.png)
 
-### B.2.3 Event Sourcing
+### 2.3 Event Sourcing
 > Note: just arch pattern
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360668/posts/2190592897
 
-### B.2.4 CQRS
+### 2.4 CQRS
 > Note: just arch pattern
 - [05_pattern_01_CQRS.md](../../SD_05_DataLayer%2Bstorage/05_pattern_01_CQRS.md)
 
 ---
-## B.3. Messaging
-### B.3.1 point-2-point
+## 3. Messaging
+### 3.1 point-2-point
 Reference
 - https://www.youtube.com/watch?v=2v6KqRB7adg
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360668/posts/2190592897
 
 ![img.png](../../../../99_img/2026/02/07/02/img.png) 
 
-![img_1.png](../../../99_img/2026/02/07/02/img_1.png)
+![img_1.png](../../../../99_img/2026/02/07/02/img_1.png)
 
 ![img_2.png](../../../../99_img/2026/04/01/01/img_2.png)
 
@@ -152,7 +169,7 @@ Reference
     - **peer selection strategies** within a P2P network
     - Centralized database (tracker), Gossip protocol, distributed hash table (DHT)
 
-### B.3.2 pub-sub
+### 3.2 pub-sub
 > Use Pub-Sub when one business event must trigger multiple independent downstream actions,
 > without tightly coupling the producer to consumers.
 

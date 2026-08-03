@@ -1,4 +1,4 @@
-# E. More
+# More
 ## 1. Videos Streaming / ABS
 - https://www.youtube.com/watch?v=kCAXpAikMVc
 - ABS **Adaptive Bitrate Streaming**

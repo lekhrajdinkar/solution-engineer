@@ -1,4 +1,4 @@
-# C. Streaming
+#  Streaming
 
 ```mermaid
 flowchart TB
@@ -16,8 +16,8 @@ flowchart TB
     BI --> GRPCBI[gRPC Bidirectional Streaming]
 ```
 
-## C.1. Server-to-client
-### C.1.1. SSE
+## 1. Server-to-client
+### 1.1. SSE
 - server sent event
 - designed for streaming **textual data** over HTTP
 - SSE is a unidirectional protocol
@@ -37,11 +37,11 @@ sequenceDiagram
 ```
 
 ---
-## C.2. client-to-Server
-### C.2.1 grpc client streaming __
+## 2. client-to-Server
+### 2.1 grpc client streaming __
 
-## C.3. Bidirectional
-### C.3.1 WebSocket / WSS
+## 3. Bidirectional
+### 3.1 WebSocket / WSS
 - **ACTIVE SERVER**, proactively reply/push to client, with even client requesting/polling
 - Streaming https://www.youtube.com/watch?v=b4qyOpGg748
 - Full Duplex async messaging: - https://www.youtube.com/watch?v=pnj3Jbho5Ck  | https://www.youtube.com/watch?v=G0_e02DdH7I
@@ -117,7 +117,7 @@ flowchart LR
 ```
 FIN bit : Indicates if it's the final fragment of a message.
 RSV bits : Reserved for future use.
-Opcode : Defines the type of data (text, binary, ping, etc.).
+Opcode : Defines the type of data (text, binary, ping, et).
 Mask bit : Indicates if the payload data is masked (always for client-to-server frames).
 Payload length : Defines the length of the data.
 Masking key : Used to obscure payload data.
@@ -139,5 +139,5 @@ WebSockets are ideal for:
 ```
 
 ---
-### C.3.2. grpc bidirectional streaming __
+### 3.2. grpc bidirectional streaming __
 
