@@ -45,8 +45,8 @@
   - reliable
   - available
 - Examples: GCS,S3, Azure Blob Storage 
-- [AWS_S3-1.md](../../CE_02_AWS_SAA/02_storage/03_S3-1.md)
-- [AWS_S3-2.md](../../CE_02_AWS_SAA/02_storage/03_S3-2-more.md)
+- [AWS_S3-1.md](../../CE_02_AWS_SAA/02_storage/05_01_S3.md)
+- [AWS_S3-2.md](../../CE_02_AWS_SAA/02_storage/05_02_S3-advance.md)
 
 ---
 ### 2. Time Series

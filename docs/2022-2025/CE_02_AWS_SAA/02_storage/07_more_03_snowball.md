@@ -37,7 +37,7 @@
       - AWS **EBS** only 
       - not s3 :x:  :point_left:
     - AWS DataSync agent is pre-installed
-    - [more](05_transferFamily+DataSync.md#b-aws-datasync)
+    - [more](07_more_02_AWS-transfer.md#b-aws-datasync)
 
 ---
 ### A.3 Snowball `mobile` (offline)

@@ -1,11 +1,5 @@
-## A. FTP : AWS Transfer Family(3)
-- SFTP / FTPS (outside AWS) 
-- FTP with in AWS/VPC
-- expose s3/EFS over FTP protocol
-![img.png](../99_img/storage/img.png)
-
----
-## B. AWS DataSync
+# AWS DataSync
+## Overview
 - **scheduled continuous data sync**
   - hourly
   - daily 
