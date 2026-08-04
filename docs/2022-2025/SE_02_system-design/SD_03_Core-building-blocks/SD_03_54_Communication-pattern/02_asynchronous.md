@@ -17,14 +17,16 @@ flowchart TB
 
     EVENT --> FAN[Fan-out]
     EVENT --> WEBHOOK[Webhook / Callback]
-    EVENT --> RELATED[Related Architecture Patterns]
+    EVENT --> RELATED[Related \nArchitecture \nPatterns]
 
-    RELATED --> EVENTSRC[Event Sourcing]
-    RELATED --> CQRS[CQRS]
+    RELATED --> EVENTSRC[1. Event Sourcing]
+    RELATED --> CQRS[2. CQRS]
     
     style POLL fill:yellow,color:black
     style MSG fill:yellow,color:black
     style EVENT fill:yellow,color:black
+    style EVENTSRC fill:cyan,color:black
+    style CQRS fill:cyan,color:black
 ```
 ---
 ## 1. Polling
@@ -138,13 +140,10 @@ Twitter had 150 million users
 - https://youtu.be/9zfAqoTm4-Q?si=_PGo_F1tcNZvuxyi
 - ![img.png](../../../../99_img/2026/01/img-10.png)
 
-### 2.3 Event Sourcing
+### 2.3 related Architecture Pattern
 > Note: just arch pattern
-- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360668/posts/2190592897
-
-### 2.4 CQRS
-> Note: just arch pattern
-- [05_pattern_01_CQRS.md](../../SD_05_DataLayer%2Bstorage/05_pattern_01_CQRS.md)
+- [event-sourcing](../SD_03_52_architecture/02_pattern_02_event-sourcing.md)
+- [CQRS](../SD_03_52_architecture/02_pattern_01_CQRS.md)
 
 ---
 ## 3. Messaging

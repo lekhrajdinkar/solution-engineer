@@ -13,14 +13,15 @@
 | **Distributed DB** | Multiple nodes coordinate replication, routing, consistency, and failover |
 
 --
-## Polyglot Persistence patterns
-- [SAGA.md](../SD_05_DataLayer+storage/05_pattern_02_SAGA.md)
-- [CQRS.md](../SD_05_DataLayer+storage/05_pattern_01_CQRS.md)
+## Patterns
+- [event-sourcing](../SD_03_Core-building-blocks/SD_03_52_architecture/02_pattern_02_event-sourcing.md)
+- [CQRS](../SD_03_Core-building-blocks/SD_03_52_architecture/02_pattern_01_CQRS.md)
 
 ## Concepts
 - [consistent-hashing.md](../SD_05_DataLayer+storage/03_concept_02_consistent-hashing.md)
 - [database-replication.md](../SD_05_DataLayer+storage/03_concept_01_database-replication.md)
 - [distributed-caching.md](02_01_distributed-caching.md)
 - [distributed-Locking.md](02_02_distributed-Locking.md)
-- [distributed-Transaction.md](02_03_distributed-Transaction.md)
+- [distributed-Transaction.md](02_03_distributed-Transaction.md) 
+  - [SAGA.md](../SD_05_DataLayer+storage/05_pattern_02_SAGA.md)
 - [distributed-FileSystem.md](02_04_distributed-FileSystem.md)
