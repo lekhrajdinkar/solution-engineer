@@ -242,10 +242,6 @@ flowchart TB
   - ssh to ec2-i2 and cat  /mnt/efs/fs1/hello.txt
 ```
 
-- ![img.png](../99_img/ec2/img_4.png)
-- ![img_1.png](../99_img/ec2/img_3.png)
-
-
 ---
 ## Exam 🎯
 ### Questions

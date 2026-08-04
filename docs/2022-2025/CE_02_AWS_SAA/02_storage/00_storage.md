@@ -42,10 +42,10 @@ Memory rule:
 
 ## More
 - [07_more_01_Storage-gateway.md](07_more_01_Storage-gateway.md)
-- [07_more_02_AWS-transfer.md](07_more_02_AWS-transfer.md)
-- [07_more_03_snowball.md](07_more_03_snowball.md)
-- [07_more_04_AppFlow.md](07_more_04_AppFlow.md)
-- [07_more_05_DataSync.md](07_more_05_DataSync.md)
+- [07_more_02_AWS-transfer.md](07_more_02_AWS-file-transfer.md)
+- [07_more_03_snowball.md](08_migration_01_snowball.md)
+- [07_more_04_AppFlow.md](08_migration_03_AppFlow.md)
+- [07_more_05_DataSync.md](08_migration_02_DataSync.md)
 
 ---
 
@@ -104,3 +104,21 @@ A file system defines how data is organized and stored, manage:
 | **FSx for NetApp ONTAP**        | Linux and Windows | NFS, SMB, iSCSI        |
 | **FSx for OpenZFS**             | Linux             | NFS                    |
 | **FSx for Lustre**              | Linux             | Lustre client protocol |
+
+---
+## ⭐Quick Summary on All storage options
+- `S3`: Object Storage
+- `S3 Glacier`: Object Archival
+- `EBS volumes`: Network storage for one EC2 instance at a time
+- `EC2 Instance Storage`: Physical storage for your EC2 instance (high IOPS)
+- `EFS`: Network File System for Linux instances, POSIX filesystem
+- `FSx`
+    - FSx for Windows: Network File System for Windows servers
+    - FSx for Lustre: High Performance Computing Linux file system
+    - FSx for NetApp ONTAP: High OS Compatibility
+    - FSx for OpenZFS: Managed ZFS file system
+- `Storage Gateway`: S3 & FSx File Gateway, Volume Gateway (`cache & stored`), Tape Gateway
+- `Transfer Family`: FTP, FTPS, SFTP interface on top of Amazon S3 or Amazon EFS
+- `DataSync`: Schedule data sync from on-premises to AWS, or AWS to AWS
+- `Snowcone / Snowball / Snowmobile`: to move large amount of data to
+- `Database`: for specific workloads, usually with `indexing and querying`
