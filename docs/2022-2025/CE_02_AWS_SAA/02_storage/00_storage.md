@@ -17,6 +17,9 @@ Check these 3 aspects:
 | File storage   | **EFS / FSx** | Directories and files (over network)    |
 | Object storage | S3            | Objects(any file) accessed through APIs |
 
+Memory rule:
+- EBS = virtual hard drive.
+- EFS = shared Linux network drive.
 
 ---
 ## 1. EC2 instant store
@@ -50,8 +53,8 @@ Check these 3 aspects:
 
 ```mermaid
 flowchart LR
-    localApp[Local \nApplication] --> OS[Operating System]
-    remoteApp[Remote \nApplications]
+    localApp[EC2-instance] --> OS[Operating System]
+    remoteApp["EC2-instance \n(remote)"]
     Protocols["Network Protocols\n(NFS / SMB )"]
     
     subgraph Storage_Host ["Storage Layer"]
