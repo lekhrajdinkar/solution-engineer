@@ -53,29 +53,21 @@ flowchart LR
 
 ---  
 ## 2. FSx for `Windows File System`
-- mount on :
-  - ec2-i (windows  OS)
-  - ec2-i (Unix/Linux OS) 👈
-- supported protocol : `SMB` , `NTFS` 
-- supported storage option : `SSD`,  `HDD`
-- support **Microsoft’s Distributed File System (DFS)** 👈 :dart:
-- **size**: `100s PB` |  **iops** : `in millions`   | **throughput**  `10 GB/s`
-
-- **more**
-  - DR :  
-    - fully managed **backups**
-    - **availability** : offers single-AZ and `multi-AZ` deployment options
-  - integrate with 
-    - ms AD - self or AWS managed ms AD.
-    - ACLs
-    - ms DFS : group multiple FS 
+- support **Microsoft’s Distributed File System (DFS)** 👈
+- **size**: `100s PB` 
+- **iops** : `in millions`   
+- **throughput**  `10 GB/s`
+- integrate with:
+  - ms AD - self or AWS managed ms AD.
+  - ACLs
+  - ms DFS : group multiple FS 
 
 ```mermaid
 flowchart LR
-    app1["Windows / Linux Server 1\n(App Server)"]
+    app1["Windows / ⭐Linux Server 1\n(App Server)"]
     app2["Windows Workstation\n(Client)"]
     
-    Protocols["Network Protocol\n(SMB / CIFS)"]
+    Protocols["Network Protocol\n(SMB / NTFS)"]
     
     subgraph Storage_Host ["Amazon FSx for Windows File Server"]
         ManagedFS["Shared File System\n(NTFS / Active Directory Integration)"]
@@ -84,8 +76,8 @@ flowchart LR
 
     app1 --> Protocols
     app2 --> Protocols
-    Protocols -->|⭐access shared files \n over network| ManagedFS
-    ManagedFS -->|⭐Organizes files & NTFS ACLs \n across distributed storage| Hardware
+    Protocols -->|access shared files \n over network| ManagedFS
+    ManagedFS -->|Organizes files & NTFS ACLs \n across distributed storage| Hardware
     
     style Protocols fill:green,color:white
     style ManagedFS fill:green,color:white
@@ -93,12 +85,10 @@ flowchart LR
 
 ----
 ## 3. FSx for `NetApp ONTAP` 
-- **protocol** : `NFS, SMB, iSCSI` 👈
-- **OS** : W | mac | Linux 👈
-- compression
-- Point-in-time instantaneous cloning
-- compatible with lots of system.
-  - ![img_1.png](../99_img/storage/more/img_1.png)
+- **compatible with lots of system**
+- additional feature: compression, Point-in-time instantaneous cloning
+
+![img_1.png](../99_img/storage/more/img_1.png)
 
 ```mermaid
 flowchart LR
@@ -111,10 +101,10 @@ flowchart LR
         Hardware[("High-Performance Storage Pool\n(SSD / Auto-Tiered Capacity Pool)")]
     end
 
-    nfsProtocol -->|⭐access shared files| ManagedFS
-    smbProtocol -->|⭐access shared files| ManagedFS
-    iscsiProtocol -->|⭐Exposes raw block LUN| ManagedFS
-    ManagedFS -->|⭐Organizes snapshots & blocks \n across tiered storage| Hardware
+    nfsProtocol -->|access shared files| ManagedFS
+    smbProtocol -->|access shared files| ManagedFS
+    iscsiProtocol -->|Exposes raw block LUN| ManagedFS
+    ManagedFS -->|Organizes snapshots & blocks \n across tiered storage| Hardware
     
     style nfsProtocol fill:green,color:white
     style smbProtocol fill:green,color:white
@@ -123,12 +113,8 @@ flowchart LR
 ```
 ----
 ## 4. FSx for `OpenZFS`
-- **protocol** : `NFS` 👈
-- **OS** : W | mac | Linux 👈
-- compression.
-- Point-in-time instantaneous cloning
-- `compatible` with lots of system. 
-  - same as netApp ontap FS.
+- **compatible with lots of system**
+- additional feature: compression, Point-in-time instantaneous cloning
 
 ```mermaid
 flowchart LR
@@ -144,8 +130,8 @@ flowchart LR
 
     app1 --> Protocols
     app2 --> Protocols
-    Protocols -->|⭐access low-latency files \n over network| ManagedFS
-    ManagedFS -->|⭐Organizes copy-on-write blocks \n & zfs snapshots| Hardware
+    Protocols -->|access low-latency files \n over network| ManagedFS
+    ManagedFS -->|Organizes copy-on-write blocks \n & zfs snapshots| Hardware
     
     style Protocols fill:green,color:white
     style ManagedFS fill:green,color:white
@@ -153,29 +139,10 @@ flowchart LR
 
 ---
 ## Exam 🎯
-- Check this for comparison: https://aws.amazon.com/fsx/when-to-choose-fsx/ :dart:
-- ![img_1.png](../99_img/practice-test-01/wz03/01/img_1.png)
-- FSx :: ontap | ZFS | windows | Luster :dart:
-  - ![img.png](../99_img/practice-test-01/06/63/comparefxs.png)
+https://aws.amazon.com/fsx/when-to-choose-fsx/
 
-```
-1. 
-Amazon FSx for Windows File Server
-Supported OS: Windows, Linux (via SMB client)
-Protocols: SMB (2.0, 2.1, 3.0, 3.1.1)
+![img_1.png](../99_img/practice-test-01/wz03/01/img_1.png)
 
-2. 
-Amazon FSx for Lustre
-Supported OS: Linux
-Protocols: Lustre, POSIX-compliant
+FSx :: ontap | ZFS | windows | Luster
 
-3. 
-Amazon FSx for NetApp ONTAP
-Supported OS: Windows, Linux, macOS
-Protocols: NFS (v3, v4.0, v4.1), SMB (2.0-3.1.1), iSCSI
-
-4. 
-Amazon FSx for OpenZFS
-Supported OS: Linux, Windows, macOS
-Protocols: NFS (v3, v4, v4.1)
-```
+![img.png](../99_img/practice-test-01/06/63/comparefxs.png)
