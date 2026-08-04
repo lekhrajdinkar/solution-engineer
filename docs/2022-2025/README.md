@@ -4,7 +4,7 @@
 ## Docs
 ### Solution Engineer
 - [CSE](SE_01_CSE)
-- [system_design.md](SE_02_system-design/README.md)
+- [SE_02_system-design](SE_02_system-design)
 - [Micro-Service Pattern](SE_02_system-design/SD_08_API-Design)| Project repos:
     - [git - java](https://github.com/lekhrajdinkar/microservice-java)
     - [git - py](https://github.com/lekhrajdinkar/microservice-python)

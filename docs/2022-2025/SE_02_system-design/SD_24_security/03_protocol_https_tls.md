@@ -33,7 +33,21 @@ Encryption without authentication is useless on the internet.
 
 This is exactly why TLS + certificates exist.
 ```
+## TLS
 ![img_5.png](../../../99_img/2026/02/02/img_5.png)
+
+### key-pair-1 
+- CA private key used to sign cert.
+- CA public key present on browsers already
+![img_5.png](../../../99_img/2026/02/02/img_4.png)
+
+### key-pair-2
+- server's public key + server's private key
+- used to define common session key, which will be used for symmetric encryption
+  - client has :: chello + sHello +  pre-master-key-1  --> `session key-1`
+    - (encrypted it server-public-key) --> share with server
+  - Server has :: chello + sHello +  pre-master-key-1 (decrypt it with its private-key) --> `session key-1`
+![img_5.png](../../../99_img/2026/02/02/img_6.png)
 
 ---
 ## Modern TLS 1.3
