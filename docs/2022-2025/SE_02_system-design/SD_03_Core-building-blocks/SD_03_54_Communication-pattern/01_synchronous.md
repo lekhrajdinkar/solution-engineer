@@ -44,7 +44,7 @@ sequenceDiagram
     C->>S: ACK
 ```
 ---
-## 2. HTTP / HTTPS(TLS)
+## 1. HTTP / HTTPS(TLS)
 A stateless, text-based protocol commonly used for APIs, built on top of TCP
 - HTTP connection : HTTP --> TCP handshake
 - HTTPS connection : HTTP --> TCP handshake --> [TLS handshake](../../SD_24_security/03_protocol_https_tls.md)
@@ -53,7 +53,7 @@ A stateless, text-based protocol commonly used for APIs, built on top of TCP
 - use case : RESTful-API, web pages
 
 ---
-## 3. RPC / GRPC...
+## 2. RPC / GRPC...
 - **Description**: A high-performance, open-source RPC framework by Google.
 - **Key Features**:
     - Uses Protocol Buffers (Protobuf) for serialization.
@@ -63,3 +63,8 @@ A stateless, text-based protocol commonly used for APIs, built on top of TCP
     - Low-latency communication in microservices.
     - Distributed systems needing real-time communication.
 - **Supported by**: Google Cloud, gRPC libraries.
+
+---
+
+## 3. graphQL
+

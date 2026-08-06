@@ -112,6 +112,4 @@
 | SNMP         | Binary          | Monitoring/Telemetry| Medium          | IoT, monitoring               | RabbitMQ (via plugin)         |
 | ZeroMQ       | Binary          | Custom Patterns     | High            | Peer-to-peer communication    | ZeroMQ library                |
 
----
-
 

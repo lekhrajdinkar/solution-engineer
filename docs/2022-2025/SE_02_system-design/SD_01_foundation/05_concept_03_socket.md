@@ -1,18 +1,17 @@
 # Socket
+Reference:
+- https://www.youtube.com/watch?v=NvZEZ-mZsuI | Socket-1
+- https://www.youtube.com/watch?v=pnj3Jbho5Ck | Socket-2
+--- 
 ## Overview
-https://www.youtube.com/watch?v=NvZEZ-mZsuI
-
-> - **socket** is opened b/w client and server 
-> - when **connection** is opened 
-> - and **request** goes through this socket channel
+> **socket** is opened b/w client and server when **connection (TCP/UDP)** is established.  
+> socket forms **two-way communication channel**, like a phone line, allowing two devices to talk
 
 ![img.png](../../../99_img/2025/se_02_sd/08/01/img.png)
-### Socket
-combination of:
-  - an **IP** address (identifying a device) 
-  - a **port** number (identifying an app or service on that device), 
-  - together forming a **socket address**
-  - It's a **two-way communication channel**, like a phone line, allowing two devices to talk
+
+**socket address**
+- an **IP** address (identifying a device) 
+- a **port** number (identifying an app or service on that device), 
 
 > languages like Python, Java, Go, and Rust use their own wrappers or system calls 
 > to interact with the OS's underlying C-based socket APIs
@@ -45,31 +44,26 @@ combination of:
  - such as an HTTP-Get, WebSocket-message, etc
 
 ---
-## Types od socket
-💠**Stream Sockets** 
+## Types of socket
+### Stream Sockets
 - not built for browser
-- `TCP` connection
+- `TCP` connection under the hood.
 - Provide reliable, ordered communication
 - where data arrives in the correct order without glitches
 - eg: Netflix streaming, real-time chat apps, dashboards, file sharing
 
-💠**Datagram Sockets**
+### Datagram Sockets
 - not built for browser
-- `UDP` connection
+- `UDP` connection under the hood.
 - Offer fast communication but can lose data
 - eg: used in multiplayer games where speed is more critical than perfection, IoT
 
-💠**Web Sockets**
-- [02_arch_01_client-server-arch.md](../SD_52_architecture/01_core_01_client-server-arch.md)
-- built for direct browser use ✔️ | modern
+### Web Sockets
+- WebSockets sit on top of regular **TCP sockets** but are browser-friendly and modern 👈🏻
 - `TCP` connection under the hood.
-> - **http/1**    --> 1 connection --> 1 request --> close ❌
-> - **http/1.1 (keep alive)**  --> 1 connection --> multiple request
-> - **http/2.0**  --> 1 connection --> multiple request (parallel/concurrent)
-> - **http/3**
-> - **✔️Web-Socket** --> 1 connection --> persisted 2 way comm
 
-- WebSockets sit on top of regular **TCP sockets** but are browser-friendly 👈🏻
+
+- 
 - A WebSocket connection starts as an ordinary HTTP request 
 - but then upgrades to a persistent, full-duplex connection, 
 - allowing both browser and server to send messages at any time without polling

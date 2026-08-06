@@ -1,4 +1,4 @@
-# More
+# Advance
 ## 1. Videos Streaming / ABS
 - https://www.youtube.com/watch?v=kCAXpAikMVc
 - ABS **Adaptive Bitrate Streaming**
@@ -8,6 +8,7 @@
     - Live streaming:
     - On-demand streaming
     - Peer-to-peer streaming: Distributing content where viewers share their bandwidth and computing resources
+
 ### DASH - Dynamic Adaptive Streaming over HTTP
 ![img.png](../../../../99_img/2026/04/01/01/img.png)
 
@@ -16,3 +17,5 @@
 ### RTMP - realTime messaging Prot
 
 ---
+## 2. WebRTC
+- https://youtu.be/Kn_3uHaKz7Q?si=4RO9_-fleOyvILBt | watched once.

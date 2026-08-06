@@ -1,6 +1,7 @@
 # API Design : start
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2160312222/posts/2198424024
 - https://www.youtube.com/watch?v=Ch_IBiQvZ-c
+- **API-first design** is essential
 
 ---
 ## API Overview
