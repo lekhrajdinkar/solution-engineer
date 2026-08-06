@@ -2,7 +2,7 @@
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2190592600
 --- 
 ## Overview
-- [REST api_caching](../SD_08_API-Design/05_api_04_caching.md)
+- [REST api_caching](../SD_08_API-Design/04_api_design_06_caching.md)
 - Act as **high-speed data storage layer.**
 - Definition:
   - storing frequently used data in a **different location**  

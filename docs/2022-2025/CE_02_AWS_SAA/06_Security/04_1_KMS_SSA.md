@@ -168,7 +168,7 @@ Minimal key management overhead     	SSE-S3
 ---
 ## C. Examples
 ### 1.1 S3 - `CRR` replication 
-- [here](./../02_storage/03_S3-1.md#security-while-crr-replication)
+- [here](../02_storage/05_01_S3.md#security-while-crr-replication)
 
 ### 1.2 S3  - `SRR` replication
 - bucket-1(key-1) --> replicate(decrypt with key-1 > encrypt with key-2) --> bucket-2(key-2)

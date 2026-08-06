@@ -39,8 +39,8 @@
 ### 2. Communication architecture
 - [event-driven-arch 👈🏻](01_core_04_event-driven-arch.md)
 - [service-mesh-arch 👈🏻](01_core_03_service-mesh-arch.md) | Side car pattern
-- [02_pattern_06_API-gateway.md](../../SD_08_API-Design/02_pattern_06_API-gateway.md)
-- [02_pattern_01_BFF.md](../../SD_08_API-Design/02_pattern_01_BFF.md)
+- [02_pattern_06_API-gateway.md](../../SD_08_API-Design/03_pattern_01_API-gateway.md)
+- [02_pattern_01_BFF.md](../../SD_08_API-Design/01_concept_01_BFF.md)
 
 ### 3. Data Consistency pattern
 - [distributed-Transaction](../../SD_06_Distributed-system/02_03_distributed-Transaction.md)

@@ -1,4 +1,37 @@
 # API Design
+
+## reference
+- Java https://github.com/lekhrajdinkar/microservice-java/tree/main/docs/2012-2024/02_web
+- py https://github.com/lekhrajdinkar/microservice-python/tree/main/src/webApp1
+- [https_tls.md](../SD_24_security/03_protocol_https_tls.md)
+- https://chatgpt.com/c/685dd143-0840-800d-8660-0f9cb8afb117
+-  https://www.youtube.com/watch?v=PwNJXUdMkVY | localhost
+
+---
+## API Design Checklist
+
+```mermaid
+flowchart TD
+
+A[1. Clarify Scope]
+-->C[2. Estimate Scale : Identify Users, etc]
+-->D[3. Define Resources]
+-->C2[4. outline]
+
+E[5. Then Design Endpoints]
+-->F[Request & Response payload json, \n error code]
+-->G[Authentication]
+-->H[Pagination]
+-->I[Edge case]
+-->J[Review Trade-offs]
+style E fill:#f4cccc,stroke:#d9534f,stroke-width:2px
+```
+
+## API testing
+- http://youtube.com/post/Ugkxkd6FqO2-xfvy9j0iQoXzPz1d59uxVi7_?feature=shared
+- http://youtube.com/post/UgkxtozRpn2THAPQia4HrwlIUy5Ln86HTEiM?feature=shared
+
+---
 ## Topics
 ```
 Separation of Concerns
