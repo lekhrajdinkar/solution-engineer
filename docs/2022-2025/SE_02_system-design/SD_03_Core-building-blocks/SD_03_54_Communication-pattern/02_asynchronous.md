@@ -142,8 +142,8 @@ Twitter had 150 million users
 
 ### 2.3 related Architecture Pattern
 > Note: just arch pattern
-- [event-sourcing](../SD_03_52_architecture/02_pattern_02_event-sourcing.md)
-- [CQRS](../SD_03_52_architecture/02_pattern_01_CQRS.md)
+- [event-sourcing](../SD_03_52_architecture/02_pattern_11_event-sourcing.md)
+- [CQRS](../SD_03_52_architecture/02_pattern_07_CQRS.md)
 
 ---
 ## 3. Messaging

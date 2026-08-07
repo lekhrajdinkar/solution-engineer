@@ -22,7 +22,7 @@
 
 ---
 ## ✔️Architecture 
-![img_2.png](../../../99_img/2025/se_02_sd/01/04/img_2.png)
+![img_2.png](../../../../99_img/2025/se_02_sd/01/04/img_2.png)
 ### 1. Event / message
 - eg: order placed event
 

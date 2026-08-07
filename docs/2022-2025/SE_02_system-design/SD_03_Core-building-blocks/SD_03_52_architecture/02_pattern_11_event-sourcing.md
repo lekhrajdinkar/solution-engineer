@@ -72,7 +72,7 @@ flowchart LR
 ---
 ## use cases
 
-> Used in [CQRS](02_pattern_01_CQRS.md)
+> Used in [CQRS](02_pattern_07_CQRS.md)
 
 | more Use case          | Why Event Sourcing fits                              |
 |------------------------| ---------------------------------------------------- |

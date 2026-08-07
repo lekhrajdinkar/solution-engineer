@@ -43,6 +43,8 @@ flowchart LR
 ```
 ## Pure CQRS
 
+![img_2.png](img_2.png)
+
 ```mermaid
 flowchart LR
     U[Client] --> C[Command API]

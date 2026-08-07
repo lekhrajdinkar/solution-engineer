@@ -2,8 +2,8 @@
 ## ✔️References
 - [monolith-arch](01_core_01_monolith-arch.md)
 - [API-Design](../../SD_08_API-Design)
-- [02_arch_04_event-driven-arch.md](01_core_04_event-driven-arch.md)
-- [02_arch_05_service-mesh-arch.md](01_core_03_service-mesh-arch.md)
+- [02_arch_04_event-driven-arch.md](02_pattern_06_event-driven.md)
+- [02_arch_05_service-mesh-arch.md](02_pattern_10_service-mesh.md)
 - gpt:
   - https://chatgpt.com/c/2f54de12-b416-4a76-80a0-ebd286b0c467 | ms arch
   - https://chat.deepseek.com/a/chat/s/6e7456d4-cc1b-42be-ae19-c3ede730936f | ms comm
@@ -37,8 +37,8 @@
 - [service-discovery](01_concept_02_service-discovery.md)
 
 ### 2. Communication architecture
-- [event-driven-arch 👈🏻](01_core_04_event-driven-arch.md)
-- [service-mesh-arch 👈🏻](01_core_03_service-mesh-arch.md) | Side car pattern
+- [event-driven-arch 👈🏻](02_pattern_06_event-driven.md)
+- [service-mesh-arch 👈🏻](02_pattern_10_service-mesh.md) | Side car pattern
 - [02_pattern_06_API-gateway.md](../../SD_08_API-Design/03_pattern_01_API-gateway.md)
 - [02_pattern_01_BFF.md](../../SD_08_API-Design/01_concept_01_BFF.md)
 
