@@ -9,7 +9,7 @@
 ## Module 1: Foundations of System Design `16`
 [Foundation](SD_01_foundation)
 - [Evolution of System Design](SD_01_foundation/01_basic_01_evolution.md)
-- [client-server-arch.md](SD_03_Core-building-blocks/SD_03_52_architecture/01_core_00_client-server-arch.md)
+- [client-server-arch.md](SD_03_Core-building-blocks/SD_03_52_architecture/01_arch_00_client-server.md)
   - TCP/IP & HTTP Basics
   - WebSockets & Streaming Fundamentals
   - Polling vs Streaming

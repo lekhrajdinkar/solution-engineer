@@ -1,7 +1,8 @@
 # Architecture patterns
-- https://youtu.be/126ALse1rWA?si=MCpIeDdOp5UWJ1P0
+> Focus: SCALABLE || ESAY TO MAINTAIN || FLEXIBLE
+- https://youtu.be/126ALse1rWA?si=MCpIeDdOp5UWJ1P0 BM
 
-This video covers 9 essential software architecture patterns that help developers create scalable, maintainable, and future-proof systems.
+--- 
 
 ## Summary of Architectural Patterns
 1.  **Layered (N-Tier) Architecture (0:45):** Organizes code into logical layers (presentation, business logic, and data access). It is excellent for enterprise systems, allowing independent team focus on specific layers.
@@ -117,7 +118,7 @@ overview:
 [02_pattern_06_event-driven.md](02_pattern_06_event-driven.md)
 
 ---
-## 7. CORS
+## 7. CQRS
 [02_pattern_07_CQRS.md](02_pattern_07_CQRS.md)
 
 ---
@@ -210,3 +211,6 @@ src/
     ├── DatabaseConfiguration.java
     └── KafkaConfiguration.java
 ```
+---
+## More
+- [microservice patterns](../../SD_21_microservice)
