@@ -3,7 +3,12 @@
 - http://youtube.com/post/UgkxLxv7GwjfLpkPlyy-j3FaW5BBdVIXJAcc?feature=shared
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2160312222/posts/2198424017
 
+## Overview
 > lightweight, scalable, and user-friendly
+- It's simple and widely understood
+- stable, supported everywhere.
+- but can sometimes lead to **excessive data transfer**
+- or require **multiple requests** to gather necessary information
 
 ---
 ## A. REST Done right

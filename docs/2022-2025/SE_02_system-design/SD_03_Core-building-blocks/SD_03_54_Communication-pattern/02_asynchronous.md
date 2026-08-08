@@ -1,4 +1,7 @@
 #  Asynchronous Communication
+> [⭐event-driven architecture](../SD_03_52_architecture/02_pattern_06_event-driven.md)
+
+## Overview
 
 ```mermaid
 flowchart TB
@@ -142,14 +145,22 @@ Twitter had 150 million users
 
 ### 2.3 related Architecture Pattern
 > Note: just arch pattern
-- [event-sourcing](../SD_03_52_architecture/02_pattern_02_event-sourcing.md)
-- [CQRS](../SD_03_52_architecture/02_pattern_01_CQRS.md)
+- [event-sourcing](../SD_03_52_architecture/02_pattern_11_event-sourcing.md)
+- [CQRS](../SD_03_52_architecture/02_pattern_07_CQRS.md)
 
 ---
 ## 3. Messaging
+
+| Channel Type          | Delivery                          | Best For                  | Interaction | Example                                            |
+| --------------------- | --------------------------------- | ------------------------- | ----------- | -------------------------------------------------- |
+| **Point-to-Point**    | One message → **one receiver**    | Command / task processing | One-to-One  | Job queue where one worker processes the task      |
+| **Publish-Subscribe** | One message → **all subscribers** | Events / notifications    | One-to-Many | `OrderPlaced` → Billing + Inventory + Notification |
+
+
 ### 3.1 point-2-point (Queue)
 - AWS SQS
 - rabit MQ
+
 ---
 ### 3.2 pub-sub (Topic)
 > Use Pub-Sub when one business event must trigger multiple independent downstream actions,

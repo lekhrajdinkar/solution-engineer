@@ -14,8 +14,8 @@
 
 --
 ## Patterns
-- [event-sourcing](../SD_03_Core-building-blocks/SD_03_52_architecture/02_pattern_02_event-sourcing.md)
-- [CQRS](../SD_03_Core-building-blocks/SD_03_52_architecture/02_pattern_01_CQRS.md)
+- [event-sourcing](../SD_03_Core-building-blocks/SD_03_52_architecture/02_pattern_11_event-sourcing.md)
+- [CQRS](../SD_03_Core-building-blocks/SD_03_52_architecture/02_pattern_07_CQRS.md)
 
 ## Concepts
 - [consistent-hashing.md](../SD_05_DataLayer+storage/03_concept_02_consistent-hashing.md)

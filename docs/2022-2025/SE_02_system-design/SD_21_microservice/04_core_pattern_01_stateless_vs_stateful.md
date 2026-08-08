@@ -1,9 +1,5 @@
 #  stateful and stateless architectures
 - https://www.youtube.com/watch?v=QDiPjMWeVC0
-- **examples**
-  - streaming services
-  - online shopping carts 
-  - authentication systems (JSession vs JWT Token)
 
 ## Stateful Arch
 - Stores session data on a specific server or device
@@ -26,6 +22,6 @@
 - so it's not like, no-state, but state is maintained outside the node. 👈🏻
 
 **Session in DS** (3 ways)
-![img_2.png](../../../../99_img/2026/01/01/img_2.png)
+![img_2.png](../../../99_img/2026/01/01/img_2.png)
 
-![img_3.png](../../../../99_img/2026/01/01/img_3.png)
+![img_3.png](../../../99_img/2026/01/01/img_3.png)

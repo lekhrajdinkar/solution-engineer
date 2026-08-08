@@ -1,4 +1,4 @@
-# CQRS
+# CQRS vs CRUD
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360668/posts/2192532488
 ---
 ## Overview
@@ -42,6 +42,8 @@ flowchart LR
     style QRY fill:yellow,color:black
 ```
 ## Pure CQRS
+
+![img_2.png](../../../../99_img/2025/se_02_sd/01/05/img_2.png)
 
 ```mermaid
 flowchart LR

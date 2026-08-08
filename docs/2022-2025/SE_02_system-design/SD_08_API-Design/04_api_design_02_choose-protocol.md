@@ -1,7 +1,8 @@
 # API Design : choose protocol
-- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2160312223/posts/2198424022
-- https://www.youtube.com/watch?v=oyYnRVQvxv4
-- [Communication-pattern ⭐](../SD_03_Core-building-blocks/SD_03_54_Communication-pattern)
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2160312223/posts/2198424022 | choose protocol
+- https://www.youtube.com/watch?v=oyYnRVQvxv4 | all protocol - overview
+- https://youtu.be/AMNWLz_f6qM?si=4XOhFrP3EwsTYrpB | REST vs gRPC in Microservices ... ⭐
+- [service Communication pattern (4) ⭐](../SD_03_Core-building-blocks/SD_03_54_Communication-pattern)
 ---
 ## Choose right Protocols 
 
@@ -56,7 +57,8 @@ flowchart LR
 check below for detail:
 
 ---
-## A. Protocol: sync request-response
+## A. Protocol for :: request-response (sync)
+[synchronous comm pattern](../SD_03_Core-building-blocks/SD_03_54_Communication-pattern/01_synchronous.md)
 
 > SOAP ⚠️
 > - Old and heavier legacy protocol
@@ -71,69 +73,25 @@ check below for detail:
 
 
 ### 1. REST (Representational State Transfer)
-- [REST Done right.md](03_rest_01_best-principles.md#a-rest-done-right)
-- It's simple and widely understood
-- stable, supported everywhere.
-- but can sometimes lead to **excessive data transfer**
-- or require **multiple requests** to gather necessary information
+- [03_rest_01_best-principles.md](11_rest_01_best-principles.md)
+- [03_rest_02_http-headers.md](11_rest_02_http-headers.md)
+- [03_rest_03_http-evolution.md](11_rest_03_http-evolution.md)
 
 ### 2. GraphQL
-- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2160312223/posts/2198424021
-- Developed by Facebook,
-- GraphQL offers **flexible data fetching**,
-- allowing clients to request exactly what they need in a single query
-- This makes it efficient for mobile apps and scenarios with limited bandwidth
-- runs on top of HTTP
+[13_graphQL_01_overview.md](13_graphQL_01_overview.md)
+
 
 ### 3. gRPC / RPC (Google Remote Procedure Call)
-> RPC treats a remote service call like calling a local function
-- Built on HTTP/2
-- Fast binary payload with gRPC/Protobuf + Generated client/server code
-- Good for low-latency service-to-service calls
-- Both services are controlled by the same organization
+[12_grpc_01_overview.md](12_grpc_01_overview.md)
 
-- Unlike REST, RPC endpoints usually describe actions, not resources.
-```
-CreatePost
-IndexPost
-RankPost
-GetRecommendations
-```
-> - REST: What resource do you want?
-> - RPC: What operation do you want the service to execute?
-
-| REST                   | RPC                          |
-| ---------------------- | ---------------------------- |
-| Resource-oriented      | Action-oriented              |
-| `GET /posts/123`       | `GetPost(123)`               |
-| Usually JSON/HTTP      | Often Protobuf/HTTP2         |
-| Better for public APIs | Better for internal services |
-| Looser coupling        | Tighter contract             |
-
-![img.png](../../../99_img/2025/se_02_sd/rpc.png)
 
 ---
-## B. Protocol: live Streaming
-### 1. WebSocket
-- crucial for real-time persistent communication.
-- full duplex
-
-### 2. SSE (Server-Sent Events)
-- provides one-way server-to-client streaming
-- efficient for continuous feeds from server
-- eg: live comments on YouTube
-- eg: stock tickers
-
-### 3. gRPC streaming
+## B. Protocol for :: Streaming
+SEE, WS, gRPC-stream:
+[streaming comm pattern](../SD_03_Core-building-blocks/SD_03_54_Communication-pattern/03_streaming.md#2-websocket--wss)
 
 ---
-## C. Protocol: Async messaging
-### 1. AMQP (Advanced Message Queuing Protocol)
--  messaging protocols for asynchronous communication.
--  decouples services
-- allowing messages to be reliably delivered
-    - even if a service is temporarily offline
-
-### 2. MQTT (Message Queuing Telemetry Transport)
--  **lightweight** publish-subscribe protocol
-- ideal for tiny **IoT devices** like smart homes and connected cars, chatting with each others
+## C. Protocol for :: messaging (async)
+Kafka, AMQP, MQTT
+- [Messaging protocols](../../PE_03_message-broker/02_Messaging-protocols.md) 
+- [asynchronous comm pattern](../SD_03_Core-building-blocks/SD_03_54_Communication-pattern/02_asynchronous.md)
