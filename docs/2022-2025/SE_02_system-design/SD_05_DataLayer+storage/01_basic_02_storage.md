@@ -6,25 +6,20 @@
 
 ---
 ## Storage type
-💠**Magnetic Storage**
-
+### Magnetic Storage
 | Type            | Description           | Speed     | Usage                 |
 | --------------- | --------------------- | --------- | --------------------- |
 | **HDD**         | Spinning disk storage | Medium    | PCs, servers, backups |
 | **Floppy Disk** | Obsolete tech         | Very Slow | Old systems           |
 
-
-💠**Solid-State Storage / SSD**
-
+### Solid-State Storage / SSD
 | Type                           | Description           | Speed          | Usage             |
 | ------------------------------ | --------------------- | -------------- | ----------------- |
 | **SSD (SATA/NVMe)**            | Fast, no moving parts | Fast–Very Fast | Laptops, desktops |
 | **Flash Drive (USB)**          | Portable, flash-based | Medium–Fast    | File transfers    |
 | **Memory Cards (SD, microSD)** | Compact storage       | Medium         | Cameras, phones   |
 
-
-💠**Optical Storage**
-
+### Optical Storage
 | Type        | Description             | Speed    | Usage                 |
 | ----------- | ----------------------- | -------- | --------------------- |
 | **CD/DVD**  | Laser-read storage      | Slow     | Media, backups        |

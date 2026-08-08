@@ -1,21 +1,15 @@
 # Memory
-## Overview
-- https://www.youtube.com/post/UgkxoX2eonTJj6Kg95C5IuYPFRHCA-UDQEh5 bbgo
+https://www.youtube.com/post/UgkxoX2eonTJj6Kg95C5IuYPFRHCA-UDQEh5 bbgo
 
 ---
-## types
-**Primary Memory**
-- Main Memory
-- Temporary
+## A. Primary Memory (Volatile)
+| Type          | Description                     | Example Usage        |
+| ------------- | ------------------------------  | -------------------- |
+| **RAM**       | Temporary working memory        | Running programs     |
+| **Cache**     | Small, fast memory in CPU       | Speeds up CPU access |
+| **Registers** | Smallest & fastest, inside CPU  | CPU operations       |
 
-| Type          | Description                    | Volatile | Example Usage        |
-| ------------- | ------------------------------ | -------- | -------------------- |
-| **RAM**       | Temporary working memory       | ✅ Yes    | Running programs     |
-| **Cache**     | Small, fast memory in CPU      | ✅ Yes    | Speeds up CPU access |
-| **Registers** | Smallest & fastest, inside CPU | ✅ Yes    | CPU operations       |
-
-RAM Types further
-
+### 1. RAM
 | Type                         | Description                            | Usage                        |
 | ---------------------------- |----------------------------------------|------------------------------|
 | **SRAM (Static RAM)**        | 🔸 Fast, expensive, no need to refresh | 🔸 CPU cache                 |
@@ -26,12 +20,16 @@ RAM Types further
 | **VRAM (Video RAM)**         | Specialized for graphics               | GPUs                         |
 | **ECC RAM**                  | Error-correcting                       | Servers and critical systems |
 
-**Secondary Memory**
+### 2. Cache
+### 3. Registers
+
+---
+## B. Secondary Memory (Non-Volatile)
 - Non-Volatile
 - Permanent Storage
 
-| Type             | Description                       | Volatile | Example Usage          |
-| ---------------- | --------------------------------- | -------- | ---------------------- |
-| **ROM**          | Stores firmware, read-only mostly | ❌ No     | BIOS, embedded devices |
-| **Flash Memory** | Erasable, rewriteable ROM         | ❌ No     | SSD, USB, firmware     |
-| **EEPROM**       | Electrically erasable ROM         | ❌ No     | Microcontrollers       |
+| Type             | Description                         | Example Usage          |
+| ---------------- | --------------------------------- | ---------------------- |
+| **ROM**          | Stores firmware, read-only mostly      | BIOS, embedded devices |
+| **Flash Memory** | Erasable, rewriteable ROM            | SSD, USB, firmware     |
+| **EEPROM**       | Electrically erasable ROM             | Microcontrollers       |
