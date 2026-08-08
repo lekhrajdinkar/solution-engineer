@@ -1,10 +1,15 @@
 # Modern : Event-Driven Architecture (EDA)
-## ✔️References
+References
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2190592891
 - https://www.youtube.com/watch?v=hrvx8Nv9eQA
+- https://youtube.com/watch?v=q7K20k6rV9E
 - [evolution-of-system.md](../SD_01_foundation/01_basic_01_evolution.md)
 - [Message-broker / Event-broker](../../PE_03_message-broker)
 - [⭐event-loop](../SD_01_foundation/05_concept_05_event-loop.md)
+
+---
+## ✔️Asynchronous Communication pattern ⭐
+- [Communication pattern :: asynchronous](../SD_03_54_Communication-pattern/02_asynchronous.md)
 
 ---
 ## ✔️Overview
@@ -24,7 +29,25 @@
 ## ✔️Architecture 
 ![img_2.png](../../../../99_img/2025/se_02_sd/01/04/img_2.png)
 ### 1. Event / message
-- eg: order placed event
+
+| Type                 | Meaning                                       | Example                                              |
+| -------------------- | --------------------------------------------- | ---------------------------------------------------- |
+| **Document Message** | Sends data the receiver can interpret/process | `CustomerProfile`, `Invoice`, `OrderDetails`         |
+| **Command Message**  | Tells a specific receiver to **do something** | `ProcessPayment`, `SendEmail`, `ReserveInventory`    |
+| **Event Message**    | Announces that **something already happened** | `OrderCreated`, `PaymentCompleted`, `UserRegistered` |
+
+```mermaid
+flowchart LR
+    S[Sender] --> M[Message Channel]
+
+    M --> D[Document Message<br/>Data to process]
+    M --> C[Command Message<br/>Perform an action]
+    M --> E[Event Message<br/>Something happened]
+
+    D --> R[Receiver]
+    C --> R
+    E --> R
+```
 
 ### 2. Broker
 - Allows producers and consumers to communicate, without direct knowledge of each other, 
@@ -36,8 +59,20 @@
     - ...
 - these act as **persistence solution** as well, storing message/event.
 
+| Technology            | Point-to-Point                                                       | Publish-Subscribe                                      |
+| --------------------- | -------------------------------------------------------------------- | ------------------------------------------------------ |
+| **JMS**               | Queue                                                                | Topic                                                  |
+| **Kafka**             | Topic partition consumed by one consumer **within a consumer group** | Same topic consumed by **multiple consumer groups**    |
+| **RabbitMQ**          | Queue, often via direct/default exchange                             | Fanout/topic exchange → multiple queues                |
+| **AWS Kinesis**       | Stream/shard consumed by applications                                | Enhanced fan-out allows multiple independent consumers |
+| **AWS SQS**           | Queue                                                                | Not native pub-sub by itself                           |
+| **AWS SNS + SQS**     | —                                                                    | SNS topic → multiple SQS queues                        |
+| **Google Pub/Sub**    | One subscription consumed by competing consumers                     | Topic → multiple subscriptions                         |
+| **Azure Service Bus** | Queue                                                                | Topic → multiple subscriptions                         |
+
+
 ### 3. Producers 
-- Micro-services or systems that generate events.
+- Microservices or any systems that generate events/message/command
 
 ### 4. Consumers  
 - Services that consume events and then trigger various actions.
@@ -46,9 +81,6 @@
   - Multiple events are aggregated 
   - and analyzed to detect patterns
 
----
-## ⭐Asynchronous Comm pattern
-[02_asynchronous.md](../SD_03_54_Communication-pattern/02_asynchronous.md)
 
 ---
 ## ✔️Real-World EDA Use Cases: 
@@ -61,7 +93,7 @@
 > - Netflix uses EDA for asynchronous user events
 > - and a Service Mesh for synchronous service-to-service communication.
 
-![img.png](../../../99_img/2025/se_02_sd/01/04/img.png)
+![img.png](../../../../99_img/2025/se_02_sd/01/04/img.png)
 
 ### 2. Uber
 - Manages millions of rides daily using EDA 
@@ -72,4 +104,4 @@
   - pricing. 
 - Uber also collects real-time traffic data via telemetry events from driver phones, optimizing routes.
 
-![img_1.png](../../../99_img/2025/se_02_sd/01/04/img_1.png)
+![img_1.png](../../../../99_img/2025/se_02_sd/01/04/img_1.png)

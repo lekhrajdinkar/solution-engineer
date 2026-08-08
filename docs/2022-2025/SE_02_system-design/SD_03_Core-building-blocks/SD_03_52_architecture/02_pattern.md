@@ -63,7 +63,7 @@ benefits
 # 3. Hexagonal Architecture 
 > extension over onion with Ports and Adapters Architecture
 
-![img.png](img.png)
+![img.png](../../../../99_img/2025/se_02_sd/01/05/img.png)
 
 ---
 ## 4. Modular architecture
@@ -111,7 +111,7 @@ overview:
 - Core provides basic/common functionality.
 - Plugins extend the system without modifying the core.
 
-![img_1.png](img_1.png)
+![img_1.png](../../../../99_img/2025/se_02_sd/01/05/img_1.png)
 
 ---
 ## 6. Event-Driven Architecture 
@@ -122,11 +122,16 @@ overview:
 [02_pattern_07_CQRS.md](02_pattern_07_CQRS.md)
 
 ---
-## Service-Oriented Architecture (SOA)
+## 8. Service-Oriented Architecture (SOA)
+- https://youtube.com/watch?v=E7kXoO9Z0NA
+- Modulith (Modular monolith)
+
 overview:
 - Organize system into reusable business services
 - Often synchronous: REST, SOAP, RPC
 - Request → response | NOT event based
+- shared DB 
+- complex bus
 
 > - SOA defines how you divide the system into services.
 > - EDA defines how components communicate and react to changes.

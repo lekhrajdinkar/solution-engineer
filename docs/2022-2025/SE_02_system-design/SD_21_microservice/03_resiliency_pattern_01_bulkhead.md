@@ -7,9 +7,9 @@
 - a crucial resilience strategy for microservices architecture designed to prevent cascading failures in a system.
 - isolates system components so that if one part fails (e.g., due to a surge in background tasks), it does not crash the entire platform (0:23-0:31).
 
-![img.png](img.png)
+![img.png](../../../99_img/2025/se_02_sd/01/06/img.png)
 
-![img_1.png](img_1.png)
+![img_1.png](../../../99_img/2025/se_02_sd/01/06/img_1.png)
 ---
 ## 1. Identify Critical Services
 Not every service should get the same resource priority.

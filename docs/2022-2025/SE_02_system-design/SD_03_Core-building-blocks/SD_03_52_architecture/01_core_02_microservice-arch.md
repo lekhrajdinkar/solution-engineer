@@ -1,6 +1,7 @@
 # Microservice Architecture
+> [**Microservice :: COMPLETE GUIDE**](../../SD_21_microservice) 👈👈
+
 References
-- [SD_21_microservice](../../SD_21_microservice) 👈
 - https://youtube.com/watch?v=pq9WUeKSjTM | when to use ms.
 - https://chatgpt.com/c/2f54de12-b416-4a76-80a0-ebd286b0c467 | ms arch
 - https://chat.deepseek.com/a/chat/s/6e7456d4-cc1b-42be-ae19-c3ede730936f | ms comm
@@ -66,12 +67,6 @@ flowchart LR
 - Observability and debugging
 - Deployment and operational complexity
 - Higher infrastructure cost
-
----
-## ✔️ Core concept
-- [service-discovery](../../SD_21_microservice/02_core_01_service-discovery.md)
-- [comm_pattern.md](../../SD_21_microservice/04_comm_pattern.md)
-- [resiliency_pattern](../../SD_21_microservice/03_resiliency_pattern.md)
 
 ---
 ## ✔️ Microservices: Tooling ecosystem

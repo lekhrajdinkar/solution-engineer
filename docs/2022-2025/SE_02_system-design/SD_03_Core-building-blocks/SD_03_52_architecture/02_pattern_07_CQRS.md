@@ -43,7 +43,7 @@ flowchart LR
 ```
 ## Pure CQRS
 
-![img_2.png](img_2.png)
+![img_2.png](../../../../99_img/2025/se_02_sd/01/05/img_2.png)
 
 ```mermaid
 flowchart LR

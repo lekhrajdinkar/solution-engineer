@@ -1,8 +1,14 @@
 # RPC
+- https://youtube.com/watch?v=4w8pEyJMpvo
+
+---
 ## Overview
-> RPC treats a remote service call like calling a local function
-- Built on **HTTP/2**
-- Fast binary payload with **gRPC/Protobuf** + Generated client/server code
+> - RPC treats a remote service call like calling a local function
+> - ecosystem is not matured as REST
+
+- Built on **HTTP/2** (thus supports streaming ?)
+- Fast binary payload (compact/small) with **gRPC/Protobuf** + Generated client/server code
+- No explicit code to ser-de, automatically happens.
 
 ![img.png](../../../99_img/2025/se_02_sd/rpc.png)
 
@@ -10,6 +16,9 @@
 ## Good for:
 - low-latency service-to-service calls
 - Both services are controlled by the same organization
+
+not good for:
+- limited browser support, hence hard for UI developer to work with.
 
 ---
 ## REST vs GRPC

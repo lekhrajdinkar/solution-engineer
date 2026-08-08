@@ -18,9 +18,3 @@ IPC format:
 - [03_streaming.md](03_streaming.md)
 - [04_batch_file_based.md](04_batch_file_based.md)
 - [05_more.md](05_more.md)
-
----
-## API Design
-[API-Design](../../SD_08_API-Design)
-- [api_design_01_approach.md](../../SD_08_API-Design/04_api_design_01_approach.md)
-- [api_design_02_choose-protocol.md](../../SD_08_API-Design/04_api_design_02_choose-protocol.md)
