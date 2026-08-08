@@ -14,6 +14,15 @@ flowchart LR
     I --> IDB[(Inventory DB)]
 ```
 
+- **Implementation Approaches**
+    - Private table/s per service
+    - Schema per service
+    - Database server per service
+  
+- solution:
+    - data will propagate from service to service via event data. 👈🏻
+
+
 ## Benefits
 ```
 Loose coupling
@@ -27,13 +36,13 @@ Failure/data changes are isolated
 | Challenge           | Why                                        |
 | ------------------- | ------------------------------------------ |
 | **Cross-service joins** | Data exists in different DBs               |
-| Transactions        | No simple ACID transaction across services |
+| Distributed transactions        | No simple ACID transaction across services |
 | **Consistency**         | Usually requires eventual consistency      |
 | Reporting           | Aggregating data becomes harder            |
+|Data duplication||
 
 ## Solutions
-- Saga Pattern
-- Event-driven communication
-- CQRS
-- Event Sourcing
+- Saga Pattern  [distributed-Transaction.md](../SD_06_Distributed-system/02_03_distributed-Transaction.md#saga-choreography)
+- Event-driven communication [asynchronous.md](../SD_03_Core-building-blocks/SD_03_54_Communication-pattern/02_asynchronous.md#2-event-driven)
+- CQRS and Event Sourcing
 - API Aggregation [aggregator.md](04_core_pattern_03_aggregator.md)

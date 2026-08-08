@@ -1,17 +1,63 @@
 # Service Discovery 
-https://www.youtube.com/watch?v=ecuEkmFs5Vk
+- https://youtube.com/watch?v=ecuEkmFs5Vk
 
 ## Overview
-> - In a **monolithic application**, components are bundled, making communication simple
-> - In a **microservices architecture**, applications are split into multiple smaller services deployed across different servers or containers
 
-mechanism that allows :
-- applications to locate services dynamically.
+> Dynamically find healthy service instances without hardcoding IP addresses.
+
+In microservices, service instances can **start, stop, scale, or change IP addresses**. 
+Service discovery lets one service find the current network location of another service.
+
+**Service Registry**
+- Service instances must be registered with and deregistered from the service registry.
+- Self-Registration Pattern
+- heartbeat mechanism: It sends heartbeat requests to prevent registration from expiring.
+- eg:
+    - Consul, Eureka
+    - K8s, coreDNS, etcd
+    - AWS Cloud Map
+  
+**Self registration pattern**
 - microservice/s to automatically discover each other on the network.
-- Instead of hardcoding IP addresses or URLs, 
-  - **uses service name** or other identifier 
+- Instead of hardcoding IP addresses or URLs,  **uses service name** or other identifier 
 
-benefit ✔️
+```mermaid
+flowchart LR
+    S1[Service Instance<br/>10.3.4.1:2020]
+    S2[Service Instance<br/>10.3.4.2:2020]
+
+    S1 -->|register + heartbeat| R[(Service Registry)]
+    S2 -->|register + heartbeat| R
+
+    C[Client / Another Service] -->|lookup service| R
+    R -->|healthy instance list| C
+    C -->|call| S1
+```
+
+---
+## Types
+| Model                     | How it works                                               |
+| ------------------------- | ---------------------------------------------------------- |
+| **Client-side discovery** | Client asks registry, picks an instance, calls it directly |
+| **Server-side discovery** | Client calls LB/router; LB discovers and selects instance  |
+
+
+```mermaid
+
+flowchart LR
+    O[Order Service] --> LB[Load Balancer]
+
+    P[Payment Service<br/>10.3.4.1:2020] -->|register + heartbeat| E[(Eureka)]
+    U[User Authorization<br/>10.3.4.1:2021] -->|register + heartbeat| E
+    I[Inventory Service<br/>10.3.4.1:2022] -->|register + heartbeat| E
+
+    LB -->|query healthy instances| E
+    E -->|instance list| LB
+
+    LB -->|route request| I
+```
+---  
+## benefit 
 - scalability 
   - Dynamically adjusts as new service instances are added or removed,
   - thus, enabling seamless application scaling
@@ -22,27 +68,9 @@ benefit ✔️
   - Ensures that if a service instance fails, 
   - other instances can be used without manual intervention
   
-**Service Registry (key component)** ✔️
-- `Service instances` must be registered with and deregistered from the service registry.
-- crucial component that needs to be **highly available and up-to-date**
-- Self-Registration Pattern 
-- heartbeat mechanism
-  - It sends heartbeat requests to prevent registration from expiring.
-- eg:
-  - `Consul or Eureka`
-  - K8s, coreDNS, etcd, AWS Cloud Map
 
----
-## Types
-### Client-Side 
-- client queries a service registry 
-- and uses the information to connect to the appropriate service
 
-### Server-Side Discovery ✔️
-- client sends a generic request to a central **load balancer or Gateway**
-- load balancer/Gateway handles the discovery process 
-- and forwards the request to the correct service.
-- eg: AWS API gateway, AWS ALB
+
 
 ---
 ## Java SB snippets
