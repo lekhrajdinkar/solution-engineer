@@ -1,6 +1,7 @@
 # Structural Patterns (Object composition & structure)
 - Used to organize classes and objects cleanly.
 
+## Quick summary
 | Pattern       | Core Idea                                           | Simple Meaning                                 | Java / Microservice Example                                                    | When to Use                                                         |
 | ------------- | --------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
 | **Adapter**   | Convert one interface into another                  | **Translator** between incompatible systems    | `FundService` talks to `BloombergAdapter` or `VendorPricingAdapter`            | External API, legacy system, protocol mismatch                      |
@@ -11,7 +12,7 @@
 | **Flyweight** | Share common immutable objects                      | Reuse instead of creating duplicates           | Share `SecurityMetadata` objects for same ticker/security                      | Huge number of similar objects, memory optimization                 |
 | **Proxy**     | Stand in front of real object and control access    | **Gatekeeper / representative**                | `FundServiceProxy` adds auth, lazy loading, remote call, cache                 | Security, remote calls, lazy initialization, caching                |
 
-MindMap
+## MindMap
 ```
 Adapter   → translate
 Bridge    → separate abstraction from implementation
@@ -203,7 +204,7 @@ classDiagram
 ```
 
 ---
-## Facade
+## 5. Facade
 one simple interface in front of multiple complex services.
 
 ```mermaid
@@ -231,7 +232,7 @@ classDiagram
     style TdfPortfolioFacade fill:yellow,color:black
 ```
 ---
-## Composite  
+## 6. Composite  
 - Composite = treat a single object and a group of objects the same way.
 - Best fit for tree / hierarchy structures. 👈
 
@@ -260,7 +261,7 @@ classDiagram
 ```
 
 ---
-## Flyweight 
+## 7. Flyweight 
 - share common **immutable data** instead of creating duplicate objects.
 
 ```
