@@ -9,7 +9,7 @@ References
 
 ---
 ## ✔️Asynchronous Communication pattern ⭐
-- [Communication pattern :: asynchronous](../SD_03_54_Communication-pattern/02_asynchronous.md)
+- [Communication pattern :: asynchronous](../SD_03_54_IPC/02_asynchronous.md)
 
 ---
 ## ✔️Overview
