@@ -2,7 +2,7 @@
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2160312223/posts/2198424022 | choose protocol
 - https://www.youtube.com/watch?v=oyYnRVQvxv4 | all protocol - overview
 - https://youtu.be/AMNWLz_f6qM?si=4XOhFrP3EwsTYrpB | REST vs gRPC in Microservices ... ⭐
-- [service Communication pattern (4) ⭐](../SD_03_Core-building-blocks/SD_03_54_Communication-pattern)
+- [service Communication pattern (4) ⭐](../SD_03_Core-building-blocks/SD_03_54_IPC)
 ---
 ## Choose right Protocols 
 
@@ -58,7 +58,7 @@ check below for detail:
 
 ---
 ## A. Protocol for :: request-response (sync)
-[synchronous comm pattern](../SD_03_Core-building-blocks/SD_03_54_Communication-pattern/01_synchronous.md)
+[synchronous comm pattern](../SD_03_Core-building-blocks/SD_03_54_IPC/01_synchronous.md)
 
 > SOAP ⚠️
 > - Old and heavier legacy protocol
@@ -88,10 +88,10 @@ check below for detail:
 ---
 ## B. Protocol for :: Streaming
 SEE, WS, gRPC-stream:
-[streaming comm pattern](../SD_03_Core-building-blocks/SD_03_54_Communication-pattern/03_streaming.md#2-websocket--wss)
+[streaming comm pattern](../SD_03_Core-building-blocks/SD_03_54_IPC/03_streaming.md#2-websocket--wss)
 
 ---
 ## C. Protocol for :: messaging (async)
 Kafka, AMQP, MQTT
 - [Messaging protocols](../../PE_03_message-broker/02_Messaging-protocols.md) 
-- [asynchronous comm pattern](../SD_03_Core-building-blocks/SD_03_54_Communication-pattern/02_asynchronous.md)
+- [asynchronous comm pattern](../SD_03_Core-building-blocks/SD_03_54_IPC/02_asynchronous.md)

@@ -8,9 +8,9 @@
   - [microservice-arch :: Overview](../SD_03_Core-building-blocks/SD_03_52_architecture/01_core_02_microservice-arch.md)
   - ...
   
-## Distributed System and challenges
+## Distributed System and challenges 
 - Microservice are distributed system.
-- [Distributed-system :: details](../SD_06_Distributed-system)
+- [Distributed-system :: details ⭐](../SD_06_Distributed-system)
 
 ---
 ## API-Design
@@ -40,7 +40,7 @@
 - [**ambassador**](04_core_pattern_04_ambassador.md)
 ---
 ## Microservice :: communication pattern
-- [⭐Communication-pattern](../SD_03_Core-building-blocks/SD_03_54_Communication-pattern)
+- [⭐Communication-pattern](../SD_03_Core-building-blocks/SD_03_54_IPC)
 
 More Reference:
 - https://youtube.com/watch?v=q7K20k6rV9E

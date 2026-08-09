@@ -1,7 +1,7 @@
 # 2026
 ## Docs
 ### Solution Engineer
-- [Design_pattern](SE_01_Design_pattern)
+- [Design_pattern](../2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SE_01_Design_pattern)
 
 ### Platform Engineer
 - [PE_01_Datadog ... ](PE_01_Datadog)
