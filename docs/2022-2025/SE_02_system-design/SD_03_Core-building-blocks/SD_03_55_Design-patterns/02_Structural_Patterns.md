@@ -1,5 +1,4 @@
 # Structural Patterns (Object composition & structure)
-- Used to organize classes and objects cleanly.
 
 ## Quick summary
 | Pattern       | Core Idea                                           | Simple Meaning                                 | Java / Microservice Example                                                    | When to Use                                                         |

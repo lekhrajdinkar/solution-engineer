@@ -1,19 +1,81 @@
 # Behavioral Patterns (Communication & responsibility)
 - Used when objects need to talk to each other sanely.
+- https://youtube.com/watch?v=NP7RmrHn1Q0
 
-## Chain of Responsibility  
-- Request flows through handlers
+---
+## 1. Observer  ⭐
+- Publish/subscribe model
+- Purpose: when one object changes, automatically notify many interested objects.
+- **subject --> observers**
+- backbone of event-driven, UI frameworks, etc
 
+```mermaid
+classDiagram
+
+    class FundAllocationSubject {
+        -List~FundObserver~ observers
+        +addObserver(FundObserver)
+        +removeObserver(observer)
+        +notifyObservers()
+    }
+
+    class FundObserver {
+        <<interface>>
+        +update(fundId)
+    }
+
+    class RiskService
+    class ReportingService
+    class ComplianceService
+
+    FundObserver <|.. RiskService
+    FundObserver <|.. ReportingService
+    FundObserver <|.. ComplianceService
+
+    FundAllocationSubject --> FundObserver : notifies
+```
+---
+## 2. Strategy
+- Swap algorithms at runtime
+- Purpose: define multiple interchangeable algorithms behind the same interface, then choose one at runtime.
+
+```mermaid
+classDiagram
+
+    class AllocationStrategy {
+        <<interface>>
+        +allocate()
+    }
+
+    class GrowthStrategy {
+        +allocate()
+    }
+    class BalancedStrategy {
+        +allocate()
+    }
+    class ConservativeStrategy {
+        +allocate()
+    }
+    class TargetDateFund {
+        -AllocationStrategy strategy
+        +setStrategy(strategy)
+        +rebalance()
+    }
+    AllocationStrategy <|.. GrowthStrategy
+    AllocationStrategy <|.. BalancedStrategy
+    AllocationStrategy <|.. ConservativeStrategy
+    TargetDateFund --> AllocationStrategy : uses
+```
+---
 ## Command ✔️
 - https://youtu.be/USLwIwyWVIM bm
-- [https://www.perplexity.ai/search/command-pattern-in-oop-J8oD_ouMTaigVow8ijg8mg](https://www.perplexity.ai/search/command-pattern-in-oop-J8oD_ouMTaigVow8ijg8mg)
 - behavioral design pattern that encapsulates a **request or action** as an object.
 - Analogy/situation: re-mappable remote to different device. 👈🏻
 - **component**:
     - **command** interface :: execute()
         - concrete command 1 ::  execute(){...}
         - concrete command 2 ::  execute(){...}
-    - **receiver**  class - contains the actual business logic.
+    - **receiver**  class - contains the **actual business logic**.
         - b1(){...}
         - b2(){...}
     - **invoker** class - invokes the command
@@ -70,6 +132,9 @@ public class CommandPatternDemo {
 
 ```
 
+## Chain of Responsibility
+- Request flows through handlers
+
 ##  Interpreter  
 - Define grammar + interpret language
 
@@ -82,14 +147,11 @@ public class CommandPatternDemo {
 ## Memento  
 - Capture & restore state (undo/redo)
 
-## Observer  
-- Publish/subscribe model
 
 ## State  
 - Change behavior based on internal state
 
-## Strategy  
-- Swap algorithms at runtime
+
 
 ## Template Method  
 - Algorithm skeleton with overridable steps

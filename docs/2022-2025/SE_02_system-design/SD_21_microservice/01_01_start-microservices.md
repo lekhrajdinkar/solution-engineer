@@ -54,7 +54,7 @@ More Reference:
 - [Circuit breakers](03_resiliency_pattern_02_circuit-breaker.md)
 - [Rate Limiting](../SD_04_protecting-servers/02_protection_03_RateLimiting.md)
 - [auto-scaling](../SD_04_protecting-servers/02_protection_01_auto-scaling.md)
-
+    - [heartbeat_2.md](../SD_01_foundation/03_concept_02_heartbeat_2.md)
 ---
 
 ## Microservice :: Modern tooling

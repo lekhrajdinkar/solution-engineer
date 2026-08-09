@@ -4,11 +4,57 @@ In system design, a **heartbeat mechanism** - is a periodic signal sent between 
 
 > It is essential for fault detection, high availability, and load balancing.
 
+```
+/liveness
+   └── Is this application/process alive?
+
+/readiness
+   ├── Is MySQL available?
+   ├── Is RabbitMQ available?
+   └── Can this instance serve requests?
+
+/synthetic-health
+   ├── Execute representative DB operation
+   ├── Execute representative messaging operation
+   └── Validate important business flow
+
+springboot :: implement HealthIndicator  👈
+```
+```mermaid
+flowchart LR
+    INV[Health Check Invoker]
+
+    subgraph SVC[Microservice]
+        HC[Health Check Endpoint]
+
+        APP[Health Check Handler]
+
+        DBCHK[Database Health Check]
+        MQCHK[Messaging Health Check]
+
+        HC --> APP
+        APP --> DBCHK
+        APP --> MQCHK
+    end
+
+    DB[(MySQL)]
+    MQ[(RabbitMQ)]
+
+    INV -->|GET /health| HC
+
+    DBCHK -->|Synthetic query| DB
+    MQCHK -->|Synthetic message/check| MQ
+
+    APP --> RESULT{Aggregate Status}
+
+    RESULT -->|All healthy| UP[UP / Ready]
+    RESULT -->|Dependency failure| DOWN[DOWN / Not Ready]
+```
 ---
 
 ## 1. Primary Implementation Approaches
 
-### A. Push-Based (Active Heartbeat)
+### A. Push-Based (Active Heartbeat) ✔️
 
 - **How it Works:**
   - The monitored node (worker/server) proactively sends periodic messages (e.g., every 1–5 seconds) 
@@ -112,5 +158,5 @@ In system design, a **heartbeat mechanism** - is a periodic signal sent between 
 ## 3. Key Design Considerations
 - **Heartbeat Interval ($T_{interval}$):** - How often the ping/signal is sent.
 - **Timeout ($T_{timeout}$):** - The time window after which a node is marked dead if no signal arrives (typically set to $3 \times T_{interval}$).
-- **Payload Size:*- Keep heartbeat packets as lightweight as possible (often just a minimal payload with node ID, timestamp, and basic metrics).
+- **Payload Size:** Keep heartbeat packets as lightweight as possible (often just a minimal payload with node ID, timestamp, and basic metrics).
 - > ideal values: 5-10 sec interval. 3 mark dead only after 3 consecutive failures --> alarm
