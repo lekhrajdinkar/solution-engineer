@@ -1,4 +1,4 @@
-# CQRS
+# Event sourcing pattern
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360668/posts/2194561781
 ---
 ## Overview

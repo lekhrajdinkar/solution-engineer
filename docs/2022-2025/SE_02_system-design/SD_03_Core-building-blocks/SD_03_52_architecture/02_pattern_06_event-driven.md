@@ -1,18 +1,20 @@
 # Modern : Event-Driven Architecture (EDA)
-References
+## References
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2190592891
 - https://www.youtube.com/watch?v=hrvx8Nv9eQA
 - https://youtube.com/watch?v=q7K20k6rV9E
-- [evolution-of-system.md](../SD_01_foundation/01_basic_01_evolution.md)
-- [Message-broker / Event-broker](../../PE_03_message-broker)
-- [⭐event-loop](../SD_01_foundation/05_concept_05_event-loop.md)
+- [evolution-of-system :: theory](../../SD_01_foundation/01_basic_01_evolution.md)
+- [Message-broker / Event-broker :: complete guide](../../../PE_03_message-broker)
+- [event-loop :: overview](../../SD_01_foundation/05_concept_04_event-loop.md)
 
 ---
 ## ✔️Asynchronous Communication pattern ⭐
 - [Communication pattern :: asynchronous](../SD_03_54_IPC/02_asynchronous.md)
+  - **event based** : webhook, fanOut, event-sourcing/CQRS
+  - messaging based : p2p, pub-sub
 
 ---
-## ✔️Overview
+## ✔️Overview :: EDA
 > - **EDA** focuses on asynchronous, event-based communication,
 > - **Service Mesh** manages synchronous communication.
 
