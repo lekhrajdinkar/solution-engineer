@@ -14,7 +14,8 @@
 
 ---
 ## API-Design
-[API-Design :: complete guide](../SD_08_API-Design)
+- [API-Design :: complete guide](../SD_08_API-Design)
+- https://www.oreilly.com/library/view/mastering-api-architecture/9781492090625/ book
 
 ---
 ## Microservice :: Core pattern
@@ -86,3 +87,16 @@ Kubernetes already covers a lot of infrastructure concerns that older Spring Clo
 | IAM           | No AWS IAM integration               | IAM + IRSA / Pod Identity                |
 | Networking    | Simplified local networking          | VPC, subnets, SGs, ENIs                  |
 | Best for      | Learning, POC, local development     | Staging/production, AWS-native workloads |
+
+---
+
+## hands-on project
+### Java
+- springCloud learning | `currency conversion project`
+  - https://github.com/lekhrajdinkar/spring-cloud/blob/main/README.md 
+  - https://github.com/lekhrajdinkar/spring-microservices-k8s | k8s
+
+- https://github.com/lekhrajdinkar/microservice-java/tree/main/MicroserviceModule
+
+### Python
+- https://github.com/lekhrajdinkar/microservice-python/tree/main/src/webApp1
