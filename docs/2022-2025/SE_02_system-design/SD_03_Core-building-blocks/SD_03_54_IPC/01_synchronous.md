@@ -58,17 +58,9 @@ A stateless, text-based protocol commonly used for APIs, built on top of TCP
 
 ---
 ## 2. RPC / GRPC...
-- **Description**: A high-performance, open-source RPC framework by Google.
-- **Key Features**:
-    - Uses Protocol Buffers (Protobuf) for serialization.
-    - Supports bi-directional streaming.
-    - Highly efficient binary format.
-- **Common Use Cases**:
-    - Low-latency communication in microservices.
-    - Distributed systems needing real-time communication.
-- **Supported by**: Google Cloud, gRPC libraries.
+- [overview](../../SD_08_API-Design/12_grpc_01_overview.md)
 
 ---
-
 ## 3. graphQL
+- [overview](../../SD_08_API-Design/12_grpc_01_overview.md)
 

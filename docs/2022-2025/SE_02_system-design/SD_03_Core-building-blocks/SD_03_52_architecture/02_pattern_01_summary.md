@@ -60,7 +60,7 @@ benefits
 - Good for complex business domains.
 
 ---
-# 3. Hexagonal Architecture 
+## 3. Hexagonal Architecture 
 > extension over onion with Ports and Adapters Architecture
 
 ![img.png](../../../../99_img/2025/se_02_sd/01/05/img.png)

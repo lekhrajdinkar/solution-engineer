@@ -16,9 +16,9 @@ flowchart TD
     B --> G[Threads / CPU / DB connections exhausted]
     G --> H[Server becomes unavailable]
 
-    style B fill:#ffcc80,stroke:#e65100
-    style E fill:#ffab91,stroke:#bf360c
-    style H fill:#ef9a9a,stroke:#b71c1c
+    style B fill:#ffcc80,stroke:#e65100,color:black
+    style E fill:#ffab91,stroke:#bf360c,color:black
+    style H fill:#ef9a9a,stroke:#b71c1c,color:black
 ```
 ```
 Normal traffic:      1,000 requests/sec
