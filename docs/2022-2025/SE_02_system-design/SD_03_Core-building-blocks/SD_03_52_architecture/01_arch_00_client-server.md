@@ -1,7 +1,7 @@
 # Client-Server Architecture
 ## ✔️concepts
 ### 1. DNS `nslookup`
-- [AWS_SSA - DNS + Rout53.md](../../CE_02_AWS_SAA/04_network/02_Rout53.md)
+- [AWS_SSA - DNS + Rout53.md](../../../CE_02_AWS_SAA/04_network/02_Rout53.md)
 - [byteMonk - DNS](https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360643/posts/2192892033)
 
 ### 2. Socket

@@ -1,15 +1,12 @@
-# Design - Distributed System
-> key problems and solutions around : **Network partition** 🌐
-
-## Artifacts ℹ️
-### ByteByteGo
+# System Design - Artifacts
+## ByteByteGo
 - https://www.youtube.com/watch?v=lX4CrbXMsNQ&list=PLCRMIe5FDPsd0gVs500xeOewfySTsmEjf | SD core concepts YT playlist
 - https://bytebytego.com/guides/ | [git](https://github.com/ByteByteGoHq/system-design-101) Engineering Visual Guides | blogs
 - https://blog.bytebytego.com/p/free-system-design-pdf-158-pages | Digital Archive 2025
 - https://bytebytego.com/courses/system-design-interview/design-a-key-value-store | book - vol1 and Vol2(lock)
 
 ---
-### ByteByteMonk
+## ByteByteMonk
 https://academy.bytemonk.io/library | `ldus J12bm | USD 50` |  `78 videos`
 
 YouTube playlist | as of `7/26/2026`
@@ -22,11 +19,11 @@ YouTube playlist | as of `7/26/2026`
 - https://www.youtube.com/watch?v=iQ9arr3TTMA&list=PLJq-63ZRPdBu38EjXRXzyPat3sYMHbIWU | LLM | `77/77`
 
 ---
-### Books 📚
+## Books
 - https://drive.google.com/drive/u/0/folders/1t9Yokdr10orypD3CoExdzfIGT3do9Q3y
 
 ---
-## project ⭐
+## project
 - https://github.com/lekhrajdinkar/microservice-java#%EF%B8%8Fmicro-services-projects
 - https://github.com/lekhrajdinkar/microservice-java#%EF%B8%8Fmicro-services-projects-1
 - https://github.com/lekhrajdinkar/spring-cloud/tree/main/Notes | SpringCloud

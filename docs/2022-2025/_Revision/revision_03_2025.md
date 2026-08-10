@@ -56,7 +56,7 @@ API
 - http://youtube.com/post/UgkxtozRpn2THAPQia4HrwlIUy5Ln86HTEiM?feature=shared | performance
 
 ---
-## `DE` Data Engineer
+## ✔️`DE` Data Engineer
 storage 
 - http://youtube.com/post/UgkxoX2eonTJj6Kg95C5IuYPFRHCA-UDQEh5?feature=shared | Types of Memory and Storage 1
 - http://youtube.com/post/UgkxJsovvbJV_SvF7LlbjbKZ_IHULk1Wy9ir?feature=shared | Types of Memory and Storage 2
@@ -91,7 +91,7 @@ More
   - http://youtube.com/post/UgkxgNhUoa95v_Zl8OQCuNSpW13Yi3vm77XS?feature=shared | k8s Scaling Strategies
 
 ---
-## ✔️ `AI` AI Engineer
+## ✔️ `AI` Engineer
 ML / DL
 - http://youtube.com/post/Ugkx4n7vmuYD8TZg5lC6cVSiC_F3RWbbi4Za?feature=shared | AI Vs Machine Learning Vs Deep Learning Vs Generative AI 🔸
 - http://youtube.com/post/UgkxdJ0F0S58vwtN5ybA8JzQiZ-LkhcT7U7Z?feature=shared | 20 AI concepts
