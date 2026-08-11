@@ -154,34 +154,32 @@ flowchart LR
 
 ---
 ## Where can Caching be Placed
-### Hardware Level
+### 1. Hardware Level
 - CPU caches are built into hardware for faster data retrieval from memory.
 - This is generally out of scope for software engineers
 
-### Client Level
+### 2. Client Level
 - The client can store data to avoid going to the server.
-- redux
+- `redux`
 
-### Server Level 
-💠 **centralized** cache for all node like eg redis. 
+### 3. Server Level 
+### **3.1. centralized** cache
 - ensuring a single source of truth
-- single point of failure
+- single point of failure | SPF
 - simplicity
 - limited scaling
 
 ![img_4.png](../../../99_img/2026/02/01/01/img_4.png) 
 
-💠 **local cache of each node**
-
+#### **3.2. local cache of each node**
 ![img_5.png](../../../99_img/2026/02/01/01/img_5.png)
 
-💠 **Distributed** Caches.
+#### [3.3. Distributed caching](../SD_06_Distributed-system/02_01_distributed-caching.md)
 - fault-tolerant
 - scalable
 - serves the response from closest cache-node, thus improved performance
 - Also suitable for session management
 - **Redis** is beyond just being cache
-- check here: [distributed caching](../SD_06_Distributed-system/02_01_distributed-caching.md)
 
 ---
 ## Caching Invalidation
@@ -192,19 +190,19 @@ we dont want stale data in cache
 
 ---
 ## Cache Eviction Policies 
-Since cache memory is limited, have to free-up space
+> Since cache memory is limited, have to free-up space
 
-💠**Least Recently Used (LRU):** 
+### **Least Recently Used (LRU):** 
 - Removes the data that hasn't been accessed for the longest time
 - oldest one
 
-💠**Least Frequently Used (LFU):** 
+### **Least Frequently Used (LFU):** 
 - Removes data that has been accessed the fewest times (4:07).
 - rarely used
 
-💠**Last-In, First-Out (LIFO)**
+### **Last-In, First-Out (LIFO)**
 
-💠**First-In, First-Out (FIFO)** 
+### **First-In, First-Out (FIFO)** 
 
-💠**random eviction**
+### **random eviction**
 
