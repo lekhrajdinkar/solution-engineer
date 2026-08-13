@@ -2,7 +2,7 @@
 ## Core concepts
 - [AWS_SSA - DNS + Rout53](../../../CE_02_AWS_SAA/04_network/02_Rout53.md) | [DNS 2](https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360643/posts/2192892033)
 - [Socket](../SD_01_foundation/05_concept_03_socket.md) 
-- [http-evolution](../../SD_01_foundation/05_concept_03_http-evolution.md)
+- [http-evolution](../SD_03_53_network/01_basic_02_http-evolution.md)
 
 ---
 ## Communication Patterns

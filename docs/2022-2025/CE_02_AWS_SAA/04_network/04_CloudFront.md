@@ -1,6 +1,6 @@
 # AWS cloudFront (global)
 ## Overview - CDN
-- [01_core_02_CDN.md](../../SE_02_system-design/SD_03_Core-building-blocks/SD_03_53_Transport-delivery/01_core_02_CDN.md)
+- [01_core_02_CDN.md](../../SE_02_system-design/SD_03_Core-building-blocks/SD_03_53_network/02_core_02_CDN.md)
 ---
 ## Pictorial description
 - ![img.png](../99_img/CF/img.png)
