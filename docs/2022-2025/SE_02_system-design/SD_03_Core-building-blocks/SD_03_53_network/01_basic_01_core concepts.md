@@ -1,6 +1,6 @@
 # Network
 
-## Core concepts
+## 1. Core concepts
 - **localhost** resolves to 127.0.0.[1-255] or ::1 (ipv6)| loopback interface
 - `c\:window\System32drivers\etc\host`
 - Ipv4 (4.3 billion only) 
@@ -28,10 +28,6 @@ flowchart LR
 | **Localhost / Loopback** | `127.0.0.1`                    | Refers back to the same machine                     |
 
 
-## 1. Topologies
-- https://youtube.com/watch?v=yBY5GJtmhg0
-- https://youtube.com/watch?v=4znRDbg0SYA
-
 ## 2. DNS
 - https://youtube.com/watch?v=Lsd80uR9Shs (skip)
 
@@ -42,3 +38,11 @@ flowchart LR
 - HTTP (browser language, `stateless` ) 
 - [http-evolution](01_basic_02_http-evolution.md)
 - HTTPS 
+
+## 4. Topologies
+- https://youtube.com/watch?v=yBY5GJtmhg0
+- https://youtube.com/watch?v=4znRDbg0SYA
+
+## 5. NgInx
+- https://youtube.com/watch?v=I6dpN0geIb4
+- [event-loop.md](../../SD_01_foundation/05_concept_04_event-loop.md)
