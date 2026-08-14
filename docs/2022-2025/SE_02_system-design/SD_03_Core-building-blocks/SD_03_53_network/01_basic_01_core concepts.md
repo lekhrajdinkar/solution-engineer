@@ -1,11 +1,27 @@
 # Network
 
 ## 1. Core concepts
-- **localhost** resolves to 127.0.0.[1-255] or ::1 (ipv6)| loopback interface
+**TCP connection**
+- TCP handshake
+- TCP connection established | tunnnel
+- http/https provides abstraction over TCP
+- py, java, etc, all has lib to comm with http/https
+
+```mermaid
+flowchart LR
+    A[Application: Python / Java] --> B[HTTP / HTTPS]
+    B --> C[TCP Connection]
+    C --> D[IP / Network]
+```
+
+**LocalHost**
+- **localhost** resolves to` 127.0.0.1/8` or `::1/8` (ipv6)| loopback interface
 - `c\:window\System32drivers\etc\host`
+
+**IP address**
 - Ipv4 (4.3 billion only) 
 - Ipv6 (340 undecillion)
-- OS is configured to each format
+- OS is configured to switch over formats:
   - socket.getHostByName('localhost') --> can resolve to ipv6 or ipv4
 
 ```mermaid
