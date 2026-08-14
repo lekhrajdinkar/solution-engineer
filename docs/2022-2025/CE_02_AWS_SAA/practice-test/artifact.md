@@ -1,10 +1,11 @@
-# A. AWS-Certified-Cloud-Practitioner-Notes
+# Artifacts
+## A. AWS-Certified-Cloud-Practitioner-Notes
 - https://github.com/muhammad-usman-108/AWS-Certified-Cloud-Practitioner-Notes/tree/master/practice-exam
 - https://quizlet.com/600154168/flashcards?funnelUUID=22fce61a-8fdb-4f63-8f18-0ed160072b7d
 
 ---
-# B. DVA
-## 1. discussion:
+## B. DVA
+### discussion:
 - network : https://chatgpt.com/c/6758e2f0-9fa4-800d-b601-939389407725
 - DB : https://chatgpt.com/c/675945a8-f8b8-800d-a789-e07e6db38e8d
 - lambda : https://chatgpt.com/c/675cb1da-8af8-800d-ab10-a286d742f4e4
@@ -16,17 +17,15 @@
 - Monitor:
   - x-ray : https://chatgpt.com/c/677c6111-b1a8-800d-b8c6-462a6e11d1d6\
 
-## 2. practice exam  
-### Attempt-1
-- https://chatgpt.com/c/676b620b-fa38-800d-87e3-f2a155799864
-- 
+### practice exam  
+- Attempt-1 | https://chatgpt.com/c/676b620b-fa38-800d-87e3-f2a155799864
 
 ---
-# C. SSA
+## C. SSA
 - https://quizlet.com/425396578/aws-solutions-architect-flash-cards/
 - https://prepcatalyst.braincert.com/course/aws-certified-solutions-architect-associate-saa-c03-practice-exams 👈🏻
 
-## 1. discussion (skip)
+### discussion (skip)
 - https://chatgpt.com/c/584769ed-a735-4fa0-958a-208113b7214b
 - https://chatgpt.com/c/41d82701-9ccf-4399-974e-51d717071b9e
 - https://chatgpt.com/c/c2249fb1-ff6e-4346-8c01-b4ecb93888c3
@@ -34,9 +33,9 @@
 - DB https://chatgpt.com/c/f3646de9-ab0a-4651-b6cb-eb094ddc7f66
 - security : https://chatgpt.com/c/6e232391-80c5-4b99-9e57-b7f5b05c5d14
 
----
-## 2. practice exam (udemy stephene) :green_circle:
-### Attempt-1
+
+### practice exam (udemy Stephen) 🍏
+#### Attempt-1
 - #0 https://chatgpt.com/c/8e9fe51d-10e5-41b5-9fa6-adc2eb99628f `17 Q`
 - #1 https://chatgpt.com/c/e0b834ff-6673-4d0b-bb08-6a98e8ea5ef6 `9 Q`
 - #2 https://chatgpt.com/c/acdf2121-6d4d-4b0e-bc1e-852e811bf9fe `22 Q`
@@ -45,7 +44,7 @@
 - #5 https://chatgpt.com/c/c5ccdbcb-5407-454c-9f88-14bf38fddfc5 `13 Q`
 - #6 https://chatgpt.com/c/c07719cd-16bd-4bda-9b6e-b720f4ad5a9c `8 Q`
 
-### Attempt-2
+#### Attempt-2
 - #0 
 - #1 https://chatgpt.com/c/677f94fe-bcd4-800d-97b6-8e267c307c51 `16 Q`
 - #2 https://chatgpt.com/c/6788410d-5fd8-800d-bd9c-f2ff22f9e87d `19 Q`
@@ -53,8 +52,8 @@
 - #4 #5 #6 https://chatgpt.com/c/67955968-7de8-800d-839c-607cf85a6037 `24 Q`
 
 ---
-## 3. practice exam (whizlab ) :yellow_circle:
-### Attempt-1
+### practice exam (whizlab ) ⭐
+#### Attempt-1
 - #1 `84 %`
   - https://chatgpt.com/c/6799e17f-6f00-800d-9331-1c0572dee9d1  free
 - #2 `77 %`
@@ -76,7 +75,3 @@
 - #7 ` ? `
   - https://chatgpt.com/c/67a50f18-381c-800d-9dba-26458c36916e #3 to #7 
 - #8 final :
-
----
-## 4. itexamslab.com :yellow_circle:
-- sample: https://www.itexamslab.com/amazon/saa-c03-dumps.html

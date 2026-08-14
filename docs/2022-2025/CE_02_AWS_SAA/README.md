@@ -36,3 +36,6 @@
 - https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf
 - https://cp.certmetrics.com/amazon/en/home/dashboard | ldus@g | J12a
 - https://533267082359.signin.aws.amazon.com/console | skill builder and cert | ldus@gJ83a
+- https://www.itexamslab.com/amazon/saa-c03-dumps.html
+- [artifact.md](practice-test/artifact.md)
+- [whiteboard.md](practice-test/whiteboard.md)
