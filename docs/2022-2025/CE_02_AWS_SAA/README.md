@@ -1,4 +1,9 @@
 # Reference and links
+
+## AWS-Certified-Cloud-Practitioner-Notes
+- https://github.com/muhammad-usman-108/AWS-Certified-Cloud-Practitioner-Notes/tree/master/practice-exam
+- https://quizlet.com/600154168/flashcards?funnelUUID=22fce61a-8fdb-4f63-8f18-0ed160072b7d
+
 ## udemy
 - https://courses.datacumulus.com/downloads/certified-solutions-architect-pn9/
 - https://courses.datacumulus.com/downloads/certified-solutions-architect-professional-m0v/
@@ -19,7 +24,6 @@
 - https://aws.amazon.com/architecture/
 - https://aws.amazon.com/solutions/
 
-
 ## white paper
 - Architecting for the cloud
   - https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf (Archived)
@@ -37,5 +41,5 @@
 - https://cp.certmetrics.com/amazon/en/home/dashboard | ldus@g | J12a
 - https://533267082359.signin.aws.amazon.com/console | skill builder and cert | ldus@gJ83a
 - https://www.itexamslab.com/amazon/saa-c03-dumps.html
-- [artifact.md](practice-test/artifact.md)
-- [whiteboard.md](practice-test/whiteboard.md)
+- [artifact.md](practice-test/whizlab/README.md)
+- [whiteboard.md](practice-test/udemy-Stephen/whiteboard.md)
