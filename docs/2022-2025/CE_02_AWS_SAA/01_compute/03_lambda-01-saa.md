@@ -2,7 +2,7 @@
 --- 
 # AWS Lambda 
 ## A. Lambda:Function
-- ![img.png](../99_img/dva/l/01/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/l/01/img.png)
 - lambda initially was `FaaS`. Now serverless : `provision code/function` 
 - lambda@edge - globally service. :point_left:
   - author: **us-east-1**
@@ -16,7 +16,7 @@
 
 ### 1. Scaling
 - auto-scale with load` (parallel Lambdas, `max- 1000`)
-- ![img_4.png](../99_img/compute/lambda/img_4.png)
+- ![img_4.png](../../../99_img/2025/aws-ssa/compute/lambda/img_4.png)
 
 ### 2. Network :o:
 - default: run in **aws owned VPC** (has public internet access) 
@@ -28,7 +28,7 @@
   - deployed in `public subnet` (igw attached)
     - still **don't have internet** access by-default :point_left: :point_left:
   - Get internet access with **NAT**
-    - ![img.png](../99_img/dva/l/01/img-vpc-1.png)
+    - ![img.png](../../../99_img/2025/aws-ssa/dva/l/01/img-vpc-1.png)
     - deploy lambda in private subnet
     - update rtb, to route traffic 0.0.0.0.\0 traffic to NAT gateway
     - this is the only way.
@@ -52,7 +52,7 @@
 #### **5.-1. create function**:
   - [create function with x-ray tracing](https://www.udemy.com/course/aws-certified-developer-associate-dva-c01/learn/lecture/26623428#overview)
   - create from web-console, cli commands, terraform plan, cloudFormation template (upload zip to s3 (versioned))
-  - ![img_4.png](../99_img/dva/l/img_4.png)
+  - ![img_4.png](../../../99_img/2025/aws-ssa/dva/l/img_4.png)
 
 #### **5.0. Basic**
 - **compute-time /timeout**: 
@@ -71,7 +71,7 @@
 - **language/runtime** : 
   - node, py, java, Golang, C#/Ruby, `Custom Runtime - rust/golang`
   - java 11 or above : performance is 10x (free) - `SnapStart feature` :point_left:
-  - ![img_5.png](../99_img/compute/lambda/img_5.png)
+  - ![img_5.png](../../../99_img/2025/aws-ssa/compute/lambda/img_5.png)
   
 - **build pkg size** :
   - `50 MB`  compressed
@@ -91,7 +91,7 @@
       - `EFS` : very fast (if running inside our vpc-1) :point_left:
       - can be shared among lambda/s
     - programmatically encrypt /tmp using KMS keys. generate ir first. 
-    - ![img_2.png](../99_img/dva/l/img_2.png)
+    - ![img_2.png](../../../99_img/2025/aws-ssa/dva/l/img_2.png)
 ---  
 #### **5.2. ENV var** 
 - `4 KB`
@@ -122,7 +122,7 @@
 
 ---
 #### **5.4. lambda layer** 
-![img_1.png](../99_img/dva/l/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dva/l/img_1.png)
 - 5 layer max
 - 250 MB total
 - aws-sdk dependency : no need to pkg in zip. :)
@@ -134,7 +134,7 @@
 - eg: FROM amazon/aws-lambda-nodejs:12
 - to run javacode, provides JVM runtime. 
   - similar provide `container-d` runtime.
-- ![img.png](../99_img/dva/l/01/img-docker.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/l/01/img-docker.png)
 ---
 #### **5.6. Concurrency**
 - set **reservedConcurrency**
@@ -144,7 +144,7 @@
     - function-2 has 500 invocation
     - function-3 will get **retry** first and then give **ThrottleError (429)**
 
-- ![img_3.png](../99_img/dva/l/img_3.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/dva/l/img_3.png)
 - **retry**:
   - for `sync` invocation - 2 times
   - for `a-sync` invocation: 
@@ -180,11 +180,11 @@
       - 90% --> v1
       - 10% --> v2
 - eg:
-  - ![img.png](../99_img/dva/l/02/imgV.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/dva/l/02/imgV.png)
 
 ---
 #### **5.9 integration with `codeDeploy`**
-![img.png](../99_img/dva/l/img-cd.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/l/img-cd.png)
 
 ---
 #### **5.10 Function URL**
@@ -198,7 +198,7 @@
   - set Throttle. eg: `seservedConcurrency=10`
   - **AuthType== `NONE`** (allow public and unauthenticated access)
   - **AuthType== `AWS_IAM`**
-    - ![img.png](../99_img/dva/l/img1234567890.png)
+    - ![img.png](../../../99_img/2025/aws-ssa/dva/l/img1234567890.png)
 ---
 ## B. integration with other services :green_circle: 
 - **lambda trigger** patterns:  :point_left:
@@ -210,7 +210,7 @@
 - all common eg:
   - **API-gateway** (REST) >> lambda
   - **ALB** >> target-group-1:lambda :o:
-    - ![img_1.png](../99_img/dva/l/01/img_1.png)
+    - ![img_1.png](../../../99_img/2025/aws-ssa/dva/l/01/img_1.png)
   - **S3:objectcreate,etc** >> lambda :o:
   - **CW:log-event||loggroup-subscription-filter** >> lambda (log-processing)
   - **DynamoDB-streams** >> lambda
@@ -222,17 +222,17 @@
     - codePipeline's in-built event, say e1 > eventBridge(bus) > EventRule-1 (capture e1) > lambda-1 (process)
     - ...
     - generic pattern :)
-- ![img_1.png](../99_img/compute/lambda/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/compute/lambda/img_1.png)
 
 ---
 ## C. Architecture example
-- ![img_3.png](../99_img/compute/lambda/img_3.png)
-- ![img_2.png](../99_img/compute/lambda/img_2.png)
-- ![img_6.png](../99_img/compute/lambda/img_6.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/compute/lambda/img_3.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/compute/lambda/img_2.png)
+- ![img_6.png](../../../99_img/2025/aws-ssa/compute/lambda/img_6.png)
 
 ## D. extra
 ### 1. limit summary
-![img.png](../99_img/dva/l/01/img-limits.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/l/01/img-limits.png)
 
 
   

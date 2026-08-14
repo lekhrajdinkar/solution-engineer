@@ -37,7 +37,7 @@ eg : with same region:
 ### B.1. AWS Site-2-site VPN 
 - `AWS::VPC-1` to `Client-VPN-1`
 - also known as **IPsec VPN connection**
-- ![img.png](../99_img/vpc-4/s2s.png)
+- ![img.png](../../../99_img/2025/aws-ssa/vpc-4/s2s.png)
 ```
 - connect AWS::VPC-1 to Client-VPN-1
 
@@ -59,8 +59,8 @@ AWS VPC-1 (rtb-main:vgw-1) <==> [ vgw-1 <---Site-2-site VPN(uses:internet)---> c
 - optional steps :
   - update sg on ec2.
   - update ACL on subnet.
-- ![img.png](../99_img/vpc-3/img-s2s-vpn.png)
-- ![img.png](../99_img/vpc-3/demo-1.png)
+- ![img.png](../../../99_img/2025/aws-ssa/vpc-3/img-s2s-vpn.png)
+- ![img.png](../../../99_img/2025/aws-ssa/vpc-3/demo-1.png)
 - slow, then :  Transit Gateway with equal cost multipath routing and add additional VPN tunnels
 
 ---
@@ -80,12 +80,12 @@ AWS VPC-1 (rtb-main:vgw-1) <==> [ vgw-1 <---Site-2-site VPN(uses:internet)---> c
 - Step-2: create `cgw-1,2,3..`, with customer details
 - Step-3: create `AWS VPN cloudHub(uses:internet)` - link `cgw-1,2,3,...` with `vgw-1`.
 - rest of the step same as above.
-- ![img.png](../99_img/vpc-3/img-hub-2.png)
+- ![img.png](../../../99_img/2025/aws-ssa/vpc-3/img-hub-2.png)
 
 ---
 ## C AWS::VPC <==DX==> client::VPN
 ### C.1. DX (Direct Connect)
-![img.png](../99_img/vpc-1/v3/img.png)
+![img.png](../../../99_img/2025/aws-ssa/vpc-1/v3/img.png)
 ```
 # scenario
  - customer-1 is connected to DX-1::endpoint
@@ -108,9 +108,9 @@ AWS VPC-1 (rtb-main:vgw-1) <==> [ vgw-1 <---Site-2-site VPN(uses:internet)---> c
     - **hosted**    : via DX-partner `50 500 Mbps`, `1 2 5 10 Gbps`, slow
   - **resiliency** : 
     - add more connection/s.
-    - ![img.png](../99_img/vpc-3/img-dx-100.png)
+    - ![img.png](../../../99_img/2025/aws-ssa/vpc-3/img-dx-100.png)
     - or, create primary:DX + Secondary:Site2SiteVPN
-    - ![img.png](../99_img/vpc-3/scenario-5.png)
+    - ![img.png](../../../99_img/2025/aws-ssa/vpc-3/scenario-5.png)
 
 - **Steps**:
   - Step-1: create `vgw-1`, and attached on AWS VPC-1
@@ -119,7 +119,7 @@ AWS VPC-1 (rtb-main:vgw-1) <==> [ vgw-1 <---Site-2-site VPN(uses:internet)---> c
     - connect vgw-1 to DX-1::endpoint
     - connect cgw-1 to DX-1::endpoint
 
-- ![img.png](../99_img/vpc-3/dx-1.png)
+- ![img.png](../../../99_img/2025/aws-ssa/vpc-3/dx-1.png)
 
 ---
 ### C.2 DX gateway
@@ -151,7 +151,7 @@ AWS VPC-1 (rtb-main:vgw-1) <==> [ vgw-1 <---Site-2-site VPN(uses:internet)---> c
   - AWS::VPC-2(update rtb:`dxg-1`) 
   - ...
   - ...
-  - ![img.png](../99_img/vpc-3/sxg-1.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/vpc-3/sxg-1.png)
 
 ---
 ##  transient Gateway
@@ -159,9 +159,9 @@ AWS VPC-1 (rtb-main:vgw-1) <==> [ vgw-1 <---Site-2-site VPN(uses:internet)---> c
 - network topologies can be complicated, transient Gateway, simplify above topologies
   - define everything at single place : rtb of transient gateway
   - supports `IP-multicast` ?
-- ![img.png](../99_img/vpc-3/tgw.png)
+- ![img.png](../../../99_img/2025/aws-ssa/vpc-3/tgw.png)
 - create multiple tunnels in `AWS Site-2-site VPN` : `ECMP routing`
-  - ![img.png](../99_img/vpc-3/ecmp.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/vpc-3/ecmp.png)
 - shared with multiple aws account **
 - AWS Transit Gateway with `Resource Access Manager` (RAM)
 - can scale the  **VPN throughput**  :dart:
@@ -171,15 +171,15 @@ AWS VPC-1 (rtb-main:vgw-1) <==> [ vgw-1 <---Site-2-site VPN(uses:internet)---> c
   - You also must enable the **dynamic routing option** on your transit gateway to be able to take advantage of ECMP for scalability.
 ---
 ## Exam scenarios:
-![img.png](../99_img/refactor/01/img.png)
+![img.png](../../../99_img/2025/aws-ssa/refactor/01/img.png)
 ---
 - critical production workloads that require **maximum resiliency**
 - **AWS Direct Connect connections** with speeds greater than 1 Gbps.
 - correct
-  - ![img_1.png](../99_img/practice-test-01/06/30/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/practice-test-01/06/30/img_1.png)
 - incorrect
-  - ![img.png](../99_img/practice-test-01/06/30/img.png)
-  - ![img_2.png](../99_img/practice-test-01/06/30/img_2.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/practice-test-01/06/30/img.png)
+  - ![img_2.png](../../../99_img/2025/aws-ssa/practice-test-01/06/30/img_2.png)
 ---- 
 
 

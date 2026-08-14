@@ -11,7 +11,7 @@
   - **IAM** : enforce restricted access.
   - **eventBidge** : get events from store actions like : add,delete,update,access,etc
   - **KMS** : security, encrypt/decrypt configs
-    - ![img.png](../99_img/dva/kms/04/img.png)
+    - ![img.png](../../../99_img/2025/aws-ssa/dva/kms/04/img.png)
     
 - `string`, `StringList`, `SecureString` (kms-key-1)
 
@@ -25,18 +25,18 @@
 - each, max size - `8 KB` , 
 - **additional feature**
   - attach iam-policies for secured access.
-  - ![img_2.png](../99_img/dva/kms/04/img_2.png)
+  - ![img_2.png](../../../99_img/2025/aws-ssa/dva/kms/04/img_2.png)
 - **pricing**
   - 5 cent/month
 
-![img_1.png](../99_img/dva/kms/04/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dva/kms/04/img_1.png)
 
 --- 
 ## 3. use case
 - Store **IAM policy**
 - Store config data for CloudFormation, Codebuild,etc
 - Store **secret**
-  - ![img.png](../99_img/security/acm/img.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/security/acm/img.png)
 
 ---
 ## 4. CLI :books:

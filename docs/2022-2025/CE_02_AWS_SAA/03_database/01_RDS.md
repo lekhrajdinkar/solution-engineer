@@ -170,7 +170,7 @@
 - reduces fail-over time by 66%
 - access privatey only
 - client --> RDS proxy --> RDs instance
-- ![img.png](../99_img/db/img_5.png)
+- ![img.png](../../../99_img/2025/aws-ssa/db/img_5.png)
 
 ### 4.2 performance
 - Uses SSD-based storage.
@@ -233,7 +233,7 @@
 ```
 ---
 ## 99. for DVA
-![img.png](../99_img/dva/kms/05/imgrds.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/kms/05/imgrds.png)
 
 ## 100. exam
 -  un-encrypted RDS, encrypt it:

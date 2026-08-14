@@ -69,7 +69,7 @@ Use case: Automating content narration for news or blogs.
   -  Financial Services (e.g., invoices, financial reports)
   -  Healthcare (e.g., medical records, insurance claims)
   -  Public Sector (e.g., tax forms, ID documents, passports)
-- ![img_4.png](../99_img/ml/ml2/img_4.png)
+- ![img_4.png](../../../99_img/2025/aws-ssa/ml/ml2/img_4.png)
 
 ---
 ## C. lex and connect
@@ -84,7 +84,7 @@ Use case: Automating content narration for news or blogs.
 - cloud-based `virtual contact center`
 - Receive calls, create contact flows
 - 80% cheaper
-- ![img.png](../99_img/ml/ml1/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/ml/ml1/img.png)
 
 ---
 ## D. Natural Language Processing
@@ -107,20 +107,20 @@ Use case: Automating content narration for news or blogs.
   - Test results
   - Case notes
 - create `strtutured` notes/graph, with related links
-- ![img_1.png](../99_img/ml/ml1/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/ml/ml1/img_1.png)
 
 
 ---
 ## Z. More
 ### Z.1. Amazon `Forecast`
 - Use cases: Product Demand Planning, Financial Planning, Resource Planning.
-- eg: ![img_1.png](../99_img/ml/ml2/img_1.png)
+- eg: ![img_1.png](../../../99_img/2025/aws-ssa/ml/ml2/img_1.png)
 
 ---
 ### Amazon `kendra` 
 - `document search` service.
 - incremental learning
-- ![img_2.png](../99_img/ml/ml2/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/ml/ml2/img_2.png)
 
 ---
 

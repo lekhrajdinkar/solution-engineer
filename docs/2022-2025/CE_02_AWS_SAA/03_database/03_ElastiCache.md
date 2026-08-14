@@ -29,10 +29,10 @@
     - `low latency`
     - `high performance`
     - `reduce load` off of databases for read intensive workloads
-    - ![img.png](../99_img/redis/img.png)
+    - ![img.png](../../../99_img/2025/aws-ssa/redis/img.png)
     - lazy loading(stale read) and write-through(sync cache with DB)
 ### **Maintain user Session**
-  - ![img_1.png](../99_img/redis/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/redis/img_1.png)
 
 ---
 ## B Type
@@ -98,11 +98,11 @@
 
 ---
 ### Comparison
-![img.png](../99_img/ssa-discussion/redisvsmem.png)
+![img.png](../../../99_img/2025/aws-ssa/ssa-discussion/redisvsmem.png)
 
 ---
 ### 3 `Memory DB for redis` : intro
-![img_4.png](../99_img/dva/00/img_4.png)
+![img_4.png](../../../99_img/2025/aws-ssa/dva/00/img_4.png)
 - Ultra-fast performance with over `160 millions requests/second` :point_left:
 - **Durable in-memory data storage** 
   - with Multi-AZ, hundreds of nodes
@@ -116,7 +116,7 @@
 ---
 ## C strategies ( **caching design pattern** )
 ### 1. **Lazy Loading** or Population / Cache-Aside
-![img.png](../99_img/dva/00/imgg.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/00/imgg.png)
 - flow for understanding:
   - **hit-1**: read from cache : found ok
   - not found, **hit-2**: read from db
@@ -132,17 +132,17 @@
       - **write-through strategy** solves it. next
       
 - sample psuedo code for understanding:
-  - ![img_1.png](../99_img/dva/00/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/dva/00/img_1.png)
 
 ---
 
 ### 2. **write-through**
-![img_2.png](../99_img/dva/00/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/dva/00/img_2.png)
 - each write on DB, requires 2 hit:
   - hit-1: write on DB
   - hit-2: write on cache
   - pseudo code:
-  - ![img_3.png](../99_img/dva/00/img_3.png)
+  - ![img_3.png](../../../99_img/2025/aws-ssa/dva/00/img_3.png)
 - drawback:
   - **cache churn**: writing lot n lot of data in cache, which will be never read.
   - **cache-eviction and TTL** resolves it. next

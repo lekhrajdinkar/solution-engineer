@@ -11,4 +11,4 @@
 
 ---
 ## Source
-![img.png](../99_img/moreSrv/analytic-1/img.png)
+![img.png](../../../99_img/2025/aws-ssa/moreSrv/analytic-1/img.png)

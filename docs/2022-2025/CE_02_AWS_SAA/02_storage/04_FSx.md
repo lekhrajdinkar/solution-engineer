@@ -49,7 +49,7 @@ flowchart LR
     - **deployment option**  👈
         - **scratch** : short term storage, 6x faster, `no data replication`
         - **persistent** : Long term storage: data replication in same AZ
-        - ![img.png](../99_img/storage/more/img.png)
+        - ![img.png](../../../99_img/2025/aws-ssa/storage/more/img.png)
 
 ---  
 ## 2. FSx for `Windows File System`
@@ -88,7 +88,7 @@ flowchart LR
 - **compatible with lots of system**
 - additional feature: compression, Point-in-time instantaneous cloning
 
-![img_1.png](../99_img/storage/more/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/storage/more/img_1.png)
 
 ```mermaid
 flowchart LR
@@ -141,8 +141,8 @@ flowchart LR
 ## Exam 🎯
 https://aws.amazon.com/fsx/when-to-choose-fsx/
 
-![img_1.png](../99_img/practice-test-01/wz03/01/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/practice-test-01/wz03/01/img_1.png)
 
 FSx :: ontap | ZFS | windows | Luster
 
-![img.png](../99_img/practice-test-01/06/63/comparefxs.png)
+![img.png](../../../99_img/2025/aws-ssa/practice-test-01/06/63/comparefxs.png)

@@ -30,11 +30,11 @@
     - Firehose’s **PutRecord** and **PutRecordBatch** operations are disabled 
     - thus, Kinesis-Agent cannot write to KDF Stream directly.
     
-- ![img_3.png](../99_img/decouple/img_3.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/decouple/img_3.png)
   - optional lambda transformation + convert format to **parquet+ORC**
   - can put failed item into s3
   - write data in **batches**
   
 ---
 # extra
-![img.png](../99_img/dva/00/kds/img-kdf.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/00/kds/img-kdf.png)

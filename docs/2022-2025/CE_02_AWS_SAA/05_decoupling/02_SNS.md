@@ -1,7 +1,7 @@
 # SNS 
 ## A. key point
 - **pub-sub model**
-- ![img.png](../99_img/decouple/sns/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/decouple/sns/img.png)
 - `100k` topics, per account, can be extended.
 - **type**
   - Standard 
@@ -10,16 +10,16 @@
   - max: 12 million
   - subscription with **filter policy** 
     - filter message by **message attribute**
-    - ![img_6.png](../99_img/decouple/sns/img_6.png)
+    - ![img_6.png](../../../99_img/2025/aws-ssa/decouple/sns/img_6.png)
 
 ---
 ## B. Subscriber/s 
 - KDF
-- ![img_1.png](../99_img/decouple/sns/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/decouple/sns/img_1.png)
 
 ---
 ## C. publisher/s
-- ![img_2.png](../99_img/decouple/sns/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/decouple/sns/img_2.png)
 
 ---
 ## D. Security
@@ -36,6 +36,6 @@
 ---
 ## E. use case
 - SQS + SNS **fan out pattern**
-  - ![img_3.png](../99_img/decouple/sns/img_3.png)
-  - ![img_4.png](../99_img/decouple/sns/img_4.png)
-  - ![img_5.png](../99_img/decouple/sns/img_5.png)
+  - ![img_3.png](../../../99_img/2025/aws-ssa/decouple/sns/img_3.png)
+  - ![img_4.png](../../../99_img/2025/aws-ssa/decouple/sns/img_4.png)
+  - ![img_5.png](../../../99_img/2025/aws-ssa/decouple/sns/img_5.png)

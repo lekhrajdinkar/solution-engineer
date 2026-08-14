@@ -7,4 +7,4 @@
 - common place to configure `set of services` app :
 - upload code from VFS or directly
 
-![img_6.png](../99_img/moreSrv/img_6.png)
+![img_6.png](../../../99_img/2025/aws-ssa/moreSrv/img_6.png)

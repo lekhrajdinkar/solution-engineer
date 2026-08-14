@@ -1,20 +1,12 @@
-
-
+# Reference and links
 ## udemy
 - https://courses.datacumulus.com/downloads/certified-solutions-architect-pn9/
 - https://courses.datacumulus.com/downloads/certified-solutions-architect-professional-m0v/
-
-## Certification :
-- https://aws.amazon.com/certification/certified-solutions-architect-associate/
-- https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf
-- https://cp.certmetrics.com/amazon/en/home/dashboard
-- `ldus@g | J12a`
 
 ## training
 - https://skillbuilder.aws/
 - https://www.aws.training/Certification
 
----
 ## Practice paper :
 - https://www.udemy.com/course/aws-certified-solutions-architect-associate-practice-tests-k/?couponCode=KEEPLEARNING
 - https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c03/?couponCode=KEEPLEARNING
@@ -31,18 +23,16 @@
 ## white paper
 - Architecting for the cloud
   - https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf (Archived)
-- Whitepapers related to well-architected framework are mentioned here 
+- White papers related to well-architected framework are mentioned here 
    - https://aws.amazon.com/blogs/aws/aws-well-architected-framework-updated-white-papers-tools-and-best-practices/
 - Disaster recovery whitepaper
   - https://d1.awsstatic.com/whitepapers/aws-disaster-recovery.pdf (Archived)
 - AWS now recommends a well-architected framework whitepaper
   - https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf
+  
 ---
-
-## others
-- accessCode=579-488-719
-- locale=en-US clickNum=637510163802698
-
-- https://533267082359.signin.aws.amazon.com/console  
-- `acct-ld@oJ83as + iamU-ld`
-- `skillb+cert : ldus@gJ83a`
+## Certification
+- https://aws.amazon.com/certification/certified-solutions-architect-associate/
+- https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf
+- https://cp.certmetrics.com/amazon/en/home/dashboard | ldus@g | J12a
+- https://533267082359.signin.aws.amazon.com/console | skill builder and cert | ldus@gJ83a

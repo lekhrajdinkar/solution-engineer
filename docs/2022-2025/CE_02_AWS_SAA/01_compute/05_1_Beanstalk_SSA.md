@@ -2,7 +2,7 @@
 --- 
 # Elastic Beanstalk 
 ## A. Common **Web** Architecture
-![img.png](../99_img/dva/beanstalk/01/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/beanstalk/01/img.png)
 
 ## B. Intro
 - Managed services, deals with:
@@ -40,7 +40,7 @@
     - can send traffic to worker
   - **worker** Environment
     - for long-running task,jobs,scheduledJobs
-  - ![img.png](../99_img/compute/img.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/compute/img.png)
   
 ### D.2 **configuration (for env)**
 - **deployment** 
@@ -50,7 +50,7 @@
   - **availability**:
     - **single instance** (with/without using spot)
     - **High availability** (with/without using spot+od)
-    - ![img_1.png](../99_img/compute/img_1.png)
+    - ![img_1.png](../../../99_img/2025/aws-ssa/compute/img_1.png)
   
 - **Networking**
   - choose VPC and subnet

@@ -33,4 +33,4 @@
   - partner solutions: Prometheus, ...
 
 
-![img.png](../99_img/dva/aa-x-ray/02/img99.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/aa-x-ray/02/img99.png)

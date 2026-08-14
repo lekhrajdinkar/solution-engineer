@@ -41,10 +41,10 @@
     - add **suffix** to partition key to make it more n more diverse.
     - this is called **write sharding**.
     - so use random. calculated suffix.
-    - ![img.png](../99_img/dva/db/03/img.png)
+    - ![img.png](../../../99_img/2025/aws-ssa/dva/db/03/img.png)
   
 #### Partition
-- ![img.png](../99_img/dva/db/01/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/db/01/img.png)
 - dynamoDB
   - table-1
     - **partitions-1** (node-1 in different az/s) <--> **2-way replication b/w AZ/s** <--> partitions-1(node-2)
@@ -56,13 +56,13 @@
     - scale out more partition/s
     
 - Number of partitions
-  - ![img_1.png](../99_img/dva/db/01/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/dva/db/01/img_1.png)
     
 ### 2. DynamoDB: `Global` Table
 - table-1 (R/W) is `region-1`
 - table-1 (R/W) is `region-2`
 - **2-way replication b/w region/s**.
-- ![img_3.png](../99_img/moreSrv/dynamo/img_3.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/moreSrv/dynamo/img_3.png)
 - **Enable DynamoDB Streams** 
   - helps to replicate data across replica tables in other AWS Regions
 
@@ -100,7 +100,7 @@
     - if not using global dynamoDB
 
 - **common architecture**
-  - ![img_2.png](../99_img/moreSrv/dynamo/img_2.png)
+  - ![img_2.png](../../../99_img/2025/aws-ssa/moreSrv/dynamo/img_2.png)
 ---
 ## D. Storage 
 - max item size : `400 KB`
@@ -175,7 +175,7 @@
     ]
     }
     ```
-  ![img.png](../99_img/dva/db/04/img99.png)
+  ![img.png](../../../99_img/2025/aws-ssa/dva/db/04/img99.png)
 
 ---
 ## F. DR
@@ -185,7 +185,7 @@
 - PITR - point in time recovery
 - `export` (json,ion) data --> S3.
 - `import` (json,csv,ion) --> Dynamo DB
-- ![img_4.png](../99_img/moreSrv/dynamo/img_4.png)
+- ![img_4.png](../../../99_img/2025/aws-ssa/moreSrv/dynamo/img_4.png)
 
 ---
 ## G. Copying DynamoDB Table (into s3)
@@ -198,7 +198,7 @@ simplifies the process of running large-scale distributed data processing framew
   - Apache Spark 
   - ...
 ```
-![img_2.png](../99_img/dva/db/04/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/dva/db/04/img_2.png)
 
 ### 2 backup and restore
 - takes time
@@ -217,5 +217,5 @@ simplifies the process of running large-scale distributed data processing framew
 
 ## I. Architecture example:
 - use dynamoDB for indexing S3 metadata.
-  - ![img_1.png](../99_img/dva/db/04/img_1.png)
-  - ![img.png](../99_img/dva/db/04/img.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/dva/db/04/img_1.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/dva/db/04/img.png)

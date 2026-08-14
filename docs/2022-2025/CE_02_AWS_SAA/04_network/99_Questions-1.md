@@ -44,11 +44,11 @@ Use Transit Gateway (TGW) with NAT for IP translation between VPCs.
 Requires custom route tables to avoid conflicts.
 
 ```
-![img.png](../99_img/vpc-1/img_6.png)
+![img.png](../../../99_img/2025/aws-ssa/vpc-1/img_6.png)
 
 ---
 ## 3 Dx and BGP (Border gateway protocol)
-![img.png](../99_img/moreSrv/bgp.png)
+![img.png](../../../99_img/2025/aws-ssa/moreSrv/bgp.png)
 
 ---
 ## 4 VPC connectivity with vpce

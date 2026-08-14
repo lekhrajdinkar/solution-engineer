@@ -14,7 +14,7 @@
 ---
 ## provision DAX cluster
 - [udemy reference](https://www.udemy.com/course/aws-certified-developer-associate-dva-c01/learn/lecture/28646592#overview)
-- ![img.png](../99_img/moreSrv/dynamo/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/moreSrv/dynamo/img.png)
 - **node size** : min `3 nodes` recommended in prod.
   - can add more later.
 - **node family** : r-type / t-type
@@ -43,7 +43,7 @@
 
 ---
 ## Architecture example
-- ![img.png](../99_img/dva/00/img-dax.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/00/img-dax.png)
 - usinf DAX and ElasticCache, both.
 
 

@@ -38,7 +38,7 @@ Managed service:
 - AWS Backup (cross region),  PITR
 - EFS Replication (aync)
 
-![img.png](../99_img/refactor/01/img_3.png)
+![img.png](../../../99_img/2025/aws-ssa/refactor/01/img_3.png)
 
 ```mermaid
 flowchart LR
@@ -177,7 +177,7 @@ EFS Standard-IA   (One Zone)	            $0.0133
 
 ---
 ## Target Mount 🎯
-- ![img.png](../99_img/ec2/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/ec2/img.png)
 - Allows EC2 instances in a VPC to access an EFS file system
     - not needed for **lambda**.
     - not needed for **on-prem**  ( if DX/VPN, is setup)
