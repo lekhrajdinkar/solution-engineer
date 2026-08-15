@@ -1,5 +1,5 @@
 --> sample architecture : kind on combination can have
-![img_1.png](../99_img/security/others/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/security/others/img_1.png)
 
 ---
 ## Application front face and flow

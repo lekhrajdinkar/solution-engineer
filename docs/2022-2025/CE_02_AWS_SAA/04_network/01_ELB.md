@@ -27,7 +27,7 @@
 ## 2. Cross-Zone Load Balancing 
 - `mutli-AZ`(span over AZs), forwards traffic to multiple ec2 in different AZs.
 - if az-1 has more instances running, most traffic must forward to az-1
-- ![img.png](../99_img/ec2/im-3.png)
+- ![img.png](../../../99_img/2025/aws-ssa/ec2/im-3.png)
 
 
 ## 3. health-check
@@ -51,7 +51,7 @@
 ## 6.Client Stickiness with cookies
 - storing session data on ec2-i/tg
 - may create **imbalance** :point_left:
-- ![img_1.png](../99_img/ec2/im-2.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/ec2/im-2.png)
 - alternative approach
   - use stores session data on elastiCache with TTL. 
   - [03_ElastiCache.md](../03_database/03_ElastiCache.md)
@@ -165,7 +165,7 @@
   - ...
 - uses protocol-GENEVE, port-6081 
 - **Cross-Zone Load Balancing** : disable by default, `paid` :point_left:
-- ![img.png](../99_img/ec2/im-1.png)
+- ![img.png](../../../99_img/2025/aws-ssa/ec2/im-1.png)
 
 ---
 

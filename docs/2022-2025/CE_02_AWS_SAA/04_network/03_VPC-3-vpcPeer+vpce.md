@@ -34,7 +34,7 @@
   - high throughput
 
 - Limited by the number of peering connections per VPC (up to 125 by default).
-- ![img_1.png](../99_img/vpc-1/v2/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/vpc-1/v2/img_1.png)
 
 ## hands on: 
 ```
@@ -59,7 +59,7 @@
   - connects service swith in same regions, privately. Not suitable for inter region comm. :point_left:
 
 ## intro
-- ![img.png](../99_img/vpc-1/v2/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/vpc-1/v2/img.png)
 - highly available
   - scales horizontally
 - `service-1` aws-?:region-? --> **AWS PrivateLink** (No internet) -->  `service-2` aws-?:region-?
@@ -70,7 +70,7 @@
 - **ECS-1:TASK-1** (region-1,VPC-1) ==> SEND TO SNS (region-2,VPC-2)
 - option-1 : **VPC1 > NGW > IWG > internet > VPC2**
   - using internet
-  - ![img.png](../99_img/vpc-3/img.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/vpc-3/img.png)
     
 - option-2 : **VPC1 > VPC-endpoint > aws-private-network/link > VPC2** : 
   - better: remains on VPC/s, no internet
@@ -81,7 +81,7 @@
 - AWS use PrivateLink to comm.
 - attach ENI to aws resource + update private DNS for subnet/vpc
 - update security group as per this ENI.
-- ![img_1.png](../99_img/vpc-3/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/vpc-3/img_1.png)
 
 ### Gateway : free
 -  Avialable for  **S3 and DynamoDB** , only 
@@ -90,7 +90,7 @@
 - just update rtb with these gateway/s, like wwe did for igw,nat,etc.
   - Destination: prefix_list_id
   - target : gateway_endpoint_id
-- ![img_2.png](../99_img/vpc-3/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/vpc-3/img_2.png)
 
 ## hands on
 ```
@@ -118,7 +118,7 @@
 - hence can communicate with each other over `private IP` without additional configuration.
 - Since all resources are within the same VPC, there are no additional data transfer costs. :point_left:
   - no data going out of AWS.
-- ![img.png](../99_img/vpc-1/SharedserviceVPC.png)
+- ![img.png](../../../99_img/2025/aws-ssa/vpc-1/SharedserviceVPC.png)
 
 
   

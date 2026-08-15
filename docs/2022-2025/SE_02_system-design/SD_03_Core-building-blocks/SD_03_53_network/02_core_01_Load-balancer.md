@@ -1,7 +1,7 @@
 # Load balancer LB
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2190592578
 - https://youtu.be/ZcNaOuxcuyA?si=9eTTSUfpUQzi112D bm 1
-- https://www.youtube.com/watch?v=BWB-S0awDnA bm 2
+- https://www.youtube.com/watch?v=BWB-S0awDnA bm 2 | algorithm
 
 ## A. Overview
 - **traffic cop** between clients and multiple servers
@@ -22,7 +22,7 @@
 ![img_3.png](../../../../99_img/2026/02/01/01/img_3.png)
 
 ---
-## B. Server Selection strategy
+## B. Algorithm / strategies
 ![img_1.png](../../../../99_img/2025/se_02_sd/01/02/img_1.png)
 ### B.1 Static
 #### Random

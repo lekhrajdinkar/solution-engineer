@@ -6,7 +6,7 @@
 ## A. Kinesis Data Analytics (SQL Application) / legacy
 - SQL application --> run on KDA -->  real time analysis/**process** --> stream
 - Source : `KDS/KDF` + also reference data from S3
-- ![img_2.png](../99_img/moreSrv/analytics-2/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/moreSrv/analytics-2/img_2.png)
 
 ---
 ## B. Kinesis Data Analytics (Flink Application) / preferred
@@ -16,7 +16,7 @@
 - to **transform and analyze streaming data in real-time**  
 -  provides :
   - storage - 50 GB per Kinesis Processing Unit (`KPU`).
-    - ![img_3.png](../99_img/moreSrv/analytics-2/img_3.png)
+    - ![img_3.png](../../../99_img/2025/aws-ssa/moreSrv/analytics-2/img_3.png)
     
 ### 2. most common use cases :dart:
 - **streaming ETL**

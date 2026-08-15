@@ -12,16 +12,16 @@
 - Glue **DataBrew**: clean and normalize data, using pre-built transformation
 - Glue Job **Bookmarks** : prevent re-processing old data
 
-![img_3.png](../99_img/moreSrv/analytic-1/img_3.png)
+![img_3.png](../../../99_img/2025/aws-ssa/moreSrv/analytic-1/img_3.png)
 
 ---
 ## Use case
 - #1. transform data before loading to **redshift** data warehouse
-  ![img_1.png](../99_img/moreSrv/analytic-1/img_1.png)
+  ![img_1.png](../../../99_img/2025/aws-ssa/moreSrv/analytic-1/img_1.png)
 
 - #2. transform csv to **parquet** (columnar format,faster for analysis) --> for **athena**
   - very common
-  - ![img_2.png](../99_img/moreSrv/analytic-1/img_2.png)
+  - ![img_2.png](../../../99_img/2025/aws-ssa/moreSrv/analytic-1/img_2.png)
 
 - #3. prepare data for analysis and load/store into **S3** as target.
 

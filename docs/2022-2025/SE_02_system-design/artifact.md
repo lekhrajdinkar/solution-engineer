@@ -25,5 +25,4 @@ YouTube playlist | as of `7/26/2026`
 ---
 ## project
 - https://github.com/lekhrajdinkar/microservice-java#%EF%B8%8Fmicro-services-projects
-- https://github.com/lekhrajdinkar/microservice-java#%EF%B8%8Fmicro-services-projects-1
 - https://github.com/lekhrajdinkar/spring-cloud/tree/main/Notes | SpringCloud

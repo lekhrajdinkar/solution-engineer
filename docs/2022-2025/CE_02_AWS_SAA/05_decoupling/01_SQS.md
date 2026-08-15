@@ -5,7 +5,7 @@
 - low latency (< 10ms), 
 - max msg size : **256KB** :books:
   - use extended-SQS, backed by s3.
-  - ![img_5.png](../99_img/dva/sqs/img_5.png)
+  - ![img_5.png](../../../99_img/2025/aws-ssa/dva/sqs/img_5.png)
   
 ## A. De-couple Models in AWS
   - `queue` :  **SQS** 
@@ -29,7 +29,7 @@
 - **visibility timeout** :o:
   - `0-12 hr`
   - consumer could call this api to get more time.
-  - ![img_4.png](../99_img/decouple/sqs/img_4.png)
+  - ![img_4.png](../../../99_img/2025/aws-ssa/decouple/sqs/img_4.png)
   - if too low, then may get duplicate.
 
 - **Polling Type (2)**
@@ -60,7 +60,7 @@
   - how to check duplicate:
     - `de-duplication_ID` along with message
     - `SHA-246 hash of message body`
-    - ![img.png](../99_img/dva/sqs/v1/img.png)
+    - ![img.png](../../../99_img/2025/aws-ssa/dva/sqs/v1/img.png)
 - Limited **throughput**: :dart:
   - default (batch size = 1) : `300 msg/s`
   - batch size =  2, 600 msg/s
@@ -75,7 +75,7 @@
   - use grouped messages: **MessageGroupingId** (like in kafka)
   - group-1 ( msg1, msg-2, ...) --> consumer-1 (ordered in group-1)
   - group-2 ( msg1, msg-2, ...) --> consumer-2 (ordered in group-1)
-  - ![img_1.png](../99_img/dva/sqs/v1/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/dva/sqs/v1/img_1.png)
 
 ### 3. Ephemeral queue
 - Amazon SQS **Temporary** Queues 
@@ -89,7 +89,7 @@
 
 ---
 ## B. DLQ
-- ![img_3.png](../99_img/dva/sqs/img_3.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/dva/sqs/img_3.png)
 - If a consumer fails to process a message within the Visibility Timeout or **Exception** from Consumer code.
   - then. message goes back to the queue and consume received again.
 - After the **MaximumReceives threshold (say 3)** is exceeded,
@@ -97,7 +97,7 @@
 - Good to set a retention of 14 days in the DLQ
 - **re-drive** 
   - push messages from the DLQ back into the `source queue / any other queue`
-  - ![img_4.png](../99_img/dva/sqs/img_4.png)
+  - ![img_4.png](../../../99_img/2025/aws-ssa/dva/sqs/img_4.png)
 ---
 ## C. Security 
 ### general
@@ -143,11 +143,11 @@
 - receive : poll messages + delete
 - purge : delete all message.
 ```
-- ![img_2.png](../99_img/decouple/sqs/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/decouple/sqs/img_2.png)
 
 ---
 ## F. API must know (for DVA) :books:
-![img_6.png](../99_img/dva/sqs/img_6.png)
+![img_6.png](../../../99_img/2025/aws-ssa/dva/sqs/img_6.png)
 
 ---
 ## G. use-case / arch eg
@@ -156,14 +156,14 @@
   - SQS **logs** >> CW >> **custom-metric**::**ApproximateNumberOfmessageVisible** :dart: >> alarm 
   - SQS:**inbuilt-metric**::**ApproximateNumberOfmessageVisible** :dart: >> alarm
   - ASG [ ... multiple consumers ec2-i... ] --> in/out
-  - ![img.png](../99_img/decouple/sqs/img.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/decouple/sqs/img.png)
 
 2. ASG [ FE-1, FE-2, ... ] ---> stage all request in Queue --- > ASG [ BE-1, BE-2, ...]
-  - ![img_1.png](../99_img/decouple/sqs/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/decouple/sqs/img_1.png)
 
 3. Overloaded DB request:
 - ASG [ FE-1,...] --> Queue-1(Stage client request) --> ASG [BE-1,...] --> store to DB, OVERR-LOADED --> `lose some insert`
 - ASG [ FE-1,...] --> Queue-1(`Stage client request`) --> ASG [BE-1,...] --> Queue-2(`stage-DB-request`) -->  ASG [BE-repo-1,...]
-- ![img_3.png](../99_img/decouple/sqs/img_3.png)
-- ![img_5.png](../99_img/decouple/sqs/img_5.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/decouple/sqs/img_3.png)
+- ![img_5.png](../../../99_img/2025/aws-ssa/decouple/sqs/img_5.png)
 

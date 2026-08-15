@@ -15,7 +15,7 @@
 
 --- 
 ## 2. Data Source
-- ![img_2.png](../99_img/moreSrv/redshift/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/moreSrv/redshift/img_2.png)
 - load data from below  sources
   - **KDF**
   - s3
@@ -36,7 +36,7 @@
   - faster-aggregation
   - uses indexes + Columnar storage
 
-![img_3.png](../99_img/moreSrv/redshift/img_3.png)
+![img_3.png](../../../99_img/2025/aws-ssa/moreSrv/redshift/img_3.png)
 
 ---
 ## 4. cross-referencing :point_left:
@@ -55,7 +55,7 @@
     - retention: 35 days.
     - stored in s3.
   - restore snapshot/s into new region : **manually/automate**.
-  - ![img_1.png](../99_img/moreSrv/redshift/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/moreSrv/redshift/img_1.png)
 
 ---
 ## Exam :dart:
@@ -64,7 +64,7 @@
   - older than year --> **s3**
   - `analytic-report-2`,  reference from --> s3 + redshift
   - how to cross-reference s3 :point_left:
-  - ![img.png](../99_img/practice-test-01/exam-43.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/practice-test-01/exam-43.png)
 - Amazon Redshift **AQUA** (Advanced Query Accelerator) 
   - distributed query acceleration layer designed to speed up certain types of queries in Amazon Redshift, particularly complex analytical queries.
   - boost bt 10x

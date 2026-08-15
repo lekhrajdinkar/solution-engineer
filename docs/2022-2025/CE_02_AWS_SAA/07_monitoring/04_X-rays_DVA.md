@@ -4,7 +4,7 @@
 # AWS X-ray :books:
 ## A. Intro
 - analyze **traces** `visually`
-  - ![img_1.png](../99_img/dva/aa-x-ray/01/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/dva/aa-x-ray/01/img_1.png)
 - Understand dependencies in a **microservice architecture**
 - **compatible services** 
   - AWS Lambda, API Gateway
@@ -25,7 +25,7 @@
   
 ## B. SDK and daemon
 - **SDK**
-  - ![img.png](../99_img/dva/aa-x-ray/01/img.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/dva/aa-x-ray/01/img.png)
   - SDK will capture:
     - Calls to AWS services
     - HTTP / HTTPS requests
@@ -49,7 +49,7 @@
   - 0.05 === 5 %
   - 1 == 100 %
 - define **matching criteria**
-  - ![img.png](../99_img/dva/aa-x-ray/01/img3.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/dva/aa-x-ray/01/img3.png)
 
 - default : [ `Reservoir=1/sec, rate=5%`, criteria=* ]
 - sample-rule-1 (priority 1), sample-rule-2 (priority 9999), ...
@@ -92,13 +92,13 @@ option_settings:
 
 ### C.3 ECS
 - **daemon**
-  ![img_2.png](../99_img/dva/aa-x-ray/02/img_2.png)
+  ![img_2.png](../../../99_img/2025/aws-ssa/dva/aa-x-ray/02/img_2.png)
 
 - **task definition**
   - container-1 : deamon (`2000:udp`)
   - container-2 : app itself
   - link both container from n/w standpoint using **link** 
-  - ![img_3.png](../99_img/dva/aa-x-ray/02/img_3.png)
+  - ![img_3.png](../../../99_img/2025/aws-ssa/dva/aa-x-ray/02/img_3.png)
   
 ---
 ## D. X-Ray IAM `permission`
@@ -117,7 +117,7 @@ option_settings:
 - `GetSamplingTargets & GetSamplingStatisticSummaries`: advanced
 
 ```
-![img.png](../99_img/dva/aa-x-ray/02/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/aa-x-ray/02/img.png)
 
 
 ### Get
@@ -138,5 +138,5 @@ option_settings:
   Retrieves a service  graph for one or more specific trace  IDs.
 
 ```
-![img_1.png](../99_img/dva/aa-x-ray/02/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dva/aa-x-ray/02/img_1.png)
 

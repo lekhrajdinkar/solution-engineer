@@ -2,7 +2,7 @@
 ## 0. **Table**
 - PK : **partitionKey** , or
 - PK : **partitionKey** + **Sortkey**
-- ![img_2.png](../99_img/dva/db/01/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/dva/db/01/img_2.png)
 - Also, define **mode** for read/write operation:
   - `provisioned` - define **capacity** `RCU / WCU `
   - `onDemand` - uses `RRU / WRU` **requests**, internally. 2.5 times expensive.
@@ -31,7 +31,7 @@
 
 ## 4. **Write Capacity Units** (**WCU**)
 - `1 WCU` == write `1 item`(`upto 1 KB`)/`sec`
-- ![img_3.png](../99_img/dva/db/01/img_3.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/dva/db/01/img_3.png)
 
 ## 5. **Read Capacity Units** (**RCU**)
 - **2 types of read**
@@ -39,9 +39,9 @@
     - 1 RCU ==  1 **`Strongly` Consistent Read** of 1 item(`upto 4 KB`)
   - ConsistentRead == false (default)
     - 1/2 RCU ==  **`Eventually` Consistent Read** of 1 item(`upto 4 KB`)
-- ![img_4.png](../99_img/dva/db/01/img_4.png)
+- ![img_4.png](../../../99_img/2025/aws-ssa/dva/db/01/img_4.png)
   - because of replication lag, can be Strongly or Eventually consistent
-- ![img_5.png](../99_img/dva/db/01/img_5.png)
+- ![img_5.png](../../../99_img/2025/aws-ssa/dva/db/01/img_5.png)
 
 ---
 ## 6. Define **throughput** for **each table**
@@ -56,8 +56,8 @@
 - for predicated workload
 - can optionally, enable **auto-scaling** of WCU/RCU
 - so we define **capacity** : RCU and WCU
-- ![img.png](../99_img/dva/db/01/02/img.png)
-- ![img_1.png](../99_img/dva/db/01/02/img_1.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/db/01/02/img.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/dva/db/01/02/img_1.png)
 
 ### 6.3. **ThrottleError**
 - if capacity exceeded then `ProvisionedThroughputExceededException`
@@ -94,7 +94,7 @@
 - **Attribute Projections** :  KEYS_ONLY, INCLUDE, ALL
 - Uses the WCUs and RCUs of the main table
 
-![img_2.png](../99_img/dva/db/02/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/dva/db/02/img_2.png)
 
 ### 8.2. `GSI` - Global Secondary Index
 - index for : query by
@@ -108,7 +108,7 @@
   - If the writes are throttled on the GSI,
   - then the main table will be throttled! :point_left: :point_left:
 
-![img_1.png](../99_img/dva/db/02/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dva/db/02/img_1.png)
 
 ---
 ## 9. transaction
@@ -128,7 +128,7 @@
     - Consumes 2x WCUs
     - `TransactWriteItems`
 
-![img.png](../99_img/dva/db/img-txn.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/db/img-txn.png)
 
 ---
 

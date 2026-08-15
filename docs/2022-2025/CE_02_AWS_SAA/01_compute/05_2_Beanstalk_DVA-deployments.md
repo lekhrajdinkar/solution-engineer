@@ -7,7 +7,7 @@
   - ASG-1[ec1-i1:`v1`, ec1-i2:`v1` , ...]
   - ASG-1[]
   - ASG-1[ec1-i1:`v2`, ec1-i1:`v2` , ...]
-- ![img_1.png](../99_img/dva/beanstalk/01/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/dva/beanstalk/01/img_1.png)
 
 ## 2 Rolling
 > fixing: downtime
@@ -15,7 +15,7 @@
 - steps:
   - update same instances at a time (by bucket-size), 
   - once the bucket is healthy, move to next bucket...
-- ![img_2.png](../99_img/dva/beanstalk/01/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/dva/beanstalk/01/img_2.png)
   - notice: v1 and v1 - **both version**s are running
 - issue:
   - **rollback takes time**
@@ -26,7 +26,7 @@
 - same like rolling, but application is running with **desired capacity**
   - becoz of additional batch.
   - also Small **additional cost** for a additional batch
-- ![img_3.png](../99_img/dva/beanstalk/01/img_3.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/dva/beanstalk/01/img_3.png)
 
 ## 3 Immutable 
 > fixing: rollback time
@@ -38,7 +38,7 @@
   - ASG-temp[v2] --> check health, if ok then rest
   - ASG-temp[v2,v2,...]
   - swap: ASG-1[v1,v1,... v2,v2,...] >> [ v2,v2,... ]
-- ![img_4.png](../99_img/dva/beanstalk/01/img_4.png)
+- ![img_4.png](../../../99_img/2025/aws-ssa/dva/beanstalk/01/img_4.png)
 - **Quick rollback**
 
 ## 4. Traffic Splitting
@@ -48,7 +48,7 @@
   - ASG-2[v2,v2,...]
   - point ALB to ASG-2 eventually after testing small traffic
 - very quick **automated rollback**
-- - ![img_4.png](../99_img/dva/beanstalk/01/img_7.png)
+- - ![img_4.png](../../../99_img/2025/aws-ssa/dva/beanstalk/01/img_7.png)
 
 ## 99. Blue Green (not direct feature)
 - steps:
@@ -57,11 +57,11 @@
   - Traffic Splitting using `R53` (dns change)
     - send a small % of traffic to new deployment
   - switch over when ready
-- ![img_5.png](../99_img/dva/beanstalk/01/img_5.png)
-- ![img.png](../99_img/dva/beanstalk/01/img10.png)
+- ![img_5.png](../../../99_img/2025/aws-ssa/dva/beanstalk/01/img_5.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/beanstalk/01/img10.png)
 
 ## summary
-![img_6.png](../99_img/dva/beanstalk/01/img_6.png)
+![img_6.png](../../../99_img/2025/aws-ssa/dva/beanstalk/01/img_6.png)
 
 ---
 # B. Elastic Beanstalk : `CLI` :x:
@@ -94,9 +94,9 @@
 
 ## example - set Environment var
 
-![img.png](../99_img/dva/beanstalk/02/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/beanstalk/02/img.png)
 
-![img_1.png](../99_img/dva/beanstalk/02/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dva/beanstalk/02/img_1.png)
 
 
 ---
@@ -110,7 +110,7 @@
   - DNS swapping to new environment
   - delete old env
 - nothing fancy, but that's the only way.
-- ![img_2.png](../99_img/dva/beanstalk/02/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/dva/beanstalk/02/img_2.png)
 
 ## example2: Decouple RDS
 - migration step:
@@ -120,5 +120,5 @@
   - delete old env 
     - RDS wont be deleted, since delete protection enabled) :point_left:
 - again same step, nothing fancy, 
-- ![img_3.png](../99_img/dva/beanstalk/02/img_3.png)
-- ![img_4.png](../99_img/dva/beanstalk/02/img_4.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/dva/beanstalk/02/img_3.png)
+- ![img_4.png](../../../99_img/2025/aws-ssa/dva/beanstalk/02/img_4.png)

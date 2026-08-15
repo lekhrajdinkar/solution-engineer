@@ -5,7 +5,7 @@
   - transferring data through the network would take too long 
   - or when the location has limited connectivity.
 
-![img_1.png](../99_img/storage/snow/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/storage/snow/img_1.png)
 
 ---
 ## AWS Snowball Edge (offline) ❌
@@ -30,7 +30,7 @@ Send option:
 - post device 
 - send/upload to/from EBS + S3
   
-![img.png](../99_img/storage/snow/img.png)
+![img.png](../../../99_img/2025/aws-ssa/storage/snow/img.png)
 
 ---
 ## AWS Snowmobile (offline) ❌

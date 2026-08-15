@@ -19,7 +19,7 @@
 - [throughput.md](SD_02_Non-functional-req/02_NFR_02_performance-throughput.md)
 - [replication.md](SD_05_DataLayer+storage/03_concept_01_database-replication.md)
 - [SFP - Single Point of Failure](SD_01_foundation/03_concept_01_SFP.md)
-- [PRE-Signed-URL.md](SD_03_Core-building-blocks/SD_03_53_Transport-delivery/01_core_05_pre-signed-urls.md)
+- [PRE-Signed-URL.md](SD_03_Core-building-blocks/SD_03_53_network/02_core_05_pre-signed-urls.md)
 - [heartbeat_2.md](SD_01_foundation/03_concept_02_heartbeat_2.md) | [heartbeat_1.md](SD_01_foundation/03_concept_02_heartbeat_1.md)
 - [DNS and R53.md](../CE_02_AWS_SAA/04_network/02_Rout53.md)
 

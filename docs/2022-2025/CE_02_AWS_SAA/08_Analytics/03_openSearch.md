@@ -9,10 +9,10 @@
 - search by **primary key** (partition + sort)
 - perfotm search by **any attribute** then use OpenSearch
 
-![img.png](../99_img/moreSrv/openSearch/img.png)
+![img.png](../../../99_img/2025/aws-ssa/moreSrv/openSearch/img.png)
 
 ### 2.2 CloudWatch
-![img_1.png](../99_img/moreSrv/openSearch/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/moreSrv/openSearch/img_1.png)
 
 ### 2.3 kinesis Data stream
-![img_2.png](../99_img/moreSrv/openSearch/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/moreSrv/openSearch/img_2.png)

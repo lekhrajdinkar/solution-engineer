@@ -6,7 +6,7 @@ Can expose s3/EFS over FTP protocol
 - FTPS (outside AWS)
 - FTP (with in AWS/VPC)
 
-![img.png](../99_img/storage/img.png)
+![img.png](../../../99_img/2025/aws-ssa/storage/img.png)
 
 ---
 ## AWS Transfer for SFTP

@@ -85,7 +85,7 @@
   - attach `IA-policy-1`
   - attach `Permission-Boundary-policy-1`
   - **intersection** of both will be effective
-  - ![img_1.png](../99_img/security/org-2/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/security/org-2/img_1.png)
 
 - apply on: :point_left:
   - IAM `roles` 
@@ -130,12 +130,12 @@ boundary-1 : allow  `ecs,lambda,s3` only
     - then assume/get role-1 permissions.
   - :point_right:for Kinesis Db - use iam role  
   
-![img.png](../99_img/security/org-2/img.png)
+![img.png](../../../99_img/2025/aws-ssa/security/org-2/img.png)
 
 ---
 ## 7. Evaluation logic :yellow_circle:
-- ![img.png](../99_img/security/org-2/im.png)
-- ![img_2.png](../99_img/security/org-2/img_2.png)
+- ![img.png](../../../99_img/2025/aws-ssa/security/org-2/im.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/security/org-2/img_2.png)
   - order: :point_left:
     - explicit deny
     - allow
@@ -230,14 +230,14 @@ boundary-1 : allow  `ecs,lambda,s3` only
 - more eg :
   -  "aws:RequestedRegion": "eu-west-1" :  allow running Amazon EC2 instances only in the eu-west-1 region :dart:
   - "aws:priciplaOrgId": "0-xxxxxxxxx"
-  - ![img.png](../99_img/security/org/img-4.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/security/org/img-4.png)
 ---
 
 ## 9. principals
 
-![img.png](../99_img/dva/kms/02/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/kms/02/img.png)
 
-![img_1.png](../99_img/dva/kms/02/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dva/kms/02/img_1.png)
 
 
 

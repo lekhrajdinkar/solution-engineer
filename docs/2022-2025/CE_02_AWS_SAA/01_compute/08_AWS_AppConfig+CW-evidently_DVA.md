@@ -1,7 +1,7 @@
 # AppConfig :books:
 
 ## Intro
-![img_1.png](../99_img/moreSrv/dva/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/moreSrv/dva/img_1.png)
 
 - deploy **dynamic configurations** independently of any code deployments
   - EC2 instances, Lambda, ECS, EKS…
@@ -16,4 +16,4 @@
 
 # Cloudwatch Evidently :books:
 
-![img.png](../99_img/cw/cw-1/2/sfsafvds.png)
+![img.png](../../../99_img/2025/aws-ssa/cw/cw-1/2/sfsafvds.png)

@@ -83,7 +83,7 @@ aws cloudwatch put-metric-data \
 - check on AWS console
 - check by region for ec2 or other service
 - check by namespace
-- ![img_1.png](../99_img/cw/cw-1/2/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/cw/cw-1/2/img_1.png)
   
 #### external::dashboard
 - create custom metric

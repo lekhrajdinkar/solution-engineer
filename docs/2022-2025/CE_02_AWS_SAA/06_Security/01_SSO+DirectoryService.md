@@ -1,17 +1,17 @@
 # A. **Directory Service**
 ## 1. Simple AD
-![img_5.png](../99_img/security/org-2/img_5.png)
+![img_5.png](../../../99_img/2025/aws-ssa/security/org-2/img_5.png)
 - aws managed AD, users present only in this AD
 - least expensive option 
 - your best choice if you have `5,000 or fewer users`
 
 ## 2. AD Connector
-![img_6.png](../99_img/security/org-2/img_6.png)
+![img_6.png](../../../99_img/2025/aws-ssa/security/org-2/img_6.png)
 - users present in on-prem AD, only
 - `proxy` help to connect it.
 
 ## 3. AWS managed AD
-![img_7.png](../99_img/security/org-2/img_7.png)
+![img_7.png](../../../99_img/2025/aws-ssa/security/org-2/img_7.png)
 - hybrid kind : user present in both : `AWS AD` + `on-prem AD`
 - best choice if you have more than 5,000 users
 - `AWS AD` create trust with `on-prem AD`
@@ -36,14 +36,14 @@
         - member-account-2 > assume role-1
         - how and where SAML fits ?
 
-- ![img_4.png](../99_img/security/org-2/img_4.png)
-- ![img_8.png](../99_img/security/org-2/img_8.png)
-- ![img_9.png](../99_img/security/org-2/img_9.png)
+- ![img_4.png](../../../99_img/2025/aws-ssa/security/org-2/img_4.png)
+- ![img_8.png](../../../99_img/2025/aws-ssa/security/org-2/img_8.png)
+- ![img_9.png](../../../99_img/2025/aws-ssa/security/org-2/img_9.png)
 
 ---
 ## Summary :dart:
 - check eveything in diagram:
-- ![img_3.png](../99_img/security/org-2/img_3.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/security/org-2/img_3.png)
 
 
 

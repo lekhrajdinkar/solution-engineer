@@ -2,7 +2,7 @@
 
 ### A. Sample architecture
 
-![img.png](../99_img/ssa-discussion/img.png)
+![img.png](../../../99_img/2025/aws-ssa/ssa-discussion/img.png)
 
 - `IoT Core` allows you to harvest data from `IoT devices`
 -  `Kinesis` is great for **real-time data collection**

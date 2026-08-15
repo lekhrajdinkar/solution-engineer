@@ -3,7 +3,7 @@
 - Demo : https://www.udemy.com/course/aws-certified-developer-associate-dva-c01/learn/lecture/36528154#overview
 - objects with **CacheKey**
 - **default** cachekey 
-  - ![img.png](../99_img/CF/v2/img.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/CF/v2/img.png)
   - hostname + resourcePortion
   - while hitting origin, it will drop query param as shown.
 ### 1. Cache Policy
@@ -24,7 +24,7 @@
   - Query Strings
 - Note: but cacheKey will be remain as per Cache Policy, (NOt on Origin request policy) :point_left:
 
-![img_1.png](../99_img/CF/v2/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/CF/v2/img_1.png)
 
 ---
 
@@ -33,13 +33,13 @@
 - **behaviour-2** for path pattern : /alb-1/*  ==> origin-2 (alb): cache-policy-2, Origin-request-policy-2, ...
 - **behaviour-default** for path pattern : /*  ==> origin-1/2 (?): cache-policy-3, Origin-request-policy-3, ...
 - ...
-- ![img_2.png](../99_img/CF/v2/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/CF/v2/img_2.png)
 
 ## C. Invalidate cache
 - distribution > invalidation tab
   - create invalidation
     - define key
 
-![img_3.png](../99_img/CF/v2/img_3.png)
+![img_3.png](../../../99_img/2025/aws-ssa/CF/v2/img_3.png)
 
 ---

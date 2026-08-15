@@ -3,7 +3,7 @@
 - **better Read/write iops** :smile:
     - high-performance hardware disk
     - depends on ec2-i family type.
-    - ![img.png](../99_img/dva/storage/01/img99.png)
+    - ![img.png](../../../99_img/2025/aws-ssa/dva/storage/01/img99.png)
 - risk of data loss if h/w fails
 - **manual backup**
 - volume size is **fixed**

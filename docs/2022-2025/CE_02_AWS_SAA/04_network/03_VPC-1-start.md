@@ -13,7 +13,7 @@
     - 192.168.0.0/16: Home n/w
 
 ## 2 ephemeral port
-- [ephemeral port](../99_img/vpc-2/img_2.png) 
+- [ephemeral port](../../../99_img/2025/aws-ssa/vpc-2/img_2.png) 
 - random port client open, to receive response on that port from server. 
 
 ---
@@ -34,8 +34,8 @@
 
 ---
 ## 3. Default VPC : walkthrough
-- ![img.png](../99_img/vpc-1/img-v2.png)
-- ![vpc-1.png](../99_img/draw-io/VPC-1.drawio.png)
+- ![img.png](../../../99_img/2025/aws-ssa/vpc-1/img-v2.png)
+- ![vpc-1.png](../../../99_img/2025/aws-ssa/draw-io/VPC-1.drawio.png)
 
 ### 3.0 `tenancy` for EC2
 - console >> VPC Settings >> **Tenancy dropdown** >>
@@ -77,7 +77,7 @@
   - `VPC-endpoint`, `s3-gateway`, `dynamoDb-gateway`
 
 - **IPv6 routing**
-  - ![img_2.png](../99_img/vpc-2/ipv6-3.png)
+  - ![img_2.png](../../../99_img/2025/aws-ssa/vpc-2/ipv6-3.png)
   
 ### 3.4 Network ACL (NACL)
 - similar to SG/Firewall, another layer of traffic check at subnet level
@@ -86,7 +86,7 @@
 - **stateless**
   - inbound rule is checked >  allow/deny 
   - if allowed > response came > outbound rule is checked >  allow/deny
-  - ![img.png](../99_img/vpc-2/img.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/vpc-2/img.png)
 - **ACL rules**
   - 1-32,766 (high to low precedence), use increment of 100.
   - first matching rule, drive decision.
@@ -95,7 +95,7 @@
 - **default rule**
   - **allows everything in/out** :point_left:
   - don't change it, rather create new ACL and associate with your subnet.
-  - ![img_1.png](../99_img/vpc-2/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/vpc-2/img_1.png)
 - `subnet`  **1-2-1** `ACL`
 
 #### sg vs ACL
@@ -105,11 +105,11 @@
 - `All` rules are evaluated | Rules are evaluated `in order` (lowest to highest) and `first match wins`.
 
 #### NACL with  ephemeral port range
-![img_3.png](../99_img/vpc-2/img_3.png)
+![img_3.png](../../../99_img/2025/aws-ssa/vpc-2/img_3.png)
   
 ---
 ## 4. IGW
-![img_1.png](../99_img/vpc-1/img_1-v2.png)
+![img_1.png](../../../99_img/2025/aws-ssa/vpc-1/img_1-v2.png)
 
 ---
 ## 5. NAT 
@@ -130,7 +130,7 @@
 ## 7. Egress-Only Internet gateway
 - used only for Ipv6
 - note: update rtb ::0 | Egress-IGW
-- ![img_1.png](../99_img/vpc-2/ipv6-2.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/vpc-2/ipv6-2.png)
 
 ---
 ## 8. VPC Flow Logs
@@ -141,9 +141,9 @@
       - CW::metric >> CW::alarm >> sns
       - **KDF** (collect data stream) :dart: , not KDS
       - ...
-- ![img.png](../99_img/vpc-3/img+4.png)
-- ![img_1.png](../99_img/vpc-3/img+5.png)
-- ![img_2.png](../99_img/vpc-3/img_+6.png)
+- ![img.png](../../../99_img/2025/aws-ssa/vpc-3/img+4.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/vpc-3/img+5.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/vpc-3/img_+6.png)
 
 - hands on:
 ```
@@ -174,10 +174,10 @@
 - ingress - free
 - choose AWS direct location, close/same as your location/region-AZ
 
-- ![img.png](../99_img/vpc-4/img.png)
-- ![img_1.png](../99_img/vpc-4/img_1.png)
-- ![img_2.png](../99_img/vpc-4/img_2.png)
-- ![img_3.png](../99_img/vpc-4/img_3.png)
+- ![img.png](../../../99_img/2025/aws-ssa/vpc-4/img.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/vpc-4/img_1.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/vpc-4/img_2.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/vpc-4/img_3.png)
 
 | **Service/Feature**            | **Pricing**                                                                 |
 |--------------------------------|-----------------------------------------------------------------------------|
@@ -198,7 +198,7 @@
   - route/send to `ELB/NLB` or `target ENI`
   - ec2-i(security appliance)
   - perform inspection (threat monitoring, etc)
-- ![img.png](../99_img/vpc-2/ipv6-1.png)
+- ![img.png](../../../99_img/2025/aws-ssa/vpc-2/ipv6-1.png)
 
 ---
 ## 11. topolgies
@@ -287,7 +287,7 @@
   - peered VPC
   - Data-center/customer (DX oe S2S)
   - ...
-  - ![img_4.png](../99_img/vpc-4/img_4.png)
+  - ![img_4.png](../../../99_img/2025/aws-ssa/vpc-4/img_4.png)
 - firewall use **gateway Load Balancer** 
   - layer 3 to 7 protection
   - tg ec2-i : **security applicance** running
@@ -320,11 +320,11 @@ to services required by workloads in each of the VPCs?
 
 - Build a shared services Amazon Virtual Private Cloud (Amazon VPC)
 ```
-![img.png](../99_img/vpc-1/SharedserviceVPC.png)
+![img.png](../../../99_img/2025/aws-ssa/vpc-1/SharedserviceVPC.png)
 
 ## 2. Transit VPC
 -  Transit VPC uses customer-managed EC2 instances in a dedicated transit VP with an Internet gateway
-- ![img.png](../99_img/vpc-1/Transit-VPC.png)
+- ![img.png](../../../99_img/2025/aws-ssa/vpc-1/Transit-VPC.png)
 
 ---
 ## Diagrams

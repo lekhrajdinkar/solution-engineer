@@ -11,8 +11,15 @@
 Without index: Full table scan → O(n)
 With index:    Index lookup → usually O(log n)
 ```
+## Types (by core data structure) 
+| Index Type       | Structure              | Best for                          |
+| ---------------- | ---------------------- | --------------------------------- |
+| **B-Tree index** | Sorted tree            | `=`, `<`, `>`, `BETWEEN`, sorting |
+| **Hash index**   | Hash table             | Exact `=` lookup                  |
+| **Bitmap index** | Bitmaps                | Low-cardinality columns           |
+| **GIN/GiST**     | Specialized structures | JSON, arrays, full-text, spatial  |
 
-## Type
+## Type (by creation)
 - **primary** - on unique key, PK
 - **secondary** - on additional col as per query need
 - **GSI** on distributed DB
@@ -28,7 +35,7 @@ flowchart LR
 ```
 
 ---
-## Specialized Index Types
+##  Types (by Specialized usecase)
 | Index     | Main purpose                  |
 | --------- | ----------------------------- |
 | Unique    | Prevent duplicate values      |
@@ -58,13 +65,14 @@ flowchart LR
     style I fill:#f4b183,stroke:#333
     style T fill:#9dc3e6,stroke:#333
 ```
-
+---
 ## Trade-off
 Indexes improve read speed, but add cost:
 - Extra storage
 - Slower INSERT, UPDATE, DELETE
 - Index maintenance and fragmentation
 
+---
 ## when to create ✔️
 - Columns used in WHERE
 - Columns used in ORDER BY
@@ -78,7 +86,8 @@ Indexes improve read speed, but add cost:
 | **Rarely queried column**     | Write and storage overhead are not justified                              |
 | **Frequently updated column** | Every update may require index maintenance                                |
 
-## practical approach
+---
+## Practical approach
 1. Identify frequently executed queries
 2. Profile them using EXPLAIN ANALYZE
 3. Add indexes only where needed
@@ -99,3 +108,5 @@ flowchart LR
     style K fill:#a9d18e,stroke:#333
     style D fill:#f4cccc,stroke:#333
 ```
+---
+

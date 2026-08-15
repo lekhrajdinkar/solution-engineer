@@ -31,4 +31,4 @@
 - AWS KDF [03_02_KDF_KinesisDataFirehose.md](../05_decoupling/03_02_KDF_KinesisDataFirehose.md)
 
 ## B. Architecture example
-- ![img.png](../99_img/compute/lambda/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/compute/lambda/img.png)

@@ -45,9 +45,9 @@ It automates:
 - configure: Encryption/TLS + Monitoring and retries
 - Supports Incremental copying
 
-![img_1.png](../99_img/storage/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/storage/img_1.png)
 
-![img_2.png](../99_img/storage/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/storage/img_2.png)
 
 ---
 ## Details

@@ -3,19 +3,19 @@
 - TLS / SSL certificate / HTTPS
 - prevent from MITM
 
-![img.png](../99_img/security/kms/img.png)
+![img.png](../../../99_img/2025/aws-ssa/security/kms/img.png)
 
 ## 2. Encryption at `Rest`
 - encryption/decryption happens at server.
 
-![img_1.png](../99_img/security/kms/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/security/kms/img_1.png)
 
 ## 3. Client side encryption
 
 - Don't trust server
 - cant make KMS api call
 
-![img_2.png](../99_img/security/kms/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/security/kms/img_2.png)
 
 ```
 # --- symmetric(AES-256) ---
@@ -96,7 +96,7 @@
 - **custom policy**
   - eg:
     - for cross account access, restricted access with in acct, etc
-      - ![img_4.png](../99_img/security/kms/img_4.png)
+      - ![img_4.png](../../../99_img/2025/aws-ssa/security/kms/img_4.png)
     - give access to specific services (lambda-fn)
       ```
       lambda-1 copy ebs snapshot from one region to another region
@@ -175,27 +175,27 @@ Minimal key management overhead     	SSE-S3
 - add permission for both keys to ...
 - 
 ### 3. share AMI cross region
-![img.png](../99_img/security/kms-2/img-100.png)
+![img.png](../../../99_img/2025/aws-ssa/security/kms-2/img-100.png)
 - share AMI : update `launch-permission` for AMI to allow access
 - share kms-key-1 : update `kms-policy` to allow access
 - Account-b >> decrypt with kms-key-1 >> re-encrypt with its kms-key-2(Account-b)
 
 ### 4. EBS volume (cross region)
-![img_3.png](../99_img/security/kms/img_3.png)
+![img_3.png](../../../99_img/2025/aws-ssa/security/kms/img_3.png)
 
 ### 5 multi region key - Dynamo / RDS
 
-![img.png](../99_img/security/kms-2/img.png)
+![img.png](../../../99_img/2025/aws-ssa/security/kms-2/img.png)
 
-![img_1.png](../99_img/security/kms-2/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/security/kms-2/img_1.png)
 
-![img_2.png](../99_img/security/kms-2/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/security/kms-2/img_2.png)
 
 ---
 ## Z. KMS: more ( for DVA)
 ## 1. Encrypt/decrypt (< 4KB)
 - straight forward, nothing new
-- ![img.png](../99_img/dva/kms/01/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/kms/01/img.png)
 
 ---
 ## 2. Encrypt/decrypt (> 4KB) `big files`
@@ -238,20 +238,20 @@ Minimal key management overhead     	SSE-S3
 ```
 
 ### 2.1 **envelop encryption**
-![img_1.png](../99_img/dva/kms/01/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dva/kms/01/img_1.png)
 
 ### 2.2 **envelop de-cryption**
-![img_2.png](../99_img/dva/kms/01/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/dva/kms/01/img_2.png)
 
 - eg with s3
-  - ![img.png](../99_img/dva/kms/01/imgs3.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/dva/kms/01/imgs3.png)
 ---
 
 ## 3. KMS request quota
 - share quota across account.
 - will get ThrottleException
 
-![img.png](../99_img/dva/kms/01/img4.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/kms/01/img4.png)
 
 ---
 ## EXAM :dart:

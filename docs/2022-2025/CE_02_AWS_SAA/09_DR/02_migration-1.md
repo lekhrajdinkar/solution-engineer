@@ -21,7 +21,7 @@
 - supports wide range platform,os,db,volumes, etc
 - hire dedicated engines to do this. `complex process`.
 - minimal downtime.
-- ![img.png](../99_img/dr/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dr/img.png)
 
 ## 3. SMS : server migration service
 - `incremental migration of live server data`

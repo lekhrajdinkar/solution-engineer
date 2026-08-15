@@ -14,7 +14,7 @@
   - `Hosting` : cloudfront
   - `testing` : **Cypress** testing framework
   - note: use cloudFormation for provision resource.
-  - ![img_1.png](../99_img/dva/serverlessMore/02/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/dva/serverlessMore/02/img_1.png)
 
 ---
 ## Amplify studio(visual) + CLI
@@ -26,6 +26,6 @@
 ---
 ## screenshot
 
-![img_2.png](../99_img/dva/serverlessMore/02/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/dva/serverlessMore/02/img_2.png)
 
-![img_3.png](../99_img/dva/serverlessMore/02/img_3.png)
+![img_3.png](../../../99_img/2025/aws-ssa/dva/serverlessMore/02/img_3.png)

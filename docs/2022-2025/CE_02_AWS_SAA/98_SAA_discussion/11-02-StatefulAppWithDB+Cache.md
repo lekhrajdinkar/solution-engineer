@@ -13,7 +13,7 @@
 ### `Problem-2 `: client side cookies can alter by hacker.
   - Solution-1 : use ElasticCache (server side cache). 
   - solution-2 : can use dynamoDB as well for temp record with TTL.
-  - ![img.png](../99_img/ssa-discussion/11-2/img.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/ssa-discussion/11-2/img.png)
 
 ### `problem-3` : Persist user data
   - use RDS
@@ -22,7 +22,7 @@
 ### `problem-4` : read performance issue
   - add RDS Read replicas
   - use elastiCache to cache frequently access use data.
-  - ![img_1.png](../99_img/ssa-discussion/11-2/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/ssa-discussion/11-2/img_1.png)
 
 ---
 ### `problem-5` : RDS and Elasti-cache : Availability / DR
@@ -31,12 +31,12 @@
 ---
 ## B. wordpress (stateful)
 - upload and store image on volumes.
-- ![img.png](../99_img/ssa-discussion/11-3/img.png)
-- ![img_1.png](../99_img/ssa-discussion/11-3/img_1.png)
+- ![img.png](../../../99_img/2025/aws-ssa/ssa-discussion/11-3/img.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/ssa-discussion/11-3/img_1.png)
 ---
 ### `Problem-1`:  multiple Volume, no track which image is which volume
 - use EFS
-- ![img_2.png](../99_img/ssa-discussion/11-3/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/ssa-discussion/11-3/img_2.png)
 
 ---
 ## C. more
