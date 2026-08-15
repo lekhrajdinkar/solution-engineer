@@ -1,18 +1,12 @@
 # Client-Server Architecture
 ## Core concepts
 - [AWS_SSA - DNS + Rout53](../../../CE_02_AWS_SAA/04_network/02_Rout53.md) | [DNS 2](https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360643/posts/2192892033)
-- [Socket](../SD_01_foundation/05_concept_03_socket.md) 
-- [http-evolution](../SD_03_53_network/01_basic_02_http-evolution.md)
+- [network-essentials](../SD_03_53_network)
+- [API-Design](../../SD_08_API-Design)
+- [microservice](../../SD_21_microservice)
 
 ---
 ## Communication Patterns
-| Category     |         Caller waits? | Connection                           | Common examples                  |
-| ------------ | --------------------: | ------------------------------------ | -------------------------------- |
-| Synchronous  |                   Yes | Usually short-lived                  | REST, HTTP, unary gRPC           |
-| Asynchronous |                    No | Decoupled through broker or callback | Kafka, RabbitMQ, SQS, webhook    |
-| Streaming    |            Continuous | Long-lived                           | WebSocket, SSE, gRPC streaming   |
-| Batch        | No real-time response | Periodic or file-based               | SFTP, S3 files, Spark, MapReduce |
-
 
 ```mermaid
 flowchart TB
@@ -23,7 +17,15 @@ flowchart TB
     A --> STREAM[3. Streaming Communication]
     A --> BATCH[4. Batch / File-Based Communication]
 ```
----
+
+| Category     |         Caller waits? | Connection                           | Common examples                  |
+| ------------ | --------------------: | ------------------------------------ | -------------------------------- |
+| Synchronous  |                   Yes | Usually short-lived                  | REST, HTTP, unary gRPC           |
+| Asynchronous |                    No | Decoupled through broker or callback | Kafka, RabbitMQ, SQS, webhook    |
+| Streaming    |            Continuous | Long-lived                           | WebSocket, SSE, gRPC streaming   |
+| Batch        | No real-time response | Periodic or file-based               | SFTP, S3 files, Spark, MapReduce |
+
+> layer 7 network protocol:
 
 ### [A. Synchronous: Request/Response](../SD_03_54_IPC/01_synchronous.md)
 - http  / tcp handshake

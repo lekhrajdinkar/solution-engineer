@@ -7,7 +7,7 @@ Reference:
 > **socket** is opened b/w client and server when **connection (TCP/UDP)** is established.  
 > socket forms **two-way communication channel**, like a phone line, allowing two devices to talk
 
-![img.png](../../../99_img/2025/se_02_sd/08/01/img.png)
+![img.png](../../../../99_img/2025/se_02_sd/08/01/img.png)
 
 **socket address**
 - an **IP** address (identifying a device) 
@@ -27,11 +27,11 @@ Reference:
     - s.connect("abc.com", 80)
     - s.recv(8080) | s.bind('abc',8080); s.listen()
 ```
-![img_1.png](../../../99_img/2025/se_02_sd/08/01/img_1.png)
+![img_1.png](../../../../99_img/2025/se_02_sd/08/01/img_1.png)
 
-![img_2.png](../../../99_img/2025/se_02_sd/08/01/img_2.png)
+![img_2.png](../../../../99_img/2025/se_02_sd/08/01/img_2.png)
 
-![img_3.png](../../../99_img/2025/se_02_sd/08/01/img_3.png)
+![img_3.png](../../../../99_img/2025/se_02_sd/08/01/img_3.png)
 
 ---
 ### Connection / socket-connection
@@ -79,4 +79,4 @@ Reference:
   - they allow the OS to notify the server, only when specific sockets have data, 
   - thus preventing CPU waste
 
-![img_4.png](../../../99_img/2025/se_02_sd/08/01/img_4.png)
+![img_4.png](../../../../99_img/2025/se_02_sd/08/01/img_4.png)
