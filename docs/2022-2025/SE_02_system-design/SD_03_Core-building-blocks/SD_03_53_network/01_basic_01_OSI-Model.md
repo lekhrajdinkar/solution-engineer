@@ -193,7 +193,10 @@ sequenceDiagram
 - use case : RESTful-API, web pages
 
 ### DNS
+- https://youtube.com/watch?v=Lsd80uR9Shs (skip)
 
 ### Websockets
+- [socket](01_basic_03_socket.md)
 
 ### WebRTC
+- [check here](../SD_03_54_IPC/05_more.md#2-webrtc)
