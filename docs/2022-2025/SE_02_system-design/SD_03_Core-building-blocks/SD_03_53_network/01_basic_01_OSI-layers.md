@@ -92,8 +92,8 @@ graph TD
 ```
 
 ---
-## Layer 3 : Network
-### IP
+## A. Layer 3 : Network
+### 1. IP
 > IP by far the most common for system design interviews
 
 - the protocol that handles routing and addressing.
@@ -123,23 +123,48 @@ flowchart LR
 | **Private IP**           | `192.168.1.1`, `192.168.1.100` | Used inside a private network such as your home/VPC |
 | **Localhost / Loopback** | `127.0.0.1`                    | Refers back to the same machine                     |
 
-### InfiniBand
+**Dynamic Host Configuration Protocol (DHCP)**
+- is a network management protocol used on Internet Protocol (IP) networks
+- for automatically assigning IP addresses and other communication parameters to devices
+
+### 2. InfiniBand
 - which is used extensively for massive ML training workloads)
 
 ---
-## layer 4 : transport
+## B. layer 4 : transport
 > provide end-to-end communication services
 
 ```
-    TCP = reliable pipe
+    TCP = reliable pipe | UDP = Fast but Unreliable
     TLS = secure pipe
     HTTP = language spoken through the pipe
 ```
+---
+### 1. UDP (fast, but unreliable)
+- best effort delivery, superfast, packet might get lost or unorder
+- Browsers don't have widespread support for UDP, yet outside of **WebRTC**
+```
+Connectionless          : No handshake or connection setup 👈
+No guarantee of delivery: Packets may be lost without notification
+No ordering             : Packets may arrive in a different order than sent
+Lower latency           : Less overhead means faster transmission
+```
+---
+### 2. TCP (slow, reliable delivery)
+> **QUIC** is a new protocol that aims to provide some of the same benefits of TCP with some modernization and performance benefits.
 
-### TCP (reliable delivery)
 **TCP connection**
 - TCP handshake
-- TCP connection established | tunnel
+- TCP stateful connection  established | tunnel/stream
+- TCP will ensure that recipients of messages acknowledge their receipt and, if they don't, will **retransmit** the message until it is acknowledged.
+
+```
+Connection-oriented : Establishes a dedicated connection before data transfer
+Reliable delivery   : Guarantees that data arrives in order and without errors
+Flow control        : Prevents overwhelming receivers with too much data
+Congestion control  : Adapts to network congestion to prevent collapse
+```
+**Abstraction**
 - http/https provides abstraction over TCP
 - py, java, etc, all has lib to comm with http/https
 
@@ -151,11 +176,8 @@ flowchart LR
 ```
 
 **TCP handshake:**
-- Creates a reliable, stateful connection between two endpoints.
 - Connection starts with **3-way handshake**: SYN → SYN-ACK → ACK
 - Identified by: Source IP + Source Port + Destination IP + Destination Port
-- **Provides ordering, acknowledgments, retransmission, flow control, and congestion control**
-- TCP itself does not encrypt data; TLS provides encryption.
 
 ```mermaid
 sequenceDiagram
@@ -176,27 +198,72 @@ sequenceDiagram
     S->>C: FIN
     C->>S: ACK
 ```
+### TCP vs UDP
 
-### UDP
-- ( best effort delivery, superfast, packet might get lost or unorders)
+| **Feature**        | **UDP**                      | **TCP**                                      |
+| ------------------ | ---------------------------- | -------------------------------------------- |
+| Connection         | Connectionless               | Connection-oriented                          |
+| Reliability        | Best-effort delivery         | Reliable delivery                            |
+| Ordering           | No ordering guarantee        | Maintains byte order                         |
+| Flow Control       | No                           | Yes                                          |
+| Congestion Control | No                           | Yes                                          |
+| Header Size        | 8 bytes                      | 20–60 bytes                                  |
+| Speed              | Usually lower overhead       | More overhead                                |
+| Use Cases          | Streaming, gaming, VoIP, DNS | Web traffic, APIs, file transfer, email, SSH |
+
 
 ---
-## Layer 6/7: Application
-### Http/s
+## Layer 7: Application
+### 1. Http/s
 - https://youtube.com/watch?v=jQ6_XhsMwws
 - [http-evolution](01_basic_03_http-evolution.md)
 - A stateless, text-based protocol commonly used for APIs, built on top of TCP
 - HTTP connection : HTTP --> TCP handshake
 - HTTPS connection : HTTP --> TCP handshake --> [TLS handshake](../../SD_24_security/03_protocol_https_tls.md)
     - Also **handshake/s takes time.**
-- **short live stateless connection.** : open-close, open-close, ...
-- use case : RESTful-API, web pages
 
-### DNS
+**connection** 
+  - between the client and server is a **state** that both the client and server must maintain. 
+  - Unless we use features like **HTTP keep-alive or HTTP/2 multiplexing**, 
+  - we need to repeat this connection setup process for every request,
+  - like, **short live stateless connection.** : open-close, open-close, ...
+
+> ℹ️ While HTTP can be used directly to build websites, 
+> - oftentimes system designs are concerned with the **communication between services via APIs.** 
+> - 3 main API paradigms: REST, GraphQL, and gRPC.
+> - [API-Design](../../SD_08_API-Design)
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant D as DNS Server
+    participant S as Web Server
+
+    C->>D: DNS query for domain
+    D-->>C: IP address
+
+    Note over C,S: TCP three-way handshake
+    C->>S: SYN
+    S-->>C: SYN-ACK
+    C->>S: ACK
+
+    Note over C,S: HTTP request/response
+    C->>S: HTTP GET request
+    Note right of S: Server processing
+    S-->>C: HTTP response<br/>Web page content
+
+    Note over C,S: TCP connection teardown
+    C->>S: FIN
+    S-->>C: ACK
+    S->>C: FIN
+    C-->>S: ACK
+```
+
+### 2. DNS
 - https://youtube.com/watch?v=Lsd80uR9Shs (skip)
 
-### Websockets
+### 3. Websockets
 - [socket](01_basic_03_socket.md)
 
-### WebRTC
+### 4. WebRTC
 - [check here](../SD_03_54_IPC/05_more.md#2-webrtc)

@@ -14,8 +14,8 @@
 
 ---
 ## Good for:
-- low-latency service-to-service calls
-- Both services are controlled by the same organization
+- **low-latency service-to-service calls**
+- Both services are controlled by the **same organization**
 
 not good for:
 - limited browser support, hence hard for UI developer to work with.

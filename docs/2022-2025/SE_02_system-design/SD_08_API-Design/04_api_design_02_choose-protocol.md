@@ -88,7 +88,7 @@ check below for detail:
 ---
 ## B. Protocol for :: Streaming
 SEE, WS, gRPC-stream:
-[streaming comm pattern](../SD_03_Core-building-blocks/SD_03_54_IPC/03_streaming.md#2-websocket--wss)
+[streaming comm pattern](../SD_03_Core-building-blocks/SD_03_54_IPC/03_streaming-TCP-based.md#2-websocket--wss)
 
 ---
 ## C. Protocol for :: messaging (async)

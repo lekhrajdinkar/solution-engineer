@@ -1,4 +1,4 @@
-#  
+#  Inter process Communication : Synchronous
 > [⭐ microservices :: service-mesh](../SD_03_52_architecture/02_pattern_10_service-mesh.md)
 
 ---
@@ -8,8 +8,6 @@
 IPC format:
 - text based: `JSON`, `XML`
 - binary: `Protobuf`, `avro`
-
-## Communication Patterns
 
 ```mermaid
 flowchart TB
@@ -45,7 +43,7 @@ flowchart TB
 - message based - p2p, pubSub
 - polling - short / long
 
-### [C. Streaming](../SD_03_54_IPC/03_streaming.md)
+### [C. Streaming](03_streaming-TCP-based.md)
 - ws / wss
 - gRPC stream
 
@@ -73,10 +71,11 @@ flowchart TB
 
 ---
 ## 1. HTTP / HTTPS(TLS)
-- [Overview](../SD_03_53_network/01_basic_01_OSI-Model.md#https)
-- [TCP](../SD_03_53_network/01_basic_01_OSI-Model.md#tcp-reliable-delivery)
+- [Overview](../SD_03_53_network/01_basic_01_OSI-layers.md#https)
+- [TCP](../SD_03_53_network/01_basic_01_OSI-layers.md#tcp-reliable-delivery)
 - [http-headers](../../SD_08_API-Design/11_rest_02_http-headers.md)
 - [http-evolution](../../SD_08_API-Design/11_rest_03_http-evolution.md)
+- [https/TLS](../../SD_24_security/03_protocol_https_tls.md)
 
 ---
 ## 2. RPC / GRPC...
