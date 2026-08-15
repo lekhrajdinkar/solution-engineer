@@ -148,3 +148,23 @@ flowchart LR
 | **DynamoDB**    | | ✅             |
 
 
+---
+
+## PACELC
+- It extends the better-known CAP theorem.
+- If there is a network Partition (P), a distributed system must choose between Availability (A) and Consistency (C); 
+- Else (E), during normal operation, it must choose between **Latency** (L) and Consistency (C).
+
+> - Partition? → Availability vs. Consistency
+> - No partition? → Latency vs. Consistency
+
+```
+P — Partition
+A — Availability
+C — Consistency
+E — Else
+L — Latency
+C — Consistency
+```
+
+This makes PACELC particularly useful when comparing distributed database architectures, because in practice network partitions are relatively exceptional, while the latency–consistency trade-off occurs continuously.
