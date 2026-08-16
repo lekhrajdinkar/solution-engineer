@@ -66,3 +66,84 @@
 #### based on least response time (health)
 - checks health 
 - `dynamic algorithm` selects a servers, whose **average response**  was the lowest.
+
+
+## C. Type
+>Core idea:
+> - Server-side LB: Client → Load Balancer → Server
+> - Client-side LB: Client → discover servers → choose server directly
+
+### Client Side
+
+```mermaid
+flowchart LR
+    C[Client] -->|1. Get available servers| R[Service Registry]
+    R -->|2. Server list| C
+
+    C -->|3. Choose server| A[Server A]
+    C -.-> B[Server B]
+    C -.-> D[Server C]
+```
+
+Advantages
+- No extra load-balancer network hop
+- Lower latency
+- Client can choose based on locality, health, shard, etc.
+
+Disadvantages
+- More logic in the client
+- Client must keep server information fresh
+
+#### 💠Redix client example
+ > The client learns the cluster topology, determines the shard for a key, and sends the request directly to the appropriate Redis node.
+```mermaid
+flowchart TD
+    C[Redis Client] -->|Get cluster topology| N1[Redis Node 1]
+
+    N1 -->|Nodes + shard mapping| C
+
+    C -->|hash key → shard 1| N1
+    C -->|hash key → shard 2| N2[Redis Node 2]
+    C -->|hash key → shard 3| N3[Redis Node 3]
+
+    N1 <-->|Gossip| N2
+    N2 <-->|Gossip| N3
+    N3 <-->|Gossip| N1
+```
+
+#### 💠kafka example
+> Kafka uses client-side metadata-based routing, similar to redis
+> - Producers and consumers learn cluster topology and communicate directly with the appropriate brokers,
+> - avoiding a central request-level load balancer.
+
+```
+Producer → any broker: fetch metadata
+Producer ← partition → leader mapping
+Producer → correct leader broker directly
+```
+
+#### 💠 DNS
+
+> Because each client gets a different ordering of IP addresses, 
+> - they're also going to hit different servers. 
+> - The DNS resolver is effectively doing client-side load balancing for us!
+
+```mermaid
+flowchart LR
+    C1[Client 1] --> DNS[DNS Resolver]
+    C2[Client 2] --> DNS
+    C3[Client 3] --> DNS
+
+    DNS -->|A, B, C| C1
+    DNS -->|B, C, A| C2
+    DNS -->|C, A, B| C3
+
+    C1 --> A[Server A]
+    C2 --> B[Server B]
+    C3 --> C[Server C]
+    style A color:black,fill:yellow
+    style B color:black,fill:yellow
+    style C color:black,fill:yellow
+    style DNS color:black,fill:cyan
+```
+### Server side

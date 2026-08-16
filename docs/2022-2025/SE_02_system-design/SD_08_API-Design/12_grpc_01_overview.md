@@ -4,7 +4,7 @@
 ---
 ## Overview
 > - RPC treats a remote service call like calling a local function
-> - ecosystem is not matured as REST
+> - ecosystem is not matured as REST (simple JSON over HTTP. )
 
 - Built on **HTTP/2** (thus supports streaming ?)
 - Fast binary payload (compact/small) with **gRPC/Protobuf** + Generated client/server code
@@ -14,7 +14,7 @@
 
 ---
 ## Good for:
-- **low-latency service-to-service calls**
+- **low-latency service-to-service calls** | microservice arch
 - Both services are controlled by the **same organization**
 
 not good for:

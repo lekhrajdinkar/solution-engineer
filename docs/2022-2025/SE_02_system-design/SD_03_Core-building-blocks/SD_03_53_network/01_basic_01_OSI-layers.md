@@ -1,6 +1,6 @@
-# Network Model
+# Network Essential- part 1
 ## reference
-- https://youtube.com/watch?v=tpgoQwMg__M | bm
+- https://youtube.com/watch?v=tpgoQwMg__M | OSI bm
 - https://youtu.be/SHkbPm1Wrno | hi
 
 --- 
@@ -92,7 +92,7 @@ graph TD
 ```
 
 ---
-## A. Layer 3 : Network
+## A. 📚Layer 3 : Network
 ### 1. IP
 > IP by far the most common for system design interviews
 
@@ -131,7 +131,7 @@ flowchart LR
 - which is used extensively for massive ML training workloads)
 
 ---
-## B. layer 4 : transport
+## B. 📚layer 4 : transport
 > provide end-to-end communication services
 
 ```
@@ -213,8 +213,8 @@ sequenceDiagram
 
 
 ---
-## Layer 7: Application
-### 1. Http/s
+## C. 📚Layer 7: Application
+### 1. HTTP/HTTPS
 - https://youtube.com/watch?v=jQ6_XhsMwws
 - [http-evolution](01_basic_03_http-evolution.md)
 - A stateless, text-based protocol commonly used for APIs, built on top of TCP
@@ -262,8 +262,9 @@ sequenceDiagram
 ### 2. DNS
 - https://youtube.com/watch?v=Lsd80uR9Shs (skip)
 
-### 3. Websockets
-- [socket](01_basic_03_socket.md)
+### 3. stream protocols (SSE + Websocket)
+- [core concept :: socket](01_basic_03_socket.md)
+- [check here](../SD_03_54_IPC/03_streaming-TCP-based.md#2-websocket--wss-)
 
 ### 4. WebRTC
 - [check here](../SD_03_54_IPC/05_more.md#2-webrtc)
