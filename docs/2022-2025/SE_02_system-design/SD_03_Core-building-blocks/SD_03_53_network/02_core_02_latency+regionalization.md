@@ -1,4 +1,4 @@
-# Handle :: Latency + Regional Partitioning
+# Handle :: Latency + regionalization
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2192532375
 - https://chatgpt.com/g/g-p-6a68d3926dd4819180c1c9bf855e98f3-system-design-bm-acedemy/c/6a6d3584-9848-83e8-9697-a27a2cc06703
 - https://www.hellointerview.com/learn/courses/system-design/lesson/foundations/networking-essentials#regionalization-and-latency
@@ -13,8 +13,8 @@
 >   - Regional Partitioning  for "regionalization"  ✔️
 
 ---
-## Latency
-## A. CDN :: Overview
+## A. CDN
+### Overview
 - servers that are strategically located around the world.
 - boast hundreds or even thousands of different cities, with edge server
 - If that edge server can answer a user's request, the user is going to get lightning fast response times
@@ -41,7 +41,7 @@ flowchart LR
 | Dynamic content | Accelerated through optimized routing, not always cached |
 
 ---
-## CDN :: Benefits
+### Benefits
 | Benefit              | Explanation                                        |
 | -------------------- | -------------------------------------------------- |
 | Lower latency        | Content is served from a nearby edge location      |
@@ -51,11 +51,12 @@ flowchart LR
 | DDoS protection      | Malicious traffic can be filtered at the edge      |
 | Lower bandwidth cost | Cached content avoids repeated origin transfers    |
 
-## CDN :: Tradeoff
+### Tradeoff
 - but introduces **cache consistency and invalidation complexity.**
 
 ---
-## B. Regional Partitioning :: overview
+## B. Regional Partitioning 
+### overview
 - Another common strategy,  when we need to deal with regionalization is regional partitioning.
 - If we have a lot of users in a single region, we can partition our data by region so that each region only has data relevant to it.
 
