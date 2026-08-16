@@ -59,6 +59,21 @@
   - eg: user browsing a shopping website
   - eg: user dashboard
 
+> ⚠️ Problem: Round-robin balances new connections, not every request inside a persistent connection → can cause uneven load.
+
+```mermaid
+flowchart LR
+C1[Client 1<br/>Long-lived connection] --> LB[Load Balancer]
+C2[Client 2] --> LB
+C3[Client 3] --> LB
+
+    LB -->|Round Robin| S1[Server 1<br/>Busy for long time]
+    LB -->|Round Robin| S2[Server 2]
+    LB -->|Round Robin| S3[Server 3]
+
+    C1 -. Reuses same connection .-> S1
+```
+
 #### IP-based hashing
 - Ensures requests from a specific client always go to the same server,
 - useful for caching, session consistency

@@ -13,7 +13,20 @@
 ## Forward Proxy
 ```mermaid
 flowchart LR
-    C[Client] --> FP[Forward Proxy]
+    subgraph ClientSide["Client Side"]
+        C[Client]
+        FP[Forward Proxy]
+        C --> FP
+    end
+    FP --> I[Internet / External Server]
+```
+```mermaid
+flowchart LR
+    subgraph ServerSide["client Side"]
+        C1[Client 1] --> FP[Forward Proxy]
+        C2[Client 2] --> FP
+        C3[Client 3] --> FP
+    end    
     FP --> I[Internet / External Server]
 ```
 **Common uses**
@@ -24,10 +37,13 @@ flowchart LR
 ## Reverse Proxy
 ```mermaid
 flowchart LR
-    U[User] --> RP[Reverse Proxy]
-    RP --> S1[Server 1]
-    RP --> S2[Server 2]
-    RP --> S3[Server 3]
+    U[User / Client] --> RP
+    subgraph ServerSide["Server Side"]
+        RP[Reverse Proxy]
+        RP --> S1[Server 1]
+        RP --> S2[Server 2]
+        RP --> S3[Server 3]
+    end
 ```
 **Common uses**
 - Load balancing

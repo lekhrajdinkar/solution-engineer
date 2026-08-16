@@ -21,11 +21,14 @@ Physical      → Wi-Fi/radio/cable bits, light pulses
 | **7** | Application  | Network services used by applications                | HTTP, HTTPS, DNS, SMTP, FTP     |
 | **6** | Presentation | Data format, encoding, encryption, compression       | TLS/SSL, JSON, JPEG, UTF-8      |
 | **5** | Session      | Establish/manage/close communication sessions        | RPC sessions, sockets concepts  |
-| **4** | Transport    | End-to-end delivery, ports, reliability              | TCP /QUIC(Modern) , UDP                    |
+| **4** | Transport    | End-to-end delivery, ports, reliability              | TCP , QUIC(Modern) , UDP        |
 | **3** | Network      | IP addressing and routing                            | IPv4, IPv6, ICMP, routers       |
 | **2** | Data Link    | Local-network delivery using MAC addresses           | Ethernet, Wi-Fi, switches, ARP* |
 | **1** | Physical     | Transmits raw bits as electrical/radio/light signals | Cable, fiber, radio             |
 
+> QUIC → transport protocol built on UDP that provides TCP-like reliability + TLS security with lower-latency connection setup.
+>
+> HTTP/3 → HTTP running on top of QUIC.
 
 ![img_2.png](img_2.png)
 
@@ -148,6 +151,8 @@ Connectionless          : No handshake or connection setup 👈
 No guarantee of delivery: Packets may be lost without notification
 No ordering             : Packets may arrive in a different order than sent
 Lower latency           : Less overhead means faster transmission
+
+Dontt guarantee that a remote service will respond within a useful deadline
 ```
 ---
 ### 2. TCP (slow, reliable delivery)
