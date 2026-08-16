@@ -9,8 +9,12 @@
 - **continuously monitor** server 
   - availability and performance metric
   - redirecting traffic away from unhealthy servers until they recover.
-- can be **hardware-based** or **software-based**
-  - with software-based being more cost-effective and customizable.
+
+| **Type**                   | **Examples**                                                      | **Description**                                                                                 |
+| -------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Hardware Load Balancer** | F5 BIG-IP                                                         | Dedicated physical appliances designed specifically for high-performance traffic management     |
+| **Software Load Balancer** | HAProxy, NGINX, Envoy                                             | Runs as software on servers/VMs/containers; flexible and commonly used in modern infrastructure |
+| **Cloud Load Balancer**    | AWS ELB/ALB/NLB, Google Cloud Load Balancing, Azure Load Balancer | Fully managed load-balancing services provided by cloud platforms                               |
 
 **Example**
 - lb for frontend, 
@@ -23,8 +27,20 @@
 
 ---
 ## B. Algorithm / strategies
+
+| **Algorithm**           | **How It Works**                                               | **Best For / Notes**                                 |
+| ----------------------- | -------------------------------------------------------------- | ---------------------------------------------------- |
+| **Round Robin**         | Sends requests sequentially across servers                     | Simple; good when servers have similar capacity      |
+| **Random**              | Selects a server randomly for each request                     | Simple and often distributes load reasonably well    |
+| **Least Connections**   | Sends traffic to the server with the fewest active connections | Good when requests have varying durations            |
+| **Least Response Time** | Sends traffic to the server currently responding fastest       | Useful when backend performance varies               |
+| **IP Hash**             | Hashes the client IP to consistently select a server           | Useful for **session persistence / sticky sessions** |
+
+
 ![img_1.png](../../../../99_img/2025/se_02_sd/01/02/img_1.png)
 ### B.1 Static
+> round robin or random algorithm is appropriate, especially for stateless applications
+
 #### Random
 - Works well when All servers are identical in capacity and performance,
 - and traffic is expected to be evenly distributed over time.
@@ -63,6 +79,9 @@
 #### based on least connection
 -  dynamic approach that routes incoming requests to the server with the fewest active connections
 
+> For services that require a persistent connection (e.g. those serving SSE or WebSocket connections), 
+> using Least Connections is a good idea because it avoids a situation where a single server gradually accumulates all of of the active connections
+
 #### based on least response time (health)
 - checks health 
 - `dynamic algorithm` selects a servers, whose **average response**  was the lowest.
@@ -94,6 +113,7 @@ Disadvantages
 - More logic in the client
 - Client must keep server information fresh
 
+---
 #### 💠Redix client example
  > The client learns the cluster topology, determines the shard for a key, and sends the request directly to the appropriate Redis node.
 ```mermaid
@@ -110,7 +130,7 @@ flowchart TD
     N2 <-->|Gossip| N3
     N3 <-->|Gossip| N1
 ```
-
+---
 #### 💠kafka example
 > Kafka uses client-side metadata-based routing, similar to redis
 > - Producers and consumers learn cluster topology and communicate directly with the appropriate brokers,
@@ -121,9 +141,8 @@ Producer → any broker: fetch metadata
 Producer ← partition → leader mapping
 Producer → correct leader broker directly
 ```
-
+---
 #### 💠 DNS
-
 > Because each client gets a different ordering of IP addresses, 
 > - they're also going to hit different servers. 
 > - The DNS resolver is effectively doing client-side load balancing for us!
@@ -146,4 +165,72 @@ flowchart LR
     style C color:black,fill:yellow
     style DNS color:black,fill:cyan
 ```
-### Server side
+---
+### Server-side dedicated LB
+#### a. Layer 4 LB (fast)
+feature:
+- Layer 4 load balancers operate at the transport layer (TCP/UDP). 
+- They make routing decisions based on network information like IP addresses and ports,
+  - without looking at the actual content of the packets. 
+- Maintain **persistent TCP connections** between client and server. 
+  - hence, well-suited for protocols that require persistent connections, 
+  - like WebSocket connections.
+  
+> - One TCP connection → one selected backend for the lifetime of that connection.
+> - From the client/server point of view, it behaves almost as if the client had directly connected to Backend Server B in the first place.
+
+use case:
+- L4 load balancers are great for **WebSocket connections** and other protocols that require persistent connections.
+- high-performance applications that don't require much application-level processing.
+
+```
+For example, if a client establishes a TCP connection through an L4 load balancer,
+that same server will handle all subsequent requests within that TCP session
+ 
+Client
+   | 
+   | TCP connection
+   v
+L4 Load Balancer
+   |
+   | chooses one backend
+   v
+Backend Server B
+
+GET /users  ─────────> Backend B
+GET /orders ─────────> Backend B
+GET /images ─────────> Backend B
+
+Whereas with L7, those HTTP requests could potentially be routed to different backends
+```
+---
+#### b. Layer 7 LB
+> Client --HTTPS--> L7 Load Balancer --HTTP/HTTPS--> Backend
+
+**tradeoff**
+- It requires more CPU/memory and adds more processing overhead than a Layer 4 load balancer.
+- More CPU-intensive due to packet inspection.
+
+**Overview**
+- It can also terminate TLS/HTTPS
+- Can route based on request content (URL, headers, cookies, etc.).
+- So it supports **advanced routing**, for example:
+  - /api/*     → API servers
+  - /images/*  → Image servers
+  - admin.com  → Admin servers
+- 👉 client does not need to open a separate TCP connection to each backend
+  - client can keep one TCP connection open to the Layer 7 load balancer, 
+  - while the load balancer sends different HTTP requests from that connection to different backend servers
+```mermaid
+flowchart LR
+    C[Client]
+    LB[Layer 7 Load Balancer]
+    A[Backend Server A]
+    B[Backend Server B]
+    D[Backend Server C]
+    C -->|Single TCP connection| LB
+    LB -->|GET /users| A
+    LB -->|GET /orders| B
+    LB -->|GET /images| D
+```
+
