@@ -7,9 +7,9 @@ failure modes, diagnostics, and interview discussion points.
 
 ## Reading order
 
-1. [Architecture and container fundamentals](./00_architecture.md)
-2. [Developer guide: CLI, Dockerfile, and image builds](./00_dev_guide.md)
-3. [Docker Compose](./01_docker-compose.md)
+1. [Architecture and container fundamentals](01_fundamental-1.md)
+2. [Developer guide: CLI, Dockerfile, and image builds](06_developer-guide-2.md)
+3. [Docker Compose](05_docker-compose.md)
 4. [Storage](./03_Storage.md)
 5. [Networking](./04_network.md)
 

@@ -2,7 +2,7 @@
 
 These notes focus on the mental models and trade-offs expected in senior software
 engineer (SSE) and forward-deployed engineer (FDE) interviews. Commands and
-Dockerfile examples belong in [the developer guide](./00_dev_guide.md).
+Dockerfile examples belong in [the developer guide](06_developer-guide-2.md).
 
 ## 1. What problem does Docker solve?
 
@@ -292,10 +292,11 @@ hostile-tenant boundary without an additional sandbox, or simple deployments
 where container operational complexity offers no meaningful benefit.
 
 ## References
-
+- https://learn.kodekloud.com/learn/courses/docker-training-course-for-the-absolute-beginner
 - [Docker architecture overview](https://docs.docker.com/get-started/docker-overview/)
 - [Docker Engine security](https://docs.docker.com/engine/security/)
 - [Docker rootless mode](https://docs.docker.com/engine/security/rootless/)
 - [Docker BuildKit](https://docs.docker.com/build/buildkit/)
 - [OCI specifications](https://specs.opencontainers.org/)
+
 
