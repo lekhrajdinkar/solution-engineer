@@ -70,15 +70,23 @@ flowchart TB
 ```
 
 ---
-## 1. HTTP / HTTPS(TLS)
-- [Overview](../SD_03_53_network/01_basic_01_OSI-layers.md#https)
-- [TCP](../SD_03_53_network/01_basic_01_OSI-layers.md#tcp-reliable-delivery)
+## 1. REST
+[API-Design](../../SD_08_API-Design)
+- [best-principles](../../SD_08_API-Design/11_rest_01_best-principles.md)
+- [useful headers](../../SD_08_API-Design/11_rest_02_http-headers.md)
+
+[microservice :: complete guide](../../SD_21_microservice)
+
+**More**
+
+- [TCP Overview](../SD_03_53_network/01_basic_01_OSI-layers.md#tcp-reliable-delivery)
+- [TLS](../../SD_24_security/03_protocol_https_tls.md)
+- [HTTP Overview](../SD_03_53_network/01_basic_01_OSI-layers.md#https)
 - [http-headers](../../SD_08_API-Design/11_rest_02_http-headers.md)
 - [http-evolution](../../SD_08_API-Design/11_rest_03_http-evolution.md)
-- [https/TLS](../../SD_24_security/03_protocol_https_tls.md)
 
 ---
-## 2. RPC / GRPC...
+## 2. RPC / GRPC
 - [overview](../../SD_08_API-Design/12_grpc_01_overview.md)
 
 ---
