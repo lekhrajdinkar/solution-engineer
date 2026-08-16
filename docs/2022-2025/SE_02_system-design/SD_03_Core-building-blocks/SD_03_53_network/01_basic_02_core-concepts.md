@@ -1,4 +1,7 @@
 # Network Essentials : part-2
+## Essential
+- https://www.youtube.com/watch?v=SHkbPm1Wrno | hi complete
+
 ## Topologies
 - https://youtube.com/watch?v=yBY5GJtmhg0
 - https://youtube.com/watch?v=4znRDbg0SYA
