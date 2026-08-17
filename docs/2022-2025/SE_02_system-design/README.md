@@ -1,4 +1,4 @@
-- [📚Artifact for System Design](artifact.md)
+- [📚Artifact for System Design](temp/artifact.md)
 ---
 # ByteMonk - system design course
 - https://academy.bytemonk.io/products/system-design-mastery-beta

@@ -4,11 +4,9 @@
 - https://youtu.be/AMNWLz_f6qM?si=4XOhFrP3EwsTYrpB | REST vs gRPC in Microservices ... ⭐
 - [service Communication pattern (4) ⭐](../SD_03_Core-building-blocks/SD_03_54_IPC)
 ---
-## Choose right Protocols 
-
 ![img.png](../../../99_img/2025/api-protocol.png)
 
-### 1. Answer Three Questions
+## Answer Three Questions
 ```mermaid
 flowchart TD
     A[Choose Communication Protocol]
@@ -49,7 +47,7 @@ flowchart LR
     C -->|REST / JSON| A
 ```
 ---
-### 2. Check scenario
+## Check communication style
 1. Sync request-response scenario
 2. live-streaming scenario
 3. Async messaging scenario
@@ -57,7 +55,7 @@ flowchart LR
 check below for detail:
 
 ---
-## A. Protocol for :: request-response (sync)
+### A. request-response style (sync)
 [synchronous comm pattern](../SD_03_Core-building-blocks/SD_03_54_IPC/01_synchronous.md)
 
 > SOAP ⚠️
@@ -72,26 +70,26 @@ check below for detail:
 | **RPC / gRPC**  for Performance | Internal service-to-service communication | Fast, strongly typed, efficient binary protocol | Less browser-friendly and tightly coupled         |
 
 
-### 1. REST (Representational State Transfer)
+#### 1. REST (Representational State Transfer)
 - [03_rest_01_best-principles.md](11_rest_01_best-principles.md)
 - [03_rest_02_http-headers.md](11_rest_02_http-headers.md)
 - [03_rest_03_http-evolution.md](11_rest_03_http-evolution.md)
 
-### 2. GraphQL
+#### 2. GraphQL
 [13_graphQL_01_overview.md](13_graphQL_01_overview.md)
 
 
-### 3. gRPC / RPC (Google Remote Procedure Call)
+#### 3. gRPC / RPC (Google Remote Procedure Call)
 [12_grpc_01_overview.md](12_grpc_01_overview.md)
 
 
 ---
-## B. Protocol for :: Streaming
+### B. Streaming style
 SEE, WS, gRPC-stream:
-[streaming comm pattern](../SD_03_Core-building-blocks/SD_03_54_IPC/03_streaming-TCP-based.md#2-websocket--wss)
+- [streaming comm pattern](../SD_03_Core-building-blocks/SD_03_54_IPC/03_streaming-TCP-based.md#2-websocket--wss)
 
 ---
-## C. Protocol for :: messaging (async)
+### C. messaging style (async)
 Kafka, AMQP, MQTT
 - [Messaging protocols](../../PE_03_message-broker/02_Messaging-protocols.md) 
 - [asynchronous comm pattern](../SD_03_Core-building-blocks/SD_03_54_IPC/02_asynchronous.md)

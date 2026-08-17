@@ -36,64 +36,38 @@ Physical      → Wi-Fi/radio/cable bits, light pulses
 ---
 ## TCP/IP vs OSI
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#4682B4', 'edgeLabelBackground':'#ffffff', 'tertiaryColor': '#fff'}}}%%
-graph TD
+flowchart LR
 
+    subgraph OSI["OSI Model"]
+        direction LR
+        O7[Application]
+        O6[Presentation]
+        O5[Session]
+        O4[Transport]
+        O3[Network]
+        O2[Data Link]
+        O1[Physical]
 
-%% OSI Model Subgraph
-    subgraph OSI_Model ["OSI Model"]
-        direction TB
-        OSI_L7(Application Layer)
-        OSI_L6(Presentation Layer)
-        OSI_L5(Session Layer)
-        OSI_L4(Transport Layer)
-        OSI_L3(Network Layer)
-        OSI_L2(Data Link Layer)
-        OSI_L1(Physical Layer)
-
-    %% Node Styling for OSI
-        style OSI_L7 fill:#367C9B,stroke:#367C9B,color:#fff,rx:5,ry:5
-        style OSI_L6 fill:#367C9B,stroke:#367C9B,color:#fff,rx:5,ry:5
-        style OSI_L5 fill:#367C9B,stroke:#367C9B,color:#fff,rx:5,ry:5
-        style OSI_L4 fill:#76B5C5,stroke:#76B5C5,color:#1a1a1a,rx:5,ry:5
-        style OSI_L3 fill:#46A5B4,stroke:#46A5B4,color:#1a1a1a,rx:5,ry:5
-        style OSI_L2 fill:#76D7EA,stroke:#76D7EA,color:#1a1a1a,rx:5,ry:5
-        style OSI_L1 fill:#76D7EA,stroke:#76D7EA,color:#1a1a1a,rx:5,ry:5
-
-    %% Connections for OSI
-        OSI_L7 --> OSI_L6
-        OSI_L6 --> OSI_L5
-        OSI_L5 --> OSI_L4
-        OSI_L4 --> OSI_L3
-        OSI_L3 --> OSI_L2
-        OSI_L2 --> OSI_L1
+        O7 --> O6 --> O5 --> O4 --> O3 --> O2 --> O1
     end
 
-%% TCP/IP Model Subgraph
-    subgraph TCP_IP_Model ["TCP/IP Model"]
-        direction TB
-        TCP_L4(Application Layer)
-        TCP_L3(Transport Layer)
-        TCP_L2(Internet Layer)
-        TCP_L1(Network Access Layer)
+    subgraph TCP["TCP/IP Model"]
+        direction LR
+        T4[Application]
+        T3[Transport]
+        T2[Internet]
+        T1[Network Access]
 
-    %% Node Styling for TCP/IP
-        style TCP_L4 fill:#367C9B,stroke:#367C9B,color:#fff,rx:5,ry:5
-        style TCP_L3 fill:#76B5C5,stroke:#76B5C5,color:#1a1a1a,rx:5,ry:5
-        style TCP_L2 fill:#46A5B4,stroke:#46A5B4,color:#1a1a1a,rx:5,ry:5
-        style TCP_L1 fill:#76D7EA,stroke:#76D7EA,color:#1a1a1a,rx:5,ry:5
-
-    %% Connections for TCP/IP
-        TCP_L4 --> TCP_L3
-        TCP_L3 --> TCP_L2
-        TCP_L2 --> TCP_L1
+        T4 --> T3 --> T2 --> T1
     end
-
-%% Subgraph Styling
-    style OSI_Model fill:#E0F2F7,stroke:#ADD8E6,stroke-width:2px
-    style TCP_IP_Model fill:#E0F2F7,stroke:#ADD8E6,stroke-width:2px
+    style O7 fill:cyan,color:black
+    style O6 fill:cyan,color:black
+    style O5 fill:cyan,color:black
+    style T4 fill:cyan,color:black
+    style T1 fill:green,color:black
+    style O2 fill:green,color:black
+    style O1 fill:green,color:black
 ```
-
 ---
 ## A. 📚Layer 3 : Network
 ### 1. IP
@@ -267,9 +241,10 @@ sequenceDiagram
 ### 2. DNS
 - https://youtube.com/watch?v=Lsd80uR9Shs (skip)
 
-### 3. stream protocols (SSE + Websocket)
+### 3. stream protocols 
 - [core concept :: socket](01_basic_03_socket.md)
-- [check here](../SD_03_54_IPC/03_streaming-TCP-based.md#2-websocket--wss-)
+- [TCp based ](../SD_03_54_IPC/03_streaming-TCP-based.md#2-websocket--wss-) --> SSE + Websocket
+- UDP based 
 
 ### 4. WebRTC
 - [check here](../SD_03_54_IPC/05_more.md#2-webrtc)

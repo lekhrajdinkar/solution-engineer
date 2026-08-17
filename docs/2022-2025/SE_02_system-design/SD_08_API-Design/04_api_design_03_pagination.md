@@ -34,7 +34,13 @@ duplicate records,
 skipped records, due to shift up/down effect.
 
 ### 2. Cursor Pagination
+cursor:
+-  solves this by using a **pointer to a specific record**, instead of counting from the beginning.
+-  cursor is typically an **encoded reference** to a specific record (like an ID or timestamp)
+-  more stable because it's not affected by new records being added
+
 ![img.png](../../../99_img/2025/se_02_sd/cursor-wins.png)
+
 - first request : GET /posts?limit=20
 - response:
 ```json
@@ -62,6 +68,34 @@ WHERE (created_at, id) < (:last_created_at, :last_id)
 ORDER BY created_at DESC, id DESC
 LIMIT 20;
 ```
+
+Downside:
+- cursor pagination is designed for sequential navigation, not random page jumping.
+- but it's harder to implement features like "jump to page 3."
+
+```mermaid
+flowchart LR
+    P1[Page 1] --> C1[Cursor A]
+    C1 --> P2[Page 2]
+    P2 --> C2[Cursor B]
+    C2 --> P3[Page 3]
+    P3 --> C3[Cursor C]
+
+    style C1 fill:#cfe2f3,color:black
+    style C2 fill:#cfe2f3,color:black
+    style C3 fill:#cfe2f3,color:black
+```
+
+you can maintain a cursor map:
+
+```
+Page 1 → cursor A
+Page 2 → cursor B
+Page 3 → cursor C
+...
+Page 50 → cursor X
+```
+
 ---
 ### Summary
 ```mermaid
@@ -72,8 +106,8 @@ flowchart TD
     A -->|Large changing feed| C[Cursor]
     A -->|Indexed ordered dataset| K[Keyset]
 
-    style O fill:#d9ead3
-    style C fill:#d9ead3
+    style O fill:#d9ead3,color:black
+    style C fill:#d9ead3,color:black
 ```
 
 > Interview rule: 

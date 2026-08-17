@@ -11,8 +11,8 @@
 - or require **multiple requests** to gather necessary information
 
 ---
-## A. REST Done right
-
+## A. Resource Modeling
+-  identifying your resources correctly
 ```mermaid
 flowchart LR
     R[1. Resource<br/>Plural noun]
@@ -22,7 +22,7 @@ flowchart LR
     R --> A --> I --> O
 ```
 ### 1. Resource:
-- **Use nouns, not actions**, for URIs to identify resources 
+- **Use plural nouns, not actions**, for URIs to identify resources 
   - GET /customers - good
   - GET /pull-customers - bad
 - use plurals

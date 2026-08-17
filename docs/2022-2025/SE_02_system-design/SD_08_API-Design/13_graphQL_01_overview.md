@@ -7,16 +7,55 @@
 
 ---
 ## Overview
-- Developed by Facebook,
+- Developed by Facebook, for mobile device primarily facing issue with low internet speed to overload data
 - GraphQL offers **flexible data fetching**,
-- allowing clients to request exactly what they need in a single query
-- This makes it efficient for mobile apps and scenarios with limited bandwidth
-- runs on top of HTTP
+- Unlike REST's fixed endpoints, GraphQL uses a **single endpoint** with a query language that lets clients specify exactly what data they need.
+- runs on top of **HTTP** 👈
+
+## Design
+- design a schema that defines your data types and their relationships.
+- key difference from REST is that you define relationships directly in the schema
+- security at field level 👈
+- flexibility creates the **N+1 problem** | batching/dataloader patterns
+
+```
+query {
+  posts {
+    title
+    author {
+      name
+    }
+  }
+}
+---
+✔️1 query to get posts 
+    SELECT * FROM posts;
+  +
+✔️100 queries to get authors
+    SELECT * FROM users WHERE id = 10;
+    SELECT * FROM users WHERE id = 20;
+    SELECT * FROM users WHERE id = 30;
+    ...
+─────────────────────────
+101 database queries = N + 1
+
+--- batching ---
+
+SELECT *
+FROM users
+WHERE id IN (10, 20, 30, 40, ...);
+```
 
 ---
 ## use case
 - GraphQL finds its sweet spot with complex clients and when multiple teams are making wide queries to overlapping data.
-
+- mobile apps and scenarios with **limited bandwidth**
+- diverse client with different data need
 ---
 ## tradeoff
-- On the other hand, execution of these GraphQL queries can be a source of **latency** and **complexity** for the backend
+- adds **latency** 
+- adds **complexity** for the backend.
+  - implement query parsing,
+  - schema validation, 
+  - and often sophisticated caching strategies.
+
