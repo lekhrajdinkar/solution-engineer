@@ -17,7 +17,7 @@
 - [hashing](SD_01_foundation/05_concept_07_hashing.md)
 - [Latency.md](SD_02_Non-functional-req/02_NFR_02_Performance-latency.md) 
 - [throughput.md](SD_02_Non-functional-req/02_NFR_02_performance-throughput.md)
-- [replication.md](SD_05_DataLayer+storage/03_concept_01_database-replication.md)
+- [replication.md](SD_05_DataModeling/03_concept_01_database-replication.md)
 - [SFP - Single Point of Failure](SD_01_foundation/03_concept_01_SFP.md)
 - [PRE-Signed-URL.md](SD_03_Core-building-blocks/SD_03_53_network/02_core_05_pre-signed-urls.md)
 - [heartbeat_2.md](SD_01_foundation/03_concept_02_heartbeat_2.md) | [heartbeat_1.md](SD_01_foundation/03_concept_02_heartbeat_1.md)

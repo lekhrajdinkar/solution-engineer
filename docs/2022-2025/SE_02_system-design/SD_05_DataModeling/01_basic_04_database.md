@@ -1,15 +1,36 @@
-# NoSQL DB
+# Data Modeling
 - https://www.youtube.com/watch?v=6bZdMZb8xI8 | SQL
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2190592401 | keyValue store
+- https://www.hellointerview.com/learn/courses/system-design/lesson/foundations/data-modeling
+
+> **NOSql DB** : no relation | no schema |  no querying language | simple operations like get, put, and delete.
+
+## Overview
+Data Modeling
+- process of defining how your application’s data is **structured, stored, and related.**
+- not expected to normalize everything or produce a complete schema diagram
+- expected to design something clear, functional, and aligned with your system’s requirements
+
+Delivery phase
+- During **requirements gathering** step
+  - identify your core entities.
+  - These usually map 1:1 with tables or collections and form the backbone of your schema. 
+- Later, in the **High-Level Design** step, 
+  - you'll sketch a basic schema alongside your database component.
+
+> ⚠️ A sloppy data model can lead to painful issues later. Resist choosing exotic database types.
 
 ---
-## overview
-- no relation, no schema
-- don't have a querying language
-- only provide simple operations like get, put, and delete.
+## 1. Relational Databases (SQL)
+- default unless your requirements clearly signal a specialized model | stick with PostgreSQL.
+- provide ACID guarantees for transactions.
+- SQL is great at handling complex queries.
 
 ---
-## A. key-value Store
+## 2. Document DB
+
+---
+## 3. key-value Store
 > `dynamoDB (disk, eventual-consitency)`, `redix (inMemory)`, `Cassandra`, `apache ZooKeeper`
 - one of the popular/simple NoSQL DB type.
 - Stores data as a collection of key-value pairs, similar to a dictionary or map data structure.
@@ -31,8 +52,10 @@
 | Complex filtering and reporting are needed | Simple `GET`, `PUT`, `DELETE` operations dominate |
 | Example: banking, orders, inventory        | Example: sessions, carts, cache, user preferences |
 
+
+
 ---
-## B. Specialized Store
+## 4. Specialized Store
 ### 1. BLOB Store
 ![img.png](../../../99_img/2026/02/07/01/img.png)
 
