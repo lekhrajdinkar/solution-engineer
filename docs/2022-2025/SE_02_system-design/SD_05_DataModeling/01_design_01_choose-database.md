@@ -5,12 +5,12 @@
 
 ---
 ## Overview
-Data Modeling
+✔️**Data Modeling**
 - process of defining how your application’s data is **structured, stored, and related.**
 - not expected to normalize everything or produce a complete schema diagram
 - expected to design something clear, functional, and aligned with your system’s requirements
 
-Delivery phase
+✔️**Delivery phase**
 - During **requirements gathering** step
   - identify your core entities.
   - These usually map 1:1 with tables or collections and form the backbone of your schema. 
@@ -51,7 +51,7 @@ Specialized
 ## A1. Relational Databases (SQL)
 > default unless your requirements clearly signal a specialized model | stick with PostgreSQL.
 
-Structure
+✔️**Structure**
 ```
 Database
  └── Table
@@ -60,7 +60,7 @@ Database
       ├── Column B
       └── Column C
 ```
-best for:
+✔️**best for:**
 - Strong consistency
 - Relationships and Joins
 - ACID transactions
@@ -72,6 +72,14 @@ best for:
 ## B1. Document DB
 > Data → JSON-like documents
 
+✔️**overview**
+- data modeling becomes more about **nesting and embedding related information** within documents rather than normalizing across tables.
+- use when, different records have **vastly different structures.**
+- store data as JSON-like documents with flexible schemas
+- eliminates joins but means updating a post requires finding and **modifying the entire user document**
+- **denormalize more aggressively** | meaning **duplicates**
+
+✔️**Structure**:
 ```
 Collection
  └── Document
@@ -81,18 +89,39 @@ Collection
       └── nested objects / arrays
 ```
 
-Example
+✔️**Example**
 - MongoDB
 - dynamoDb
+- Firestore
+- CouchDB
 
-Best for:
+✔️**Best for:**
 - Flexible schema
 - Nested data
+- high read performance, since no joins
+- rapidly changing data structures. 👈
+
+✔️**trade off:**
+-  storage space 
+- update complexity
 
 ---
 ## B2. key-value Store
-**Structure** === **dictionary** or **map**
+✔️**Example:**
+- Redis and Memcached.
+- DynamoDB
+
+✔️**overview:**
+-  **simple lookups** where you fetch values by exact key match.
+- extremely fast but offer limited query capabilities | O(1) |  **performance**⭐
+  - key -> `String` | hashed to memoryLoc
+  - value ->` String, arrays, integer`
+- you **can't join or query across relationships.**
+
+✔️**Structure** 
 ```
+- dictionary or map
+
 Table
  ├── Key:value
  └── ...
@@ -105,19 +134,27 @@ Table (dyanamoDB , little richer)
  └── Attribute C
 ```
 
-- key -> `String` | hashed to memoryLoc
-- value ->` String, arrays, integer`
-
-**best for**:
+✔️**best for**: 
+- scenario where you only need to look up data by a single identifier.
+  - Caching
+  - Sessions storage
 - Very fast lookups
-- Caching
-- Sessions
-- Simple access patterns
+- Simple access patterns , no  complex question
+- also good for **high-write scenarios**
+
+✔️**tradeoff:**
+- great for reads but terrible for consistency when data changes.
+
+>  In practice, you'll often use **both together.** 
+> - SQL as your source of truth 
+> - with a key-value cache (like Redis) in front for hot data
 
 ---
 ## B3. wide column database
 > Data → partitioned rows with flexible columns
-**structure**
+
+✔️**structure**
+- organize data into **column families** where rows can have different sets of columns
 - **Column family/table** → defined ahead of time.
 - **Column** → values are written with the row; schema can be flexible depending on the column.
 
@@ -129,15 +166,17 @@ Keyspace
       └── Other Columns/Column Family
 ```
 
-**Example**
+✔️**Example**
 - HBase, Cassandra
 - Modern/cloud-managed: Google Bigtable, Amazon KeySpaces
 
-Best for:
-- Massive datasets
-- Horizontal scaling
-- High write throughput
-- Distributed systems
+✔️**Best for:**
+- High write throughput 
+  - enormous write volumes, time-series data, or analytics workloads 
+  - where you primarily **append data** and run aggregations.
+  -  Think telemetry, event logging, or IoT sensor data.
+  -  > Time becomes a first-class citizen in your modeling.
+- Massive datasets |  Horizontal scaling |  Distributed systems
 
 ```
 Relational DB
@@ -163,7 +202,7 @@ Distributed + query-driven schema
 | Reads          | Designed around known access patterns        |
 
 
-**understand structure by Example**
+✔️**understand structure by Example**
 ```mermaid
 graph LR
     DB["Wide-Column Database"]
@@ -198,17 +237,47 @@ graph LR
 ---
 ## B4. Graph DB
 > Data → nodes + relationships
+> - optimizing for traversing relationships between entities.
 
 ```
 John ──FRIEND_OF──> Alice
  │
  └──WORKS_AT──> Capital Group
 ```
-**Example:**
+✔️**Example:**
 - Neo4j
 - Amazon Neptune
 
-**Overview**
+```mermaid
+graph LR
+    subgraph GraphDB ["Graph Databases"]
+        direction LR
+        
+        %% User Nodes
+        U1(("User 1"))
+        U2(("User 2"))
+        
+        %% Post Nodes
+        P1((''My first<br>post''))
+        P2((''Hello<br>world!''))
+        P3((''Another<br>post''))
+        
+        %% Edges / Relationships
+        U1 -->|"Posted"| P1
+        U1 -->|"Posted"| P2
+        U1 -->|"Liked"| P3
+        U2 -->|"Posted"| P3
+    end
+
+    %% Node Styling to match the original image
+    style U1 fill:#ffffff,stroke:#28a745,stroke-width:2.5px,color:#28a745
+    style U2 fill:#ffffff,stroke:#28a745,stroke-width:2.5px,color:#28a745
+    
+    style P1 fill:#ffffff,stroke:#007bff,stroke-width:2.5px,color:#007bff
+    style P2 fill:#ffffff,stroke:#007bff,stroke-width:2.5px,color:#007bff
+    style P3 fill:#ffffff,stroke:#007bff,stroke-width:2.5px,color:#007bff
+```
+✔️**Overview**
 - Built on a **graph data model**
     - where relationships between data points are of prime importance.
     - datasets with many billions of interconnections
@@ -217,7 +286,11 @@ John ──FRIEND_OF──> Alice
     - and provides deeper insights into relationships with less effort
     - Excels at finding **shortest paths** between nodes
 
-**Best for:**
+✔️**rdbms with lots of relation/s --> messy**
+
+![img_2.png](../../../99_img/2026/02/07/01/img_2.png)
+
+✔️**Best for:**
 
 | Use case               | Why graph DB fits                      |
 | ---------------------- | -------------------------------------- |
@@ -228,11 +301,9 @@ John ──FRIEND_OF──> Alice
 | Network topology       | Servers, routers, dependencies         |
 | Access control         | Users, roles, permissions              |
 
-
-rdbms with lots of relation/s --> messy
-
-![img_2.png](../../../99_img/2026/02/07/01/img_2.png)
-
+✔️**Trade off:**
+- add unnecessary complexity.
+- fact: Even "graph-heavy" companies like LinkedIn and Twitter use SQL for their core relationship data. 👈
 
 ---
 ## C1. Specialized

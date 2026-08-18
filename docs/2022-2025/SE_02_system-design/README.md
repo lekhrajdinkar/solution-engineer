@@ -1,6 +1,5 @@
-- [📚Artifact for System Design](temp/artifact.md)
----
 # ByteMonk - system design course
+- [Artifact for System Design](temp/artifact.md)
 - https://academy.bytemonk.io/products/system-design-mastery-beta
   - `78 videos` as of 7/28/2026
   - `ldus@g | J12`
@@ -37,7 +36,7 @@
 
 ---
 ## Module 5: DataLayer+storage `9`
-[SD_05_DataLayer+storage](SD_05_DataLayer%2Bstorage)
+[SD_05_DataModeling](SD_05_DataModeling)
 
 ---
 ## Module 6: Design scalable system
