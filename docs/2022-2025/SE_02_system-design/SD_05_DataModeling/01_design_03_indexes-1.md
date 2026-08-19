@@ -1,19 +1,21 @@
 # Database Indexes
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2193236998
 - [http://youtube.com/post/Ugkx8-t9pQQqug7XlQCyEDpY2TGJtE1KuGPi?feature=shared](http://youtube.com/post/Ugkx8-t9pQQqug7XlQCyEDpY2TGJtE1KuGPi?feature=shared)
+- https://www.hellointerview.com/learn/courses/system-design/lesson/foundations/db-indexing
 
 ---
 ## Overview
 > golden rule: index for query, not for table.
 
-Database performance
+**Database performance**
 - Database performance can make or break modern applications
 - Modern databases have optimizations like **prefetching and caching** to make random access faster, but the point here still stands.
     - It's **too slow to scan** through every page of data sequentially.
 - **Random access** vs **sequential access**
 - system with SSD vs System with HDD
+- core problem : Significant speed difference between RAM and disk storage with disks being much slower `100000 times`
 
-Index:
+**Index:**
 - An index is an additional data structure that helps the database locate rows faster without scanning the entire table.
 - in an interview, you'll typically want to **callout which columns are indexed and why**.
 

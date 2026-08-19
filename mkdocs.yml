@@ -333,7 +333,7 @@ nav:
       - SD 03 51 Datastructure:
         - Core 01 Bloomfilter: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_01_BloomFilter.md
         - Core 02 Btree: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_02_btree.md
-        - Core 03 LSM Tree: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_03_LSM-tree.md
+        - Core 03 LSM Tree: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_03_LSM.md
         - Core 04 Btree+lsm 2: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_04_Btree+LSM_2.md
       - SD 03 52 Architecture:
         - Core 01 Client Server Arch: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_52_architecture/01_core_01_client-server-arch.md
