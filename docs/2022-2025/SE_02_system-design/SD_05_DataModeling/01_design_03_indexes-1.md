@@ -4,9 +4,16 @@
 
 ---
 ## Overview
-> - Index enough to make reads fast, but not so much that writes become slow and the database becomes bloated.
-> - golden rule: index for query, not for table.
+> golden rule: index for query, not for table.
 
+Database performance
+- Database performance can make or break modern applications
+- Modern databases have optimizations like **prefetching and caching** to make random access faster, but the point here still stands.
+    - It's **too slow to scan** through every page of data sequentially.
+- **Random access** vs **sequential access**
+- system with SSD vs System with HDD
+
+Index:
 - An index is an additional data structure that helps the database locate rows faster without scanning the entire table.
 - in an interview, you'll typically want to **callout which columns are indexed and why**.
 
@@ -37,12 +44,27 @@ Composite index on (user_id, created_at) to efficiently load a user's recent pos
 ---
 ## Trade-off
 Indexes improve read speed, but add cost:
-- Extra storage
+- Extra storage ( sometimes nearly as much as the original data.)
 - Slower INSERT, UPDATE, DELETE
 - Index maintenance and fragmentation
 
----
-## Practical approach
+it's still a good idea to closely monitor index usage and avoid creating unnecessary indexes that don't provide significant benefits.
+
+```mermaid
+flowchart LR
+    Q[Frequent Queries] --> P[Profile Bottlenecks]
+    P --> I[Add Index Thoughtfully]
+    I --> M[Monitor Performance]
+    M --> R{Improved overall?}
+
+    R -->|Yes| K[Keep Index]
+    R -->|No| D[Modify or Remove Index]
+
+    style I fill:#f4b183,stroke:#333,color:black
+    style K fill:#a9d18e,stroke:#333,color:black
+    style D fill:#f4cccc,stroke:#333,color:black
+```
+**Practical approach**
 1. Identify frequently executed queries
 2. Profile them using EXPLAIN ANALYZE
 3. Add indexes only where needed
@@ -100,25 +122,11 @@ flowchart LR
     Q[Query] --> I[Covering Index]
     I --> R[Return Result]
     I -. No table lookup needed .-> T[(Table)]
-    style I fill:#f4b183,stroke:#333
-    style T fill:#9dc3e6,stroke:#333
+    style I fill:#f4b183,stroke:#333,color:black
+    style T fill:#9dc3e6,stroke:#333,color:black
 ```
 
 
-```mermaid
-flowchart LR
-    Q[Frequent Queries] --> P[Profile Bottlenecks]
-    P --> I[Add Index Thoughtfully]
-    I --> M[Monitor Performance]
-    M --> R{Improved overall?}
-
-    R -->|Yes| K[Keep Index]
-    R -->|No| D[Modify or Remove Index]
-
-    style I fill:#f4b183,stroke:#333
-    style K fill:#a9d18e,stroke:#333
-    style D fill:#f4cccc,stroke:#333
-```
 ---
 
 ## Interview 
