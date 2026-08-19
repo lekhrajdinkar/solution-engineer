@@ -1,7 +1,7 @@
 # ACM (regional)
 ## 1. certificate:
 - **private**
-  - ![img.png](../99_img/dva/img-ca.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/dva/img-ca.png)
   - cert can be used inside org
 - **public** 
   - cert for public internet
@@ -43,10 +43,10 @@
   - can build alarms to monitor certificates based on **days to expiry**
 - **R-53**
 - **ELB** : ALB, NLB, ... 
-  - ![img_2.png](../99_img/security/acm/img_2.png)
+  - ![img_2.png](../../../99_img/2025/aws-ssa/security/acm/img_2.png)
 - **API gateway** (3 types)
   - **edge-optimized** : keep ACM cert in `us-east-1`
-    - ![img_3.png](../99_img/security/acm/img_3.png)
+    - ![img_3.png](../../../99_img/2025/aws-ssa/security/acm/img_3.png)
   - **regional +  private**(with In vpc) 
     - keep ACM cert in same region
-    - ![img_4.png](../99_img/security/acm/img_4.png)
+    - ![img_4.png](../../../99_img/2025/aws-ssa/security/acm/img_4.png)

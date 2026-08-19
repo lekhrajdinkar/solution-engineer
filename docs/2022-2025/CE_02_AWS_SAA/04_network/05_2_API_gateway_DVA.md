@@ -2,7 +2,7 @@
 - url has **API ID** and **stage name**
 
 ## 1. Intro
-![img.png](../99_img/dva/api-g/01/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/api-g/01/img.png)
 - once created API-g, need to deploy it on **stages**
   - give stage a **name** -dev,qa,prod,whatever
   - stages has **deployment history** 
@@ -40,7 +40,7 @@
   - default: `5 min / 300 sec`
   - max: `1 hr / 3600 sec`
 - optionally **encrypt**
-- ![img_2.png](../99_img/dva/api-g/04/img_4.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/dva/api-g/04/img_4.png)
 
 ### **cache Invalidation** :point_left:
 - from console
@@ -50,7 +50,7 @@
 
 ---  
 ## 4. canary deployment
-![img.png](../99_img/dva/api-g/02/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/api-g/02/img.png)
 - api-gateway-1
     - stage-1 (`95 %` traffic) : monitor-1
     - stage-2 ( `5 %` traffic) : monitor-2
@@ -60,7 +60,7 @@
 ---
 ## 5. supports `OpenAPI`
 - export:
-  - ![img.png](../99_img/dva/api-g/01/img-openAPI.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/dva/api-g/01/img-openAPI.png)
   - this is API document which client can refer.
 - generate SDK
   - for client to consume API
@@ -143,9 +143,9 @@
  - wss://[some-uniqueid].execute-api.[region].amazonaws.com/[stage-name]
 - Communication (`connection-id` reused)
   - **client ==> server**
-    - ![img_1.png](../99_img/dva/api-g/05/img_1.png)
+    - ![img_1.png](../../../99_img/2025/aws-ssa/dva/api-g/05/img_1.png)
   - **server ==> client**
-    - ![img_2.png](../99_img/dva/api-g/05/img_2.png)
+    - ![img_2.png](../../../99_img/2025/aws-ssa/dva/api-g/05/img_2.png)
     - operations by server on client:
       - **POST** : Sends a message from the Server to the connected WS Client :point_left:
       - GET : Gets the latest connection status of the connected WS Client

@@ -53,7 +53,7 @@
 - NO mapping template
 - **request/response object** uses inbuilt aws-template
 - eg: **API-g <==>    `AWS_PROXY`  <==> lambda**
-- ![img_1.png](../99_img/dva/api-g/02/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/dva/api-g/02/img_1.png)
 - Note: 
   - **ALB <==>         `AWS_PROXY` <==> tg:lambda**
   - use same template, remember
@@ -62,12 +62,12 @@
 #### B.2.2. HTTP_PROXY
 - NO mapping template
 - eg: **API-g <==>  AWS_PROXY  <==> http-backend (`ALB`)**
-- ![img_4.png](../99_img/dva/api-g/02/img_4.png)
+- ![img_4.png](../../../99_img/2025/aws-ssa/dva/api-g/02/img_4.png)
 
 #### B.2.3. NO PROXY for (HTTP / AWS)
 - set up mapping template
   - **Content-Type** must be == application/json/xml
-- ![img_2.png](../99_img/dva/api-g/02/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/dva/api-g/02/img_2.png)
 
 #### B.2.4. MOCK
 - for dev/testing purpose
@@ -75,17 +75,17 @@
 ---
 ### B.3.  Mapping Template
 - response from lambda
-  - ![img.png](../99_img/dva/api-g/03/img.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/dva/api-g/03/img.png)
 - create template
-  - ![img_1.png](../99_img/dva/api-g/03/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/dva/api-g/03/img_1.png)
 - check final response
-  - ![img_2.png](../99_img/dva/api-g/03/img_2.png)
+  - ![img_2.png](../../../99_img/2025/aws-ssa/dva/api-g/03/img_2.png)
   
 #### Use-cases
 - **use-case-1**: transform SOAP response
-  - ![img_3.png](../99_img/dva/api-g/02/img_3.png)
+  - ![img_3.png](../../../99_img/2025/aws-ssa/dva/api-g/02/img_3.png)
 - **use-case-2**: tranform query param
-  - ![img_5.png](../99_img/dva/api-g/02/img_5.png)
+  - ![img_5.png](../../../99_img/2025/aws-ssa/dva/api-g/02/img_5.png)
 
 ---  
 ## C. Endpoint type
@@ -121,7 +121,7 @@
     
 ---    
 #### 1.2 IAM
-- ![img_1.png](../99_img/dva/api-g/04/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/dva/api-g/04/img_1.png)
 - for IAM user / roles
   - **IAM-based SigV4 signing** 
   - AWS SDKs and AWS CLI handle SignatureV4 signing automatically.
@@ -129,10 +129,10 @@
 #### 1.3 Cognito
 - for global user
   - integrate with 3rd party ID provider.
-  - ![img_2.png](../99_img/dva/api-g/04/img_2.png)
+  - ![img_2.png](../../../99_img/2025/aws-ssa/dva/api-g/04/img_2.png)
 
 #### 1.4 Lambda Authorizer
-![img_3.png](../99_img/dva/api-g/04/img_3.png)
+![img_3.png](../../../99_img/2025/aws-ssa/dva/api-g/04/img_3.png)
 - Great for 3rd party tokens
 - Handle Authentication verification + Authorization in the Lambda function
 
@@ -145,7 +145,7 @@
 
 ### 3 CORS
 - CORS can be enabled on api gateway
-- ![img.png](../99_img/dva/api-g/04/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/api-g/04/img.png)
 
 ### 4 Authorization
   - API-gateway **resource iam policy**, 
@@ -221,8 +221,8 @@ WebSocket API
 
 ---
 ## Z. Architecture Example
-- ![img.png](../99_img/moreSrv/api-gateway/img.png)
-- ![img_1.png](../99_img/moreSrv/api-gateway/img_1.png)
-- ![img_1.png](../99_img/dva/api-g/01/img_1.png)
+- ![img.png](../../../99_img/2025/aws-ssa/moreSrv/api-gateway/img.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/moreSrv/api-gateway/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/dva/api-g/01/img_1.png)
 ### microservice (gateway)
-![img.png](../99_img/dva/api-g/05/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/api-g/05/img.png)

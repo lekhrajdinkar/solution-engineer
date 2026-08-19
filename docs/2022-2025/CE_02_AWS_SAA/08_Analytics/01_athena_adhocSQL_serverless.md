@@ -12,7 +12,7 @@
 - **query result** will go to:
   - **S3** 
   - **Amazon QuickSight** (dashboard)  
-- ![img.png](../99_img/moreSrv/athena/img.png)  
+- ![img.png](../../../99_img/2025/aws-ssa/moreSrv/athena/img.png)  
 
 ---
 ## 2. pricing
@@ -45,7 +45,7 @@
 ### 3.4 `DataSource Connector`
 - backed by `AWS Lambda`
   - to run **Federated Queries** on RDS,CW,DynamoDB,etc to load data into athena.
-- ![img_1.png](../99_img/moreSrv/athena/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/moreSrv/athena/img_1.png)
 ---
 ## 99. hands on
 ```

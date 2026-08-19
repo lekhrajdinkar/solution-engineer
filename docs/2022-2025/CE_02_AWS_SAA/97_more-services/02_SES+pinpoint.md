@@ -19,4 +19,4 @@
   - create delivery schedules, 
   - highly-targeted segments, and full campaigns
   - `stream events` to other service (KDF, SNS, CW)
-  - ![img_1.png](../99_img/moreSrv/cf+ses+pinpoint/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/moreSrv/cf+ses+pinpoint/img_1.png)

@@ -14,7 +14,7 @@
   - AWS Cloud Region <=> AWS Cloud Region B ✔️
 ---
 
-![img.png](../99_img/dr/dr-1/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dr/dr-1/img.png)
 
 ### 💠RPO: Recovery `Point` Objective
 >RPO is the maximum acceptable data loss
@@ -67,7 +67,7 @@ Database / storage
   - or use global aurora -->  have read Replica/s in other region ( < 1 sec)
   - and promote aurora read replica as primary in DR.
 
-![img_1.png](../99_img/dr/dr-1/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dr/dr-1/img_1.png)
 
 ### 2. Pilot light
 - A **minimal/small version** of the app (critical business workload) is always running in different region.
@@ -75,7 +75,7 @@ Database / storage
 - update r53 to switch, on DR.
 - continuously replicate critical db to this region.
 
-![img_2.png](../99_img/dr/dr-1/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/dr/dr-1/img_2.png)
 
 ### 3.  warm light ✔️
 - **Full but scaled-down version** of your system, up and running in different region
@@ -90,9 +90,9 @@ Database / storage
 - RTO is in second/min
 - expensive
 
-![img_3.png](../99_img/dr/dr-1/img_3.png)
+![img_3.png](../../../99_img/2025/aws-ssa/dr/dr-1/img_3.png)
 
-![img_4.png](../99_img/dr/dr-1/img_4.png)
+![img_4.png](../../../99_img/2025/aws-ssa/dr/dr-1/img_4.png)
 
 ---
 ## ✔️DR tips

@@ -8,7 +8,7 @@
     - allow inbound traffic 0.0.0.0/0  on port 22(SSH)
   - **sg-ec2-i** : 
     - allow inbound traffic from  sg-bastion, on port 22(SSH) 
-    - ![img_2.png](../99_img/vpc-1/img_2.png)
+    - ![img_2.png](../../../99_img/2025/aws-ssa/vpc-1/img_2.png)
 - bastion host is not typically used to manage all `outgoing traffic` from the private network to the internet.
 
 ---
@@ -22,7 +22,7 @@
     - **deploy NAT-instance** in public subnet
       - create ec2-i, from PreConfigured Linux AMI, `amzn-ami-vpc-nat-<year>.xxxxxxx-<cpu-arch>`
       - **disable source/destination IP check**, so that it will re-write `src` and `dest` IPs :point_left:
-      - ![img_4.png](../99_img/vpc-1/img_4.png)
+      - ![img_4.png](../../../99_img/2025/aws-ssa/vpc-1/img_4.png)
     - **update rtb** of private subnet
       - 0.0.0.0/0  ::  NAT-instance
     - update NAT-instance **sg**
@@ -35,10 +35,10 @@
     - from : specific port on the NAT Instance 
     - to : port on a private EC2 instance.
 
-- ![img_3.png](../99_img/vpc-1/img_3.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/vpc-1/img_3.png)
 - https://app.diagrams.net/#Hlekhrajdinkar%2F02-spring%2Fmain%2Faws%2FVPC-1.drawio
 - types and use case: **private** and public
-  - ![nat-g-types.png](../99_img/vpc-1/img_5.png)
+  - ![nat-g-types.png](../../../99_img/2025/aws-ssa/vpc-1/img_5.png)
   - private NAT-g: use to route traffic from VPC-1 to VPC-2, having overllaping CIDR.
 ---
 ## 3. NAT Gateway 

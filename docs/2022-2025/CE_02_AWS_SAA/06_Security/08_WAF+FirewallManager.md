@@ -29,7 +29,7 @@
 ---
 ## 2. Architecture example :dart:
 - App --> ALB(layer:7) --> **WAF(layer:7):ACL** --> AWS global accelerator --> web-client.
-- ![img.png](../99_img/security/others/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/security/others/img.png)
 
 --- 
 ## 3. WAF::Deployment option :point_left: :point_left: :dart:

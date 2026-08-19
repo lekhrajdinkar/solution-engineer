@@ -333,7 +333,7 @@ nav:
       - SD 03 51 Datastructure:
         - Core 01 Bloomfilter: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_01_BloomFilter.md
         - Core 02 Btree: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_02_btree.md
-        - Core 03 LSM Tree: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_03_LSM-tree.md
+        - Core 03 LSM Tree: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_03_LSM.md
         - Core 04 Btree+lsm 2: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_04_Btree+LSM_2.md
       - SD 03 52 Architecture:
         - Core 01 Client Server Arch: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_52_architecture/01_core_01_client-server-arch.md
@@ -361,7 +361,7 @@ nav:
       - Concept 01 Database Replication: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_01_database-replication.md
       - Concept 02 Consistent Hashing: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_02_consistent-hashing.md
       - Concept 03 Partitioning: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_03_partitioning.md
-      - Concept 03 Sharding: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_03_sharding.md
+      - Concept 03 Sharding: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/01_design_04_sharding.md
       - Concept 05 Mapreduce: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_05_MapReduce.md
       - Pattern 01 CQRS: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/05_pattern_01_CQRS.md
       - Pattern 02 SAGA: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/05_pattern_02_SAGA.md

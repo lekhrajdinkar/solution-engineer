@@ -13,7 +13,7 @@
   - **CloudTrail api call**
   - **event table** : 
     - timeline of changes and other event.
-- ![img.png](../99_img/moreSrv/aws-config/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/moreSrv/aws-config/img.png)
 
 ---
 ## 2. Config Rule
@@ -38,12 +38,12 @@
 ### 3.1. remediation action
 - **`SSM` Automation Document**
 - **`custom` Automation Document**, eg:
-  - ![img_1.png](../99_img/moreSrv/aws-config/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/moreSrv/aws-config/img_1.png)
   
 ### 3.2 notification
 - use **Event-Bridge** Event
 - use **SNS** -> filter -> subscriber
-- ![img_2.png](../99_img/moreSrv/aws-config/img_2.png)  
+- ![img_2.png](../../../99_img/2025/aws-ssa/moreSrv/aws-config/img_2.png)  
 
 ---
 ## 4. Pricing: 

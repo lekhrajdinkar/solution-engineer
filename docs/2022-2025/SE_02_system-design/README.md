@@ -1,6 +1,5 @@
-- [📚Artifact for System Design](artifact.md)
----
 # ByteMonk - system design course
+- [Artifact for System Design](temp/artifact.md)
 - https://academy.bytemonk.io/products/system-design-mastery-beta
   - `78 videos` as of 7/28/2026
   - `ldus@g | J12`
@@ -17,9 +16,9 @@
 - [hashing](SD_01_foundation/05_concept_07_hashing.md)
 - [Latency.md](SD_02_Non-functional-req/02_NFR_02_Performance-latency.md) 
 - [throughput.md](SD_02_Non-functional-req/02_NFR_02_performance-throughput.md)
-- [replication.md](SD_05_DataLayer+storage/03_concept_01_database-replication.md)
+- [replication.md](SD_05_DataModeling/03_concept_01_database-replication.md)
 - [SFP - Single Point of Failure](SD_01_foundation/03_concept_01_SFP.md)
-- [PRE-Signed-URL.md](SD_03_Core-building-blocks/SD_03_53_Transport-delivery/01_core_05_pre-signed-urls.md)
+- [PRE-Signed-URL.md](SD_03_Core-building-blocks/SD_03_53_network/02_core_05_pre-signed-urls.md)
 - [heartbeat_2.md](SD_01_foundation/03_concept_02_heartbeat_2.md) | [heartbeat_1.md](SD_01_foundation/03_concept_02_heartbeat_1.md)
 - [DNS and R53.md](../CE_02_AWS_SAA/04_network/02_Rout53.md)
 
@@ -37,7 +36,7 @@
 
 ---
 ## Module 5: DataLayer+storage `9`
-[SD_05_DataLayer+storage](SD_05_DataLayer%2Bstorage)
+[SD_05_DataModeling](SD_05_DataModeling)
 
 ---
 ## Module 6: Design scalable system

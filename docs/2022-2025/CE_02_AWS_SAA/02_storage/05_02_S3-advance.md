@@ -34,7 +34,7 @@
     - `Activity` + `statusCode` : GET, POST, etc +   count of 200, 404, etc
     - `performance` : s3 transfer acce enable count
 
-- ![img_6.png](../99_img/storage/s3-2/img_6.png)
+- ![img_6.png](../../../99_img/2025/aws-ssa/storage/s3-2/img_6.png)
 
 ---
 ## 4. CLI
@@ -68,4 +68,4 @@
   -  Instead, use a **CNAME** record pointing to the S3 website endpoint. :dart:
 
 ## 6. search/list s3 onject fast
-![img.png](../99_img/practice-test-01/wz03/01/img.png)
+![img.png](../../../99_img/2025/aws-ssa/practice-test-01/wz03/01/img.png)

@@ -17,10 +17,10 @@
     - **europe** --> hops overs multiple server/s s1 > s2 > s3 --> to reach alb-1
     - **nepal** --> hops overs few server/s > s1 --> to reach alb-1
 - this creates risk of **loss of network and data packet**. 
-- ![img.png](../99_img/CF/ga/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/CF/ga/img.png)
 
 - can prevent hopping by using stable **AWS global privatelink**
-  - ![img_1.png](../99_img/CF/ga/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/CF/ga/img_1.png)
 ---
 ## 1. Intro
 - directs traffic to optimal endpoints over 
@@ -135,4 +135,4 @@ b. Use Amazon Route 53 weighted routing to spread traffic across different deplo
     the ALB as targets of this Network Load Balancer --> again regional, soo many IPs
    
 ```
-![img.png](../99_img/practice-test-01/05/01/img.png)
+![img.png](../../../99_img/2025/aws-ssa/practice-test-01/05/01/img.png)

@@ -1,4 +1,4 @@
-- ![img_4.png](../99_img/dva/00/kds/img_4.png)
+- ![img_4.png](../../../99_img/2025/aws-ssa/dva/00/kds/img_4.png)
 - real-time **stream**. eg:
   - app log
   - CW metric
@@ -36,8 +36,8 @@
 
 ---
 ## 3. component
-- ![img_4.png](../99_img/decouple/img_4.png)
-- ![img.png](../99_img/decouple/img.png)
+- ![img_4.png](../../../99_img/2025/aws-ssa/decouple/img_4.png)
+- ![img.png](../../../99_img/2025/aws-ssa/decouple/img.png)
 
 ### A **kineses stream**  === `topic`
   - retention : `1(24 hrs) - 365 days (8760 hrs)`    :point_left:
@@ -64,11 +64,11 @@
       - c. **batch messages** :dart:
         - PutRecord API action  in a loop is inadequate.
         - application must batch records, optimally using the shards in long term.
-    - ![img.png](../99_img/dva/00/kds/img.png)
-    - ![img_1.png](../99_img/dva/00/kds/img_1.png)
+    - ![img.png](../../../99_img/2025/aws-ssa/dva/00/kds/img.png)
+    - ![img_1.png](../../../99_img/2025/aws-ssa/dva/00/kds/img_1.png)
 
 ---
-- ![img_2.png](../99_img/decouple/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/decouple/img_2.png)
 ---
 
 ### D **producer** 
@@ -92,8 +92,8 @@
   - **`enhanced` fanout consumer/s** (push using HTTP/2)
     - subscribe API
     - sift limit of 5 consumer per stream.
-  - ![img_2.png](../99_img/dva/00/kds/img_2.png)
-  - ![img_2.png](../99_img/dva/sqs/img_2.png)
+  - ![img_2.png](../../../99_img/2025/aws-ssa/dva/00/kds/img_2.png)
+  - ![img_2.png](../../../99_img/2025/aws-ssa/dva/sqs/img_2.png)
 
 #### consumer-1: app(`aws-sdk`) 
 - support shared + enhanced
@@ -102,8 +102,8 @@
 - Kineses Client libray, (java lib)
 - read progress is tracked in **dynamoDB**. so add IAM role. :point_left:
 - max one KCL consumer per shard only :point_left:
-  - ![img_5.png](../99_img/dva/00/kds/img_5.png)
-  - ![img_6.png](../99_img/dva/00/kds/img_6.png)
+  - ![img_5.png](../../../99_img/2025/aws-ssa/dva/00/kds/img_5.png)
+  - ![img_6.png](../../../99_img/2025/aws-ssa/dva/00/kds/img_6.png)
 
 #### consumer-3: lambda
 - supports both mode 
@@ -111,7 +111,7 @@
   - enhanced
 - configure these : `batch size` and `batch window`.
 - eg: serverless flow
-  - ![img_3.png](../99_img/dva/00/kds/img_3.png)
+  - ![img_3.png](../../../99_img/2025/aws-ssa/dva/00/kds/img_3.png)
   
 #### consumer-4: **kDF (firehose)** :point_left:
 - [03_02_KDF_KinesisDataFirehose.md](03_02_KDF_KinesisDataFirehose.md)
@@ -125,12 +125,12 @@
 - **encryption** : at fly and at rest
 - **monitor** API call with cloudTrail
 - **vpc endpoint** for private connection.
-  - ![img_1.png](../99_img/decouple/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/decouple/img_1.png)
 
 --- 
 ## 6. scaling
 ### 6.1 shard `splitting` 
-- ![img.png](../99_img/dva/00/kds/more/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/00/kds/more/img.png)
 - The old shard is closed and will be deleted once the data is expired
 - use new shard/s
 - split into 2 only in single operation.
@@ -138,7 +138,7 @@
 - **increase cost**.
 
 ### 6.2 shard `merging`
-- ![img_1.png](../99_img/dva/00/kds/more/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/dva/00/kds/more/img_1.png)
 - low traffic on shard-1 and shard-2. 
   - merge them, **saves cost**.
 - merge only 2 in single operation.
@@ -146,7 +146,7 @@
 ---  
 ## 7. more
 - S3 --> `DMS` --> kinesis
-  - ![img_1.png](../99_img/dva/sqs/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/dva/sqs/img_1.png)
 
 ---
 ## 8 hands on

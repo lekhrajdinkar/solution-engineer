@@ -22,7 +22,7 @@
     - stop the service from analyzing data 
     - but does not delete your existing `findings or configurations`
 
-![img_2.png](../99_img/security/others/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/security/others/img_2.png)
 
 ```text
 #1
@@ -44,7 +44,7 @@ Which AWS service can be used to protect the Amazon EC2 instances from such unau
   - find **sensitive data(PII)** persnally identifiable information
   - Send event-bridge notification
 
-![img_4.png](../99_img/security/others/img_4.png)
+![img_4.png](../../../99_img/2025/aws-ssa/security/others/img_4.png)
 
 ---
 ## C. Inspector
@@ -63,7 +63,7 @@ Which AWS service can be used to protect the Amazon EC2 instances from such unau
   
 - send finding to -->  `event-bridge` + `AWS security Hub`
 
-![img_3.png](../99_img/security/others/img_3.png)
+![img_3.png](../../../99_img/2025/aws-ssa/security/others/img_3.png)
 
 
 ---
@@ -75,7 +75,7 @@ Which AWS service can be used to protect the Amazon EC2 instances from such unau
     - financial
     - ...
 
-![img.png](../99_img/dva/kms/05/img-vdsvevev.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/kms/05/img-vdsvevev.png)
 
 ---
 ## E. More

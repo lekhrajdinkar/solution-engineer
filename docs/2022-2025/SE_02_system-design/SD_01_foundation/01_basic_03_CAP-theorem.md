@@ -1,5 +1,6 @@
 # CAP theorem
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2190592662
+- https://youtube.com/shorts/HTaKhMv_ZYU?si=Zuo-jW3YEOjL395l
 
 > A distributed system can only guarantee two of the three properties: 
 **Consistency**, **Availability**, and **Partition tolerance**.
@@ -147,3 +148,23 @@ flowchart LR
 | **DynamoDB**    | | ✅             |
 
 
+---
+
+## PACELC
+- It extends the better-known CAP theorem.
+- If there is a network Partition (P), a distributed system must choose between Availability (A) and Consistency (C); 
+- Else (E), during normal operation, it must choose between **Latency** (L) and Consistency (C).
+
+> - Partition? → Availability vs. Consistency
+> - No partition? → Latency vs. Consistency
+
+```
+P — Partition
+A — Availability
+C — Consistency
+E — Else
+L — Latency
+C — Consistency
+```
+
+This makes PACELC particularly useful when comparing distributed database architectures, because in practice network partitions are relatively exceptional, while the latency–consistency trade-off occurs continuously.

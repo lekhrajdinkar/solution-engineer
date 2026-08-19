@@ -2,7 +2,7 @@
 ## k8s
 - [03_Kubernetes](../../PE_02_Kubernetes)
 - cloud-agnostic
-![img.png](../99_img/compute/eks/img.png)
+![img.png](../../../99_img/2025/aws-ssa/compute/eks/img.png)
 ---
 - [04_EKS](../../PE_02_Kubernetes/04_EKS)
 - **pod** + **service** 
@@ -20,7 +20,7 @@
 
 - **Addon**
   - `CSI`: Container Storage Interface :
-  - ![img_1.png](../99_img/compute/eks/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/compute/eks/img_1.png)
   
 ---
 ## hands on

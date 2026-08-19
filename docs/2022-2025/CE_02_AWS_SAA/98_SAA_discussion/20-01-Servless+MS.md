@@ -18,7 +18,7 @@
 - use DAX
 - or use API-gateway cache feature.
 
-![img.png](../99_img/ssa-discussion/20/img.png)
+![img.png](../../../99_img/2025/aws-ssa/ssa-discussion/20/img.png)
 
 ---
 
@@ -28,7 +28,7 @@
 - photo upload > thumbnail : `lambda`
 - welcome email : Lambda --> `SES`
 
-![img_1.png](../99_img/ssa-discussion/20/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/ssa-discussion/20/img_1.png)
 
 ---
 
@@ -38,7 +38,7 @@
 - ms1 --> ms2 : `sync` pattern.
 - ms1 --> SQS/KDS --> ms2  : `A-sync` pattern
 
-![img_3.png](../99_img/ssa-discussion/20/img_3.png)
+![img_3.png](../../../99_img/2025/aws-ssa/ssa-discussion/20/img_3.png)
 
 ---
 
@@ -51,7 +51,7 @@
 - And CF will scale to handle global requests.
 - this is cheap option too.
 
-![img_4.png](../99_img/ssa-discussion/20/img_4.png)
+![img_4.png](../../../99_img/2025/aws-ssa/ssa-discussion/20/img_4.png)
 
 
 

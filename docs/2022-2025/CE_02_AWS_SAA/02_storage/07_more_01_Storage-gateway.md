@@ -38,7 +38,7 @@ flowchart LR
 | **Volume Gateway** | iSCSI           | S3-backed cloud volumes      | Primary data in AWS, hot data cached locally     |
 | **Tape Gateway**           | iSCSI-VTL       | S3 and S3 archival classes   | Replace physical tape backup infrastructure      |
 
-- ![img.png](../99_img/storage/more/img6.png)
+- ![img.png](../../../99_img/2025/aws-ssa/storage/more/img6.png)
 
 ### 1. S3 File gateway 
 
@@ -56,7 +56,7 @@ flowchart LR
     WIN[Windows Servers] -->|SMB| GW
     GW -->|Files become objects| S3[(Amazon S3)]
 ```
-![img_2.png](../99_img/storage/more/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/storage/more/img_2.png)
 
 ---
 ### 2. FSx window gateway
@@ -71,7 +71,7 @@ flowchart LR
     GW -->|Cached access| FSX
 ```
 
-![img_3.png](../99_img/storage/more/img_3.png)
+![img_3.png](../../../99_img/2025/aws-ssa/storage/more/img_3.png)
 
 ---
 ### 2. Volume gateway ⭐
@@ -108,7 +108,7 @@ flowchart LR
     LOCAL -->|Backup| AWS
 
 ```
-![img_4.png](../99_img/storage/more/img_4.png)
+![img_4.png](../../../99_img/2025/aws-ssa/storage/more/img_4.png)
 
 --- 
 ### 4. Tap gateway
@@ -128,7 +128,7 @@ flowchart LR
     TG --> VTL
     VTL -->|Archive tapes| ARCHIVE
 ```
-![img_5.png](../99_img/storage/more/img_5.png)
+![img_5.png](../../../99_img/2025/aws-ssa/storage/more/img_5.png)
 
 ---
 ## Exam

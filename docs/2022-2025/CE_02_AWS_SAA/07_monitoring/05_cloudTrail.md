@@ -8,12 +8,12 @@
     - `90 days` default **retention**
     - for further analysis/investigation,
       - log/event >>  s3 >> athena
-      - ![img.png](../99_img/dva/aa-x-ray/img.png)
+      - ![img.png](../../../99_img/2025/aws-ssa/dva/aa-x-ray/img.png)
 - eg: 
   - DynamoDB table create API called --> logged in CT + event sent to `eventBridge`,
   - similar endless API calls. 
 
-- ![img_1.png](../99_img/decouple/ct/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/decouple/ct/img_1.png)
 
 ---
 ## 2. Cloudtrail : events
@@ -45,7 +45,7 @@
   - hitting service limits
   - Bursts of AWS IAM actions
   - Gaps in periodic maintenance activity
-- ![img_2.png](../99_img/decouple/ct/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/decouple/ct/img_2.png)
 
 ## 3. CloudTrail Lake service :dart:
 - fully managed, quick option.
@@ -72,8 +72,8 @@ option-2 : cloudtrail:event --> S3 --> athena
 - all events end up going to default bus
 
 - eg: get notified when user assuming role
-  - ![img_4.png](../99_img/decouple/ct/img_4.png)
-  - ![img_3.png](../99_img/decouple/ct/img_3.png)
+  - ![img_4.png](../../../99_img/2025/aws-ssa/decouple/ct/img_4.png)
+  - ![img_3.png](../../../99_img/2025/aws-ssa/decouple/ct/img_3.png)
 
 
 

@@ -10,7 +10,7 @@
 
 ## 1 `log group`
 - for each application create a log group
-- ![img_3.png](../99_img/cw/cw-1/img_3.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/cw/cw-1/img_3.png)
 
 ---
 ## 2 `Log streams`
@@ -19,7 +19,7 @@
 
 ---
 ## 3 `log insight`
-- ![img.png](../99_img/cw/cw-1/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/cw/cw-1/img.png)
 - **query engine**
   - on historical logs-group on same/**cross**  aws account
 - `log query >>> get result >>> export / visualize on CW::dashboard`
@@ -45,8 +45,8 @@
   - but install `agent`
     - **CloudWatch Unified Agent** : `new`
     - **CloudWatch log Agent** : `old`
-    - ![img_1.png](../99_img/dva/monitor/img_1.png)
-    - ![img.png](../99_img/dva/monitor/img.png)
+    - ![img_1.png](../../../99_img/2025/aws-ssa/dva/monitor/img_1.png)
+    - ![img.png](../../../99_img/2025/aws-ssa/dva/monitor/img.png)
 
 ---
 ## 5 `export logs`
@@ -61,7 +61,7 @@
 - **KDF** Kinesis Data Firehose
 - **Lambda**
 - **OpenSearch**
-- ![img_2.png](../99_img/cw/cw-1/2/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/cw/cw-1/2/img_2.png)
 
 ---
 ## 6 `log subscription-filter`
@@ -69,14 +69,14 @@
 - **subscribe** to **log group**
   - also, can also to listen/subscribe to multiple same/cross account's log group 
   - and perform **log aggregation**:
-  - ![img_2.png](../99_img/cw/cw-1/img_2.png)
+  - ![img_2.png](../../../99_img/2025/aws-ssa/cw/cw-1/img_2.png)
   - ignore above action, check below.
   
 - **listener action/s**:
   - do some processing with Lambda
   - deliver (KDF)
   - stream (KFS)
-  - ![img_1.png](../99_img/cw/cw-1/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/cw/cw-1/img_1.png)
 
 --- 
 ## 7 `live trail`
@@ -90,7 +90,7 @@
 - log-group > create **metric** on pattern-1
   - `max=3` **dimension**
 - later on create alarm around this metric. [03_CW-Alarms.md](03_CW-Alarms.md)
-- ![img.png](../99_img/dva/monitor/img3.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/monitor/img3.png)
 
 --- 
 ## 9 `encrypt log`
@@ -101,7 +101,7 @@
     - **aws logs associate-kms-keys** --log-group-name --kms-key-id --region
   - not from console.
 - Dont forgget to update key policy as well, to allow loggroup.
-- ![img.png](../99_img/moreSrv/dva/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/moreSrv/dva/img.png)
 
 --- 
 ## ??

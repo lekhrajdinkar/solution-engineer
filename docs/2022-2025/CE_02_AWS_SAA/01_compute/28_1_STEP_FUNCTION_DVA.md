@@ -16,14 +16,14 @@
   - from workflow studio / console UI
   - create `ASL` (Amazon State lamguage), json.
 - has **states** to do some work, like
-  - ![img.png](../99_img/dva/serverlessMore/01/img.png)
-  - ![img_1.png](../99_img/dva/serverlessMore/01/img_1.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/dva/serverlessMore/01/img.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/dva/serverlessMore/01/img_1.png)
   
 - **type**: 
   - standard 
   - express
   
-![img_7.png](../99_img/dva/serverlessMore/01/img_7.png)
+![img_7.png](../../../99_img/2025/aws-ssa/dva/serverlessMore/01/img_7.png)
 
 ---
 ## 2. state
@@ -45,14 +45,14 @@
       - option-1: worker-1, periodically send heardbeat, API: **SendtaskHeartBeat**
         - upto 1 year :point_left:
       - option-2 : configure `TimeOutSecond`
-    - ![img_6.png](../99_img/dva/serverlessMore/01/img_6.png)
+    - ![img_6.png](../../../99_img/2025/aws-ssa/dva/serverlessMore/01/img_6.png)
 
 ---
 ## 3. wait for task Token
 - similar to activity task
 - task --> depend on 3rd app response
 
-![img_5.png](../99_img/dva/serverlessMore/01/img_5.png)
+![img_5.png](../../../99_img/2025/aws-ssa/dva/serverlessMore/01/img_5.png)
 
 
 ---
@@ -62,7 +62,7 @@
 - [udemy Video ref](https://www.udemy.com/course/aws-certified-developer-associate-dva-c01/learn/lecture/26101912#overview)
 
 ### Retry
-![img_2.png](../99_img/dva/serverlessMore/01/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/dva/serverlessMore/01/img_2.png)
 
 ### Catch
 - **error/exception**
@@ -73,10 +73,10 @@
 • States.TaskFailed : execution failure
 • States.Permissions: insufficient privileges to execute code
 ```
-- ![img_3.png](../99_img/dva/serverlessMore/01/img_3.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/dva/serverlessMore/01/img_3.png)
 
 - **resultpath** : input to next state
-  - ![img_4.png](../99_img/dva/serverlessMore/01/img_4.png)
+  - ![img_4.png](../../../99_img/2025/aws-ssa/dva/serverlessMore/01/img_4.png)
 
 ---
 ## 5. security

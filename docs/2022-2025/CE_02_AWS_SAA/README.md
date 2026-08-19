@@ -1,0 +1,45 @@
+# Reference and links
+
+## AWS-Certified-Cloud-Practitioner-Notes
+- https://github.com/muhammad-usman-108/AWS-Certified-Cloud-Practitioner-Notes/tree/master/practice-exam
+- https://quizlet.com/600154168/flashcards?funnelUUID=22fce61a-8fdb-4f63-8f18-0ed160072b7d
+
+## udemy
+- https://courses.datacumulus.com/downloads/certified-solutions-architect-pn9/
+- https://courses.datacumulus.com/downloads/certified-solutions-architect-professional-m0v/
+
+## training
+- https://skillbuilder.aws/
+- https://www.aws.training/Certification
+
+## Practice paper :
+- https://www.udemy.com/course/aws-certified-solutions-architect-associate-practice-tests-k/?couponCode=KEEPLEARNING
+- https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c03/?couponCode=KEEPLEARNING
+- https://www.examtopics.com/exams/amazon/aws-certified-solutions-architect-associate-saa-c03/view/
+- https://medium.com/swlh/how-i-passed-aws-solutions-architect-associate-saa-c02-in-2021-70ec503fa963
+- https://tutorialsdojo.com/aws-certified-solutions-architect-associate-saa-c03/
+- https://awscertificationpractice.benchprep.com/app/exam-prep-official-question-set-aws-certified-solutions-architect-associate-saa-c03-v2#exams
+
+## Future explore:
+- https://aws.amazon.com/architecture/
+- https://aws.amazon.com/solutions/
+
+## white paper
+- Architecting for the cloud
+  - https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf (Archived)
+- White papers related to well-architected framework are mentioned here 
+   - https://aws.amazon.com/blogs/aws/aws-well-architected-framework-updated-white-papers-tools-and-best-practices/
+- Disaster recovery whitepaper
+  - https://d1.awsstatic.com/whitepapers/aws-disaster-recovery.pdf (Archived)
+- AWS now recommends a well-architected framework whitepaper
+  - https://d1.awsstatic.com/whitepapers/architecture/AWS_Well-Architected_Framework.pdf
+  
+---
+## Certification
+- https://aws.amazon.com/certification/certified-solutions-architect-associate/
+- https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf
+- https://cp.certmetrics.com/amazon/en/home/dashboard | ldus@g | J12a
+- https://533267082359.signin.aws.amazon.com/console | skill builder and cert | ldus@gJ83a
+- https://www.itexamslab.com/amazon/saa-c03-dumps.html
+- [artifact.md](practice-test/whizlab/README.md)
+- [whiteboard.md](practice-test/udemy-Stephen/whiteboard.md)

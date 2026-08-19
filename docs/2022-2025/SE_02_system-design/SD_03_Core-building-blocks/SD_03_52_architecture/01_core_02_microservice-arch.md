@@ -1,7 +1,7 @@
 # Microservice Architecture
 > [**Microservice :: COMPLETE GUIDE**](../../SD_21_microservice) 👈👈
 
-References
+## References
 - https://youtube.com/watch?v=pq9WUeKSjTM | when to use ms.
 - https://chatgpt.com/c/2f54de12-b416-4a76-80a0-ebd286b0c467 | ms arch
 - https://chat.deepseek.com/a/chat/s/6e7456d4-cc1b-42be-ae19-c3ede730936f | ms comm

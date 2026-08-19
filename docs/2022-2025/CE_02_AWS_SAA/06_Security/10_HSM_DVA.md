@@ -1,5 +1,5 @@
 # CloudHSM 
-![img.png](../99_img/dva/kms/03/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/kms/03/img.png)
 
 ## Intro
 - **HSM** = `Hardware Security Module`
@@ -13,8 +13,8 @@
   - dedicated Software
 
 - HSM cluster
-  - ![img_1.png](../99_img/dva/kms/03/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/dva/kms/03/img_1.png)
 
 - integrated with KMS
   - supports **SSE-C** (symmetric + asymmetric keys)
-   - ![img_2.png](../99_img/dva/kms/03/img_2.png)
+   - ![img_2.png](../../../99_img/2025/aws-ssa/dva/kms/03/img_2.png)

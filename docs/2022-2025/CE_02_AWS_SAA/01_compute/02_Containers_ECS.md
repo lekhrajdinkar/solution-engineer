@@ -8,7 +8,7 @@
   - container orchestration : ecs and eks(k8s)
   - image repo : ecr, 
   - launch type : fargate or ec2
-- ![img.png](../99_img/compute/ecs/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/compute/ecs/img.png)
 
 --- 
 ## B. k8s vs ECS
@@ -73,11 +73,11 @@
       - hardcode
       - read from SSM store / secret manager
       - bulk fetch env file from s3 :o:
-      - ![img.png](../99_img/dva/compute/ecs/img.png)
+      - ![img.png](../../../99_img/2025/aws-ssa/dva/compute/ecs/img.png)
     - `storage` : EFS or default(21GB EBS)
       - ec2-i storage : **bind mount** to c1,c2,etc
       - for fargate use ephemeral storage. ? 
-      - ![img.png](../99_img/dva/compute/ecs/img_1.png)
+      - ![img.png](../../../99_img/2025/aws-ssa/dva/compute/ecs/img_1.png)
 
 #### 3 **run task**:
   - task (for job) **directly**,  
@@ -94,8 +94,8 @@
   - health check for tg
   - listener(http:80)  --> tg-1 --> [  task-1(c1), task-2(c2) ]
 - host-port : if 0, then get dynamic port and alb will find those  :point_left:
-- ![img.png](../99_img/dva/compute/ecs/img_2.png)
-- ![img_1.png](../99_img/dva/compute/ecs/img_3.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/compute/ecs/img_2.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/dva/compute/ecs/img_3.png)
   
 #### 5 Auto Scaling 
 - create **ASG-1** to scale up/down task 
@@ -107,7 +107,7 @@
 
 #### 6 task placement (ec2 launch type)
 - note: ec2 instance role : add permission to pull image from ecr
-- ![img_1.png](../99_img/dva/compute/ecs/img_4.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/dva/compute/ecs/img_4.png)
 - statisfy:
   - **1 CPU, memory, and port requirements**
   - **2 Task Placement Strategy**
@@ -164,36 +164,36 @@
     - max : 200%
 - more example for understaning:
   - **min : 50% and max: 100%**
-    - ![img.png](../99_img/dva/compute/ecs/img_10.png)
+    - ![img.png](../../../99_img/2025/aws-ssa/dva/compute/ecs/img_10.png)
   - **min : 100% and max: 150%**
-    - ![img_1.png](../99_img/dva/compute/ecs/img_11.png)
+    - ![img_1.png](../../../99_img/2025/aws-ssa/dva/compute/ecs/img_11.png)
 
 ---      
 ## D. screenshot
 ### 1. launch type:
-![img_1.png](../99_img/compute/ecs/img_1.png) 
-![img_2.png](../99_img/compute/ecs/img_2.png)
+![img_1.png](../../../99_img/2025/aws-ssa/compute/ecs/img_1.png) 
+![img_2.png](../../../99_img/2025/aws-ssa/compute/ecs/img_2.png)
 ### 2. iam roles/policies:
-![img_3.png](../99_img/compute/ecs/img_3.png)
+![img_3.png](../../../99_img/2025/aws-ssa/compute/ecs/img_3.png)
 ### 3. alb
-![img_4.png](../99_img/compute/ecs/img_4.png)
+![img_4.png](../../../99_img/2025/aws-ssa/compute/ecs/img_4.png)
 ### 4. Storage:
-![img_5.png](../99_img/compute/ecs/img_5.png)
+![img_5.png](../../../99_img/2025/aws-ssa/compute/ecs/img_5.png)
 ### 5 scale : ASG + Ecs-cluster capcity provider
-![img_6.png](../99_img/compute/ecs/img_6.png)
+![img_6.png](../../../99_img/2025/aws-ssa/compute/ecs/img_6.png)
 
 --- 
 ## E. trigger ecs task
 ### 1 with eventBridge ( trigger )
-![img_7.png](../99_img/compute/ecs/img_7.png)
+![img_7.png](../../../99_img/2025/aws-ssa/compute/ecs/img_7.png)
 ### 2 with eventBridge ( scheduled )
-![img_8.png](../99_img/compute/ecs/img_8.png)
+![img_8.png](../../../99_img/2025/aws-ssa/compute/ecs/img_8.png)
 ### 3 with SQS + autoScale
-![img_9.png](../99_img/compute/ecs/img_9.png)
+![img_9.png](../../../99_img/2025/aws-ssa/compute/ecs/img_9.png)
 
 ---
 ## F.alerts
-![img_10.png](../99_img/compute/ecs/img_10.png)
+![img_10.png](../../../99_img/2025/aws-ssa/compute/ecs/img_10.png)
 
 ---
 

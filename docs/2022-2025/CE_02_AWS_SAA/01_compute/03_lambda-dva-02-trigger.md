@@ -11,7 +11,7 @@
   
 ---  
 ###  A.1 **ALB**
-- ![img_1.png](../99_img/dva/l/01/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/dva/l/01/img_1.png)
 - **Flow**
   - http/s request  comes to ELB
   - elb `converts` **http request into json** object and pass to **event** arg
@@ -32,11 +32,11 @@
   }
   ```
 - **conversions**:
-  - ![img_2.png](../99_img/dva/l/01/img_2.png)
-  - ![img_3.png](../99_img/dva/l/01/img_3.png)
+  - ![img_2.png](../../../99_img/2025/aws-ssa/dva/l/01/img_2.png)
+  - ![img_3.png](../../../99_img/2025/aws-ssa/dva/l/01/img_3.png)
 - **ALB Multi-Header Values** : enable/disable this feature. :point_left:
   - notice queryparams,headers `array`
-  - ![img_4.png](../99_img/dva/l/01/img_4.png)
+  - ![img_4.png](../../../99_img/2025/aws-ssa/dva/l/01/img_4.png)
 
 ---
 ###  A.2 **gateway**
@@ -58,8 +58,8 @@
   - if throttleError, LambdaService will return event back to internal eventQueue.
 ---
 ### :green_circle: B.1 S3:event notification 
-- ![img_2.png](../99_img/dva/l/02/img_2.png)
-- ![img_3.png](../99_img/dva/l/02/img_3.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/dva/l/02/img_2.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/dva/l/02/img_3.png)
 - create s3 bucket > properties tab >> create s3 notification
   - set **prefix** +  s3:objectCreate event
   - set **target** : lambda-1 (lambda-policy-1: allow s3)
@@ -67,7 +67,7 @@
 
 ---
 ### :green_circle: B.2 SQS 
-- ![img.png](../99_img/dva/l/02/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/l/02/img.png)
 - message dropped on SQS queue-1
 - sqs-event will call lambda async does (non-blocking)
 - next, lambda-1 >> configuration tab >> **asynchronous invocation** section. :point_left:
@@ -83,7 +83,7 @@
 - **trigger**:
   - EventRule
   - schedular
-  - ![img_1.png](../99_img/dva/l/02/img_1.png)
+  - ![img_1.png](../../../99_img/2025/aws-ssa/dva/l/02/img_1.png)
 
 ---
 ## C. `Event Source Mapping` (Poller) + batch
@@ -93,12 +93,12 @@
   -  Queue based: **Queue Poller** : `SQS` : ordered, if FIFO.
   -  streams based: **Stream Poller** : `KDS` : ordered  + `DynamoDB Streams`
 
-![img.png](../99_img/dva/l/03/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/l/03/img.png)
 - lambda will scale out, based on active message.
 
 ---
 ### :yellow_circle: C.1 SQS : Queue
-- ![img_2.png](../99_img/dva/l/03/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/dva/l/03/img_2.png)
 - Event Source Mapping will poll SQS (Long Polling)
 - **configuration**:
   - **batch size**  + **batch Window**
@@ -112,7 +112,7 @@
 
 ---
 ### :yellow_circle: C.2 KDS : stream
-![img_1.png](../99_img/dva/l/03/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dva/l/03/img_1.png)
 - **parallelization**: can have upto `10 batches` per shard.
 - **in-order processing** : processing for the **affected shard** is paused, until the error is resolved
 ```
@@ -134,7 +134,7 @@
 
 ---
 ### :yellow_circle: C.3 DynamoDB : stream 
-![img.png](../99_img/dva/db/img-syno-stream.png)- soon
+![img.png](../../../99_img/2025/aws-ssa/dva/db/img-syno-stream.png)- soon
 
 ---
 
@@ -158,12 +158,12 @@
 ### D.2 Async invocation: `success`
 - **destination** (condition: OnSuccess)
 
-![img.png](../99_img/dva/l/05/img_2.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/l/05/img_2.png)
 
-![img.png](../99_img/dva/l/05/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/l/05/img.png)
 
 ### D.3 Event Source mapping: `discard batch`
-![img_1.png](../99_img/dva/l/05/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dva/l/05/img_1.png)
 
 
 

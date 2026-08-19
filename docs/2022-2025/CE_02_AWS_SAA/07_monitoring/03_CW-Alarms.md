@@ -14,7 +14,7 @@
 - **composite alarm** 
   - `alarm1` AND/OR `alarm2`
   - help to **reduce noise**
-  - ![img.png](../99_img/dva/monitor/img4.png)
+  - ![img.png](../../../99_img/2025/aws-ssa/dva/monitor/img4.png)
   
 - alarm can be created on:
   - **any metric**
@@ -25,7 +25,7 @@
     - attached EBS status
     - ...
   - ...
-![img.png](../99_img/decouple/ct/img.png)
+![img.png](../../../99_img/2025/aws-ssa/decouple/ct/img.png)
 
 ---
 ## D. demo

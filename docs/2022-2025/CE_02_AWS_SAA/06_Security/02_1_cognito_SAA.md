@@ -5,7 +5,7 @@
 
 ---
 ## 1. Intro
-- ![img.png](../99_img/dva/cognito/01/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/cognito/01/img.png)
 - **sign-in functionality for global user** (web/mobile)
   - simple login:
     - userid, password, custom feild, email/phone verification.
@@ -31,8 +31,8 @@
 
 ## 3. lambda trigger :books:
 - on user pool event
-- ![img_1.png](../99_img/dva/cognito/01/img_1.png)
-- ![img_2.png](../99_img/dva/cognito/01/img_2.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/dva/cognito/01/img_1.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/dva/cognito/01/img_2.png)
 
 ## 4. Adaptive Authentication
 - **risk score** for every login activity
@@ -42,14 +42,14 @@
 ## 5. Integration example
 
 ### 1 **API-gateway**
-![img.png](../99_img/dva/cognito/02/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/cognito/02/img.png)
 
 ### 2.1 **ALB** (high level)
-![img_1.png](../99_img/dva/cognito/02/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dva/cognito/02/img_1.png)
 
 ### 2.2 **ALB** (with OIDC)
-- ![img_2.png](../99_img/dva/cognito/02/img_2.png)
-- ![img_3.png](../99_img/dva/cognito/02/img_3.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/dva/cognito/02/img_2.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/dva/cognito/02/img_3.png)
 
 ---
 # B. Cognito Identity pool
@@ -65,22 +65,22 @@
 • Developer Authenticated Identities (custom login server)
 • Cognito Identity Pools allow for unauthenticated (guest) access
 ```
-- ![img_2.png](../99_img/moreSrv/api-gateway/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/moreSrv/api-gateway/img_2.png)
 
 ---
 ## 2 IAM policy example
 ### access s3
-![img.png](../99_img/dva/cognito/03/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/cognito/03/img.png)
 
 ### access dynamoDB
-![img_1.png](../99_img/dva/cognito/03/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dva/cognito/03/img_1.png)
 
 ---
 ## 3 hands on
 - **configure permission** (create IAM role/s - 1, 2,3 ...)
-  - ![img_2.png](../99_img/dva/cognito/03/img_2.png)
+  - ![img_2.png](../../../99_img/2025/aws-ssa/dva/cognito/03/img_2.png)
 - connect to **user pool** (ID provider)
-  - ![img_3.png](../99_img/dva/cognito/03/img_3.png)
+  - ![img_3.png](../../../99_img/2025/aws-ssa/dva/cognito/03/img_3.png)
 - **create rule** to choose role, based on :
   - claims in token 
   - user-attribute set is user pool

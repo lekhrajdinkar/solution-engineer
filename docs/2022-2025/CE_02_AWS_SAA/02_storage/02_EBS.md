@@ -21,7 +21,7 @@ flowchart LR
     LocalFS -->|⭐Organizes bytes \n on blocks| Hardware
     style LocalFS fill:green,color:white
 ```
-![img.png](../99_img/dva/storage/01/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/storage/01/img.png)
 
 ---
 ## ✔️EBS: Configuration
@@ -43,18 +43,18 @@ aws cli : ec2label
   - _no need to detach volume while taking snapshot, but recommended._
 
 **Cross AZ/Region restore** 
-![img_1.png](../99_img/dva/storage/01/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dva/storage/01/img_1.png)
 
 **store snapshot to archive tier**
 - 75% cheaper, save cost, 
 - but restore time 24-72 hrs 
 
-![img_3.png](../99_img/dva/storage/01/img_3.png)
+![img_3.png](../../../99_img/2025/aws-ssa/dva/storage/01/img_3.png)
   
 **Recover snapshot from accidental delete** 
 - setup **recycle bin** with retention policy (1 day to 1 year)
 
-![img_2.png](../99_img/dva/storage/01/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/dva/storage/01/img_2.png)
 
 ---
 ## ✔️EBS: Types
@@ -68,9 +68,9 @@ aws cli : ec2label
 | **Throughput Optimized HDD** | **st1**                    | 125 GiB–16 TiB | **40 MiB/s per TiB**; maximum baseline 500 MiB/s               | **250 MiB/s per TiB**, using credits; capped at 500 MiB/s        | About **500 IOPS**, **500 MiB/s** |     ❌ | Big data, ETL, logs, data warehouses                           |
 | **Cold HDD**                 | **sc1**                    | 125 GiB–16 TiB | **12 MiB/s per TiB**; maximum baseline 192 MiB/s               | **80 MiB/s per TiB**, using credits; capped at 250 MiB/s         | About **250 IOPS**, **250 MiB/s** |     ❌ | Infrequently accessed, large sequential data                   |
 
-![img.png](../99_img/ec2/img_4.png)
+![img.png](../../../99_img/2025/aws-ssa/ec2/img_4.png)
 
-![img_1.png](../99_img/ec2/img_3.png)
+![img_1.png](../../../99_img/2025/aws-ssa/ec2/img_3.png)
 ---
 ## Security__
 **Encryption**

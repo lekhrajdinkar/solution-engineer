@@ -79,7 +79,7 @@
   - add RCU
 
 # C. Types  of write (4)
-![img_1.png](../99_img/dva/db/03/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/dva/db/03/img_1.png)
 ##  1. concurrent write 
 
 ##  2. Atomic write 

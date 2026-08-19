@@ -153,4 +153,4 @@
 }
 ```
 
-![img.png](../99_img/dva/l/img.png)
+![img.png](../../../99_img/2025/aws-ssa/dva/l/img.png)

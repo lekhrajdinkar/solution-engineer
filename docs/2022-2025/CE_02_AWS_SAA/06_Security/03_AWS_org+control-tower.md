@@ -65,12 +65,12 @@
   - multiple regions 
   - multiple accounts 
   - in AWS org
-- ![img.png](../99_img/practice-test-01/stackset.png)
+- ![img.png](../../../99_img/2025/aws-ssa/practice-test-01/stackset.png)
 
 ---
 ## 98. Screenshot
-- ![img_1.png](../99_img/security/org/img_1.png)
-- ![img.png](../99_img/security/org/img.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/security/org/img_1.png)
+- ![img.png](../../../99_img/2025/aws-ssa/security/org/img.png)
 
 ---
 ## 99. Exam scenario
@@ -113,7 +113,7 @@ Solution:
   - **detective guardrails**  
     - notify non-compliance using AWS config 
 - 
-- ![img_10.png](../99_img/security/org-2/img_10.png)
+- ![img_10.png](../../../99_img/2025/aws-ssa/security/org-2/img_10.png)
 ---
 # C. more
 - **AWS licence manager**

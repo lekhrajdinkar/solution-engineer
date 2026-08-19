@@ -16,9 +16,9 @@
   - **source blueprints** for S3, RDS, Relational & NoSQL DB
   - ...
 
-![img.png](../99_img/moreSrv/analytics-2/img.png)
+![img.png](../../../99_img/2025/aws-ssa/moreSrv/analytics-2/img.png)
 
-![img_1.png](../99_img/moreSrv/analytics-2/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/moreSrv/analytics-2/img_1.png)
 
 ---
 ## more :dart:

@@ -1,11 +1,11 @@
 # AWS cloudFront (global)
 ## Overview - CDN
-- [01_core_02_CDN.md](../../SE_02_system-design/SD_03_Core-building-blocks/SD_03_53_Transport-delivery/01_core_02_CDN.md)
+- [01_core_02_CDN.md](../../SE_02_system-design/SD_03_Core-building-blocks/SD_03_53_network/02_core_02_latency+regionalization.md)
 ---
 ## Pictorial description
-- ![img.png](../99_img/CF/img.png)
-- ![img_2.png](../99_img/CF/img_2.png)
-- ![img_3.png](../99_img/CF/cf-2/img_3.png)
+- ![img.png](../../../99_img/2025/aws-ssa/CF/img.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/CF/img_2.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/CF/cf-2/img_3.png)
 - **1-2-M**
   - one distribution - multiple origins
 ---
@@ -25,7 +25,7 @@
   - **Dynamic content**, as determined at request time
 ---
 ## A. Distribution (regional cache)
-![img_1.png](../99_img/CF/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/CF/img_1.png)
 ### 1. origin
 - source (3):
   - s3 bucket` or  `s3(static Web), 
@@ -41,7 +41,7 @@
   - update sg to allow traffic.
 - **OAC - Origin access control** 
   - policy allow CF to connect/access origin.
-  - ![img_3.png](../99_img/CF/img_3.png)
+  - ![img_3.png](../../../99_img/2025/aws-ssa/CF/img_3.png)
 
 ```text
 1. OAI (Origin Access Identity) - Legacy Method
@@ -69,7 +69,7 @@ above example:
 
 ---
 ### 4. security: feild level encryption
-- ![img_2.png](../99_img/practice-test-01/05/01/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/practice-test-01/05/01/img_2.png)
 - distribute content only to its service-subscribers / bona fide end users :dart:
   - Use Amazon CloudFront **signed cookies**
   - Use Amazon CloudFront **signed URLs**
@@ -90,7 +90,7 @@ above example:
 - **Type**:
   - lambda@Edge
   - CloudFront-Function
-  - ![img_2.png](../99_img/CF/cf-3/img_2.png)  
+  - ![img_2.png](../../../99_img/2025/aws-ssa/CF/cf-3/img_2.png)  
   
 #### a. lambda@Edge 
 - `nodeJs` or `Py`
@@ -100,7 +100,7 @@ above example:
 - globally service. :point_left:
   - author: **us-east-1**
   - replicated to edge location from author.
-- ![img_1.png](../99_img/dva/l/04/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/dva/l/04/img_1.png)
 
 #### b. CloudFront-Function
 - `js`
@@ -109,9 +109,9 @@ above example:
   - Max 2Mb ram
 - scale to `million of Req/sec`
 - **pricing**: 1/6 time cheaper than lambda.
-- ![img.png](../99_img/dva/l/04/img.png)
+- ![img.png](../../../99_img/2025/aws-ssa/dva/l/04/img.png)
 
-- ![img_1.png](../99_img/CF/cf-3/img_1.png)
+- ![img_1.png](../../../99_img/2025/aws-ssa/CF/cf-3/img_1.png)
 ---
 ## B. Demo  
 ### 1. s3 as origin
@@ -143,16 +143,16 @@ above example:
 ```
 
 ### 2. ALB as origin
-![img.png](../99_img/CF/cf-2/img.png)
+![img.png](../../../99_img/2025/aws-ssa/CF/cf-2/img.png)
 
 ---
 ## C. Pricing
-![img_1.png](../99_img/CF/cf-2/img_1.png)
+![img_1.png](../../../99_img/2025/aws-ssa/CF/cf-2/img_1.png)
 - **price class**
   - `100` - usa, europe, etc
   - `200` - africa, asia, etc
   - `ALL`
-- ![img_2.png](../99_img/CF/cf-2/img_2.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/CF/cf-2/img_2.png)
 
 ---  
 ## D. signed URl / cookies

@@ -36,7 +36,7 @@
   - Up to 16 Read Replicas per secondary region
   - **RPO**: less than second
   - **RTO**: less than a minute
-- ![img_3.png](../99_img/db/img_3.png)
+- ![img_3.png](../../../99_img/2025/aws-ssa/db/img_3.png)
 - provides more comprehensive failover capabilities :dart:
   - **Managed planned failover**
   - **Unplanned failover ("detach and promote")** 
@@ -58,8 +58,8 @@
 ### 5 Availability (cluster arch)
 - `6 copies` for data access 3 AZ : `cluster` ( with reader and writer endpoint)
 - instant fail-over (<30s) + `self healing` from peer2peer replication.
-- ![img.png](../99_img/db/img.png)
-- ![img_2.png](../99_img/db/img_2.png)
+- ![img.png](../../../99_img/2025/aws-ssa/db/img.png)
+- ![img_2.png](../../../99_img/2025/aws-ssa/db/img_2.png)
 
 ### 6 backtracking :point_left:
 - rewind the DB cluster to any time you specify

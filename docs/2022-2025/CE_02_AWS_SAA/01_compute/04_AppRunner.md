@@ -11,4 +11,4 @@
 - good for `beginner`, deploy your code without knowing much abt of underlying infra.
 - **costly** : `72 cent/hr`
  
-![img_2.png](../99_img/compute/eks/img_2.png)
+![img_2.png](../../../99_img/2025/aws-ssa/compute/eks/img_2.png)
