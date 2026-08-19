@@ -3,9 +3,12 @@
 > first component is system is DB, who needs scaling
 ---
 ## Overview
+- When your data gets too large for a single database, you need to shard it across multiple machines
+- The **key is choosing a partition strategy that keeps related data together** 👈
 - Horizontal scaling (both read / write) of DB.
 - Sharding = **horizontal** partitioning across **multiple database servers**.
 - each shard is **independent Database server** with its own replication, index,etc
+
 ```
 Partitioning → split data
 Sharding     → place those partitions on different servers
@@ -35,16 +38,62 @@ flowchart LR
 ```
 
 ## Choosing a good shard key.
-Good shard key:
-- evenly distributes data
-- evenly distributes traffic
-- supports common query patterns
-- key should not change, else end up moving data across shards.
+> - Golden Rule: Shard by your **primary access pattern** to keep related data collocated on the same shard.
+> - choice of shard key is **often permanent** and affects every query
 
-eg: **user_id - account ids - region identifier**
+Good shard key:
+- **evenly distributes** data/traffic | eg: **user_id - account ids - region identifier**
+- supports common **query/access patterns**
+- key should **not change**, else end up moving data across shards.
+- **Collocation** (Keeping Related Data Together) 👈
+
+```mermaid
+graph TD
+    subgraph ShardedCluster ["Sharded Cluster (Collocated by post_id)"]
+        subgraph Shard1 ["Shard Node 1"]
+            P1["posts (post_id: 101)"]
+            C1["comments (post_id: 101)"]
+        end
+
+        subgraph Shard2 ["Shard Node 2"]
+            P2["posts (post_id: 102)"]
+            C2["comments (post_id: 102)"]
+        end
+    end
+
+    Query["GET /posts/101 + Comments"] -->|"Single Node Query (No distributed join)"| Shard1
+```
+---
+## Strategies
+
+```mermaid
+graph TD
+    Data["Incoming Data (Write / Query)"] --> Choice{Partitioning \nStrategy}
+
+    Choice -->|Hash of Key| H["<b>Hash-Based</b><br><code>hash(key) % N</code>"]
+    Choice -->|Value Intervals| R["<b>Range-Based</b><br>e.g., ID 0–10k, 10k–20k"]
+    Choice -->|Geo / Category| L["<b>List / Entity-Based</b><br>e.g., Region, Tenant"]
+
+    H --> S1["Balanced distribution<br>Harder range scans"]
+    R --> S2["Easy range queries<br>Risk of hot spots"]
+    L --> S3["Clear isolation<br>Risk of uneven shard sizes"]
+
+    style Choice fill:#f8f9fa,stroke:#333,stroke-width:2px
+    style H fill:#ffffff,stroke:#007bff,stroke-width:1.5px
+    style R fill:#ffffff,stroke:#28a745,stroke-width:1.5px
+    style L fill:#ffffff,stroke:#dc3545,stroke-width:1.5px
+```
+
+### time-range sharding
+> ⚠️ Be careful with time-range sharding. 
+> - While it sounds appealing for "recent posts" queries, all current writes hit the same shard (the latest time range), creating a hot shard. 
+> - This is usually an **anti-pattern for write-heavy systems.** 👈
+> - Time-range partitioning works better for archival or analytics workloads where recent data is read-heavy but writes are spread out.
 
 ---
 ## Challenges
+> Avoid cross-shard queries, This is expensive and complex.
+
 | Challenge   (Set-1)          |                                                                                                                                   |
 |------------------------------| -------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Cross-shard transactions** | A transaction touching multiple shards may require distributed protocols such as two-phase commit, increasing latency and failure complexity |

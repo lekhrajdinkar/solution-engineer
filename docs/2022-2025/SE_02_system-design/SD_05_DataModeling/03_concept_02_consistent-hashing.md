@@ -16,7 +16,7 @@
   - event/data --> AWS Kinesis shard-0, 1, or 3 ?
 
 ### Scenario-3: NO-SQL database (sharding) 
-- data is distributed across distributed shard [sharding](03_concept_03_sharding.md)
+- data is distributed across distributed shard [sharding](01_design_04_sharding.md)
 - shards can be :
   - within same disk, 
   - diff disk/s of same machine 

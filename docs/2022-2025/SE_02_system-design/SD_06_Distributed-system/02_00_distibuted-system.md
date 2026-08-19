@@ -9,7 +9,7 @@
 | Stage              | Meaning                                                                   |
 | ------------------ | ------------------------------------------------------------------------- |
 |[partitioning](../SD_05_DataModeling/03_concept_03_partitioning.md) | One database splits a large table into smaller logical parts              |
-|[sharding](../SD_05_DataModeling/03_concept_03_sharding.md)       | Those data partitions are distributed across multiple database servers    |
+|[sharding](../SD_05_DataModeling/01_design_04_sharding.md)       | Those data partitions are distributed across multiple database servers    |
 | **Distributed DB** | Multiple nodes coordinate replication, routing, consistency, and failover |
 
 --
