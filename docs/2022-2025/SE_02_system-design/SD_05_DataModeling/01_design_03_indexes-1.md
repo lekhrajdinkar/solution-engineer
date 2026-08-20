@@ -96,41 +96,8 @@ flowchart LR
     style T fill:#9dc3e6,stroke:#333
 ```
 
----
-##  Types (by Specialized use case)
-| Index     | Main purpose                  |
-| --------- | ----------------------------- |
-| Unique    | Prevent duplicate values      |
-| Full-text | Search words inside text      |
-| Covering  | Avoid additional table lookup |
-
-### Unique Index
-- Ensures duplicate values cannot exist in the indexed column or column combination
-- B-tree 
-
-### Full-Text Index
-- Optimized for searching words inside large text fields.
-- not using b-tree
-```sql
-  CREATE INDEX idx_post_content
-  ON posts
-  USING GIN (to_tsvector('english', content));
-```
-### Covering Index
-- index Contains all columns required by a query, 
-- so the database may return the result directly from the index without reading the table
-```mermaid
-flowchart LR
-    Q[Query] --> I[Covering Index]
-    I --> R[Return Result]
-    I -. No table lookup needed .-> T[(Table)]
-    style I fill:#f4b183,stroke:#333,color:black
-    style T fill:#9dc3e6,stroke:#333,color:black
-```
-
 
 ---
-
 ## Interview 
 Tip-1 : 
 - connect your indexes directly to your API endpoints.

@@ -1,5 +1,5 @@
 # LSM tree | write-optimized workload
-
+## Reference
 - https://www.youtube.com/watch?v=Q9xD4J3tezw
 - https://www.hellointerview.com/learn/courses/system-design/lesson/foundations/db-indexing#lsm-trees-log-structured-merge-trees
 ---
