@@ -5,6 +5,7 @@
 
 ---
 ## Most common one
+
 ### 1. B-Tree Indexes
 - [btree.md](03_DataStructure/01_core_02_btree.md)
 
@@ -23,6 +24,13 @@
 ---
 ### 5. Inverted Indexes
 [01_core_06-inverted.md](03_DataStructure/01_core_06-inverted.md)
+
+## more
+
+| Index Type       | Structure              | Best for                          |
+| ---------------- | ---------------------- | --------------------------------- |
+| **Bitmap index** | Bitmaps                | Low-cardinality columns           |
+| **GIN/GiST**     | Specialized structures | JSON, arrays, full-text, spatial  |
 
 ---
 ### Summary 

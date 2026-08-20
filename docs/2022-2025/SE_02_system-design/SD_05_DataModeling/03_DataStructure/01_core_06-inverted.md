@@ -35,13 +35,6 @@ handle   -> [doc3]
 range    -> [doc3]
 queries  -> [doc3]
 ```
-## Working
-
-```mermaid
-
-```
-
-
 
 ---
 ## Real-World Examples

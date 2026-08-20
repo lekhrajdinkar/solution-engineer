@@ -73,15 +73,7 @@ flowchart LR
 4. Monitor read and write performance
 5. Remove unused or duplicate indexes
 
-## Types (by core data structure) 
-| Index Type       | Structure              | Best for                          |
-| ---------------- | ---------------------- | --------------------------------- |
-| **B-Tree index** | Sorted tree            | `=`, `<`, `>`, `BETWEEN`, sorting |
-| **Hash index**   | Hash table             | Exact `=` lookup                  |
-| **Bitmap index** | Bitmaps                | Low-cardinality columns           |
-| **GIN/GiST**     | Specialized structures | JSON, arrays, full-text, spatial  |
-
-## Type (by creation)
+## Type
 - **primary** - on unique key, PK
 - **secondary** - on additional col as per query need
 - **GSI** on distributed DB
@@ -96,6 +88,8 @@ flowchart LR
     style T fill:#9dc3e6,stroke:#333
 ```
 
+## Data structure
+[01_design_03_indexes-2.md](01_design_03_indexes-2.md)
 
 ---
 ## Interview 
