@@ -113,7 +113,7 @@ How to distribute it:
   - New writes only go to the latest shard.
   - Old shards sit mostly idle.
   
-![img.png](img.png)
+![img.png](../../../99_img/2025/se_02_sd/08/04/img.png)
 
 ---
 ## STEP-2. choose distribution Strategies
@@ -176,7 +176,7 @@ User 99  → hash(99) % 4 = Shard 3
 User 123 → hash(123) % 4 = Shard 1
 ```
 
-![img_3.png](img_3.png)
+![img_3.png](../../../99_img/2025/se_02_sd/08/04/img_3.png)
 
 ### 3. Directory based
 > when you need maximum flexibility and can afford the extra lookup cost.
@@ -188,7 +188,7 @@ User 123 → hash(123) % 4 = Shard 1
   -  implement complex sharding logic that would be impossible with a simple hash function.
 - `SELECT shard_location FROM shard_map WHERE user_id = 123;`
 
-![img_4.png](img_4.png)
+![img_4.png](../../../99_img/2025/se_02_sd/08/04/img_4.png)
 
 trade off:
 - extra hopping and latency
@@ -212,13 +212,17 @@ trade off:
   - and use **directory sharding strategy** to move their post in shard-4 as shown below.
 
 **handle:**
-- Isolate hot keys to dedicated shards
+- Read replicas: Replicate popular keys across multiple nodes and load-balance reads among them. This is the most common approach.
 - Use compound shard keys: 
-  - combine it with another dimension
+  - combine it with another dimension 
   - `hash(user_id + date) vs hash(user_id)`
-- Dynamic shard splitting ?
+- Key-space salting: Append a random suffix to hot keys (e.g., `taylor-swift-{0..9}`)
+- Adaptive rebalancing: 
+  - Monitor traffic in real-time and move specific key ranges off overloaded nodes. 
+  - This is operationally complex but some systems (like DynamoDB) do it automatically.
+- **Isolate hot keys to dedicated shards**
 
-![img_5.png](img_5.png)
+![img_5.png](../../../99_img/2025/se_02_sd/08/04/img_5.png)
 
 ### 2. Cross-shard queries
 - Cannot eliminate completely
@@ -227,7 +231,7 @@ trade off:
   - Sol-2: **denormalize data**, repeating data acoss data for some scenarios
   - Sol-3: Accept the hit for rare queries:  Sometimes a query **genuinely needs** to hit all shards and that's okay as long as it's **infrequent**
 
-![img_6.png](img_6.png)
+![img_6.png](../../../99_img/2025/se_02_sd/08/04/img_6.png)
 
 ### 3. maintain consistency
 - [distributed-Transaction](02_03_distributed-Transaction.md)

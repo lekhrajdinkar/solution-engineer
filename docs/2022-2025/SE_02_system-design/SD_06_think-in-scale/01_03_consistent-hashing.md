@@ -1,44 +1,66 @@
 # Consistent hashing
-- https://www.youtube.com/watch?v=NLMZzElM8Z4
+- https://www.hellointerview.com/learn/courses/system-design/lesson/thinking-in-scale/consistent-hashing#consistent-hashing
+- https://www.youtube.com/watch?v=vccwdhfqIrI | hi
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2190592398
+- https://www.youtube.com/watch?v=NLMZzElM8Z4 | bm
 
-## Problem statement
-> Distribute **uniformly** among fluctuating node count (add / delete)
-> - need to do **expensive** re-distribute.
-> - data moves b/w node.
+## overview
+- foundational algorithm in distributed systems that is used to **distribute** data across a cluster of servers with new 
+  - node added 
+  - or **deleted (failed)**
+    - **Replication** alongside consistent hashing to **handle failures** without moving data at all. 👈
+    - eg: DynamoDB replicates each partition across 3 AZ.
+    - replica is promoted via a consensus algorithm and no data needs to move.
+
 
 ## Distribution Scenario
-### Scenario-1: stateful traffic is distributed for serving client
-![img.png](../../../99_img/2026/02/01/01/img.png)
-
-### Scenario-2: event/message is distributed for processing
-  - event/data --> kafka partition-0, 1, or 3 ?
-  - event/data --> AWS Kinesis shard-0, 1, or 3 ?
-
-### Scenario-3: NO-SQL database (sharding) 
+> This cluster could be databases, sure, but they could also be caches, message brokers, or even just a set of application servers.
+### ⭐Scenario-1: database sharding
 - data is distributed across distributed shard [sharding](01_02_sharding.md)
 - shards can be :
   - within same disk, 
   - diff disk/s of same machine 
-  - diff disk/s of diff machine/s
+  - diff disk/s of diff machine/s 
 
 ![img_1.png](../../../99_img/2026/02/01/01/img_1.png)
 
+### Scenario-1: stateful traffic is distributed for serving client
+![img.png](../../../99_img/2026/02/01/01/img.png)
+
+### Scenario-3: event/message is distributed for processing
+- event/data --> kafka partition-0, 1, or 3 ?
+- event/data --> AWS Kinesis shard-0, 1, or 3 ?
+
+
 ---
-## Solutions
-### 1. Simple hashing
+## 1. Simple Modulo Hashing
 - [hashing.md](../SD_01_foundation/05_concept_07_hashing.md)
-- shard/partition count, `p = 10`
-- hash(client_key) = client_id, `id = 12345`
-- assigned shard to client  = `id / p` = 5
+- `database_id = hash(event_id) % number_of_databases`
+- number_of_databases is changed, then rebalance needed.
+  - event #1234 used to map to database 1, but now, hash(1234) % 4 = 0 so that data instead needs to be moved to database 0.
+  - most of your data needs to be redistributed across all database instances
+  - This causes huge spikes in database load and user  experience slow response times.
+  - Imagine a database went down
 
-### 2. Consistent hashing --> hashing with Number line
-![img_2.png](../../../99_img/2026/02/01/01/img_2.png)
-- Both servers and data keys are hashed onto the same **number line**.
-- It **minimizes** data movement when nodes are added or removed in a distributed system (caches, DB shards, message brokers, pods).
-- **partition-key goes to the first node/shard clockwise from its hash** 👈🏻
+```
+Event #1234 → hash(1234) % 3 = 1 → Database 1
+Event #5678 → hash(5678) % 3 = 0 → Database 0
+Event #9012 → hash(9012) % 3 = 2 → Database 2
+```
+![img_1.png](../../../99_img/2025/se_02_sd/08/04/img_1.png)
 
-**Understand by example**
+![img_2.png](../../../99_img/2025/se_02_sd/08/04/img_2.png)
+
+---
+## 2. Consistent hashing --> hashing with Number line
+> solves the problem of data redistribution when adding or removing a instance in a distributed system
+
+**hash space/ ring**
+- The key insight is to **arrange both our data and our databases in a circular space**, often called a "hash ring."
+- just find the **hash value on the ring** and then move **clockwise** until we find a database instance.
+-  `0 to 2^32`
+
+### example-1
 
 ```
 0 -------------------------------- 360
@@ -86,4 +108,21 @@ C: k3, k4
 ❌ Not a full reshuffle
 
 ```
+### example-2 ✔️
+![img_2.png](../../../99_img/2026/02/01/01/img_2.png)
 
+![img_7.png](../../../99_img/2025/se_02_sd/08/04/img_7.png)
+
+![img_8.png](../../../99_img/2025/se_02_sd/08/04/img_8.png)
+
+**virtual ring**
+>  load from the failed database gets distributed much more evenly across all remaining databases
+- problem : **prevent structural imbalance**
+  - In our example above where we removed database 2, we had to move all events that were stored on database 2 to database 3. 
+  - Now database 3 has 2x the load 
+  - We'd much prefer if we could spread the load more evenly so database 3 wasn't overloaded.
+- solution
+  - Instead of putting each database at just one point on the ring,
+  - we put it at **multiple points by hashing different variation**s of the database name.
+
+![img_9.png](../../../99_img/2025/se_02_sd/08/04/img_9.png)
