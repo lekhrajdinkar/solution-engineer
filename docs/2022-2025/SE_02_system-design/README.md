@@ -1,8 +1,10 @@
-# ByteMonk - system design course
-- [Artifact for System Design](temp/artifact.md)
+# System design 2026
+**HelloInterview** ⭐
+- https://www.hellointerview.com/learn/courses/system-design
+
+**ByteMonk**
 - https://academy.bytemonk.io/products/system-design-mastery-beta
-  - `78 videos` as of 7/28/2026
-  - `ldus@g | J12`
+- `78 videos` as of 7/28/2026|  `ldus@g | J12`
 
 ---
 ## Module 1: Foundations of System Design `16`
@@ -39,8 +41,8 @@
 [SD_05_DataModeling](SD_05_DataModeling)
 
 ---
-## Module 6: Design scalable system
-[SD_06_Design_saclable-system](SD_06_Design_scalable-system)
+## Module 6: think in scale
+[SD_06_think-in-scale](SD_06_think-in-scale)
 
 ---
 ## Module 7: Advance concept

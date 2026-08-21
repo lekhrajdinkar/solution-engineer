@@ -41,14 +41,14 @@ sequenceDiagram
 > use opensource implementation like `Apache Zookeeper`, Dont built from scratch.
 
 **Drawbacks of 2PC:**
-- difficult across independently owned microservices
-- Latency and Performance
+- Difficult across independently owned microservices (across organization)
+- **Latency and Performance**
   - Additional communication and coordination steps introduce latency
-- single point of failure : coordinator node
-- Blocking 
+- **SPF** | single point of failure : coordinator node
+- inherently **Blocking** 
   - All other services need to wait until the slowest service finishes
   - Services become dependent on each other and the coordinator
-- Deadlock: 
+- **Deadlock**: 
   - Transactions can deadlock if participants wait for each other to release resources
 
 ![img.png](../../../99_img/2026/02/01/img_7.png)
@@ -82,6 +82,8 @@ flowchart LR
 
     P -.failure.-> RI[Release Inventory]
     RI --> CO[Cancel Order]
+    style CO fill:orange,color:black
+    style RI fill:orange,color:black
 ```
 
 | Type              | How it works                                            |

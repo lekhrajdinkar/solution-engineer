@@ -1,11 +1,17 @@
 # Event-loop Architecture
-> - slow request should not prevent other requests from being processed instantly.
-> - event-driven, non-blocking architecture
-> 
-> ![img.png](../../../99_img/2025/se_02_sd/08/02/img.png)
+## reference
+- https://youtu.be/eiC58R16hb8?si=nubMfnkWG0SqjKNu | 
+- https://www.youtube.com/watch?v=h125O5yvdg0 | Event Demultiplexer
+- https://www.youtube.com/watch?v=os7KcmJvtN4 | nodejs server
+- https://www.youtube.com/watch?v=I6dpN0geIb4&list=PLJq-63ZRPdBt423WbyAD1YZO0Ljo1pzvY&index=72 | ngInx
 
 ---
 ## Overview/concept
+> - slow request should not prevent other requests from being processed instantly.
+> - event-driven, non-blocking architecture
+>
+> ![img.png](../../../99_img/2025/se_02_sd/08/02/img.png)
+
 - A **single-threaded model** with Event-loop + event demultiplexer + worker thread to:
   - handle asynchronous operations / non-blocking
   - and achieves high concurrency
