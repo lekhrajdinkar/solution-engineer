@@ -1,6 +1,6 @@
 # Distributed Caching
 ## reference
-- [caching :: overview](../SD_01_foundation/05_concept_08_caching.md)
+- [caching :: overview](01_01_caching.md)
 - [api_design :: caching](../SD_08_API-Design/04_api_design_06_caching.md)
 - [redis :: chapter-1](../SD_05_DataLayer%2Bstorage/04_redis-chapter-1.md)
 

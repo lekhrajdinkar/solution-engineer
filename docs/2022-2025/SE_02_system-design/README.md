@@ -12,7 +12,7 @@
   - TCP/IP & HTTP Basics
   - WebSockets & Streaming Fundamentals
   - Polling vs Streaming
-- [caching](SD_01_foundation/05_concept_08_caching.md)
+- [caching](SD_06_think-in-scale/01_01_caching.md)
 - [hashing](SD_01_foundation/05_concept_07_hashing.md)
 - [Latency.md](SD_02_Non-functional-req/02_NFR_02_Performance-latency.md) 
 - [throughput.md](SD_02_Non-functional-req/02_NFR_02_performance-throughput.md)

@@ -102,4 +102,4 @@ like search engines where consistency is less critical than speed
 
 
 ## 5.Scaling and sharding
-- [03_concept_03_sharding.md](01_design_04_sharding.md)
+- [03_concept_03_sharding.md](../SD_06_think-in-scale/01_02_sharding.md)

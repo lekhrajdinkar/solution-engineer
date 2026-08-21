@@ -1,6 +1,8 @@
 # Sharding
+- https://www.hellointerview.com/learn/courses/system-design/lesson/thinking-in-scale/sharding
+- https://www.youtube.com/watch?v=L521gizea4s | hi
 - [https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2192332143](https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2192332143)
-> first component is system is DB, who needs scaling
+> first component in system who needs scaling is **Database**
 ---
 ## Overview
 - When your data gets too large for a single database, you need to shard it across multiple machines
@@ -70,9 +72,9 @@ graph TD
 graph TD
     Data["Incoming Data (Write / Query)"] --> Choice{Partitioning \nStrategy}
 
-    Choice -->|Hash of Key| H["<b>Hash-Based</b><br><code>hash(key) % N</code>"]
-    Choice -->|Value Intervals| R["<b>Range-Based</b><br>e.g., ID 0–10k, 10k–20k"]
-    Choice -->|Geo / Category| L["<b>List / Entity-Based</b><br>e.g., Region, Tenant"]
+    Choice --> H["<b>Hash-Based</b><br><code>hash(key) % N</code>"]
+    Choice --> R["<b>Range-Based</b><br>e.g., ID 0–10k, 10k–20k"]
+    Choice --> L["<b>List / Entity-Based</b><br>e.g., Region, Tenant"]
 
     H --> S1["Balanced distribution<br>Harder range scans"]
     R --> S2["Easy range queries<br>Risk of hot spots"]
@@ -131,3 +133,38 @@ flowchart LR
     style RP fill:#a9d18e,stroke:#333
     style O fill:#ffd966,stroke:#333
 ```
+
+## temp Notes v2 
+### intro
+- [YT](https://www.youtube.com/watch?v=be6PLMKKSto&ab_channel=Exponent)
+- Sharding splits a large database into smaller, independent chunks ("shards") distributed across multiple servers
+- **Horizontal Scaling**
+- global users table is split by region
+- users table
+- users_europe (PostgreSQL Server 1)
+- users_europe (PostgreSQL Server 2)
+- **advantages**
+- ✅ Improved Performance (queries run on smaller datasets).
+- ✅ Fault Isolation (one shard failing doesn’t crash the whole DB).
+- postgres Doesnot provide automatic sharding
+- do manually
+- **Citus** (PostgreSQL Extension)
+- useful for : Multi-tenant SaaS apps (isolate customer data).
+
+### Sharding Strategies
+- first create/deploy manually db server/s. shard-1,Shard 2,...
+- Application code:
+- **Key-Based (Hash) Sharding**
+- -- Shard 1: user_id % 4 = 0
+- -- Shard 2: user_id % 4 = 1
+- **Range-Based Sharding**
+- -- Shard 1: order_id 1-1000
+- -- Shard 2: order_id 1001-2000
+- **Directory-Based Sharding**
+- -- Lookup table: :point_left:
+- SELECT shard_location FROM shard_map WHERE user_id = 123;
+
+### Challenges of Sharding
+- ❌ Complexity (joins across shards are hard).
+- ❌ No ACID across shards (distributed transactions are slow).
+- ❌ Rebalancing (moving data between shards is tricky).

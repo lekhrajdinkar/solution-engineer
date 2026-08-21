@@ -312,7 +312,7 @@ nav:
       - Concept 04 Event Loop: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_04_event-loop.md
       - Concept 06 Idempotency: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_06_idempotency.md
       - Concept 07 Hashing: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_07_hashing.md
-      - Concept 08 Caching: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_08_caching.md
+      - Concept 08 Caching: 2022-2025/SE_02_system-design/SD_01_foundation/01_01_caching.md
       - Concept 09 Scale Cube: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_09_scale-cube.md
       - Concept 99 More List: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_99_more-list.md
       - Os 01 Kernel: 2022-2025/SE_02_system-design/SD_01_foundation/02_os_01_kernel.md
@@ -359,15 +359,15 @@ nav:
       - Basic 04 Database Nosql: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/01_basic_04_database_NoSQL.md
       - Concept 00 Indexes: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_00_indexes.md
       - Concept 01 Database Replication: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_01_database-replication.md
-      - Concept 02 Consistent Hashing: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_02_consistent-hashing.md
-      - Concept 03 Partitioning: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_03_partitioning.md
-      - Concept 03 Sharding: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/01_design_04_sharding.md
-      - Concept 05 Mapreduce: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_05_MapReduce.md
+      - Concept 02 Consistent Hashing: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/01_03_consistent-hashing.md
+      - Concept 03 Partitioning: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_02_database-partitioning.md
+      - Concept 03 Sharding: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/01_02_sharding.md
+      - Concept 05 Mapreduce: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_03_MapReduce.md
       - Pattern 01 CQRS: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/05_pattern_01_CQRS.md
       - Pattern 02 SAGA: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/05_pattern_02_SAGA.md
       - Redis Chapter 1: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/04_redis-chapter-1.md
     - SD 06 Distributed System:
-      - Distibuted System: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_00_distibuted-system.md
+      - Distibuted System: 2022-2025/SE_02_system-design/SD_06_Distributed-system/00_01_distributed-system.md
       - Distributed Caching: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_01_distributed-caching.md
       - Distributed Locking: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_02_distributed-Locking.md
       - Distributed Transaction: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_03_distributed-Transaction.md

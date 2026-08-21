@@ -44,7 +44,7 @@ Reference
 └──────────┘       └────────────────────┘    Read on Miss   └──────────────┘
 ```
 
-[**Distributed caching**](../SD_06_Distributed-system/02_01_distributed-caching.md)
+[**Distributed caching**](02_01_distributed-caching.md)
 - fault-tolerant
 - scalable
 - serves the response from closest cache-node, thus improved performance
@@ -54,7 +54,7 @@ Reference
 ---
 ### 2. CDN 
 > read through pattern
-- [CDN : global caching to optimize network latency](../SD_03_Core-building-blocks/SD_03_53_network/02_core_02_latency%2Bregionalization.md#a-cdn)
+- [CDN : global caching to optimize network latency](../SD_03_Core-building-blocks/SD_03_53_network/02_core_02_latency+regionalization.md#a-cdn)
 - static files. 
 - also cache **public API responses, HTML pages**, 
 - even run **edge logic** to personalize content or enforce security rules before requests reach your servers
@@ -227,7 +227,7 @@ we dont want stale data in cache
 ---
 ## Common Caching Problems
 ### 1. Cache Stamped (Thundering herd)
-![img.png](img.png)
+![img.png](../SD_01_foundation/img.png)
 
 - when a popular cache entry expires and many requests try to rebuild it at the same time
 - handle:

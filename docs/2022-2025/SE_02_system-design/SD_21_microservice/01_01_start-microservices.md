@@ -10,7 +10,7 @@
   
 ## Distributed System and challenges 
 - Microservice are distributed system.
-- [Distributed-system :: details ⭐](../SD_06_Distributed-system)
+- [Distributed-system :: details ⭐](../SD_06_think-in-scale)
 
 ---
 ## API-Design

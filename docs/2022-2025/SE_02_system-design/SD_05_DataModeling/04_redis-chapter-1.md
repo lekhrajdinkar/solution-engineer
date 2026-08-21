@@ -1,5 +1,5 @@
 # redis (Remote Dictionary Server)
-> - [02_DistributedLock.md](../SD_06_Distributed-system/02_02_distributed-Locking.md)
+> - [02_DistributedLock.md](../SD_06_think-in-scale/02_02_distributed-Locking.md)
 ## ✔️Overview
 - **incredibly fast** 
   - written in  C (low level), thus fine-grained control over memory and CPU usage
