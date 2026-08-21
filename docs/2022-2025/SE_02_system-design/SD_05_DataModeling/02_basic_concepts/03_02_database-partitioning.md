@@ -5,7 +5,18 @@
 
 ---
 ## Overview
-- Database partitioning splits a large dataset into smaller parts called partitions.
+- Database partitioning splits a large dataset/table into smaller parts called partitions 
+- The data does not move off the machine
+- simply divided into logical pieces the database can manage separately
+
+```
+Scenario:
+- orders table with 500 million rows and 2 TB of data. 
+-A query for last month’s orders has to scan the entire table. 
+- Indexes become huge and slow to maintain
+- rebuilding indexes can lock the whole table and impact performance.
+```
+
 ```mermaid
 flowchart LR
     A[Application] --> R[Partitioning Rule]

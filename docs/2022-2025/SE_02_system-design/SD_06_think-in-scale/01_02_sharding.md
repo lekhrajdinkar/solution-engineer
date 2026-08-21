@@ -8,28 +8,20 @@
 - first component in system who needs scaling is **Database**
 ---
 ## Overview
+**Scaling database**
+
+![img.png](../../../99_img/2025/first-step.png)
+
+| Stage            | Meaning                                                                   |
+| ---------------- | ------------------------------------------------------------------------- |
+|[partitioning](../SD_05_DataModeling/02_basic_concepts/03_02_database-partitioning.md) | One database splits a large table into smaller logical parts              |
+|**sharding**      | Those data partitions are distributed across multiple database servers    |
+| **Distributed DB** | Multiple nodes coordinate replication, routing, consistency, and failover |
+
 > Sharding = **horizontal** partitioning across **multiple database servers**.
-
-**When to choose sharding:**
-- scale storage
-- scale Read throughput
-- scale Write throughput
-
-**Approach**
-- choosing **shard key**
-- choosing a **partition strategy** (hashing) that keeps related data together 👈
-- call out trade off
-- Address how to handle growth (Consistent hashing)
-
-> Each shard is **independent Database server** with its own replication, index, etc | Combine sharding with replication
-
-**Partitioning vs Sharding**
-```
-Partitioning → split data
-Sharding     → place those partitions on different servers
-```
-- useful for : Multi-tenant SaaS apps (isolate customer data).
-- `postgres` Doesn't provide automatic sharding, do manually, **Citus** (PostgreSQL Extension)
+> - Each shard ===  **independent Database server**
+> - with its own replication, index, etc  👈
+> - `postgres` Doesn't provide automatic sharding, do manually, **Citus** (PostgreSQL Extension)
 
 **Example:**
 - Highly available + fault-tolerant (replicas) + scalable (with consistent-hashing)
@@ -71,37 +63,58 @@ flowchart LR
     style O fill:#ffd966,stroke:#333
 ```
 ---
+## Approach for sharding
+**When to choose sharding:**
+- storage approaches the limit | eg:AWS Aurora max out around `256 TiB.`
+- Queries slow down
+    - scale Read throughput
+    - scale Write throughput
+-  So, when single database can’t keep up anymore, you have only one real option: sharding. **hence necessity at scale**
+
+**⭐Approach for sharding**
+> Be careful not to make the mistake of prematurely sharding. You need to establish why a single database won't work first.
+> - Slow down, do the math, and make sure sharding is actually needed
+> - [Numbers-to-know](01_04_Numbers-to-know.md)
+> - A well-tuned single database can get you surprisingly far.
+
+- 1 choosing **shard key**
+- 2 choosing a **partition strategy** (hashing) that keeps related data together 👈
+- 3 call out trade off
+- 4 Address how to handle growth (Consistent hashing)
+
+**2 main decisions**
+```
+What to shard by: 
+- The field or column you use to split the data. It defines how the data is grouped.
+
+How to distribute it: 
+- The rule for assigning those groups to shards. It defines how the data is distributed across machines.
+```
+
+---
 ## STEP-1. Choosing a good shard key.
 > - choice of shard key is **often permanent** and affects every query
 > - 💡Golden Rule: Shard by your **primary access pattern** to keep related data collocated on the same shard.
 
 **Good shard key:**
-- **Evenly distributes** data/traffic | high cardinality
-- Should **not change**, else end up moving data across shards.
-- Supports common **query/access patterns**
-  - **a. Collocation** (Keeping Related Data Together), to Avoid **cross-shard queries** whenever possible 👈
+> Should **not change**, else end up moving data across shards.
+- **high cardinality**
+- **Evenly distributes** data/traffic
+- Supports common **query/access patterns** 👈
+  - most common queries should ideally **hit just one shard**
+  - **Collocation** (Keeping Related Data Together), to Avoid **cross-shard queries** whenever possible 
   - eg: timeline show posts from users you follow. following user-1(shard-1) and user-2(on shard-2), involve cross shard query
-  - **b. prevent hot shard**
-  - eg: `createdAtYear` as key, will bring all recent data in one node and cause hot shard later, if quering recent data
 
+**example**
+- 🟢 `user_id` for user-centric app: High cardinality (millions of users), even distribution, and most queries are scoped to a single user anyway ("show me this user's data"). Perfect fit.
+- 🟢 `order_id` for an e-commerce orders table: High cardinality (millions of orders), queries are usually scoped to a specific order ("get order details", "update order status"), and orders distribute evenly over time.
+- 🔴 `created_at` for order app, 
+  - almost all your traffic hits the most recent shard because users care about recent orders. 
+  - New writes only go to the latest shard.
+  - Old shards sit mostly idle.
+  
 ![img.png](img.png)
 
-```mermaid
-graph TD
-    subgraph ShardedCluster ["Sharded Cluster (Collocated by post_id)"]
-        subgraph Shard1 ["Shard Node 1"]
-            P1["posts (post_id: 101)"]
-            C1["comments (post_id: 101)"]
-        end
-
-        subgraph Shard2 ["Shard Node 2"]
-            P2["posts (post_id: 102)"]
-            C2["comments (post_id: 102)"]
-        end
-    end
-
-    Query["GET /posts/101 + Comments"] -->|"Single Node Query (No distributed join)"| Shard1
-```
 ---
 ## STEP-2. choose distribution Strategies
 
@@ -123,23 +136,20 @@ graph TD
     style L fill:#ffffff,stroke:#dc3545,stroke-width:1.5px
 ```
 
-```
-Range-Based Sharding
-  - Shard 1: order_id 1-1000
-  - Shard 2: order_id 1001-2000
-  
-Key-Based (Hash) Sharding
-  - Shard 1: user_id % 4 = 0
-  - Shard 2: user_id % 4 = 1
-  
-Directory-Based Sharding
-  - SELECT shard_location FROM shard_map WHERE user_id = 123;
-```
-
+---
 ### 1. Range based
-- in early days only shard-1 is active, other 2 were idle
+- most straightforward/simple. It just groups records by a continuous range of values.
+- benefit: efficient for range scans
+- in below eg: in early days only shard-1 is active, other 2 were idle
 
-![img_2.png](img_2.png)
+```
+good for: Multi-tenant systems | when different users naturally query different ranges.
+Think of a SaaS application where each client has a range of user IDs
+ 
+Shard 1 → User IDs 1–1M
+Shard 2 → User IDs 1M–2M
+Shard 3 → User IDs 2M–3M
+```
 
 > ⚠️ Be careful with time-range sharding.
 > - This is usually an **anti-pattern for write-heavy systems.** 👈
@@ -147,21 +157,42 @@ Directory-Based Sharding
 > - works better for archival or analytics workloads where **recent data is read-heavy**.
 
 ### 2. Hash based ⭐
-- even distribution across shards
-![img_1.png](img_1.png)
+>  hash-based sharding works great as long as you have a plan for resharding.
+- hash function to evenly distribute records across shards
+- Instead of assigning ranges, you take a shard key like user_id, hash it, and use the result to pick a shard.
+-  hash function scrambles the input keys
 
 **trade off**
 - **Rebalancing**: new shared add,  now its mode 4 (before mode 3), resulting into huge re-shuffling
-- solution: consistent hashing
+- solution: [consistent-hashing](01_03_consistent-hashing.md)
+  -  Instead of simple modulo, 
+  - it  minimizes data movement when you add or remove shards
+
+```
+shard = hash(user_id) % 4
+
+User 42  → hash(42) % 4 = Shard 2
+User 99  → hash(99) % 4 = Shard 3
+User 123 → hash(123) % 4 = Shard 1
+```
 
 ![img_3.png](img_3.png)
 
 ### 3. Directory based
+> when you need maximum flexibility and can afford the extra lookup cost.
+
+-  uses a lookup table to decide where each record lives.
+- benefit (flexibility)
+  - If a particular user generates tons of traffic, you can move them to a dedicated shard
+  -  If you need to rebalance load, you just update the mapping table
+  -  implement complex sharding logic that would be impossible with a simple hash function.
+- `SELECT shard_location FROM shard_map WHERE user_id = 123;`
+
 ![img_4.png](img_4.png)
 
 trade off:
 - extra hopping and latency
-- SPF
+- SPF | directory service a critical dependency.
 
 ### 4. hybrid
 - mix of above
@@ -169,8 +200,24 @@ trade off:
 
 ---
 ## Challenges 🔺
+- While it is a necessity at scale, it also introduces new challenges.
 ### 1. hot shards
-- Add dedicated shard for celebrity problem and use **directory shard** to move their post in shard-4 as shown below.
+- Even with a good shard key, some shards can end up handling way more traffic than others. This is called a hot spot, and it negates the main benefit of sharding because one overloaded shard becomes your bottleneck.
+- Time-based sharding creates a different kind of hot spot. key:`createdAtYear`
+  - If you shard by creation date, all new writes go to the most recent shard.
+  - That shard handles all the write traffic 
+  - while older shards sit mostly idle, handling only reads of historical data.
+- eg: celebrity problem
+  - Add dedicated shard for celebrity problem 
+  - and use **directory sharding strategy** to move their post in shard-4 as shown below.
+
+**handle:**
+- Isolate hot keys to dedicated shards
+- Use compound shard keys: 
+  - combine it with another dimension
+  - `hash(user_id + date) vs hash(user_id)`
+- Dynamic shard splitting ?
+
 ![img_5.png](img_5.png)
 
 ### 2. Cross-shard queries
@@ -178,11 +225,16 @@ trade off:
 - eg: get all popular top 10 post, across whole platform 
   - sol-1: **cache expensive** queries in cache with TTl
   - Sol-2: **denormalize data**, repeating data acoss data for some scenarios
+  - Sol-3: Accept the hit for rare queries:  Sometimes a query **genuinely needs** to hit all shards and that's okay as long as it's **infrequent**
 
 ![img_6.png](img_6.png)
 
 ### 3. maintain consistency
 - [distributed-Transaction](02_03_distributed-Transaction.md)
+  - textbook solution is two-phase commit (2PC),
+  - Use sagas for multi-shard operations
+- Design to avoid cross-shard transactions, entirely.
+- Accept eventual consistency: For many operations, strict consistency isn't required.
 
 ### More
 | Challenge                    |                                                                                                                                   |
@@ -199,11 +251,16 @@ trade off:
 
 
 ---
-## Database scaling
-![img.png](../../../99_img/2025/first-step.png)
-
-| Stage            | Meaning                                                                   |
-| ---------------- | ------------------------------------------------------------------------- |
-|[partitioning](../SD_05_DataModeling/02_basic_concepts/03_02_database-partitioning.md) | One database splits a large table into smaller logical parts              |
-|**sharding**      | Those data partitions are distributed across multiple database servers    |
-| **Distributed DB** | Multiple nodes coordinate replication, routing, consistency, and failover |
+## Modern Distributed Databases 
+### overview
+- probably won't implement sharding from scratch.  Most modern distributed databases **handle sharding automatically.**
+- Common NoSQL databases like` Cassandra, DynamoDB, and MongoDB `
+  - all let you specify a **partition key and handle the rest**, 
+  - but they do not all use the same distribution mechanism:
+    - Cassandra uses a partitioner (e.g., Murmur3Partitioner) | form of consistent hashing
+    - MongoDB shards data into range-based chunks
+    - DynamoDB hashes the partition key to route items to internal partitions and splits/merges partitions as they grow; | not ring based
+  
+- SQL databases have also matured and made sharding easier
+  - `Vitess` and `Citus` are popular open-source sharding layers that sit in front of PostgreSQL or MySQL
+  - `AWS Aurora` and `Google Cloud Spanner` offer distributed SQL with built-in sharding.
