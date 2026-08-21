@@ -39,7 +39,7 @@ flowchart LR
     style S1R2 fill:#9dc3e6,stroke:#333
 ```
 
-## Choosing a good shard key.
+## STEP-1. Choosing a good shard key.
 > - Golden Rule: Shard by your **primary access pattern** to keep related data collocated on the same shard.
 > - choice of shard key is **often permanent** and affects every query
 
@@ -66,7 +66,7 @@ graph TD
     Query["GET /posts/101 + Comments"] -->|"Single Node Query (No distributed join)"| Shard1
 ```
 ---
-## Strategies
+## STEP-2. choose distribution Strategies
 
 ```mermaid
 graph TD

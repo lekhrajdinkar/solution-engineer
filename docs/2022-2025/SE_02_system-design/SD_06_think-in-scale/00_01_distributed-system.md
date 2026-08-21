@@ -1,14 +1,14 @@
 # Distributed-system
 ## Overview
 - [distributed-system : basic.md](../SD_01_foundation/01_basic_02_distributed-system.md)
-- [CAP-theorem.md](../SD_01_foundation/01_basic_03_CAP-theorem.md)
+- [CAP-theorem.md](01_04_CAP-theorem.md)
 
 ## First Step
 ![img.png](../../../99_img/2025/first-step.png)
 
 | Stage              | Meaning                                                                   |
 | ------------------ | ------------------------------------------------------------------------- |
-|[partitioning](../SD_05_DataModeling/03_concept_02_database-partitioning.md) | One database splits a large table into smaller logical parts              |
+|[partitioning](../SD_05_DataModeling/02_basic_concepts/03_02_database-partitioning.md) | One database splits a large table into smaller logical parts              |
 |[sharding](01_02_sharding.md)       | Those data partitions are distributed across multiple database servers    |
 | **Distributed DB** | Multiple nodes coordinate replication, routing, consistency, and failover |
 
@@ -19,9 +19,8 @@
 
 ## Concepts
 - [consistent-hashing.md](01_03_consistent-hashing.md)
-- [database-replication.md](../SD_05_DataModeling/03_concept_01_database-replication.md)
+- [database-replication.md](../SD_05_DataModeling/02_basic_concepts/03_01_database-replication.md)
 - [distributed-caching.md](02_01_distributed-caching.md)
 - [distributed-Locking.md](02_02_distributed-Locking.md)
 - [distributed-Transaction.md](02_03_distributed-Transaction.md) 
-  - [SAGA.md](05_pattern_02_SAGA.md)
 - [distributed-FileSystem.md](02_04_distributed-FileSystem.md)
