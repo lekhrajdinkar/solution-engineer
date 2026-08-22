@@ -65,17 +65,20 @@ flowchart LR
 ---
 ## Approach for sharding
 **When to choose sharding:**
-- storage approaches the limit | eg:AWS Aurora max out around `256 TiB.`
-- Queries slow down
+- 1. storage approaches the limit | eg:AWS Aurora max out around `256 TiB.`
+- 2. Queries slow down
     - scale Read throughput
     - scale Write throughput
+- more reasons:
+  - Geographic Distribution need ?
+  - Backup/Recovery: Backup windows that **stretch into hours** or become operationally impractical
 -  So, when single database can’t keep up anymore, you have only one real option: sharding. **hence necessity at scale**
 
 **⭐Approach for sharding**
 > Be careful not to make the mistake of prematurely sharding. You need to establish why a single database won't work first.
 > - Slow down, do the math, and make sure sharding is actually needed
 > - [Numbers-to-know](01_04_Numbers-to-know.md)
-> - A well-tuned single database can get you surprisingly far.
+> - 👉millions or even tens of millions of users, a well-tuned single database can often handle the load
 
 - 1 choosing **shard key**
 - 2 choosing a **partition strategy** (hashing) that keeps related data together 👈

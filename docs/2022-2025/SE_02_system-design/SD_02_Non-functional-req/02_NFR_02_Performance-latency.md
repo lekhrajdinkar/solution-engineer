@@ -4,9 +4,6 @@
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2197869930 | part-2
 --- 
 ## Overview
-**💠Throughput:**  [throughput.md](02_NFR_02_performance-throughput.md)
-
-**💠Latency:**
 - Time taken for data to travel from one point in a system to another.
 - **Response time (ms)** =  Queueing time+ Network time+ Processing time+ Dependency time
 - **Latency (ms)** = Response received time − Request sent time

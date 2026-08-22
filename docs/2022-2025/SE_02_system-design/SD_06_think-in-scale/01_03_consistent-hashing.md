@@ -15,7 +15,7 @@
 
 ## Distribution Scenario
 > This cluster could be databases, sure, but they could also be caches, message brokers, or even just a set of application servers.
-### ⭐Scenario-1: database sharding
+### Scenario-1: database sharding ⭐
 - data is distributed across distributed shard [sharding](01_02_sharding.md)
 - shards can be :
   - within same disk, 
@@ -24,7 +24,7 @@
 
 ![img_1.png](../../../99_img/2026/02/01/01/img_1.png)
 
-### Scenario-1: stateful traffic is distributed for serving client
+### Scenario-2: stateful traffic is distributed for serving client
 ![img.png](../../../99_img/2026/02/01/01/img.png)
 
 ### Scenario-3: event/message is distributed for processing
@@ -59,6 +59,8 @@ Event #9012 → hash(9012) % 3 = 2 → Database 2
 - The key insight is to **arrange both our data and our databases in a circular space**, often called a "hash ring."
 - just find the **hash value on the ring** and then move **clockwise** until we find a database instance.
 -  `0 to 2^32`
+
+![img_2.png](../../../99_img/2026/02/01/01/img_2.png)
 
 ### example-1
 
@@ -109,8 +111,6 @@ C: k3, k4
 
 ```
 ### example-2 ✔️
-![img_2.png](../../../99_img/2026/02/01/01/img_2.png)
-
 ![img_7.png](../../../99_img/2025/se_02_sd/08/04/img_7.png)
 
 ![img_8.png](../../../99_img/2025/se_02_sd/08/04/img_8.png)

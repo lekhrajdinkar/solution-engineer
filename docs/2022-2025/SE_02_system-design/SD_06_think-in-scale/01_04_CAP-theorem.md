@@ -1,36 +1,54 @@
 # CAP theorem
+## reference
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2190592662
 - https://youtube.com/shorts/HTaKhMv_ZYU?si=Zuo-jW3YEOjL395l
 
-> A distributed system can only guarantee two of the three properties: 
-**Consistency**, **Availability**, and **Partition tolerance**.
-> 
-> CAP is NOT: “Pick two and ignore the third”
-> 
-> CAP IS: “When partition happens, you must choose between C and A”
->
-> 👉👉A **network partition** is not an anomaly that stops a distributed system from being distributed; 
-rather, it's a common and expected challenge that distributed systems are designed to handle, 
-by choosing how they will prioritize **consistency** or **availability** during such an event.
-
 ---
 ## Concept overview
-✔️Partition Tolerance (P)
+
+> A distributed system can only guarantee two of the three properties:
+**Consistency**, **Availability**, and **Partition tolerance**.
+>
+> CAP is NOT: “Pick two and ignore the third”
+>
+> CAP IS: “When partition happens, you must choose between C and A”
+>
+> 👉👉A **network partition** is not an anomaly that stops a distributed system from being distributed;
+rather, it's a common and expected challenge that distributed systems are designed to handle,
+by choosing how they will prioritize **consistency** or **availability** during such an event.
+
+### Partition Tolerance (P)
 - Ability to continue operating despite network failure
 - in reality all DS continue to work, even if network fails (**between nodes**)
 - so P is always there.
 
-✔️Consistency (C) 
+### Consistency (C) 
 - Ensures that all nodes in a distributed system have the same, most up-to-date data. 
 - If there's a partition, the system will not allow any actions until the network is restored, 
 - guaranteeing 100% accurate data.
-- levels of consistency: Strong, eventual
+- levels of consistency:
 
-✔️Availability (A) 
+| Consistency Level        | What It Means                                             | Common Use Cases                      |
+| ------------------------ | --------------------------------------------------------- | ------------------------------------- |
+| **Strong Consistency**   | Every read sees the latest successful write               | Payments, inventory, account balances |
+| **Read-Your-Writes**     | A user always sees their own updates                      | Profile updates, comments, settings   |
+| **Causal Consistency**   | Related operations are seen in the same order             | Social feeds, messaging               |
+| **Eventual Consistency** | Replicas become consistent after some time                | Likes, views, recommendations         |
+
+More level
+
+| Consistency Level        | What It Means                                             | Common Use Cases                      |
+| ------------------------ | --------------------------------------------------------- | ------------------------------------- |
+| **Session Consistency**  | Consistency guarantees apply within a user's session      | Shopping carts, user sessions         |
+| **Linearizability**      | Operations appear to happen atomically in real-time order | Distributed locks, critical state     |
+| **Monotonic Reads**      | Once you see newer data, you won't see older data later   | Feeds, dashboards                     |
+
+### ️Availability (A) 
 - Ensures that the system remains operational and responsive even if some data is inconsistent or stale.
 - The system will accept actions and process them later once the network is restored, 
 - providing "eventual consistency."
 
+---
 ## CAP Model (2) - CP or AP
 ```
 - P Partition tolerance is "mandatory"
@@ -39,7 +57,7 @@ by choosing how they will prioritize **consistency** or **availability** during 
   - AP → uptime first
 - CA is a fantasy outside of single-node systems
 ```
-
+---
 ## Understand by scenario
 ### regular day
 ```mermaid
@@ -150,7 +168,7 @@ flowchart LR
 
 ---
 
-## PACELC
+## PACELC ⭐
 - It extends the better-known CAP theorem.
 - If there is a network Partition (P), a distributed system must choose between Availability (A) and Consistency (C); 
 - Else (E), during normal operation, it must choose between **Latency** (L) and Consistency (C).
@@ -168,3 +186,38 @@ C — Consistency
 ```
 
 This makes PACELC particularly useful when comparing distributed database architectures, because in practice network partitions are relatively exceptional, while the latency–consistency trade-off occurs continuously.
+
+
+---
+## Interview
+> mixed requirement by feature
+### Choosing Consistency
+
+ | Approach                       | How It Works                                                                                           | Benefits                                                      | Trade-offs                                                                                 | Technologies                                       |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+ | Distributed Transactions     | Use protocols like **Two-Phase Commit (2PC)** to keep multiple data stores synchronized                | Strong consistency across nodes/stores                        | Higher latency, added complexity                                                           | PostgreSQL, MySQL, Google Spanner                  |
+| Single-Node Solution         | Keep a single database as the source of truth                                                          | Simple; eliminates propagation issues                         | Limited scalability; potential availability bottleneck                                     | PostgreSQL, MySQL                                  |
+ | Strongly Consistent Database | Configure the database to guarantee strongly consistent reads/writes                                   | Strong data guarantees without application-level coordination | Potentially higher latency/cost                                                            | DynamoDB (strong consistency mode), Google Spanner |
+
+### Choosing Availability
+
+| Approach                       | How It Works                                                                                           | Benefits                                                      | Trade-offs                                                                                 | Technologies                                       |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------- |
+| Multiple Replicas              | Asynchronously replicate data to multiple read replicas                                                | High availability; improved read scalability                  | Replicas can be stale                                                                      | PostgreSQL, MySQL                                  |
+| Change Data Capture (CDC)      | Capture database changes and asynchronously propagate them to replicas, caches, and downstream systems | Keeps primary system available; decouples downstream updates  | Eventual consistency; propagation delay                                                    | CDC pipelines, Kafka-style event systems           |
+| Distributed NoSQL              | Distribute data across nodes/AZs with replication                                                      | High availability and fault tolerance                         | Weaker consistency guarantees / eventual consistency                                       | Cassandra, DynamoDB                                |
+| Redis Cluster                  | Distribute/cache data across multiple Redis nodes                                                      | Fast reads; high availability                                 | Cache consistency and replication complexity                                               | Redis Cluster                                      |
+
+### Choosing Low latency
+
+| Design Choice               | How It Works                                                                                     | Latency                     | Trade-off                              | Example Technologies                     |
+| --------------------------- | ------------------------------------------------------------------------------------------------ | --------------------------- | -------------------------------------- | ---------------------------------------- |
+| **In-Memory Cache**         | Serve frequently accessed data from memory instead of DB                                         | 🟢 Very low                 | Cache invalidation / stale data        | Redis, Memcached                         |
+| **Read Replicas**           | Route reads to nearby replicas                                                                   | 🟢 Low                      | Potentially stale reads                | PostgreSQL, MySQL                        |
+| **Async Replication**       | Acknowledge writes before replication finishes                                                   | 🟢 Low                      | Eventual consistency                   | Cassandra, DynamoDB                      |
+| **Avoid 2PC**               | Don't synchronously coordinate multiple databases/services                                       | 🟢 Lower latency            | Reduced consistency guarantees         | —                                        |
+| **Denormalization**         | Store data in the format needed for fast reads                                                   | 🟢 Low read latency         | More storage and consistency work      | NoSQL / RDBMS                            |
+| **CDN / Edge Caching**      | Serve content from locations close to users                                                      | 🟢 Very low network latency | Cache invalidation; stale content      | CloudFront, Cloudflare                   |
+| **Geographic Distribution** | Place data/services close to users                                                               | 🟢 Lower network latency    | Replication and consistency complexity | Spanner, DynamoDB                        |
+| **Avoid Synchronous Calls** | Use asynchronous messaging for non-critical operations                                           | 🟢 Lower request latency    | More complex processing model          | Kafka, SQS                               |
+| **Key Principle**           | Cache aggressively, minimize network hops, avoid blocking coordination, and use async processing | **Fastest**                 | Usually sacrifices some consistency    | Redis + CDN + replicas + async messaging |
