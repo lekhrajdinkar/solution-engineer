@@ -41,7 +41,7 @@ sequenceDiagram
 - it first checks an in-memory cache (like Redis) and then persistent storage (like a relational database) for the key.
 - If found, the stored result is returned.
 
-![img_1.png](../../../99_img/2026/04/01/02/img_1.png)
+![img_1.png](../../../../99_img/2026/04/01/02/img_1.png)
 
 ## Strip example
 

@@ -10,7 +10,7 @@
     - triggering failover mechanisms, if required
   - identify suitable node for tasks, among multiple healthy
   
-![img_2.png](../../../99_img/2026/04/01/img_2.png)
+![img_2.png](../../../../99_img/2026/04/01/img_2.png)
   
 **Heartbeat Messages**
 - lightweight signals conveying a node's status
@@ -24,14 +24,14 @@
 
 **Frequency** 👈🏻👈🏻
 
-![img_3.png](../../../99_img/2026/04/01/img_3.png)
+![img_3.png](../../../../99_img/2026/04/01/img_3.png)
 
 --- 
 ## Heartbeat Detection Mechanisms
 ✔️**Based on network overhead and failure detection speed.**
 
 ### 💠**Push-based models**
-![img.png](../../../99_img/2026/04/01/img.png)
+![img.png](../../../../99_img/2026/04/01/img.png)
 - Nodes actively send their heartbeat signals at regular intervals (frequent) to designated **monitoring systems**
 - Usefulness strict failure detection requirements
 - potentially **increasing network congestion**.
@@ -45,7 +45,7 @@
 
 --- 
 ### 💠**heartbeat with quorum**
-![img_1.png](../../../99_img/2026/04/01/img_1.png)
+![img_1.png](../../../../99_img/2026/04/01/img_1.png)
 - Leader-Based Heartbeats | [05_concept_01_LeaderElection.md](03_concept_03_consensus.md)
 - majority vote is required to confirm availability. 
 - Leader Nodes send heartbeat signals to multiple peers foloweer nodes

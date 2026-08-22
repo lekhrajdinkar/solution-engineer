@@ -1,5 +1,5 @@
 #  Inter process Communication : Synchronous
-> [⭐ microservices :: service-mesh](../SD_03_52_architecture/02_pattern_10_service-mesh.md)
+> [⭐ microservices :: service-mesh](../04_architecture/02_pattern_10_service-mesh.md)
 
 ---
 ## Inter process Communication
@@ -32,13 +32,13 @@ flowchart TB
 
 > layer 7 network protocol:
 
-### [A. Synchronous: Request/Response](../SD_03_54_IPC/01_synchronous.md)
+### [A. Synchronous: Request/Response](/01_synchronous.md)
 - http  / tcp handshake
 - https / tls handshake
 - grpc (http2.0)
 - graphQL (http)
 
-### [B. Asynchronous Communication](../SD_03_54_IPC/02_asynchronous.md)
+### [B. Asynchronous Communication](/02_asynchronous.md)
 - event based - fanOut, webhook, event sourcing/CQRS
 - message based - p2p, pubSub
 - polling - short / long
@@ -47,13 +47,13 @@ flowchart TB
 - ws / wss
 - gRPC stream
 
-### [D. Batch/File-based](../SD_03_54_IPC/04_batch_file_based.md)
+### [D. Batch/File-based](/04_batch_file_based.md)
 - FTP
 - object: AWS S3
 - ...
 
 ---
-### [More](../SD_03_54_IPC/05_more.md)
+### [More](/05_more.md)
 - webRTC
 - Video stream
 
@@ -79,9 +79,9 @@ flowchart TB
 
 **More**
 
-- [TCP Overview](../SD_03_53_network/01_basic_01_OSI-layers.md#tcp-reliable-delivery)
+- [TCP Overview](../06_network/02_core_01_OSI-layers.md#tcp-reliable-delivery)
 - [TLS](../../SD_24_security/03_protocol_https_tls.md)
-- [HTTP Overview](../SD_03_53_network/01_basic_01_OSI-layers.md#https)
+- [HTTP Overview](../06_network/02_core_01_OSI-layers.md#https)
 - [http-headers](../../SD_08_API-Design/11_rest_02_http-headers.md)
 - [http-evolution](../../SD_08_API-Design/11_rest_03_http-evolution.md)
 

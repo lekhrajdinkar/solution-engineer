@@ -55,7 +55,7 @@ sequenceDiagram
 
 ---
 ## 2. Transactional Outbox
-[02_pattern_12_outbox_pattern.md](../SD_03_Core-building-blocks/SD_03_52_architecture/02_pattern_12_outbox-pattern.md)
+[02_pattern_12_outbox_pattern.md](../SD_01_Foundation/04_architecture/02_pattern_12_outbox-pattern.md)
 
 ---
 ## 3. SAGA

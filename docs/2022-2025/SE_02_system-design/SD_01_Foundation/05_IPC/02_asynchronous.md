@@ -1,5 +1,5 @@
 #  Asynchronous Communication
-> [⭐event-driven architecture](../SD_03_52_architecture/02_pattern_06_event-driven.md)
+> [⭐event-driven architecture](../04_architecture/02_pattern_06_event-driven.md)
 
 ## Overview
 
@@ -145,8 +145,8 @@ Twitter had 150 million users
 
 ### 2.3 related Architecture Pattern
 > Note: just arch pattern
-- [event-sourcing](../SD_03_52_architecture/02_pattern_11_event-sourcing.md)
-- [CQRS](../SD_03_52_architecture/02_pattern_07_CQRS.md)
+- [event-sourcing](../04_architecture/02_pattern_11_event-sourcing.md)
+- [CQRS](../04_architecture/02_pattern_07_CQRS.md)
 
 ---
 ## 3. Messaging

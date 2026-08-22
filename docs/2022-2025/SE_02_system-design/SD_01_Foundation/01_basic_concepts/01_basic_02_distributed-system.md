@@ -39,10 +39,10 @@ Scenario-1
 - https://www.youtube.com/watch?v=pjWhtRtaJiA
 - groups of interconnected servers or nodes that work together to handle large volumes of data and traffic by sharing workloads.
 - essential for **scalability and fault tolerance**
-- ![img.png](../../../99_img/2025/se_02_sd/01/01/img.png)
+- ![img.png](../../../../99_img/2025/se_02_sd/01/01/img.png)
 
 ### Leader-Follower Clusters
-![img_2.png](../../../99_img/2025/se_02_sd/01/01/img_2.png)
+![img_2.png](../../../../99_img/2025/se_02_sd/01/01/img_2.png)
 - one node is designated as the **leader** and handles most coordination tasks,
 - while others act as **followers** and carry out tasks assigned by the leader
 
@@ -55,11 +55,11 @@ Scenario-1
   - a follower is promoted, ensuring minimal disruption
   - [Leader Election](03_concept_03_consensus.md)
 
-![img_1.png](../../../99_img/2025/se_02_sd/01/01/img_1.png)
+![img_1.png](../../../../99_img/2025/se_02_sd/01/01/img_1.png)
 
 ---
 ### Independent Node Clusters
-![img_3.png](../../../99_img/2025/se_02_sd/01/01/img_3.png)
+![img_3.png](../../../../99_img/2025/se_02_sd/01/01/img_3.png)
 - each node in this cluster functions independently to handle requests
 - decentralized manner
 - Requests are routed based on availability or proximity, typically managed by an **out-cluster manager** like a `load balancer`

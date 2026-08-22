@@ -30,7 +30,7 @@ RDS
 ---
 ## Algo
 ### 1. Paxos
-[01_algo_01_paxos.md](../SD_07_Advance_concepts/01_algo_01_paxos.md)
+[01_algo_01_paxos.md](../02_Advance_concepts/01_algo_01_paxos.md)
 
 ### 2. Raft
-[01_algo_02_raft.md](../SD_07_Advance_concepts/01_algo_02_raft.md)
+[01_algo_02_raft.md](../02_Advance_concepts/01_algo_02_raft.md)

@@ -2,7 +2,7 @@
 
 ---
 ## Reference:
-- [socket](../SD_03_53_network/01_basic_03_socket.md)
+- [socket](../06_network/01_concept_01_socket.md)
 - https://www.youtube.com/watch?v=pnj3Jbho5Ck | bm ws part-1 overview (2024) 
 - https://www.youtube.com/watch?v=G0_e02DdH7I | bm ws part-2 details(2024) 
 - https://www.youtube.com/watch?v=BKonNa7XPdg | bm ws part-3 more deep arch (2026) 

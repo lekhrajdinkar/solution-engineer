@@ -10,13 +10,13 @@
 > - slow request should not prevent other requests from being processed instantly.
 > - event-driven, non-blocking architecture
 >
-> ![img.png](../../../99_img/2025/se_02_sd/08/02/img.png)
+> ![img.png](../../../../99_img/2025/se_02_sd/08/02/img.png)
 
 - A **single-threaded model** with Event-loop + event demultiplexer + worker thread to:
   - handle asynchronous operations / non-blocking
   - and achieves high concurrency
 
-![img_1.png](../../../99_img/2025/se_02_sd/08/02/img_1.png)
+![img_1.png](../../../../99_img/2025/se_02_sd/08/02/img_1.png)
 
 💠**Event-loop**
   - it continuously checks for new request/task/functions/etc
@@ -77,9 +77,9 @@ Operating systems provide built-in support for **Event Demultiplexer**
 - http requests --> ....
 - Relies on a single JavaScript thread and uses `libUV` for offloading IO tasks
 
-![img_3.png](../../../99_img/2025/se_02_sd/08/02/img_4.png)
+![img_3.png](../../../../99_img/2025/se_02_sd/08/02/img_4.png)
 
-![img_2.png](../../../99_img/2025/se_02_sd/08/02/img_2.png)
+![img_2.png](../../../../99_img/2025/se_02_sd/08/02/img_2.png)
 
 ---
 ## ✔️Event-loop : NgInx 
@@ -105,13 +105,13 @@ https://www.youtube.com/watch?v=I6dpN0geIb4&list=PLJq-63ZRPdBt423WbyAD1YZO0Ljo1p
   - preventing wasted time checking idle connections
   - thus, allows the **event loop** to process ready sockets quickly
 
-![img_1.png](../../../99_img/2025/se_02_sd/08/03/img_1.png) 
+![img_1.png](../../../../99_img/2025/se_02_sd/08/03/img_1.png) 
 
-![img_3.png](../../../99_img/2025/se_02_sd/08/02/img_3.png)
+![img_3.png](../../../../99_img/2025/se_02_sd/08/02/img_3.png)
 
-![img_3.png](../../../99_img/2025/se_02_sd/08/03/img_3.png)
+![img_3.png](../../../../99_img/2025/se_02_sd/08/03/img_3.png)
 
-![img_2.png](../../../99_img/2025/se_02_sd/08/03/img_2.png)
+![img_2.png](../../../../99_img/2025/se_02_sd/08/03/img_2.png)
 
 ---
 ## ✔️Event-loop : uvicorn 
@@ -122,4 +122,4 @@ https://www.youtube.com/watch?v=I6dpN0geIb4&list=PLJq-63ZRPdBt423WbyAD1YZO0Ljo1p
 - thousands of concurrent request.
 - Does not scale well.
 
-![img.png](../../../99_img/2025/se_02_sd/08/03/img.png)
+![img.png](../../../../99_img/2025/se_02_sd/08/03/img.png)

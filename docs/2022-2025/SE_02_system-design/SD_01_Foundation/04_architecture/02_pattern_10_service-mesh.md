@@ -23,7 +23,7 @@
   - increased **resource** consumption, 
   - and potential **latency** due to extra communication hops
   
-![img_3.png](../../../99_img/2025/se_02_sd/01/04/img_3.png)
+![img_3.png](../../../../99_img/2025/se_02_sd/01/04/img_3.png)
 
 ---
 ## key aspects

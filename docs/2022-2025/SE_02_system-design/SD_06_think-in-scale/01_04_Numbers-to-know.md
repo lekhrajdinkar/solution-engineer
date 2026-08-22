@@ -3,8 +3,9 @@
 - incorrect estimates routinely lead to **over-engineering** 👈
  
 ## Overview
-> many applications that once required distributed systems can now run on a single machine. 
-> Modern hardware capabilities fundamentally change how we approach system design.
+> Modern hardware capabilities have fundamentally changed the calculus of system design. 
+> - many applications that once required distributed systems can now run on a single machine. 
+> - Modern hardware capabilities fundamentally change how we approach system design.
 
 - Our industry moves fast. The **hardware** we build systems on **evolves constantly**
 - understanding modern hardware capabilities is crucial for making good system design decisions
@@ -127,6 +128,10 @@ flowchart TB
 
 ---
 ## Common Mistakes
+-  show balance theoretical knowledge with practical experience
+-  This knowledge helps you **avoid premature optimization** and build simpler systems that can grow with your needs.
+- incorrect estimates routinely lead to **over-engineering**
+
 ### 1. Overestimating latency 
 - calculate it correctly, before adding a **caching layer** to reduce latency
 - eg: read/write latency from database 
@@ -180,3 +185,9 @@ Message queues become valuable when:
     - > core point is to understand your actual write patterns and requirements before **adding infrastructure complexity** ⭐
 
 ### 3. Premature sharding
+
+### 4. cost calculation
+- cost is often a major factor. But in system design interviews, this is rarely the focus
+- remember for our SD estimates we're **usually looking for an order of magnitude: not an exact dollar amount.**
+- interviewers tend to not be especially **sensitive to exact costs**
+- > we would **not** recommend you memorize AWS pricing tables, spend your time elsewhere.

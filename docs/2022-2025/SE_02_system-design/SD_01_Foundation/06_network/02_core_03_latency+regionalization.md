@@ -1,4 +1,4 @@
-# Handle :: Latency + regionalization
+# Handle challenges :: Latency + regionalization
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2192532375
 - https://chatgpt.com/g/g-p-6a68d3926dd4819180c1c9bf855e98f3-system-design-bm-acedemy/c/6a6d3584-9848-83e8-9697-a27a2cc06703
 - https://www.hellointerview.com/learn/courses/system-design/lesson/foundations/networking-essentials#regionalization-and-latency

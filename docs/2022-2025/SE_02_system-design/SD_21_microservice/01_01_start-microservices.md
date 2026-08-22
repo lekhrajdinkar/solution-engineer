@@ -3,9 +3,9 @@
 
 ---
 ## System design ::  Architecture pattern
-- [ALL ⭐](../SD_03_Core-building-blocks/SD_03_52_architecture)
-  - [monolith-arch :: Overview ](../SD_03_Core-building-blocks/SD_03_52_architecture/01_core_01_monolith-arch.md)
-  - [microservice-arch :: Overview](../SD_03_Core-building-blocks/SD_03_52_architecture/01_core_02_microservice-arch.md)
+- [ALL ⭐](../SD_01_Foundation/04_architecture)
+  - [monolith-arch :: Overview ](../SD_01_Foundation/04_architecture/01_core_01_monolith-arch.md)
+  - [microservice-arch :: Overview](../SD_01_Foundation/04_architecture/01_core_02_microservice-arch.md)
   - ...
   
 ## Distributed System and challenges 
@@ -20,7 +20,7 @@
 ---
 ## Microservice :: Core pattern
 - **Stranger pattern**
-  - decompose by domain [DDD](../SD_03_Core-building-blocks/SD_03_52_architecture/01_DDD.md)
+  - decompose by domain [DDD](../SD_01_Foundation/04_architecture/01_DDD.md)
   - https://youtube.com/watch?v=DpuQ3-7e-rY
   - https://youtube.com/watch?v=6DQzFUDkQB8 | example - Netflix and spotify
   - low-risk incremental modernization of large legacy applications
@@ -41,7 +41,7 @@
 - [**ambassador**](04_core_pattern_04_ambassador.md)
 ---
 ## Microservice :: communication pattern
-- [⭐Communication-pattern](../SD_03_Core-building-blocks/SD_03_54_IPC)
+- [⭐Communication-pattern](../SD_01_Foundation/05_IPC)
 
 More Reference:
 - https://youtube.com/watch?v=q7K20k6rV9E
@@ -55,7 +55,7 @@ More Reference:
 - [Circuit breakers](03_resiliency_pattern_02_circuit-breaker.md)
 - [Rate Limiting](../SD_04_protecting-servers/02_protection_03_RateLimiting.md)
 - [auto-scaling](../SD_04_protecting-servers/02_protection_01_auto-scaling.md)
-    - [heartbeat_2.md](../SD_01_foundation/03_concept_02_heartbeat_2.md)
+    - [heartbeat_2.md](../SD_01_Foundation/01_basic_concepts/03_concept_02_heartbeat_2.md)
 ---
 
 ## Microservice :: Modern tooling

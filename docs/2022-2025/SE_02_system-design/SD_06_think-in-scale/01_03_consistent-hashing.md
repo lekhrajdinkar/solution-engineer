@@ -34,7 +34,7 @@
 
 ---
 ## 1. Simple Modulo Hashing
-- [hashing.md](../SD_01_foundation/05_concept_07_hashing.md)
+- [hashing.md](../SD_01_Foundation/01_basic_concepts/05_concept_07_hashing.md)
 - `database_id = hash(event_id) % number_of_databases`
 - number_of_databases is changed, then rebalance needed.
   - event #1234 used to map to database 1, but now, hash(1234) % 4 = 0 so that data instead needs to be moved to database 0.

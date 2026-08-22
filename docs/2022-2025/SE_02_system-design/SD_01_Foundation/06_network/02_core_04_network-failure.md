@@ -1,5 +1,5 @@
 # network failure
-- [check :: resiliency](../../SD_02_Non-functional-req/02_NFR_07_resiliency__.md)
+- [resiliency :: guide](../../SD_02_Non-functional-req/02_NFR_07_resiliency__.md)
 - https://www.wireshark.org/
 
 ## Overview
@@ -17,6 +17,8 @@ DNS/routing failure — the client cannot locate or reach the service
 
 ---
 ## strategies
+resiliency :: guide](../../SD_02_Non-functional-req/02_NFR_07_resiliency__.md)
+
 > If the client blindly retries, the user could be charged twice. 
 > That is why timeouts + retries + idempotency are often designed together.
 
@@ -31,6 +33,3 @@ flowchart TB
     N --> F["Failover / Redundancy"]
     N --> I["Idempotency"]
 ```
-### 1. timeout + retries
-
-### 2. Circuit breaker

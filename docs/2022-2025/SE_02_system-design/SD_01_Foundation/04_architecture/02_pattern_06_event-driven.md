@@ -3,13 +3,13 @@
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2190592891
 - https://www.youtube.com/watch?v=hrvx8Nv9eQA
 - https://youtube.com/watch?v=q7K20k6rV9E
-- [evolution-of-system :: theory](../../SD_01_foundation/01_basic_01_evolution.md)
+- [evolution-of-system :: theory](../01_basic_concepts/01_basic_01_evolution.md)
 - [Message-broker / Event-broker :: complete guide](../../../PE_03_message-broker)
-- [event-loop :: overview](../../SD_01_foundation/05_concept_04_event-loop.md)
+- [event-loop :: overview](../01_basic_concepts/05_concept_04_event-loop.md)
 
 ---
 ## ✔️Asynchronous Communication pattern ⭐
-- [Communication pattern :: asynchronous](../SD_03_54_IPC/02_asynchronous.md)
+- [Communication pattern :: asynchronous](../05_IPC/02_asynchronous.md)
   - **event based** : webhook, fanOut, event-sourcing/CQRS
   - messaging based : p2p, pub-sub
 

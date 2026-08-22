@@ -189,7 +189,7 @@ flowchart LR
 
 ---
 ## Scale Cube 🧊
-[01_core_06_scale-cube.md](../SD_01_foundation/05_concept_09_scale-cube.md)
+[01_core_06_scale-cube.md](../SD_01_Foundation/01_basic_concepts/05_concept_09_scale-cube.md)
 
 ---
 ## Scaling protects server from Death Spiral ⭐

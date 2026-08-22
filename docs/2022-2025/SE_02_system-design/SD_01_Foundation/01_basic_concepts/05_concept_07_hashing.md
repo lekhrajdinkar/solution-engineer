@@ -1,6 +1,6 @@
 # Hashing concept
 - https://www.youtube.com/watch?v=pU1uifHXhE4
-- [consistent-hashing](../SD_06_think-in-scale/01_03_consistent-hashing.md) : hashing with number line
+- [consistent-hashing](../../SD_06_think-in-scale/01_03_consistent-hashing.md) : hashing with number line
 
 ---
 ## Overview
