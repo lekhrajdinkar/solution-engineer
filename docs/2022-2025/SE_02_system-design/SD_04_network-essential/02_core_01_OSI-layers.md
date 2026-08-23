@@ -199,7 +199,7 @@ sequenceDiagram
 - [http-evolution](01_basic_03_http-evolution.md)
 - A stateless, text-based protocol commonly used for APIs, built on top of TCP
 - HTTP connection : HTTP --> **TCP handshake**
-- HTTPS connection : HTTP --> TCP handshake --> [TLS handshake](../../SD_24_security/03_protocol_https_tls.md)
+- HTTPS connection : HTTP --> TCP handshake --> [TLS handshake](../SD_24_security/03_protocol_https_tls.md)
     - Also **handshake/s takes time.**
 
 **connection** 
@@ -235,7 +235,7 @@ sequenceDiagram
     S->>C: FIN
     C-->>S: ACK
 ```
-### [1.2. HTTP/S :: API - REST⭐, gRPC, GraphQL](../../SD_08_API-Design)
+### [1.2. HTTP/S :: API - REST⭐, gRPC, GraphQL](../SD_08_API-Design)
 > ℹ️ While HTTP can be used directly to build websites,
 > - oftentimes system designs are concerned with the **communication between services via APIs.**
 > - 3 main API paradigms: `REST, GraphQL, and gRPC.`
@@ -245,10 +245,10 @@ sequenceDiagram
 
 ### 3.1 stream protocols (TCP)
 - [core concept :: socket](01_concept_01_socket.md)
-- [TCP based ](../05_IPC/03_streaming-TCP-based.md#2-websocket--wss-) --> SSE + Websocket
+- [TCP based ](../SD_01_Foundation/05_IPC/03_streaming-TCP-based.md#2-websocket--wss-) --> SSE + Websocket
 - ?
 
 ### 3.2. video Streaming (UDP)
 - UDP based streaming
-#### [ABS](../05_IPC/03_video-streaming.md#1-videos-streaming--abs)
-#### [WebRTC⭐](../05_IPC/03_video-streaming.md#2-webrtc)
+#### [ABS](../SD_01_Foundation/05_IPC/03_video-streaming.md#1-videos-streaming--abs)
+#### [WebRTC⭐](../SD_01_Foundation/05_IPC/03_video-streaming.md#2-webrtc)

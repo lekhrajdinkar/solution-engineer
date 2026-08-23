@@ -193,5 +193,5 @@ flowchart LR
 
 ---
 ## Scaling protects server from Death Spiral ⭐
-- [death-spiral](../SD_04_protecting-servers/02_protection_00_death-spiral.md)
-- [protection server:: auto-scaling.](../SD_04_protecting-servers/02_protection_01_auto-scaling.md)
+- [death-spiral](../SD_03_protecting-servers/02_protection_00_death-spiral.md)
+- [protection server:: auto-scaling.](../SD_03_protecting-servers/02_protection_01_auto-scaling.md)

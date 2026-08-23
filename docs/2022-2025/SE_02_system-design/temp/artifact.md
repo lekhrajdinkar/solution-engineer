@@ -1,8 +1,10 @@
 # System Design - Artifacts
-## hello interview
+## hello interview `hi` ⭐
 - https://www.hellointerview.com/learn/courses/system-design $280 | premium | ldus@g
+- https://www.hellointerview.com/learn/system-design/in-a-hurry/problem-breakdowns
+    - read about common deep dives and pitfalls | Common Patterns
 
-## NitinKC
+## NitinKC (friend)
 - https://nitinkc.github.io/SystemDesign-Revision/quiz/networking-essentials-quiz/
 - https://github.com/nitinkc/copilot-agents-hub/tree/main/docs/fundamentals
 
@@ -14,7 +16,8 @@
 
 ---
 ## ByteByteMonk
-https://academy.bytemonk.io/library | `ldus J12bm | USD 50` |  `78 videos`
+- https://academy.bytemonk.io/products/system-design-mastery-beta
+- `78 videos` as of 7/28/2026 |  `ldus@g | J12` | $50
 
 YouTube playlist | as of `7/26/2026`
 - https://www.youtube.com/watch?v=yioOQ4ItYuo&list=PLJq-63ZRPdBt423WbyAD1YZO0Ljo1pzvY | SD basic | `90/90`

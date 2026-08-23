@@ -64,7 +64,7 @@ Permissions-Policy: geolocation=(), camera=(), microphone=()
 
 ## rate limiting
 - implement rate limiting at the API gateway level
-- [SD_04_protecting-servers](../SD_04_protecting-servers)
+- [SD_04_protecting-servers](../SD_03_protecting-servers)
 
 Common strategies include:
 - **Per-user limits**: 1000 requests per hour per authenticated user
