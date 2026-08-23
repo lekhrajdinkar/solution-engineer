@@ -1,7 +1,10 @@
 # System Design - Artifacts
 ## hello interview
 - https://www.hellointerview.com/learn/courses/system-design $280 | premium | ldus@g
+
+## NitinKC
 - https://nitinkc.github.io/SystemDesign-Revision/quiz/networking-essentials-quiz/
+- https://github.com/nitinkc/copilot-agents-hub/tree/main/docs/fundamentals
 
 ## ByteByteGo
 - https://www.youtube.com/watch?v=lX4CrbXMsNQ&list=PLCRMIe5FDPsd0gVs500xeOewfySTsmEjf | SD core concepts YT playlist

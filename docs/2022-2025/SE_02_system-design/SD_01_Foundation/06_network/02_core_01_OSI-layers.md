@@ -35,6 +35,7 @@ Physical      → Wi-Fi/radio/cable bits, light pulses
 
 ---
 ## TCP/IP vs OSI
+
 ```mermaid
 flowchart LR
 

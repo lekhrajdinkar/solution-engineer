@@ -32,15 +32,24 @@
 
 ---
 ## Module 3: Core-building-blocks `11`
-[SD_03_Core-building-blocks](SD_01_Foundation)
+- [01_basic_concepts](SD_01_Foundation/01_basic_concepts)
+- [02_Advance_concepts](SD_01_Foundation/02_Advance_concepts)
+- [03_Design-patterns](SD_01_Foundation/03_Design-patterns)
+- [04_architecture](SD_01_Foundation/04_architecture)
+- [05_IPC](SD_01_Foundation/05_IPC)
+- [06_network](SD_01_Foundation/06_network)
 
 ---
 ## Module 4: Protecting_servers `4`
 [SD_04_protecting-servers](SD_04_protecting-servers)
 
 ---
-## Module 5: DataLayer+storage `9`
-[SD_05_DataModeling](SD_05_DataModeling)
+## Module 5: Data Modeling `9`
+- [SD_05_DataModeling](SD_05_DataModeling)
+- more
+  - [01_SQL_fundamental](SD_05_DataModeling/01_SQL_fundamental)
+  - [02_basic_concepts](SD_05_DataModeling/02_basic_concepts)
+  - [03_DataStructure](SD_05_DataModeling/03_DataStructure)
 
 ---
 ## Module 6: think in scale
