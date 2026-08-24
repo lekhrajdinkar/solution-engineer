@@ -142,12 +142,21 @@ Client  ◄══════════════════════►
           send / receive
           
 ```
+#### Overview
+> ⚠️ Just because clients can upgrade from HTTP to WebSocket doesn't mean that the infrastructure will support it.
+> Every piece of infrastructure between the client and server will need to support WebSocket connections.
+> If you've ever implemented Websockets you've probably hit a bunch of issues with **firewalls, proxies, load balancers,
+> and other infrastructure** that don't support WebSocket connections.
 
-overview 1
+> WebSockets are powerful, but the infra required to support them can be expensive
+> and the overhead of **stateful connections** (especially at scale) will require significant accommodations in your design.
+> Hold off unless you really need them!
+
+**overview 1**
 - the client opening a **long-lived connection** with the server, typically through a **socket** 👈
 - allowing the server to **push** information **without a client request** and vice versa. 
 
-overview 2
+**overview 2**
 - WebSockets provide a persistent, TCP-style connection between client and server, 
 - allowing for real-time, bidirectional communication with broad support (including browsers). 
 - Unlike HTTP's request-response model, WebSockets enable servers to push data to clients without being prompted by a new request. 
@@ -155,23 +164,47 @@ overview 2
 - WebSockets are initiated via an HTTP "upgrade" protocol, which allows an existing TCP connection to change L7 protocols.
 - This is super convenient because it means you can utilize some of the existing HTTP session information (e.g. cookies, headers, etc.) to your advantage.
 
-> ⚠️ Just because clients can upgrade from HTTP to WebSocket doesn't mean that the infrastructure will support it. 
-> Every piece of infrastructure between the client and server will need to support WebSocket connections.
-> If you've ever implemented Websockets you've probably hit a bunch of issues with **firewalls, proxies, load balancers, 
-> and other infrastructure** that don't support WebSocket connections.
-> 
-> ---
-> WebSockets are powerful, but the infra required to support them can be expensive
-> and the overhead of **stateful connections** (especially at scale) will require significant accommodations in your design. 
-> Hold off unless you really need them!
+**Sample program**
 
-#### use cases
-> when you need high-frequency, persistent, bi-directional communication between client and server.
+```javaScript
+// Client-side
+const ws = new WebSocket('ws://api.example.com/socket');
+
+ws.onmessage = (event) => {
+  const data = JSON.parse(event.data);
+  handleUpdate(data);
+};
+
+ws.onclose = () => {
+  // Implement reconnection logic
+  setTimeout(connectWebSocket, 1000);
+};
+
+// Server-side (Node.js/ws example)
+const WebSocket = require('ws');
+const wss = new WebSocket.Server({ port: 8080 });
+
+wss.on('connection', (ws) => {
+  ws.on('message', (message) => {
+    // Handle incoming messages
+    const data = JSON.parse(message);
+    processMessage(data);
+  });
+
+  // Send updates to client
+  dataSource.on('update', (data) => {
+    ws.send(JSON.stringify(data));
+  });
+});
+```
+
+#### when to use ⭐
+> when you need **high-frequency, persistent, bi-directional** communication between client and server.
 - Stock trading websites displaying live price fluctuations 
 - Chat applications
 - Gaming applications that require automatic UI refreshes
 
-#### connection
+#### connection upgrade
 ```
 - Https/TCP handshake
 - negotiate to upgrade, to WS with request header:
@@ -212,9 +245,15 @@ flowchart LR
     D --> E["@app.websocket('/ws')"]
     wss["wss://localhost:8080/myapp/chat"]
 ```
-
-
-#### Dataframe
+---
+#### Dataframe (Skip)
+- WebSocket communicates using frames, not HTTP requests.
+- Each frame contains a header + payload.
+- FIN indicates whether more fragments follow.
+- Opcode identifies the frame type (text, binary, ping, pong, close).
+- Client → Server frames are masked;
+- Server → Client frames are not masked.
+- Ping/Pong maintains long-lived connections and detects disconnects.
 
 ![img.png](../../../../99_img/2025/dataframe-wss.png)
 
@@ -228,18 +267,76 @@ flowchart LR
 | **Masking Key**    | 4-byte key used to unmask client payload                      |
 | **Payload Data**   | Actual application data                                       |
 
-Fragmentation:
+**Fragmentation**
 - splitting large messages into smaller chunks to prevent buffer overflow
 - and allow for gradual delivery of data.
 - The FIN bit is used to indicate whether a fragment is the final part of a message.
 
-#### Interview Takeaways
-- WebSocket communicates using frames, not HTTP requests.
-- Each frame contains a header + payload.
-- FIN indicates whether more fragments follow.
-- Opcode identifies the frame type (text, binary, ping, pong, close).
-- Client → Server frames are masked; 
-- Server → Client frames are not masked.
-- Ping/Pong maintains long-lived connections and detects disconnects.
+---
+#### pros
+- Full-duplex (read and write) communication.
+- **Lower latency** 
+- Efficient for **frequent** messages | high frequency
+- Wide browser support
+
+---
+#### cons 
+**infrastructure support**
+- L7 load balancers aren't guaranteeing
+- L4 load balancers will support websockets natively, **since the same TCP connection is used for each request.**
+- API gateway support
+- CDN support
+
+**re-connection Storm and scaling concern**
+- > Long-lived connections complicate deployments because existing connections are tied to the old server
+- use connection draining / graceful shutdown.
+- terminate WebSockets into a WebSocket service early in their infrastructure and and allows the rest of the system to remain **stateless**.
+
+```
+Server A
+   │
+   ├── Client 1 ─────── connection ( stateful connections, thu scaling conern ⭐)
+   ├── Client 2 ─────── connection
+   ├── Client 3 ─────── connection
+   └── ...1000 clients
+   
+Server A needs to be replaced: 👈
+
+Server A
+   X
+   │
+   └── 1000 connections dropped
+             ↓
+       clients reconnect
+       
+       You get a connection storm. 🔺
+       
+- For SSE, the browser's EventSource can automatically reconnect.
+- For WebSocket, your application generally needs reconnection logic.
+
+==  connection draining / graceful shutdown ==
+
+                    Load Balancer
+                         │
+             ┌───────────┴───────────┐
+             ▼                       ▼
+        Old Server A             New Server A
+        DRAINING                  ACTIVE
+             │
+        existing clients
+             │
+             ▼
+        finish/reconnect
+```
+
+---
+#### Interview
+ASk about(senior)
+- how you'll manage connections and deal with reconnections. 
+- deployment strategy will handle server restarts.
+- minimize the spread of state across their architecture
+- how to scale WebSocket servers
+
+
 
 
