@@ -1,6 +1,11 @@
-# Synchronous
+# Synchronous :: request/response style
 
+## More links
+- [SD_08_API-Design](../../SD_08_API-Design)
+- [SD_21_microservice](../../SD_21_microservice)
+- [02_pattern_10_service-mesh.md](../04_architecture/02_pattern_10_service-mesh.md)
 
+--- 
 ## Overview
 
 ```mermaid
@@ -35,28 +40,14 @@ flowchart TD
 
 ---
 ## 1. REST
-[API-Design](../../SD_08_API-Design)
-- [resource-Modeling](../../SD_08_API-Design/02_protocol/01_rest_01_overview.md)
-- [useful headers](../../SD_08_API-Design/03_basic-concept/01_02_http-headers.md)
-
-**More**
-
-- [TCP Overview](../06_network/02_core_01_OSI-layers.md#tcp-reliable-delivery)
-- [TLS](../../SD_24_security/03_protocol_https_tls.md)
-- [HTTP Overview](../06_network/02_core_01_OSI-layers.md#https)
-- [http-headers](../../SD_08_API-Design/03_basic-concept/01_02_http-headers.md)
-- [http-evolution](../../SD_08_API-Design/03_basic-concept/01_01_http-evolution.md)
+- [01_rest_01_overview.md](../../SD_08_API-Design/02_protocol/01_rest_01_overview.md)
 
 ---
 ## 2. RPC / GRPC
-- [overview](../../SD_08_API-Design/02_protocol/02_grpc_01_overview.md)
+- [02_grpc_01_overview.md](../../SD_08_API-Design/02_protocol/02_grpc_01_overview.md)
 
 ---
 ## 3. graphQL
-- [overview](../../SD_08_API-Design/02_protocol/02_grpc_01_overview.md)
+- [03_graphQL_01_overview.md](../../SD_08_API-Design/02_protocol/03_graphQL_01_overview.md)
 
----
-## More Links
-- [⭐ microservices :: service-mesh](../04_architecture/02_pattern_10_service-mesh.md)
-- [01_rest_03_http-evolution.md](../../SD_08_API-Design/03_basic-concept/01_01_http-evolution.md)
 

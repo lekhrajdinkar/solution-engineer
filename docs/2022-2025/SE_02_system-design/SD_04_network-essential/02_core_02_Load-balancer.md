@@ -217,10 +217,22 @@ GET /orders ─────────> Backend B
 GET /images ─────────> Backend B
 
 Whereas with L7, those HTTP requests could potentially be routed to different backends
+
+Client ───── persistent TCP ─────► LB
+                                  │
+                                  └──── persistent TCP ─────► Server
+
 ```
 ---
 #### b. Layer 7 LB
-> Client --HTTPS--> L7 Load Balancer --HTTP/HTTPS--> Backend
+> L7 load balancing usually means two separate TCP connections: client↔LB and LB↔backend. 
+> The LB adds a network hop and potentially connection overhead, but connection reuse/pooling minimizes the latency impact.
+
+overview
+- **Terminate** incoming connections and create **new ones** to backend servers.⭐
+  - else do sticky-session, based on a cookie.
+- examine the actual content of each request and make more intelligent routing |  (URL, headers, cookies, etc.) | flexible
+- Client --> HTTPS --> L7 Load Balancer --> **HTTP (TLS termination)** --> Backend
 
 **tradeoff**
 - It requires more CPU/memory and adds more processing overhead than a Layer 4 load balancer.

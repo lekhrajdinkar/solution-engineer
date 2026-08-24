@@ -1,7 +1,8 @@
-# Network Essential- part 1
+# Network - Essential protocols
 ## reference
-- https://youtube.com/watch?v=tpgoQwMg__M | OSI bm
 - https://youtu.be/SHkbPm1Wrno | hi
+- https://youtube.com/watch?v=tpgoQwMg__M | bm OSI
+- https://youtube.com/watch?v=jQ6_XhsMwws | bm essential protocol
 - [AWS :: networking complete guide](../../CE_02_AWS_SAA/04_network)
 
 --- 
@@ -71,7 +72,7 @@ flowchart LR
     style O1 fill:green,color:black
 ```
 ---
-## A. 📚Layer 3 : Network
+## A.  ✔️Layer 3 : Network
 ### 1. IP
 > IP by far the most common for system design interviews
 
@@ -110,7 +111,7 @@ flowchart LR
 - which is used extensively for massive ML training workloads)
 
 ---
-## B. 📚layer 4 : transport
+## B.  ✔️layer 4 : transport
 > provide end-to-end communication services
 
 ```
@@ -134,7 +135,7 @@ Dontt guarantee that a remote service will respond within a useful deadline
 ### 2. TCP (slow, reliable delivery)
 > **QUIC** is a new protocol that aims to provide some of the same benefits of TCP with some modernization and performance benefits.
 
-**TCP connection**
+#### TCP connection
 - TCP handshake
 - TCP stateful connection  established | tunnel/stream
 - TCP will ensure that recipients of messages acknowledge their receipt and, if they don't, will **retransmit** the message until it is acknowledged.
@@ -156,7 +157,7 @@ flowchart LR
     C --> D[IP / Network]
 ```
 
-**TCP handshake:**
+#### TCP handshake⭐
 - Connection starts with **3-way handshake**: SYN → SYN-ACK → ACK
 - Identified by: Source IP + Source Port + Destination IP + Destination Port
 
@@ -179,7 +180,11 @@ sequenceDiagram
     S->>C: FIN
     C->>S: ACK
 ```
-### TCP vs UDP
+---
+### 3. QUIC
+
+---
+### 4. TCP vs UDP
 
 | **Feature**        | **UDP**                      | **TCP**                                      |
 | ------------------ | ---------------------------- | -------------------------------------------- |
@@ -194,22 +199,24 @@ sequenceDiagram
 
 
 ---
-## C. 📚Layer 7: Application
-### 1.1. HTTP/HTTPS
-- https://youtube.com/watch?v=jQ6_XhsMwws
-- [http-evolution](01_basic_03_http-evolution.md)
+## C.  ✔️Layer 7: Application
+### 1. DNS
+- https://youtube.com/watch?v=Lsd80uR9Shs (skip)
+
+---
+### 2. HTTP/S
+#### overview
+- [http-evolution](../SD_08_API-Design/03_basic-concept/01_01_http-evolution.md)
 - A stateless, text-based protocol commonly used for APIs, built on top of TCP
 - HTTP connection : HTTP --> **TCP handshake**
-- HTTPS connection : HTTP --> TCP handshake --> [TLS handshake](../SD_24_security/03_protocol_https_tls.md)
+- HTTPS connection : HTTP --> TCP handshake --> **TLS handshake**
     - Also **handshake/s takes time.**
 
-**connection** 
-  - between the client and server is a **state** that both the client and server must maintain. 
-  - Unless we use features like **HTTP keep-alive or HTTP/2 multiplexing**, 
-  - we need to repeat this connection setup process for every request,
-  - like, **short live stateless connection.** : open-close, open-close, ...
-
-
+#### connection-oriented
+- between the client and server is a **state** that both the client and server must maintain.
+- Unless we use features like **HTTP keep-alive or HTTP/2 multiplexing**,
+- we need to repeat this connection setup process for every request,
+- like, **short live stateless connection.** : open-close, open-close, ...
 
 ```mermaid
 sequenceDiagram
@@ -236,20 +243,20 @@ sequenceDiagram
     S->>C: FIN
     C-->>S: ACK
 ```
-### [1.2. HTTP/S :: API - REST⭐, gRPC, GraphQL](../SD_08_API-Design)
-> ℹ️ While HTTP can be used directly to build websites,
-> - oftentimes system designs are concerned with the **communication between services via APIs.**
-> - 3 main API paradigms: `REST, GraphQL, and gRPC.`
+#### [TLS handshake⭐](../SD_24_security/03_protocol_https_tls.md)
 
-### 2. DNS
-- https://youtube.com/watch?v=Lsd80uR9Shs (skip)
+#### [HTTP/S used over API ](../SD_08_API-Design)
+While HTTP can be used directly to build websites,
+- oftentimes system designs are concerned with the **communication between services via APIs.**
+- 3 main API paradigms: `REST, GraphQL, and gRPC.`
 
-### 3.1 stream protocols (TCP)
+---
+### 4. stream protocols (TCP)
 - [core concept :: socket](02_basic-concepts/01_concept_01_socket.md)
 - [TCP based ](../SD_01_Foundation/05_IPC/03_streaming-TCP-based.md#2-websocket--wss-) --> SSE + Websocket
-- ?
 
-### 3.2. video Streaming (UDP)
-- UDP based streaming
-#### [ABS](../SD_01_Foundation/05_IPC/03_video-streaming.md#1-videos-streaming--abs)
-#### [WebRTC⭐](../SD_01_Foundation/05_IPC/03_video-streaming.md#2-webrtc)
+
+---
+### 5. video Streaming (UDP ?)
+#### [ABS](../SD_01_Foundation/05_IPC/04_video-streaming.md#1-videos-streaming--abs)
+#### [WebRTC⭐](../SD_01_Foundation/05_IPC/04_video-streaming.md#2-webrtc)

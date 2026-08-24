@@ -60,7 +60,7 @@ check below for detail:
 ---
 ### A. request-response style (sync)
 useful links
-- [synchronous comm pattern](../SD_01_Foundation/05_IPC/01_synchronous.md)
+- [synchronous comm pattern](../SD_01_Foundation/05_IPC/01_01_request-response.md)
 - [http-headers.md](03_basic-concept/01_02_http-headers.md)
 - [http-evolution.md](03_basic-concept/01_01_http-evolution.md)
 
@@ -95,4 +95,4 @@ SEE, WS, gRPC-stream:
 ### C. messaging style (async)
 Kafka, AMQP, MQTT
 - [Messaging protocols](../../PE_03_message-broker/02_Messaging-protocols.md) 
-- [asynchronous comm pattern](../SD_01_Foundation/05_IPC/02_asynchronous.md)
+- [asynchronous comm pattern](../SD_01_Foundation/05_IPC/01_02_polling.md)

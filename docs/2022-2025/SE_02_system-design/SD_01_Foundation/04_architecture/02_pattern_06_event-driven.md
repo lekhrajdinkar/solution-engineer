@@ -9,7 +9,7 @@
 
 ---
 ## ✔️Asynchronous Communication pattern ⭐
-- [Communication pattern :: asynchronous](../05_IPC/02_asynchronous.md)
+- [Communication pattern :: asynchronous](../05_IPC/01_02_polling.md)
   - **event based** : webhook, fanOut, event-sourcing/CQRS
   - messaging based : p2p, pub-sub
 

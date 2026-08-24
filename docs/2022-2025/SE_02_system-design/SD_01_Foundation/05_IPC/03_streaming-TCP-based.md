@@ -1,29 +1,11 @@
 # Streaming (Http based) 
 
----
 ## Reference:
 - [socket](../06_network/01_concept_01_socket.md)
 - https://www.youtube.com/watch?v=pnj3Jbho5Ck | bm ws part-1 overview (2024) 
 - https://www.youtube.com/watch?v=G0_e02DdH7I | bm ws part-2 details(2024) 
 - https://www.youtube.com/watch?v=BKonNa7XPdg | bm ws part-3 more deep arch (2026) 
-
----
-## Overview
-```mermaid
-flowchart TB
-    %% Streaming
-    STREAM --> SERVER[Server-to-Client Streaming]
-    STREAM --> CLIENT[Client-to-Server Streaming]
-    STREAM --> BI[Bidirectional Streaming]
-
-    SERVER --> SSE[SSE]
-    SERVER --> GRPCS[gRPC Server Streaming]
-
-    CLIENT --> GRPCC[gRPC Client Streaming]
-
-    BI --> WS[WebSocket / WSS]
-    BI --> GRPCBI[gRPC Bidirectional Streaming]
-```
+- https://www.hellointerview.com/learn/system-design/patterns/realtime-updates#long-polling-the-easy-solution | check
 
 ---
 ## A. Server-to-client
