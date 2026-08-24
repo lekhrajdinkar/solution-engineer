@@ -16,12 +16,12 @@
     - understand traffic trends
     - monitor response times.
 
-![img_1.png](../../../99_img/2026/01/03/img_1.png)
+![img_1.png](../../../../99_img/2026/01/03/img_1.png)
 
 ## Options
 **cloud provided**
-- [05_1_API_gateway_SAA.md](../../CE_02_AWS_SAA/04_network/05_1_API_gateway_SAA.md)
-- [05_2_API_gateway_DVA.md](../../CE_02_AWS_SAA/04_network/05_2_API_gateway_DVA.md)
+- [05_1_API_gateway_SAA.md](../../../CE_02_AWS_SAA/04_network/05_1_API_gateway_SAA.md)
+- [05_2_API_gateway_DVA.md](../../../CE_02_AWS_SAA/04_network/05_2_API_gateway_DVA.md)
 
 **Custom build**
 - build your own with Spring Cloud gateway,etc

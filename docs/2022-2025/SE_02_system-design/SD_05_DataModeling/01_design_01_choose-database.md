@@ -5,12 +5,12 @@
 
 ---
 ## Overview
-✔️**Data Modeling**
+### **Data Modeling**
 - process of defining how your application’s data is **structured, stored, and related.**
 - not expected to normalize everything or produce a complete schema diagram
 - expected to design something clear, functional, and aligned with your system’s requirements
 
-✔️**Delivery phase**
+### **Delivery phase**
 - During **requirements gathering** step
   - identify your core entities.
   - These usually map 1:1 with tables or collections and form the backbone of your schema. 

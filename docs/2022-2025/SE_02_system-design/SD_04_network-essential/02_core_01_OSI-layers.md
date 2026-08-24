@@ -244,7 +244,7 @@ sequenceDiagram
 - https://youtube.com/watch?v=Lsd80uR9Shs (skip)
 
 ### 3.1 stream protocols (TCP)
-- [core concept :: socket](01_concept_01_socket.md)
+- [core concept :: socket](02_basic-concepts/01_concept_01_socket.md)
 - [TCP based ](../SD_01_Foundation/05_IPC/03_streaming-TCP-based.md#2-websocket--wss-) --> SSE + Websocket
 - ?
 

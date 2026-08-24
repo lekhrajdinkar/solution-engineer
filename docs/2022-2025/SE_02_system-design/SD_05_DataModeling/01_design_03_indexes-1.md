@@ -87,11 +87,58 @@ flowchart LR
     style I fill:#f4b183,stroke:#333
     style T fill:#9dc3e6,stroke:#333
 ```
-
-## Data structure
+---
+## indexes::Data structure
 [01_design_03_indexes-2.md](01_design_03_indexes-2.md)
 
 ---
+## External systems and extensions⭐
+**Elasticsearch**
+- primary database > CDC (will add some lag) > Elasticsearch (for full-text search)
+- but worth lets you search in ways your main database can't handle.
+
+```mermaid
+flowchart LR
+    subgraph S1 ["🔍 Elasticsearch (Full-Text Search)"]
+        direction LR
+        DB[("Primary DB\n(OLTP)")] -->|"CDC Pipeline\n(minor lag)"| ES[("Elasticsearch")]
+        ES --> O1["⚡ Fast tokenized & fuzzy search\n🚀 Unloads heavy queries from primary DB"]
+    end
+```
+
+**Postgres Extension**
+
+```mermaid
+flowchart LR
+    subgraph S5 ["⚡ Citus (Distributed SQL)"]
+        direction LR
+        PG4[("PostgreSQL")] --- EXT4["Citus\nExtension"]
+        EXT4 --> O5["🔀 Horizontal sharding across nodes\n🌐 Distributed tables & queries"]
+    end
+    
+    subgraph S2 ["🌍 PostGIS (Geospatial Extension)"]
+        direction LR
+        PG[("PostgreSQL")] --- EXT["PostGIS Extension"]
+        EXT --> O2["📍 Spatial indexing (R-Tree / GiST)\n📏 Proximity, polygon & bounding-box queries"]
+    end
+
+    subgraph S3 ["🧠 pgvector (AI / Vector Search)"]
+        direction LR
+        PG2[("PostgreSQL")] --- EXT2["pgvector\nExtension"]
+        EXT2 --> O3["🤖 High-dimensional embeddings\n🔎 HNSW / IVFFlat semantic search"]
+    end
+
+    subgraph S4 ["📈 TimescaleDB (Time-Series)"]
+        direction LR
+        PG3[("PostgreSQL")] --- EXT3["TimescaleDB\nExtension"]
+        EXT3 --> O4["⏱️ Hypertables & auto-partitioning\n📊 Metrics, IoT & columnar compression"]
+    end
+
+```
+
+
+---
+
 ## Interview 
 Tip-1 : 
 - connect your indexes directly to your API endpoints.

@@ -8,7 +8,7 @@
 > - RPC treats a remote service call like calling a local function
 > - ecosystem is not matured as REST (simple JSON over HTTP. )
 
-![img.png](../../../99_img/2025/se_02_sd/rpc.png)
+![img.png](../../../../99_img/2025/se_02_sd/rpc.png)
 
 - Built on:
   - **HTTP/2** for transport

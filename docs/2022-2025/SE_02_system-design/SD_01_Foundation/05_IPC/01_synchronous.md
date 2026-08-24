@@ -72,8 +72,8 @@ flowchart TB
 ---
 ## 1. REST
 [API-Design](../../SD_08_API-Design)
-- [best-principles](../../SD_08_API-Design/11_rest_01_best-principles.md)
-- [useful headers](../../SD_08_API-Design/11_rest_02_http-headers.md)
+- [best-principles](../../SD_08_API-Design/02_protocol/01_rest_01_best-principles.md)
+- [useful headers](../../SD_08_API-Design/02_protocol/01_rest_02_http-headers.md)
 
 [microservice :: complete guide](../../SD_21_microservice)
 
@@ -82,14 +82,14 @@ flowchart TB
 - [TCP Overview](../06_network/02_core_01_OSI-layers.md#tcp-reliable-delivery)
 - [TLS](../../SD_24_security/03_protocol_https_tls.md)
 - [HTTP Overview](../06_network/02_core_01_OSI-layers.md#https)
-- [http-headers](../../SD_08_API-Design/11_rest_02_http-headers.md)
-- [http-evolution](../../SD_08_API-Design/11_rest_03_http-evolution.md)
+- [http-headers](../../SD_08_API-Design/02_protocol/01_rest_02_http-headers.md)
+- [http-evolution](../../SD_08_API-Design/02_protocol/01_rest_03_http-evolution.md)
 
 ---
 ## 2. RPC / GRPC
-- [overview](../../SD_08_API-Design/12_grpc_01_overview.md)
+- [overview](../../SD_08_API-Design/02_protocol/02_grpc_01_overview.md)
 
 ---
 ## 3. graphQL
-- [overview](../../SD_08_API-Design/12_grpc_01_overview.md)
+- [overview](../../SD_08_API-Design/02_protocol/02_grpc_01_overview.md)
 

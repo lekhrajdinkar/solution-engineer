@@ -3,7 +3,7 @@ Reference
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2190592600
 - https://www.youtube.com/watch?v=1NngTUYPdpI
 - https://www.hellointerview.com/learn/courses/system-design/lesson/thinking-in-scale/caching 👈
-- [REST API :: caching](../SD_08_API-Design/04_api_design_06_caching.md)
+- [REST API :: caching](../SD_08_API-Design/06_caching.md)
 
 --- 
 ## Overview
@@ -44,7 +44,7 @@ Reference
 └──────────┘       └────────────────────┘    Read on Miss   └──────────────┘
 ```
 
-[**Distributed caching**](02_01_distributed-caching.md)
+[**Distributed caching**](02_Distributed-system/02_01_distributed-caching.md)
 - fault-tolerant
 - scalable
 - serves the response from closest cache-node, thus improved performance

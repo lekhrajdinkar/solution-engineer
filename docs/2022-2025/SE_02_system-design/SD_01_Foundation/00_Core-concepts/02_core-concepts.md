@@ -1,7 +1,15 @@
-# Core Concepts Mental Model (When and How to Apply)
+# Core Concepts Mental Model 
+> When and How to Apply
+
+## reference
+ - https://www.hellointerview.com/learn/system-design/in-a-hurry/core-concepts
+ - https://www.hellointerview.com/learn/courses/system-design/lesson/orientation/delivery
+
+---
 
 ![img.png](../../../../99_img/2025/img.png)
 
+---
 ## Networking Essentials
 * **Protocols**: Default to HTTP/REST over TCP. Use gRPC for internal service-to-service calls.
 * **Real-time**: Use Server-Sent Events (SSE) for unidirectional server pushes (notifications, live updates). Use WebSockets only when true bidirectional communication is required (chat, collaborative editing).
@@ -10,6 +18,9 @@
 [SD_04_network-essential](../../SD_04_network-essential)
 
 ## Data Modeling and Storage
+> - sounds simple but has massive downstream effects on your system
+> - directly affect performance, scalability
+
 * **Relational (SQL)**: Structured entities, ACID transactions, relational joins (e.g., Postgres).
 * **NoSQL**: Flexible schemas, heavy write throughput, horizontal scale without joins (e.g., DynamoDB, Cassandra).
 * **Schema Design**: Default to normalized relational models. Denormalize only on specific hot read paths to eliminate expensive joins. In NoSQL, design partition and sort keys strictly around access patterns.
@@ -62,5 +73,5 @@
 
 ## More:
 ### [the_patterns](../../SD_07_01_the_patterns)
-### [SD_07_02_key-technologies](../../SD_07_02_key-technologies)
+### [key-technologies](../../SD_07_02_key-technologies)
 ### [Question breakdown](../../../SE_99_case-studies/04_helloInterview)

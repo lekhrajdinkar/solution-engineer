@@ -429,20 +429,20 @@ nav:
     - SD 07 The Patterns:
       - Common Patterns: 2022-2025/SE_02_system-design/SD_07_the_patterns/00_common_patterns.md
     - SD 08 API Design:
-      - Api Design 01 Approach: 2022-2025/SE_02_system-design/SD_08_API-Design/04_api_design_01_approach.md
-      - Api Design 02 Choose Protocol: 2022-2025/SE_02_system-design/SD_08_API-Design/04_api_design_02_choose-protocol.md
-      - Api Design 03 Pagination: 2022-2025/SE_02_system-design/SD_08_API-Design/04_api_design_03_pagination.md
-      - Api Design 04 Versioning: 2022-2025/SE_02_system-design/SD_08_API-Design/04_api_design_04_versioning.md
-      - Api Design 05 Security: 2022-2025/SE_02_system-design/SD_08_API-Design/04_api_design_05_security.md
-      - Api Design 06 Caching: 2022-2025/SE_02_system-design/SD_08_API-Design/04_api_design_06_caching.md
-      - Concept 01 BFF: 2022-2025/SE_02_system-design/SD_08_API-Design/01_concept_01_BFF.md
-      - Concept 02 API Checklist: 2022-2025/SE_02_system-design/SD_08_API-Design/01_concept_02_API-checklist.md
-      - Concept 03 Api Gateway: 2022-2025/SE_02_system-design/SD_08_API-Design/01_concept_03_api-gateway.md
-      - Grpc 01 Overview: 2022-2025/SE_02_system-design/SD_08_API-Design/12_grpc_01_overview.md
-      - Graphql 01 Overview: 2022-2025/SE_02_system-design/SD_08_API-Design/13_graphQL_01_overview.md
-      - Rest 01 Best Principles: 2022-2025/SE_02_system-design/SD_08_API-Design/11_rest_01_best-principles.md
-      - Rest 02 Http Headers: 2022-2025/SE_02_system-design/SD_08_API-Design/11_rest_02_http-headers.md
-      - Rest 03 Http Evolution: 2022-2025/SE_02_system-design/SD_08_API-Design/11_rest_03_http-evolution.md
+      - Api Design 01 Approach: 2022-2025/SE_02_system-design/SD_08_API-Design/01_approach.md
+      - Api Design 02 Choose Protocol: 2022-2025/SE_02_system-design/SD_08_API-Design/02_choose-protocol.md
+      - Api Design 03 Pagination: 2022-2025/SE_02_system-design/SD_08_API-Design/03_pagination.md
+      - Api Design 04 Versioning: 2022-2025/SE_02_system-design/SD_08_API-Design/04_versioning.md
+      - Api Design 05 Security: 2022-2025/SE_02_system-design/SD_08_API-Design/05_security.md
+      - Api Design 06 Caching: 2022-2025/SE_02_system-design/SD_08_API-Design/06_caching.md
+      - Concept 01 BFF: 2022-2025/SE_02_system-design/SD_08_API-Design/03_concept_01_BFF.md
+      - Concept 02 API Checklist: 2022-2025/SE_02_system-design/SD_08_API-Design/03_concept_02_API-checklist.md
+      - Concept 03 Api Gateway: 2022-2025/SE_02_system-design/SD_08_API-Design/03_concept_03_api-gateway.md
+      - Grpc 01 Overview: 2022-2025/SE_02_system-design/SD_08_API-Design/02_grpc_01_overview.md
+      - Graphql 01 Overview: 2022-2025/SE_02_system-design/SD_08_API-Design/03_graphQL_01_overview.md
+      - Rest 01 Best Principles: 2022-2025/SE_02_system-design/SD_08_API-Design/01_rest_01_best-principles.md
+      - Rest 02 Http Headers: 2022-2025/SE_02_system-design/SD_08_API-Design/01_rest_02_http-headers.md
+      - Rest 03 Http Evolution: 2022-2025/SE_02_system-design/SD_08_API-Design/01_rest_03_http-evolution.md
     - SD 21 Microservice:
       - Core Pattern 01 Stateless Vs Stateful: 2022-2025/SE_02_system-design/SD_21_microservice/04_core_pattern_01_stateless_vs_stateful.md
       - Core Pattern 02 Service Discovery: 2022-2025/SE_02_system-design/SD_21_microservice/04_core_pattern_02_service-discovery.md

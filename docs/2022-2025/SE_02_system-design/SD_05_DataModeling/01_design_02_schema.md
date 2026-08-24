@@ -23,19 +23,19 @@ graph TD
     style F3 fill:#ffffff,stroke:#dc3545,stroke-width:1.5px
 ```
 
-**Data volume** 
+### Data volume
 > determines where your data **can physically live.** 
 - A social media app with millions of users might need data spread across multiple data stores, which drives schema design choices.
 - If user data and post data need to live on separate systems for performance or organizational reasons,
 - they necessarily need distinct schemas with careful consideration of how they reference each other.
 
-**Access patterns**
+### Access patterns
 > How will **your data be queried?**
 - A news feed that loads "recent posts by followed users" suggests you'll want denormalized data or carefully designed indexes.
 - An analytics dashboard that aggregates data across time periods might need different table structures entirely. 
 - This comes naturally from your APIs. Just ask what queries will I need to support each endpoint?
 
-**Consistency requirements** 
+### Consistency requirements
 > determine **how tightly coupled your data can be.** 
 - Financial transactions need strong consistency (no partial charges), which often means keeping related data in the same database with ACID guarantees.
 - But a user's activity feed can handle eventual consistency (it's okay if a like shows up a few seconds later),
@@ -43,7 +43,8 @@ graph TD
 
 ---
 
-## 2. Entities, Keys & Relationships
+## 2. SQL :: Entities, Keys & Relationships 
+> 🔴 For SQL, what about other type /
 - identify core **entities**, 
 - map them into **tables** 
 - just pick an obvious **primary key** and explain why.
@@ -66,7 +67,7 @@ comments:   id (PK), post_id (FK → posts.id), user_id (FK → users.id), conte
 likes:      user_id (FK → users.id), post_id (FK → posts.id)
 ```
 
-## 3. Normalization vs. Denormalization
+## 3. SQL :: Normalization vs. Denormalization
 > 💡 Interview Rule of Thumb:
 > - Always start with a clean, normalized model. 
 > - Only denormalize when you hit specific read-performance bottlenecks that cannot be resolved with indexing

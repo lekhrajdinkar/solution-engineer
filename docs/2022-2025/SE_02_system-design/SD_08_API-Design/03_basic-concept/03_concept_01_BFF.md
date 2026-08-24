@@ -17,7 +17,7 @@ https://www.youtube.com/watch?v=Pmzrogq4W4I
 - allows frontend teams to focus on user interfaces 
 - and reduces cross-team dependencies.
 
-![img.png](../../../99_img/2026/01/03/img.png)
+![img.png](../../../../99_img/2026/01/03/img.png)
 
 ---
 ## BFF Strategies

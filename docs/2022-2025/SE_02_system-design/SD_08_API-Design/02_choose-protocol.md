@@ -71,16 +71,16 @@ check below for detail:
 
 
 #### 1. REST (Representational State Transfer)
-- [03_rest_01_best-principles.md](11_rest_01_best-principles.md)
-- [03_rest_02_http-headers.md](11_rest_02_http-headers.md)
-- [03_rest_03_http-evolution.md](11_rest_03_http-evolution.md)
+- [03_rest_01_best-principles.md](02_protocol/01_rest_01_best-principles.md)
+- [03_rest_02_http-headers.md](02_protocol/01_rest_02_http-headers.md)
+- [03_rest_03_http-evolution.md](02_protocol/01_rest_03_http-evolution.md)
 
 #### 2. GraphQL
-[13_graphQL_01_overview.md](13_graphQL_01_overview.md)
+[13_graphQL_01_overview.md](02_protocol/03_graphQL_01_overview.md)
 
 
 #### 3. gRPC / RPC (Google Remote Procedure Call)
-[12_grpc_01_overview.md](12_grpc_01_overview.md)
+[12_grpc_01_overview.md](02_protocol/02_grpc_01_overview.md)
 
 
 ---

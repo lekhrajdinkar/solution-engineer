@@ -51,17 +51,17 @@ sequenceDiagram
 - **Deadlock**: 
   - Transactions can deadlock if participants wait for each other to release resources
 
-![img.png](../../../99_img/2026/02/01/img_7.png)
+![img.png](../../../../99_img/2026/02/01/img_7.png)
 
 ---
 ## 2. Transactional Outbox
-[02_pattern_12_outbox_pattern.md](../SD_01_Foundation/04_architecture/02_pattern_12_outbox-pattern.md)
+[02_pattern_12_outbox_pattern.md](../../SD_01_Foundation/04_architecture/02_pattern_12_outbox-pattern.md)
 
 ---
 ## 3. SAGA
 > Local ACID transactions + eventual consistency + compensating actions
 
-![img_4.png](../../../99_img/2026/02/01/img_4.png)
+![img_4.png](../../../../99_img/2026/02/01/img_4.png)
 
 **Overview**
 - Concept of a long-running, interconnected sequence of operations, like a "saga" in storytelling
@@ -123,7 +123,7 @@ flowchart LR
     K --> S[Shipping Service]
 ```
 
-![img_3.png](../../../99_img/2026/02/01/img_3.png)
+![img_3.png](../../../../99_img/2026/02/01/img_3.png)
 
 > `Axon Saga` – a lightweight framework and widely used with Spring Boot-based microservices
 
