@@ -23,7 +23,7 @@ More:⭐
 - [03_Design-patterns](SD_01_Foundation/03_Design-patterns) `bm`
 - [04_architecture](SD_01_Foundation/04_architecture) `bm`
 - [05_IPC](SD_01_Foundation/05_IPC) `bm`
-- [06_key-technologies](SD_01_Foundation/06_key-technologies) `hi`
+- [06_key-technologies](SD_07_02_key-technologies) `hi`
 
 ---
 ## Module 2: NFR (non functional req)  ✔️
