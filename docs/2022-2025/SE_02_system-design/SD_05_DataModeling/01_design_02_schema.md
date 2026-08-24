@@ -36,7 +36,9 @@ graph TD
 - This comes naturally from your APIs. Just ask what queries will I need to support each endpoint?
 
 ### Consistency requirements
-> determine **how tightly coupled your data can be.** 
+> - determine **how tightly coupled your data can be.** 
+> - choose separably for each core feature
+
 - Financial transactions need strong consistency (no partial charges), which often means keeping related data in the same database with ACID guarantees.
 - But a user's activity feed can handle eventual consistency (it's okay if a like shows up a few seconds later),
 - which allows you to distribute that data across separate systems with different schemas optimized for different access patterns.

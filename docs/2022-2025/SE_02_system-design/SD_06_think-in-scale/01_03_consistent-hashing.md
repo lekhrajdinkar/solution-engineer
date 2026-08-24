@@ -4,6 +4,10 @@
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2190592398
 - https://www.youtube.com/watch?v=NLMZzElM8Z4 | bm
 
+> 💡
+> - In interviews, you **rarely** need to explain how consistent hashing works unless specifically asked.
+> - The main time to bring it up is when you're **discussing elastic scaling**
+
 ## overview
 - foundational algorithm in distributed systems that is used to **distribute** data across a cluster of servers with new 
   - node added 
@@ -14,7 +18,8 @@
 
 
 ## Distribution Scenario
-> This cluster could be databases, sure, but they could also be caches, message brokers, or even just a set of application servers.
+> This pattern shows up in several places.
+> This cluster could be **databases, caches, message brokers, LB , CDN** 
 ### Scenario-1: database sharding ⭐
 - data is distributed across distributed shard [sharding](01_02_sharding.md)
 - shards can be :

@@ -2,6 +2,7 @@
 ## reference
 - https://youtube.com/watch?v=tpgoQwMg__M | OSI bm
 - https://youtu.be/SHkbPm1Wrno | hi
+- [AWS :: networking complete guide](../../CE_02_AWS_SAA/04_network)
 
 --- 
 ## Overview : OSI

@@ -202,7 +202,7 @@ trade off:
 - have a routing layer to implement
 
 ---
-## Challenges 🔺
+## Challenges / tradeoff 🔺
 - While it is a necessity at scale, it also introduces new challenges.
 ### 1. hot shards
 - Even with a good shard key, some shards can end up handling way more traffic than others. This is called a hot spot, and it negates the main benefit of sharding because one overloaded shard becomes your bottleneck.
@@ -229,6 +229,7 @@ trade off:
 
 ### 2. Cross-shard queries
 - Cannot eliminate completely
+- (fast for X queries, slow for Y queries)
 - eg: get all popular top 10 post, across whole platform 
   - sol-1: **cache expensive** queries in cache with TTl
   - Sol-2: **denormalize data**, repeating data acoss data for some scenarios
@@ -236,7 +237,7 @@ trade off:
 
 ![img_6.png](../../../99_img/2025/se_02_sd/08/04/img_6.png)
 
-### 3. maintain consistency
+### 3. Cross-shard transactions
 - [distributed-Transaction](02_Distributed-system/02_03_distributed-Transaction.md)
   - textbook solution is two-phase commit (2PC),
   - Use sagas for multi-shard operations

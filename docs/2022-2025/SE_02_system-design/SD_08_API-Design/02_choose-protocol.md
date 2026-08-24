@@ -4,9 +4,12 @@
 - https://youtu.be/AMNWLz_f6qM?si=4XOhFrP3EwsTYrpB | REST vs gRPC in Microservices ... ⭐
 - [service Communication pattern (4) ⭐](../SD_01_Foundation/05_IPC)
 ---
+## Overview
+
 ![img.png](../../../99_img/2025/api-protocol.png)
 
-## Answer Three Questions
+---
+## STEP-1 : Answer Three Questions
 ```mermaid
 flowchart TD
     A[Choose Communication Protocol]
@@ -47,7 +50,7 @@ flowchart LR
     C -->|REST / JSON| A
 ```
 ---
-## Check communication style
+## STEP-2 : Check communication style
 1. Sync request-response scenario
 2. live-streaming scenario
 3. Async messaging scenario
@@ -56,7 +59,10 @@ check below for detail:
 
 ---
 ### A. request-response style (sync)
-[synchronous comm pattern](../SD_01_Foundation/05_IPC/01_synchronous.md)
+useful links
+- [synchronous comm pattern](../SD_01_Foundation/05_IPC/01_synchronous.md)
+- [http-headers.md](03_basic-concept/01_02_http-headers.md)
+- [http-evolution.md](03_basic-concept/01_01_http-evolution.md)
 
 > SOAP ⚠️
 > - Old and heavier legacy protocol
@@ -71,16 +77,13 @@ check below for detail:
 
 
 #### 1. REST (Representational State Transfer)
-- [03_rest_01_best-principles.md](02_protocol/01_rest_01_overview.md)
-- [03_rest_02_http-headers.md](03_basic-concept/01_02_http-headers.md)
-- [03_rest_03_http-evolution.md](03_basic-concept/01_01_http-evolution.md)
+- [overview.md](02_protocol/01_rest_01_overview.md)
 
 #### 2. GraphQL
-[13_graphQL_01_overview.md](02_protocol/03_graphQL_01_overview.md)
-
+- [overview.md](02_protocol/03_graphQL_01_overview.md)
 
 #### 3. gRPC / RPC (Google Remote Procedure Call)
-[12_grpc_01_overview.md](02_protocol/02_grpc_01_overview.md)
+- [overview.md](02_protocol/02_grpc_01_overview.md)
 
 
 ---

@@ -1,6 +1,6 @@
 # Network Essentials : part-2
-## Essential
-- https://www.youtube.com/watch?v=SHkbPm1Wrno | hi complete
+## AWS
+- [AWS :: networking complete guide](../../../CE_02_AWS_SAA/04_network)
 
 ## Topologies
 - https://youtube.com/watch?v=yBY5GJtmhg0

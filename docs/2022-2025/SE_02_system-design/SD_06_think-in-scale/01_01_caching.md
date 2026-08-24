@@ -52,10 +52,10 @@ Reference
 - **Redis** is beyond just being cache
 
 ---
-### 2. CDN 
+### 2. CDN / [AWS_CloudFront.md](../../CE_02_AWS_SAA/04_network/04_CloudFront.md)
 > read through pattern
-- [CDN : global caching to optimize network latency](../SD_01_Foundation/06_network/02_core_03_latency+regionalization.md#a-cdn)
-- static files. 
+- [CDN : global caching to optimize network latency](../SD_04_network-essential/02_core_03_latency%2Bregionalization.md#a-cdn)
+- CDN caching is different. It's for static assets like images, videos, and JavaScript files served from edge locations close to users. 
 - also cache **public API responses, HTML pages**, 
 - even run **edge logic** to personalize content or enforce security rules before requests reach your servers
 - eg: Cloudflare, Fastly, and Akamai
@@ -76,13 +76,16 @@ With CDN   , in 20–40 ms. That is a **massive performance difference.**
 
 ---
 ### 4. in process cache (fast)
-> It is great for speed but not a replacement for Redis |  optimization layer
+> It is great for speed but not a replacement for Redis 
+> - optimization layer 
+> - fallback layer
+=
 - As **hardware improves**, servers run on machines with a **lot of memory**. 
 - can use that memory to cache data directly inside the application process,
 - instead of always calling out to Redis or the database.
 - good for:
 ```
-Configuration values
+Configuration values ⭐
 Feature flags
 Small reference datasets
 Hot keys
@@ -233,7 +236,11 @@ we dont want stale data in cache
 - handle:
   - **Request coalescing** (single flight)
   - **Cache warming**: Refresh popular keys proactively before they expire. This only helps when using TTL-based expiration.
-
+  - **staggering TTLs** so entries don't all expire at once.
+- add resiliency / **Defence**: 
+  - small in-process **fallback** cache, 
+  - circuit breakers to shed load, 
+  - or graceful degradation until Redis recovers
 
 ```mermaid
 sequenceDiagram
@@ -307,6 +314,14 @@ sequenceDiagram
 4. Set an eviction policy
    -  invalidate on writes or  rely on TTL
 5. Address the downsides
+
+---
+## Common mistakes
+> Profile your system first, then cache the **hot paths.**
+
+- 💥 not prepared for cache failure (biggest issue) 
+- 💲 caching everything. 
+- 🕑 If you're caching data that changes on every request, you're just **adding latency and complexity for no benefit.** 
 
 
 

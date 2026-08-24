@@ -20,6 +20,10 @@
 
 ---
 
+## Approach
+- Start with the **latency** numbers because they affect almost every design decision
+- **Storage capacity** matters for sharding decisions
+
 ## Physics network limit:
 - speed of light: 3,00,000 km/s
 - but fibre optic limit : 2,00,000 km/s - operation/processing time
