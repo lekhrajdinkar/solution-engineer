@@ -1,6 +1,6 @@
 #  Asynchronous Communication : Event Driven
 ## reference
-- [⭐event-driven architecture](../04_architecture/02_pattern_06_event-driven.md)
+- [event-driven architecture](../04_architecture/02_pattern_06_event-driven.md)⭐
 
 ---
 ## 1. Fan-out 
