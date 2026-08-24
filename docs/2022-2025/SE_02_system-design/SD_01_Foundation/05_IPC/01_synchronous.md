@@ -1,89 +1,51 @@
-#  Inter process Communication : Synchronous
-> [⭐ microservices :: service-mesh](../04_architecture/02_pattern_10_service-mesh.md)
+# Synchronous
 
----
-## Inter process Communication
-- https://youtu.be/AMNWLz_f6qM?si=T076QSntCR53atIb | bm
 
-IPC format:
-- text based: `JSON`, `XML`
-- binary: `Protobuf`, `avro`
+## Overview
 
 ```mermaid
-flowchart TB
-    A[Application Communication Patterns]
+flowchart TD
+%% Main Synchronous Root
+    SYNC["<b>🔄 Synchronous Communication</b><br>Request / Response Pattern"]
 
-    A --> SYNC[1. Synchronous Communication]
-    A --> ASYNC[2. Asynchronous Communication]
-    A --> STREAM[3. Streaming Communication]
-    A --> BATCH[4. Batch / File-Based Communication]
-```
-| Communication    | One-to-One                                            | One-to-Many                   | Examples                          |
-| ---------------- | ----------------------------------------------------- | ----------------------------- | --------------------------------- |
-| **Synchronous**  | ✅ Request → Response                                  | ❌ Rare                        | REST, gRPC                        |
-| **Asynchronous** | ✅ Queue, one-way notification, async request/response | ✅ Pub/Sub, Event Bus, Fan-out | Kafka, RabbitMQ, SNS, EventBridge |
+%% Middle Tier Protocols with Context
+    subgraph Protocols ["API Paradigms (Layer 7)"]
+        direction TD
+        HTTP["<b>🌐 REST (HTTP/HTTPS)</b><br>• Resource-oriented (CRUD)<br>• JSON payloads & status codes<br>• Public & web-facing APIs"]
+        RPC["<b>⚡ RPC / gRPC (Unary)</b><br>• Action-oriented & Protobuf<br>• Strict schemas & type safety<br>• Internal service-to-service"]
+        GQL["<b>🧩 GraphQL</b><br>• Single endpoint & flexible query<br>• Client specifies exact fields<br>• Eliminates over/under-fetching"]
+    end
 
-| Category     |         Caller waits? | Connection                           | Common examples                  |
-| ------------ | --------------------: | ------------------------------------ | -------------------------------- |
-| Synchronous  |                   Yes | Usually short-lived                  | REST, HTTP, unary gRPC           |
-| Asynchronous |                    No | Decoupled through broker or callback | Kafka, RabbitMQ, SQS, webhook    |
-| Streaming    |            Continuous | Long-lived                           | WebSocket, SSE, gRPC streaming   |
-| Batch        | No real-time response | Periodic or file-based               | SFTP, S3 files, Spark, MapReduce |
+%% Network / Transport Layer
+    subgraph Transport ["Transport Layer (Layer 4 & Security)"]
+        direction LR
+        TCP1["<b>🔒 TLS + TCP/IP</b><br>Reliable, ordered stream & byte-delivery"]
+    end
 
-> layer 7 network protocol:
+%% Flow Connections
+    SYNC --> HTTP
+    SYNC --> RPC
+    SYNC --> GQL
 
-### [A. Synchronous: Request/Response](/01_synchronous.md)
-- http  / tcp handshake
-- https / tls handshake
-- grpc (http2.0)
-- graphQL (http)
+    HTTP -->|"HTTP/1.1 or HTTP/2"| TCP1
+    RPC -->|"HTTP/2 Multiplexing"| TCP1
+    GQL -->|"HTTP POST over TCP"| TCP1
 
-### [B. Asynchronous Communication](/02_asynchronous.md)
-- event based - fanOut, webhook, event sourcing/CQRS
-- message based - p2p, pubSub
-- polling - short / long
-
-### [C. Streaming](03_streaming-TCP-based.md)
-- ws / wss
-- gRPC stream
-
-### [D. Batch/File-based](/04_batch_file_based.md)
-- FTP
-- object: AWS S3
-- ...
-
----
-### [More](/05_more.md)
-- webRTC
-- Video stream
-
-## Synchronous: Request/Response
-
-```mermaid
-flowchart TB
-    %% Synchronous
-    SYNC[1. Synchronous Communication] --> RR[Request / Response]
-    RR --> HTTP[HTTP / HTTPS REST]
-    RR --> RPC[RPC / gRPC Unary]
-    HTTP --> TCP1[TLS + TCP/IP]
-    RPC --> TCP1
 ```
 
 ---
 ## 1. REST
 [API-Design](../../SD_08_API-Design)
-- [best-principles](../../SD_08_API-Design/02_protocol/01_rest_01_best-principles.md)
-- [useful headers](../../SD_08_API-Design/02_protocol/01_rest_02_http-headers.md)
-
-[microservice :: complete guide](../../SD_21_microservice)
+- [resource-Modeling](../../SD_08_API-Design/02_protocol/01_rest_01_overview.md)
+- [useful headers](../../SD_08_API-Design/03_basic-concept/01_02_http-headers.md)
 
 **More**
 
 - [TCP Overview](../06_network/02_core_01_OSI-layers.md#tcp-reliable-delivery)
 - [TLS](../../SD_24_security/03_protocol_https_tls.md)
 - [HTTP Overview](../06_network/02_core_01_OSI-layers.md#https)
-- [http-headers](../../SD_08_API-Design/02_protocol/01_rest_02_http-headers.md)
-- [http-evolution](../../SD_08_API-Design/02_protocol/01_rest_03_http-evolution.md)
+- [http-headers](../../SD_08_API-Design/03_basic-concept/01_02_http-headers.md)
+- [http-evolution](../../SD_08_API-Design/03_basic-concept/01_01_http-evolution.md)
 
 ---
 ## 2. RPC / GRPC
@@ -92,4 +54,9 @@ flowchart TB
 ---
 ## 3. graphQL
 - [overview](../../SD_08_API-Design/02_protocol/02_grpc_01_overview.md)
+
+---
+## More Links
+- [⭐ microservices :: service-mesh](../04_architecture/02_pattern_10_service-mesh.md)
+- [01_rest_03_http-evolution.md](../../SD_08_API-Design/03_basic-concept/01_01_http-evolution.md)
 

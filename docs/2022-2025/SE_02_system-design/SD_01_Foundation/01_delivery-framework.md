@@ -1,6 +1,6 @@
 # Interview Delivery Sequence (45-Minute Flow)
 
-![img_1.png](../../../../99_img/2025/img_1.png)
+![img_1.png](../../../99_img/2025/img_1.png)
 
 ## Phase 1: Requirements (~5 mins)**
 * **Functional Requirements**: Pick and prioritize the top 2 to 3 core user capabilities (e.g., "Users can post tweets", "Users can view home feed").

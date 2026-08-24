@@ -340,7 +340,7 @@ nav:
         - Concept 09 Scale Cube: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/05_concept_09_scale-cube.md
         - Concept 99 More List: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/05_concept_99_more-list.md
         - Os 01 Kernel: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/02_os_01_kernel.md
-        - System Design Topic List: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/00_system-design-topic-list.md
+        - System Design Topic List: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/01-topic-list.md
       - Design Patterns:
         - Behavioral Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/03_Behavioral_Patterns.md
         - Creational Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/01_Creational_Patterns.md
@@ -440,9 +440,9 @@ nav:
       - Concept 03 Api Gateway: 2022-2025/SE_02_system-design/SD_08_API-Design/03_concept_03_api-gateway.md
       - Grpc 01 Overview: 2022-2025/SE_02_system-design/SD_08_API-Design/02_grpc_01_overview.md
       - Graphql 01 Overview: 2022-2025/SE_02_system-design/SD_08_API-Design/03_graphQL_01_overview.md
-      - Rest 01 Best Principles: 2022-2025/SE_02_system-design/SD_08_API-Design/01_rest_01_best-principles.md
-      - Rest 02 Http Headers: 2022-2025/SE_02_system-design/SD_08_API-Design/01_rest_02_http-headers.md
-      - Rest 03 Http Evolution: 2022-2025/SE_02_system-design/SD_08_API-Design/01_rest_03_http-evolution.md
+      - Rest 01 Best Principles: 2022-2025/SE_02_system-design/SD_08_API-Design/01_rest_01_overview.md
+      - Rest 02 Http Headers: 2022-2025/SE_02_system-design/SD_08_API-Design/01_02_http-headers.md
+      - Rest 03 Http Evolution: 2022-2025/SE_02_system-design/SD_08_API-Design/01_01_http-evolution.md
     - SD 21 Microservice:
       - Core Pattern 01 Stateless Vs Stateful: 2022-2025/SE_02_system-design/SD_21_microservice/04_core_pattern_01_stateless_vs_stateful.md
       - Core Pattern 02 Service Discovery: 2022-2025/SE_02_system-design/SD_21_microservice/04_core_pattern_02_service-discovery.md

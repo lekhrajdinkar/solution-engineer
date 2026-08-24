@@ -1,10 +1,8 @@
-https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360643/posts/2192056439
-
-Evolution of System Design video lesson (Module 1, Video 2)
+# System evolution | 1960 - 2026
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360643/posts/2192056439
 
 ---
-
-## 📜 Key Architectural Paradigms Over Time
+## Key Architectural Paradigms Over Time
 
 ### 1. **1960s – Mainframe Computing**
 * **Model:** Monolithic, centralized processing where all data processing and application logic ran on a single large machine.
