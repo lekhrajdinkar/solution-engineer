@@ -2,9 +2,9 @@
 - https://youtu.be/AMNWLz_f6qM?si=T076QSntCR53atIb | bm
 - [01_01_request-response.md](01_01_request-response.md)
 - [01_02_polling.md](01_02_polling.md)
-- [02_01_event-driven.md](02_01_event-driven.md)
-- [02_02_message-driven.md](02_02_message-driven.md)
-- [03_streaming-TCP-based.md](03_streaming-TCP-based.md)
+- [02_streaming-TCP-based.md](02_streaming-TCP-based.md)
+- [03_01_event-driven.md](03_01_event-driven.md)
+- [03_02_message-driven.md](03_02_message-driven.md)
 - [04_video-streaming.md](04_video-streaming.md)
 - [05_batch_file_based.md](05_batch_file_based.md)
 

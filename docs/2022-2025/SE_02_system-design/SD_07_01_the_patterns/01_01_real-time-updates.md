@@ -50,7 +50,7 @@ Websockets: The Full-Duplex Champion
 WebRTC: The Peer-to-Peer Solution
 ```
 - [01_02_polling.md](../SD_01_Foundation/05_IPC/01_02_polling.md)
-- [03_streaming-TCP-based.md](../SD_01_Foundation/05_IPC/03_streaming-TCP-based.md)
+- [03_streaming-TCP-based.md](../SD_01_Foundation/05_IPC/02_streaming-TCP-based.md)
 - [04_video-streaming.md](../SD_01_Foundation/05_IPC/04_video-streaming.md)
 
 ---

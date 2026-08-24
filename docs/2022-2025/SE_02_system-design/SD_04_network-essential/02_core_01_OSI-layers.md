@@ -253,7 +253,7 @@ While HTTP can be used directly to build websites,
 ---
 ### 4. stream protocols (TCP)
 - [core concept :: socket](02_basic-concepts/01_concept_01_socket.md)
-- [TCP based ](../SD_01_Foundation/05_IPC/03_streaming-TCP-based.md#2-websocket--wss-) --> SSE + Websocket
+- [TCP based ](../SD_01_Foundation/05_IPC/02_streaming-TCP-based.md#2-websocket--wss-) --> SSE + Websocket
 
 
 ---

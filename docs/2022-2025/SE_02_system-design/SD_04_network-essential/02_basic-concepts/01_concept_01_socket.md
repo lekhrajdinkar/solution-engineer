@@ -41,7 +41,7 @@ to interact with the OS's underlying C-based socket APIs
 - Provide reliable, ordered communication
 - where data arrives in the correct order without glitches
 - eg: Netflix streaming, real-time chat apps, dashboards, file sharing
-> modern: [WS, SSE, G-RPC-STREAM (not browser friendly)](../../SD_01_Foundation/05_IPC/03_streaming-TCP-based.md#2-websocket--wss-) 👈
+> modern: [WS, SSE, G-RPC-STREAM (not browser friendly)](../../SD_01_Foundation/05_IPC/02_streaming-TCP-based.md#2-websocket--wss-) 👈
 
 ### 2. Datagram Sockets
 - not built for browser

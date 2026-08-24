@@ -89,7 +89,7 @@ useful links
 ---
 ### B. Streaming style
 SEE, WS, gRPC-stream:
-- [streaming comm pattern](../SD_01_Foundation/05_IPC/03_streaming-TCP-based.md#2-websocket--wss)
+- [streaming comm pattern](../SD_01_Foundation/05_IPC/02_streaming-TCP-based.md#2-websocket--wss)
 
 ---
 ### C. messaging style (async)

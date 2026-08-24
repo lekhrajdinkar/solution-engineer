@@ -8,6 +8,8 @@
 ### Overview
 - client repeatedly requests data from a server **at set intervals** 
 - using any network protocol.eg: https, etc
+- take advantage of **HTTP keep-alive** connections, if latency is problem 👈
+- No xtra infrastructure,  still need to be specific about the **polling frequency**
 
 
 ```mermaid
@@ -37,12 +39,6 @@ async function poll() {
 setInterval(poll, 2000);
 ```
 
-### use case
-- Temperature Monitoring
-- AJAX application polls bts
-
-> not ideal for real-time applications like chat
-
 ### pros
 ```
 - Simple to implement.  
@@ -58,6 +54,14 @@ setInterval(poll, 2000);
 - Can be resource-intensive with many clients, establishing new connections, etc.
 
 ```
+### When to use ⭐
+- great baseline solution
+- **short window updates** 
+
+> not ideal for real-time applications like chat
+> - Temperature Monitoring
+> - AJAX application polls bts
+
 ---
 ## Long Polling
 ### Overview
@@ -159,6 +163,19 @@ Client → LB ────┼──► Server 2  ──┼──► Shared Event
                 └──► Server 3  ──┘
 ```
 
+### when to use ⭐
+- great solution for **near real-time updates** with a simple implementation
+- when updates are infrequent
+- latency is not issue
+
+> - Great solution for applications where a **long async process** is running but you want to know when it finishes, as soon as it finishes.
+> - **payment processing.** :  We'll long-poll for the payment status before showing the user a success page.
+
+### interview
+- take advantage of **HTTP keep-alive** connections, if latency is problem 👈
+- No xtra infrastructure,  still need to be specific about the **polling frequency**
+    - eg: you don't want your **load balancer hanging** up on the client after` 60 seconds`
+    - `15-30s` is a pretty common polling interval
 
 ---
 ## Compare: long vs short polling
@@ -196,4 +213,5 @@ sequenceDiagram
     deactivate Server
     end
 ```
+
 
