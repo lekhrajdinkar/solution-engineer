@@ -59,7 +59,7 @@ WebRTC: The Peer-to-Peer Solution
 ```
 
 ### 1. Polling
-- [01_01_request-response.md](../SD_01_Foundation/05_IPC/01_01_request-response.md) | `traditional style` ❌
+- [01_01_request-response.md](../SD_01_Foundation/05_IPC/01_01_request-response.md)
 - [01_02_polling.md](../SD_01_Foundation/05_IPC/01_02_polling.md) | `short and long polling`
 
 ### 2. Streaming
@@ -242,6 +242,10 @@ sequenceDiagram
     deactivate EP1
     end
 ```
+## Summary
+![img.png](img.png)
+
+> [01_realtime-update.excalidraw](01_realtime-update.excalidraw)
 
 ---
 ## Common Deep Dives ⭐

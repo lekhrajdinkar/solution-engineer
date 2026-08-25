@@ -8,18 +8,12 @@
 
 ---
 ##  Overview
-> ⚠️ Just because clients can upgrade from HTTP to WebSocket doesn't mean that the infrastructure will support it.
-> Every piece of infrastructure between the client and server will need to support WebSocket connections.
-> If you've ever implemented Websockets you've probably hit a bunch of issues with **firewalls, proxies, load balancers,
-> and other infrastructure** that don't support WebSocket connections.
-
-> WebSockets are powerful, but the infra required to support them can be expensive
-> and the overhead of **stateful connections** (especially at scale) will require significant accommodations in your design.
-> Hold off unless you really need them!
-
-### overview 1
-- the client opening a **long-lived connection** with the server, typically through a **socket** 👈
+> real-time, bidirectional communication
+- the client opening a **long-lived connection** with the server, typically through a **socket** , for hours👈
 - allowing the server to **push** information **without a client request** and vice versa. 
+- hence provide a persistent, **TCP-style** connection between client and server
+  - initiated via an **HTTP "upgrade" protocol**,
+  - which allows an existing **TCP connection** to change L7 protocols.
 
 ```
 Longlive Persistent/Stateful connection:
@@ -28,18 +22,9 @@ Client  ◄═══════════ infa Support ═══════�
           send / receive
           send / receive
           send / receive
-          
 ```
-
-### overview 2
-- WebSockets provide a persistent, TCP-style connection between client and server, 
-- allowing for real-time, bidirectional communication with broad support (including browsers). 
-- Unlike HTTP's request-response model, WebSockets enable servers to push data to clients without being prompted by a new request. 
-- Similarly clients can push data back to the server without the same wait.
-- WebSockets are initiated via an HTTP "upgrade" protocol, which allows an existing TCP connection to change L7 protocols.
-- This is super convenient because it means you can utilize some of the existing HTTP session information (e.g. cookies, headers, etc.) to your advantage.
-
-**Sample program**
+---
+### Sample program
 
 ```javaScript
 // Client-side
@@ -72,14 +57,8 @@ wss.on('connection', (ws) => {
   });
 });
 ```
-
-##  when to use ⭐
-> when you need **high-frequency, persistent, bi-directional** communication between client and server.
-- Stock trading websites displaying live price fluctuations 
-- Chat applications
-- Gaming applications that require automatic UI refreshes
-
-##  connection upgrade
+---
+###  connection upgrade
 ```
 - Https/TCP handshake
 - negotiate to upgrade, to WS with request header:
@@ -120,7 +99,12 @@ flowchart LR
     D --> E["@app.websocket('/ws')"]
     wss["wss://localhost:8080/myapp/chat"]
 ```
-
+---
+##  when to use ⭐
+> when you need **high-frequency, persistent, bi-directional** communication between client and server.
+- Stock trading websites displaying live price fluctuations
+- Chat applications
+- Gaming applications that require automatic UI refreshes
 
 ---
 ##  pros
@@ -128,10 +112,21 @@ flowchart LR
 - **Lower latency** 
 - Efficient for **frequent** messages | high frequency
 - Wide browser support
+- This is super convenient because it means you can utilize some of the existing HTTP session information (e.g. cookies, headers, etc.) to your advantage.
 
 ---
 ##  cons 
+> ⚠️ Just because clients can upgrade from HTTP to WebSocket doesn't mean that the infrastructure will support it.
+> Every piece of infrastructure between the client and server will need to support WebSocket connections.
+> If you've ever implemented Websockets you've probably hit a bunch of issues with **firewalls, proxies, load balancers,
+> and other infrastructure** that don't support WebSocket connections.
+
+> WebSockets are powerful, but the infra required to support them can be expensive
+> and the overhead of **stateful connections** (especially at scale) will require significant accommodations in your design.
+> Hold off unless you really need them!
+
 **Infra in between client and server must support persistent connection like wss and sse**
+
 - L7 load balancers aren't guaranteeing
 - L4 load balancers will support websockets natively, **since the same TCP connection is used for each request.**
 - API gateway support
@@ -157,7 +152,7 @@ flowchart TB
     end
 
     %% Flow connections
-    Client -->|"1. TLS Handshake / Initial HTTP"| CDN
+    Client -->|"1. TCP & TLS Handshake"| CDN
     CDN -->|"2. Forward connection"| LB
     LB -->|"3. Route via Least Connections"| Gateway
     Gateway -->|"4. Persistent TCP Stream (WSS / SSE)"| App1
@@ -166,18 +161,6 @@ flowchart TB
     App1 <--> RedisPubSub
     App2 <--> RedisPubSub
 
-    %% Styling
-    style ClientLayer fill:#121212,stroke:#555555,stroke-dasharray: 5 5,color:#ffffff
-    style EdgeLayer fill:#121212,stroke:#89b4fa,stroke-dasharray: 5 5,color:#ffffff
-    style ServerLayer fill:#121212,stroke:#a6e3a1,stroke-dasharray: 5 5,color:#ffffff
-
-    style Client fill:#1e1e2e,stroke:#ffffff,stroke-width:1.5px,color:#ffffff
-    style CDN fill:#1e1e2e,stroke:#89b4fa,stroke-width:1.5px,color:#ffffff
-    style LB fill:#1e1e2e,stroke:#89b4fa,stroke-width:1.5px,color:#ffffff
-    style Gateway fill:#1e1e2e,stroke:#89b4fa,stroke-width:1.5px,color:#ffffff
-    style App1 fill:#1e1e2e,stroke:#a6e3a1,stroke-width:1.5px,color:#ffffff
-    style App2 fill:#1e1e2e,stroke:#a6e3a1,stroke-width:1.5px,color:#ffffff
-    style RedisPubSub fill:#313244,stroke:#fab387,stroke-width:1.5px,color:#ffffff
 ```
 
 **re-connection Storm and scaling concern**
@@ -228,6 +211,8 @@ Server A
 - deployment strategy will handle server restarts.
 - minimize the spread of state across their architecture
 - how to scale WebSocket servers
+
+
 
 ---
 ## Extra

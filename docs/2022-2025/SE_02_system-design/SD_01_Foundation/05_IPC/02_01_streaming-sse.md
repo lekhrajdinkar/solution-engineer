@@ -17,7 +17,7 @@
 - don't have a polling interval to negotiate or tune. 👈
 - **won't be super-long-lived** (e.g. `30-60s` is pretty typical), 
 - So consider how **clients re-establish connections** and how they deal with the gaps in between.
-  - If a client loses its connection, it can reconnect and provide the `last event ID` it received.
+  - If a client loses its connection, it can **reconnect** and provide the `last event ID` it received.
   - The server can then use that ID to send all the events that occurred while the client was disconnected
 - **http header** :  `Content-Length` vs `Transfer-Encoding: chunked`
 - **Modern browsers have built-in support for SSE** through the `EventSource` object

@@ -8,8 +8,6 @@
 ### Overview
 - client repeatedly requests data from a server **at set intervals** 
 - using any network protocol.eg: https, etc
-- take advantage of **HTTP keep-alive** connections, if latency is problem 👈
-- No xtra infrastructure,  still need to be specific about the **polling frequency**
 
 
 ```mermaid
@@ -62,6 +60,10 @@ setInterval(poll, 2000);
 > - Temperature Monitoring
 > - AJAX application polls bts
 
+### interview
+- take advantage of **HTTP keep-alive** connections, if latency is problem 👈
+- No xtra infrastructure,  still need to be specific about the **polling frequency**
+
 ---
 ## Long Polling
 ### Overview
@@ -102,25 +104,27 @@ sequenceDiagram
     actor Updates as Updates (Data Source)
 
     %% Request 1 - Wait and receive Update 1
-    Client->>Server: 1. Poll Request (Long Poll)
+    Client->>Server:  Poll Request (Long Poll)
     activate Server
     Note over Server: Server waits (holds request open)<br>until data arrives or timeout
     
-    Updates-->>Server: Event: Update 1 occurs
-    Server-->>Client: 2. Response with Update 1
+    Updates-->>Server: Event: Update 1 occurs 📝
+    Server-->>Client: Response with Update 1 🛜
     deactivate Server
 
     %% Immediate re-poll
-    Client->>Server: 3. Immediately send new Poll Request
+    Updates-->>Server: Event: Update 2 occurs 📝
+    Updates-->Server: but NOT immediately consumed, hence adds latency 🕑🕑
+    Client->>Server: send new Poll Request🛜
     activate Server
     
     %% Brief wait before Update 2
-    Updates-->>Server: Event: Update 2 occurs
-    Server-->>Client: 4. Response with Update 2
+   
+    Server-->>Client:  Response with Update 2
     deactivate Server
 
     %% Request 3 - Long wait (Idle state)
-    Client->>Server: 5. Next Poll Request
+    Client->>Server: Next Poll Request
     activate Server
     Note over Server: Server enters extended waiting state<br>(holding connection open)
     deactivate Server
