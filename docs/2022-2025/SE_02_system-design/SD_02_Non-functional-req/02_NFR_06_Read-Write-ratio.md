@@ -16,10 +16,8 @@
 | `1:100` | Extremely write-heavy | IoT sensor ingestion        |
 
 **understand underlying Data-structure**:
-  - [B-tree](../../SE_99_case-studies/03_ByteMonk/05_username_suggestion.md) , [LSM-tree](../SD_51_algo/03_algo_06_LSM-tree__.md)
-  - [B-tree and LSM (2)](../SD_53_DataStructure/04_Btree%2BLSM_2.md)
-  - [BloomFilter](../SD_53_DataStructure/01_core_01_BloomFilter.md)
-  - [caseStudy : username-suggestion](../../SE_99_case-studies/03_ByteMonk/05_username_suggestion.md)
+- [username : case study](../../SE_99_case-studies/03_ByteMonk/05_username_suggestion.md) 
+- [03_DataStructure](../SD_05_DataModeling/03_DataStructure)
 
 ---
 ## Optimized READ
@@ -60,7 +58,7 @@ flowchart LR
 
 ## CQRS
 - Best fit: complex systems with very different read/write workloads.
-- [CQRS.md](../SD_03_Core-building-blocks/SD_03_52_architecture/02_pattern_07_CQRS.md)
+- [CQRS.md](../SD_01_Foundation/04_architecture/02_pattern_07_CQRS.md)
 
 ## Summary
 | Decision Area        | Read-Heavy System                    | Write-Heavy System                            |

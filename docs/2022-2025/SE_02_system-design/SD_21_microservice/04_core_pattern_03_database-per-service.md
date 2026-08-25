@@ -42,7 +42,7 @@ Failure/data changes are isolated
 |Data duplication||
 
 ## Solutions
-- Saga Pattern  [distributed-Transaction.md](../SD_06_Distributed-system/02_03_distributed-Transaction.md#saga-choreography)
-- Event-driven communication [asynchronous.md](../SD_03_Core-building-blocks/SD_03_54_IPC/02_asynchronous.md#2-event-driven)
+- Saga Pattern  [distributed-Transaction.md](../SD_06_think-in-scale/02_Distributed-system/02_03_distributed-Transaction.md#saga-choreography)
+- Event-driven communication [asynchronous.md](../SD_01_Foundation/05_IPC/01_02_polling.md#2-event-driven)
 - CQRS and Event Sourcing
 - API Aggregation [aggregator.md](04_core_pattern_03_aggregator.md)

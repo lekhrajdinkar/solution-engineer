@@ -59,7 +59,6 @@ nav:
     - CLOUD FORMATION: 2022-2025/CE_01_AWS_DVA/18_CLOUD_FORMATION.md
     - CI CD: 2022-2025/CE_01_AWS_DVA/24_CI_CD.md
     - CDK: 2022-2025/CE_01_AWS_DVA/26_CDK.md
-    - DVA: 2022-2025/CE_01_AWS_DVA/00_DVA.md
     - Handson: 2022-2025/CE_01_AWS_DVA/99_handson.md
     - SAM: 2022-2025/CE_01_AWS_DVA/25_SAM.md
   - CE 02 AWS SAA:
@@ -76,7 +75,7 @@ nav:
       - Redshift OLAP: 2022-2025/CE_02_AWS_SAA/08_Analytics/02_Redshift_OLAP.md
       - Summary: 2022-2025/CE_02_AWS_SAA/08_Analytics/99_Summary.md
     - AI ML:
-      - 01 Specific Services: 2022-2025/CE_02_AWS_SAA/10_AI_ML/01-specific-services.md
+      - 01 Ai Specific Services: 2022-2025/CE_02_AWS_SAA/10_AI_ML/01-ai-specific-services.md
       - Sagemaker+personlize: 2022-2025/CE_02_AWS_SAA/10_AI_ML/02_sageMaker+Personlize.md
     - Compute:
       - 99 Lambda Question: 2022-2025/CE_02_AWS_SAA/01_compute/99-Lambda-question.md
@@ -91,6 +90,7 @@ nav:
       - Copilot: 2022-2025/CE_02_AWS_SAA/01_compute/07_copilot.md
       - EC2: 2022-2025/CE_02_AWS_SAA/01_compute/01_EC2.md
       - ECR: 2022-2025/CE_02_AWS_SAA/01_compute/06_ECR.md
+      - Global Infra: 2022-2025/CE_02_AWS_SAA/01_compute/00_global_infra.md
       - Kubernetes EKS: 2022-2025/CE_02_AWS_SAA/01_compute/02_Kubernetes_EKS.md
       - Lambda 01 Saa: 2022-2025/CE_02_AWS_SAA/01_compute/03_lambda-01-saa.md
       - Lambda Dva 01 CLI: 2022-2025/CE_02_AWS_SAA/01_compute/03_lambda-dva-01-CLI.md
@@ -120,10 +120,6 @@ nav:
       - Dr Strategies: 2022-2025/CE_02_AWS_SAA/09_DR/01_dr-strategies.md
       - Migration 1: 2022-2025/CE_02_AWS_SAA/09_DR/02_migration-1.md
       - Migration 2: 2022-2025/CE_02_AWS_SAA/09_DR/02_migration-2.md
-    - Kick Off:
-      - Global Infra: 2022-2025/CE_02_AWS_SAA/00_kick_off/00_global_infra.md
-      - Serverless Pardigm: 2022-2025/CE_02_AWS_SAA/00_kick_off/00_serverless_pardigm.md
-      - Whiteboard: 2022-2025/CE_02_AWS_SAA/00_kick_off/00_whiteboard.md
     - Monitoring:
       - AWS Distro: 2022-2025/CE_02_AWS_SAA/07_monitoring/04_AWS_Distro.md
       - AWS Config: 2022-2025/CE_02_AWS_SAA/07_monitoring/06_AWS_config.md
@@ -158,27 +154,31 @@ nav:
       - VPC 3 Vpcpeer+vpce: 2022-2025/CE_02_AWS_SAA/04_network/03_VPC-3-vpcPeer+vpce.md
       - VPC 4 Tolologies: 2022-2025/CE_02_AWS_SAA/04_network/03_VPC-4-tolologies.md
     - Practice Test:
-      - SSA Attempt 1:
-        - 02.offical Practice Exam: 2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/02.offical_practice-Exam.md
-        - 03.practice Exam 1.md: 2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/03.practice-exam-1.md.md
-        - 03.practice Exam 2: 2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/03.practice-exam-2.md
-        - 03.practice Exam 3: 2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/03.practice-exam-3.md
-        - 03.practice Exam 4: 2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/03.practice-exam-4.md
-        - 03.practice Exam 5: 2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/03.practice-exam-5.md
-        - 03.practice Exam 6: 2022-2025/CE_02_AWS_SAA/practice-test/SSA-attempt-1/03.practice-exam-6.md
+      - Udemy Stephen:
+        - 02.offical Practice Exam: 2022-2025/CE_02_AWS_SAA/practice-test/udemy-Stephen/02.offical_practice-Exam.md
+        - 03.practice Exam 1: 2022-2025/CE_02_AWS_SAA/practice-test/udemy-Stephen/03.practice-exam-1.md
+        - 03.practice Exam 2: 2022-2025/CE_02_AWS_SAA/practice-test/udemy-Stephen/03.practice-exam-2.md
+        - 03.practice Exam 3: 2022-2025/CE_02_AWS_SAA/practice-test/udemy-Stephen/03.practice-exam-3.md
+        - 03.practice Exam 4: 2022-2025/CE_02_AWS_SAA/practice-test/udemy-Stephen/03.practice-exam-4.md
+        - 03.practice Exam 5: 2022-2025/CE_02_AWS_SAA/practice-test/udemy-Stephen/03.practice-exam-5.md
+        - 03.practice Exam 6: 2022-2025/CE_02_AWS_SAA/practice-test/udemy-Stephen/03.practice-exam-6.md
+        - Whiteboard: 2022-2025/CE_02_AWS_SAA/practice-test/udemy-Stephen/whiteboard.md
       - Whizlab:
         - Whizlab Ssa Exam 4 5: 2022-2025/CE_02_AWS_SAA/practice-test/whizlab/whizlab-ssa-exam-4-5.md
         - Whizlab Ssa Exam 6 7: 2022-2025/CE_02_AWS_SAA/practice-test/whizlab/whizlab-ssa-exam-6-7.md
     - Storage:
-      - Appflow: 2022-2025/CE_02_AWS_SAA/02_storage/06_AppFlow.md
-      - EBS EFS: 2022-2025/CE_02_AWS_SAA/02_storage/01_EBS_EFS.md
-      - Fsx Serverless FS: 2022-2025/CE_02_AWS_SAA/02_storage/02_FSx_serverless-FS.md
-      - Snow Family: 2022-2025/CE_02_AWS_SAA/02_storage/02_snow-family.md
-      - S3 1: 2022-2025/CE_02_AWS_SAA/02_storage/03_S3-1.md
-      - S3 2 More: 2022-2025/CE_02_AWS_SAA/02_storage/03_S3-2-more.md
-      - Storage Gateway: 2022-2025/CE_02_AWS_SAA/02_storage/04_Storage_gateway.md
-      - Summary: 2022-2025/CE_02_AWS_SAA/02_storage/99_summary.md
-      - Transferfamily+datasync: 2022-2025/CE_02_AWS_SAA/02_storage/05_transferFamily+DataSync.md
+      - EBS: 2022-2025/CE_02_AWS_SAA/02_storage/02_EBS.md
+      - EFS: 2022-2025/CE_02_AWS_SAA/02_storage/03_EFS.md
+      - Fsx: 2022-2025/CE_02_AWS_SAA/02_storage/04_FSx.md
+      - Instant Store: 2022-2025/CE_02_AWS_SAA/02_storage/01_instant-store.md
+      - More 01 Storage Gateway: 2022-2025/CE_02_AWS_SAA/02_storage/07_more_01_Storage-gateway.md
+      - More 02 AWS File Transfer: 2022-2025/CE_02_AWS_SAA/02_storage/07_more_02_AWS-file-transfer.md
+      - Migration 01 Snowball: 2022-2025/CE_02_AWS_SAA/02_storage/08_migration_01_snowball.md
+      - Migration 02 Datasync: 2022-2025/CE_02_AWS_SAA/02_storage/08_migration_02_DataSync.md
+      - Migration 03 Appflow: 2022-2025/CE_02_AWS_SAA/02_storage/08_migration_03_AppFlow.md
+      - Storage: 2022-2025/CE_02_AWS_SAA/02_storage/00_storage.md
+      - S3: 2022-2025/CE_02_AWS_SAA/02_storage/05_01_S3.md
+      - S3 Advance: 2022-2025/CE_02_AWS_SAA/02_storage/05_02_S3-advance.md
     - Security:
       - AWS Org+control Tower: 2022-2025/CE_02_AWS_SAA/06_Security/03_AWS_org+control-tower.md
       - ACM: 2022-2025/CE_02_AWS_SAA/06_Security/07_ACM.md
@@ -203,10 +203,13 @@ nav:
       - 29 03 Highperformancecompute HCP: 2022-2025/CE_02_AWS_SAA/98_SAA_discussion/29-03-HighPerformanceCompute-HCP.md
       - 29 04 Ec2 Avaliability: 2022-2025/CE_02_AWS_SAA/98_SAA_discussion/29-04-Ec2-avaliability.md
       - 99 01 SSA Security: 2022-2025/CE_02_AWS_SAA/98_SAA_discussion/99-01-SSA-security.md
+      - Serverless Pardigm: 2022-2025/CE_02_AWS_SAA/98_SAA_discussion/00_serverless_pardigm.md
   - PE 01 Docker:
-    - Architecture: 2022-2025/PE_01_Docker/00_architecture.md
-    - Dev Guide: 2022-2025/PE_01_Docker/00_dev_guide.md
-    - Docker Compose: 2022-2025/PE_01_Docker/01_docker-compose.md
+    - Docker Compose: 2022-2025/PE_01_Docker/05_docker-compose.md
+    - Developer Guide 1: 2022-2025/PE_01_Docker/06_developer-guide-1.md
+    - Developer Guide 2: 2022-2025/PE_01_Docker/06_developer-guide-2.md
+    - Fundamental 1: 2022-2025/PE_01_Docker/01_fundamental-1.md
+    - Fundamental 2: 2022-2025/PE_01_Docker/02_fundamental-2.md
     - Network: 2022-2025/PE_01_Docker/04_network.md
     - Storage: 2022-2025/PE_01_Docker/03_Storage.md
   - PE 02 Kubernetes:
@@ -287,35 +290,82 @@ nav:
     - Pipeline 2: 2022-2025/PE_05_harness/01_pipeline_2.md
     - Pipeline 3: 2022-2025/PE_05_harness/01_pipeline_3.md
   - Revision:
-    - Revision 01 2024: 2022-2025/_Revision/revision_01_2024.md
-    - Revision 02 2025: 2022-2025/_Revision/revision_02_2025.md
-    - Revision 03 2025: 2022-2025/_Revision/revision_03_2025.md
+    - Revision 01 2024: 2022-2025/Revision/revision_01_2024.md
+    - Revision 02 2025: 2022-2025/Revision/revision_02_2025.md
+    - Revision 03 2025: 2022-2025/Revision/revision_03_2025.md
   - SE 01 CSE:
-    - Agile Kanban: 2022-2025/SE_01_CSE/02_agile-kanban.md
-    - Agile Scrum: 2022-2025/SE_01_CSE/02_agile-scrum.md
-    - Coding Best Practice: 2022-2025/SE_01_CSE/04_coding_best_practice.md
-    - Code Review: 2022-2025/SE_01_CSE/05_code_review.md
     - Cse Best Practice: 2022-2025/SE_01_CSE/06_cse_best_practice.md
-    - DDD: 2022-2025/SE_01_CSE/03_DDD.md
-    - Sdlc: 2022-2025/SE_01_CSE/01_sdlc.md
+    - SDLC:
+      - Agile Kanban: 2022-2025/SE_01_CSE/01_SDLC/02_agile-kanban.md
+      - Agile Scrum: 2022-2025/SE_01_CSE/01_SDLC/02_agile-scrum.md
+      - Coding Best Practice: 2022-2025/SE_01_CSE/01_SDLC/04_coding_best_practice.md
+      - Code Review: 2022-2025/SE_01_CSE/01_SDLC/05_code_review.md
+      - Sdlc: 2022-2025/SE_01_CSE/01_SDLC/01_sdlc.md
   - SE 02 System Design:
-    - Artifact: 2022-2025/SE_02_system-design/artifact.md
     - SD 01 Foundation:
-      - Basic 00 Taskexeflows: 2022-2025/SE_02_system-design/SD_01_foundation/01_basic_00_TaskExeFlows.md
-      - Basic 01 Evolution: 2022-2025/SE_02_system-design/SD_01_foundation/01_basic_01_evolution.md
-      - Basic 02 Distributed System: 2022-2025/SE_02_system-design/SD_01_foundation/01_basic_02_distributed-system.md
-      - Basic 03 CAP Theorem: 2022-2025/SE_02_system-design/SD_01_foundation/01_basic_03_CAP-theorem.md
-      - Concept 01 SFP: 2022-2025/SE_02_system-design/SD_01_foundation/03_concept_01_SFP.md
-      - Concept 02 Heartbeat 1: 2022-2025/SE_02_system-design/SD_01_foundation/03_concept_02_heartbeat_1.md
-      - Concept 02 Heartbeat 2: 2022-2025/SE_02_system-design/SD_01_foundation/03_concept_02_heartbeat_2.md
-      - Concept 03 Socket: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_03_socket.md
-      - Concept 04 Event Loop: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_04_event-loop.md
-      - Concept 06 Idempotency: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_06_idempotency.md
-      - Concept 07 Hashing: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_07_hashing.md
-      - Concept 08 Caching: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_08_caching.md
-      - Concept 09 Scale Cube: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_09_scale-cube.md
-      - Concept 99 More List: 2022-2025/SE_02_system-design/SD_01_foundation/05_concept_99_more-list.md
-      - Os 01 Kernel: 2022-2025/SE_02_system-design/SD_01_foundation/02_os_01_kernel.md
+      - Advance Concepts:
+        - Algo 01 Paxos: 2022-2025/SE_02_system-design/SD_01_Foundation/02_Advance_concepts/01_algo_01_paxos.md
+        - Algo 02 Raft: 2022-2025/SE_02_system-design/SD_01_Foundation/02_Advance_concepts/01_algo_02_raft.md
+        - Algo 03 Erasor Coding: 2022-2025/SE_02_system-design/SD_01_Foundation/02_Advance_concepts/03_algo_03_erasor-coding.md
+        - Algo 04 Hyperloglog: 2022-2025/SE_02_system-design/SD_01_Foundation/02_Advance_concepts/03_algo_04_hyperloglog.md
+      - Architecture:
+        - Arch 00 Client Server: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/01_arch_00_client-server.md
+        - Arch 00 Peer 2 Peer: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/01_arch_00_peer-2-peer.md
+        - Core 01 Monolith Arch: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/01_core_01_monolith-arch.md
+        - Core 02 Microservice Arch: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/01_core_02_microservice-arch.md
+        - Core 03 Micro Frontend: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/01_core_03_micro-frontend.md
+        - DDD: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/01_DDD.md
+        - DDD 2: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/01_DDD_2.md
+        - Data 01 Batch Processing: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/03_data_01_batch-processing.md
+        - Data 01 Stream Processing: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/03_data_01_stream-processing.md
+        - Data 02 Data Mesh: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/03_data_02_data-mesh.md
+        - Data 03 CDC: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/03_data_03_CDC.md
+        - Pattern 01 Summary: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/02_pattern_01_summary.md
+        - Pattern 06 Event Driven: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/02_pattern_06_event-driven.md
+        - Pattern 07 CQRS: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/02_pattern_07_CQRS.md
+        - Pattern 10 Service Mesh: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/02_pattern_10_service-mesh.md
+        - Pattern 11 Event Sourcing: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/02_pattern_11_event-sourcing.md
+        - Pattern 12 Outbox Pattern: 2022-2025/SE_02_system-design/SD_01_Foundation/04_architecture/02_pattern_12_outbox-pattern.md
+      - Basic Concepts:
+        - Basic 00 Taskexeflows: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/01_basic_00_TaskExeFlows.md
+        - Basic 01 Evolution: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/01_basic_01_evolution.md
+        - Basic 02 Distributed System: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/01_basic_02_distributed-system.md
+        - Concept 01 SFP: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/03_concept_01_SFP.md
+        - Concept 02 Heartbeat 1: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/03_concept_02_heartbeat_1.md
+        - Concept 02 Heartbeat 2: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/03_concept_02_heartbeat_2.md
+        - Concept 03 Consensus: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/03_concept_03_consensus.md
+        - Concept 04 Event Loop: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/05_concept_04_event-loop.md
+        - Concept 06 Idempotency: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/05_concept_06_idempotency.md
+        - Concept 07 Hashing: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/05_concept_07_hashing.md
+        - Concept 09 Scale Cube: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/05_concept_09_scale-cube.md
+        - Concept 99 More List: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/05_concept_99_more-list.md
+        - Os 01 Kernel: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/02_os_01_kernel.md
+        - System Design Topic List: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/01-topic-list.md
+      - Design Patterns:
+        - Behavioral Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/03_Behavioral_Patterns.md
+        - Creational Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/01_Creational_Patterns.md
+        - Cloud Design Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/07_Cloud_design_Patterns.md
+        - Event Driven+messaging Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/06_Event-Driven+Messaging_Patterns.md
+        - Observability+reliability Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/09_Observability+Reliability_Patterns.md
+        - S.O.L.I.D: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/00_S.O.L.I.D.md
+        - Structural Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/02_Structural_Patterns.md
+        - Security Design Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/08_Security_Design_Patterns.md
+        - Ui+frontend Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/10_UI+Frontend_Patterns.md
+      - IPC:
+        - Asynchronous: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/01_02_polling.md
+        - Batch File Based: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/05_batch_file_based.md
+        - Synchronous: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/01_01_request-response.md
+        - Streaming TCP Based: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/02_01_streaming-sse.md
+        - Video Streaming: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/02_03_streaming-webRTC.md
+      - Network:
+        - Concept 01 Socket: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/01_concept_01_socket.md
+        - Concept 02 More: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/01_concept_02_more.md
+        - Concept 03 Pre Signed Urls: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/02_concept_03_pre-signed-urls.md
+        - Concept 04 Proxies: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/02_concept_04_proxies.md
+        - Core 01 OSI Layers: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/02_core_01_OSI-layers.md
+        - Core 02 Load Balancer: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/02_core_02_Load-balancer.md
+        - Core 03 Latency+regionalization: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/02_core_03_latency+regionalization.md
+        - Core 04 Network Failure: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/02_core_04_network-failure.md
     - SD 02 Non Functional Req:
       - NFR Of Reliability System: 2022-2025/SE_02_system-design/SD_02_Non-functional-req/02_NFR-of-reliability-system.md
       - NFR 01 Availability: 2022-2025/SE_02_system-design/SD_02_Non-functional-req/02_NFR_01_Availability.md
@@ -329,69 +379,81 @@ nav:
       - NFR 07 Resiliency: 2022-2025/SE_02_system-design/SD_02_Non-functional-req/02_NFR_07_resiliency__.md
       - NFR 08 Maintenance+cost: 2022-2025/SE_02_system-design/SD_02_Non-functional-req/02_NFR_08-Maintenance+cost.md
       - Trade Offs: 2022-2025/SE_02_system-design/SD_02_Non-functional-req/01_Trade-offs.md
-    - SD 03 Core Building Blocks:
-      - SD 03 51 Datastructure:
-        - Core 01 Bloomfilter: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_01_BloomFilter.md
-        - Core 02 Btree: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_02_btree.md
-        - Core 03 LSM Tree: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_03_LSM-tree.md
-        - Core 04 Btree+lsm 2: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_51_DataStructure/01_core_04_Btree+LSM_2.md
-      - SD 03 52 Architecture:
-        - Core 01 Client Server Arch: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_52_architecture/01_core_01_client-server-arch.md
-        - Core 02 Monolith Arch: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_52_architecture/01_core_02_monolith-arch.md
-        - Core 03 Microservice Arch: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_52_architecture/01_core_03_microservice-arch.md
-        - Core 04 Event Driven Arch: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_52_architecture/01_core_04_event-driven-arch.md
-        - Core 04 Service Mesh Arch: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_52_architecture/01_core_04_service-mesh-arch.md
-        - Core 05 Stateless Arch: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_52_architecture/01_core_05_stateless_arch.md
-      - SD 03 53 Transport Delivery:
-        - Core 01 Load Balancer: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_53_Transport-delivery/01_core_01_Load-balancer.md
-        - Core 02 CDN: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_53_Transport-delivery/01_core_02_CDN.md
-        - Core 04 Proxies: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_53_Transport-delivery/01_core_04_proxies.md
-        - Core 05 Pre Signed Urls: 2022-2025/SE_02_system-design/SD_03_Core-building-blocks/SD_03_53_Transport-delivery/01_core_05_pre-signed-urls.md
     - SD 04 Protecting Servers:
       - Protection 00 Death Spiral: 2022-2025/SE_02_system-design/SD_04_protecting-servers/02_protection_00_death-spiral.md
       - Protection 01 Auto Scaling: 2022-2025/SE_02_system-design/SD_04_protecting-servers/02_protection_01_auto-scaling.md
       - Protection 02 Load Shedding: 2022-2025/SE_02_system-design/SD_04_protecting-servers/02_protection_02_Load-Shedding.md
       - Protection 03 Ratelimiting: 2022-2025/SE_02_system-design/SD_04_protecting-servers/02_protection_03_RateLimiting.md
-      - Protectingclient 02 Circuit Breaker: 2022-2025/SE_02_system-design/SD_04_protecting-servers/03_protectingClient_02_circuit-breaker.md
-    - SD 05 Datalayer+storage:
-      - Basic 01 Memory: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/01_basic_01_memory.md
-      - Basic 02 Storage: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/01_basic_02_storage.md
-      - Basic 04 Database Nosql: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/01_basic_04_database_NoSQL.md
-      - Concept 00 Indexes: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_00_indexes.md
-      - Concept 01 Database Replication: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_01_database-replication.md
-      - Concept 02 Consistent Hashing: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_02_consistent-hashing.md
-      - Concept 03 Partitioning: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_03_partitioning.md
-      - Concept 03 Sharding: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_03_sharding.md
-      - Concept 05 Mapreduce: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/03_concept_05_MapReduce.md
-      - Pattern 01 CQRS: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/05_pattern_01_CQRS.md
-      - Pattern 02 SAGA: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/05_pattern_02_SAGA.md
-      - Redis Chapter 1: 2022-2025/SE_02_system-design/SD_05_DataLayer+storage/04_redis-chapter-1.md
-    - SD 06 Distributed System:
-      - Distibuted System: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_00_distibuted-system.md
-      - Distributed Caching: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_01_distributed-caching.md
-      - Distributed Locking: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_02_distributed-Locking.md
-      - Distributed Transaction: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_03_distributed-Transaction.md
-      - Distributed Filesystem: 2022-2025/SE_02_system-design/SD_06_Distributed-system/02_04_distributed-FileSystem.md
-    - SD 07 Advance Concepts:
-      - Algo 02 Leaderelection: 2022-2025/SE_02_system-design/SD_07_Advance_concepts/03_algo_02_LeaderElection.md
-      - Algo 03 Erasor Coding: 2022-2025/SE_02_system-design/SD_07_Advance_concepts/03_algo_03_erasor-coding.md
-      - Algo 04 Hyperloglog: 2022-2025/SE_02_system-design/SD_07_Advance_concepts/03_algo_04_hyperloglog.md
+    - SD 05 Datamodeling:
+      - Basic Concepts:
+        - Basic 01 Memory: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/01_basic_01_memory.md
+        - Basic 02 Storage: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/01_basic_02_storage.md
+        - Database Replication: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/03_01_database-replication.md
+        - Database Partitioning: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/03_02_database-partitioning.md
+        - Mapreduce: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/03_03_MapReduce.md
+      - Design 01 Choose Database: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_design_01_choose-database.md
+      - Design 02 Schema: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_design_02_schema.md
+      - Design 03 Indexes 1: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_design_03_indexes-1.md
+      - Design 03 Indexes 2: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_design_03_indexes-2.md
+      - Datastructure:
+        - Core 01 Bloomfilter: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_01_BloomFilter.md
+        - Core 02 Btree: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_02_btree.md
+        - Core 03 LSM: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_03_LSM.md
+        - Core 04 Hashtable: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_04_hashtable.md
+        - Core 05 Geo Spactial: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_05_geo-spactial.md
+        - Core 06 Inverted: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_06-inverted.md
+      - Redis Chapter 1: 2022-2025/SE_02_system-design/SD_05_DataModeling/04_redis-chapter-1.md
+      - SQL Fundamental:
+        - Acid+locks: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/07_ACID+Locks.md
+        - Constraints: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/02_constraints.md
+        - CTE: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/05_CTE.md
+        - Datatype: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/01_datatype.md
+        - Ddl: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/02_ddl.md
+        - Dml: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/02_dml.md
+        - Dql: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/02_dql.md
+        - Dcl: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/03_dcl.md
+        - Function: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/04_function.md
+        - Normalization: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/00_Normalization.md
+        - Postgress: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/00_postgress.md
+        - View: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/06_view.md
+    - SD 06 Think In Scale:
+      - Caching: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_01_caching.md
+      - Consistent Hashing: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_03_consistent-hashing.md
+      - CAP Theorem: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_04_CAP-theorem.md
+      - Distributed Caching: 2022-2025/SE_02_system-design/SD_06_think-in-scale/02_01_distributed-caching.md
+      - Distributed Locking: 2022-2025/SE_02_system-design/SD_06_think-in-scale/02_02_distributed-Locking.md
+      - Distributed Transaction: 2022-2025/SE_02_system-design/SD_06_think-in-scale/02_03_distributed-Transaction.md
+      - Distributed Filesystem: 2022-2025/SE_02_system-design/SD_06_think-in-scale/02_04_distributed-FileSystem.md
+      - Numbers To Know: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_04_Numbers-to-know.md
+      - Sharding: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_02_sharding.md
+    - SD 07 The Patterns:
+      - Common Patterns: 2022-2025/SE_02_system-design/SD_07_the_patterns/00_common_patterns.md
     - SD 08 API Design:
-      - Api 00 Network Protocols: 2022-2025/SE_02_system-design/SD_08_API-Design/05_api_00_network-protocols.md
-      - Api 01 Designing: 2022-2025/SE_02_system-design/SD_08_API-Design/05_api_01_designing.md
-      - Api 01 Http Headers: 2022-2025/SE_02_system-design/SD_08_API-Design/05_api_01_http-headers.md
-      - Api 01 Ratelimiting: 2022-2025/SE_02_system-design/SD_08_API-Design/05_api_01_rateLimiting.md
-      - Api 02 Api Gateway: 2022-2025/SE_02_system-design/SD_08_API-Design/05_api_02_api-gateway.md
-      - Api 04 Caching: 2022-2025/SE_02_system-design/SD_08_API-Design/05_api_04_caching.md
-      - Api 05 Testing: 2022-2025/SE_02_system-design/SD_08_API-Design/05_api_05_testing.md
-      - Api 06 Security: 2022-2025/SE_02_system-design/SD_08_API-Design/05_api_06_security.md
-      - Concept 02 Service Discovery: 2022-2025/SE_02_system-design/SD_08_API-Design/01_concept_02_service-discovery.md
-      - Concept 03 Container Orchestration: 2022-2025/SE_02_system-design/SD_08_API-Design/01_concept_03_container-orchestration.md
-      - Pattern 01 BFF: 2022-2025/SE_02_system-design/SD_08_API-Design/02_pattern_01_BFF.md
-      - Pattern 02 Circuit Breaker Pattern: 2022-2025/SE_02_system-design/SD_08_API-Design/02_pattern_02_circuit-breaker-pattern.md
-      - Pattern 03 Aggregator Pattern: 2022-2025/SE_02_system-design/SD_08_API-Design/02_pattern_03_aggregator-pattern.md
-      - Pattern 04 Sidecar+ambassador: 2022-2025/SE_02_system-design/SD_08_API-Design/02_pattern_04_sidecar+ambassador.md
-      - Pattern 06 API Gateway: 2022-2025/SE_02_system-design/SD_08_API-Design/02_pattern_06_API-gateway.md
+      - Api Design 01 Approach: 2022-2025/SE_02_system-design/SD_08_API-Design/01_approach.md
+      - Api Design 02 Choose Protocol: 2022-2025/SE_02_system-design/SD_08_API-Design/02_choose-protocol.md
+      - Api Design 03 Pagination: 2022-2025/SE_02_system-design/SD_08_API-Design/03_pagination.md
+      - Api Design 04 Versioning: 2022-2025/SE_02_system-design/SD_08_API-Design/04_versioning.md
+      - Api Design 05 Security: 2022-2025/SE_02_system-design/SD_08_API-Design/05_security.md
+      - Api Design 06 Caching: 2022-2025/SE_02_system-design/SD_08_API-Design/06_caching.md
+      - Concept 01 BFF: 2022-2025/SE_02_system-design/SD_08_API-Design/03_concept_01_BFF.md
+      - Concept 02 API Checklist: 2022-2025/SE_02_system-design/SD_08_API-Design/03_concept_02_API-checklist.md
+      - Concept 03 Api Gateway: 2022-2025/SE_02_system-design/SD_08_API-Design/03_concept_03_api-gateway.md
+      - Grpc 01 Overview: 2022-2025/SE_02_system-design/SD_08_API-Design/02_grpc_01_overview.md
+      - Graphql 01 Overview: 2022-2025/SE_02_system-design/SD_08_API-Design/03_graphQL_01_overview.md
+      - Rest 01 Best Principles: 2022-2025/SE_02_system-design/SD_08_API-Design/01_rest_01_overview.md
+      - Rest 02 Http Headers: 2022-2025/SE_02_system-design/SD_08_API-Design/01_02_http-headers.md
+      - Rest 03 Http Evolution: 2022-2025/SE_02_system-design/SD_08_API-Design/01_01_http-evolution.md
+    - SD 21 Microservice:
+      - Core Pattern 01 Stateless Vs Stateful: 2022-2025/SE_02_system-design/SD_21_microservice/04_core_pattern_01_stateless_vs_stateful.md
+      - Core Pattern 02 Service Discovery: 2022-2025/SE_02_system-design/SD_21_microservice/04_core_pattern_02_service-discovery.md
+      - Core Pattern 03 Aggregator: 2022-2025/SE_02_system-design/SD_21_microservice/04_core_pattern_03_aggregator.md
+      - Core Pattern 03 Database Per Service: 2022-2025/SE_02_system-design/SD_21_microservice/04_core_pattern_03_database-per-service.md
+      - Core Pattern 04 Ambassador: 2022-2025/SE_02_system-design/SD_21_microservice/04_core_pattern_04_ambassador.md
+      - Core Pattern 04 Sidecar: 2022-2025/SE_02_system-design/SD_21_microservice/04_core_pattern_04_sidecar.md
+      - Microservices Master List: 2022-2025/SE_02_system-design/SD_21_microservice/01_02_microservices-master-list.md
+      - Resiliency Pattern 01 Bulkhead: 2022-2025/SE_02_system-design/SD_21_microservice/03_resiliency_pattern_01_bulkhead.md
+      - Resiliency Pattern 02 Circuit Breaker: 2022-2025/SE_02_system-design/SD_21_microservice/03_resiliency_pattern_02_circuit-breaker.md
+      - Start Microservices: 2022-2025/SE_02_system-design/SD_21_microservice/01_01_start-microservices.md
     - SD 24 Security:
       - Iam: 2022-2025/SE_02_system-design/SD_24_security/01_02_iam.md
       - Iam Tool OKTA: 2022-2025/SE_02_system-design/SD_24_security/01_03_iam_tool_OKTA.md
@@ -415,7 +477,8 @@ nav:
     - SD 25 Observability:
       - Distributed Tracing: 2022-2025/SE_02_system-design/SD_25_observability/03_distributed-Tracing.md
       - Deloyment 01 Strategies: 2022-2025/SE_02_system-design/SD_25_observability/09_deloyment_01_strategies.md
-    - System Design Navigation Recommended: 2022-2025/SE_02_system-design/system-design-navigation-recommended.md
+    - Temp:
+      - Artifact: 2022-2025/SE_02_system-design/temp/artifact.md
   - SE 99 Case Studies:
     - Bytebytego:
       - Notification System: 2022-2025/SE_99_case-studies/02_ByteByteGo/02_notification-system.md
@@ -432,20 +495,11 @@ nav:
       - Design Patterns: 2022-2025/SE_99_case-studies/01_MAPS/02_design-patterns.md
       - DR Strategies: 2022-2025/SE_99_case-studies/01_MAPS/05_DR-strategies.md
       - Release Process: 2022-2025/SE_99_case-studies/01_MAPS/03_release_process.md
+    - More:
+      - Lekhrajdinkar: 2022-2025/SE_99_case-studies/99_More/01_lekhrajDinkar.md
 - 2026 2030:
   - PE 01 Datadog:
     - Kick Off: 2026-2030/PE_01_Datadog/00_kick_off.md
     - Obs Start: 2026-2030/PE_01_Datadog/01_Obs_start.md
     - Observability Spring: 2026-2030/PE_01_Datadog/01_Observability-spring.md
     - Observabilty Datadog: 2026-2030/PE_01_Datadog/02_observabilty-datadog.md
-  - SE 01 Design Pattern:
-    - Architectural Patterns: 2026-2030/SE_01_Design_pattern/04_Architectural_Patterns.md
-    - Behavioral Patterns: 2026-2030/SE_01_Design_pattern/03_Behavioral_Patterns.md
-    - Creational Patterns: 2026-2030/SE_01_Design_pattern/01_Creational_Patterns.md
-    - Cloud Design Patterns: 2026-2030/SE_01_Design_pattern/07_Cloud_design_Patterns.md
-    - Event Driven+messaging Patterns: 2026-2030/SE_01_Design_pattern/06_Event-Driven+Messaging_Patterns.md
-    - Microservices Design Patterns: 2026-2030/SE_01_Design_pattern/05_Microservices_Design_Patterns.md
-    - Observability+reliability Patterns: 2026-2030/SE_01_Design_pattern/09_Observability+Reliability_Patterns.md
-    - Structural Patterns: 2026-2030/SE_01_Design_pattern/02_Structural_Patterns.md
-    - Security Design Patterns: 2026-2030/SE_01_Design_pattern/08_Security_Design_Patterns.md
-    - Ui+frontend Patterns: 2026-2030/SE_01_Design_pattern/10_UI+Frontend_Patterns.md

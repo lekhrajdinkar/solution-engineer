@@ -189,9 +189,9 @@ flowchart LR
 
 ---
 ## Scale Cube 🧊
-[01_core_06_scale-cube.md](../SD_01_foundation/05_concept_09_scale-cube.md)
+[01_core_06_scale-cube.md](../SD_01_Foundation/01_basic_concepts/05_concept_09_scale-cube.md)
 
 ---
 ## Scaling protects server from Death Spiral ⭐
-- [death-spiral](../SD_04_protecting-servers/02_protection_00_death-spiral.md)
-- [protection server:: auto-scaling.](../SD_04_protecting-servers/02_protection_01_auto-scaling.md)
+- [death-spiral](../SD_03_protecting-servers/02_protection_00_death-spiral.md)
+- [protection server:: auto-scaling.](../SD_03_protecting-servers/02_protection_01_auto-scaling.md)
