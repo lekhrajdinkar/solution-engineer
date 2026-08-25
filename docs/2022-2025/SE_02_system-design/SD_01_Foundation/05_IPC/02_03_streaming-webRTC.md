@@ -1,16 +1,14 @@
-# Video Streaming
+# Audio/Video Streaming  :: webRTC
 ## References
 - https://www.hellointerview.com/learn/system-design/patterns/realtime-updates#long-polling-the-easy-solution 
 - https://youtu.be/Kn_3uHaKz7Q?si=4RO9_-fleOyvILBt | bm webRTC
-- https://www.youtube.com/watch?v=kCAXpAikMVc | bm ABS
 
----
-## WebRTC
+
 > ⚠️ WebRTC is an absolute pain to get right and even the best implementations still suffer connection losses. It truly is a niche solution.
 
-### Overview
+## Overview
 - enables **real-time peer-to-peer audio, video, and data** directly between browsers/apps.
-- Common uses: video calls, voice calls, screen sharing, and P2P file/data transfer.
+-  If you have a system where clients need to talk to each other frequently, you could use WebRTC **to reduce the load on your servers** by having clients establish their own connections.
 
 Key points:
 * Usually **peer-to-peer**
@@ -23,6 +21,8 @@ Key points:
 Key distinction:
 - STUN → helps peers connect directly
 - TURN → relays traffic when direct connection fails
+
+## Complex setup
 
 ```mermaid
 sequenceDiagram
@@ -57,23 +57,13 @@ sequenceDiagram
         TURN->>A: Relay traffic
     end
 ```
+---
+## when to use
+- video calls, voice calls,
+- screen sharing, 
+- and P2P file/data transfer.
 
 ---
-## ABS
-### Overview
-- ABS **Adaptive Bitrate Streaming**
-    - adjusts video quality based on the viewer's internet
-    - ABS works by encoding video at **multiple bitrates**
-- Types of Video Streaming
-    - Live streaming:
-    - On-demand streaming
-    - Peer-to-peer streaming: Distributing content where viewers share their bandwidth and computing resources
 
-### DASH - Dynamic Adaptive Streaming over HTTP
-![img.png](../../../../99_img/2026/04/01/01/img.png)
-
-### HLS - HTTP Live Streaming
-
-### RTMP - realTime messaging Prot
 
 

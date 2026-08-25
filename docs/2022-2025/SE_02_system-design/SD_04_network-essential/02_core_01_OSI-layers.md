@@ -258,5 +258,5 @@ While HTTP can be used directly to build websites,
 
 ---
 ### 5. video Streaming (UDP ?)
-#### [ABS](../SD_01_Foundation/05_IPC/04_video-streaming.md#1-videos-streaming--abs)
-#### [WebRTC⭐](../SD_01_Foundation/05_IPC/04_video-streaming.md#2-webrtc)
+#### [ABS](../SD_01_Foundation/05_IPC/02_03_streaming-webRTC.md#1-videos-streaming--abs)
+#### [WebRTC⭐](../SD_01_Foundation/05_IPC/02_03_streaming-webRTC.md#2-webrtc)

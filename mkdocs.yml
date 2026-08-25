@@ -356,7 +356,7 @@ nav:
         - Batch File Based: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/05_batch_file_based.md
         - Synchronous: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/01_01_request-response.md
         - Streaming TCP Based: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/02_01_streaming-sse.md
-        - Video Streaming: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/04_video-streaming.md
+        - Video Streaming: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/02_03_streaming-webRTC.md
       - Network:
         - Concept 01 Socket: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/01_concept_01_socket.md
         - Concept 02 More: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/01_concept_02_more.md

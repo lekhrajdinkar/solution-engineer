@@ -49,57 +49,23 @@ Server-Sent Events (SSE): The Efficient One-Way Street
 Websockets: The Full-Duplex Champion
 WebRTC: The Peer-to-Peer Solution
 ```
-- [01_02_polling.md](../SD_01_Foundation/05_IPC/01_02_polling.md)
-- [03_streaming-TCP-based.md](../SD_01_Foundation/05_IPC/02_01_streaming-sse.md)
-- [04_video-streaming.md](../SD_01_Foundation/05_IPC/04_video-streaming.md)
+- [01_01_request-response.md](../SD_01_Foundation/05_IPC/01_01_request-response.md) ❌
+- [01_02_polling.md](../SD_01_Foundation/05_IPC/01_02_polling.md) | `short and long`
+- [02_01_streaming-sse.md](../SD_01_Foundation/05_IPC/02_01_streaming-sse.md) | `SSE`
+- [02_02_streaming-wss.md](../SD_01_Foundation/05_IPC/02_02_streaming-wss.md) | `WS`
+- [02_03_streaming-webRTC.md](../SD_01_Foundation/05_IPC/02_03_streaming-webRTC.md)| `webRTC`
 
-
-**Infra in between client and server must support persistent connection like wss and sse**
-- L7 load balancers aren't guaranteeing
-- L4 load balancers will support websockets natively, **since the same TCP connection is used for each request.**
 
 ```mermaid
-flowchart TB
-    subgraph ClientLayer ["Client Side"]
-        Client["<b>Client / Browser</b><br>• WSS / WebSocket Client<br>• EventSource (SSE)"]
-    end
+flowchart TD
+    Start{"What is the communication pattern & requirement?"}
+    Start -->|"Direct Peer-to-Peer / Audio-Video"| WebRTC["<b>WebRTC</b><br>• Sub-second ultra-low latency UDP<br>• P2P audio, video & data streams"]
+    Start -->|"Server-to-Client Unidirectional Push"| SSE["<b>Server-Sent Events (SSE)</b><br>• Lightweight HTTP text streaming<br>• Stock tickers, live notifications"]
+    Start -->|"Bidirectional Low-Latency Exchange"| WS["<b>WebSockets (WSS)</b><br>• Full-duplex persistent TCP socket<br>• Realtime chat, multiplayer gaming"]
+    Start -->|"Periodic Updates / Simple HTTP Model"| Polling{"Update frequency & latency tolerance?"}
+    Polling -->|"Infrequent updates / Stale data acceptable"| SP["<b>Short Polling</b><br>• Fixed-interval HTTP requests<br>• Low server load, simple caching"]
+    Polling -->|"Near realtime without WebSocket infra"| LP["<b>Long Polling</b><br>• Server holds HTTP open until event<br>• Fallback for legacy environments"]
 
-    subgraph EdgeLayer ["Edge & Ingress Infrastructure"]
-    direction LR
-        CDN["<b>CDN / Edge Proxy</b><br>• Bypass caching for /ws & /sse<br>• TLS Termination"]
-        LB["<b>Layer 4 / Layer 7 Load Balancer</b><br>• <i>Least Connections</i> Algorithm<br>• WebSocket Upgrade Support<br>• Extended Idle Timeout (Keep-Alive)"]
-        Gateway["<b>API Gateway / Reverse Proxy</b><br><i>(NGINX / Envoy / HAProxy)</i><br>• Disable Response Buffering (SSE)<br>• HTTP/1.1 Upgrade: websocket<br>• Persistent Connection Tracking"]
-    end
-
-    subgraph ServerLayer ["Backend Infrastructure"]
-        App1["<b>Realtime Server 1</b><br>• Open TCP/Socket Handles<br>• epoll / kqueue Event Loop"]
-        App2["<b>Realtime Server 2</b><br>• Open TCP/Socket Handles<br>• epoll / kqueue Event Loop"]
-        RedisPubSub[("<b>Pub/Sub Broker</b><br>(Redis / Kafka)<br>• Cross-server message broadcast")]
-    end
-
-    %% Flow connections
-    Client -->|"1. TLS Handshake / Initial HTTP"| CDN
-    CDN -->|"2. Forward connection"| LB
-    LB -->|"3. Route via Least Connections"| Gateway
-    Gateway -->|"4. Persistent TCP Stream (WSS / SSE)"| App1
-    Gateway -->|"4. Persistent TCP Stream (WSS / SSE)"| App2
-
-    App1 <--> RedisPubSub
-    App2 <--> RedisPubSub
-
-    %% Styling
-    style ClientLayer fill:#121212,stroke:#555555,stroke-dasharray: 5 5,color:#ffffff
-    style EdgeLayer fill:#121212,stroke:#89b4fa,stroke-dasharray: 5 5,color:#ffffff
-    style ServerLayer fill:#121212,stroke:#a6e3a1,stroke-dasharray: 5 5,color:#ffffff
-
-    style Client fill:#1e1e2e,stroke:#ffffff,stroke-width:1.5px,color:#ffffff
-    style CDN fill:#1e1e2e,stroke:#89b4fa,stroke-width:1.5px,color:#ffffff
-    style LB fill:#1e1e2e,stroke:#89b4fa,stroke-width:1.5px,color:#ffffff
-    style Gateway fill:#1e1e2e,stroke:#89b4fa,stroke-width:1.5px,color:#ffffff
-    style App1 fill:#1e1e2e,stroke:#a6e3a1,stroke-width:1.5px,color:#ffffff
-    style App2 fill:#1e1e2e,stroke:#a6e3a1,stroke-width:1.5px,color:#ffffff
-    style RedisPubSub fill:#313244,stroke:#fab387,stroke-width:1.5px,color:#ffffff
 ```
-
 ---
 ### hop-2. Server-Side Push/pull
