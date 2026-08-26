@@ -1,14 +1,17 @@
 # Real-time Updates / push notifications
 ## reference
 - https://www.hellointerview.com/learn/system-design/patterns/realtime-updates
+- https://www.hellointerview.com/learn/system-design/patterns/realtime-updates/quick-reference
 - [network-essential](../SD_04_network-essential)
 - https://www.youtube.com/watch?v=EX5uZV3Tzss
 
 ---
 ## use-cases / scenario
-- `Google Docs` | https://www.hellointerview.com/learn/system-design/problem-breakdowns/google-docs
-- `FB Live Comments` | https://www.hellointerview.com/learn/system-design/problem-breakdowns/fb-live-comments
-- `WhatsApp` | https://www.hellointerview.com/learn/system-design/problem-breakdowns/whatsapp
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/google-docs | ws | h
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/fb-live-comments 
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/whatsapp 
+  - hop:1 sse to receive | rest to send 
+  - hop:2 p/s
 
 ```
 More:
@@ -20,8 +23,8 @@ More:
     Online Chess
     ChatGPT
 ---
-Live Dashboards and Analytics : SSE
-Gaming and Interactive Applications : WS
+Live Dashboards and Analytics : | sse | p/s
+Gaming and Interactive Applications : we | h
 ```
 ---
 ## Problem
@@ -88,7 +91,9 @@ flowchart TD
   - Pushing ( via Consistent Hashes) 
   - Pushing ( via Pub/Sub )
 
-### 1.0 Pulling ( via Polling )
+![img.png](draw/img2.png)
+
+### 1. Pulling ( via Polling )
 - notice arrow sign below, its pull
 
 ```mermaid
@@ -104,19 +109,19 @@ flowchart LR
 
 ```
 
-### 2.1 Pushing ( via Consistent Hashes) 
-- the client(say `user A`) has a **persistent connection (ws,sse,long-poll)** to one server and that server is responsible for sending updates to the client.
-- Ideally, when a message needs to be sent, 
+### 2. Pushing
+- the client(say `user A`) has a **persistent connection (ws,sse,long-poll)** to one server 
+- and that server is responsible for sending updates to the client.
+- from update server, when a message needs to be sent: 
     - Figure out which server, "User A" is connected to. ⭐
-    - Send the message to that server.
+    - Send the message to that server. how ? message-Broker/gRPC ?
     - That server will look up which (websocket, SSE, long-polling) request is associated with "User A".
-    - The server will then write the message via the appropriate connection.
+    - The server will then write the message **via the appropriate connection.** 
 
->  we'll have a **central Zookeeper / Etcd service** with metadata.
-> - there are N server, can assign them each a number 0 through N-1. 
+#### 2.1. Pushing (Simple Hashing)
+>  we'll have a **central Zookeeper / Etcd service** with metadata
+> - there are N server, can assign them each a number 0 through N-1.
 > - allows the servers to keep in sync as it updates.
-
-#### Simple Hashing
 
 ```
 serverIndex = hash(userId) % N | N = 2
@@ -124,10 +129,7 @@ serverIndex = hash(userId) % N | N = 2
     User A → hash(A) % 2 → 0 → Server 1
     User B → hash(B) % 2 → 1 → Server 2
     User C → hash(C) % 2 → 0 → Server 1
-
 ```
-
-clients **randomly connect** to any of the servers and have that server redirect them to the appropriate server based on internal data sync from Zookeeper. ✔️
 
 ```
 When a client connects, the following happens:
@@ -137,7 +139,15 @@ When a client connects, the following happens:
 - The server redirects the client to the appropriate server.
 - The client connects to the correct server.
 - The server adds that client to a map of connections.
+
+update server:
+- has update for A
+- uses Zookeeper's server list to compute which server is responsible user A
+- publish reponse to realtime server
+- That server will look up which (websocket, SSE, long-polling) request is associated with "User A".
+- The server will then write the message via the appropriate connection.
 ```
+
 ```mermaid
 flowchart TD
     %% ZooKeeper / Coordination Layer
@@ -177,10 +187,10 @@ flowchart TD
 
 ```
 ---
-#### Consistent Hashing
+#### 2.2. Pushing (Consistent Hashing)
 
 ```
-serverIndex = hash(userId) %  | ring = 360
+serverIndex = hash(userId) % R | R,ring = 360
 
     User A → hash(A) % 360 → move clockwise --> 0 → Server 1
     User B → hash(B) % 360 → move clockwise --> 1 → Server 2
@@ -192,9 +202,8 @@ serverIndex = hash(userId) %  | ring = 360
 - and each user connects to the next server they encounter when moving clockwise around the ring.
 - use, when system needs to scale dynamically.
 
-
 ---
-### 2.2 Pushing ( via Pub/Sub )**
+#### 2.3 Pushing :: via Pub/Sub
 
 ```mermaid
 flowchart LR
@@ -242,10 +251,22 @@ sequenceDiagram
     deactivate EP1
     end
 ```
-## Summary
-![img.png](img.png)
+- Q1: 
+  - When consuming messages from a shared Kafka topic/partition,
+  - what do we do with messages intended for **clients that are offline** 
+  - or do not currently have an active socket connection?
+- Q2:
+  - If 50,000 users share 250 partitions (shards) in a single Kafka topic
+  - and updates arrive simultaneously, how is m**essage ordering preserved for each user?**
+- q3: if we create **1 topic per user**, how do we handle millions of users without overloading the broker?
 
-> [01_realtime-update.excalidraw](01_realtime-update.excalidraw)
+---
+## Summary 💡
+> [realtime-update](draw/01_realtime-update.excalidraw) | [read-link](https://excalidraw.com/#json=tp6lsIiuKf6HzfHl6WwoW,YpgunMqS_OrMo51UXEz1pQ)
+![img.png](draw/img.png)
+
+> [realtime-update-problems](draw/01_02_realtime-update-problems.excalidraw)  | [read-link](https://excalidraw.com/#json=r0O3ZBV9zOMqGjw5BqWSi,CNtqqb5pP3ErlnjTKKaQrA)
+![img.png](draw/img1.png)
 
 ---
 ## Common Deep Dives ⭐
@@ -286,25 +307,6 @@ Client                         Server
   │◄──── Event #103 ──────────────│
   │◄──── Event #104 ──────────────│
   │◄──── Event #105 ──────────────│
-```
-```  
-┌──────────┐     WebSocket     ┌─────────────────┐
-│  Client  │ ─────────────────►│ Load Balancer   │
-└──────────┘                   └────────┬────────┘
-                                        │
-                          ┌─────────────┴─────────────┐
-                          ▼                           ▼
-                  ┌─────────────────┐       ┌─────────────────┐
-                  │ WebSocket       │       │ WebSocket       │
-                  │ Server 1        │       │ Server 2        │
-                  └────────┬────────┘       └────────┬────────┘
-                           │                         │
-                           └────────────┬────────────┘
-                                        ▼
-                              ┌──────────────────┐
-                              │ Event Store /    │
-                              │ Redis Stream     │
-                              └──────────────────┘
 ```
 
 ---
@@ -379,3 +381,4 @@ flowchart LR
 - Each server maintains its own vector clock, 
 - and messages **include timestamp information** 
 - that helps recipients determine the correct order.
+

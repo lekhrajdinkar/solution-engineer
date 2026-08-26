@@ -404,7 +404,7 @@ nav:
         - Core 06 Inverted: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_06-inverted.md
       - Redis Chapter 1: 2022-2025/SE_02_system-design/SD_05_DataModeling/04_redis-chapter-1.md
       - SQL Fundamental:
-        - Acid+locks: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/07_ACID+Locks.md
+        - Acid+locks: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/07_ACID.md
         - Constraints: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/02_constraints.md
         - CTE: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/05_CTE.md
         - Datatype: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/01_datatype.md
@@ -421,13 +421,13 @@ nav:
       - Consistent Hashing: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_03_consistent-hashing.md
       - CAP Theorem: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_04_CAP-theorem.md
       - Distributed Caching: 2022-2025/SE_02_system-design/SD_06_think-in-scale/02_01_distributed-caching.md
-      - Distributed Locking: 2022-2025/SE_02_system-design/SD_06_think-in-scale/02_02_distributed-Locking.md
+      - Distributed Locking: 2022-2025/SE_02_system-design/SD_06_think-in-scale/03_03_distributed-Locking.md
       - Distributed Transaction: 2022-2025/SE_02_system-design/SD_06_think-in-scale/02_03_distributed-Transaction.md
       - Distributed Filesystem: 2022-2025/SE_02_system-design/SD_06_think-in-scale/02_04_distributed-FileSystem.md
       - Numbers To Know: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_04_Numbers-to-know.md
       - Sharding: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_02_sharding.md
     - SD 07 The Patterns:
-      - Common Patterns: 2022-2025/SE_02_system-design/SD_07_the_patterns/00_common_patterns.md
+      - Common Patterns: 2022-2025/SE_02_system-design/SD_07_the_patterns/99_common-patterns-summary.md
     - SD 08 API Design:
       - Api Design 01 Approach: 2022-2025/SE_02_system-design/SD_08_API-Design/01_approach.md
       - Api Design 02 Choose Protocol: 2022-2025/SE_02_system-design/SD_08_API-Design/02_choose-protocol.md

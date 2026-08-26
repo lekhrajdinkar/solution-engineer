@@ -1,5 +1,4 @@
 # Distributed Lock
-## reference
 - https://www.youtube.com/watch?v=qY4MfWv01pI (Skip)
 
 ## Overview
@@ -8,28 +7,6 @@ purpose:
 - by allowing only **one node** or process to access a shared resource at a time
 - thus Solves: **race conditions and deadlocks**
 
-
-```mermaid
-flowchart LR
-    A1[App Instance 1] --> L{Distributed Lock}
-    A2[App Instance 2] --> L
-    A3[App Instance 3] --> L
-
-    L -->|Lock acquired| R[Critical Resource]
-    L -->|Others wait / retry| W[Blocked]
-```
-
-```mermaid
-flowchart LR
-    A[Service Instance] --> B{Acquire Lock}
-    B -->|Success| C[Critical Section]
-    B -->|Failed| D[Retry / Backoff]
-    C --> E[Release Lock]
-    D --> B
-    style D fill:yellow,color:black
-```
----
-## Distributed lock ?
 > Distributed lock = a globally visible ownership record saying “resource X is currently owned by process Y.
 ```
     { 
@@ -39,6 +16,7 @@ flowchart LR
         Token      : 1042
     }
 ```
+
 ```mermaid
 flowchart LR
     A[Pod-1] --> L[(Lock Store)]
@@ -50,8 +28,22 @@ flowchart LR
     style A fill:yellow,color:black
 ```
 
+```mermaid
+flowchart LR
+    A1[App Instance 1] --> L{Distributed Lock}
+    A2[App Instance 2] --> L
+    A3[App Instance 3] --> L
+    L -->|Success| C[Critical Section]
+    L -->|Failed| D[Retry / Backoff]
+    C --> E[Release Lock]
+    E --> L
+    D --> L
+    style D fill:yellow,color:black
+    style C fill:lightgreen,color:black
+```
+
 ---
-## ideal distributed locking principles
+## key features
 
 | # | Property             | Meaning                                                                 |
 | - | -------------------- | ----------------------------------------------------------------------- |
@@ -63,7 +55,8 @@ flowchart LR
 ![img.png](../../../../99_img/2026/01/img.png)
 
 ---
-## Distributed Locking Approaches
+## Strategies
+
 | Approach                 | How it works                                                              | Pros                                                | Cons                                              |
 | ------------------------ | ------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------- |
 | **Centralized Locking**  | One central lock server decides who owns the lock                         | Simple, fast                                        | **Single point of failure**, bottleneck           |
@@ -94,7 +87,7 @@ flowchart LR
 ```
 
 ---
-## Common implementations
+## use these
 
 | # | Algorithm / Approach           | How it works                                                  | Typical use                           |
 | - | ------------------------------ | ------------------------------------------------------------- |---------------------------------------|
