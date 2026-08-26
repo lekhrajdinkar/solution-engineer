@@ -149,9 +149,8 @@ sequenceDiagram
   
 ---
 ### SERIALIZABLE ✔️✔️✔️✔️
-`range lock` 
-- Solves **phantom read**
-- prevents from **write skew** completely 👈
+- `range lock` 
+- Solves **phantom read** + **write skew** completely 👈
 
 ```mermaid
 sequenceDiagram

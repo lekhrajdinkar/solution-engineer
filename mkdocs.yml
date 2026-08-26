@@ -390,7 +390,7 @@ nav:
         - Basic 02 Storage: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/01_basic_02_storage.md
         - Database Replication: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/03_01_database-replication.md
         - Database Partitioning: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/03_02_database-partitioning.md
-        - Mapreduce: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/03_03_MapReduce.md
+        - Mapreduce: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/04_01_MapReduce.md
       - Design 01 Choose Database: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_design_01_choose-database.md
       - Design 02 Schema: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_design_02_schema.md
       - Design 03 Indexes 1: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_design_03_indexes-1.md
@@ -420,10 +420,10 @@ nav:
       - Caching: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_01_caching.md
       - Consistent Hashing: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_03_consistent-hashing.md
       - CAP Theorem: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_04_CAP-theorem.md
-      - Distributed Caching: 2022-2025/SE_02_system-design/SD_06_think-in-scale/02_01_distributed-caching.md
+      - Distributed Caching: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_01_distributed-caching.md
       - Distributed Locking: 2022-2025/SE_02_system-design/SD_06_think-in-scale/03_03_distributed-Locking.md
-      - Distributed Transaction: 2022-2025/SE_02_system-design/SD_06_think-in-scale/02_03_distributed-Transaction.md
-      - Distributed Filesystem: 2022-2025/SE_02_system-design/SD_06_think-in-scale/02_04_distributed-FileSystem.md
+      - Distributed Transaction: 2022-2025/SE_02_system-design/SD_06_think-in-scale/03_04_distributed-Transaction.md
+      - Distributed Filesystem: 2022-2025/SE_02_system-design/SD_06_think-in-scale/02_01_distributed-FileSystem.md
       - Numbers To Know: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_04_Numbers-to-know.md
       - Sharding: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_02_sharding.md
     - SD 07 The Patterns:

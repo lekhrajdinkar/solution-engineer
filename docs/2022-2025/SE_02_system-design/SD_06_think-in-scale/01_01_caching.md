@@ -44,7 +44,7 @@ Reference
 └──────────┘       └────────────────────┘    Read on Miss   └──────────────┘
 ```
 
-[**Distributed caching**](02_Distributed-system/02_01_distributed-caching.md)
+[**Distributed caching**](01_01_distributed-caching.md)
 - fault-tolerant
 - scalable
 - serves the response from closest cache-node, thus improved performance

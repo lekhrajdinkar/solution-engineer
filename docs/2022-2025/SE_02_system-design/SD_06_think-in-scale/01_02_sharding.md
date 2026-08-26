@@ -238,7 +238,7 @@ trade off:
 ![img_6.png](../../../99_img/2025/se_02_sd/08/04/img_6.png)
 
 ### 3. Cross-shard transactions
-- [distributed-Transaction](02_Distributed-system/02_03_distributed-Transaction.md)
+- [distributed-Transaction](../SD_05_DataModeling/02_basic_concepts/03_04_distributed-Transaction.md)
   - textbook solution is two-phase commit (2PC),
   - Use sagas for multi-shard operations
 - Design to avoid cross-shard transactions, entirely.
