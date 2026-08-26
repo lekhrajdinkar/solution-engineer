@@ -1,17 +1,23 @@
 # Dealing with Contention
 - https://www.hellointerview.com/learn/system-design/patterns/dealing-with-contention
 
-## Terms
+---
+## Overview 
+- Every contended resource has a single source of truth, the one place that owns the real value, and that's where correctness gets enforced
+- `Conditional writes`, `pessimistic locking`, `isolation levels`, and `optimistic concurrency` are just different ways of coordinating access at that source of truth
+- when it outgrows a single transaction, stretching across a wait or a call to another system, a `distributed lock` holds the exclusivity
+
+**key terms**
 - **Contention** : it occurs when multiple processes compete for the same resource at the same time
-- race conditions, 
-- deadlocks, 
+- race conditions,
+- deadlocks,
 - locks(tied with txn) ,
 - distributed locks (leased lock with TTl, outside DB)
 
 ---
 ## 1. Conditional Writes
 ### problem🔺 : `lost update`
-Single row locking :: buying concert tickets online. user1 and user2
+buying concert tickets online. user1 and user2
 - last 1 ticket scenario, `A15`
 - decrementing a counter, flipping a status
 
@@ -167,6 +173,42 @@ WHERE concert_id = 'weeknd_tour'
 -- Bob's UPDATE matches 0 rows. Check the count, roll back, skip the insert.
 ROLLBACK;
 ```
+---
+### ABA problem with OCC 🔺
+-  occurs when a value changes from A to B and back to A between your read and write. 
+- Your optimistic check sees the same value and assumes nothing changed, but important **state transitions happened**.
+
+**example:**
+- restaurant tracks a review_count and you reuse it as your version
+- You read it at 100. 
+- Between your read and your write, one review is deleted (dropping it to 99)
+- and a new one lands (bringing it back to 100). 
+- Your write checks "is the version still 100, but state transitions happened, if not aware of.
+
+**Better approach**
+- Use a dedicated version:
+- review_count = 100
+- version      = 42
+
+```sqlite-psql
+-- Use a dedicated version column for safety
+UPDATE restaurants
+SET avg_rating = 4.1, review_count = review_count + 1, version = version + 1
+WHERE restaurant_id = 'pizza_palace'
+  AND version = 42;  -- Expected current version
+```
+
+> Core Idea : Read some value that represents the state you observed, then require that it hasn't changed when you write.
+>
+| OCC mechanism                | Example                                           |
+| ---------------------------- | ------------------------------------------------- |
+| **Version field**            | `WHERE version = 42` → increment to `43`          |
+| **Timestamp**                | `WHERE updated_at = '...'`                        |
+| **Revision number**          | `WHERE revision = 42`                             |
+| **ETag**                     | HTTP `If-Match: "abc123"`                         |
+| **Conditional state**        | `WHERE status = 'PENDING'`                        |
+| **Compare entire row/state** | `WHERE name = old_name AND price = old_price ...` |
+
 
 ---
 ## 4. Isolation Levels
@@ -248,6 +290,7 @@ sequenceDiagram
 ---
 ## 5. Distributed Locks
 ### problem🔺: Exclusive locks
+- temporary reservations | 10-minute TTL using a distributed lock
 - [03_03_distributed-Locking.md](../SD_05_DataModeling/02_basic_concepts/03_03_distributed-Locking.md)
 
 ---
@@ -295,11 +338,98 @@ flowchart TD
 
 ```
 ---
-## ✔️Deep Dive
-### ABA problem
-### Handle DeadLock
-### Performance
-> performance when everyone wants the same resource
+## ✔️Deep Dive topics
+### 1. Handle DeadLock
+**Scenario**: Alice wants to transfer `$100` to Bob, while Bob simultaneously wants to transfer `$50` to Alice.
+
+**cause**: transactions acquire locks in different orders. The business logic doesn't care about order.
+
+**Solution:** 
+
+1. standard solution is **ordered locking,**
+  - always acquiring locks in a consistent order regardless of your business logic flow.
+  - lock by some deterministic key
+  - This prevents circular waiting 
+  - because all transactions follow the same acquisition order.
+  
+2. Every major database runs **automatic deadlock detection**:
+  - when it spots a cycle,
+  - it aborts one of the transactions with a deadlock error and lets the other proceed
+  - so your job is catching that error and retrying the loser
+
+3. **lock-wait timeout**
+  
+### 2. Performance
+- let consider scenario :  **hot partition or celebrity problem**
+- **fundamental issue** : normal scaling strategies break down when the **contention lands** on one specific item.
+
+Fight here is over contentional writes, so below **infra change** makes no sense:
+- `Sharding` splits load across rows, but everyone here wants the same row, so there's nothing to split. 
+- `Load balancing` just spreads the requests across servers that then queue up on that same row. 
+- `Read` replicas take read load off the primary
+- ...
+- ...
+
+Change Approach,**turned a contention problem into other problem:**
+- Maybe instead of one auction item, you actually have 10 identical items and can run separate auctions for each.
+- Maybe instead of requiring immediate consistency for social media interactions, you can make likes and follows eventually consistent 
+- For cases where you need strong consistency on a hot resource, implement **queue-based serialization**. The tradeoff is throughput, not just latency
+![img_2.png](draw/img_2.png)
 
 ---
-## ✔️interview
+## Interview
+### 🎯 use-cases / interview scenario
+Top scenarios
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/online-auction
+  - optimistic concurrency control because multiple bidders **compete for the same item.** 
+  - You can use the current high bid as the "version" | `OCC`
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/ticketmaster
+  - classic `pessimistic locking` scenario for seat selection
+  - 10-minute TTL using a `distributed lock` for temp reservation
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/uber
+  - set driver status to "pending_request" when sending ride requests,
+  - which prevents multiple simultaneous requests to the same driver.
+  - Use either a cache with TTL for automatic cleanup when drivers don't respond within 10 seconds
+  - `distributed lock`
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/yelp
+  - When users submit reviews, you need to update the business's average rating. 
+  - Multiple concurrent reviews for the same restaurant create contention,
+  - use `OCC`, to prevents **rating calculations** from getting corrupted when reviews arrive simultaneously
+
+### more scenarios
+- **Banking/Payment Systems**
+  -  stays within a single database, this is a `pessimistic-locking` or `OCC` problem and lives right here
+  -  Once a transfer has to span multiple services or shards, it stops being a contention problem and becomes a **distributed-transaction one.🔺**
+- **Flash Sale/Inventory Systems**
+  - Perfect for demonstrating a mix of approaches.
+  - `OCC` with a dedicated version column for inventory updates,
+  - combined with temporary cart "holds" (using `distributed locks` with TTL)
+- https://www.hellointerview.com/learn/system-design/in-the-wild/shopify-inventory-reservations
+- https://www.hellointerview.com/learn/system-design/in-the-wild/discord-messages-scylladb
+- https://www.hellointerview.com/learn/system-design/in-the-wild/figma-multiplayer
+
+### Signal
+- **competing for limited resources** 
+  - > tickets, auction bidding, flash sale inventory, or matching drivers with riders
+- **Prevent double-booking or double-charging** 
+  - > payment processing, seat reservations, or meeting room scheduling
+- **Ensure data consistency under high concurrency** 
+  - > account balance updates, inventory management, or collaborative editing
+- **Handle race conditions in distributed systems**
+
+### Dont over complicate
+> Don't reach for complex coordination mechanisms when simpler solutions work.
+
+- Low contention scenarios :  where conflicts are rare, use `OCC`
+- Single-user operations:  so no coordination is needed.
+- Read-heavy workloads : where most operations are reads with occasional writes, use `OCC`
+
+### Conclusion
+- `Pessimistic locking` handles **high** contention predictably,
+- `optimistic concurrenc`y delivers **excellent performance** when conflicts are rare,
+-  `modern database like PostgreSQL` can absorb far more contention at a single source of truth than people assume.
+- Reach for `external locks` and reservations when **traffic or user experience demands it, not by default.**
+- And the first move is always to make sure the **contended thing actually exists** as a single cell the store can guard,
+  - whether that's a row, a key, or an item, depending on where it lives.
+-  moment an operation has to span **multiple sources of truth**, 
+  - you've left contention behind and **entered distributed-transaction territory.**

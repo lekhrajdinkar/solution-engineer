@@ -6,7 +6,7 @@
 - https://www.youtube.com/watch?v=EX5uZV3Tzss
 
 ---
-## use-cases / scenario
+## 🎯use-cases / interview scenario
 - https://www.hellointerview.com/learn/system-design/problem-breakdowns/google-docs | ws | h
 - https://www.hellointerview.com/learn/system-design/problem-breakdowns/fb-live-comments 
 - https://www.hellointerview.com/learn/system-design/problem-breakdowns/whatsapp 
