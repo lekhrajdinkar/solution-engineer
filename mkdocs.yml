@@ -391,10 +391,10 @@ nav:
         - Database Replication: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/03_01_database-replication.md
         - Database Partitioning: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/03_02_database-partitioning.md
         - Mapreduce: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/04_01_MapReduce.md
-      - Design 01 Choose Database: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_design_01_choose-database.md
-      - Design 02 Schema: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_design_02_schema.md
-      - Design 03 Indexes 1: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_design_03_indexes-1.md
-      - Design 03 Indexes 2: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_design_03_indexes-2.md
+      - Design 01 Choose Database: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_01_choose-database.md
+      - Design 02 Schema: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_02_Design-schema.md
+      - Design 03 Indexes 1: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_03_indexes-1.md
+      - Design 03 Indexes 2: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_04_indexes-2.md
       - Datastructure:
         - Core 01 Bloomfilter: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_01_BloomFilter.md
         - Core 02 Btree: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_02_btree.md

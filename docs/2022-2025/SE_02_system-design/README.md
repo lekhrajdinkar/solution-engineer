@@ -22,7 +22,7 @@ More:⭐
 - [02_Advance_concepts](SD_01_Foundation/02_Advance_concepts) `bm`
 - [03_Design-patterns](SD_01_Foundation/03_Design-patterns) `bm`
 - [04_architecture](SD_01_Foundation/04_architecture) `bm`
-- [05_IPC](SD_01_Foundation/05_IPC) `bm`
+- [05_IPC](SD_01_Foundation/05_IPC) `bm` `hi`
 - [06_key-technologies](SD_07_02_key-technologies) `hi`
 
 ---
@@ -35,7 +35,7 @@ More:⭐
 
 ---
 ## Module 4: network-essential  ✔️
-- [SD_04_network-essential](SD_04_network-essential) `hi` `bm`
+- [SD_04_network-essential](SD_04_network-essential) `hi`
 
 ---
 ## Module 5: Data Modeling  ✔️
@@ -47,11 +47,11 @@ More:⭐
 
 ---
 ## Module 6: think in scale ✔️
-[SD_06_think-in-scale](SD_06_think-in-scale) `hi`
+- [SD_06_think-in-scale](SD_06_think-in-scale) `hi`
 
 ---
 ## Module 7: the pattern
-[SD_07_Advance_concepts](SD_01_Foundation/02_Advance_concepts) `hi` `bm`
+-  [SD_07_01_the_patterns](SD_07_01_the_patterns)`hi` `bm`
 
 ---
 ## Module 8: API Design ✔️

@@ -1,5 +1,8 @@
 # Dealing with Contention
+Reference
 - https://www.hellointerview.com/learn/system-design/patterns/dealing-with-contention
+- [08_Locks.md](../SD_05_DataModeling/01_SQL_fundamental/08_Locks.md) | [07_ACID.md](../SD_05_DataModeling/01_SQL_fundamental/07_ACID.md)
+- [03_03_distributed-Locking.md](../SD_05_DataModeling/02_basic_concepts/03_03_distributed-Locking.md)
 
 ---
 ## Overview 
@@ -85,16 +88,7 @@ WHERE concert_id = 'weeknd_tour'
   AND seat_number = 'A15' -- 👈
   AND status = 'available';-- 👈
 ```
-
----
-### Summary
-
-> 💡As long as the database **can evaluate your guard as part of the write**, you're done.
-> - The `WHERE clause` === compare-and-set, provides **optimistic concurrency check**
-> - the same move, DynamoDB makes with a ConditionExpression, 
-> - Redis with SET NX, 
-> - Cassandra with a lightweight transaction, 
-> - or, an HTTP API with an If-Match header.
+> As long as the database can **evaluate your guard**, as part of the write, you're done. `WHERE clause` === compare-and-set
 
 ---
 ## 2. Pessimistic Locking
@@ -132,21 +126,11 @@ COMMIT;
 ## 3. Optimistic Concurrency Control
 ### problem🔺 : `read-decide-write` (but care collisions)
 
-> OCC = don't lock while reading; detect conflict when writing.
-
 | Approach                | What happens                                                                 |
 | ----------------------- | ---------------------------------------------------------------------------- |
 | **Pessimistic locking** | "I'll lock it now so nobody else can touch it."                              |
 | **OCC**                 | "Everyone can proceed; I'll check at write time whether someone changed it." |
 
-```
-⭐== common implementation ==
-
-SQL       → version column
-HTTP      → ETag + If-Match
-etcd      → revision
-DynamoDB  → version attribute
-```
 
 ```sqlite-psql
 -- Both Alice and Bob read: 1 seat, version 42 --👈
@@ -186,19 +170,20 @@ ROLLBACK;
 - Your write checks "is the version still 100, but state transitions happened, if not aware of.
 
 **Better approach**
-- Use a dedicated version:
-- review_count = 100
-- version      = 42
+- `review_count` = 100
+- `version`      = 42 | Use a dedicated version:
 
 ```sqlite-psql
 -- Use a dedicated version column for safety
 UPDATE restaurants
-SET avg_rating = 4.1, review_count = review_count + 1, version = version + 1
+SET avg_rating = 4.1, 
+    review_count = review_count + 1, 
+    version = version + 1 --👈
 WHERE restaurant_id = 'pizza_palace'
   AND version = 42;  -- Expected current version
 ```
 
-> Core Idea : Read some value that represents the state you observed, then require that it hasn't changed when you write.
+> Core Idea : Read some value that **represents the state you observed** (like `version` here), then require that it hasn't changed when you write.
 >
 | OCC mechanism                | Example                                           |
 | ---------------------------- | ------------------------------------------------- |
@@ -433,3 +418,6 @@ Top scenarios
   - whether that's a row, a key, or an item, depending on where it lives.
 -  moment an operation has to span **multiple sources of truth**, 
   - you've left contention behind and **entered distributed-transaction territory.**
+
+> https://excalidraw.com/#json=_866ThOx0ZEJcOZUEbhmR,anllVmGioyvZnNsUnAs2Yg
+![img.png](draw/img9.png)

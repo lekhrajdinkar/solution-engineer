@@ -139,4 +139,4 @@ flowchart LR
 | 3 | **Performance**      | Lock acquisition/release should be fast and efficient                   |
 | 4 | **Fairness**         | Competing nodes should get a reasonable/fair chance to acquire the lock |
 
-![img.png](../../../../99_img/2026/01/img.png)
+![img.png](../../../../99_img/2026/01/img_1.png)
