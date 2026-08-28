@@ -167,21 +167,19 @@ async function myWorkflow(input: Order): Promise<OrderResult> {
         return { success: false, error: "Payment failed" };
     }
 }
-
 ```
-
-uses **deterministic code** to describe the `workflow`.
+workflow
+  - **deterministic code** to describe the `workflow`.
   - > The big difference from **choreography** is that, the **flow lives explicitly in one piece of code**.
   -  the workflow worker doesn't call service define in above code.
   - it tells the Temporal Server to **schedule** this activity
   - server **queues** the task(activity) for an **activity worker**,
   - which makes the **actual call** and reports the result back.
 
-Anything **non-deterministic**, _like a network call or a database read_, belongs in an `Activity` 
-  -  Activity, need to be idempotent, making retry harmless.
-  -  Every Activity result is recorded into a **history database**
-
-
+Activity
+  - Anything **non-deterministic**, _like a network call or a database read_, belongs in an `Activity` 
+  - Activity, need to be idempotent, making retry harmless.
+  - Every Activity result is recorded into a **history database**
 
 **Signal**
 - Workflows  use signals to wait for **external events**
@@ -189,7 +187,8 @@ Anything **non-deterministic**, _like a network call or a database read_, belong
 - The engine persists its state and frees the worker to do other work.
 - then **rehydrates** the workflow when the signal arrives
 -  can "wait" 30 days, without costing you anything 👈
-   **Replay**
+
+**Replay**
 - if replay hits an Activity that already ran,
 - the history **hands back the recorded result**, instead of running it again.
 - replay is side-effect free.
@@ -211,15 +210,31 @@ Anything **non-deterministic**, _like a network call or a database read_, belong
 | **Apache Airflow**          | Python DAGs                  | Excellent for scheduled ETL/batch pipelines                | Less suited to event-driven ⚠️, user-facing workflows |
 
 --- 
-## interview
+## Interview
+- Dont use for **Simple async processing** + **Synchronous operations**
+-  Only introduce workflows when you identify specific problems they solve:
+  - stateful process
+  - partial failure handling, 
+  - long-running processes, 
+  - complex orchestration - sequence of steps that require a flow chart
+  - or audit requirements
+  - ...
+- Workflows add overhead.
+  - Every activity costs round trips through the engine 
+  - plus a handful of history writes, 
+  - so for millions of simple operations the cost and complexity aren't justified.
+- clear signal:
+  -  listen for phrases like "if step X fails, we need to undo step Y" or
+  - "we need to ensure all steps complete or none do.
 
-### Deep dives
+---
+## Deep dives
 
 --- 
 ## Conclusion
 
 ---
-## 🎯 use case
+## 🎯 use case / scenario
 > particularly when there is a **lot of state** and a lot of **failure handling**
 
 ```
