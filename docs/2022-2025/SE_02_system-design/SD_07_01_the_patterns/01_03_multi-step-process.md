@@ -104,25 +104,116 @@ it's a close cousin of `event sourcing`
 [event-driven-Choreography](draw/03_multi-process/03_01_event-driven-order.excalidraw)
 
 ### benefit
+> choreography is a good solution for mid-complexity processes
 - Fault tolerance:
   - Workers consume the log as a **consumer group**
   - If a worker dies, its **partitions are reassigned** and the next worker resumes from the last committed position
   -  workers need to be  workers need to be idempotent
 - Scalability:  add more workers to handle higher load
-- Observability: log itself is a complete audit trail of everything that happened
 - Flexibility: Appending a new reaction is easy | but Inserting a step into the middle of the chain is harder
+- Observability: 
+  - log itself is a complete audit trail of everything that happened
+  - The audit trail is real, but the hard part is making sense of it at scale, 
+  - tooling on top of the log is needed
 
 ### Example - Fund of fund service
 [fund-allocation-outbound-high-level.excalidraw](draw/03_multi-process/fof/fund-allocation-outbound-high-level.excalidraw)
 
 ---
 ## 4. Workflow Orchestration
+> These give you the **event-driven benefits** + **durable saga coordinator** ⭐
+### Overview
+**Describe workflow**
+- workflow is a reliable, long-running **process** that can survive failures and continue where it left off
+- it shouldn't require us to hand-roll the infrastructure to make it work.
+- `Workflow` has `activity`
+
+**Durable execution**: concept 
+- way to write long-running code (workflow) that can move between machines 
+- and survive system failures and restarts.
+- automatically resume workflows from their last successful step on a new, running host.
+
+**Durable execution engine**: implementation
+- eg:  `Temporal`, `AWS Step Functions`, `Apache Airflow`, `harness`
+- actual implementation and provides infras.
+
+| Component            | Role                     | Key Point                                                                              |
+| -------------------- | ------------------------ | -------------------------------------------------------------------------------------- |
+| **Temporal Server**  | Bookkeeper / coordinator | Assigns tasks, tracks timeouts & progress; **does not run your code**                  |
+| **History Database** | Event log                | Stores workflow decisions and **Activity results** in an append-only history           |
+| **Worker Pools**     | Execute your code        | **Workflow Workers** decide what happens next; **Activity Workers** execute Activities |
+
+### Working
+**Workflow code example**
+
+```javascript
+== difference is how this code is run on engine ==
+
+async function myWorkflow(input: Order): Promise<OrderResult> {
+    const paymentResult = await processPayment(input);
+
+    if(paymentResult.success) {
+        const inventoryResult = await reserveInventory(input);
+
+        if(inventoryResult.success) {
+            await shipOrder(input);
+            await sendConfirmationEmail(input);
+            return { success: true };
+        } else {
+            await refundPayment(input);
+            return { success: false, error: "Inventory reservation failed" };
+        }
+    } else {
+        return { success: false, error: "Payment failed" };
+    }
+}
+
+```
+
+uses **deterministic code** to describe the `workflow`.
+  - > The big difference from **choreography** is that, the **flow lives explicitly in one piece of code**.
+  -  the workflow worker doesn't call service define in above code.
+  - it tells the Temporal Server to **schedule** this activity
+  - server **queues** the task(activity) for an **activity worker**,
+  - which makes the **actual call** and reports the result back.
+
+Anything **non-deterministic**, _like a network call or a database read_, belongs in an `Activity` 
+  -  Activity, need to be idempotent, making retry harmless.
+  -  Every Activity result is recorded into a **history database**
+
+
+
+**Signal**
+- Workflows  use signals to wait for **external events**
+- While it waits, the workflow isn't **holding** a thread or burning CPU
+- The engine persists its state and frees the worker to do other work.
+- then **rehydrates** the workflow when the signal arrives
+-  can "wait" 30 days, without costing you anything 👈
+   **Replay**
+- if replay hits an Activity that already ran,
+- the history **hands back the recorded result**, instead of running it again.
+- replay is side-effect free.
+
+[05_02_temporal-replay-visual-flow.excalidraw](draw/03_multi-process/05_02_temporal-replay-visual-flow.excalidraw)
+
+### Managed workflow systems ✔️
+- take a more declarative approach
+- generate the **state machine** from real code
+- you describe the workflow as `DAG` (directed acyclic graph) in JSON, YAML
+- pros: workflows can be **visualized** as diagrams, which makes for a much nicer UI.
+
+| Option                      | Model                        | Strength                                                   | Trade-off / Limitation                                |
+| --------------------------- | ---------------------------- | ---------------------------------------------------------- |-------------------------------------------------------|
+| **Temporal**                | Open-source, code-based      | Long-running, crash-resistant, full history, complex logic | Must operate it or use Temporal Cloud                 |
+| **AWS Step Functions**      | Managed, JSON state machines | Serverless, no cluster management                          | Less expressive than code; 1-year max, 256 KB payload |
+| **Azure Durable Functions** | Managed, cloud-native        | Easier Azure operations                                    | Less flexible than Temporal                           |
+| **Google Cloud Workflows**  | Managed, cloud-native        | Easy to operate on GCP                                     | Less flexible than Temporal                           |
+| **Apache Airflow**          | Python DAGs                  | Excellent for scheduled ETL/batch pipelines                | Less suited to event-driven ⚠️, user-facing workflows |
 
 --- 
 ## interview
 
---- 
-## Deep dives
+### Deep dives
 
 --- 
 ## Conclusion
