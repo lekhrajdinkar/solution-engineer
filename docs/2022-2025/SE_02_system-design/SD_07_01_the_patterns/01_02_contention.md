@@ -1,8 +1,9 @@
-# Dealing with Contention
-Reference
+# Pattern 2: Dealing with Contention
+## Reference
 - https://www.hellointerview.com/learn/system-design/patterns/dealing-with-contention
 - [08_Locks.md](../SD_05_DataModeling/01_SQL_fundamental/08_Locks.md) | [07_ACID.md](../SD_05_DataModeling/01_SQL_fundamental/07_ACID.md)
 - [03_03_distributed-Locking.md](../SD_05_DataModeling/02_basic_concepts/03_03_distributed-Locking.md)
+- https://excalidraw.com/#json=_866ThOx0ZEJcOZUEbhmR,anllVmGioyvZnNsUnAs2Yg | contention summary
 
 ---
 ## Overview 
@@ -12,7 +13,7 @@ Reference
 
 **key terms**
 - **Contention** : it occurs when multiple processes compete for the same resource at the same time
-- race conditions,
+- race conditions,                             
 - deadlocks,
 - locks(tied with txn) ,
 - distributed locks (leased lock with TTl, outside DB)
@@ -99,6 +100,7 @@ multi-row Lock
 - Say a group of four wants to sit together.
 - find four open seats in a row,
 - and only then claim them.
+- **read** all seat > **decide** : app logic to find consecutive seats  > **write**: then book them
 
 
 ```sqlite-psql
@@ -268,9 +270,9 @@ sequenceDiagram
 | **REPEATABLE READ**  | Same data read multiple times within a transaction stays consistent | Default in **MySQL (InnoDB)**           |
 | **SERIALIZABLE**     | Transactions behave as if executed one at a time    | Strongest isolation; lowest concurrency |
 
-![img.png](draw/img3.png)
+![img.png](../../../99_img/2026/hi/pattern/01/img3.png)
 
-![img.png](draw/img_1.png)
+![img.png](../../../99_img/2026/hi/pattern/01/img_1.png)
 
 ---
 ## 5. Distributed Locks
@@ -359,7 +361,7 @@ Change Approach,**turned a contention problem into other problem:**
 - Maybe instead of one auction item, you actually have 10 identical items and can run separate auctions for each.
 - Maybe instead of requiring immediate consistency for social media interactions, you can make likes and follows eventually consistent 
 - For cases where you need strong consistency on a hot resource, implement **queue-based serialization**. The tradeoff is throughput, not just latency
-![img_2.png](draw/img_2.png)
+![img_2.png](../../../99_img/2026/hi/pattern/01/img_2.png)
 
 ---
 ## Interview
@@ -409,7 +411,7 @@ Top scenarios
 - Single-user operations:  so no coordination is needed.
 - Read-heavy workloads : where most operations are reads with occasional writes, use `OCC`
 
-### Conclusion
+### Summary
 - `Pessimistic locking` handles **high** contention predictably,
 - `optimistic concurrenc`y delivers **excellent performance** when conflicts are rare,
 -  `modern database like PostgreSQL` can absorb far more contention at a single source of truth than people assume.
@@ -419,5 +421,4 @@ Top scenarios
 -  moment an operation has to span **multiple sources of truth**, 
   - you've left contention behind and **entered distributed-transaction territory.**
 
-> https://excalidraw.com/#json=_866ThOx0ZEJcOZUEbhmR,anllVmGioyvZnNsUnAs2Yg
-![img.png](draw/img9.png)
+- [02_01_contention.excalidraw](draw/02_contention/02_01_contention.excalidraw)

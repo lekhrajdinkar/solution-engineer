@@ -1,0 +1,462 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw-jetbrains-plugin",
+  "elements": [
+    {
+      "id": "node_client",
+      "type": "rectangle",
+      "x": 80,
+      "y": 320,
+      "width": 140,
+      "height": 130,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": {
+        "type": 3
+      },
+      "boundElements": [
+        {
+          "type": "arrow",
+          "id": "arrow_client_api"
+        },
+        {
+          "type": "text",
+          "id": "text_client"
+        }
+      ]
+    },
+    {
+      "id": "text_client",
+      "type": "text",
+      "x": 125,
+      "y": 372,
+      "width": 50,
+      "height": 25,
+      "text": "Client",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_client"
+    },
+    {
+      "id": "node_api_server",
+      "type": "rectangle",
+      "x": 380,
+      "y": 320,
+      "width": 140,
+      "height": 130,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": {
+        "type": 3
+      },
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "text_api_server"
+        }
+      ]
+    },
+    {
+      "id": "text_api_server",
+      "type": "text",
+      "x": 395,
+      "y": 372,
+      "width": 110,
+      "height": 25,
+      "text": "API Server",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_api_server"
+    },
+    {
+      "id": "node_payment",
+      "type": "rectangle",
+      "x": 660,
+      "y": 60,
+      "width": 150,
+      "height": 130,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": {
+        "type": 3
+      },
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "text_payment"
+        }
+      ]
+    },
+    {
+      "id": "text_payment",
+      "type": "text",
+      "x": 685,
+      "y": 100,
+      "width": 100,
+      "height": 50,
+      "text": "Payment\nService",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_payment"
+    },
+    {
+      "id": "node_inventory",
+      "type": "rectangle",
+      "x": 660,
+      "y": 230,
+      "width": 150,
+      "height": 130,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": {
+        "type": 3
+      },
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "text_inventory"
+        }
+      ]
+    },
+    {
+      "id": "text_inventory",
+      "type": "text",
+      "x": 685,
+      "y": 270,
+      "width": 100,
+      "height": 50,
+      "text": "Inventory\nService",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_inventory"
+    },
+    {
+      "id": "node_shipping",
+      "type": "rectangle",
+      "x": 660,
+      "y": 410,
+      "width": 150,
+      "height": 130,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": {
+        "type": 3
+      },
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "text_shipping"
+        }
+      ]
+    },
+    {
+      "id": "text_shipping",
+      "type": "text",
+      "x": 685,
+      "y": 450,
+      "width": 100,
+      "height": 50,
+      "text": "Shipping\nService",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_shipping"
+    },
+    {
+      "id": "node_email",
+      "type": "rectangle",
+      "x": 660,
+      "y": 590,
+      "width": 150,
+      "height": 130,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": {
+        "type": 3
+      },
+      "boundElements": [
+        {
+          "type": "text",
+          "id": "text_email"
+        }
+      ]
+    },
+    {
+      "id": "text_email",
+      "type": "text",
+      "x": 670,
+      "y": 642,
+      "width": 130,
+      "height": 25,
+      "text": "Email Service",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_email"
+    },
+    {
+      "id": "arrow_client_api",
+      "type": "arrow",
+      "x": 220,
+      "y": 385,
+      "width": 160,
+      "height": 0,
+      "strokeColor": "#1e1e1e",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          160,
+          0
+        ]
+      ],
+      "startArrowhead": "arrow",
+      "endArrowhead": "arrow",
+      "lastCommittedPoint": null
+    },
+    {
+      "id": "text_order_label",
+      "type": "text",
+      "x": 265,
+      "y": 372,
+      "width": 55,
+      "height": 25,
+      "text": "Order",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "id": "arrow_api_payment",
+      "type": "arrow",
+      "x": 520,
+      "y": 340,
+      "width": 140,
+      "height": -180,
+      "strokeColor": "#1e1e1e",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          140,
+          -180
+        ]
+      ],
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "lastCommittedPoint": null
+    },
+    {
+      "id": "arrow_api_inventory",
+      "type": "arrow",
+      "x": 520,
+      "y": 370,
+      "width": 140,
+      "height": -5,
+      "strokeColor": "#1e1e1e",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          140,
+          -5
+        ]
+      ],
+      "startArrowhead": "arrow",
+      "endArrowhead": "arrow",
+      "lastCommittedPoint": null
+    },
+    {
+      "id": "arrow_api_shipping",
+      "type": "arrow",
+      "x": 520,
+      "y": 410,
+      "width": 140,
+      "height": 55,
+      "strokeColor": "#1e1e1e",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          140,
+          55
+        ]
+      ],
+      "startArrowhead": "arrow",
+      "endArrowhead": "arrow",
+      "lastCommittedPoint": null
+    },
+    {
+      "id": "arrow_api_email",
+      "type": "arrow",
+      "x": 520,
+      "y": 440,
+      "width": 140,
+      "height": 180,
+      "strokeColor": "#1e1e1e",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          140,
+          180
+        ]
+      ],
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "lastCommittedPoint": null
+    },
+    {
+      "id": "arrow_webhook_response",
+      "type": "arrow",
+      "x": 650,
+      "y": 120,
+      "width": -300,
+      "height": 15,
+      "strokeColor": "#e03131",
+      "strokeWidth": 2,
+      "strokeStyle": "dashed",
+      "roughness": 1,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -150,
+          -40
+        ],
+        [
+          -300,
+          15
+        ]
+      ],
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "lastCommittedPoint": null
+    },
+    {
+      "id": "text_webhook_response",
+      "type": "text",
+      "x": 400,
+      "y": 70,
+      "width": 200,
+      "height": 25,
+      "text": "Webhook Response?",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#e03131",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "id": "arrow_server_crash",
+      "type": "arrow",
+      "x": 280,
+      "y": 570,
+      "width": 110,
+      "height": -110,
+      "strokeColor": "#e03131",
+      "strokeWidth": 2,
+      "strokeStyle": "dashed",
+      "roughness": 1,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          110,
+          -110
+        ]
+      ],
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "lastCommittedPoint": null
+    },
+    {
+      "id": "text_server_crash",
+      "type": "text",
+      "x": 130,
+      "y": 590,
+      "width": 300,
+      "height": 25,
+      "text": "What if this server crashes?",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "strokeColor": "#e03131",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    }
+  ],
+  "appState": {
+      "gridSize": 5,
+      "gridStep": 5,
+      "gridModeEnabled": true,
+      "viewBackgroundColor": "#c9c5b9",
+      "lockedMultiSelections": {}
+    },
+  "files": {}
+}

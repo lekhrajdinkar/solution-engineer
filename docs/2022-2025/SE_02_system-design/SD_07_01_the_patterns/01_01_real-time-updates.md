@@ -1,9 +1,13 @@
-# Real-time Updates / push notifications
+# Pattern-1: Real-time Updates / push notifications
 ## reference
 - https://www.hellointerview.com/learn/system-design/patterns/realtime-updates
 - https://www.hellointerview.com/learn/system-design/patterns/realtime-updates/quick-reference
 - [network-essential](../SD_04_network-essential)
 - https://www.youtube.com/watch?v=EX5uZV3Tzss
+
+drawing
+- https://excalidraw.com/#json=r0O3ZBV9zOMqGjw5BqWSi,CNtqqb5pP3ErlnjTKKaQrA
+- https://excalidraw.com/#json=tp6lsIiuKf6HzfHl6WwoW,YpgunMqS_OrMo51UXEz1pQ
 
 ---
 ## 🎯use-cases / interview scenario
@@ -91,7 +95,7 @@ flowchart TD
   - Pushing ( via Consistent Hashes) 
   - Pushing ( via Pub/Sub )
 
-![img.png](draw/img2.png)
+![img.png](../../../99_img/2026/hi/pattern/01/img2.png)
 
 ### 1. Pulling ( via Polling )
 - notice arrow sign below, its pull
@@ -262,11 +266,9 @@ sequenceDiagram
 
 ---
 ## Summary 💡
-> [realtime-update](draw/01_realtime-update.excalidraw) | [read-link](https://excalidraw.com/#json=tp6lsIiuKf6HzfHl6WwoW,YpgunMqS_OrMo51UXEz1pQ)
-![img.png](draw/img.png)
+[01_realtime-update.excalidraw](draw/01_real-time-update/01_01_realtime-update.excalidraw)
+[01_02_realtime-update-problems.excalidraw](draw/01_real-time-update/01_02_realtime-update-problems.excalidraw)
 
-> [realtime-update-problems](draw/01_02_realtime-update-problems.excalidraw)  | [read-link](https://excalidraw.com/#json=r0O3ZBV9zOMqGjw5BqWSi,CNtqqb5pP3ErlnjTKKaQrA)
-![img.png](draw/img1.png)
 
 ---
 ## Common Deep Dives ⭐

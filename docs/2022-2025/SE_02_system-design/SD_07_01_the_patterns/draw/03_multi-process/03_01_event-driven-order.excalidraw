@@ -1,0 +1,482 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "node_client",
+      "type": "rectangle",
+      "x": 60,
+      "y": 40,
+      "width": 140,
+      "height": 130,
+      
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": { "type": 3 },
+      "boundElements": [
+        { "type": "arrow", "id": "arrow_client_api" },
+        { "type": "text", "id": "text_client" }
+      ]
+    },
+    {
+      "id": "text_client",
+      "type": "text",
+      "x": 105,
+      "y": 92,
+      "width": 50,
+      "height": 25,
+      "text": "Client",
+      "fontSize": 20,
+      "fontFamily": 1,
+      
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_client"
+    },
+    {
+      "id": "node_api_server",
+      "type": "rectangle",
+      "x": 300,
+      "y": 40,
+      "width": 140,
+      "height": 130,
+      
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": { "type": 3 },
+      "boundElements": [
+        { "type": "text", "id": "text_api_server" }
+      ]
+    },
+    {
+      "id": "text_api_server",
+      "type": "text",
+      "x": 315,
+      "y": 92,
+      "width": 110,
+      "height": 25,
+      "text": "API Server",
+      "fontSize": 20,
+      "fontFamily": 1,
+      
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_api_server"
+    },
+    {
+      "id": "node_event_store",
+      "type": "rectangle",
+      "x": 60,
+      "y": 250,
+      "width": 180,
+      "height": 260,
+      
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": { "type": 3 },
+      "boundElements": [
+        { "type": "text", "id": "text_event_store_body" }
+      ]
+    },
+    {
+      "id": "text_event_store_title",
+      "type": "text",
+      "x": 75,
+      "y": 270,
+      "width": 150,
+      "height": 30,
+      "text": "Event Store",
+      "fontSize": 24,
+      "fontFamily": 1,
+      
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "id": "text_event_store_body",
+      "type": "text",
+      "x": 75,
+      "y": 335,
+      "width": 150,
+      "height": 130,
+      "text": "Topics:\nOrder\nPayment\nInventory\nShipping",
+      "fontSize": 17,
+      "fontFamily": 1,
+      
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_event_store"
+    },
+    {
+      "id": "node_payment_workers",
+      "type": "rectangle",
+      "x": 520,
+      "y": 60,
+      "width": 140,
+      "height": 130,
+      
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": { "type": 3 },
+      "boundElements": [
+        { "type": "text", "id": "text_payment_workers" }
+      ]
+    },
+    {
+      "id": "text_payment_workers",
+      "type": "text",
+      "x": 540,
+      "y": 100,
+      "width": 100,
+      "height": 50,
+      "text": "Payment\nWorkers",
+      "fontSize": 20,
+      "fontFamily": 1,
+      
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_payment_workers"
+    },
+    {
+      "id": "node_payment_service",
+      "type": "rectangle",
+      "x": 800,
+      "y": 75,
+      "width": 140,
+      "height": 130,
+      
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": { "type": 3 },
+      "boundElements": [
+        { "type": "text", "id": "text_payment_service" }
+      ]
+    },
+    {
+      "id": "text_payment_service",
+      "type": "text",
+      "x": 820,
+      "y": 115,
+      "width": 100,
+      "height": 50,
+      "text": "Payment\nService",
+      "fontSize": 20,
+      "fontFamily": 1,
+      
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_payment_service"
+    },
+    {
+      "id": "node_inventory_workers",
+      "type": "rectangle",
+      "x": 520,
+      "y": 220,
+      "width": 140,
+      "height": 130,
+      
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": { "type": 3 },
+      "boundElements": [
+        { "type": "text", "id": "text_inventory_workers" }
+      ]
+    },
+    {
+      "id": "text_inventory_workers",
+      "type": "text",
+      "x": 535,
+      "y": 260,
+      "width": 110,
+      "height": 50,
+      "text": "Inventory\nWorkers",
+      "fontSize": 20,
+      "fontFamily": 1,
+      
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_inventory_workers"
+    },
+    {
+      "id": "node_shipping_workers",
+      "type": "rectangle",
+      "x": 520,
+      "y": 380,
+      "width": 140,
+      "height": 130,
+      
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": { "type": 3 },
+      "boundElements": [
+        { "type": "text", "id": "text_shipping_workers" }
+      ]
+    },
+    {
+      "id": "text_shipping_workers",
+      "type": "text",
+      "x": 540,
+      "y": 420,
+      "width": 100,
+      "height": 50,
+      "text": "Shipping\nWorkers",
+      "fontSize": 20,
+      "fontFamily": 1,
+      
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_shipping_workers"
+    },
+    {
+      "id": "node_email_workers",
+      "type": "rectangle",
+      "x": 520,
+      "y": 540,
+      "width": 140,
+      "height": 130,
+      
+      "backgroundColor": "transparent",
+      "fillStyle": "solid",
+      "strokeWidth": 2,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "roundness": { "type": 3 },
+      "boundElements": [
+        { "type": "text", "id": "text_email_workers" }
+      ]
+    },
+    {
+      "id": "text_email_workers",
+      "type": "text",
+      "x": 540,
+      "y": 580,
+      "width": 100,
+      "height": 50,
+      "text": "Email\nWorkers",
+      "fontSize": 20,
+      "fontFamily": 1,
+      
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "containerId": "node_email_workers"
+    },
+    {
+      "id": "arrow_client_api",
+      "type": "arrow",
+      "x": 200,
+      "y": 105,
+      "width": 100,
+      "height": 0,
+      
+      "strokeWidth": 2,
+      "roughness": 1,
+      "points": [
+        [0, 0],
+        [100, 0]
+      ],
+      "startArrowhead": "arrow",
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "text_order_label",
+      "type": "text",
+      "x": 222,
+      "y": 92,
+      "width": 55,
+      "height": 25,
+      "text": "Order",
+      "fontSize": 18,
+      "fontFamily": 1,
+      
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "id": "arrow_api_event_store",
+      "type": "arrow",
+      "x": 290,
+      "y": 170,
+      "width": -80,
+      "height": 80,
+      
+      "strokeWidth": 2,
+      "roughness": 1,
+      "points": [
+        [0, 0],
+        [-80, 80]
+      ],
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "text_write_order_label",
+      "type": "text",
+      "x": 190,
+      "y": 180,
+      "width": 110,
+      "height": 25,
+      "text": "Write Order",
+      "fontSize": 18,
+      "fontFamily": 1,
+      
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "id": "arrow_event_payment_workers",
+      "type": "arrow",
+      "x": 240,
+      "y": 320,
+      "width": 270,
+      "height": -170,
+      
+      "strokeWidth": 2,
+      "roughness": 1,
+      "points": [
+        [0, 0],
+        [270, -170]
+      ],
+      "startArrowhead": "arrow",
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "arrow_event_inventory_workers",
+      "type": "arrow",
+      "x": 240,
+      "y": 350,
+      "width": 270,
+      "height": -70,
+      
+      "strokeWidth": 2,
+      "roughness": 1,
+      "points": [
+        [0, 0],
+        [270, -70]
+      ],
+      "startArrowhead": "arrow",
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "arrow_event_shipping_workers",
+      "type": "arrow",
+      "x": 240,
+      "y": 420,
+      "width": 270,
+      "height": 40,
+      
+      "strokeWidth": 2,
+      "roughness": 1,
+      "points": [
+        [0, 0],
+        [270, 40]
+      ],
+      "startArrowhead": "arrow",
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "arrow_event_email_workers",
+      "type": "arrow",
+      "x": 240,
+      "y": 460,
+      "width": 270,
+      "height": 160,
+      
+      "strokeWidth": 2,
+      "roughness": 1,
+      "points": [
+        [0, 0],
+        [270, 160]
+      ],
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "arrow_payment_req_service",
+      "type": "arrow",
+      "x": 665,
+      "y": 60,
+      "width": 130,
+      "height": 15,
+      
+      "strokeWidth": 2,
+      "roughness": 1,
+      "points": [
+        [0, 0],
+        [50, -35],
+        [130, 15]
+      ],
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "arrow_webhook_service_payment",
+      "type": "arrow",
+      "x": 795,
+      "y": 180,
+      "width": -125,
+      "height": -30,
+      
+      "strokeWidth": 2,
+      "roughness": 1,
+      "points": [
+        [0, 0],
+        [-50, 20],
+        [-125, -30]
+      ],
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "text_webhook_workers_label",
+      "type": "text",
+      "x": 675,
+      "y": 185,
+      "width": 85,
+      "height": 25,
+      "text": "Webhook",
+      "fontSize": 18,
+      "fontFamily": 1,
+      
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    }
+  ],
+  "appState": {
+      "gridSize": 10,
+      "gridStep": 5,
+      "gridModeEnabled": true,
+      "viewBackgroundColor": "#c9c5b9",
+      "lockedMultiSelections": {}
+    },
+  "files": {}
+}
