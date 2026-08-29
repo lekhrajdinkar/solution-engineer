@@ -1,35 +1,15 @@
 # Pattern-1: Real-time Updates / push notifications
-## reference
+## Reference
+main
 - https://www.hellointerview.com/learn/system-design/patterns/realtime-updates
 - https://www.hellointerview.com/learn/system-design/patterns/realtime-updates/quick-reference
 - [network-essential](../SD_04_network-essential)
-- https://www.youtube.com/watch?v=EX5uZV3Tzss
+- https://www.youtube.com/watch?v=EX5uZV3Tzss | helloInterview RT collab
 
 drawing
 - https://excalidraw.com/#json=r0O3ZBV9zOMqGjw5BqWSi,CNtqqb5pP3ErlnjTKKaQrA
 - https://excalidraw.com/#json=tp6lsIiuKf6HzfHl6WwoW,YpgunMqS_OrMo51UXEz1pQ
 
----
-## 🎯use-cases / interview scenario
-- https://www.hellointerview.com/learn/system-design/problem-breakdowns/google-docs | ws | h
-- https://www.hellointerview.com/learn/system-design/problem-breakdowns/fb-live-comments 
-- https://www.hellointerview.com/learn/system-design/problem-breakdowns/whatsapp 
-  - hop:1 sse to receive | rest to send 
-  - hop:2 p/s
-
-```
-More:
-    Ticketmaster
-    Uber
-    Robinhood
-    Strava
-    Online Auction
-    Online Chess
-    ChatGPT
----
-Live Dashboards and Analytics : | sse | p/s
-Gaming and Interactive Applications : we | h
-```
 ---
 ## Problem
 > when you need servers to **proactively push updates** to clients.
@@ -266,7 +246,7 @@ sequenceDiagram
 
 
 ---
-## Common Deep Dives ⭐
+## Deep Dives ⭐
 ### 1. handle connection failures and reconnection
 - Real-world networks are unreliable: Wi-Fi/mobile connections drop, clients lose connectivity, and servers can restart.
 
@@ -380,6 +360,28 @@ flowchart LR
 - that helps recipients determine the correct order.
 
 ---
-## Summary/conclusion
+## Interview
+### use-cases / scenario 🎯
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/google-docs | ws | h
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/fb-live-comments
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/whatsapp
+    - hop:1 sse to receive | rest to send
+    - hop:2 p/s
+
+```
+More:
+    Ticketmaster
+    Uber
+    Robinhood
+    Strava
+    Online Auction
+    Online Chess
+    ChatGPT
+---
+Live Dashboards and Analytics : | sse | p/s
+Gaming and Interactive Applications : we | h
+```
+---
+## conclusion
 [01_realtime-update.excalidraw](draw/01_real-time-update/01_01_realtime-update.excalidraw)
 [01_02_realtime-update-problems.excalidraw](draw/01_real-time-update/01_02_realtime-update-problems.excalidraw)

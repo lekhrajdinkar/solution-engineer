@@ -1,8 +1,12 @@
 # Pattern 2: Dealing with Contention
 ## Reference
+main
 - https://www.hellointerview.com/learn/system-design/patterns/dealing-with-contention
-- [08_Locks.md](../SD_05_DataModeling/01_SQL_fundamental/08_Locks.md) | [07_ACID.md](../SD_05_DataModeling/01_SQL_fundamental/07_ACID.md)
+- [08_Locks.md](../SD_05_DataModeling/01_SQL_fundamental/08_Locks.md) 
+- [07_ACID.md](../SD_05_DataModeling/01_SQL_fundamental/07_ACID.md)
 - [03_03_distributed-Locking.md](../SD_05_DataModeling/02_basic_concepts/03_03_distributed-Locking.md)
+
+drawing
 - https://excalidraw.com/#json=_866ThOx0ZEJcOZUEbhmR,anllVmGioyvZnNsUnAs2Yg | contention summary
 
 ---
@@ -20,7 +24,7 @@
 
 ---
 ## 1. Conditional Writes
-### problem🔺 : `lost update`
+### problem🔺 : lost update
 buying concert tickets online. user1 and user2
 - last 1 ticket scenario, `A15`
 - decrementing a counter, flipping a status
@@ -95,7 +99,7 @@ WHERE concert_id = 'weeknd_tour'
 ## 2. Pessimistic Locking
 > Pessimistic locking prevents conflicts by acquiring locks upfront.
 
-### problem🔺 : `read-decide-write`
+### problem🔺 : read-decide-write
 multi-row Lock
 - Say a group of four wants to sit together.
 - find four open seats in a row,
@@ -126,7 +130,7 @@ COMMIT;
 
 ---
 ## 3. Optimistic Concurrency Control
-### problem🔺 : `read-decide-write` (but care collisions)
+### problem🔺 : read-decide-write (but care collisions)
 
 | Approach                | What happens                                                                 |
 | ----------------------- | ---------------------------------------------------------------------------- |
@@ -199,7 +203,7 @@ WHERE restaurant_id = 'pizza_palace'
 
 ---
 ## 4. Isolation Levels
-### problem🔺 : `write skew`
+### problem🔺 : write skew
 > Write skew is a concurrency problem where two transactions read the same state, then update different rows, causing a business rule to be violated.
 
 ```
@@ -412,7 +416,7 @@ Top scenarios
 - Read-heavy workloads : where most operations are reads with occasional writes, use `OCC`
 
 ---
-## Summary/conclusion 💡
+## conclusion
 - `Pessimistic locking` handles **high** contention predictably,
 - `optimistic concurrenc`y delivers **excellent performance** when conflicts are rare,
 -  `modern database like PostgreSQL` can absorb far more contention at a single source of truth than people assume.

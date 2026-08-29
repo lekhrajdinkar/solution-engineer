@@ -1,9 +1,16 @@
 # Pattern 3: multi-step-processes
-## reference
+## Reference
+main
 - https://www.hellointerview.com/learn/system-design/patterns/multi-step-processes
 - [03_04_distributed-Transaction.md](../SD_05_DataModeling/02_basic_concepts/03_04_distributed-Transaction.md)
 - https://www.youtube.com/watch?v=VvUdvte1V3s | "Six Little Lines of Fail"
 - https://www.linkedin.com/blog/engineering/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
+
+drawing
+- https://excalidraw.com/#json=TQ-kHabdMDaCbCp2p2lzk,R_1RoTN1tcfPXrh5m-FX-A | e-commerce flow
+- https://excalidraw.com/#json=BC-2X_o_NaL1PP309r618,wLeY0o5z_aT6zUXXqaynpQ | saga c vs o
+- https://excalidraw.com/#json=-RoJZyCzxS0n8BrUq1LPD,oZDOegrFu_8wPLOlgv0dYg | naive sol
+- https://excalidraw.com/#json=-zvUQiyMcOtkskLN6EcPn,rnR8GcF4Ex1iPWry1KsTPQ | state vs event
 
 --- 
 ## Problem
@@ -297,11 +304,7 @@ How can we ensure **X step runs exactly once** ?
 ```
 
 ---
-**Drawings**
-- https://excalidraw.com/#json=TQ-kHabdMDaCbCp2p2lzk,R_1RoTN1tcfPXrh5m-FX-A
-- https://excalidraw.com/#json=BC-2X_o_NaL1PP309r618,wLeY0o5z_aT6zUXXqaynpQ | saga c vs o
-- https://excalidraw.com/#json=-RoJZyCzxS0n8BrUq1LPD,oZDOegrFu_8wPLOlgv0dYg | naive sol
-- https://excalidraw.com/#json=-zvUQiyMcOtkskLN6EcPn,rnR8GcF4Ex1iPWry1KsTPQ | state vs event
+
 
 
 

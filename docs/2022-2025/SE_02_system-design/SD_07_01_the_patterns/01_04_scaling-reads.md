@@ -1,4 +1,5 @@
 # pattern : scaling-reads
+## Reference
 - https://www.hellointerview.com/learn/system-design/patterns/scaling-reads
 - [02_NFR_06_Read-Write-ratio.md](../SD_02_Non-functional-req/02_NFR_06_Read-Write-ratio.md)
 
@@ -121,14 +122,14 @@ Metrics Monitoring
 - For compound queries, column order in the index matters.
 
 **💡How do you handle millions of concurrent reads for the same cached data/hot key?** ⭐
- [01_01_caching :: hot key and fixes](../SD_06_think-in-scale/01_01_caching.md#3-hot-keys)
+- [01_01_caching # hot key and fixes](../SD_06_think-in-scale/01_01_caching.md#3-hot-keys)
 
 
 **💡What happens when multiple requests try to rebuild an expired cache entry simultaneously?**
-- [01_01_caching :: cache-stamped-thundering-herd](../SD_06_think-in-scale/01_01_caching.md#1-cache-stamped-thundering-herd)
+- [01_01_caching # cache-stamped-thundering-herd](../SD_06_think-in-scale/01_01_caching.md#1-cache-stamped-thundering-herd)
 
 **💡How do you handle cache invalidation when data updates need to be immediately visible?**
-- [01_01_caching.md](../SD_06_think-in-scale/01_01_caching.md#caching-invalidation-and-eviction)
+- [01_01_caching # caching-invalidation](../SD_06_think-in-scale/01_01_caching.md#caching-invalidation-1-cdn)
 
 ---
 ## Conclusion
