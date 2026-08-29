@@ -21,6 +21,7 @@
 
 ---
 ## 1. Optimize Within Your Database
+![img_1.png](../../../99_img/2026/hi/scale/01/img_10.png)
 ### Indexes
 -  with B-tree being the most common for general queries. 
 - Hash indexes work well for exact matches, 
@@ -49,6 +50,8 @@
 ---
 ## 2. Scale Your Database Horizontally
 > general rule of thumb:  rough estimates - DB will need to scale horizontally (or add a cache ) when you exceed `50,000-100,000` read requests per second
+
+![img.png](../../../99_img/2026/hi/scale/01/img_9.png)
 
 ### [Database Replication](../SD_05_DataModeling/02_basic_concepts/03_01_database-replication.md)
   - All writes go to the primary, but reads can go to any read replica
@@ -117,30 +120,21 @@ Metrics Monitoring
 - Fortunately, the solution is pretty straightforward. Just add indexes on columns you query frequently.
 - For compound queries, column order in the index matters.
 
----
 **💡How do you handle millions of concurrent reads for the same cached data/hot key?** ⭐
-- **request coalescing**
-- **Cache key fanout spreads** : distribute the load itself, make multiple cache entries
-  - EG: Instead of storing the celebrity's post under one key, 
-  - you store identical copies under ten different keys
+ [01_01_caching :: hot key and fixes](../SD_06_think-in-scale/01_01_caching.md#3-hot-keys)
 
----
+
 **💡What happens when multiple requests try to rebuild an expired cache entry simultaneously?**
+- [01_01_caching :: cache-stamped-thundering-herd](../SD_06_think-in-scale/01_01_caching.md#1-cache-stamped-thundering-herd)
 
-this is **cache stampede**
--  It's like a **DDOS** attack from your own application.
--  entry expires, requests suddenly see a cache miss in the same instant.
-- Every single one tries to fetch from your database
-
-Approaches
-- **request coalescing**
-- One approach uses **distributed locks** to serialize rebuilds. 
-  - Only the first request to notice the missing cache entry gets to rebuild it, 
-  - while everyone else waits for that rebuild to complete
-- A smarter approach uses **probabilistic early refresh**
+**💡How do you handle cache invalidation when data updates need to be immediately visible?**
+- [01_01_caching.md](../SD_06_think-in-scale/01_01_caching.md#caching-invalidation-and-eviction)
 
 ---
-**💡How do you handle cache invalidation when data updates need to be immediately visible?**
-- A common **naive approach** is delete the cache entry after a write.
-- **cache key versioning.**
+## Conclusion
+https://www.hellointerview.com/learn/system-design/patterns/scaling-reads/quick-reference
+- optimize within your database first with proper indexing and denormalization, 
+- then scale horizontally with read replicas, 
+- and finally add caching layers for ultimate performance.
 
+> demonstrate that you understand both the **performance benefits** and the **operational complexity** of each approach
