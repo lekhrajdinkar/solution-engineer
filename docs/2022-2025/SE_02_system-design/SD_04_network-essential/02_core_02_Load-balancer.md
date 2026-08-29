@@ -1,4 +1,5 @@
 # Load balancer LB
+## Reference
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2190592578
 - https://youtu.be/ZcNaOuxcuyA?si=9eTTSUfpUQzi112D bm 1
 - https://www.youtube.com/watch?v=BWB-S0awDnA bm 2 | algorithm

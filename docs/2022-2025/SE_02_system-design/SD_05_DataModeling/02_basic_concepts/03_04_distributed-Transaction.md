@@ -1,9 +1,10 @@
 # Distributed Transaction
-Reference:
+## Reference
 - https://www.youtube.com/watch?v=d2z78guUR4g bm ⭐
 - https://www.baeldung.com/cs/saga-pattern-microservices post
 - https://github.com/lekhrajdinkar/data-engineer/blob/main/docs/2012-2021/07_ACID%2BLocks.md | ACID
 - https://chat.deepseek.com/a/chat/s/81394dc5-20ff-45bb-8fc3-001520d7ef4f
+
 ---
 ## Overview
 - monolith system, ACID on single database

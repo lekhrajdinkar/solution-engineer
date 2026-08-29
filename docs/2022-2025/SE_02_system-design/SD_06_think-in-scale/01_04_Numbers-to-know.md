@@ -1,4 +1,5 @@
-#  think in scale | Numbers to Know
+#  Think in scale :: Numbers to Know
+## Reference
 - Read more here: https://www.hellointerview.com/learn/courses/system-design/lesson/thinking-in-scale/numbers-to-know ⭐
 - incorrect estimates routinely lead to **over-engineering** 👈
  

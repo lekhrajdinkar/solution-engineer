@@ -1,4 +1,5 @@
 # Data Modeling
+## Reference
 - https://www.youtube.com/watch?v=6bZdMZb8xI8 | SQL
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2190592401 | keyValue store
 - https://www.hellointerview.com/learn/courses/system-design/lesson/foundations/data-modeling

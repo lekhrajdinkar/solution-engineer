@@ -1,7 +1,9 @@
 # Distributed Lock
+## Reference
 - https://www.youtube.com/watch?v=qY4MfWv01pI (Skip)
 - https://www.hellointerview.com/learn/system-design/patterns/dealing-with-contention#distributed-locks
 
+---
 ## Overview
 **problem: exclusive locking**
 - database **lock** only lasts as long as the **transaction holding it.**

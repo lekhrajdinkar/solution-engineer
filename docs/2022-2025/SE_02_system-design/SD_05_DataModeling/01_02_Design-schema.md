@@ -1,4 +1,5 @@
 # Schema design Fundamental
+## Reference
 - https://www.hellointerview.com/learn/courses/system-design/lesson/foundations/data-modeling#start-with-requirements
 
 ---
