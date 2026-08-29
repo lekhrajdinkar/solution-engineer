@@ -219,6 +219,7 @@ async function myWorkflow(input: Order): Promise<OrderResult> {
 
 --- 
 ## Interview
+### When to use
 - Dont use for **Simple async processing** + **Synchronous operations**
 - Only introduce workflows when you identify specific problems they solve:
     - stateful process
@@ -237,50 +238,7 @@ async function myWorkflow(input: Order): Promise<OrderResult> {
   - "we need to ensure all steps complete or none do.
 
 ---
-## Deep dives
-https://www.hellointerview.com/learn/system-design/patterns/multi-step-processes#what-happens-if-the-process-running-your-saga-crashes-partway-through
-
-What happens if the process running your saga **crashes partway** through ?
-```
-- fix is durable progress | durable bookkeeping | completed step in history and resumes
-- so on restart the coordinator reads that record and knows exactly where it left of
-- coordinator might re-run a step it isn't sure finished, 
-- those steps and their compensations need to be idempotent 
- 
-```
-
-How do you update the workflow without , breaking existing executions ?
-- The challenge is that workflows can run for days or weeks.
-- can't just deploy new code and expect running workflows to handle it correctly
-- **Workflow Versioning** : simple, v1 for old and v2 for new runs
-- **Workflow Migrations** 
-  -  If in-flight executions need the new step added in version.
-  -  "patch" to decide deterministically which path a given workflow should take.
-
-How do we keep the workflow **state size** in check ?
-```
-- we should try to minimize the size of the activity input and results. 
-    use identifier, rather than a huge payload
-- periodically snapshot a long-running workflow 
-    Temporal calls this "Continue-as-New"
-```
-
-How do we deal with **external events** ?
-```
-- Workflows excel at waiting without consuming resources, using signals for external events.
-- External systems deliver signals through the workflow engine's API. | webhook callback
-```
-
-How can we ensure **X step runs exactly once** ?
-```
-- The solution is to make the activity idempotent.
-- store  idempotency key in databse
-    - key-1 , activity1, IN_PROGRESS
-    - key-1 , activity1, COMPLETED
-```
-
----
-## 🎯 use case / scenario
+### use case / scenario 🎯
 > particularly when there is a **lot of state** and a lot of **failure handling**
 
 ```
@@ -294,8 +252,52 @@ How can we ensure **X step runs exactly once** ?
 - https://www.hellointerview.com/learn/system-design/problem-breakdowns/notification-system#multi-step-processes
 
 ---
+## Deep dives
+https://www.hellointerview.com/learn/system-design/patterns/multi-step-processes#what-happens-if-the-process-running-your-saga-crashes-partway-through
 
-Drawings
+---
+What happens if the process running your saga **crashes partway** through ?
+```
+- fix is durable progress | durable bookkeeping | completed step in history and resumes
+- so on restart the coordinator reads that record and knows exactly where it left of
+- coordinator might re-run a step it isn't sure finished, 
+- those steps and their compensations need to be idempotent 
+ 
+```
+---
+How do you update the workflow without , breaking existing executions ?
+- The challenge is that workflows can run for days or weeks.
+- can't just deploy new code and expect running workflows to handle it correctly
+- **Workflow Versioning** : simple, v1 for old and v2 for new runs
+- **Workflow Migrations** 
+  -  If in-flight executions need the new step added in version.
+  -  "patch" to decide deterministically which path a given workflow should take.
+
+---
+How do we keep the workflow **state size** in check ?
+```
+- we should try to minimize the size of the activity input and results. 
+    use identifier, rather than a huge payload
+- periodically snapshot a long-running workflow 
+    Temporal calls this "Continue-as-New"
+```
+---
+How do we deal with **external events** ?
+```
+- Workflows excel at waiting without consuming resources, using signals for external events.
+- External systems deliver signals through the workflow engine's API. | webhook callback
+```
+---
+How can we ensure **X step runs exactly once** ?
+```
+- The solution is to make the activity idempotent.
+- store  idempotency key in databse
+    - key-1 , activity1, IN_PROGRESS
+    - key-1 , activity1, COMPLETED
+```
+
+---
+**Drawings**
 - https://excalidraw.com/#json=TQ-kHabdMDaCbCp2p2lzk,R_1RoTN1tcfPXrh5m-FX-A
 - https://excalidraw.com/#json=BC-2X_o_NaL1PP309r618,wLeY0o5z_aT6zUXXqaynpQ | saga c vs o
 - https://excalidraw.com/#json=-RoJZyCzxS0n8BrUq1LPD,oZDOegrFu_8wPLOlgv0dYg | naive sol

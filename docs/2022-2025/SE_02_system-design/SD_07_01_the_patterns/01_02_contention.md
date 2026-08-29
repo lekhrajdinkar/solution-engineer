@@ -365,7 +365,7 @@ Change Approach,**turned a contention problem into other problem:**
 
 ---
 ## Interview
-### 🎯 use-cases / interview scenario
+### use-cases / scenario 🎯
 Top scenarios
 - https://www.hellointerview.com/learn/system-design/problem-breakdowns/online-auction
   - optimistic concurrency control because multiple bidders **compete for the same item.** 
@@ -411,7 +411,8 @@ Top scenarios
 - Single-user operations:  so no coordination is needed.
 - Read-heavy workloads : where most operations are reads with occasional writes, use `OCC`
 
-### Summary
+---
+## Summary/conclusion 💡
 - `Pessimistic locking` handles **high** contention predictably,
 - `optimistic concurrenc`y delivers **excellent performance** when conflicts are rare,
 -  `modern database like PostgreSQL` can absorb far more contention at a single source of truth than people assume.

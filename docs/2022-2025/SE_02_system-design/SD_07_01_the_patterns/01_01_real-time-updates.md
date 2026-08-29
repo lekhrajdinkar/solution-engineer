@@ -264,11 +264,6 @@ sequenceDiagram
   - and updates arrive simultaneously, how is m**essage ordering preserved for each user?**
 - q3: if we create **1 topic per user**, how do we handle millions of users without overloading the broker?
 
----
-## Summary 💡
-[01_realtime-update.excalidraw](draw/01_real-time-update/01_01_realtime-update.excalidraw)
-[01_02_realtime-update-problems.excalidraw](draw/01_real-time-update/01_02_realtime-update-problems.excalidraw)
-
 
 ---
 ## Common Deep Dives ⭐
@@ -384,3 +379,7 @@ flowchart LR
 - and messages **include timestamp information** 
 - that helps recipients determine the correct order.
 
+---
+## Summary/conclusion
+[01_realtime-update.excalidraw](draw/01_real-time-update/01_01_realtime-update.excalidraw)
+[01_02_realtime-update-problems.excalidraw](draw/01_real-time-update/01_02_realtime-update-problems.excalidraw)
