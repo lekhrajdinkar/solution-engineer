@@ -28,15 +28,15 @@
 flowchart TD
     DB[(Large Database)]
 
-    DB --> H[Horizontal Partitioning<br/>Split rows]
-    DB --> V[Vertical Partitioning<br/>Split columns]
-    DB --> F[Functional Partitioning<br/>Split by domain]
+    DB --> H[Horizontal Partitioning Split rows]
+    DB --> V[Vertical Partitioning Split columns]
+    DB --> F[Functional Partitioning Split by domain]
 
-    H --> H1[(Partition 1<br/>Rows 1-1000)]
-    H --> H2[(Partition 2<br/>Rows 1001-2000)]
+    H --> H1[(Partition 1 Rows 1-1000)]
+    H --> H2[(Partition 2 Rows 1001-2000)]
 
-    V --> V1[(User Core<br/>id, name, email)]
-    V --> V2[(User Details<br/>bio, image, preferences)]
+    V --> V1[(User Core id, name, email)]
+    V --> V2[(User Details bio, image, preferences)]
 
     F --> F1[(User Database)]
     F --> F2[(Order Database)]
@@ -190,7 +190,7 @@ local
 ```mermaid
 flowchart TD
     Q1[Query: January orders] --> P1[January Partition]
-    P1 --> I1[Local Index<br/>user_id, order_date]
+    P1 --> I1[Local Index user_id, order_date]
 
     P2[February Partition] --> I2[Local Index]
     P3[March Partition] --> I3[Local Index]
@@ -216,31 +216,5 @@ flowchart TD
 
 ---
 ## Challenges
-### Partition Skew — Uneven Distribution
-- Partition skew happens when some partitions hold much more data or traffic than others.
-- choosing Bad partition key 
-```mermaid
-flowchart LR
-    subgraph Balanced["Balanced Distribution"]
-        P1["P1<br/>250K rows"]
-        P2["P2<br/>250K rows"]
-        P3["P3<br/>250K rows"]
-        P4["P4<br/>250K rows"]
-    end
-
-    subgraph Skewed["Skewed Distribution"]
-        S1["P1<br/>50K rows"]
-        S2["P2<br/>100K rows"]
-        S3["P3<br/>300K rows"]
-        S4["P4 🔥<br/>550K rows"]
-    end
-```
-
-### More
-| Problem                  | Impact                                              |
-| ------------------------ | --------------------------------------------------- |
-| Hot partition            | One node becomes overloaded                         |
-| Uneven storage           | Some nodes fill faster                              |
-| Higher latency           | Requests wait on the busiest partition              |
-| Poor scalability         | Adding capacity may not fix the hotspot             |
-| Inconsistent performance | Queries are fast on some partitions, slow on others |
+### hot Partition
+[02_hot-partition.excalidraw](../draw/02_hot-partition.excalidraw)
