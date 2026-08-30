@@ -63,12 +63,16 @@ More references
 - [Data modelling :: choose-database](../SD_05_DataModeling/01_01_choose-database.md)
 
 ---
-## B1. sharding and partitioning
+## A3. partitioning ⭐⭐
+[partitioning](../SD_05_DataModeling/02_basic_concepts/03_02_database-partitioning.md)
+
+---
+## B1. Horizontal Sharding ⭐⭐
 [horizonal sharding](../SD_06_think-in-scale/01_02_sharding.md)
 - select a partition key that minimizes variance, in the number of **writes per shard**
 - Keep in mind, that we need to also consider how the data might be **read**
 
-[vertical partitioning](../SD_05_DataModeling/02_basic_concepts/03_02_database-partitioning.md)
+
 
 ---
 ## B2. Handling Bursts with Queues and Load Shedding
