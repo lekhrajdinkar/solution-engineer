@@ -1,4 +1,5 @@
 # Consistent hashing
+## Reference
 - https://www.hellointerview.com/learn/courses/system-design/lesson/thinking-in-scale/consistent-hashing#consistent-hashing
 - https://www.youtube.com/watch?v=vccwdhfqIrI | hi
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2190592398

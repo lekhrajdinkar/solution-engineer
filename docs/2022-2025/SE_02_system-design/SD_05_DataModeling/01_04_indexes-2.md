@@ -1,11 +1,9 @@
 # Database Indexes :: Data Structure Type
-
 > - Choosing the right indexes is often a key focus in interviews. 
 > - Mastery of **different index types** and their trade-offs is essential.
 
 ---
 ## Most common one
-
 ### 1. B-Tree Indexes
 - [btree.md](03_DataStructure/01_core_02_btree.md)
 

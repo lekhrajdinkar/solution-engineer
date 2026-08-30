@@ -1,5 +1,5 @@
 # CAP theorem
-## reference
+## Reference
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2190592662
 - https://youtube.com/shorts/HTaKhMv_ZYU?si=Zuo-jW3YEOjL395l
 

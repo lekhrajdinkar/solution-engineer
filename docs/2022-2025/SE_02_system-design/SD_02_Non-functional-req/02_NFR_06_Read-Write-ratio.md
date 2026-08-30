@@ -1,7 +1,10 @@
 # 6. NFR - Read Write ratio
-- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2193918304
+## reference
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2193918304 | bytemonk
 - https://chatgpt.com/g/g-p-6a68d3926dd4819180c1c9bf855e98f3/c/6a6ad42e-7894-83e8-894e-48f6dbcd2c81
-
+internal
+- [01_04_scaling-reads.md](../SD_07_01_the_patterns/01_04_scaling-reads.md)
+- [01_05_scaling-write.md](../SD_07_01_the_patterns/01_05_scaling-write.md)
 ---
 ## Overview
 - `Read–Write Ratio = Number of Reads : Number of Writes`

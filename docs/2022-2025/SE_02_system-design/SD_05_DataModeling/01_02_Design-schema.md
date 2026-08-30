@@ -1,4 +1,5 @@
 # Schema design Fundamental
+## Reference
 - https://www.hellointerview.com/learn/courses/system-design/lesson/foundations/data-modeling#start-with-requirements
 
 ---
@@ -101,7 +102,7 @@ like search engines where consistency is less critical than speed
 ```
 
 ## 4. indexing
-- [03_concept_00_indexes.md](01_design_03_indexes-1.md)
+- [03_concept_00_indexes.md](01_03_indexes-1.md)
 
 
 ## 5.Scaling and sharding

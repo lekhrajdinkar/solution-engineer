@@ -1,5 +1,5 @@
 # Core building block : Caching
-Reference
+## Reference
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360644/posts/2190592600
 - https://www.youtube.com/watch?v=1NngTUYPdpI
 - https://www.hellointerview.com/learn/courses/system-design/lesson/thinking-in-scale/caching 👈
@@ -26,6 +26,9 @@ Reference
 - CPU caches are built into hardware for faster data retrieval from memory.
 - This is generally out of scope for software engineers
 
+![img_3.png](../../../99_img/2026/hi/scale/01/img_3.png)
+![img_6.png](../../../99_img/2026/hi/scale/01/img_6.png)
+
 ### 1. external (default)
 - `redis, memcache`
 - **Scale well** because every application server can share the same cache
@@ -44,7 +47,7 @@ Reference
 └──────────┘       └────────────────────┘    Read on Miss   └──────────────┘
 ```
 
-[**Distributed caching**](02_Distributed-system/02_01_distributed-caching.md)
+[**Distributed caching**](01_01_distributed-caching.md)
 - fault-tolerant
 - scalable
 - serves the response from closest cache-node, thus improved performance
@@ -104,6 +107,7 @@ Write-Through → Cache writes DB immediately
 Write-Behind  → Cache writes DB later
 Refresh-Ahead → Cache refreshes before expiry
 ```
+![img_4.png](../../../99_img/2026/hi/scale/01/img_4.png)
 
 ### 1. cache Aside (Lazy Loading)
 -  only caches data when needed, which keeps the cache lean.
@@ -202,15 +206,119 @@ flowchart LR
     C1 -->|Return| A1
     style C1 fill:orange,color:black
 ```
+---
+> next, cache invalidation 
+> - Since cache memory is limited, have to free-up space.
+> - For some data, **eventual consistency is unacceptable**.
+
+## Caching Invalidation 1 (CDN)
+- For global systems with CDN caching, invalidation becomes even more complex.
+- You're not just clearing one cache but potentially hundreds of edge locations worldwide.
+- **CDN APIs help**, but propagation takes time. `cache headers`
 
 ---
-## Caching Invalidation and eviction
-> Since cache memory is limited, have to free-up space
-
-we dont want stale data in cache
+## Caching Invalidation 2 (central cache)
+![img_2.png](../../../99_img/2026/hi/scale/01/img_2.png)
+### 1 Auto invalidation:
 - Write-Through Cache, invalidate the old data as well, sync 👈🏻
 - Write-Back Cache,invalidate the old data as well, Async 👈🏻
 
+### 2 Naive approach is **delete the cache entry after a write**. but:
+- which  layers: Redis, CDN edges, and even browser caches ? Invalidating all of these is famously hard
+- an invalidation request fails ?
+- What if a request comes in right, after you delete the old value ?
+
+### 3. Cache Versioning (Cache Key Versioning) ⭐
+- Each record has a version number stored in the database.
+- The version is incremented atomically in the same DB transaction.
+
+On Read
+- Get the current version from a small version store/cache.
+    - On miss, fall back to the database.
+- Construct the cache key:`event:123:v42`
+- Read from cache.
+- On cache miss:
+    - Fetch from DB.
+    - Write to cache using the current versioned key.
+
+On Write
+- Begin DB transaction.
+- Update the record.
+- Increment version: `version = version + 1`
+- Commit transaction.
+- Update the version store with the new version.
+- Optionally populate the new cache entry:`event:123:v43`
+
+**Key Idea** 👈
+- Old cache entries are never explicitly invalidated.
+- Once the version changes, new reads use the new cache key.
+- Old entries become unreachable and are eventually removed by TTL/eviction.
+
+**pros:**
+- no race condition 
+- There's no partial invalidation
+
+**tradeoff:**
+-  You're making **two cache lookups** per request—one for the version number, another for the actual data
+- Old cache versions will accumulate over time. set reasonable TTLs to clean up stale entries.
+
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant A as Application
+    participant V as 🔺Version Store
+    participant DB as Database
+    participant Cache as 🔺Cache
+
+    C->>A: 💡 Read event:123
+    A->>V: Get current version
+    V-->>A: v42
+    A->>Cache: GET event:123:v42
+    Cache-->>A: Data
+    A-->>C: Data
+
+    C->>A: 💡 Update event:123
+    A->>DB: BEGIN TX
+    A->>DB: Update data + version = 43
+    A->>DB: COMMIT
+    A->>V: Update version → v43
+    A->>Cache: Optional SET event:123:v43
+    A-->>C: Update successful
+
+    Note over Cache: event:123:v42 becomes stale/unreachable
+    Note over Cache: Removed later by TTL / eviction
+```
+### 4 Explicit / Event-driven invalidation
+- Application explicitly removes or invalidates the cache when data changes.
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant A as Application
+    participant DB as Database
+    participant Cache as Cache
+
+    C->>A: ⭐Update event:123
+    A->>DB: Update data
+    DB-->>A: Success
+    A->>Cache: ⭐DELETE event:123
+    A-->>C: Success
+```
+
+### 5 Pub/Sub-based invalidation
+- Application publishes an invalidation event, 
+- and multiple application instances remove the corresponding cache entry.
+- Key idea: DB update → publish event → all instances invalidate their cache
+
+### 6 Deleted items cache
+- use this to filter out from main result.
+
+### 7 TTL based invalidation
+
+---
+## Eviction strategy
+![img_5.png](../../../99_img/2026/hi/scale/01/img_5.png)
 ### **Least Recently Used (LRU)⭐:** 
 - Removes the data that hasn't been accessed for the longest time
 - oldest one
@@ -220,27 +328,33 @@ we dont want stale data in cache
 - rarely used
 
 ### **Last-In, First-Out (LIFO)**
-
 ### **First-In, First-Out (FIFO)** 
-
 ### **random eviction**
-
-### TTL based
+### TTL based eviction.
 
 ---
 ## Common Caching Problems
 ### 1. Cache Stamped (Thundering herd)
 ![img.png](../SD_01_Foundation/01_basic_concepts/img.png)
 
-- when a popular cache entry expires and many requests try to rebuild it at the same time
-- handle:
-  - **Request coalescing** (single flight)
-  - **Cache warming**: Refresh popular keys proactively before they expire. This only helps when using TTL-based expiration.
-  - **staggering TTLs** so entries don't all expire at once.
+when a popular cache entry expires and many requests try to rebuild it at the same time.
+- It's like a **DDOS** attack from your own application.
+-  entry expires, requests suddenly see a cache miss in the same instant.
+- Every single one tries to fetch from your database
+
+handle:
+- **Distributed locking**
+  - Only the first request to notice the missing cache entry gets to rebuild it,
+  - while everyone else waits for that rebuild to complete
+- **Request coalescing** (single flight)
+- **Cache warming**: Refresh popular keys proactively before they expire. This only helps when using TTL-based expiration.
+- **staggering TTLs** so entries don't all expire at once.
 - add resiliency / **Defence**: 
   - small in-process **fallback** cache, 
   - circuit breakers to shed load, 
   - or graceful degradation until Redis recovers
+
+![img.png](../../../99_img/2026/hi/scale/01/img.png)
 
 ```mermaid
 sequenceDiagram
@@ -282,13 +396,21 @@ sequenceDiagram
 
 ---
 ### 3. Hot Keys
+**problem**
 -  cache entry that receives a huge amount of traffic compared to everything else.
 - a single hot key can overload one cache node
 - eg: celebrity post
-- handle:
-  - Replicate hot keys: Store the same value on multiple cache nodes and load balance reads across them.
-  - Add a local fallback cache: Keep extremely hot values **in-process cache** to avoid pounding Redis. 👈 👈
-  - Apply rate limiting: Slow down abusive traffic patterns on specific keys.
+
+**handle:**
+- Replicate hot keys: Store the same value on multiple cache nodes and load balance reads across them.
+- Add a local fallback cache: Keep extremely hot values **in-process cache** to avoid pounding Redis. 👈 👈
+- Apply rate limiting: Slow down abusive traffic patterns on specific keys.
+- **request coalescing**
+- **Cache key fanout spreads** : distribute the load itself, make multiple cache entries
+    - EG: Instead of storing the celebrity's post under one key,
+    - you store identical copies under ten different keys
+  
+![img_1.png](../../../99_img/2026/hi/scale/01/img_1.png)
 
 ### 4. Cache failures
 - what if cache failed, Will your database get crushed by the sudden traffic spike ?
@@ -299,6 +421,8 @@ sequenceDiagram
 > - need to handle high read traffic. Your database becomes the bottleneck, latency starts creeping up
 > - Most importantly, don't cache everything and when a well-indexed database is enough.
 > - if **consistency or staleness** of data is not a major concern.
+
+![img_7.png](../../../99_img/2026/hi/scale/01/img_7.png)
 
 **Delivery Framework**
 1. Identify the bottleneck ⭐
@@ -323,7 +447,7 @@ sequenceDiagram
 - 💲 caching everything. 
 - 🕑 If you're caching data that changes on every request, you're just **adding latency and complexity for no benefit.** 
 
-
+![img_8.png](../../../99_img/2026/hi/scale/01/img_8.png)
 
 
 
