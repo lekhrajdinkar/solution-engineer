@@ -2,23 +2,25 @@
 ## Reference
 - https://www.hellointerview.com/learn/system-design/patterns/scaling-reads
 - [02_NFR_06_Read-Write-ratio.md](../SD_02_Non-functional-req/02_NFR_06_Read-Write-ratio.md)
+- [02_NFR_03_Scaling.md](../SD_02_Non-functional-req/02_NFR_03_Scaling.md)
 
 --- 
 ## Problem
-- Instagram feed example
-- read-to-write ratio starts at 10:1 
-- but often reaches 100:1 or higher for content-heavy applications
+- Instagram feed example, read heavy app.
+- read-to-write ratio starts at `10:1 `
+- but often reaches `100:1` or higher for content-heavy applications
 - it's physics :  
-  - CPU cores : instructions per second
+  - CPU cores : hard limit, on instructions per second
   - disk I/O is bounded by, the speed of spinning platters
   - ...
 > - Read scaling is about **reducing database load, not just making things faster.**
 > - If your database handles the load fine but you need lower **latency**, that's a different problem with different solutions, CDN.
 --- 
-## Solution (3)
-- Optimize read performance within your database
-- Scale your database horizontally
-- Add external caching layers
+## Solution 
+- Optimize read performance within your database, **index, Views, denorm,** etc
+- Scale your database horizontally, **to spread load**
+- Add external caching layers, **to load on memory**
+- more: CQRS
 
 ---
 ## 1. Optimize Within Your Database
@@ -35,7 +37,7 @@
 > confidently add indexes for your query patterns - under-indexing kills more applications than over-indexing ever will.
 
 ### hardware upgrade
-- SSDs can give you 10-100x faster random I/O.
+- SSDs can give you `10-100x` faster random I/O.
 - Adding more RAM means more of your dataset sits in memory instead of on disk.
 - And faster CPUs and more cores mean you can handle more concurrent queries
 
@@ -66,7 +68,8 @@
   - distribute read load across multiple databases.
 - **Geographic sharding** is particularly effective for global read scaling
 
-> primarily a write scaling technique. For most read scaling problems, adding caching layers is more effective and easier to implement.
+> - primarily a **write scaling technique.** 
+> - For most read scaling problems, **adding caching layers is more effective** and easier to implement.
 
 ---
 ## 3. Caching layer

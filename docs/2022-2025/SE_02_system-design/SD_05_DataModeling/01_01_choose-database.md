@@ -167,9 +167,7 @@ Keyspace
       └── Other Columns/Column Family
 ```
 
-✔️**Example**
-- HBase, Cassandra
-- Modern/cloud-managed: Google Bigtable, Amazon KeySpaces
+✔️**Example**: `HBase`, `Cassandra`, `Google Bigtable`, `Amazon KeySpaces`
 
 ✔️**Best for:**
 - High write throughput 
@@ -179,20 +177,7 @@ Keyspace
   -  > Time becomes a first-class citizen in your modeling.
 - Massive datasets |  Horizontal scaling |  Distributed systems
 
-```
-Relational DB
-     ↓
-"Tables" → Rows → Columns (schema)
-     ↓
-Strong schema + joins
 
-
-Wide-column DB
-     ↓
-"Partition" → Rows → Columns (no schema)
-     ↓
-Distributed + query-driven schema
-```
 | Characteristic | Wide-column DB                               |
 | -------------- |----------------------------------------------|
 | Data model     | Rows + column families                       |
@@ -202,39 +187,9 @@ Distributed + query-driven schema
 | Best for       | Huge distributed datasets                    |
 | Reads          | Designed around known access patterns        |
 
+[rdbms-vs-wideColumn.excalidraw](draw/rdbms-vs-wideColumn.excalidraw)
+[understand structure by Example](draw/wide-column-database-architecture.excalidraw)
 
-✔️**understand structure by Example**
-```mermaid
-graph LR
-    DB["Wide-Column Database"]
-    DB --> R1["Row Key: user_101"]
-    DB --> R2["Row Key: user_102"]
-    R1 --> PF1["Column Family: profile"]
-    R1 --> PS1["Column Family: posts"]
-    PF1 --> C11["name = John"]
-    PF1 --> C12["email = john@example.com"]
-    PS1 --> C13["post_1 = Hello World!"]
-    PS1 --> C14["post_2 = My Second Post"]
-    PS1 --> C15["post_3 = Just Appended!"]
-    R2 --> PF2["Column Family: profile"]
-    R2 --> PS2["Column Family: posts"]
-    PF2 --> C21["name = Alice"]
-    PF2 --> C22["age = 30"]
-    PF2 --> C23["city = NYC"]
-    PS2 --> C24["post_10 = New Arrival"]
-    Write["⭐New Post / Log"] -->|"Append column"| C15
-
-    classDef db fill:#f5f5f5,stroke:#333,stroke-width:2px,color:black
-    classDef row fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:black
-    classDef family fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,color:black
-    classDef col fill:#e8f5e9,stroke:#388e3c,stroke-width:1px,color:black
-    classDef write fill:#fce4ec,stroke:#c2185b,stroke-width:2px,color:black
-    class DB db
-    class R1,R2 row
-    class PF1,PF2,PS1,PS2 family
-    class C11,C12,C13,C14,C15,C21,C22,C23,C24 col
-    class Write write
-```
 ---
 ## B4. Graph DB
 > Data → nodes + relationships

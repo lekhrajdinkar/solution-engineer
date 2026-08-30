@@ -1344,8 +1344,8 @@
   "appState": {
     "gridSize": 10,
     "gridStep": 5,
-    "gridModeEnabled": true,
-    "viewBackgroundColor": "#c9c5b9",
+    "gridModeEnabled": false,
+    "viewBackgroundColor": "#fffce8",
     "lockedMultiSelections": {}
   },
   "files": {}

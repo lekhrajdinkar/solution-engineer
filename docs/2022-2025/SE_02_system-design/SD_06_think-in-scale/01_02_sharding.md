@@ -2,71 +2,27 @@
 ## Reference
 - https://www.hellointerview.com/learn/courses/system-design/lesson/thinking-in-scale/sharding
 - https://www.hellointerview.com/learn/courses/system-design/lesson/foundations/data-modeling#scaling-and-sharding
-- https://www.youtube.com/watch?v=L521gizea4s | hi
-- [https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2192332143](https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2192332143)
-- https://www.youtube.com/watch?v=be6PLMKKSto&ab_channel=Exponent
-- first component in system who needs scaling is **Database**
+- https://www.youtube.com/watch?v=L521gizea4s | hi sharding 1
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158360645/posts/2192332143 | bm sharding 2
+- https://www.youtube.com/watch?v=be6PLMKKSto&ab_channel=Exponent | ex sharding 3
+
+
 ---
 ## Overview
-**Scaling database**
+> key idea : one server can handle `1,000 writes/second`, then 10 servers should (big should!) handle `10,000 writes/second.`
 
-![img.png](../../../99_img/2025/first-step.png)
+**horizontal** partitioning across **multiple database servers**.
+- Each shard is **independent Database server**
+- with its own replication, index, etc
+- 💡`postgres` Doesn't provide automatic sharding, do manually, `Citus` Extension
 
-| Stage            | Meaning                                                                   |
-| ---------------- | ------------------------------------------------------------------------- |
-|[partitioning](../SD_05_DataModeling/02_basic_concepts/03_02_database-partitioning.md) | One database splits a large table into smaller logical parts              |
-|**sharding**      | Those data partitions are distributed across multiple database servers    |
-| **Distributed DB** | Multiple nodes coordinate replication, routing, consistency, and failover |
+[Highly available + fault-tolerant (replicas) + scalable (with consistent-hashing)](../SD_05_DataModeling/draw/01_sharding.excalidraw)
 
-> Sharding = **horizontal** partitioning across **multiple database servers**.
-> - Each shard ===  **independent Database server**
-> - with its own replication, index, etc  👈
-> - `postgres` Doesn't provide automatic sharding, do manually, **Citus** (PostgreSQL Extension)
-
-**Example:**
-- Highly available + fault-tolerant (replicas) + scalable (with consistent-hashing)
-```mermaid
-flowchart LR
-    U[Users] -->|shard key| R[Shard Router<br/>Application Middle Layer]
-
-    R -->|user_id 1-1000| S1P[(Shard 1 Primary<br/>Independent DB \n storage,local-index, replicas, etc)]
-    R -->|user_id 1001-2000| S2[(Shard 2 ...)]
-    R -->|user_id 2001-3000| S3[(... )]
-    R -->|user_id 2001-3000| SN[(➕ Shard N<br/>\n ⭐Horizontal Scale by adding \n more and more shards \n ⭐with consistent-hashing )]
-
-    S1P -->|Synchronous replication| S1S[(Shard 1 Standby<br/>Failover)]
-    S1P -.->|Asynchronous replication| S1R1[(Shard 1 Read Replica 1)]
-    S1P -.->|Asynchronous replication| S1R2[(Shard 1 Read Replica 2)]
-
-    S1R1 --> Q1[Read Traffic]
-    S1R2 --> Q2[Read Traffic]
-
-    style R fill:#f4b183,stroke:#333
-    style S1S fill:#f4cccc,stroke:#333
-    style S1R1 fill:#9dc3e6,stroke:#333
-    style S1R2 fill:#9dc3e6,stroke:#333
-```
-
-```mermaid
-flowchart LR
-    K[Good Shard Key] --> R[Routing Layer]
-    R --> S[Multiple Shards]
-    S --> RS[Re-sharding Strategy]
-    S --> RP[Replication per Shard]
-
-    RP --> O[Scalable and Reliable Database]
-
-    style K fill:#d9eaff,stroke:#333
-    style R fill:#f4b183,stroke:#333
-    style S fill:#d9c2f0,stroke:#333
-    style RP fill:#a9d18e,stroke:#333
-    style O fill:#ffd966,stroke:#333
-```
 ---
 ## Approach for sharding
-**When to choose sharding:**
-- 1. storage approaches the limit | eg:AWS Aurora max out around `256 TiB.`
-- 2. Queries slow down
+✔️**Scenarios when to choose sharding**
+- storage approaches the limit | eg:AWS Aurora max out around `256 TiB.`
+- Queries slow down
     - scale Read throughput
     - scale Write throughput
 - more reasons:
@@ -74,19 +30,23 @@ flowchart LR
   - Backup/Recovery: Backup windows that **stretch into hours** or become operationally impractical
 -  So, when single database can’t keep up anymore, you have only one real option: sharding. **hence necessity at scale**
 
-**⭐Approach for sharding**
 > Be careful not to make the mistake of prematurely sharding. You need to establish why a single database won't work first.
 > - Slow down, do the math, and make sure sharding is actually needed
 > - [Numbers-to-know](01_04_Numbers-to-know.md)
-> - 👉millions or even tens of millions of users, a well-tuned single database can often handle the load
+> - 💡millions or even tens of millions of users, a well-tuned single database can often handle the load
 
+✔️**Steps involved**
+
+```Steps
 - 1 choosing **shard key**
 - 2 choosing a **partition strategy** (hashing) that keeps related data together 👈
 - 3 call out trade off
 - 4 Address how to handle growth (Consistent hashing)
-
-**2 main decisions**
 ```
+
+✔️**2 main decisions to make**
+
+```2-main-decisions
 What to shard by: 
 - The field or column you use to split the data. It defines how the data is grouped.
 
@@ -272,3 +232,18 @@ trade off:
 - SQL databases have also matured and made sharding easier
   - `Vitess` and `Citus` are popular open-source sharding layers that sit in front of PostgreSQL or MySQL
   - `AWS Aurora` and `Google Cloud Spanner` offer distributed SQL with built-in sharding.
+
+---
+## use case / scenarios / examples
+
+- first component in system who needs scaling is **Database**
+
+| Stage            | Meaning                                                                   |
+| ---------------- | ------------------------------------------------------------------------- |
+|[partitioning](../SD_05_DataModeling/02_basic_concepts/03_02_database-partitioning.md) | One database splits a large table into smaller logical parts              |
+|**sharding**      | Those data partitions are distributed across multiple database servers    |
+| **Distributed DB** | Multiple nodes coordinate replication, routing, consistency, and failover |
+
+- redis cluster 
+
+![img.png](img.png)
