@@ -18,11 +18,13 @@ bottleneck:
 
 --- 
 ## Solution/s
-Survive with single-database, first
+> Applying the same principle : write scaling is about **reducing throughput per component**
+
+Part-1: Survive with single-database, first
 - **Vertical Scaling**
 - **Database Choices**
 
-Then, throwing more hardware/complexity:
+Part-2: Then, throwing more hardware/complexity:
 - **sharding and partitioning**
 - Handling Bursts with **Queues and Load Shedding**
 - **Batching and Hierarchical Aggregation**
@@ -32,13 +34,16 @@ Then, throwing more hardware/complexity:
 > - next, check if it fits within our hardware capabilities. [Numbers-to-know](../SD_06_think-in-scale/01_04_Numbers-to-know.md#2-database)
 
 ---
-## A1. vertical scaling
+## Part-1 Survive with single-database
+### A1. vertical scaling
 - cloud providers and data center operators offer substantially **more powerful hardware**, we can use before, we need to re-architect our application
 - good chance hardware can go further, than you think
 - [Numbers-to-know](../SD_06_think-in-scale/01_04_Numbers-to-know.md#2-database)
 
+![img_3.png](../../../99_img/2025/se_02_sd/hi/pattern/05/img_3.png)
+
 ---
-## A2. Database Choices
+### A2. Database Choices
 choose underlying data stores are already **optimized for the writes**
 
 | Database type      | Examples              | Write/storage strategy                                                        | Best suited for                      |
@@ -63,17 +68,18 @@ More references
 - [Data modelling :: choose-database](../SD_05_DataModeling/01_01_choose-database.md)
 
 ---
-## A3. partitioning ⭐⭐
+### A3. partitioning ⭐⭐
 [partitioning](../SD_05_DataModeling/02_basic_concepts/03_02_database-partitioning.md)
 
 ---
-## B1. Horizontal Sharding ⭐⭐
+## Part-2 throwing more hardware/complexity
+### B1. Horizontal Sharding ⭐⭐
 [horizonal sharding](../SD_06_think-in-scale/01_02_sharding.md)
 - select a partition key that minimizes variance, in the number of **writes per shard**
 - Keep in mind, that we need to also consider how the data might be **read**
 
 ---
-## B2. Handling Bursts 
+### B2. Handling Bursts 
 - partitioning and sharding will get you 80% of the way to scale and deal with steady traffic
 - Real-world write traffic **isn't steady**
 - some bursts are common
@@ -85,7 +91,7 @@ More references
 
 [02_burst.excalidraw](draw/05_write-scale/02_burst.excalidraw)
 
-### Handling Bursts with Queues
+#### Handling Bursts with Queues
 benefit: most important is **burst absorption**
 
 Challenge
@@ -96,7 +102,7 @@ Challenge
 
 > Use queues when you expect to have bursts that are short-lived,
 
-### Handling Bursts with Load Shedding
+#### Handling Bursts with Load Shedding
 - actually a powerful tool
 - if system is overwhelmed, you need to **decide which writes to accept** and which to reject.
   - drop the less important writes
@@ -108,7 +114,7 @@ example:  Uber where users are reporting their locations at regular intervals. c
 >  putting some release valves in place shows, we can keep a **bad situation** (too much load) from **turning into a disaster** (system failure),
 
 ---
-## B3. Batching 
+### B3. Batching 
 [batching and intermediate-processing](draw/05_write-scale/03_batcher.excalidraw)
 - write operations have **overhead** like network round trips, transaction setup, index updates
 -  most databases process batches more efficiently than individual writes
@@ -119,7 +125,10 @@ example:  Uber where users are reporting their locations at regular intervals. c
 - intermediate-processing: we can look upstream to see how we can make the incoming data easier to process.
 - on Database configure `flush to disk` in ms
 
-## B4. Hierarchical Aggregation
+![img.png](../../../99_img/2025/se_02_sd/hi/pattern/05/img.png)
+
+### B4. Hierarchical Aggregation
+- benefits to **all-to-all problem**
 - For high-volume data like analytics and stream processing, you often don't need to store individual events and instead need aggregated views
 -  important insight is that these views can be **built up incrementally**. 
   - Hierarchical aggregation, processes data in stages, **reducing volume** at each step
@@ -127,30 +136,117 @@ example:  Uber where users are reporting their locations at regular intervals. c
 ---
 [04_aggregator.excalidraw](draw/05_write-scale/04_aggregator.excalidraw)
 
-**example**: In live video streams, 
-- creates an ugly situation if there are millions of viewers, millions of users are writing
+**example**: In live video streams
+- creates an ugly situation if there are millions of viewers, millions of users are writing 👈 | 
 - they want to see all the latest comments and the counts
 
-Broadcast Nodes + write processor Node
+Broadcast Nodes 
 - instead of writing to N viewers, we only have to write to M broadcast nodes
 - Assign the users to broadcast node, using a consistent hashing scheme.
 - nodes can forward updates to their respective viewers.
 
+write processor Node
+- write processor we call out to can be chosen based on the ID of the comment
+- The write processors can then aggregate the likes,comment
+-  forward a batch of updates to the root processor
+
 --- 
 ## interview
+when: proactively identify bottlenecks, validate them, and propose solutions as deep dive
+
+tradeoffs: 
+- Queues mean eventual consistency and delay, 
+- partitioning means the read path may be compromised, cross shard joins, etc
+- batching adds latency and moving pieces. 
+
 ### Use case / scenario
-```
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/instagram
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/fb-news-feed
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/fb-post-search
+- https://www.hellointerview.com/learn/system-design/problem-breakdowns/fb-live-comments
+
+```scenario
 YouTube Top K
 Strava
 Rate Limiter
 Ad Click Aggregator
-FB Post Search
 Metrics Monitoring
 Notification System
+
+---
+
+Instagram/Social Media
+- new post
+  - push: need to be written to millions of followers
+  - pull ?
+  - to many likes/comment, makes it write heavy ?
+- sharding by user ID for posts, 
+- vertical partitioning for different data types (user profiles, posts, analytics)
+- hierarchical storage for older posts ?
+- Live Comments, can benefit from hierarchical aggregation
+- Post Search: 
+    - Search applications are often write-heavy 
+    - with substantial preprocessing required in order to make the search results quick to retrieve.
 ```
 
 --- 
 ## Deep dives
+💡 How do you handle **resharding** when you need to add more shards
+- Production systems use **gradual migration** which targets writes to both locations
+- shard we're migrating from and the shard we're migrating to
+-  This allows us to migrate data gradually while **maintaining availability.**
+- dual-write phase ensures **no data is lost during migration**
+
+| Step                            | What happens                                                                                                                                                 |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **1. Add new shards**           | Provision the additional database nodes.                                                                                                                     |
+| **2. Change shard mapping**     | Update the routing logic so the key space is divided across more shards.                                                                                     |
+| **3. Move data**                | Copy/migrate keys from old shards to their new owners.                                                                                                       |
+| **4. Keep writes synchronized** | During migration, make sure new writes reach the correct destination, often using **dual-write**, replication, or a migration mechanism built into the database. |
+| **5. Switch reads**             | Once the destination shard is caught up, route reads to it.                                                                                                  |
+| **6. Clean up**                 | Remove old copies after verification.                                                                                                                        |
+
+```mermaid
+flowchart LR
+    C[Client] --> R[Router]
+    R --> S1[Old Shard]
+    R --> S2[New Shard]
+    S1 -->|Copy data| S2
+    S1 -->|Sync changes| S2
+    R -.->|Switch ownership| S2
+```
+Consistent hashing or virtual shards, 
+  - **minimize** the amount of data that needs to move 
+  - and allow the process to happen with minimal downtime
+---
+
+💡 What happens when you have a hot key that's too popular for even a single shard?
+- eg: viral tweet that receives `100,000 likes per second`
+- below 2 approaches, work for metrics that can be **aggregated** (**likes, views, counts**)
+
+![img_1.png](../../../99_img/2025/se_02_sd/hi/pattern/05/img_1.png)
+
+1 Split **All** Keys (fixed) : Simple
+- Instead of having each tweet's likes be stored on a single shard, we can instead store them across multiple shards.
+- split all keys a fixed ` k ` number of times
+  - `post1Likes key --> post1Likes-0, post1Likes-1, post1Likes-2, ...,  post1Likes-k-1`
+  - When reading, you aggregate the counts from all `k` keys
+  - in order to get the number of likes for a given `post1Likes`, we need to reach all `k` keys
+
+2 Split **hot** Keys (dynamically)
+- breaking the hot key into multiple sub-keys dynamically, based on whether the key is hot or not
+- split the like count across `100 sub-keys`, each handling `1,000` likes per second.
+- both readers and writers need to be able to agree **on which keys** are hot for this to work
+  - If writers are spreading writes across multiple sub-keys,
+  - but readers aren't reading from all sub-keys, we have a problem!
+  - sol-1:  readers always check all the sub-keys. default and best/simple ⭐
+  - sol-2:  writers announce the split to the readers, more complex to implement
+
+  ![img_2.png](../../../99_img/2025/se_02_sd/hi/pattern/05/img_2.png)
 
 --- 
 ## Conclusion
+https://www.hellointerview.com/learn/system-design/patterns/scaling-writes/quick-reference
+- Sharding and partitioning is a great place to **start** when you're trying to scale your system
+- If you're dealing with high volume analytics or numeric data, **batching and hierarchical aggregation** can give you immediate 5-10x improvements
+- Finally, queues and load shedding are great tools when requirements allow for **async processing or even dropping requests**
