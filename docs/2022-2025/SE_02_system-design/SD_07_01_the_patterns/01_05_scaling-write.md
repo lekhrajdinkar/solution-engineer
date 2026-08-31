@@ -68,9 +68,12 @@ More references
 - [AWS databases offerings](../../CE_02_AWS_SAA/03_database)
 - [Data modelling :: choose-database](../SD_05_DataModeling/01_01_choose-database.md)
 
+
 ---
 ### A3. partitioning ⭐⭐
 [partitioning](../SD_05_DataModeling/02_basic_concepts/03_02_database-partitioning.md)
+
+![img.png](../../../99_img/2026/hi/pattern/04/img.png)
 
 ---
 ## Part-2 throwing more hardware/complexity
@@ -93,17 +96,24 @@ More references
 ![02_burst.excalidraw](draw/05_write-scale/02_burst.excalidraw)
 
 #### Handling Bursts with Queues
-benefit: most important is **burst absorption**
+![img_1.png](../../../99_img/2026/hi/pattern/04/img_1.png)
 
-Challenge
+**benefit**: most important is **burst absorption**
+
+**Challenge**
 - queues are inherently **async**, so clients will also often need a way to **call back to check** the write was eventually made.
 - can have : **unbounded growth of our queue**.
   - app server continues to write to the queue **faster**, than records can be written to the database
   - Until the **backlog** drains, users are still waiting on writes
 
+![img_2.png](../../../99_img/2026/hi/pattern/04/img_2.png)
+
 > Use queues when you expect to have bursts that are short-lived,
 
+---
 #### Handling Bursts with Load Shedding
+![img_3.png](../../../99_img/2026/hi/pattern/04/img_3.png)
+
 - actually a powerful tool
 - if system is overwhelmed, you need to **decide which writes to accept** and which to reject.
   - drop the less important writes
@@ -116,20 +126,35 @@ example:  Uber where users are reporting their locations at regular intervals. c
 
 ---
 ### B3. Batching 
+![img_4.png](../../../99_img/2026/hi/pattern/04/img_4.png)
+
 ![batching and intermediate-processing](draw/05_write-scale/03_batcher.excalidraw)
 - write operations have **overhead** like network round trips, transaction setup, index updates
 -  most databases process batches more efficiently than individual writes
 - batching writes together.
-- done at the application layer 
+- Apply on all layers
+
+**application layer** 
   - application itself isn't the source of truth, 
   - no need to handle the potential for data loss.
-- intermediate-processing: we can look upstream to see how we can make the incoming data easier to process.
-- on Database configure `flush to disk` in ms
+  - ![img_5.png](../../../99_img/2026/hi/pattern/04/img_5.png)
+
+**intermediate-processing layer**
+- we can look upstream to see how we can make the incoming data easier to process.
+- ![img_7.png](../../../99_img/2026/hi/pattern/04/img_7.png)
+
+**Database layer**
+- configure `flush to disk` in ms
+- ![img_9.png](../../../99_img/2026/hi/pattern/04/img_9.png)  ![img_8.png](../../../99_img/2026/hi/pattern/04/img_8.png)
+
+
 
 ![img.png](../../../99_img/2025/se_02_sd/hi/pattern/05/img.png)
 
 ### B4. Hierarchical Aggregation
-- benefits to **all-to-all problem**
+![img_10.png](../../../99_img/2026/hi/pattern/04/img_10.png)
+
+- benefits to **all-to-all problem** 🔺
 - For high-volume data like analytics and stream processing, you often don't need to store individual events and instead need aggregated views
 -  important insight is that these views can be **built up incrementally**. 
   - Hierarchical aggregation, processes data in stages, **reducing volume** at each step
@@ -141,16 +166,17 @@ example:  Uber where users are reporting their locations at regular intervals. c
 - creates an ugly situation if there are millions of viewers, millions of users are writing 👈 | 
 - they want to see all the latest comments and the counts
 
-Broadcast Nodes 
+**Broadcast Nodes** 
 - instead of writing to N viewers, we only have to write to M broadcast nodes
 - Assign the users to broadcast node, using a consistent hashing scheme.
 - nodes can forward updates to their respective viewers.
+- ![img_11.png](../../../99_img/2026/hi/pattern/04/img_11.png)
 
-write processor Node
+**write processor Node**
 - write processor we call out to can be chosen based on the ID of the comment
 - The write processors can then aggregate the likes,comment
 -  forward a batch of updates to the root processor
-
+- ![img_12.png](../../../99_img/2026/hi/pattern/04/img_12.png)
 --- 
 ## interview
 ### when to use
@@ -195,7 +221,7 @@ Instagram/Social Media
 ## Deep dives
 💡 How do you handle **resharding** when you need to add more shards
 
-dual-write
+**dual-write**
 - Production systems use **gradual migration** which targets writes to both locations
 - shard we're migrating from and the shard we're migrating to
 - This allows us to migrate data gradually while **maintaining availability.**
@@ -210,15 +236,8 @@ dual-write
 | **5. Switch reads**             | Once the destination shard is caught up, route reads to it.                                                                                                  |
 | **6. Clean up**                 | Remove old copies after verification.                                                                                                                        |
 
-```mermaid
-flowchart LR
-    C[Client] --> R[Router]
-    R --> S1[Old Shard]
-    R --> S2[New Shard]
-    S1 -->|Copy data| S2
-    S1 -->|Sync changes| S2
-    R -.->|Switch ownership| S2
-```
+![img_13.png](../../../99_img/2026/hi/pattern/04/img_13.png)
+
 Consistent hashing or virtual shards, 
   - **minimize** the amount of data that needs to move 
   - and allow the process to happen with minimal downtime
@@ -237,6 +256,8 @@ Consistent hashing or virtual shards,
   - When reading, you aggregate the counts from all `k` keys
   - in order to get the number of likes for a given `post1Likes`, we need to reach all `k` keys
 
+![img_14.png](../../../99_img/2026/hi/pattern/04/img_14.png)
+
 2 Split **hot** Keys (dynamically)
 - breaking the hot key into multiple sub-keys dynamically, based on whether the key is hot or not
 - split the like count across `100 sub-keys`, each handling `1,000` likes per second.
@@ -244,9 +265,11 @@ Consistent hashing or virtual shards,
   - If writers are spreading writes across multiple sub-keys,
   - but readers aren't reading from all sub-keys, we have a problem!
   - sol-1:  readers always check all the sub-keys. default and best/simple ⭐
-  - sol-2:  writers announce the split to the readers, more complex to implement
+  - sol-2:  writers announce the split to the readers, more complex to implement, **adds coordination problems**
 
-  ![img_2.png](../../../99_img/2025/se_02_sd/hi/pattern/05/img_2.png)
+![img_15.png](../../../99_img/2026/hi/pattern/04/img_15.png)
+
+![img_2.png](../../../99_img/2025/se_02_sd/hi/pattern/05/img_2.png)
 
 --- 
 ## Conclusion

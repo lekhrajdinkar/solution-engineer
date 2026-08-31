@@ -48,6 +48,8 @@ Specialized
 | Complex filtering and reporting are needed | Simple `GET`, `PUT`, `DELETE` operations dominate |
 | Example: banking, orders, inventory        | Example: sessions, carts, cache, user preferences |
 
+[05_writes_compare.excalidraw](../SD_07_01_the_patterns/draw/05_write-scale/05_writes_compare.excalidraw)
+
 ---
 ## A1. Relational Databases (SQL)
 > default unless your requirements clearly signal a specialized model | stick with PostgreSQL.

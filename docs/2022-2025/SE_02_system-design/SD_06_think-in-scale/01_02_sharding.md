@@ -246,4 +246,5 @@ trade off:
 
 - redis cluster 
 
-![img.png](img.png)
+![img_1.png](../../../99_img/2026/hi/pattern/04/img_6.png)
+
