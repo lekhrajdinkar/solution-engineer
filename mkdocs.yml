@@ -25,6 +25,7 @@ theme:
   - search.highlight
 plugins:
 - search
+- excalidraw
 markdown_extensions:
 - admonition
 - attr_list
@@ -340,7 +341,8 @@ nav:
         - Concept 09 Scale Cube: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/05_concept_09_scale-cube.md
         - Concept 99 More List: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/05_concept_99_more-list.md
         - Os 01 Kernel: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/02_os_01_kernel.md
-        - System Design Topic List: 2022-2025/SE_02_system-design/SD_01_Foundation/01_basic_concepts/01-topic-list.md
+      - Core Concepts: 2022-2025/SE_02_system-design/SD_01_Foundation/02_core-concepts.md
+      - Delivery Framework: 2022-2025/SE_02_system-design/SD_01_Foundation/01_delivery-framework.md
       - Design Patterns:
         - Behavioral Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/03_Behavioral_Patterns.md
         - Creational Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/01_Creational_Patterns.md
@@ -352,20 +354,17 @@ nav:
         - Security Design Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/08_Security_Design_Patterns.md
         - Ui+frontend Patterns: 2022-2025/SE_02_system-design/SD_01_Foundation/03_Design-patterns/10_UI+Frontend_Patterns.md
       - IPC:
-        - Asynchronous: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/01_02_polling.md
         - Batch File Based: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/05_batch_file_based.md
-        - Synchronous: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/01_01_request-response.md
-        - Streaming TCP Based: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/02_01_streaming-sse.md
-        - Video Streaming: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/02_03_streaming-webRTC.md
-      - Network:
-        - Concept 01 Socket: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/01_concept_01_socket.md
-        - Concept 02 More: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/01_concept_02_more.md
-        - Concept 03 Pre Signed Urls: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/02_concept_03_pre-signed-urls.md
-        - Concept 04 Proxies: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/02_concept_04_proxies.md
-        - Core 01 OSI Layers: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/02_core_01_OSI-layers.md
-        - Core 02 Load Balancer: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/02_core_02_Load-balancer.md
-        - Core 03 Latency+regionalization: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/02_core_03_latency+regionalization.md
-        - Core 04 Network Failure: 2022-2025/SE_02_system-design/SD_01_Foundation/06_network/02_core_04_network-failure.md
+        - Event Driven: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/03_01_event-driven.md
+        - IPC: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/00_IPC.md
+        - Message Driven: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/03_02_message-driven.md
+        - Polling: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/01_02_polling.md
+        - Request Response: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/01_01_request-response.md
+        - Streaming Sse: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/02_01_streaming-sse.md
+        - Streaming Wss: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/02_02_streaming-wss.md
+        - Streaming Webrtc: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/02_03_streaming-webRTC.md
+        - Streaming ABS: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/02_04_Streaming-ABS.md
+        - Streaming Grpc Based: 2022-2025/SE_02_system-design/SD_01_Foundation/05_IPC/02_05_streaming-gRPC-based.md
     - SD 02 Non Functional Req:
       - NFR Of Reliability System: 2022-2025/SE_02_system-design/SD_02_Non-functional-req/02_NFR-of-reliability-system.md
       - NFR 01 Availability: 2022-2025/SE_02_system-design/SD_02_Non-functional-req/02_NFR_01_Availability.md
@@ -379,22 +378,33 @@ nav:
       - NFR 07 Resiliency: 2022-2025/SE_02_system-design/SD_02_Non-functional-req/02_NFR_07_resiliency__.md
       - NFR 08 Maintenance+cost: 2022-2025/SE_02_system-design/SD_02_Non-functional-req/02_NFR_08-Maintenance+cost.md
       - Trade Offs: 2022-2025/SE_02_system-design/SD_02_Non-functional-req/01_Trade-offs.md
-    - SD 04 Protecting Servers:
-      - Protection 00 Death Spiral: 2022-2025/SE_02_system-design/SD_04_protecting-servers/02_protection_00_death-spiral.md
-      - Protection 01 Auto Scaling: 2022-2025/SE_02_system-design/SD_04_protecting-servers/02_protection_01_auto-scaling.md
-      - Protection 02 Load Shedding: 2022-2025/SE_02_system-design/SD_04_protecting-servers/02_protection_02_Load-Shedding.md
-      - Protection 03 Ratelimiting: 2022-2025/SE_02_system-design/SD_04_protecting-servers/02_protection_03_RateLimiting.md
+    - SD 03 Protecting Servers:
+      - Protection 00 Death Spiral: 2022-2025/SE_02_system-design/SD_03_protecting-servers/02_protection_00_death-spiral.md
+      - Protection 01 Auto Scaling: 2022-2025/SE_02_system-design/SD_03_protecting-servers/02_protection_01_auto-scaling.md
+      - Protection 02 Load Shedding: 2022-2025/SE_02_system-design/SD_03_protecting-servers/02_protection_02_Load-Shedding.md
+      - Protection 03 Ratelimiting: 2022-2025/SE_02_system-design/SD_03_protecting-servers/02_protection_03_RateLimiting.md
+    - SD 04 Network Essential:
+      - Basic Concepts:
+        - Concept 01 Socket: 2022-2025/SE_02_system-design/SD_04_network-essential/02_basic-concepts/01_concept_01_socket.md
+        - Concept 02 More: 2022-2025/SE_02_system-design/SD_04_network-essential/02_basic-concepts/01_concept_02_more.md
+        - Concept 03 Pre Signed Urls: 2022-2025/SE_02_system-design/SD_04_network-essential/02_basic-concepts/02_concept_03_pre-signed-urls.md
+        - Concept 04 Proxies: 2022-2025/SE_02_system-design/SD_04_network-essential/02_basic-concepts/02_concept_04_proxies.md
+      - Core 01 OSI Layers: 2022-2025/SE_02_system-design/SD_04_network-essential/02_core_01_OSI-layers.md
+      - Core 02 Load Balancer: 2022-2025/SE_02_system-design/SD_04_network-essential/02_core_02_Load-balancer.md
+      - Core 03 Latency+regionalization: 2022-2025/SE_02_system-design/SD_04_network-essential/02_core_03_latency+regionalization.md
+      - Core 04 Network Failure: 2022-2025/SE_02_system-design/SD_04_network-essential/02_core_04_network-failure.md
     - SD 05 Datamodeling:
       - Basic Concepts:
         - Basic 01 Memory: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/01_basic_01_memory.md
         - Basic 02 Storage: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/01_basic_02_storage.md
+        - Distributed Filesystem: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/02_01_distributed-FileSystem.md
         - Database Replication: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/03_01_database-replication.md
         - Database Partitioning: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/03_02_database-partitioning.md
+        - Distributed Locking: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/03_03_distributed-Locking.md
+        - Distributed Transaction: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/03_04_distributed-Transaction.md
         - Mapreduce: 2022-2025/SE_02_system-design/SD_05_DataModeling/02_basic_concepts/04_01_MapReduce.md
-      - Design 01 Choose Database: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_01_choose-database.md
-      - Design 02 Schema: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_02_Design-schema.md
-      - Design 03 Indexes 1: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_03_indexes-1.md
-      - Design 03 Indexes 2: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_04_indexes-2.md
+      - Choose Database: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_01_choose-database.md
+      - Design Schema: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_02_Design-schema.md
       - Datastructure:
         - Core 01 Bloomfilter: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_01_BloomFilter.md
         - Core 02 Btree: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_02_btree.md
@@ -402,9 +412,10 @@ nav:
         - Core 04 Hashtable: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_04_hashtable.md
         - Core 05 Geo Spactial: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_05_geo-spactial.md
         - Core 06 Inverted: 2022-2025/SE_02_system-design/SD_05_DataModeling/03_DataStructure/01_core_06-inverted.md
-      - Redis Chapter 1: 2022-2025/SE_02_system-design/SD_05_DataModeling/04_redis-chapter-1.md
+      - Indexes 1: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_03_indexes-1.md
+      - Indexes 2: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_04_indexes-2.md
       - SQL Fundamental:
-        - Acid+locks: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/07_ACID.md
+        - ACID: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/07_ACID.md
         - Constraints: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/02_constraints.md
         - CTE: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/05_CTE.md
         - Datatype: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/01_datatype.md
@@ -413,6 +424,7 @@ nav:
         - Dql: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/02_dql.md
         - Dcl: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/03_dcl.md
         - Function: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/04_function.md
+        - Locks: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/08_Locks.md
         - Normalization: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/00_Normalization.md
         - Postgress: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/00_postgress.md
         - View: 2022-2025/SE_02_system-design/SD_05_DataModeling/01_SQL_fundamental/06_view.md
@@ -421,28 +433,37 @@ nav:
       - Consistent Hashing: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_03_consistent-hashing.md
       - CAP Theorem: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_04_CAP-theorem.md
       - Distributed Caching: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_01_distributed-caching.md
-      - Distributed Locking: 2022-2025/SE_02_system-design/SD_06_think-in-scale/03_03_distributed-Locking.md
-      - Distributed Transaction: 2022-2025/SE_02_system-design/SD_06_think-in-scale/03_04_distributed-Transaction.md
-      - Distributed Filesystem: 2022-2025/SE_02_system-design/SD_06_think-in-scale/02_01_distributed-FileSystem.md
       - Numbers To Know: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_04_Numbers-to-know.md
       - Sharding: 2022-2025/SE_02_system-design/SD_06_think-in-scale/01_02_sharding.md
-    - SD 07 The Patterns:
-      - Common Patterns: 2022-2025/SE_02_system-design/SD_07_the_patterns/99_common-patterns-summary.md
+    - SD 07 01 The Patterns:
+      - Contention: 2022-2025/SE_02_system-design/SD_07_01_the_patterns/01_02_contention.md
+      - Common Patterns Summary: 2022-2025/SE_02_system-design/SD_07_01_the_patterns/99_common-patterns-summary.md
+      - Handling Large Object: 2022-2025/SE_02_system-design/SD_07_01_the_patterns/01_06_handling-large-object.md
+      - Multi Step Process: 2022-2025/SE_02_system-design/SD_07_01_the_patterns/01_03_multi-step-process.md
+      - Managing Long Running: 2022-2025/SE_02_system-design/SD_07_01_the_patterns/01_07_managing-long-running.md
+      - Real Time Updates: 2022-2025/SE_02_system-design/SD_07_01_the_patterns/01_01_real-time-updates.md
+      - Scaling Reads: 2022-2025/SE_02_system-design/SD_07_01_the_patterns/01_04_scaling-reads.md
+      - Scaling Write: 2022-2025/SE_02_system-design/SD_07_01_the_patterns/01_05_scaling-write.md
+    - SD 07 02 Key Technologies:
+      - Key Tehnologies: 2022-2025/SE_02_system-design/SD_07_02_key-technologies/00_key-tehnologies.md
+      - Redis Chapter 1: 2022-2025/SE_02_system-design/SD_07_02_key-technologies/04_redis-chapter-1.md
     - SD 08 API Design:
-      - Api Design 01 Approach: 2022-2025/SE_02_system-design/SD_08_API-Design/01_approach.md
-      - Api Design 02 Choose Protocol: 2022-2025/SE_02_system-design/SD_08_API-Design/02_choose-protocol.md
-      - Api Design 03 Pagination: 2022-2025/SE_02_system-design/SD_08_API-Design/03_pagination.md
-      - Api Design 04 Versioning: 2022-2025/SE_02_system-design/SD_08_API-Design/04_versioning.md
-      - Api Design 05 Security: 2022-2025/SE_02_system-design/SD_08_API-Design/05_security.md
-      - Api Design 06 Caching: 2022-2025/SE_02_system-design/SD_08_API-Design/06_caching.md
-      - Concept 01 BFF: 2022-2025/SE_02_system-design/SD_08_API-Design/03_concept_01_BFF.md
-      - Concept 02 API Checklist: 2022-2025/SE_02_system-design/SD_08_API-Design/03_concept_02_API-checklist.md
-      - Concept 03 Api Gateway: 2022-2025/SE_02_system-design/SD_08_API-Design/03_concept_03_api-gateway.md
-      - Grpc 01 Overview: 2022-2025/SE_02_system-design/SD_08_API-Design/02_grpc_01_overview.md
-      - Graphql 01 Overview: 2022-2025/SE_02_system-design/SD_08_API-Design/03_graphQL_01_overview.md
-      - Rest 01 Best Principles: 2022-2025/SE_02_system-design/SD_08_API-Design/01_rest_01_overview.md
-      - Rest 02 Http Headers: 2022-2025/SE_02_system-design/SD_08_API-Design/01_02_http-headers.md
-      - Rest 03 Http Evolution: 2022-2025/SE_02_system-design/SD_08_API-Design/01_01_http-evolution.md
+      - Approach: 2022-2025/SE_02_system-design/SD_08_API-Design/01_approach.md
+      - Basic Concept:
+        - Concept 01 BFF: 2022-2025/SE_02_system-design/SD_08_API-Design/03_basic-concept/03_concept_01_BFF.md
+        - Concept 02 API Checklist: 2022-2025/SE_02_system-design/SD_08_API-Design/03_basic-concept/03_concept_02_API-checklist.md
+        - Concept 03 Api Gateway: 2022-2025/SE_02_system-design/SD_08_API-Design/03_basic-concept/03_concept_03_api-gateway.md
+        - Http Evolution: 2022-2025/SE_02_system-design/SD_08_API-Design/03_basic-concept/01_01_http-evolution.md
+        - Http Headers: 2022-2025/SE_02_system-design/SD_08_API-Design/03_basic-concept/01_02_http-headers.md
+      - Choose Protocol: 2022-2025/SE_02_system-design/SD_08_API-Design/02_choose-protocol.md
+      - Caching: 2022-2025/SE_02_system-design/SD_08_API-Design/06_caching.md
+      - Protocol:
+        - Grpc 01 Overview: 2022-2025/SE_02_system-design/SD_08_API-Design/02_protocol/02_grpc_01_overview.md
+        - Graphql 01 Overview: 2022-2025/SE_02_system-design/SD_08_API-Design/02_protocol/03_graphQL_01_overview.md
+        - Rest 01 Overview: 2022-2025/SE_02_system-design/SD_08_API-Design/02_protocol/01_rest_01_overview.md
+      - Pagination: 2022-2025/SE_02_system-design/SD_08_API-Design/03_pagination.md
+      - Security: 2022-2025/SE_02_system-design/SD_08_API-Design/05_security.md
+      - Versioning: 2022-2025/SE_02_system-design/SD_08_API-Design/04_versioning.md
     - SD 21 Microservice:
       - Core Pattern 01 Stateless Vs Stateful: 2022-2025/SE_02_system-design/SD_21_microservice/04_core_pattern_01_stateless_vs_stateful.md
       - Core Pattern 02 Service Discovery: 2022-2025/SE_02_system-design/SD_21_microservice/04_core_pattern_02_service-discovery.md
@@ -478,7 +499,10 @@ nav:
       - Distributed Tracing: 2022-2025/SE_02_system-design/SD_25_observability/03_distributed-Tracing.md
       - Deloyment 01 Strategies: 2022-2025/SE_02_system-design/SD_25_observability/09_deloyment_01_strategies.md
     - Temp:
+      - 01 Topic List: 2022-2025/SE_02_system-design/temp/01-topic-list.md
       - Artifact: 2022-2025/SE_02_system-design/temp/artifact.md
+  - SE 03 DSA:
+    - Sorting Part 1: 2022-2025/SE_03_DSA/01_sorting-part-1.md
   - SE 99 Case Studies:
     - Bytebytego:
       - Notification System: 2022-2025/SE_99_case-studies/02_ByteByteGo/02_notification-system.md

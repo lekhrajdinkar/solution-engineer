@@ -3,6 +3,7 @@
 - https://www.hellointerview.com/learn/system-design/patterns/scaling-writes
 - [02_NFR_06_Read-Write-ratio.md](../SD_02_Non-functional-req/02_NFR_06_Read-Write-ratio.md)
 - [02_NFR_03_Scaling.md](../SD_02_Non-functional-req/02_NFR_03_Scaling.md)
+- https://excalidraw.com/#json=hNSipogaNj3Zk_8zmDGlk,3_B5MZBz1MsXhef9B3LhWg | Summary drawing
 
 --- 
 ## Problem
@@ -89,7 +90,7 @@ More references
   - **buffer** the writes --> Queue
   - **get rid** of writes in a way , that is acceptable to the business --> Load shedding
 
-[02_burst.excalidraw](draw/05_write-scale/02_burst.excalidraw)
+![02_burst.excalidraw](draw/05_write-scale/02_burst.excalidraw)
 
 #### Handling Bursts with Queues
 benefit: most important is **burst absorption**
@@ -115,7 +116,7 @@ example:  Uber where users are reporting their locations at regular intervals. c
 
 ---
 ### B3. Batching 
-[batching and intermediate-processing](draw/05_write-scale/03_batcher.excalidraw)
+![batching and intermediate-processing](draw/05_write-scale/03_batcher.excalidraw)
 - write operations have **overhead** like network round trips, transaction setup, index updates
 -  most databases process batches more efficiently than individual writes
 - batching writes together.
@@ -134,7 +135,7 @@ example:  Uber where users are reporting their locations at regular intervals. c
   - Hierarchical aggregation, processes data in stages, **reducing volume** at each step
 
 ---
-[04_aggregator.excalidraw](draw/05_write-scale/04_aggregator.excalidraw)
+![04_aggregator.excalidraw](draw/05_write-scale/04_aggregator.excalidraw)
 
 **example**: In live video streams
 - creates an ugly situation if there are millions of viewers, millions of users are writing 👈 | 
@@ -152,9 +153,10 @@ write processor Node
 
 --- 
 ## interview
-when: proactively identify bottlenecks, validate them, and propose solutions as deep dive
+### when to use
+- proactively identify bottlenecks, validate them, and propose solutions as deep dive
 
-tradeoffs: 
+understand tradeoffs: 
 - Queues mean eventual consistency and delay, 
 - partitioning means the read path may be compromised, cross shard joins, etc
 - batching adds latency and moving pieces. 
@@ -192,9 +194,11 @@ Instagram/Social Media
 --- 
 ## Deep dives
 💡 How do you handle **resharding** when you need to add more shards
+
+dual-write
 - Production systems use **gradual migration** which targets writes to both locations
 - shard we're migrating from and the shard we're migrating to
--  This allows us to migrate data gradually while **maintaining availability.**
+- This allows us to migrate data gradually while **maintaining availability.**
 - dual-write phase ensures **no data is lost during migration**
 
 | Step                            | What happens                                                                                                                                                 |
@@ -247,6 +251,9 @@ Consistent hashing or virtual shards,
 --- 
 ## Conclusion
 https://www.hellointerview.com/learn/system-design/patterns/scaling-writes/quick-reference
+
 - Sharding and partitioning is a great place to **start** when you're trying to scale your system
 - If you're dealing with high volume analytics or numeric data, **batching and hierarchical aggregation** can give you immediate 5-10x improvements
 - Finally, queues and load shedding are great tools when requirements allow for **async processing or even dropping requests**
+
+![99_summary-1.excalidraw](draw/05_write-scale/99_summary-1.excalidraw)
