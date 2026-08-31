@@ -1,6 +1,7 @@
 # Sorting
 ## reference
 - https://gemini.google.com/app/7ed3618cadf2e93d
+- https://www.w3schools.com/dsa/dsa_algo_bubblesort.php
 
 ---
 ## 1. Bubble Sort 🫧
@@ -45,7 +46,7 @@
 [01_02_selection-sort.excalidraw](draw/01_02_selection-sort.excalidraw)
 
 ---
-## 3. Insertion Sort 
+## 3. Insertion Sort ⭐⭐
 
 > 💡Key Idea:
 > - Mimics sorting playing cards in hand. 
