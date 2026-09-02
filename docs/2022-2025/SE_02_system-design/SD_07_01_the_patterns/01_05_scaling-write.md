@@ -280,3 +280,4 @@ https://www.hellointerview.com/learn/system-design/patterns/scaling-writes/quick
 - Finally, queues and load shedding are great tools when requirements allow for **async processing or even dropping requests**
 
 ![99_summary-1.excalidraw](draw/05_write-scale/99_summary-1.excalidraw)
+

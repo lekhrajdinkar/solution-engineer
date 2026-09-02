@@ -21,7 +21,7 @@
 - Time Complexity:  $O(n^2)$
 - Space Complexity: $O(1)$ (In-place)
 
-[01_01_bubble-sort.excalidraw](draw/01_01_bubble-sort.excalidraw)
+[01_01_bubble-sort.excalidraw](../draw/01_01_bubble-sort.excalidraw)
 
 
 ---
@@ -43,7 +43,7 @@
 - Time Complexity: Best/Average/Worst: $O(n^2)$ 
 - Space Complexity: $O(1)$ (In-place)
 
-[01_02_selection-sort.excalidraw](draw/01_02_selection-sort.excalidraw)
+[01_02_selection-sort.excalidraw](../draw/01_02_selection-sort.excalidraw)
 
 ---
 ## 3. Insertion Sort ⭐⭐
@@ -64,4 +64,4 @@
 - Time Complexity: $O(n)$ - $O(n^2)$   ?
 - Space Complexity: $O(1)$ (In-place)
 
-[01_03_insertion-sort.excalidraw](draw/01_03_insertion-sort.excalidraw)
+[01_03_insertion-sort.excalidraw](../draw/01_03_insertion-sort.excalidraw)
