@@ -16,8 +16,11 @@
 ```
 
 ---
-## Generating mkdocs.yml
-> Files ending with `__x.md` will be skipped
+## Notes view
+### MKdocs
+- Generating mkdocs.yml
+- Files ending with `__x.md` will be skipped
+
 ```bash
 # pip install -r requirements-netlify.txt
 # - mkdocs 
@@ -30,3 +33,12 @@ mkdocs serve
 # .\scripts\generate_mkdocs.bat
 ```
 [http://localhost:8000](http://localhost:8000)
+
+---
+### YT Notes ⭐
+```bash
+cd C:\Users\Manisha\Documents\github-2025\genai\src\y2026\youtube_agent_2\frontend; npm run dev
+# cd .\..\genai\src\y2026\youtube_agent_2\frontend; npm run dev
+```
+http://localhost:5173/
+

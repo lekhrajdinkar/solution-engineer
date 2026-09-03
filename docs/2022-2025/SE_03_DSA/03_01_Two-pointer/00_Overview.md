@@ -2,6 +2,7 @@
 ## Reference
 - https://www.hellointerview.com/learn/code/two-pointers/overview
 
+---
 ##  283 | move zeros
 - https://leetcode.com/problems/move-zeroes/
 
@@ -26,29 +27,41 @@ class Solution:
 ```
 
 ---
-##  167 | 2 Sum
-https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
+## 75 | 3 Sort Color (Similar to move-zeros)
+> single pass Sort 
+- https://leetcode.com/problems/sort-colors/
+- https://www.hellointerview.com/learn/code/two-pointers/sort-colors
+
+[lc-75-3color-sort.excalidraw](lc-75-3color-sort.excalidraw)
 
 ```python
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> bool:
-        l, r = 0, len(nums) - 1
-        while l < r:
-            total = nums[l] + nums[r]
-            if total == target:
-                return True;
-            else:
-                if total > target:
-                    r -= 1
-                else:
-                    l += 1
+    def sortColors(self, nums: List[int]) -> None:
+        # starting
+        left = 0
+        right = len(nums)-1
+        i= 0
         
-        return False;
+        # break when 
+        while i <= right:
+            if nums[i] == 0:
+                nums[left], nums[i] =   nums[i], nums[left]
+                i += 1
+                left += 1
+            
+            elif nums[i] == 2:
+                nums[right], nums[i] =   nums[i], nums[right]
+                #i += 1
+                right -= 1
+            
+            else:
+                i += 1
 ```
 
 ---
 ##  11 | container-with-most-water
-https://leetcode.com/problems/container-with-most-water/description/
+- https://leetcode.com/problems/container-with-most-water/description/
+- similar to 2 Sum but, calculating area
 
 [lc-11-water-container.excalidraw](lc-11-water-container.excalidraw)
 
@@ -75,7 +88,7 @@ class Solution:
         return max_a
 ```
 ---
-##  15 | 3 sum
+##  15 | 3 sum (for + while)
 https://leetcode.com/problems/3sum/description/
 
 [leetcode-15-3sum.excalidraw](leetcode-15-3sum.excalidraw)
@@ -107,10 +120,31 @@ class Solution:
 
         return list(result)
 ```
+---
+##  167 | 2 Sum (while)
+https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
 
-## 161 trinagle
+```python
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> bool:
+        l, r = 0, len(nums) - 1
+        while l < r:
+            total = nums[l] + nums[r]
+            if total == target:
+                return True;
+            else:
+                if total > target:
+                    r -= 1
+                else:
+                    l += 1
+        
+        return False;
+```
+---
+## 161 | triangle (similar to 3 sum)
+- https://leetcode.com/problems/valid-triangle-number/description/
 
-[lc-611-triangle.excalidraw](lc-611-triangle.excalidraw)
+[lc-161-triangle.excalidraw](lc-611-triangle.excalidraw)
 
 ```python
 class Solution:
@@ -130,34 +164,5 @@ class Solution:
     return res
 ```
 
----
-## 75 | 3 Sort Color
-- https://leetcode.com/problems/sort-colors/
-- https://www.hellointerview.com/learn/code/two-pointers/sort-colors
 
-[lc-75-3color-sort.excalidraw](lc-75-3color-sort.excalidraw)
-
-```python
-class Solution:
-    def sortColors(self, nums: List[int]) -> None:
-        # starting
-        left = 0
-        right = len(nums)-1
-        i= 0
-        
-        # break when 
-        while i <= right:
-            if nums[i] == 0:
-                nums[left], nums[i] =   nums[i], nums[left]
-                i += 1
-                left += 1
-            
-            elif nums[i] == 2:
-                nums[right], nums[i] =   nums[i], nums[right]
-                #i += 1
-                right -= 1
-            
-            else:
-                i += 1
-```
 
