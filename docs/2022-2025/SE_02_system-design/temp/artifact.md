@@ -28,6 +28,9 @@ YouTube playlist | as of `7/26/2026`
 - https://www.youtube.com/watch?v=ZDuRmhLSLOY&list=PLJq-63ZRPdBt-RFGwsJO9Pv6A8ZwYHua9 | security | `7/7`
 - https://www.youtube.com/watch?v=iQ9arr3TTMA&list=PLJq-63ZRPdBu38EjXRXzyPat3sYMHbIWU | LLM | `77/77`
 
+## KodeKloud
+- https://www.youtube.com/watch?v=oz5c88cO5P8 | System Design Interview Prep for Beginners (Full Course)
+
 ---
 ## Books
 - https://drive.google.com/drive/u/0/folders/1t9Yokdr10orypD3CoExdzfIGT3do9Q3y

@@ -2,17 +2,16 @@
 ## Reference
 Main
 - https://www.hellointerview.com/learn/code 
-- [https://leetcode.com](https://neetcode.io)
-- [https://neetcode.io](https://neetcode.io)
+- https://leetcode.com/studyplan/
+- https://neetcode.io
 
 More
-- [https://www.tryexponent.com/courses/software-engineering/swe-practice/introduction-to-coding-patterns](https://www.tryexponent.com/courses/software-engineering/swe-practice/introduction-to-coding-patterns)
-- [https://www.hackerrank.com/interview/preparation-kits/one-week-preparation-kit/one-week-day-one/challenges](https://www.hackerrank.com/interview/preparation-kits/one-week-preparation-kit/one-week-day-one/challenges)
+- https://www.tryexponent.com/courses/software-engineering/swe-practice/introduction-to-coding-patterns | tryexponent
+- https://www.hackerrank.com/interview/preparation-kits/one-week-preparation-kit/one-week-day-one/challenges | hackerrank
 
 ---
 ## Concepts
-- space complexity
-- time complexity
+- https://youtu.be/VtiZXaomOTg?si=f1DV4ypvazQ6jfqK | space/time complexity
 
 ## Data structure
 - array - static/dynamic

@@ -5,8 +5,9 @@
 ---
 ##  283 | move zeros
 - https://leetcode.com/problems/move-zeroes/
+- https://www.tryexponent.com/courses/software-engineering/swe-practice/move-zeros-to-end-of-array-practice
 
-[leetcode-283-move-zeros.excalidraw](leetcode-283-move-zeros.excalidraw)
+[leetcode-283-move-zeros.excalidraw](../draw/03/01/leetcode-283-move-zeros.excalidraw)
 
 ```python
 class Solution:
@@ -32,7 +33,7 @@ class Solution:
 - https://leetcode.com/problems/sort-colors/
 - https://www.hellointerview.com/learn/code/two-pointers/sort-colors
 
-[lc-75-3color-sort.excalidraw](lc-75-3color-sort.excalidraw)
+[lc-75-3color-sort.excalidraw](../draw/03/01/lc-75-3color-sort.excalidraw)
 
 ```python
 class Solution:
@@ -63,7 +64,7 @@ class Solution:
 - https://leetcode.com/problems/container-with-most-water/description/
 - similar to 2 Sum but, calculating area
 
-[lc-11-water-container.excalidraw](lc-11-water-container.excalidraw)
+[lc-11-water-container.excalidraw](../draw/03/01/lc-11-water-container.excalidraw)
 
 ```python
 class Solution:
@@ -91,7 +92,7 @@ class Solution:
 ##  15 | 3 sum (for + while)
 https://leetcode.com/problems/3sum/description/
 
-[leetcode-15-3sum.excalidraw](leetcode-15-3sum.excalidraw)
+[leetcode-15-3sum.excalidraw](../draw/03/01/leetcode-15-3sum.excalidraw)
 
 ```python
 class Solution:
@@ -144,7 +145,7 @@ class Solution:
 ## 161 | triangle (similar to 3 sum)
 - https://leetcode.com/problems/valid-triangle-number/description/
 
-[lc-161-triangle.excalidraw](lc-611-triangle.excalidraw)
+[lc-161-triangle.excalidraw](../draw/03/01/lc-611-triangle.excalidraw)
 
 ```python
 class Solution:
