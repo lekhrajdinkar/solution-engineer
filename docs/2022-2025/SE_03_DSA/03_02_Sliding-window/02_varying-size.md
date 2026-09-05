@@ -42,6 +42,12 @@ def variable_length_sliding_window(nums):
 - https://leetcode.com/problems/longest-substring-without-repeating-characters/
 - https://www.hellointerview.com/learn/code/sliding-window/longest-substring-without-repeating-characters
 
-@[code:section::section-2](../../../../src/leetcode/hellointerview/slidingWindow/leetcode-sliding-4.py)
+@[code:section::leetcode-004](../../../../src/leetcode/hellointerview/slidingWindow/leetcode-sliding-4.py)
 
 
+---
+## 424. Longest Repeating Character Replacement
+- https://leetcode.com/problems/longest-repeating-character-replacement/description/
+- https://www.hellointerview.com/learn/code/sliding-window/longest-repeating-character-replacement
+
+@[code:section::leetcode-004](../../../../src/leetcode/hellointerview/slidingWindow/leetcode-sliding-4.py)
