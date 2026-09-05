@@ -1,12 +1,16 @@
-# Sliding window
+# Sliding window: fixed size
 ## Reference
-- https://www.hellointerview.com/learn
+- https://www.hellointerview.com/learn/code/sliding-window/fixed-length
 
 ## Template
 > pattern: searching for a continuous subarray/substring
 - Sliding windows can be either **variable** or **fixed length**
 - but the implementation is a bit simpler.
-- during each iteration, you both add and remove an element from the window to maintain its fixed size
+- during each iteration, you both add and remove an element from the window to maintain its fixed size.
+- 2 pointers: `start` and `ends`. 
+  - both moves with same delta (for fixed)
+  - both moves at different delta (in variable window) 
+- compare template with [varying-size window](02_varying-size.md#template-)
 
 ```python
 def fixed_length_sliding_window(nums, k):
@@ -16,7 +20,7 @@ def fixed_length_sliding_window(nums, k):
     for end in range(len(nums)):
         # extend window
         # add nums[end] to state in O(1) in time
-        if end - start + 1 == k:
+        if end - start + 1 == k: # moves incrementally, fixed length of 1
             # INVARIANT: size of the window is k here.
             max_ = max(max_, contents of state)
             # contract window
@@ -56,7 +60,7 @@ class Solution:
     - `dict1[nums[start]] -= 1`
     - `dict1[nums[end]] = dict1.get(nums[end], 0) + 1`
 
-@[code:3-10](../../../../src/leetcode/hellointerview/slidingWindow/leetcode-2461.py)
+@[code:section::mySolution](../../../../src/leetcode/hellointerview/slidingWindow/leetcode-2461.py)
 ---
 ## 1423. Maximum Points You Can Obtain from Cards
 > 💡inversion: outside window pattern
