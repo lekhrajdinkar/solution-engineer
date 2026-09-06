@@ -1,7 +1,7 @@
 # Resilient System
 ## reference
 - https://www.hellointerview.com/learn/courses/system-design/lesson/foundations/networking-essentials#handling-failures-and-fault-modes
-- [protecting-servers](../SD_04_protecting-servers)
+- [protecting-servers](../SD_03_protecting-servers)
 
 ---
 ## Overview
@@ -76,7 +76,7 @@ Jitter → add randomness so many clients don’t retry at exactly the same time
 - [PE_03_message-broker](../../PE_03_message-broker)
 
 ### 4 rate limiting
-- [02_protection_03_RateLimiting.md](../SD_04_protecting-servers/02_protection_03_RateLimiting.md)
+- [02_protection_03_RateLimiting.md](../SD_03_protecting-servers/02_protection_03_RateLimiting.md)
 
 ### 5 bulk head
 - [03_resiliency_pattern_01_bulkhead.md](../SD_21_microservice/03_resiliency_pattern_01_bulkhead.md)

@@ -68,25 +68,38 @@ graph TD
 ```
 
 ---
-## Why B-trees are the default choice
+## Why B-trees are the default choice ⭐
 - They maintain **sorted order**, making _range queries and ORDER BY_ operations efficient
 - They're **self-balancing**, ensuring predictable performance even as data grows.
     - And remain balanced even with random inserts and deletes
 - They **minimize disk I/O** by matching their structure to how databases store data
+  - High Fan-Out and Shallow Depth
+  - B-tree remains extremely wide and shallow (often only 3 to 4 levels deep for millions or billions of rows).
+  - https://gemini.google.com/app/20d5aef29391f480
 - They handle both:
     - **equality** searches (email = 'x')
     - **range searches** (age > 25) equally well
 
 ---
-## Read behavior (fast)
+## behaviour
+### Read behavior (fast)
 - Root → Internal Node → Leaf Page → Record
 - Reads are efficient because the database can quickly navigate (sorted tree structures) to the required page.
 
----
-## Write behavior (Slow)
+### Write behavior (Slow)
 A write may require:
 - Finding the target page
 - Updating an existing disk page
 - Splitting a page when it becomes full
 - Updating indexes 👈
 - Writing to the transaction log
+
+---
+
+## Real-World Examples
+> B-trees are everywhere in modern databases.
+
+- **PostgreSQL** uses them for almost everything - primary keys, unique constraints, and most regular indexes are all B-trees
+- **DynamoDB** organizes items within a partition in sort-key order, enabling efficient range queries within that partition
+- Even **MongoDB**, with its document model, uses B-trees (specifically B+ trees, a variant where all data is stored in leaf nodes) for its indexes.
+  - `db.users.createIndex({ "email": 1 });` == btree

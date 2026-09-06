@@ -27,6 +27,7 @@ theme:
 
 plugins:
   - search
+  - excalidraw
   # - awesome-pages  # Optional: install with: uv pip install mkdocs-awesome-pages-plugin
 
 markdown_extensions:

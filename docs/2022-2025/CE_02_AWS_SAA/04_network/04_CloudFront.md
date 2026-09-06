@@ -1,6 +1,6 @@
 # AWS cloudFront (global)
 ## Overview - CDN
-- [01_core_02_CDN.md](../../SE_02_system-design/SD_03_Core-building-blocks/SD_03_53_network/02_core_02_latency+regionalization.md)
+- [01_core_02_CDN.md](../../SE_02_system-design/SD_01_Foundation/06_network/02_core_03_latency+regionalization.md)
 ---
 ## Pictorial description
 - ![img.png](../../../99_img/2025/aws-ssa/CF/img.png)

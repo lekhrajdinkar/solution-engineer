@@ -1,6 +1,8 @@
 # 4. Consistency
 - https://chatgpt.com/g/g-p-6a68d3926dd4819180c1c9bf855e98f3-system-design-bm-acedemy/c/6a693ba1-c418-83e8-8ae8-f0d12cce6997
 - https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2192532386
+- [01_02_contention.md](../SD_07_01_the_patterns/01_02_contention.md) ⭐
+> Don't wait for the interviewer to ask about contention. When you see scenarios where multiple processes compete for the same resource, call it out and suggest coordination mechanisms.
 
 
 ## Overview

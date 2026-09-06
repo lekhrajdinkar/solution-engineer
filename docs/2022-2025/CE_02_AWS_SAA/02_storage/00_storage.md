@@ -3,12 +3,16 @@
 - https://chatgpt.com/c/6a717fbf-d7c0-83e8-801c-b6e597b5d89d | EFS `8/2026`
 ---
 ## Overview
-Check these 3 aspects:
-- **size** (capacity)
-- **iops**
-    - read iops
-    - write iops
-- **throughput** (data transfer rate like 100 MB/s)
+- choose : **size capacity**
+- choose : **throughput**
+  - **operation throughput** / iops / eg: `16k/s` 
+      - read iops
+      - write iops
+  - **data throughput** / bandwidth / eg: `1024 MB/s`
+    - data transfer rate like 100 
+
+    >   - **Bandwidth** = maximum data transfer capacity, e.g. **500 MB/s**
+    >   - **Data throughput** = actual data transferred, e.g. **350 MB/s**
 
 ## categories
 | Storage type   | AWS service   | Access model                            |

@@ -1,7 +1,10 @@
 # 6. NFR - Read Write ratio
-- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2193918304
+## reference
+- https://academy.bytemonk.io/products/system-design-mastery-beta/categories/2158857209/posts/2193918304 | bytemonk
 - https://chatgpt.com/g/g-p-6a68d3926dd4819180c1c9bf855e98f3/c/6a6ad42e-7894-83e8-894e-48f6dbcd2c81
-
+internal
+- [01_04_scaling-reads.md](../SD_07_01_the_patterns/01_04_scaling-reads.md)
+- [01_05_scaling-write.md](../SD_07_01_the_patterns/01_05_scaling-write.md)
 ---
 ## Overview
 - `Read–Write Ratio = Number of Reads : Number of Writes`
@@ -16,10 +19,8 @@
 | `1:100` | Extremely write-heavy | IoT sensor ingestion        |
 
 **understand underlying Data-structure**:
-  - [B-tree](../../SE_99_case-studies/03_ByteMonk/05_username_suggestion.md) , [LSM-tree](../SD_51_algo/03_algo_06_LSM-tree__.md)
-  - [B-tree and LSM (2)](../SD_53_DataStructure/04_Btree%2BLSM_2.md)
-  - [BloomFilter](../SD_53_DataStructure/01_core_01_BloomFilter.md)
-  - [caseStudy : username-suggestion](../../SE_99_case-studies/03_ByteMonk/05_username_suggestion.md)
+- [username : case study](../../SE_99_case-studies/03_ByteMonk/05_username_suggestion.md) 
+- [03_DataStructure](../SD_05_DataModeling/03_DataStructure)
 
 ---
 ## Optimized READ
@@ -60,7 +61,7 @@ flowchart LR
 
 ## CQRS
 - Best fit: complex systems with very different read/write workloads.
-- [CQRS.md](../SD_03_Core-building-blocks/SD_03_52_architecture/02_pattern_07_CQRS.md)
+- [CQRS.md](../SD_01_Foundation/04_architecture/02_pattern_07_CQRS.md)
 
 ## Summary
 | Decision Area        | Read-Heavy System                    | Write-Heavy System                            |

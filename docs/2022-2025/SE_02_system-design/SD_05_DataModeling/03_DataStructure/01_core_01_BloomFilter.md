@@ -66,7 +66,7 @@ flowchart LR
 - IMPOSSIBLE :)
 - Bloom filter never show false negative
 
-![img.png](../../../99_img/2026/04/01/02/img.png)
+![img.png](../../../../99_img/2026/04/01/02/img.png)
 
 ---
 ## Optimization:
