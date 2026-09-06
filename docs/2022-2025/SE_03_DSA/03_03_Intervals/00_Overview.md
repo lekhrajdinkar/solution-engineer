@@ -15,6 +15,12 @@
 
 @[code:section::section-1](../../../../src/leetcode/hellointerview/intervals/intervals.py)
 
+## 56. Merge Intervals
+- https://leetcode.com/problems/merge-intervals/
+- https://www.hellointerview.com/learn/code/intervals/merge-intervals
+
+@[code:section::section-56](../../../../src/leetcode/hellointerview/intervals/intervals.py)
+
 ---
 ## 57. Insert Interval
 - https://www.hellointerview.com/learn/code/intervals/insert-interval
@@ -28,5 +34,11 @@ https://leetcode.com/problems/non-overlapping-intervals/description/
 https://www.hellointerview.com/learn/code/intervals/non-overlapping-intervals
 
 @[code:section::section-435](../../../../src/leetcode/hellointerview/intervals/intervals.py)
+
+## Employee Free Time
+- https://leetcode.com/problems/employee-free-time/description/ (locked)
+- https://www.hellointerview.com/learn/code/intervals/employee-free-time
+
+@[code:section::section-99](../../../../src/leetcode/hellointerview/intervals/intervals.py)
 
 

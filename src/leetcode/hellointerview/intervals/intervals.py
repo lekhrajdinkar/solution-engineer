@@ -124,9 +124,50 @@ Solution().insert([[1,3],[6,9]],  [2,5])
 Solution().insert([[1,5]],  [0,3])
 Solution().insert([[1,5]],  [0,0])
 
-
 Solution().eraseOverlapIntervals([[1,2],[2,3],[3,4],[1,3]])
 Solution().eraseOverlapIntervals([[1,2],[1,2],[1,2]])
 
+# section::section-56::start
+def mergeIntervals(intervals):
+    sortedIntervals = sorted(intervals, key=lambda x: x[0])
+    merged = []
+
+    for interval in sortedIntervals:
+        # start of next meeting, overlaps with previous meeting
+        # in not, no merge needed, just append in result tracker
+        if not merged or interval[0] > merged[-1][1]:
+            merged.append(interval)
+            print(f"{merged}")
+        else: # if yes, then merge with previous meeting
+            merged[-1][1] = max(interval[1], merged[-1][1])
+        print(f"{merged}")
+    return merged
+
+#mergeIntervals([[1,2],[1,2],[1,2]])
+mergeIntervals([[1,2],[2,3],[3,4],[1,3]])
+# section::section-56::end
+
+
+# section::section-99::start
+print("---"*20, "employeeFreeTime", "---"*20)
+def employeeFreeTime( schedule: List[List[List[int]]]) -> List[List[int]]:
+    intervals = [item for employee in schedule for item in employee]
+    merged = mergeIntervals(intervals)
+    print(f"schedule: {schedule}, falttered intervals: {intervals}, merged: {merged}")
+
+
+    freeTime:  List[List[int]] = []
+    for  i in range(len(merged)-1):
+        if merged[i+1][0] - merged[i][1]  > 0:
+            freeTime.append([merged[i+1][0], merged[i][1]])
+
+        print(f"freeTime: {freeTime}")
+
+    return freeTime
+
+schedule = [[[2,4],[7,10]],[[1,5]],[[6,9]]]
+schedule2 = [[[1,3],[6,7]],[[2,4]],[[2,5],[9,12]]]
+employeeFreeTime(schedule2)
+# section::section-99::end
 
 
