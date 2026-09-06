@@ -46,8 +46,8 @@ def variable_length_sliding_window(nums):
 
 
 ---
-## 424. Longest Repeating Character Replacement
+## 424. Longest Repeating Character Replacement 🟡
 - https://leetcode.com/problems/longest-repeating-character-replacement/description/
 - https://www.hellointerview.com/learn/code/sliding-window/longest-repeating-character-replacement
 
-@[code:section::leetcode-004](../../../../src/leetcode/hellointerview/slidingWindow/leetcode-sliding-4.py)
+@[code:section::leetcode-424](../../../../src/leetcode/hellointerview/slidingWindow/leetcode-sliding-4.py)
